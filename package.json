@@ -4,28 +4,31 @@
   "description": "A Semantic Modeling Machine",
   "main": "None",
   "dependencies": {
-    "csv-reader": "^1.0.3"
+    "csv-reader": "^1.0.3",
+    "graphlib": "^2.1.5",
+    "mocha": "^5.2.0",
+    "rdfstore": "^0.9.17"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "None"
+    "test": "mocha test/*/*.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/giuseppefutia/semi.git"
+    "url": "git://github.com/giuseppefutia/semi.git"
   },
   "keywords": [
-    "semantic",
-    "modeling",
-    "knowledge",
-    "graph",
-    "neural",
-    "networks"
+    "semantic modeling",
+    "knowledge graph",
+    "neural networks"
   ],
   "author": "",
   "license": "GPL-3.0",
   "bugs": {
     "url": "https://github.com/giuseppefutia/semi/issues"
   },
-  "homepage": "https://github.com/giuseppefutia/semi#readme"
+  "homepage": "https://github.com/giuseppefutia/semi#readme",
+  "directories": {
+    "test": "test"
+  }
 }
