@@ -2,6 +2,19 @@ var Graph = require('graphlib').Graph;
 var graph_generator = require(__dirname + '/../../semantic_modeling/graph.js');
 var assert = require('assert');
 
+describe('Add semantic types from different data sources', function () {
+    var graph = new Graph();
+    var updated_graph;
+    before(function () {
+        updated_graph = graph_generator.add_semantic_types(__dirname + '/semantic_types_test.json', graph)
+    });
+    it('The graph should have at least the following nodes: schema:Person, identifier, affiliation', function () {
+        assert.deepEqual(true, updated_graph.hasNode('schema:Person'));
+        assert.deepEqual(true, updated_graph.hasNode('identifier'));
+        assert.deepEqual(true, updated_graph.hasNode('affiliation'));
+    });
+});
+
 describe('Create semantic types nodes of a single data source', function () {
     var graph = new Graph();
     var st = {
@@ -32,16 +45,9 @@ describe('Create semantic types nodes of a single data source', function () {
 
 });
 
-describe('Add semantic types from different data sources', function () {
-    var graph = new Graph();
-    var updated_graph;
-    before(function () {
-        updated_graph = graph_generator.add_semantic_types(__dirname + '/semantic_types_test.json', graph)
-    });
-    it('The graph should have at least the following nodes: schema:Person, identifier, affiliation', function () {
-        assert.deepEqual(true, updated_graph.hasNode('schema:Person'));
-        assert.deepEqual(true, updated_graph.hasNode('identifier'));
-        assert.deepEqual(true, updated_graph.hasNode('affiliation'));
+describe('Get closures of class node defined in the graph', function () {
+    it('', function (){
+
     });
 });
 
