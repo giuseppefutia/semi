@@ -4,7 +4,7 @@ var fs = require('fs');
 
 var PREFIX = {
 	'http://schema.org/': 'schema:',
-	'http://www.w3.org/2000/01/rdf-schema\#>': "rdfs:"
+	'http://www.w3.org/2000/01/rdf-schema\#>': 'rdfs:'
 }
 
 var get_class_nodes = function (graph) {
@@ -92,13 +92,6 @@ var buildGraph = function (st_path, ont_path) {
                 console.log('Can not load the ontology!');
                 return;
             }
-            // Get closures
-
-
-
-
-            // Superclasses
-
         });
     });
 }
