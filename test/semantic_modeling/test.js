@@ -1,6 +1,17 @@
 var Graph = require('graphlib').Graph;
+var rdfstore = require('rdfstore');
+var fs = require('fs');
 var graph_generator = require(__dirname + '/../../semantic_modeling/graph.js');
 var assert = require('assert');
+
+describe('Get class nodes from a graph', function () {
+    var graph = new Graph();
+    graph.setNode('a', {type: 'class_node'});
+    graph.setNode('b', {type: 'data_node'});
+    it('\'a\' is a class_node in the graph', function () {
+        assert.deepEqual(['a'], graph_generator.get_class_nodes(graph));
+    });
+});
 
 describe('Add semantic types from different data sources', function () {
     var graph = new Graph();
@@ -46,8 +57,20 @@ describe('Create semantic types nodes of a single data source', function () {
 });
 
 describe('Get closures of class node defined in the graph', function () {
-    it('', function (){
+    it('The closure class of schema:EducationalOrganization is schema:Organization', function () {
+        var closure_query = 'PREFIX schema:  <http://schema.org/>\
+                             PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\
+                             SELECT ?super_classes WHERE { schema:EducationalOrganization rdfs:subClassOf ?super_classes }';
 
+         rdfstore.create(function (err, store) {
+             var ontology = fs.readFileSync(__dirname + '/schema.ttl').toString();
+             store.load('text/turtle', ontology, function (err, data) {
+                 // Get closures
+                 graph_generator.get_closures(closure_query, store, function (closure_classes) {
+                     assert.deepEqual(['schema:Organization'], closure_classes);
+                 })
+             });
+         });
     });
 });
 
