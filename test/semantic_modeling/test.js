@@ -56,8 +56,19 @@ describe('Create semantic types nodes of a single data source', function () {
 
 });
 
-describe('Get closures of class node defined in the graph', function () {
-    it('The closure classes of schema:EducationalOrganization are schema:Organization, schema:School, schema:CollegeOrUniversity, etc.', function () {
+describe('Add closures classes of a class node inside the graph', function () {
+    it('The graph contanis the following class nodes: schema:Organization, schema:School, schema:CollegeOrUniversity', function () {
+        var graph = new Graph();
+        var closure_classes = ['schema:Organization', 'schema:School', 'schema:CollegeOrUniversity'];
+        var updated_graph = graph_generator.add_closures(closure_classes, graph);
+        assert.deepEqual(true, updated_graph.hasNode('schema:Organization'));
+        assert.deepEqual(true, updated_graph.hasNode('schema:School'));
+        assert.deepEqual(true, updated_graph.hasNode('schema:CollegeOrUniversity'));
+    });
+});
+
+describe('Get closures of a class node defined in the graph', function () {
+    it('Some of the closure classes of schema:EducationalOrganization are: schema:Organization, schema:School, schema:CollegeOrUniversity, etc.', function () {
         var closure_query = 'PREFIX schema:  <http://schema.org/>\
                              PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\
                              SELECT ?closure_classes WHERE {\
