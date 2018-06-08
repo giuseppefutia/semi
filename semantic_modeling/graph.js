@@ -11,7 +11,7 @@ var get_class_nodes = function (graph) {
     var class_nodes = [];
     var nodes = graph.nodes();
     for (var n in nodes) {
-        if (graph.node(nodes[n])['type'] === 'class_node')
+        if (graph.node(nodes[n])['type'] === 'class_uri')
             class_nodes.push(nodes[n]);
     }
     return class_nodes;
@@ -39,12 +39,12 @@ var create_semantic_types_nodes = function (st, graph) {
         // Add class node
         // TODO: check if a class node already exists in the graph.
         var class_node = semantic_types[i][0].split("_")[0];
-        graph.setNode(class_node, {type: 'class_node'});
+        graph.setNode(class_node, {type: 'class_uri'});
         // Add data node
         var data_node = attributes[i];
-        graph.setNode(data_node, {type: 'data_node'});
+        graph.setNode(data_node, {type: 'attribute_name'});
         // Add edge
-        graph.setEdge(class_node, data_node, { label: semantic_types[i][0].split("_")[1], weight: 1 });
+        graph.setEdge(class_node, data_node, { label: semantic_types[i][0].split("_")[1], type: 'property_uri' , weight: 1 });
     }
     return graph;
 }

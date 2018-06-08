@@ -6,9 +6,9 @@ var assert = require('assert');
 
 describe('Get class nodes from a graph', function () {
     var graph = new Graph();
-    graph.setNode('a', {type: 'class_node'});
-    graph.setNode('b', {type: 'data_node'});
-    it('\'a\' is a class_node in the graph', function () {
+    graph.setNode('a', {type: 'class_uri'});
+    graph.setNode('b', {type: 'attribute_name'});
+    it('\'a\' is a class_uri in the graph', function () {
         assert.deepEqual(['a'], graph_generator.get_class_nodes(graph));
     });
 });
