@@ -57,18 +57,25 @@ describe('Create semantic types nodes of a single data source', function () {
 });
 
 describe('Get closures of class node defined in the graph', function () {
-    it('The closure class of schema:EducationalOrganization is schema:Organization', function () {
+    it('The closure classes of schema:EducationalOrganization are schema:Organization, schema:School, schema:CollegeOrUniversity, etc.', function () {
         var closure_query = 'PREFIX schema:  <http://schema.org/>\
                              PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\
-                             SELECT ?super_classes WHERE { schema:EducationalOrganization rdfs:subClassOf ?super_classes }';
+                             SELECT ?closure_classes WHERE {\
+                                                             { schema:EducationalOrganization ?property ?closure_classes.\
+                                                               ?closure_classes a rdfs:Class }\
+                                                             UNION { ?closure_classes ?property schema:EducationalOrganization .\
+                                                                     ?closure_classes a rdfs:Class }\
+                                                           }';
 
          rdfstore.create(function (err, store) {
              var ontology = fs.readFileSync(__dirname + '/schema.ttl').toString();
              store.load('text/turtle', ontology, function (err, data) {
                  // Get closures
                  graph_generator.get_closures(closure_query, store, function (closure_classes) {
-                     assert.deepEqual(['schema:Organization'], closure_classes);
-                 })
+                     assert.deepEqual(closure_classes[0], 'schema:Organization');
+                     assert.deepEqual(closure_classes[1], 'schema:School');
+                     assert.deepEqual(closure_classes[2], 'schema:CollegeOrUniversity');
+                 });
              });
          });
     });

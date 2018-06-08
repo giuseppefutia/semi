@@ -43,6 +43,7 @@ var create_semantic_types_nodes = function (st, graph) {
         // Add data node
         var data_node = attributes[i];
         graph.setNode(data_node, {type: 'data_node'});
+        // Add edge
         graph.setEdge(class_node, data_node, { label: semantic_types[i][0].split("_")[1], weight: 1 });
     }
     return graph;
@@ -63,10 +64,10 @@ var get_closures = function (closure_query, store, cb) {
         // Process query results
         var closure_classes = [];
         for (var c in results) {
-            var query_result = results[c]['super_classes']['value']; // super_classes is a protected word for the query
+            var query_result = results[c]['closure_classes']['value']; // super_classes is a protected word for the query
             for (var p in PREFIX) {
                 if (query_result.indexOf(p) !== -1)
-                    query_result = query_result.replace(p, PREFIX[p]);
+                    query_result = query_result.replace(p, PREFIX[p]); // Use short representation of URIs
             }
             closure_classes.push(query_result);
         }
