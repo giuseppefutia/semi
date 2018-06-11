@@ -17,6 +17,27 @@ describe('Get class nodes from a graph', function() {
     });
 });
 
+describe('Get direct object properties from domain ontologies between 2 classes included in the graph', function() {
+    it('The direct property between schema:EducationalOrganization and schema:Organization should be rdfs:subClassOf', function() {
+        var class_u = 'schema:EducationalOrganization';
+        var class_v = 'schema:Organization';
+        var dp_query = `PREFIX schema: <http://schema.org/>
+                         SELECT ?direct_properties WHERE {
+                             ${class_u} ?direct_properties ${class_v}
+                         }
+                        `
+        // TODO rdf store should be created before all functions that exploit it
+        rdfstore.create(function(err, store) {
+            var ontology = fs.readFileSync(__dirname + '/schema.ttl').toString();
+            store.load('text/turtle', ontology, function(err, data) {
+                graph_generator.get_direct_properties(dp_query, store, function(direct_properties) {
+                    assert.deepEqual(direct_properties[0], 'rdfs:subClassOf');
+                });
+            });
+        });
+    });
+});
+
 describe('Add semantic types from different data sources', function() {
     var graph = new Graph();
     var updated_graph;
@@ -73,7 +94,7 @@ describe('Add closures classes of a class node inside the graph', function() {
 
 describe('Get closures of a class node defined in the graph', function() {
     it('Some of the closure classes of schema:EducationalOrganization are: schema:Organization, schema:School, schema:CollegeOrUniversity, etc.', function() {
-        var closure_query = `PREFIX schema:  <http://schema.org/>
+        var closure_query = `PREFIX schema: <http://schema.org/>
                              PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
                              SELECT ?closure_classes
                                  WHERE {
@@ -82,7 +103,7 @@ describe('Get closures of a class node defined in the graph', function() {
                                          UNION { ?closure_classes ?property schema:EducationalOrganization .
                                              ?closure_classes a rdfs:Class }
                                          }`;
-
+        // TODO rdf store should be created before all functions that exploit it
         rdfstore.create(function(err, store) {
             var ontology = fs.readFileSync(__dirname + '/schema.ttl').toString();
             store.load('text/turtle', ontology, function(err, data) {
