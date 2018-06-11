@@ -3,23 +3,23 @@ var rdfstore = require('rdfstore');
 var fs = require('fs');
 
 var PREFIX = {
-	'http://schema.org/': 'schema:',
-	'http://www.w3.org/2000/01/rdf-schema\#>': 'rdfs:'
+    'http://schema.org/': 'schema:',
+    'http://www.w3.org/2000/01/rdf-schema\#>': 'rdfs:'
 }
 
-var CLOSURE_QUERY = function (class_query) {
-	var query = 'PREFIX schema:  <http://schema.org/>\
-						 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\
-						 SELECT ?closure_classes WHERE {\
-								{ ' + class_query + ' ?property ?closure_classes.\
-								  ?closure_classes a rdfs:Class }\
-								UNION { ?closure_classes ?property '+ class_query + ' .\
-										?closure_classes a rdfs:Class }\
-								}';
-	return query;
+var CLOSURE_QUERY = function(class_query) {
+    var query = `PREFIX schema:  <http://schema.org/>
+                 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                 SELECT ?closure_classes WHERE {
+                     { ' + class_query + ' ?property ?closure_classes.
+                     ?closure_classes a rdfs:Class }
+                     UNION { ?closure_classes ?property ' + class_query + ' .
+                     ?closure_classes a rdfs:Class }
+                 }`;
+    return query;
 }
 
-var get_class_nodes = function (graph) {
+var get_class_nodes = function(graph) {
     var class_nodes = [];
     var nodes = graph.nodes();
     for (var n in nodes) {
@@ -29,11 +29,11 @@ var get_class_nodes = function (graph) {
     return class_nodes;
 }
 
-var relations = function (c_i, c_j, o) {
-	// TODO
+var relations = function(c_i, c_j, o) {
+    // TODO
 }
 
-var add_semantic_types = function (path, graph) {
+var add_semantic_types = function(path, graph) {
     // Load semantic types from file
     var types = JSON.parse(fs.readFileSync(path, 'utf8'));
     // For each semantic type, you add a class node, a data node, and a link with label and weight
@@ -43,7 +43,7 @@ var add_semantic_types = function (path, graph) {
     return graph;
 }
 
-var create_semantic_types_nodes = function (st, graph) {
+var create_semantic_types_nodes = function(st, graph) {
     // Analyze semantic types of one data source
     var attributes = st['attributes'];
     var semantic_types = st['semantic_types'];
@@ -51,29 +51,39 @@ var create_semantic_types_nodes = function (st, graph) {
         // Add class node
         // TODO: check if a class node already exists in the graph.
         var class_node = semantic_types[i][0].split("_")[0];
-        graph.setNode(class_node, {type: 'class_uri'});
+        graph.setNode(class_node, {
+            type: 'class_uri'
+        });
         // Add data node
         var data_node = attributes[i];
-        graph.setNode(data_node, {type: 'attribute_name'});
+        graph.setNode(data_node, {
+            type: 'attribute_name'
+        });
         // Add edge
-        graph.setEdge(class_node, data_node, { label: semantic_types[i][0].split("_")[1], type: 'property_uri' , weight: 1 });
+        graph.setEdge(class_node, data_node, {
+            label: semantic_types[i][0].split("_")[1],
+            type: 'property_uri',
+            weight: 1
+        });
     }
     return graph;
 }
 
-var add_closures = function (closure_classes, graph) {
+var add_closures = function(closure_classes, graph) {
     // Closure classes are retrieved with SPARQL queries on the ontology
     // TODO: check if a class node already exists in the graph. You can write a unique function.
     for (var c in closure_classes) {
-        graph.setNode(closure_classes[c], {type: 'class_uri'});
+        graph.setNode(closure_classes[c], {
+            type: 'class_uri'
+        });
     }
-	return graph;
+    return graph;
 }
 
-var get_closures = function (closure_query, store, cb) {
+var get_closures = function(closure_query, store, cb) {
     // For a class node in the graph, retrieve all super classes in the domain ontology
     // Make SPARQL query
-    store.execute(closure_query, function (success, results) {
+    store.execute(closure_query, function(success, results) {
         // Process query results
         var closure_classes = [];
         for (var c in results) {
@@ -88,36 +98,36 @@ var get_closures = function (closure_query, store, cb) {
     });
 }
 
-var connect_class_nodes = function () {
-	// TODO
+var connect_class_nodes = function() {
+    // TODO
 }
 
-var buildGraph = function (st_path, ont_path) {
+var buildGraph = function(st_path, ont_path) {
     var g = new Graph();
 
-	// Add semantic types
+    // Add semantic types
     grap_with_semantic_types = add_semantic_types(st_path, g);
 
     // TODO: Get closures and relations according to the semantic types
 
     // Load domain ontology
-    rdfstore.create(function (err, store) {
+    rdfstore.create(function(err, store) {
         var ontology = fs.readFileSync(ont_path).toString();
-        store.load('text/turtle', ontology, function (err, data) {
+        store.load('text/turtle', ontology, function(err, data) {
             if (err) {
                 console.log('Can not load the ontology!');
                 return;
             }
 
-			// Add closures
-			var class_nodes = get_class_nodes(grap_with_semantic_types);
-			for (var cn in class_nodes) {
-				var class_query = class_nodes[cn];
-				var closure_query = CLOSURE_QUERY(class_query);
-				get_closures(closure_query, store, function (closure_classes) {
-					add_closures(closure_classes, grap_with_semantic_types);
-				});
-			}
+            // Add closures
+            var class_nodes = get_class_nodes(grap_with_semantic_types);
+            for (var cn in class_nodes) {
+                var class_query = class_nodes[cn];
+                var closure_query = CLOSURE_QUERY(class_query);
+                get_closures(closure_query, store, function(closure_classes) {
+                    add_closures(closure_classes, grap_with_semantic_types);
+                });
+            }
         });
     });
 }
