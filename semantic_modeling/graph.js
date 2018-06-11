@@ -42,10 +42,7 @@ var get_direct_properties = function(dp_query, store, cb) {
         var direct_properties = [];
         for (var r in results) {
             var query_result = results[r]['direct_properties']['value']; // direct_properties is a protected word for the query
-            for (var p in PREFIX) {
-                if (query_result.indexOf(p) !== -1)
-                    query_result = query_result.replace(p, PREFIX[p]); // Use short representation of URIs
-            }
+            query_result = clean_prefix(query_result);
             direct_properties.push(query_result);
         }
         cb(direct_properties);
@@ -111,10 +108,7 @@ var get_closures = function(closure_query, store, cb) {
         var closure_classes = [];
         for (var c in results) {
             var query_result = results[c]['closure_classes']['value']; // closure_classes is a protected word for the query
-            for (var p in PREFIX) {
-                if (query_result.indexOf(p) !== -1)
-                    query_result = query_result.replace(p, PREFIX[p]); // Use short representation of URIs
-            }
+            query_result = clean_prefix(query_result);
             closure_classes.push(query_result);
         }
         cb(closure_classes);
@@ -123,6 +117,14 @@ var get_closures = function(closure_query, store, cb) {
 
 var connect_class_nodes = function() {
     // TODO
+}
+
+var clean_prefix = function(uri) {
+    for (var p in PREFIX) {
+        if (uri.indexOf(p) !== -1)
+            uri = uri.replace(p, PREFIX[p])
+    }
+    return uri;
 }
 
 var buildGraph = function(st_path, ont_path) {
