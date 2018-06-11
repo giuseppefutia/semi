@@ -4,7 +4,7 @@ var fs = require('fs');
 
 var PREFIX = {
     'http://schema.org/': 'schema:',
-    'http://www.w3.org/2000/01/rdf-schema\#>': 'rdfs:'
+    'http://www.w3.org/2000/01/rdf-schema#': 'rdfs:'
 }
 
 var CLOSURE_QUERY = function(class_query) {
@@ -29,7 +29,30 @@ var get_class_nodes = function(graph) {
     return class_nodes;
 }
 
-var relations = function(c_i, c_j, o) {
+var add_relations = function() {
+    // TODO
+}
+
+var get_relations = function(relations_query, store, cb) {
+    // TODO
+}
+
+var get_direct_properties = function(dp_query, store, cb) {
+    store.execute(dp_query, function(success, results) {
+        var direct_properties = [];
+        for (var r in results) {
+            var query_result = results[r]['direct_properties']['value']; // direct_properties is a protected word for the query
+            for (var p in PREFIX) {
+                if (query_result.indexOf(p) !== -1)
+                    query_result = query_result.replace(p, PREFIX[p]); // Use short representation of URIs
+            }
+            direct_properties.push(query_result);
+        }
+        cb(direct_properties);
+    });
+}
+
+var get_inherited_properties = function(ip_query, store, cb) {
     // TODO
 }
 
@@ -118,7 +141,6 @@ var buildGraph = function(st_path, ont_path) {
                 console.log('Can not load the ontology!');
                 return;
             }
-
             // Add closures
             var class_nodes = get_class_nodes(grap_with_semantic_types);
             for (var cn in class_nodes) {
@@ -134,6 +156,7 @@ var buildGraph = function(st_path, ont_path) {
 
 // Export for testing
 exports.get_class_nodes = get_class_nodes;
+exports.get_direct_properties = get_direct_properties;
 exports.add_semantic_types = add_semantic_types;
 exports.create_semantic_types_nodes = create_semantic_types_nodes;
 exports.add_closures = add_closures;
