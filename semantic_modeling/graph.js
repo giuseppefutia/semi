@@ -52,11 +52,7 @@ var get_relations = function(relations_query, store, cb) {
 var get_direct_properties = function(dp_query, store, cb) {
     var direct_properties = [];
     store.execute(dp_query, function(success, results) {
-        for (var r in results) {
-            var query_result = results[r]['direct_properties']['value']; // direct_properties is a protected word for the query
-            query_result = clean_prefix(query_result);
-            direct_properties.push(query_result);
-        }
+        direct_properties = get_clean_results(results, 'direct_properties');
         cb(direct_properties);
     });
 }
@@ -64,11 +60,7 @@ var get_direct_properties = function(dp_query, store, cb) {
 var get_inherited_properties = function(ip_query, store, cb) {
     var inherited_properties = [];
     store.execute(dp_query, function(success, results) {
-        for (var r in results) {
-            var query_result = results[r]['inherited_properties']['value']; // inherited_properties is a protected word for the query
-            query_result = clean_prefix(query_result);
-            inherited_properties.push(query_result);
-        }
+        inherited_properties = get_clean_results(results, 'inherited_properties');
         cb(inherited_properties);
     });
 }
@@ -149,16 +141,9 @@ var add_closures = function(closure_classes, graph) {
 }
 
 var get_closures = function(closure_query, store, cb) {
-    // For a class node in the graph, retrieve all super classes in the domain ontology
-    // Make SPARQL query
+    var closure_classes = [];
     store.execute(closure_query, function(success, results) {
-        // Process query results
-        var closure_classes = [];
-        for (var c in results) {
-            var query_result = results[c]['closure_classes']['value']; // closure_classes is a protected word for the query
-            query_result = clean_prefix(query_result);
-            closure_classes.push(query_result);
-        }
+        closure_classes = get_clean_results(results, 'closure_classes');
         cb(closure_classes);
     });
 }
@@ -173,6 +158,16 @@ var clean_prefix = function(uri) {
             uri = uri.replace(p, PREFIX[p])
     }
     return uri;
+}
+
+var get_clean_results = function(results, variable) {
+    var r = [];
+    for (var c in results) {
+        var query_result = results[c][variable]['value'];
+        query_result = clean_prefix(query_result);
+        r.push(query_result);
+    }
+    return r;
 }
 
 var buildGraph = function(st_path, ont_path) {
