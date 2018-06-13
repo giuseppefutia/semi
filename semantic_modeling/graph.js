@@ -7,14 +7,23 @@ var PREFIX = {
     'http://www.w3.org/2000/01/rdf-schema#': 'rdfs:'
 }
 
-var CLOSURE_QUERY = function(class_query) {
+var CLOSURE_QUERY = function(class_node) {
     var query = `PREFIX schema:  <http://schema.org/>
                  PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
                  SELECT ?closure_classes WHERE {
-                     { ' + class_query + ' ?property ?closure_classes.
+                     { ${class_node} ?property ?closure_classes.
                      ?closure_classes a rdfs:Class }
-                     UNION { ?closure_classes ?property ' + class_query + ' .
+                     UNION { ?closure_classes ?property ${class_node} .
                      ?closure_classes a rdfs:Class }
+                 }`;
+    return query;
+}
+
+var SUPER_CLASSES_QUERY = function(class_node) {
+    var query = `PREFIX schema: <http://schema.org/>
+                 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                 SELECT ?all_super_classes WHERE {
+                     ${class_node} rdfs:subClassOf ?all_super_classes
                  }`;
     return query;
 }
@@ -30,16 +39,19 @@ var get_class_nodes = function(graph) {
 }
 
 var add_relations = function() {
-    // TODO
+    // TODO: function implementation
 }
 
 var get_relations = function(relations_query, store, cb) {
-    // TODO
+    // TODO: function implementation
+    // Call get_direct_properties
+    // TODO: once implemented check the Mohsen implementation
+    // Call get_inherited_properties in a smart way, involving all super classes
 }
 
 var get_direct_properties = function(dp_query, store, cb) {
+    var direct_properties = [];
     store.execute(dp_query, function(success, results) {
-        var direct_properties = [];
         for (var r in results) {
             var query_result = results[r]['direct_properties']['value']; // direct_properties is a protected word for the query
             query_result = clean_prefix(query_result);
@@ -50,7 +62,43 @@ var get_direct_properties = function(dp_query, store, cb) {
 }
 
 var get_inherited_properties = function(ip_query, store, cb) {
-    // TODO
+    var inherited_properties = [];
+    store.execute(dp_query, function(success, results) {
+        for (var r in results) {
+            var query_result = results[r]['inherited_properties']['value']; // inherited_properties is a protected word for the query
+            query_result = clean_prefix(query_result);
+            inherited_properties.push(query_result);
+        }
+        cb(inherited_properties);
+    });
+}
+
+// This function simulate the path expression * implemented in SPARQL 1.1 (https://www.w3.org/TR/sparql11-property-paths/)
+// In other words, this function get super classes at any level of an ontology class
+function get_all_super_classes(sc_query, store, all_super_classes) {
+    // TODO: check where to clean Thing
+    return new Promise(function(resolve, reject) {
+        store.execute(sc_query, function(success, results) {
+            if (success !== null) {
+                reject(success);
+            } else {
+                if (results.length === 0) {
+                    resolve(all_super_classes);
+                } else {
+                    for (var r in results) {
+                        var query_result = results[r]['all_super_classes']['value']; // all_super_classes is a protected word for the query
+                        query_result = clean_prefix(query_result);
+                        all_super_classes.push(query_result);
+                        var new_query = SUPER_CLASSES_QUERY(query_result);
+                        get_all_super_classes(new_query, store, all_super_classes)
+                            .then(function() {
+                                resolve(all_super_classes);
+                            });
+                    }
+                }
+            }
+        });
+    });
 }
 
 var add_semantic_types = function(path, graph) {
@@ -64,7 +112,7 @@ var add_semantic_types = function(path, graph) {
 }
 
 var create_semantic_types_nodes = function(st, graph) {
-    // Analyze semantic types of one data source
+    // Analyze semantic types of a single data source
     var attributes = st['attributes'];
     var semantic_types = st['semantic_types'];
     for (var i in attributes) {
@@ -129,12 +177,8 @@ var clean_prefix = function(uri) {
 
 var buildGraph = function(st_path, ont_path) {
     var g = new Graph();
-
     // Add semantic types
     grap_with_semantic_types = add_semantic_types(st_path, g);
-
-    // TODO: Get closures and relations according to the semantic types
-
     // Load domain ontology
     rdfstore.create(function(err, store) {
         var ontology = fs.readFileSync(ont_path).toString();
@@ -159,6 +203,7 @@ var buildGraph = function(st_path, ont_path) {
 // Export for testing
 exports.get_class_nodes = get_class_nodes;
 exports.get_direct_properties = get_direct_properties;
+exports.get_all_super_classes = get_all_super_classes;
 exports.add_semantic_types = add_semantic_types;
 exports.create_semantic_types_nodes = create_semantic_types_nodes;
 exports.add_closures = add_closures;
