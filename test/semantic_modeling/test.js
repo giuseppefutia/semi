@@ -37,19 +37,40 @@ describe('Get direct object properties from domain ontologies between 2 classes 
     });
 });
 
+describe('Get all inherited object properties from domain ontologies from all super classes of 2 classes', function() {
+    it('', function() {
+        var c_u = 'schema:AdultEntertainment';
+        var c_v = 'schema:BusinessEvent"';
+        var c_u_superclasses = [
+            'schema:EntertainmentBusiness',
+            'schema:LocalBusiness',
+            'schema:Place',
+            'schema:Organization',
+            'schema:Thing',
+            'schema:Thing'
+        ]
+        var c_v_superclasses = ['schema:Event', 'schema:Thing'];
+    });
+});
+
 describe('Get inherited object properties from domain ontologies between 2 class nodes included in the graph', function() {
-    /*it('', function() {
-        var class_u =
-            var class_v =
-                var ip_query = `
-                       `;
+    it('', function() {
+        var c1 = 'schema:Person';
+        var c2 = 'schema:Organization';
+        var ip_query = `PREFIX schema: <http://schema.org/>
+                        PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                        SELECT ?inherited_properties WHERE {
+                            ?inherited_properties rdfs:domain schema:Thing .
+                        }`;
         rdfstore.create(function(err, store) {
             var ontology = fs.readFileSync(__dirname + '/schema.ttl').toString();
             store.load('text/turtle', ontology, function(err, data) {
-                // TODO
+                graph_generator.get_inherited_properties(ip_query, store, function(inherited_properties) {
+                    console.log(inherited_properties);
+                });
             });
         });
-    });*/
+    });
 });
 
 describe('Get all super classes from of domain ontologies of a class node included in the graph', function() {

@@ -32,6 +32,26 @@ var create_index = function(c, index_name) {
     });
 }
 
+var create_document = function(c, index_name, id_name, type_name, label_name, content_value) {
+    return new Promise(function(resolve, reject) {
+        c.index({
+            index: index_name,
+            id: id_name,
+            type: type_name,
+            body: {
+                'label': label_name,
+                'content': content_value
+            }
+        }, function(err, res, status) {
+            if (err) {
+                reject(err);
+            } else {
+                resolve(res);
+            }
+        });
+    });
+}
+
 var drop_index = function(c, index_name) {
     return new Promise(function(resolve, reject) {
         c.indices.delete({
@@ -49,4 +69,5 @@ var drop_index = function(c, index_name) {
 // Export for testing
 exports.ping = ping;
 exports.create_index = create_index;
+exports.create_document = create_document;
 exports.drop_index = drop_index;
