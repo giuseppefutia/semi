@@ -18,5 +18,35 @@ var ping = function(c, cb) {
     });
 }
 
+var create_index = function(c, index_name) {
+    return new Promise(function(resolve, reject) {
+        c.indices.create({
+            index: index_name
+        }, function(err, res, status) {
+            if (err) {
+                reject(err);
+            } else {
+                resolve(res);
+            }
+        });
+    });
+}
+
+var drop_index = function(c, index_name) {
+    return new Promise(function(resolve, reject) {
+        c.indices.delete({
+            index: index_name
+        }, function(err, res, status) {
+            if (err) {
+                reject(err);
+            } else {
+                resolve(res);
+            }
+        });
+    });
+}
+
 // Export for testing
 exports.ping = ping;
+exports.create_index = create_index;
+exports.drop_index = drop_index;
