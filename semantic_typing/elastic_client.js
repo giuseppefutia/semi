@@ -19,6 +19,20 @@ var ping = function(c, cb) {
     });
 }
 
+var delete_all_indices = function(c) {
+    return new Promise(function(resolve, reject) {
+        c.indices.delete({
+            index: '_all'
+        }, function(err, res, status) {
+            if (err) {
+                reject(err);
+            } else {
+                resolve(res);
+            }
+        });
+    });
+}
+
 var create_index = function(c, index_name) {
     return new Promise(function(resolve, reject) {
         c.indices.create({
