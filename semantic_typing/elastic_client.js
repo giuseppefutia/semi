@@ -56,12 +56,12 @@ var add_document_to_index = function(c, index_name, id_name, type_name, label_na
             body: {
                 'label': label_name,
                 'content': content_value,
-            }
+            },
+            refresh: true
         }, function(err, res, status) {
             if (err) {
                 reject(err);
             } else {
-                console.log(res);
                 resolve(res);
             }
         });
@@ -75,7 +75,6 @@ var create_bulk = function() {
 
 var search_in_index = function(c, index_name, type_name, query_value) {
     return new Promise(function(resolve, reject) {
-        console.log(query_value);
         c.search({
             index: index_name,
             type: type_name,
