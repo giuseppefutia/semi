@@ -106,7 +106,9 @@ var drop_index = function(c, index_name) {
 }
 
 // Export for testing
+exports.create_client = create_client;
 exports.ping = ping;
+exports.delete_all_indices = delete_all_indices;
 exports.create_index = create_index;
 exports.add_document_to_index = add_document_to_index;
 exports.search_in_index = search_in_index;
