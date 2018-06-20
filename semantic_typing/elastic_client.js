@@ -1,10 +1,11 @@
 var elasticsearch = require('elasticsearch');
-const config = require('../config');
 
-var client = new elasticsearch.Client({
-    host: config['dev']['elastic']['host'] + ':' + config['dev']['elastic']['port'],
-    log: config['dev']['elastic']['log']
-});
+var create_client = function(host_name, port_value, log_level) {
+    return new elasticsearch.Client({
+        host: host_name + ':' + port_value,
+        log: log_level
+    })
+}
 
 var ping = function(c, cb) {
     c.ping({
