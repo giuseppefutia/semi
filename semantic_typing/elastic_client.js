@@ -47,6 +47,24 @@ var create_index = function(c, index_name) {
     });
 }
 
+var create_mappings = function(c, index_name, type_name, properties_value) {
+    return new Promise(function(resolve, reject) {
+        c.indices.putMapping({
+            index: index_name,
+            type: type_name,
+            body: {
+                properties: properties_value
+            }
+        }, function(err, res, status) {
+            if (err) {
+                reject(err);
+            } else {
+                resolve(res);
+            }
+        });
+    });
+}
+
 var add_document_to_index = function(c, index_name, id_name, type_name, label_name, content_value) {
     return new Promise(function(resolve, reject) {
         c.index({
@@ -110,6 +128,7 @@ exports.create_client = create_client;
 exports.ping = ping;
 exports.delete_all_indices = delete_all_indices;
 exports.create_index = create_index;
+exports.create_mappings = create_mappings;
 exports.add_document_to_index = add_document_to_index;
 exports.search_in_index = search_in_index;
 exports.drop_index = drop_index;
