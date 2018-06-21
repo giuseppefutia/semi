@@ -57,6 +57,30 @@ describe('Elastic test suite\n', function() {
         });
     });
 
+    describe('Add mapping to the index', function() {
+        var index_name = 'semi_index';
+        var type_name = 'type';
+        var properties_value = {
+            'label': {
+                'type': 'keyword',
+            }
+        }
+        it('The response of mappings creation should be \'acknowledged: true\'', function(done) {
+            elastic_client.create_mappings(client, index_name, type_name, properties_value)
+            .then(function(res) {
+                assert.deepEqual(true, res['acknowledged']);
+                done();
+            }, function(error) {
+                assert.deepEqual('', error);
+                console.log('Mapping addition error: ' + error);
+                done();
+            }).catch(function(error) {
+                console.log('Catch error in mapping addition', error);
+                done();
+            });
+        });
+    });
+
     describe('Add a new document to the index', function() {
         var index_name = 'semi_index';
         var id_name = 1;
