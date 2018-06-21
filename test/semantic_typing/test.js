@@ -9,6 +9,22 @@ describe('Elastic test suite\n', function() {
     var port = config['dev']['elastic']['port'];
     var log = config['dev']['elastic']['log'];
 
+    var index_name = 'semi_index';
+    var type_name = 'type';
+    var id_name = 1;
+    var label_name = 'beneficiary_name';
+    var content_value = 'C.U.S. - CENTRO UNIVERSITARIO SPORTIVO DI ANCONA A.S.D. A.C. NUOVA FOLGORE A.S.D. LA CAROVANA ONLUS - ASSOCIAZIONE DI VOLONTARIATO';
+    var properties_value = {
+        'label': {
+            'type': 'keyword',
+        }
+    }
+    var query_value = {
+        match: {
+            'label': 'beneficiary_name'
+        }
+    }
+
     before(function() {
         client = elastic_client.create_client(host, port, log);
     });
@@ -58,35 +74,41 @@ describe('Elastic test suite\n', function() {
     });
 
     describe('Add mapping to the index', function() {
-        var index_name = 'semi_index';
-        var type_name = 'type';
-        var properties_value = {
-            'label': {
-                'type': 'keyword',
-            }
-        }
-        it('The response of mappings creation should be \'acknowledged: true\'', function(done) {
-            elastic_client.create_mappings(client, index_name, type_name, properties_value)
-            .then(function(res) {
-                assert.deepEqual(true, res['acknowledged']);
-                done();
-            }, function(error) {
-                assert.deepEqual('', error);
-                console.log('Mapping addition error: ' + error);
-                done();
-            }).catch(function(error) {
-                console.log('Catch error in mapping addition', error);
-                done();
-            });
+        it('The response of mapping creation should be \'acknowledged: true\'', function(done) {
+            elastic_client.create_mapping(client, index_name, type_name, properties_value)
+                .then(function(res) {
+                    assert.deepEqual(true, res['acknowledged']);
+                    done();
+                }, function(error) {
+                    assert.deepEqual('', error);
+                    console.log('Mapping addition error: ' + error);
+                    done();
+                }).catch(function(error) {
+                    console.log('Catch error in mapping addition', error);
+                    done();
+                });
         });
     });
 
+    describe('Get index mapping', function() {
+        it('', function(done) {
+            elastic_client.get_mapping(client, index_name, type_name)
+                .then(function(res) {
+                    var mapping_type = res[index_name]['mappings'][type_name]['properties']['label']['type'];
+                    assert.deepEqual('keyword', mapping_type);
+                    done();
+                }, function(error) {
+                    assert.deepEqual('', error);
+                    console.log('Mapping get error: ' + error);
+                    done();
+                }).catch(function(error) {
+                    console.log('Catch error in mapping get', error);
+                    done();
+                });
+        });
+    })
+
     describe('Add a new document to the index', function() {
-        var index_name = 'semi_index';
-        var id_name = 1;
-        var type_name = 'type';
-        var label_name = 'beneficiary_name';
-        var content_value = 'C.U.S. - CENTRO UNIVERSITARIO SPORTIVO DI ANCONA A.S.D. A.C. NUOVA FOLGORE A.S.D. LA CAROVANA ONLUS - ASSOCIAZIONE DI VOLONTARIATO';
         it('The response should be \'created: true\'', function(done) {
             elastic_client.add_document_to_index(client, index_name, id_name, type_name, label_name, content_value)
                 .then(function(res) {
@@ -107,13 +129,6 @@ describe('Elastic test suite\n', function() {
     });
 
     describe('Search a document in the index', function() {
-        var index_name = 'semi_index';
-        var type_name = 'type';
-        var query_value = {
-            match: {
-                'label': 'beneficiary_name'
-            }
-        }
         it('Hits total should be 1', function(done) {
             elastic_client.search_in_index(client, index_name, type_name, query_value)
                 .then(function(res) {
