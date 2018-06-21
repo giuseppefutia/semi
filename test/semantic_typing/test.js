@@ -10,7 +10,6 @@ describe('Elastic test suite\n', function() {
     var log = config['dev']['elastic']['log'];
 
     before(function() {
-        // TODO: Manage exception
         client = elastic_client.create_client(host, port, log);
     });
 
@@ -59,12 +58,12 @@ describe('Elastic test suite\n', function() {
     });
 
     describe('Add a new document to the index', function() {
+        var index_name = 'semi_index';
+        var id_name = 1;
+        var type_name = 'type';
+        var label_name = 'beneficiary_name';
+        var content_value = 'C.U.S. - CENTRO UNIVERSITARIO SPORTIVO DI ANCONA A.S.D. A.C. NUOVA FOLGORE A.S.D. LA CAROVANA ONLUS - ASSOCIAZIONE DI VOLONTARIATO';
         it('The response should be \'created: true\'', function(done) {
-            var index_name = 'semi_index';
-            var id_name = 1;
-            var type_name = 'type';
-            var label_name = 'beneficiary_name';
-            var content_value = 'C.U.S. - CENTRO UNIVERSITARIO SPORTIVO DI ANCONA A.S.D. A.C. NUOVA FOLGORE A.S.D. LA CAROVANA ONLUS - ASSOCIAZIONE DI VOLONTARIATO';
             elastic_client.add_document_to_index(client, index_name, id_name, type_name, label_name, content_value)
                 .then(function(res) {
                     assert.deepEqual(index_name, res['_index']);
@@ -84,14 +83,14 @@ describe('Elastic test suite\n', function() {
     });
 
     describe('Search a document in the index', function() {
-        it('Hits total should be 1', function(done) {
-            var index_name = 'semi_index';
-            var type_name = 'type';
-            var query_value = {
-                match: {
-                    'label': 'beneficiary_name'
-                }
+        var index_name = 'semi_index';
+        var type_name = 'type';
+        var query_value = {
+            match: {
+                'label': 'beneficiary_name'
             }
+        }
+        it('Hits total should be 1', function(done) {
             elastic_client.search_in_index(client, index_name, type_name, query_value)
                 .then(function(res) {
                     assert.deepEqual(1, res['hits']['total']);
