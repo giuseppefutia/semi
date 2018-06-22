@@ -1,7 +1,9 @@
 var elasticsearch = require('elasticsearch');
 var elastic_client = require('../../semantic_typing/elastic_client');
+var csv_indexer = require('../../semantic_typing/csv_indexer');
 var assert = require('assert');
 const config = require('../../config');
+const index_rules = require('../../semantic_typing//index_rules');
 
 describe('Elastic test suite\n', function() {
     var client;
@@ -160,4 +162,43 @@ describe('Elastic test suite\n', function() {
                 });
         });
     });
+});
+
+describe('CSV test suite\n', function() {
+    var path = '/Arezzo.csv';
+    var headers = ['Note', 'Titolo', 'Lorem_ispusm'];
+    var name = 'Arezzo';
+    var row = ['Note_data', 'Titolo_data', 'Lorem_ispusm_data'];
+
+    describe('Set valid headers', function() {
+        var index_data = [];
+        csv_indexer.set_valid_headers(name, headers, index_rules, index_data);
+        it('The length of index_data[\'Note\'] should be 0 and other similar checks', function(done) {
+            assert.deepEqual(0, index_data['Note'].length);
+            assert.deepEqual(0, index_data['Titolo'].length);
+            assert.deepEqual(undefined, index_data['Lorem_ispusm']);
+            done();
+        });
+    });
+
+    describe('Build index data', function() {
+        var index_data = [];
+        index_data['Note'] = [];
+        index_data['Titolo'] = [];
+        csv_indexer.build_index_data(headers, row, index_data);
+        it('In index_data[\'Note\'] you should find \'Note_data\'', function(done) {
+            assert.deepEqual(['Note_data'], index_data['Note']);
+            done();
+        });
+    });
+
+    describe('Read a csv file', function() {
+        it('The csv reader should responde \'End of csv!\'', function(done) {
+            csv_indexer.read_csv(__dirname + path, function(res) {
+                assert.deepEqual('End of csv!', res);
+                done();
+            });
+        });
+    });
+
 });
