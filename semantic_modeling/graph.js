@@ -2,13 +2,15 @@ var Graph = require('graphlib').Graph;
 var rdfstore = require('rdfstore');
 var fs = require('fs');
 
+var ε = 3;
+
 var PREFIX = {
     'http://schema.org/': 'schema:',
     'http://www.w3.org/2000/01/rdf-schema#': 'rdfs:'
 }
 
 var CLOSURE_QUERY = function(class_node) {
-    var query = `PREFIX schema:  <http://schema.org/>
+    var query = `PREFIX schema: <http://schema.org/>
                  PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
                  SELECT ?closure_classes WHERE {
                      { ${class_node} ?property ?closure_classes.
@@ -108,7 +110,7 @@ var prepare_super_classes = function(c_u, c_v, c_u_query, c_v_query, store) {
 
 // This function simulate the path expression * implemented in SPARQL 1.1 (https://www.w3.org/TR/sparql11-property-paths/)
 // In other words, this function get super classes at any level of an ontology class
-function get_all_super_classes(sc_query, store, all_super_classes) {
+var get_all_super_classes = function(sc_query, store, all_super_classes) {
     // TODO: check where to clean Thing
     return new Promise(function(resolve, reject) {
         store.execute(sc_query, function(success, results) {
@@ -119,13 +121,15 @@ function get_all_super_classes(sc_query, store, all_super_classes) {
                     resolve(all_super_classes);
                 } else {
                     for (var r in results) {
-                        var query_result = results[r]['all_super_classes']['value']; // all_super_classes is a protected word for the query
+                        var query_result = results[r]['all_super_classes']['value'];
                         query_result = clean_prefix(query_result);
                         all_super_classes.push(query_result);
                         var new_query = SUPER_CLASSES_QUERY(query_result);
                         get_all_super_classes(new_query, store, all_super_classes)
                             .then(function() {
                                 resolve(all_super_classes);
+                            }, function(error) {
+                                reject(error);
                             });
                     }
                 }
@@ -189,14 +193,10 @@ var get_closures = function(closure_query, store, cb) {
     });
 }
 
-var connect_class_nodes = function() {
-    // TODO
-}
-
 var clean_prefix = function(uri) {
     for (var p in PREFIX) {
         if (uri.indexOf(p) !== -1)
-            uri = uri.replace(p, PREFIX[p])
+            uri = uri.replace(p, PREFIX[p]);
     }
     return uri;
 }
