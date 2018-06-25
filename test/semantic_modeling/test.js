@@ -76,6 +76,37 @@ describe('Get inherited object properties from domain ontologies between 2 class
     });
 });
 
+describe('Prepare super classes of two input classes in order to retrieve inherited object properties', function() {
+    it('All super classes of \'schema:Person\' and \'schema:Organization\' are \'schema:Thing\'', function() {
+        var c1 = 'schema:Person';
+        var c2 = 'schema:Organization';
+        var c1_query = `
+                    PREFIX schema: <http://schema.org/>
+                    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                    SELECT ?all_super_classes WHERE {
+                        ${c1} rdfs:subClassOf ?all_super_classes
+                    }`;
+        var c2_query = `
+                    PREFIX schema: <http://schema.org/>
+                    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                    SELECT ?all_super_classes WHERE {
+                        ${c2} rdfs:subClassOf ?all_super_classes
+                    }`;
+        rdfstore.create(function(err, store) {
+            var ontology = fs.readFileSync(__dirname + '/schema.ttl').toString();
+            store.load('text/turtle', ontology, function(err, data) {
+                var super_classes = graph_generator.prepare_super_classes(c1, c2, c1_query, c2_query, store)
+                    .then(function(super_classes) {
+                        assert.deepEqual('schema:Thing', super_classes[0]);
+                    })
+                    .catch(function(error) {
+                        console.log('Something went wrong trying to prepare super classes: ' + error);
+                    });
+            });
+        });
+    });
+});
+
 describe('Get all super classes from of domain ontologies of a class node included in the graph', function() {
     it('The father of schema:AdultEntertainment is schema:EntertainmentBusiness, the grandfather is schema:LocalBusiness, the great grandfather is schema:Place', function() {
         var class_node = 'schema:AdultEntertainment';

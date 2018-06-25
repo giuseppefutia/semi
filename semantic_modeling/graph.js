@@ -76,32 +76,33 @@ var get_all_inherited_properties = function(c_u, c_v, cu_sc, cv_sc, store) {
     }
 }
 
-/* This function must be tested
-var prepare_super_classes = function() {
-    var c_u_classes = [];
-    var c_v_classes = [];
-    var c_u_query = SUPER_CLASSES_QUERY(c_u);
-    var c_v_query = SUPER_CLASSES_QUERY(c_v);
-    get_all_super_classes(c_u_query, store, c_u_classes)
-        .then(function() {
-            console.log(c_u_classes);
-            get_all_super_classes(c_v_query, store, c_v_classes);
-        })
-        .then(function() {
-            console.log(c_v_classes);
-        })
-        .catch(function(error) {
-            console.log('Something is wrong with get_all_inherited_properties');
-        });
-}
-*/
-
 var get_inherited_properties = function(ip_query, store, cb) {
     // TODO: you need to distinguish the super classes
     var inherited_properties = [];
     store.execute(ip_query, function(success, results) {
         inherited_properties = get_clean_results(results, 'inherited_properties');
         cb(inherited_properties);
+    });
+}
+
+var prepare_super_classes = function(c_u, c_v, c_u_query, c_v_query, store) {
+    return new Promise(function(resolve, reject) {
+        var c_u_classes = [];
+        var c_v_classes = [];
+        var c_u_query = SUPER_CLASSES_QUERY(c_u);
+        var c_v_query = SUPER_CLASSES_QUERY(c_v);
+        get_all_super_classes(c_u_query, store, c_u_classes)
+            .then(function() {
+                get_all_super_classes(c_v_query, store, c_v_classes);
+            })
+            .then(function() {
+                var super_classes = c_u_classes.concat(c_v_classes);
+                resolve(remove_array_duplicates(super_classes));
+            })
+            .catch(function(error) {
+                console.log('Something went wrong trying to get super classes: ' + error);
+                reject();
+            });
     });
 }
 
@@ -210,6 +211,16 @@ var get_clean_results = function(results, variable) {
     return r;
 }
 
+var remove_array_duplicates = function(a) {
+    for (var i = 0; i < a.length; ++i) {
+        for (var j = i + 1; j < a.length; ++j) {
+            if (a[i] === a[j])
+                a.splice(j--, 1);
+        }
+    }
+    return a;
+}
+
 var buildGraph = function(st_path, ont_path) {
     var g = new Graph();
     // Add semantic types
@@ -239,6 +250,7 @@ var buildGraph = function(st_path, ont_path) {
 exports.get_class_nodes = get_class_nodes;
 exports.get_direct_properties = get_direct_properties;
 exports.get_inherited_properties = get_inherited_properties;
+exports.prepare_super_classes = prepare_super_classes;
 exports.get_all_super_classes = get_all_super_classes;
 exports.add_semantic_types = add_semantic_types;
 exports.create_semantic_types_nodes = create_semantic_types_nodes;
