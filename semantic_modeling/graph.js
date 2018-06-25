@@ -28,6 +28,17 @@ var SUPER_CLASSES_QUERY = function(class_node) {
     return query;
 }
 
+var INHERITED_PROPERTIES_QUERY = function(c_domain, c_range, p_domain, p_range) {
+    // I need to specify also p_range and p_domain, because they can differ between ontologies
+    var query = `PREFIX schema: <http://schema.org/>
+                    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                    SELECT ?inherited_properties ?domain WHERE {
+                        ?inherited_properties ${p_domain} ${c_domain} .
+                        ?inherited_properties ${p_range} ${c_range} .
+                    }`;
+    return query;
+}
+
 var get_class_nodes = function(graph) {
     var class_nodes = [];
     var nodes = graph.nodes();
@@ -57,9 +68,38 @@ var get_direct_properties = function(dp_query, store, cb) {
     });
 }
 
+var get_all_inherited_properties = function(c_u, c_v, cu_sc, cv_sc, store) {
+    for (var i in cu_sc) {
+        for (var j in cv_cs) {
+
+        }
+    }
+}
+
+/* This function must be tested
+var prepare_super_classes = function() {
+    var c_u_classes = [];
+    var c_v_classes = [];
+    var c_u_query = SUPER_CLASSES_QUERY(c_u);
+    var c_v_query = SUPER_CLASSES_QUERY(c_v);
+    get_all_super_classes(c_u_query, store, c_u_classes)
+        .then(function() {
+            console.log(c_u_classes);
+            get_all_super_classes(c_v_query, store, c_v_classes);
+        })
+        .then(function() {
+            console.log(c_v_classes);
+        })
+        .catch(function(error) {
+            console.log('Something is wrong with get_all_inherited_properties');
+        });
+}
+*/
+
 var get_inherited_properties = function(ip_query, store, cb) {
+    // TODO: you need to distinguish the super classes
     var inherited_properties = [];
-    store.execute(dp_query, function(success, results) {
+    store.execute(ip_query, function(success, results) {
         inherited_properties = get_clean_results(results, 'inherited_properties');
         cb(inherited_properties);
     });
@@ -198,6 +238,7 @@ var buildGraph = function(st_path, ont_path) {
 // Export for testing
 exports.get_class_nodes = get_class_nodes;
 exports.get_direct_properties = get_direct_properties;
+exports.get_inherited_properties = get_inherited_properties;
 exports.get_all_super_classes = get_all_super_classes;
 exports.add_semantic_types = add_semantic_types;
 exports.create_semantic_types_nodes = create_semantic_types_nodes;
