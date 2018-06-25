@@ -54,19 +54,22 @@ describe('Get all inherited object properties from domain ontologies from all su
 });
 
 describe('Get inherited object properties from domain ontologies between 2 class nodes included in the graph', function() {
-    it('', function() {
+    it('The inherited object properties of \'schema:Person\' and \'schema:Organization\' should be \'schema:brand\', \'schema:affiliation\', \'schema:memberOf\'', function() {
         var c1 = 'schema:Person';
         var c2 = 'schema:Organization';
         var ip_query = `PREFIX schema: <http://schema.org/>
                         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-                        SELECT ?inherited_properties WHERE {
-                            ?inherited_properties rdfs:domain schema:Thing .
+                        SELECT ?inherited_properties ?domain WHERE {
+                            ?inherited_properties schema:domainIncludes ${c1} .
+                            ?inherited_properties schema:rangeIncludes ${c2} .
                         }`;
         rdfstore.create(function(err, store) {
             var ontology = fs.readFileSync(__dirname + '/schema.ttl').toString();
             store.load('text/turtle', ontology, function(err, data) {
                 graph_generator.get_inherited_properties(ip_query, store, function(inherited_properties) {
-                    console.log(inherited_properties);
+                    assert.deepEqual('schema:brand', inherited_properties[0]);
+                    assert.deepEqual('schema:affiliation', inherited_properties[1]);
+                    assert.deepEqual('schema:memberOf', inherited_properties[2]);
                 });
             });
         });
@@ -139,7 +142,6 @@ describe('Create semantic types nodes of a single data source', function() {
         assert.deepEqual(true, updated_graph.hasNode('identifier'));
         assert.deepEqual(true, updated_graph.hasNode('affiliation'));
     });
-
 });
 
 describe('Add closures classes of a class node inside the graph', function() {
