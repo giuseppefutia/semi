@@ -33,11 +33,11 @@ var SUPER_CLASSES_QUERY = function(class_node) {
 var INHERITED_PROPERTIES_QUERY = function(c_domain, c_range, p_domain, p_range) {
     // I need to specify also p_range and p_domain, because they can differ between ontologies
     var query = `PREFIX schema: <http://schema.org/>
-                    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-                    SELECT ?inherited_properties ?domain WHERE {
-                        ?inherited_properties ${p_domain} ${c_domain} .
-                        ?inherited_properties ${p_range} ${c_range} .
-                    }`;
+                 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                 SELECT ?inherited_properties ?domain WHERE {
+                     ?inherited_properties ${p_domain} ${c_domain} .
+                     ?inherited_properties ${p_range} ${c_range} .
+                 }`;
     return query;
 }
 
@@ -70,12 +70,15 @@ var get_direct_properties = function(dp_query, store, cb) {
     });
 }
 
-var get_all_inherited_properties = function(c_u, c_v, cu_sc, cv_sc, store) {
-    for (var i in cu_sc) {
-        for (var j in cv_cs) {
+var get_all_inherited_properties = function(c_u, c_v, c_u_query, c_v_query, store) {
+    prepare_super_classes(c_u, c_v, c_u_query, c_v_query, store)
+        .then(function(super_classes) {
+            assert.deepEqual('schema:Thing', super_classes[0]);
+        })
+        .catch(function(error) {
+            console.log('Something went wrong trying to prepare super classes: ' + error);
+        });
 
-        }
-    }
 }
 
 var get_inherited_properties = function(ip_query, store, cb) {
@@ -91,15 +94,16 @@ var prepare_super_classes = function(c_u, c_v, c_u_query, c_v_query, store) {
     return new Promise(function(resolve, reject) {
         var c_u_classes = [];
         var c_v_classes = [];
-        var c_u_query = SUPER_CLASSES_QUERY(c_u);
-        var c_v_query = SUPER_CLASSES_QUERY(c_v);
         get_all_super_classes(c_u_query, store, c_u_classes)
             .then(function() {
                 get_all_super_classes(c_v_query, store, c_v_classes);
             })
             .then(function() {
-                var super_classes = c_u_classes.concat(c_v_classes);
-                resolve(remove_array_duplicates(super_classes));
+                // I need to keep the information related to the specific super class
+                var super_classes = [];
+                super_classes[c_u] = c_u_classes;
+                super_classes[c_v] = c_v_classes;
+                resolve(super_classes);
             })
             .catch(function(error) {
                 console.log('Something went wrong trying to get super classes: ' + error);

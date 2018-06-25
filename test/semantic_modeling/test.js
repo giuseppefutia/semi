@@ -97,7 +97,8 @@ describe('Prepare super classes of two input classes in order to retrieve inheri
             store.load('text/turtle', ontology, function(err, data) {
                 var super_classes = graph_generator.prepare_super_classes(c1, c2, c1_query, c2_query, store)
                     .then(function(super_classes) {
-                        assert.deepEqual('schema:Thing', super_classes[0]);
+                        assert.deepEqual('schema:Thing', super_classes[c1][0]);
+                        assert.deepEqual('schema:Thing', super_classes[c2][0]);
                     })
                     .catch(function(error) {
                         console.log('Something went wrong trying to prepare super classes: ' + error);
