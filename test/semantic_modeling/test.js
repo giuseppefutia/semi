@@ -29,27 +29,75 @@ describe('Get direct object properties from domain ontologies between 2 classes 
         rdfstore.create(function(err, store) {
             var ontology = fs.readFileSync(__dirname + '/schema.ttl').toString();
             store.load('text/turtle', ontology, function(err, data) {
-                graph_generator.get_direct_properties(dp_query, store, function(direct_properties) {
-                    assert.deepEqual(direct_properties[0], 'rdfs:subClassOf');
-                });
+                graph_generator.get_direct_properties(dp_query, store, class_u, class_v)
+                    .then(function(direct_properties) {
+                        assert.deepEqual('rdfs:subClassOf', direct_properties[0]['property']);
+                    })
             });
         });
     });
 });
 
-describe('Get all inherited object properties from domain ontologies from all super classes of 2 classes', function() {
+describe('Get all inherited properties from domain ontologies between 2 classes and their respective super classes', function() {
     it('', function() {
         var c_u = 'schema:AdultEntertainment';
-        var c_v = 'schema:BusinessEvent"';
-        var c_u_superclasses = [
-            'schema:EntertainmentBusiness',
-            'schema:LocalBusiness',
-            'schema:Place',
-            'schema:Organization',
-            'schema:Thing',
-            'schema:Thing'
-        ]
-        var c_v_superclasses = ['schema:Event', 'schema:Thing'];
+        var c_v = 'schema:BusinessEvent';
+        var super_classes = {
+            'schema:AdultEntertainment': [
+                'schema:EntertainmentBusiness',
+                'schema:LocalBusiness',
+                'schema:Place',
+                'schema:Organization',
+                'schema:Thing',
+            ],
+            'schema:BusinessEvent': ['schema:Event', 'schema:Thing']
+        }
+        var p_domain = 'schema:domainIncludes';
+        var p_range = 'schema:rangeIncludes';
+        rdfstore.create(function(err, store) {
+            var ontology = fs.readFileSync(__dirname + '/schema.ttl').toString();
+            store.load('text/turtle', ontology, function(err, data) {
+                graph_generator.get_all_inherited_properties(c_u, c_v, p_domain, p_range, super_classes, store)
+                // TODO it seems to work and make the correct assertion
+            });
+        });
+    });
+});
+
+describe('Get inherited and inverse object properties using the inherited object property function', function() {
+    it('', function() {
+        var c1 = 'schema:Organization';
+        var c2 = 'schema:Event';
+        // Inherited properties query
+        var ip_query = `PREFIX schema: <http://schema.org/>
+                        PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                        SELECT ?inherited_properties ?domain WHERE {
+                            ?inherited_properties schema:domainIncludes ${c1} .
+                            ?inherited_properties schema:rangeIncludes ${c2} .
+                        }`;
+        // Inverse inherited properties query
+        var iip_query = `PREFIX schema: <http://schema.org/>
+                         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                         SELECT ?inherited_properties ?domain WHERE {
+                             ?inherited_properties schema:domainIncludes ${c2} .
+                             ?inherited_properties schema:rangeIncludes ${c1} .
+                        }`;
+        rdfstore.create(function(err, store) {
+            var ontology = fs.readFileSync(__dirname + '/schema.ttl').toString();
+            store.load('text/turtle', ontology, function(err, data) {
+                graph_generator.get_inherited_and_inverse_properties(
+                        ip_query,
+                        iip_query,
+                        store,
+                        c1,
+                        c2)
+                    .then(function(properties) {
+                        assert.deepEqual('schema:events', properties[0]['property']);
+                        assert.deepEqual('schema:event', properties[1]['property']);
+                        assert.deepEqual('schema:attendees', properties[2]['property']);
+                    })
+            });
+        });
     });
 });
 
@@ -66,11 +114,16 @@ describe('Get inherited object properties from domain ontologies between 2 class
         rdfstore.create(function(err, store) {
             var ontology = fs.readFileSync(__dirname + '/schema.ttl').toString();
             store.load('text/turtle', ontology, function(err, data) {
-                graph_generator.get_inherited_properties(ip_query, store, function(inherited_properties) {
-                    assert.deepEqual('schema:brand', inherited_properties[0]);
-                    assert.deepEqual('schema:affiliation', inherited_properties[1]);
-                    assert.deepEqual('schema:memberOf', inherited_properties[2]);
-                });
+                var inherited_properties = [];
+                graph_generator.get_inherited_properties(ip_query, store, c1, c2, inherited_properties)
+                    .then(function(inherited_properties) {
+                        assert.deepEqual('schema:brand', inherited_properties[0]['property']);
+                        assert.deepEqual('schema:affiliation', inherited_properties[1]['property']);
+                        assert.deepEqual('schema:memberOf', inherited_properties[2]['property']);
+                    })
+                    .catch(function(error) {
+                        console.log('Something went wrong trying to get inherited object properties from domain ontologies: ' + error);
+                    });
             });
         });
     });
@@ -95,7 +148,7 @@ describe('Prepare super classes of two input classes in order to retrieve inheri
         rdfstore.create(function(err, store) {
             var ontology = fs.readFileSync(__dirname + '/schema.ttl').toString();
             store.load('text/turtle', ontology, function(err, data) {
-                var super_classes = graph_generator.prepare_super_classes(c1, c2, c1_query, c2_query, store)
+                graph_generator.prepare_super_classes(c1, c2, c1_query, c2_query, store)
                     .then(function(super_classes) {
                         assert.deepEqual('schema:Thing', super_classes[c1][0]);
                         assert.deepEqual('schema:Thing', super_classes[c2][0]);

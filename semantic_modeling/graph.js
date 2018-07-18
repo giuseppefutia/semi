@@ -30,13 +30,22 @@ var SUPER_CLASSES_QUERY = function(class_node) {
     return query;
 }
 
-var INHERITED_PROPERTIES_QUERY = function(c_domain, c_range, p_domain, p_range) {
+var DIRECT_PROPERTIES_QUERY = function(class_u, class_v) {
+    var query = `PREFIX schema: <http://schema.org/>
+                 SELECT ?direct_properties WHERE {
+                     ${class_u} ?direct_properties ${class_v}
+                 }`;
+    return query;
+}
+
+var INHERITED_PROPERTIES_QUERY = function(c_u, c_v, p_domain, p_range) {
     // I need to specify also p_range and p_domain, because they can differ between ontologies
+    // I use this function also for inverse inherited properties
     var query = `PREFIX schema: <http://schema.org/>
                  PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
                  SELECT ?inherited_properties ?domain WHERE {
-                     ?inherited_properties ${p_domain} ${c_domain} .
-                     ?inherited_properties ${p_range} ${c_range} .
+                     ?inherited_properties ${p_domain} ${c_u} .
+                     ?inherited_properties ${p_range} ${c_v} .
                  }`;
     return query;
 }
@@ -62,31 +71,97 @@ var get_relations = function(relations_query, store, cb) {
     // Call get_inherited_properties in a smart way, involving all super classes
 }
 
-var get_direct_properties = function(dp_query, store, cb) {
-    var direct_properties = [];
-    store.execute(dp_query, function(success, results) {
-        direct_properties = get_clean_results(results, 'direct_properties');
-        cb(direct_properties);
+var get_direct_properties = function(dp_query, store, subject, object) {
+    return new Promise(function(resolve, reject) {
+        store.execute(dp_query, function(success, results) {
+            if (success !== null) reject(success);
+            var direct_properties = [];
+            var cleaned_results = get_clean_results(results, 'direct_properties');
+            for (var i in cleaned_results) {
+                direct_properties.push(set_property(subject,
+                    cleaned_results[i],
+                    object,
+                    'direct'));
+            }
+            resolve(direct_properties);
+        });
     });
 }
 
-var get_all_inherited_properties = function(c_u, c_v, c_u_query, c_v_query, store) {
-    prepare_super_classes(c_u, c_v, c_u_query, c_v_query, store)
-        .then(function(super_classes) {
-            assert.deepEqual('schema:Thing', super_classes[0]);
-        })
-        .catch(function(error) {
-            console.log('Something went wrong trying to prepare super classes: ' + error);
-        });
-
+var get_all_inherited_properties = function(c_u, c_v, p_domain, p_range, super_classes, store) {
+    return new Promise(function(resolve, reject) {
+        // This counter is useful to understand when stop!
+        var counter = 1;
+        var stop = super_classes[c_u].length * super_classes[c_v].length;
+        var all_inherited_properties = [];
+        for (var i in super_classes[c_u]) {
+            for (var j in super_classes[c_v]) {
+                // To get inherited and inverse inherited properties change the order of the classes passed as input
+                var ip_query = INHERITED_PROPERTIES_QUERY(super_classes[c_u][i], super_classes[c_v][j], p_domain, p_range);
+                var iip_query = INHERITED_PROPERTIES_QUERY(super_classes[c_v][j], super_classes[c_u][i], p_domain, p_range);
+                get_inherited_and_inverse_properties(ip_query, iip_query, store, super_classes[c_u][i], super_classes[c_v][j])
+                    .then(function(properties) {
+                        if (counter !== stop) {
+                            if (properties.length > 0) {
+                                all_inherited_properties = all_inherited_properties.concat(properties);
+                            }
+                            counter ++;
+                        } else {
+                            resolve(all_inherited_properties);
+                        }
+                    })
+                    .catch(function(error) {
+                        reject(error);
+                        console.log('Something went wrong getting all inherited properties: ' + error);
+                    });
+            }
+        }
+    });
 }
 
-var get_inherited_properties = function(ip_query, store, cb) {
-    // TODO: you need to distinguish the super classes
-    var inherited_properties = [];
-    store.execute(ip_query, function(success, results) {
-        inherited_properties = get_clean_results(results, 'inherited_properties');
-        cb(inherited_properties);
+// In this function I call get_inherited_properties twice, in order to get also inverse properties
+var get_inherited_and_inverse_properties = function(ip_query, iip_query, store, c_u, c_v) {
+    return new Promise(function(resolve, reject) {
+        var inherited_properties = [];
+        var inverse_inherited_properties = [];
+        // Get inherited properties
+        get_inherited_properties(ip_query, store, c_u, c_v, inherited_properties)
+            .then(function() {
+                // Get inverse properties
+                get_inherited_properties(iip_query, store, c_v, c_u, inverse_inherited_properties)
+                    .then(function() {
+                        var properties = inherited_properties.concat(inverse_inherited_properties);
+                        resolve(properties);
+                    })
+                    .catch(function(error) {
+                        reject(error);
+                        console.log('Something went wrong getting inherited and inverse properties: ' + error);
+                    });
+            })
+            .catch(function(error) {
+                reject(error);
+                console.log('Something went wrong getting inherited and inverse properties: ' + error);
+            });
+    });
+}
+
+var get_inherited_properties = function(ip_query, store, c_u, c_v, inherited_properties) {
+    return new Promise(function(resolve, reject) {
+        var subject = c_u;
+        var object = c_v;
+        store.execute(ip_query, function(success, results) {
+            if (success !== null) reject(success);
+            else {
+                var cleaned_results = get_clean_results(results, 'inherited_properties');
+                for (var i in cleaned_results) {
+                    inherited_properties.push(set_property(subject,
+                        cleaned_results[i],
+                        object,
+                        'inherited'));
+                }
+                resolve(inherited_properties);
+            }
+        });
     });
 }
 
@@ -96,10 +171,11 @@ var prepare_super_classes = function(c_u, c_v, c_u_query, c_v_query, store) {
         var c_v_classes = [];
         get_all_super_classes(c_u_query, store, c_u_classes)
             .then(function() {
+                // XXX Understand why it works as expected!
                 get_all_super_classes(c_v_query, store, c_v_classes);
             })
             .then(function() {
-                // I need to keep the information related to the specific super class
+                // I need to keep the information related to the specific class
                 var super_classes = [];
                 super_classes[c_u] = c_u_classes;
                 super_classes[c_v] = c_v_classes;
@@ -112,6 +188,16 @@ var prepare_super_classes = function(c_u, c_v, c_u_query, c_v_query, store) {
     });
 }
 
+var set_property = function(subject, property, object, type) {
+    var o = {
+        'subject': subject,
+        'property': property,
+        'object': object,
+        'type': type
+    }
+    return o;
+}
+
 // This function simulate the path expression * implemented in SPARQL 1.1 (https://www.w3.org/TR/sparql11-property-paths/)
 // In other words, this function get super classes at any level of an ontology class
 var get_all_super_classes = function(sc_query, store, all_super_classes) {
@@ -122,7 +208,7 @@ var get_all_super_classes = function(sc_query, store, all_super_classes) {
                 reject(success);
             } else {
                 if (results.length === 0) {
-                    resolve(all_super_classes);
+                    resolve(remove_array_duplicates(all_super_classes));
                 } else {
                     for (var r in results) {
                         var query_result = results[r]['all_super_classes']['value'];
@@ -189,6 +275,7 @@ var add_closures = function(closure_classes, graph) {
     return graph;
 }
 
+// TODO: Maybe it should become as Promise
 var get_closures = function(closure_query, store, cb) {
     var closure_classes = [];
     store.execute(closure_query, function(success, results) {
@@ -253,6 +340,8 @@ var buildGraph = function(st_path, ont_path) {
 // Export for testing
 exports.get_class_nodes = get_class_nodes;
 exports.get_direct_properties = get_direct_properties;
+exports.get_all_inherited_properties = get_all_inherited_properties;
+exports.get_inherited_and_inverse_properties = get_inherited_and_inverse_properties;
 exports.get_inherited_properties = get_inherited_properties;
 exports.prepare_super_classes = prepare_super_classes;
 exports.get_all_super_classes = get_all_super_classes;
