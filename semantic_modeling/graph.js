@@ -1,3 +1,4 @@
+var graphlib = require('graphlib');
 var Graph = require('graphlib').Graph;
 var rdfstore = require('rdfstore');
 var fs = require('fs');
@@ -64,7 +65,7 @@ var add_relations = function() {
     // TODO: function implementation
 }
 
-var get_relations = function(relations_query, store, cb) {
+var get_all_properties = function(relations_query, store, cb) {
     // TODO: function implementation
     // Call get_direct_properties
     // TODO: once implemented check the Mohsen implementation
@@ -102,13 +103,10 @@ var get_all_inherited_properties = function(c_u, c_v, p_domain, p_range, super_c
                 get_inherited_and_inverse_properties(ip_query, iip_query, store, super_classes[c_u][i], super_classes[c_v][j])
                     .then(function(properties) {
                         if (counter !== stop) {
-                            if (properties.length > 0) {
+                            if (properties.length > 0)
                                 all_inherited_properties = all_inherited_properties.concat(properties);
-                            }
-                            counter ++;
-                        } else {
-                            resolve(all_inherited_properties);
-                        }
+                            counter++;
+                        } else resolve(all_inherited_properties);
                     })
                     .catch(function(error) {
                         reject(error);
@@ -204,12 +202,10 @@ var get_all_super_classes = function(sc_query, store, all_super_classes) {
     // TODO: check where to clean Thing
     return new Promise(function(resolve, reject) {
         store.execute(sc_query, function(success, results) {
-            if (success !== null) {
-                reject(success);
-            } else {
-                if (results.length === 0) {
-                    resolve(remove_array_duplicates(all_super_classes));
-                } else {
+            if (success !== null) reject(success);
+            else {
+                if (results.length === 0) resolve(remove_array_duplicates(all_super_classes));
+                else {
                     for (var r in results) {
                         var query_result = results[r]['all_super_classes']['value'];
                         query_result = clean_prefix(query_result);
@@ -313,9 +309,11 @@ var remove_array_duplicates = function(a) {
 }
 
 var buildGraph = function(st_path, ont_path) {
-    var g = new Graph();
+    var g = new Graph({
+        multigraph: true,
+    });
     // Add semantic types
-    grap_with_semantic_types = add_semantic_types(st_path, g);
+    graph_with_semantic_types = add_semantic_types(st_path, g);
     // Load domain ontology
     rdfstore.create(function(err, store) {
         var ontology = fs.readFileSync(ont_path).toString();
@@ -325,12 +323,16 @@ var buildGraph = function(st_path, ont_path) {
                 return;
             }
             // Add closures
-            var class_nodes = get_class_nodes(grap_with_semantic_types);
+            var class_nodes = get_class_nodes(graph_with_semantic_types);
+            // TODO: it should be cleaned with promise all
+
             for (var cn in class_nodes) {
                 var class_query = class_nodes[cn];
                 var closure_query = CLOSURE_QUERY(class_query);
                 get_closures(closure_query, store, function(closure_classes) {
-                    add_closures(closure_classes, grap_with_semantic_types);
+                    add_closures(closure_classes, graph_with_semantic_types);
+                    //console.log(g.nodes());
+                    //console.log(graphlib.json.write(g)['edges'][0]['value']);
                 });
             }
         });
