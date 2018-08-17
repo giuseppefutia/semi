@@ -41,7 +41,7 @@ var show_internal_nodes_type = (path_dir, domain_uri) => {
         }
         console.log('Data Types associated with ' + domain_uri);
         console.log(types);
-        console.log('\n')
+        console.log('\n');
     });
 }
 
