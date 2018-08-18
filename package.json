@@ -6,13 +6,15 @@
   "dependencies": {
     "csv-reader": "^1.0.3",
     "elasticsearch": "^15.0.0",
-    "graphlib": "^2.1.5",
+    "graphlib": "git+ssh://git@github.com/giuseppefutia/graphlib.git#edge-weight",
     "mocha": "^5.2.0",
-    "rdfstore": "^0.9.17"
+    "rdfstore": "^0.9.17",
+    "underscore": "^1.9.1"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "mocha test/*/*.js"
+    "test": "mocha test/*/*.js",
+    "test-kg": "mocha test/knowledge_graph_generation/*.js"
   },
   "repository": {
     "type": "git",
