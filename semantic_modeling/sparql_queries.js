@@ -17,10 +17,11 @@ var SUPER_CLASSES_QUERY = (class_node) => {
             }`;
 }
 
-var DIRECT_PROPERTIES_QUERY = (class_u, class_v) => {
+var DIRECT_PROPERTIES_QUERY = (c_u, c_v, p_domain, p_range) => {
     return `PREFIX schema: <http://schema.org/>
             SELECT ?direct_properties WHERE {
-                ${class_u} ?direct_properties ${class_v}
+                ?direct_properties ${p_domain} ${c_u} .
+                ?direct_properties ${p_range} ${c_v} .
             }`;
 }
 
