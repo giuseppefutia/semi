@@ -1,8 +1,11 @@
 var fs = require('fs');
 var rdfstore = require('rdfstore');
 var assert = require('assert');
+var graphlib = require('graphlib');
 var Graph = require('graphlib').Graph;
 var graph_generator = require(__dirname + '/../../semantic_modeling/graph.js');
+
+// TODO: use query in sparql_queries.js for better consistencies in case of query changes
 
 describe('Graph building test suite\n', function() {
 
@@ -74,9 +77,9 @@ describe('Graph building test suite\n', function() {
             call_store(ontology)
                 .then(function(store) {
                     graph_generator.get_indirect_properties(c_u, c_v, p_domain, p_range, super_classes, store)
-                    .then(function(indirect_properties) {
-                        assert.deepEqual('schema:events', indirect_properties[0]['property']);
-                    });
+                        .then(function(indirect_properties) {
+                            assert.deepEqual('schema:events', indirect_properties[0]['property']);
+                        });
                 });
         });
     });
@@ -198,7 +201,9 @@ describe('Graph building test suite\n', function() {
 
     describe('Add semantic types from different data sources', function() {
         it('The graph should have at least the following nodes: schema:Person, identifier, affiliation', function() {
-            var graph = new Graph();
+            var graph = new Graph({
+                multigraph: true
+            });
             var types = JSON.parse(fs.readFileSync(__dirname + '/semantic_types_test.json', 'utf8'));
             for (var t in types) {
                 updated_graph = graph_generator.add_semantic_types(types[t], graph);
@@ -246,8 +251,12 @@ describe('Graph building test suite\n', function() {
     });
 
     describe('Test on graph.js', function() {
-        it('Graph should be built', function() {
-            graph_generator.build_graph(__dirname + '/semantic_types_test.json', __dirname + '/schema.ttl');
+        it('Multi Graph should be built', function() {
+            graph_generator.build_graph(__dirname + '/semantic_types_test.json', __dirname + '/schema.ttl')
+                .then(function(graph) {
+                    assert.deepEqual(true, graphlib.json.write(graph)['options']['multigraph']);
+                    console.log(graphlib.json.write(graph));
+                });
         });
     });
 });
