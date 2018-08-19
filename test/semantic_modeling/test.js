@@ -4,8 +4,11 @@ var assert = require('assert');
 var graphlib = require('graphlib');
 var Graph = require('graphlib').Graph;
 var graph_generator = require(__dirname + '/../../semantic_modeling/graph.js');
+var sparql = require(__dirname + '/../../semantic_modeling/sparql_queries.js');
 
 // TODO: use query in sparql_queries.js for better consistencies in case of query changes
+// TODO: Use done()
+// TODO: Add test for add_direct_properties()
 
 describe('Graph building test suite\n', function() {
 
@@ -41,24 +44,41 @@ describe('Graph building test suite\n', function() {
 
     describe('Get direct object properties from domain ontologies between 2 classes included in the graph', function() {
         it('The direct property between schema:EducationalOrganization and schema:Organization should be rdfs:subClassOf', function() {
-            var class_u = 'schema:EducationalOrganization';
-            var class_v = 'schema:Organization';
+            var c_u = 'schema:EducationalOrganization'; // XXX When I put schema:Person the following test givis me an error
+            var c_v = 'schema:Organization';
+            var p_domain = 'schema:domainIncludes';
+            var p_range = 'schema:rangeIncludes';
             var dp_query = `PREFIX schema: <http://schema.org/>
                              SELECT ?direct_properties WHERE {
-                                 ${class_u} ?direct_properties ${class_v}
+                                 ?direct_properties ${p_domain} ${c_u} .
+                                 ?direct_properties ${p_range} ${c_v} .
                              }`;
-
             call_store(ontology)
                 .then(function(store) {
-                    graph_generator.get_direct_properties(dp_query, store, class_u, class_v)
+                    graph_generator.get_direct_properties(dp_query, store, c_u, c_v)
                         .then(function(direct_properties) {
-                            assert.deepEqual('rdfs:subClassOf', direct_properties[0]['property']);
+                            assert.deepEqual(0, direct_properties.length);
                         });
                 });
         });
     });
 
-    describe('Get all get indirect properties from domain ontologies between 2 classes and their respective super classes', function() {
+    describe('Get all direct object properties from different classes already included in the graph', function() {
+        it('', function() {
+            var all_classes = ['schema:Person', 'schema:Organization'];
+            var p_domain = 'schema:domainIncludes';
+            var p_range = 'schema:rangeIncludes';
+            call_store(ontology)
+                .then(function(store) {
+                    graph_generator.get_all_direct_properties(store, all_classes, p_domain, p_range)
+                        .then(function(all_direct_properties) {
+                            // TODO
+                        })
+                });
+        });
+    });
+
+    describe('Get all indirect properties from domain ontologies between 2 classes and their respective super classes', function() {
         it('The first indirect property between \'schema:AdultEntertainment\' and  \'schema:BusinessEvent\' should be \'schema:events\'', function() {
             var c_u = 'schema:AdultEntertainment';
             var c_v = 'schema:BusinessEvent';
@@ -252,7 +272,9 @@ describe('Graph building test suite\n', function() {
 
     describe('Test on graph.js', function() {
         it('Multi Graph should be built', function() {
-            graph_generator.build_graph(__dirname + '/semantic_types_test.json', __dirname + '/schema.ttl')
+            var p_domain = 'schema:domainIncludes';
+            var p_range = 'schema:rangeIncludes';
+            graph_generator.build_graph(__dirname + '/semantic_types_test.json', __dirname + '/schema.ttl', p_domain, p_range)
                 .then(function(graph) {
                     assert.deepEqual(true, graphlib.json.write(graph)['options']['multigraph']);
                     console.log(graphlib.json.write(graph));
