@@ -185,9 +185,9 @@ var get_indirect_properties = function(c_u, c_v, p_domain, p_range, super_classe
                 var iip_query = sparql.INHERITED_PROPERTIES_QUERY(super_classes[c_v][j], super_classes[c_u][i], p_domain, p_range);
                 get_inherited_and_inverse_properties(ip_query, iip_query, store, super_classes[c_u][i], super_classes[c_v][j])
                     .then(function(properties) {
+                        if (properties.length > 0)
+                            indirect_properties = indirect_properties.concat(properties);
                         if (counter !== stop) {
-                            if (properties.length > 0)
-                                indirect_properties = indirect_properties.concat(properties);
                             counter++;
                         } else resolve(indirect_properties);
                     })
