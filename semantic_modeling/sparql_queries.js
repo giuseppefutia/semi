@@ -18,6 +18,8 @@ var SUPER_CLASSES_QUERY = (class_node) => {
 }
 
 var DIRECT_PROPERTIES_QUERY = (c_u, c_v, p_domain, p_range) => {
+    // I need to specify also p_range and p_domain, because they can differ between ontologies
+    // I use this function also for inverse direct properties
     return `PREFIX schema: <http://schema.org/>
             SELECT ?direct_properties WHERE {
                 ?direct_properties ${p_domain} ${c_u} .

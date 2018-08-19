@@ -3,31 +3,43 @@ var graphlib = require('graphlib');
 var rdfstore = require('rdfstore');
 var Graph = require('graphlib').Graph;
 var utils = require(__dirname + '/utils.js');
-var sparql= require(__dirname + '/sparql_queries.js');
+var sparql = require(__dirname + '/sparql_queries.js');
 
 var ε = 3;
+
+// TODO: create an high level representation of node and edge for checking inconsistencies
+// TODO: run a test on the Steiner Tree algorithm as explained in the paper
+// TODO: better management of parameters and output
+// TODO: rename label of the object properties
+// TODO: better management of SPARQL query errors using store
+
+var is_duplicate = (node, graph) => {
+    if (graph.node(node) === undefined)
+        return false;
+    return true;
+}
 
 var add_semantic_types = (st, graph) => {
     var attributes = st['attributes'];
     var semantic_types = st['semantic_types'];
     for (var i in attributes) {
         // Add class node
-        // TODO: check if a class node already exists in the graph.
         var class_node = semantic_types[i][0].split("_")[0];
-        graph.setNode(class_node, {
-            type: 'class_uri'
-        });
+        if (!is_duplicate(class_node, graph))
+            graph.setNode(class_node, {
+                type: 'class_uri'
+            });
         // Add data node
         var data_node = attributes[i];
-        graph.setNode(data_node, {
-            type: 'attribute_name'
-        });
+        if (!is_duplicate(data_node, graph))
+            graph.setNode(data_node, {
+                type: 'attribute_name'
+            });
         // Add edge
         graph.setEdge(class_node, data_node, {
             label: semantic_types[i][0].split("_")[1],
-            type: 'property_uri',
-            weight: 1
-        });
+            type: 'st_property_uri'
+        }, semantic_types[i][0].split("_")[1], 1);
     }
     return graph;
 }
@@ -55,17 +67,18 @@ var get_closures = (closure_query, store) => {
 
 var add_closures = (closure_classes, graph) => {
     // Closure classes are retrieved with SPARQL queries on the ontology
-    // TODO: check if a class node already exists in the graph. You can write a unique function.
     return new Promise(function(resolve, reject) {
         for (var c in closure_classes) {
-            graph.setNode(closure_classes[c], {
-                type: 'class_uri'
-            });
+            if (!is_duplicate(closure_classes[c], graph))
+                graph.setNode(closure_classes[c], {
+                    type: 'class_uri'
+                });
         }
         resolve(graph);
     });
 }
 
+// TODO: direct properties must involve domain and range
 var get_direct_properties = (dp_query, store, subject, object) => {
     return new Promise(function(resolve, reject) {
         store.execute(dp_query, function(success, results) {
@@ -76,10 +89,60 @@ var get_direct_properties = (dp_query, store, subject, object) => {
                 direct_properties.push(utils.set_property(subject,
                     cleaned_results[i],
                     object,
-                    'direct'));
+                    'direct_property_uri'));
             }
             resolve(direct_properties);
         });
+    });
+}
+
+// Consider also inverse direct properties
+// Attention! You are including also direct properties between the same class (loop)
+var get_all_direct_properties = (store, all_classes, p_domain, p_range) => {
+    return new Promise(function(resolve, reject) {
+        var all_direct_properties = [];
+        var counter = 1;
+        var stop = all_classes.length * all_classes.length;
+        for (var i in all_classes) {
+            for (var j in all_classes) {
+                // Direct properties query
+                var dp_query = sparql.DIRECT_PROPERTIES_QUERY(all_classes[i], all_classes[j], p_domain, p_range);
+                // Inverse direct properties query
+                var idp_query = sparql.DIRECT_PROPERTIES_QUERY(all_classes[j], all_classes[i], p_domain, p_range);
+                get_direct_properties(dp_query, store, all_classes[i], all_classes[j])
+                    .then(function(direct_properties) {
+                        if (direct_properties.length > 0)
+                            all_direct_properties = all_direct_properties.concat(direct_properties);
+                        get_direct_properties(idp_query, store, all_classes[j], all_classes[i])
+                            .then(function(inverse_direct_properties) {
+                                if (inverse_direct_properties.length > 0)
+                                    all_direct_properties = all_direct_properties.concat(inverse_direct_properties);
+                                if (counter != stop) {
+                                    counter++;
+                                } else {
+                                    resolve(all_direct_properties);
+                                }
+                            });
+                    });
+            }
+        }
+    });
+}
+
+var add_direct_properties = (dps, graph) => {
+    return new Promise(function(resolve, reject) {
+        for (var i in dps) {
+            var subject = dps[i]['subject'];
+            var property = dps[i]['property'];
+            var object = dps[i]['object'];
+            var type = dps[i]['type'];
+            // Add properties as edge
+            graph.setEdge(subject, object, {
+                label: subject + '_' + object,
+                type: type
+            }, subject + '_' + object, 1); // Direct edges have weight = 1
+        }
+        resolve(graph);
     });
 }
 
@@ -147,7 +210,7 @@ var get_inherited_properties = (ip_query, store, c_u, c_v, inherited_properties)
 }
 
 // In this function I call get_inherited_properties twice, in order to get also inverse properties
-var get_inherited_and_inverse_properties = function(ip_query, iip_query, store, c_u, c_v) {
+var get_inherited_and_inverse_properties = (ip_query, iip_query, store, c_u, c_v) => {
     return new Promise(function(resolve, reject) {
         var inherited_properties = [];
         var inverse_inherited_properties = [];
@@ -172,7 +235,7 @@ var get_inherited_and_inverse_properties = function(ip_query, iip_query, store, 
     });
 }
 
-var get_indirect_properties = function(c_u, c_v, p_domain, p_range, super_classes, store) {
+var get_indirect_properties = (c_u, c_v, p_domain, p_range, super_classes, store) => {
     return new Promise(function(resolve, reject) {
         // This counter is useful to understand when stop!
         var counter = 1;
@@ -213,46 +276,82 @@ var initialize_ontology_storage = (ont_path) => {
     });
 }
 
-var build_graph = (st_path, ont_path) => {
-    // Create a new graph
-    var graph = new Graph({
-        multigraph: true
-    });
-    // Add semantic types to the graph
-    var types = JSON.parse(fs.readFileSync(st_path, 'utf8'));
-    for (var t in types) {
-        graph = add_semantic_types(types[t], graph)
-    }
-    // Promises sequence begins
-    var sequence = Promise.resolve();
-    sequence.then(function() {
-        // Initialize graph storage
-        console.log();
-        console.log('Initializing graph...');
-        return initialize_ontology_storage(ont_path);
-    }).catch(function(err) {
-        console.log('Error in the initialization stage:');
-        console.log(err);
-    }).then(function(store) {
-        // Get closures
-        console.log('Adding closures...');
-        return get_class_nodes(graph).reduce(function(closure_sequence, class_node) {
-            var query = sparql.CLOSURE_QUERY(class_node);
-            return get_closures(query, store);
-        }, Promise.resolve());
-    }).catch(function(err) {
-        console.log('Error in the closure stage:');
-        console.log(err);
-    }).then(function() {
-        console.log('Graph building complete!');
+var build_graph = (st_path, ont_path, p_domain, p_range) => {
+    return new Promise(function(resolve, reject) {
+        // Create a new graph
+        var graph = new Graph({
+            multigraph: true
+        });
+
+        // Memorize the store for SPARQL queries
+        var store;
+
+        // Add semantic types to the graph
+        var types = JSON.parse(fs.readFileSync(st_path, 'utf8'));
+        for (var t in types) {
+            graph = add_semantic_types(types[t], graph)
+        }
+
+        // Promises sequence begins
+        var sequence = Promise.resolve();
+        sequence.then(function() {
+                // Initialize graph storage
+                console.log();
+                console.log('Initializing graph...');
+                return initialize_ontology_storage(ont_path);
+            }).catch(function(err) {
+                console.log('Error in the initialization stage:');
+                console.log(err);
+            }).then(function(st) {
+                // Save the store created after the graph initialization
+                store = st;
+                // Get closures
+                console.log('Getting closures...');
+                return get_class_nodes(graph).reduce(function(closure_sequence, class_node) {
+                    var query = sparql.CLOSURE_QUERY(class_node);
+                    return get_closures(query, store);
+                }, Promise.resolve());
+            }).catch(function(err) {
+                console.log('Error when getting closures:');
+                console.log(err);
+            }).then(function(closure_classes) {
+                // Add closures
+                console.log('Adding closures...');
+                return add_closures(closure_classes, graph);
+            }).catch(function(err) {
+                console.log('Error when adding closures:');
+                console.log(err);
+            }).then(function() {
+                // Get direct properties
+                console.log('Getting direct properties...');
+                var all_classes = get_class_nodes(graph);
+                return get_all_direct_properties(store, all_classes, p_domain, p_range);
+            }).catch(function(err) {
+                console.log('Error when getting direct properties:');
+                console.log(err);
+            }).then(function(direct_properties) {
+                // Add direct properties
+                console.log('Adding direct properties...')
+                return add_direct_properties(direct_properties, graph);
+            }).catch(function() {
+                console.log('Error when adding direct properties:');
+                console.log(err);
+            })
+            .then(function() {
+                console.log('Graph building complete!\n');
+                // TODO: check if the graph is complete (all nodes are linked) ! Otherwise, launch an execption!
+                resolve(graph);
+            });
     });
 }
+
 // Export for testing
 exports.add_semantic_types = add_semantic_types;
 exports.get_class_nodes = get_class_nodes;
 exports.get_closures = get_closures;
 exports.add_closures = add_closures;
 exports.get_direct_properties = get_direct_properties;
+exports.get_all_direct_properties = get_all_direct_properties;
 exports.get_all_super_classes = get_all_super_classes;
 exports.prepare_super_classes = prepare_super_classes;
 exports.get_inherited_properties = get_inherited_properties;
