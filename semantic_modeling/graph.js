@@ -148,38 +148,46 @@ var add_direct_properties = (dps, graph) => {
 
 // This function simulate the path expression * implemented in SPARQL 1.1 (https://www.w3.org/TR/sparql11-property-paths/)
 // In other words, this function get super classes at any level of an ontology class
-var get_all_super_classes = (sc_query, store, all_super_classes) => {
-    // TODO: check where to clean Thing
+var get_recursive_super_classes = (class_node, store) => {
+    return new Promise(function(resolve, reject) {
+        var rscs = [];
+        var sc_query = sparql.SUPER_CLASSES_QUERY(class_node);
+        get_super_classes(sc_query, store, rscs)
+            .then(function(rscs){
+                resolve(utils.remove_array_duplicates(rscs));
+            });
+    });
+}
+
+var get_super_classes = (sc_query, store, rscs) => {
     return new Promise(function(resolve, reject) {
         store.execute(sc_query, function(success, results) {
-            if (success !== null)
-                reject(success);
-            if (results.length === 0)
-                resolve(utils.remove_array_duplicates(all_super_classes));
-
-            // Recursion
-            return results.reduce(function(promise, r) {
-                var query_result = utils.clean_prefix(r['all_super_classes']['value']);
-                all_super_classes.push(query_result);
+            if (success !== null) reject(success);
+            for (var i in results) {
+                var query_result = utils.clean_prefix(results[i]['all_super_classes']['value']);
+                rscs.push(query_result);
                 var new_query = sparql.SUPER_CLASSES_QUERY(query_result);
-                get_all_super_classes(new_query, store, all_super_classes); // TODO: Do I need to catch the error?
-            }, Promise.resolve())
+                get_super_classes(new_query, store, rscs);
+                resolve(rscs);
+            };
         });
     });
 }
 
-// I need to get super classes of both two classes I am comparing to establish the relation weight
+// I need to get super classes of both two classes to compare for establishing the relation weight
 var prepare_super_classes = (c_u, c_v, c_u_query, c_v_query, store) => {
     return new Promise(function(resolve, reject) {
         var c_u_classes = [];
         var c_v_classes = [];
-        get_all_super_classes(c_u_query, store, c_u_classes)
-            .then(function() {
-                get_all_super_classes(c_v_query, store, c_v_classes);
+        get_recursive_super_classes(c_u, store)
+            .then(function(cuc) {
+                c_u_classes = cuc;
+                return get_recursive_super_classes(c_v, store);
             })
-            .then(function() {
+            .then(function(cuv) {
+                c_v_classes = cuv;
                 // I need to keep the information related to the specific class
-                var super_classes = [];
+                var super_classes = {};
                 super_classes[c_u] = c_u_classes;
                 super_classes[c_v] = c_v_classes;
                 resolve(super_classes);
@@ -188,6 +196,39 @@ var prepare_super_classes = (c_u, c_v, c_u_query, c_v_query, store) => {
                 console.log('Something went wrong trying to get super classes: ' + error);
                 reject();
             });
+    });
+}
+
+// TODO: Now you need to check the logic
+var prepare_all_super_classes = (store, all_classes) => {
+    return new Promise(function(resolve, reject) {
+        var all_super_classes = [];
+        var counter = 1;
+        // Attention: we need to remove Thing because for that specific cases super_classes function does not resolve
+        all_classes = all_classes.filter(function(e) {return e!='schema:Thing'})
+        var stop = all_classes.length * all_classes.length;
+        for (var i in all_classes) {
+            for (var j in all_classes) {
+                // First query to get a couple of super_classes coming from two different classes
+                var first_query = sparql.SUPER_CLASSES_QUERY(all_classes[i]);
+                // Second query to get a couple of super_classes coming from two different classes
+                var second_query = sparql.SUPER_CLASSES_QUERY(all_classes[j]);
+                // Attention: in this case I do not need to call the function prepare_super_classes
+                // two times, because the inverse process is already implemented in it
+                prepare_super_classes(all_classes[i], all_classes[j], first_query, second_query, store)
+                    .then(function(super_classes) {
+                        if (Object.keys(super_classes).length > 0) {
+                            all_super_classes.push(super_classes);
+                        }
+                        if (counter != stop) {
+                            counter++;
+                        } else {
+                            console.log('Resolved');
+                            resolve(all_super_classes);
+                        }
+                    });
+            }
+        }
     });
 }
 
@@ -295,53 +336,62 @@ var build_graph = (st_path, ont_path, p_domain, p_range) => {
         // Promises sequence begins
         var sequence = Promise.resolve();
         sequence.then(function() {
-                // Initialize graph storage
-                console.log();
-                console.log('Initializing graph...');
-                return initialize_ontology_storage(ont_path);
-            }).catch(function(err) {
-                console.log('Error in the initialization stage:');
-                console.log(err);
-            }).then(function(st) {
-                // Save the store created after the graph initialization
-                store = st;
-                // Get closures
-                console.log('Getting closures...');
-                return get_class_nodes(graph).reduce(function(closure_sequence, class_node) {
-                    var query = sparql.CLOSURE_QUERY(class_node);
-                    return get_closures(query, store);
-                }, Promise.resolve());
-            }).catch(function(err) {
-                console.log('Error when getting closures:');
-                console.log(err);
-            }).then(function(closure_classes) {
-                // Add closures
-                console.log('Adding closures...');
-                return add_closures(closure_classes, graph);
-            }).catch(function(err) {
-                console.log('Error when adding closures:');
-                console.log(err);
-            }).then(function() {
-                // Get direct properties
-                console.log('Getting direct properties...');
-                var all_classes = get_class_nodes(graph);
-                return get_all_direct_properties(store, all_classes, p_domain, p_range);
-            }).catch(function(err) {
-                console.log('Error when getting direct properties:');
-                console.log(err);
-            }).then(function(direct_properties) {
-                // Add direct properties
-                console.log('Adding direct properties...')
-                return add_direct_properties(direct_properties, graph);
-            }).catch(function() {
-                console.log('Error when adding direct properties:');
-                console.log(err);
-            })
-            .then(function() {
-                console.log('Graph building complete!\n');
-                // TODO: check if the graph is complete (all nodes are linked) ! Otherwise, launch an execption!
-                resolve(graph);
-            });
+            // Initialize graph storage
+            console.log();
+            console.log('Initializing graph...');
+            return initialize_ontology_storage(ont_path);
+        }).catch(function(err) {
+            console.log('Error in the initialization stage:');
+            console.log(err);
+        }).then(function(st) {
+            // Save the store created after the graph initialization
+            store = st;
+            // Get closures
+            console.log('Getting closures...');
+            return get_class_nodes(graph).reduce(function(closure_sequence, class_node) {
+                var query = sparql.CLOSURE_QUERY(class_node);
+                return get_closures(query, store);
+            }, Promise.resolve());
+        }).catch(function(err) {
+            console.log('Error when getting closures:');
+            console.log(err);
+        }).then(function(closure_classes) {
+            // Add closures
+            console.log('Adding closures...');
+            return add_closures(closure_classes, graph);
+        }).catch(function(err) {
+            console.log('Error when adding closures:');
+            console.log(err);
+        }).then(function() {
+            // Get direct properties
+            console.log('Getting direct properties...');
+            var all_classes = get_class_nodes(graph);
+            return get_all_direct_properties(store, all_classes, p_domain, p_range);
+        }).catch(function(err) {
+            console.log('Error when getting direct properties:');
+            console.log(err);
+        }).then(function(direct_properties) {
+            // Add direct properties
+            console.log('Adding direct properties...')
+            return add_direct_properties(direct_properties, graph);
+        }).catch(function() {
+            console.log('Error when adding direct properties:');
+            console.log(err);
+        }).then(function() {
+            // Get all super classes
+            console.log('Getting all_super_classes');
+            var all_classes = get_class_nodes(graph);
+            return prepare_all_super_classes(store, all_classes);
+        }).catch(function(err) {
+            console.log('Error when getting all super_classes:');
+            console.log(err);
+        }).then(function(super_classes) {
+            console.log(super_classes);
+        }).then(function() {
+            console.log('Graph building complete!\n');
+            // TODO: check if the graph is complete (all nodes are linked) ! Otherwise, launch an exeception!
+            resolve(graph);
+        });
     });
 }
 
@@ -352,8 +402,9 @@ exports.get_closures = get_closures;
 exports.add_closures = add_closures;
 exports.get_direct_properties = get_direct_properties;
 exports.get_all_direct_properties = get_all_direct_properties;
-exports.get_all_super_classes = get_all_super_classes;
+exports.get_recursive_super_classes = get_recursive_super_classes;
 exports.prepare_super_classes = prepare_super_classes;
+exports.prepare_all_super_classes = prepare_all_super_classes;
 exports.get_inherited_properties = get_inherited_properties;
 exports.get_inherited_and_inverse_properties = get_inherited_and_inverse_properties;
 exports.get_indirect_properties = get_indirect_properties;

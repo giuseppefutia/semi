@@ -165,6 +165,23 @@ describe('Graph building test suite\n', function() {
         });
     });
 
+    describe('Get super classes recursively from of domain ontologies of a class node included in the graph', function() {
+        it('The father of schema:AdultEntertainment is schema:EntertainmentBusiness, the grandfather is schema:LocalBusiness, the great grandfather is schema:Place', function() {
+            var class_node = 'schema:AdultEntertainment';
+            call_store(ontology)
+                .then(function(store) {
+                    graph_generator.get_recursive_super_classes(class_node, store)
+                        .then(function(all_super_classes) {
+                            assert.deepEqual('schema:EntertainmentBusiness', all_super_classes[0]);
+                            assert.deepEqual('schema:LocalBusiness', all_super_classes[1]);
+                            assert.deepEqual('schema:Place', all_super_classes[2]);
+                        }, function(error) {
+                            console.log(error);
+                        });
+                });
+        });
+    });
+
     describe('Prepare super classes of two input classes in order to retrieve inherited object properties', function() {
         it('All super classes of \'schema:Person\' and \'schema:Organization\' are \'schema:Thing\'', function() {
             var c1 = 'schema:Person';
@@ -195,25 +212,14 @@ describe('Graph building test suite\n', function() {
         });
     });
 
-    describe('Get all super classes from of domain ontologies of a class node included in the graph', function() {
-        it('The father of schema:AdultEntertainment is schema:EntertainmentBusiness, the grandfather is schema:LocalBusiness, the great grandfather is schema:Place', function() {
-            var class_node = 'schema:AdultEntertainment';
-            var asc_query = `PREFIX schema: <http://schema.org/>
-                             PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-                             SELECT ?all_super_classes WHERE {
-                                 ${class_node} rdfs:subClassOf ?all_super_classes
-                             }`;
-
+    describe('Prepare all super classes combining an array of classes', function() {
+        it('', function() {
+            var all_classes = ['schema:Organization', 'schema:Organization', 'schema:Person', 'schema:Person'];
             call_store(ontology)
                 .then(function(store) {
-                    var all_super_classes = [];
-                    graph_generator.get_all_super_classes(asc_query, store, all_super_classes)
-                        .then(function(asc) {
-                            assert.deepEqual('schema:EntertainmentBusiness', all_super_classes[0]);
-                            assert.deepEqual('schema:LocalBusiness', all_super_classes[1]);
-                            assert.deepEqual('schema:Place', all_super_classes[2]);
-                        }, function(error) {
-                            console.log(error);
+                    graph_generator.prepare_all_super_classes(store, all_classes)
+                        .then(function(all_super_classes) {
+                            //console.log(all_super_classes.length);
                         });
                 });
         });
@@ -277,7 +283,7 @@ describe('Graph building test suite\n', function() {
             graph_generator.build_graph(__dirname + '/semantic_types_test.json', __dirname + '/schema.ttl', p_domain, p_range)
                 .then(function(graph) {
                     assert.deepEqual(true, graphlib.json.write(graph)['options']['multigraph']);
-                    console.log(graphlib.json.write(graph));
+                    //console.log(graphlib.json.write(graph));
                 });
         });
     });
