@@ -12,6 +12,7 @@ var ε = 3;
 // TODO: better management of parameters and output
 // TODO: rename label of the object properties
 // TODO: better management of SPARQL query errors using store
+// TODO: reduce rigth-depth of function that call two Promises
 
 var is_duplicate = (node, graph) => {
     if (graph.node(node) === undefined)
@@ -199,7 +200,6 @@ var prepare_super_classes = (c_u, c_v, c_u_query, c_v_query, store) => {
     });
 }
 
-// TODO: Now you need to check the logic
 var prepare_all_super_classes = (store, all_classes) => {
     return new Promise(function(resolve, reject) {
         var all_super_classes = [];
@@ -217,15 +217,10 @@ var prepare_all_super_classes = (store, all_classes) => {
                 // two times, because the inverse process is already implemented in it
                 prepare_super_classes(all_classes[i], all_classes[j], first_query, second_query, store)
                     .then(function(super_classes) {
-                        if (Object.keys(super_classes).length > 0) {
+                        if (Object.keys(super_classes).length > 0)
                             all_super_classes.push(super_classes);
-                        }
-                        if (counter != stop) {
-                            counter++;
-                        } else {
-                            console.log('Resolved');
-                            resolve(all_super_classes);
-                        }
+                        if (counter != stop) counter++;
+                        else resolve(all_super_classes);
                     });
             }
         }
@@ -304,6 +299,57 @@ var get_indirect_properties = (c_u, c_v, p_domain, p_range, super_classes, store
     });
 }
 
+var get_all_indirect_properties = (store, all_super_classes, p_domain, p_range) => {
+    return new Promise(function(resolve, reject) {
+        var all_indirect_properties = [];
+        var counter = 1;
+        var count_one_key = 1
+        // Need to count cases in which you have only one super class
+        for (var i in all_super_classes) {
+            var keys = Object.keys(all_super_classes[i]);
+            if (keys.length === 1)
+                count_one_key++;
+        }
+        var stop = all_super_classes.length - count_one_key;
+        for (var i in all_super_classes) {
+            var keys = Object.keys(all_super_classes[i]);
+            if (keys.length == 2) {
+                var c_u = keys[0];
+                var c_v = keys[1];
+                var super_classes = all_super_classes[i];
+                get_indirect_properties(c_u, c_v, p_domain, p_range, super_classes, store)
+                    .then(function(indirect_properties) {
+                        if (indirect_properties.length > 0)
+                            all_indirect_properties = all_indirect_properties.concat(indirect_properties);
+                        if (counter != stop) {
+                            counter++;
+                        } else {
+                            resolve(all_indirect_properties);
+                        }
+                    });
+            }
+        }
+    });
+}
+
+var add_indirect_properties = (idps, graph) => {
+    return new Promise(function(resolve, reject) {
+        for (var i in idps) {
+            var subject = idps[i]['subject'];
+            var property = idps[i]['property'];
+            var object = idps[i]['object'];
+            var type = idps[i]['type'];
+            // Add properties as edge
+            graph.setEdge(subject, object, {
+                label: subject + '_' + object,
+                type: type
+            }, subject + '_' + object, 1 + ε); // Indirect edges have weight = 1 + ε
+        }
+        resolve(graph);
+    });
+
+}
+
 // BUILD THE GRAPH
 var initialize_ontology_storage = (ont_path) => {
     return new Promise(function(resolve, reject) {
@@ -379,14 +425,22 @@ var build_graph = (st_path, ont_path, p_domain, p_range) => {
             console.log(err);
         }).then(function() {
             // Get all super classes
-            console.log('Getting all_super_classes');
+            console.log('Getting all super classes...');
             var all_classes = get_class_nodes(graph);
             return prepare_all_super_classes(store, all_classes);
         }).catch(function(err) {
             console.log('Error when getting all super_classes:');
             console.log(err);
         }).then(function(super_classes) {
-            console.log(super_classes);
+            // Get all indirect properties
+            console.log('Getting all indirect properties...');
+            return get_all_indirect_properties(store, super_classes, p_domain, p_range);
+        }).catch(function(err) {
+            console.log('Error when getting all indirect_properties:');
+            console.log(err);
+        }).then(function(indirect_properties) {
+            // Add indirect_properties
+            return add_indirect_properties(indirect_properties, graph);
         }).then(function() {
             console.log('Graph building complete!\n');
             // TODO: check if the graph is complete (all nodes are linked) ! Otherwise, launch an exeception!

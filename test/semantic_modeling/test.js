@@ -78,27 +78,27 @@ describe('Graph building test suite\n', function() {
         });
     });
 
-    describe('Get all indirect properties from domain ontologies between 2 classes and their respective super classes', function() {
-        it('The first indirect property between \'schema:AdultEntertainment\' and  \'schema:BusinessEvent\' should be \'schema:events\'', function() {
-            var c_u = 'schema:AdultEntertainment';
-            var c_v = 'schema:BusinessEvent';
-            var super_classes = {
-                'schema:AdultEntertainment': [
-                    'schema:EntertainmentBusiness',
-                    'schema:LocalBusiness',
-                    'schema:Place',
-                    'schema:Organization',
-                    'schema:Thing',
-                ],
-                'schema:BusinessEvent': ['schema:Event', 'schema:Thing']
-            }
-            var p_domain = 'schema:domainIncludes';
-            var p_range = 'schema:rangeIncludes';
+    describe('Get inherited object properties from domain ontologies between 2 class nodes included in the graph', function() {
+        it('The inherited object properties of \'schema:Person\' and \'schema:Organization\' should be \'schema:brand\', \'schema:affiliation\', \'schema:memberOf\'', function() {
+            var c1 = 'schema:Person';
+            var c2 = 'schema:Organization';
+            var ip_query = `PREFIX schema: <http://schema.org/>
+                            PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                            SELECT ?inherited_properties ?domain WHERE {
+                                ?inherited_properties schema:domainIncludes ${c1} .
+                                ?inherited_properties schema:rangeIncludes ${c2} .
+                            }`;
             call_store(ontology)
                 .then(function(store) {
-                    graph_generator.get_indirect_properties(c_u, c_v, p_domain, p_range, super_classes, store)
-                        .then(function(indirect_properties) {
-                            assert.deepEqual('schema:events', indirect_properties[0]['property']);
+                    var inherited_properties = [];
+                    graph_generator.get_inherited_properties(ip_query, store, c1, c2, inherited_properties)
+                        .then(function(inherited_properties) {
+                            assert.deepEqual('schema:brand', inherited_properties[0]['property']);
+                            assert.deepEqual('schema:affiliation', inherited_properties[1]['property']);
+                            assert.deepEqual('schema:memberOf', inherited_properties[2]['property']);
+                        })
+                        .catch(function(error) {
+                            console.log('Something went wrong trying to get inherited object properties from domain ontologies: ' + error);
                         });
                 });
         });
@@ -139,27 +139,27 @@ describe('Graph building test suite\n', function() {
         });
     });
 
-    describe('Get inherited object properties from domain ontologies between 2 class nodes included in the graph', function() {
-        it('The inherited object properties of \'schema:Person\' and \'schema:Organization\' should be \'schema:brand\', \'schema:affiliation\', \'schema:memberOf\'', function() {
-            var c1 = 'schema:Person';
-            var c2 = 'schema:Organization';
-            var ip_query = `PREFIX schema: <http://schema.org/>
-                            PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-                            SELECT ?inherited_properties ?domain WHERE {
-                                ?inherited_properties schema:domainIncludes ${c1} .
-                                ?inherited_properties schema:rangeIncludes ${c2} .
-                            }`;
+    describe('Get indirect properties from domain ontologies between 2 classes and their respective super classes', function() {
+        it('The first indirect property between \'schema:AdultEntertainment\' and  \'schema:BusinessEvent\' should be \'schema:events\'', function() {
+            var c_u = 'schema:AdultEntertainment';
+            var c_v = 'schema:BusinessEvent';
+            var super_classes = {
+                'schema:AdultEntertainment': [
+                    'schema:EntertainmentBusiness',
+                    'schema:LocalBusiness',
+                    'schema:Place',
+                    'schema:Organization',
+                    'schema:Thing',
+                ],
+                'schema:BusinessEvent': ['schema:Event', 'schema:Thing']
+            }
+            var p_domain = 'schema:domainIncludes';
+            var p_range = 'schema:rangeIncludes';
             call_store(ontology)
                 .then(function(store) {
-                    var inherited_properties = [];
-                    graph_generator.get_inherited_properties(ip_query, store, c1, c2, inherited_properties)
-                        .then(function(inherited_properties) {
-                            assert.deepEqual('schema:brand', inherited_properties[0]['property']);
-                            assert.deepEqual('schema:affiliation', inherited_properties[1]['property']);
-                            assert.deepEqual('schema:memberOf', inherited_properties[2]['property']);
-                        })
-                        .catch(function(error) {
-                            console.log('Something went wrong trying to get inherited object properties from domain ontologies: ' + error);
+                    graph_generator.get_indirect_properties(c_u, c_v, p_domain, p_range, super_classes, store)
+                        .then(function(indirect_properties) {
+                            assert.deepEqual('schema:events', indirect_properties[0]['property']);
                         });
                 });
         });
@@ -283,7 +283,7 @@ describe('Graph building test suite\n', function() {
             graph_generator.build_graph(__dirname + '/semantic_types_test.json', __dirname + '/schema.ttl', p_domain, p_range)
                 .then(function(graph) {
                     assert.deepEqual(true, graphlib.json.write(graph)['options']['multigraph']);
-                    //console.log(graphlib.json.write(graph));
+                    console.log(graphlib.json.write(graph));
                 });
         });
     });
