@@ -77,22 +77,24 @@ var create_subjects = (nodes) => {
 }
 
 var extract_subjects = (data, subjects, column_nodes) => {
-    var subjects_uri = [];
+    var subjects_uris = {};
     for (var i in column_nodes) {
         var user_st = column_nodes[i]['userSemanticTypes'][0]; // Basically, you have only one semantic type defined by the user
         var subject_class = subjects[user_st['domain']['uri']];
         var subject_field = subject_class['field'];
         if (user_st['type']['uri'] === subject_field) {
             var subject_entries = data[column_nodes[i]['columnName']];
+            subjects_uris[user_st['domain']['uri']] = [];
             for (var j in subject_entries) {
-                subjects_uri.push(subject_data.basic_uri + subject_class['uri'] + subject_entries[j].replace(/ /g,"_"));
+                subjects_uris[user_st['domain']['uri']].push(subject_data.basic_uri + subject_class['uri'] + subject_entries[j].replace(/ /g,"_"));
             }
         }
     }
-    return subjects_uri;
+    return subjects_uris;
 }
 
 // TODO: Understand the better logic to create the most efficient attribution of rdf:type
+// TODO: Add information on the source of subjects
 
 // Generate a semantic type triple using the entry of a specific column
 var st_entry = (subject, user_st, entry) => {
@@ -115,14 +117,14 @@ var st_data_column = (subjects, user_st, column_data) => {
 
 // Generate semantic type triples of all columns of a dataset
 var create_st_triples = (internal_nodes, column_nodes, data) => {
-    // TODO: At this level you need to the define the logic to choose the subject
     var triples = [];
-    var subjects = create_subjects(internal_nodes);
+    var subjects_metadata = create_subjects(internal_nodes);
+    var subjects_uris = extract_subjects(data, subjects_metadata, column_nodes);
     for (var i in column_nodes) {
         var column_data = data[column_nodes[i]['columnName']];
         var user_st = column_nodes[i]['userSemanticTypes'][0] // Basically, you have only one semantic type defined by the user
-        var subjects_uri = extract_subjects(data, subjects, column_nodes);
-        triples.push(st_data_column(subjects_uri, user_st, column_data));
+        var subjects = subjects_uris[user_st['domain']['uri']];
+        triples.push(st_data_column(subjects, user_st, column_data));
     }
     return triples;
 }
