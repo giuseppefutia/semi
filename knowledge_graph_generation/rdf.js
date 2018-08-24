@@ -48,7 +48,7 @@ var read_sm = (path_file) => {
         var columns_map = [];
         var nodes = [];
         var links = [];
-        fs.readFile(path_file, 'utf8', function (err, data) {
+        fs.readFile(path_file, 'utf8', function(err, data) {
             if (err) reject(err);
             var sm = JSON.parse(data);
             columns_map = sm['sourceColumns'];
@@ -61,37 +61,56 @@ var read_sm = (path_file) => {
 }
 
 var create_subjects = (nodes) => {
-    var subjects = {}
+    var subjects = [];
     for (var n in nodes) {
         if (nodes[n]['type'] === 'InternalNode') {
+            var id = nodes[n]['id'];
             var uri_class = nodes[n]['label']['uri'];
             var index = subject_data.classes.indexOf(uri_class);
             if (index === undefined)
                 throw new Error('Subject ' + uri_class + ' not found! Check subject.js');
-            var uri = subject_data.uris[index];
+            var base_uri = subject_data.uris[index];
             var field = subject_data.field_for_uris[index];
-            subjects[uri_class] = {'uri': uri, 'field': field};
+            subjects.push({
+                'id': id,
+                'base_uri': base_uri,
+                'field': field,
+                'class': uri_class
+            });
         }
     }
     return subjects;
 }
 
+// TODO: There are too cycles
 var extract_subjects = (data, subjects, column_nodes) => {
-    var subjects_uris = {};
+    var subjects_uris = [];
     for (var i in column_nodes) {
         var user_st = column_nodes[i]['userSemanticTypes'][0]; // Basically, you have only one semantic type defined by the user
-        var subject_class = subjects[user_st['domain']['uri']];
-        var subject_field = subject_class['field'];
-        if (user_st['type']['uri'] === subject_field) {
-            var subject_entries = data[column_nodes[i]['columnName']];
-            subjects_uris[user_st['domain']['uri']] = [];
-            for (var j in subject_entries) {
-                subjects_uris[user_st['domain']['uri']].push(subject_data.basic_uri + subject_class['uri'] + subject_entries[j].replace(/ /g,"_"));
+        for (var j in subjects) {
+            if (user_st['domain']['uri'] === subjects[j]['class']) {
+                var subject_id = subjects[j]['id'];
+                var subject_class = subjects[j]['class'];
+                var subject_field = subjects[j]['field'];
+                var subject_base_uri = subjects[j]['base_uri'];
+                if (user_st['type']['uri'] === subject_field) {
+                    var entries = data[column_nodes[i]['columnName']];
+                    var subject_entries = [];
+                    for (var e in entries) {
+                        subject_entries.push(subject_data.basic_uri + subject_base_uri + entries[e].replace(/ /g, "_"));
+                    }
+                    subjects_uris.push({
+                        'id': subject_id,
+                        'class': subject_class,
+                        'entries': subject_entries
+                    });
+                }
             }
         }
     }
     return subjects_uris;
 }
+
 
 // TODO: Understand the better logic to create the most efficient attribution of rdf:type
 // TODO: Add information on the source of subjects
@@ -106,7 +125,6 @@ var st_entry = (subject, user_st, entry) => {
 }
 
 // Generate semantic type triples of all the entries of a column
-// TODO: In the high level function you need to identify the correct subject
 var st_data_column = (subjects, user_st, column_data) => {
     var triples = [];
     for (var i in column_data) {
@@ -116,17 +134,24 @@ var st_data_column = (subjects, user_st, column_data) => {
 }
 
 // Generate semantic type triples of all columns of a dataset
-var create_st_triples = (internal_nodes, column_nodes, data) => {
+var create_st_triples = (subjects_uris, column_nodes, data) => {
     var triples = [];
-    var subjects_metadata = create_subjects(internal_nodes);
-    var subjects_uris = extract_subjects(data, subjects_metadata, column_nodes);
     for (var i in column_nodes) {
         var column_data = data[column_nodes[i]['columnName']];
-        var user_st = column_nodes[i]['userSemanticTypes'][0] // Basically, you have only one semantic type defined by the user
-        var subjects = subjects_uris[user_st['domain']['uri']];
-        triples.push(st_data_column(subjects, user_st, column_data));
+        var user_st = column_nodes[i]['userSemanticTypes'][0]; // Basically, you have only one semantic type defined by the user
+        for (var j in subjects_uris) {
+            if (subjects_uris[j]['class'] === user_st['domain']['uri']) {
+                var subjects = subjects_uris[j]['entries'];
+                triples.push(st_data_column(subjects, user_st, column_data));
+            }
+        }
     }
     return triples;
+}
+
+// Generate object property triples
+var create_sm_triples = () => {
+    // TODO
 }
 
 var create_from_csv = (data, sm) => {
@@ -141,7 +166,9 @@ var create_from_csv = (data, sm) => {
                 column_nodes.push(nodes[n]);
             else throw new Error('Unknow node type: ' + nodes[n]['type']);
         }
-        var triples = create_st_triples(internal_nodes, column_nodes, data);
+        var subjects_metadata = create_subjects(internal_nodes);
+        var subjects_uris = extract_subjects(data, subjects_metadata, column_nodes);
+        var triples = create_st_triples(subjects_uris, column_nodes, data);
     });
 }
 
