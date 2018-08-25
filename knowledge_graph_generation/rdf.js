@@ -2,6 +2,8 @@ var fs = require('fs');
 var CsvReadableStream = require('csv-reader');
 var subject_data = require(__dirname + '/subject.js');
 
+// TODO: General improvement of variables naming and function decomposition
+
 // Such object should be the default one for all kind of datasets
 var csv_as_object = (headers, data) => {
     var csv_object = {};
@@ -111,70 +113,143 @@ var extract_subjects = (data, subjects, column_nodes) => {
     return subjects_uris;
 }
 
-
-// TODO: Understand the better logic to create the most efficient attribution of rdf:type
 // TODO: Add information on the source of subjects
 
-// Generate a semantic type triple using the entry of a specific column
-var st_entry = (subject, user_st, entry) => {
-    var triple = {};
-    triple['subject'] = subject;
-    triple['predicate'] = user_st['type']['uri'];
-    triple['object'] = entry;
-    return triple;
-}
-
-// Generate semantic type triples of all the entries of a column
-var st_data_column = (subjects, user_st, column_data) => {
+// Generate semantic type triples of all columns of a dataset
+var create_st_triples = (subjects_uris, data_property_links, column_nodes, data) => {
     var triples = [];
-    for (var i in column_data) {
-        triples.push(st_entry(subjects[i], user_st, column_data[i]));
+    var link_ids = [];
+    for (var i in data_property_links) {
+        link_ids.push(data_property_links[i]['id'].split('---'));
     }
+
+    for (var j in link_ids) {
+        var s_uri = link_ids[j][0];
+        var p_uri = link_ids[j][1];
+        var o_id = link_ids[j][2];
+        var subject_entries = [];
+        var data_entries = [];
+
+        for (var r in subjects_uris) {
+            if (subjects_uris[r]['id'] === s_uri) {
+                subject_entries = subjects_uris[r]['entries'];
+            }
+        }
+
+        for (var t in column_nodes) {
+            if (column_nodes[t]['id'] === o_id) {
+                data_entries = data[column_nodes[t]['columnName']];
+            }
+        }
+
+        for (var k in subject_entries) {
+            var triple = [];
+            triple[0] = subject_entries[k];
+            triple[1] = p_uri;
+            triple[2] = data_entries[k];
+            triples.push(triple);
+        }
+    }
+
     return triples;
 }
 
-// Generate semantic type triples of all columns of a dataset
-var create_st_triples = (subjects_uris, column_nodes, data) => {
+// Generate object property triples
+var create_sm_triples = (subjects_uris, links) => {
     var triples = [];
-    for (var i in column_nodes) {
-        var column_data = data[column_nodes[i]['columnName']];
-        var user_st = column_nodes[i]['userSemanticTypes'][0]; // Basically, you have only one semantic type defined by the user
-        for (var j in subjects_uris) {
-            if (subjects_uris[j]['class'] === user_st['domain']['uri']) {
-                var subjects = subjects_uris[j]['entries'];
-                triples.push(st_data_column(subjects, user_st, column_data));
+    var link_ids = [];
+    for (var i in links) {
+        link_ids.push(links[i]['id'].split('---'));
+    }
+    for (var j in link_ids) {
+        var subjects = [];
+        var predicate = '';
+        var objects = [];
+        var subjects_type = [];
+        var objects_type = [];
+        var s_uri = link_ids[j][0];
+        var p_uri = link_ids[j][1];
+        var o_uri = link_ids[j][2];
+
+        for (var t in subjects_uris) {
+            if (subjects_uris[t]['id'] === s_uri) {
+                subjects = subjects_uris[t]['entries'];
+                subjects_type = subjects_uris[t]['class'];
             }
+            if (subjects_uris[t]['id'] === o_uri) {
+                objects = subjects_uris[t]['entries'];
+                objects_type = subjects_uris[t]['class'];
+            }
+        }
+        predicate = p_uri;
+
+        for (var r in subjects) {
+            // Object properties triples
+            var triple = [];
+            triple[0] = subjects[r];
+            triple[1] = predicate;
+            triple[2] = objects[r];
+            triples.push(triple);
+
+            // RDF Type triples
+            var subject_type = [];
+            subject_type[0] = subjects[r];
+            subject_type[1] = 'https://www.w3.org/1999/02/22-rdf-syntax-ns#type';
+            subject_type[2] = subjects_type;
+            triples.push(subject_type);
+
+            var object_type = [];
+            object_type[0] = objects[r];
+            object_type[1] = 'https://www.w3.org/1999/02/22-rdf-syntax-ns#type';
+            object_type[2] = objects_type;
+            triples.push(object_type);
         }
     }
     return triples;
 }
 
-// Generate object property triples
-var create_sm_triples = () => {
-    // TODO
-}
-
 var create_from_csv = (data, sm) => {
     return new Promise(function(resolve, reject) {
+        var columns_map = sm[0];
         var nodes = sm[1];
+        var links = sm[2];
         var internal_nodes = [];
         var column_nodes = [];
+        var object_property_links = [];
+        var data_property_links = [];
+
         for (var n in nodes) {
             if (nodes[n]['type'] === 'InternalNode')
                 internal_nodes.push(nodes[n]);
             else if (nodes[n]['type'] === 'ColumnNode')
                 column_nodes.push(nodes[n]);
-            else throw new Error('Unknow node type: ' + nodes[n]['type']);
+            else throw new Error('Unknow node type: ' + nodes[n]['type']); // Just a check if there are strange things in the dataset
         }
+
+        for (var l in links) {
+            if (links[l]['type'] === 'ObjectPropertyLink')
+                object_property_links.push(links[l]);
+            else if (links[l]['type'] === 'DataPropertyLink')
+                data_property_links.push(links[l]);
+            else throw new Error('Unknow link type: ' + links[l]['type']); // Just a check if there are strange things in the dataset
+        }
+
         var subjects_metadata = create_subjects(internal_nodes);
         var subjects_uris = extract_subjects(data, subjects_metadata, column_nodes);
-        var triples = create_st_triples(subjects_uris, column_nodes, data);
+        var sm_triples = create_sm_triples(subjects_uris, object_property_links);
+        var st_triples = create_st_triples(subjects_uris, data_property_links, column_nodes, data);
+        var triples = sm_triples.concat(st_triples);
+        resolve(triples);
     });
 }
 
 var create_rdf = (input, input_type, sm) => {
-    if (input_type === 'csv')
+    if (input_type === 'csv') {
         create_from_csv(input, sm)
+            .then(function(triples) {
+                
+            });
+    }
 }
 
 var build_knowledge_graph = (inputs, sms) => {
@@ -185,3 +260,4 @@ exports.read_csv = read_csv;
 exports.read_sm = read_sm;
 exports.create_subjects = create_subjects;
 exports.create_from_csv = create_from_csv;
+exports.create_rdf = create_rdf;
