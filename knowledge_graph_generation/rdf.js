@@ -1,6 +1,9 @@
 var fs = require('fs');
+var path = require('path');
+var exec = require('child_process').exec;
 var CsvReadableStream = require('csv-reader');
 var subject_data = require(__dirname + '/subject.js');
+var rdfstore = require('rdfstore');
 
 // TODO: General improvement of variables naming and function decomposition
 
@@ -142,12 +145,14 @@ var create_st_triples = (subjects_uris, data_property_links, column_nodes, data)
             }
         }
 
-        for (var k in subject_entries) {
-            var triple = [];
-            triple[0] = subject_entries[k];
-            triple[1] = p_uri;
-            triple[2] = data_entries[k];
-            triples.push(triple);
+        if (data_entries != undefined) { // XXX Control for bad data
+            for (var k in subject_entries) {
+                var triple = [];
+                triple[0] = subject_entries[k];
+                triple[1] = p_uri;
+                triple[2] = data_entries[k];
+                triples.push(triple);
+            }
         }
     }
 
@@ -231,6 +236,8 @@ var create_from_csv = (data, sm) => {
                 object_property_links.push(links[l]);
             else if (links[l]['type'] === 'DataPropertyLink')
                 data_property_links.push(links[l]);
+            else if (links[l]['type'] === 'ClassInstanceLink') // For now threat is as a data property;
+                data_property_links.push(links[l]);
             else throw new Error('Unknow link type: ' + links[l]['type']); // Just a check if there are strange things in the dataset
         }
 
@@ -238,26 +245,113 @@ var create_from_csv = (data, sm) => {
         var subjects_uris = extract_subjects(data, subjects_metadata, column_nodes);
         var sm_triples = create_sm_triples(subjects_uris, object_property_links);
         var st_triples = create_st_triples(subjects_uris, data_property_links, column_nodes, data);
-        var triples = sm_triples.concat(st_triples);
+        var triples = {};
+        triples['data_properties'] = st_triples;
+        triples['object_properties'] = sm_triples;
         resolve(triples);
     });
 }
 
-var create_rdf = (input, input_type, sm) => {
-    if (input_type === 'csv') {
-        create_from_csv(input, sm)
+var generate_rdf_store = (triples) => {
+    return new Promise(function(resolve, reject) {
+        rdfstore.create(function(err, store) {
+            var graph = store.rdf.createGraph();
+            var data_properties = triples['data_properties'];
+            var object_properties = triples['object_properties'];
+            for (var t in data_properties) {
+                graph.add(store.rdf.createTriple(
+                    store.rdf.createNamedNode(data_properties[t][0]),
+                    store.rdf.createNamedNode(data_properties[t][1]),
+                    store.rdf.createLiteral(data_properties[t][2])));
+            }
+            for (var j in object_properties) {
+                graph.add(store.rdf.createTriple(
+                    store.rdf.createNamedNode(object_properties[j][0]),
+                    store.rdf.createNamedNode(object_properties[j][1]),
+                    store.rdf.createNamedNode(object_properties[j][2])));
+            }
+            var serialized = graph.toNT();
+            resolve(serialized);
+        });
+    });
+}
+
+var csv_pipeline = (csv_path, sm_path) => {
+    return new Promise(function(resolve, reject) {
+        var csv_data = [];
+        var semantic_model_data = [];
+        var sequence = Promise.resolve()
+            .then(function() {
+                // Read CSV
+                return read_csv(csv_path, ',');
+            })
+            .then(function(csv) {
+                csv_data = csv;
+                // Read Semantic Model
+                return read_sm(sm_path);
+            })
+            .then(function(sm) {
+                semantic_model_data = sm;
+                // Create RDF data
+                return create_from_csv(csv_data, semantic_model_data);
+            })
             .then(function(triples) {
-                
+                resolve(generate_rdf_store(triples));
             });
+    });
+}
+
+var get_related_sm = (input_name, sm_files) => {
+    var ext = path.extname(input_name);
+    var input_base_name = path.basename(input_name, ext);
+    for (var i in sm_files) {
+        var sm_base_name = path.basename(sm_files[i], '.json').split(ext + '.model')[0];
+        if (input_base_name == sm_base_name) {
+            return sm_files[i];
+        }
     }
 }
 
-var build_knowledge_graph = (inputs, sms) => {
+var build_knowledge_graph = (input_dirs, sm_dirs) => {
+    var write_path = 'data/evaluation/output/kg.nt'
+    fs.unlinkSync(write_path);
 
+    var input_files = [];
+    var sm_files = [];
+    for (var i in input_dirs) {
+        fs.readdirSync(input_dirs[i]).forEach(file => {
+            input_files.push(path.resolve(input_dirs[i] + '/' + file));
+        });
+    }
+    for (var j in sm_dirs) {
+        fs.readdirSync(sm_dirs[j]).forEach(file => {
+            sm_files.push(path.resolve(sm_dirs[j] + '/' + file));
+        });
+    }
+    for (var t in input_files) {
+        if (path.extname(input_files[t]) === '.csv') {
+            // Process CSV files
+            var sm_file = get_related_sm(input_files[t], sm_files);
+            csv_pipeline(input_files[t], sm_file)
+                .then(function(rdf) {
+                    fs.appendFileSync(write_path, rdf);
+                });
+        }
+    }
 }
+
+var input_dirs = [
+    'data/evaluation/jws-knowledge-graphs-2015/museum-29-edm/sources'
+]
+
+var sm_dirs = [
+    'data/evaluation/jws-knowledge-graphs-2015/museum-29-edm/models-json'
+];
+
+build_knowledge_graph(input_dirs, sm_dirs);
 
 exports.read_csv = read_csv;
 exports.read_sm = read_sm;
 exports.create_subjects = create_subjects;
 exports.create_from_csv = create_from_csv;
-exports.create_rdf = create_rdf;
+exports.generate_rdf_store = generate_rdf_store;
