@@ -3,7 +3,8 @@
 
 var basic_uri = 'http://localhost/'
 
-var classes = ['http://www.americanartcollaborative.org/ontology/CulturalHeritageObject',
+var classes = [
+    'http://www.americanartcollaborative.org/ontology/CulturalHeritageObject',
     'http://www.americanartcollaborative.org/ontology/Person',
     'http://www.w3.org/2008/05/skos#Concept',
     'http://xmlns.com/foaf/0.1/Document',
@@ -12,7 +13,8 @@ var classes = ['http://www.americanartcollaborative.org/ontology/CulturalHeritag
     'http://www.americanartcollaborative.org/ontology/Place'
 ];
 
-var uris = ['cultural_objects/',
+var uris = [
+    'cultural_objects/',
     'people/',
     'concepts/',
     'CONST',
@@ -21,7 +23,8 @@ var uris = ['cultural_objects/',
     'places/'
 ];
 
-var field_for_uris = ['http://purl.org/dc/terms/title',
+var field_for_uris = [
+    'http://purl.org/dc/terms/title',
     'http://rdvocab.info/ElementsGr2/nameOfThePerson',
     'http://www.w3.org/2008/05/skos#prefLabel',
     'http://isi.edu/integration/karma/dev#classLink',

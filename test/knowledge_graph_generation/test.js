@@ -24,8 +24,8 @@ describe('Knowledge Graph Generation test suite\n', function() {
                 // Create RDF data
                 return rdf.create_from_csv(csv_data, semantic_model_data);
             })
-            .then(function(rdf_data) {
-
+            .then(function(triples) {
+                rdf.generate_rdf_store(triples);
             });
     });
 
