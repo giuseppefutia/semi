@@ -23,32 +23,32 @@ describe('Steiner algorithm test suite\n', function() {
         graph.setEdge('V8', 'V7', {}, 'V8---V7', 0.5);
         graph.setEdge('V7', 'V8', {}, 'V7---V8', 0.5);
 
-        graph.setEdge('V7', 'V6', {} , 'V7---V6', 1);
-        graph.setEdge('V6', 'V7', {} , 'V6---V7', 1);
+        graph.setEdge('V7', 'V6', {}, 'V7---V6', 1);
+        graph.setEdge('V6', 'V7', {}, 'V6---V7', 1);
 
-        graph.setEdge('V6', 'V5', {} , 'V6---V5', 1);
-        graph.setEdge('V5', 'V6', {} , 'V5---V6', 1);
+        graph.setEdge('V6', 'V5', {}, 'V6---V5', 1);
+        graph.setEdge('V5', 'V6', {}, 'V5---V6', 1);
 
-        graph.setEdge('V9', 'V5', {} , 'V9---V5', 1);
-        graph.setEdge('V5', 'V9', {} , 'V5---V9', 1);
+        graph.setEdge('V9', 'V5', {}, 'V9---V5', 1);
+        graph.setEdge('V5', 'V9', {}, 'V5---V9', 1);
 
-        graph.setEdge('V5', 'V4', {} , 'V5---V4', 2);
-        graph.setEdge('V4', 'V5', {} , 'V4---V5', 2);
+        graph.setEdge('V5', 'V4', {}, 'V5---V4', 2);
+        graph.setEdge('V4', 'V5', {}, 'V4---V5', 2);
 
-        graph.setEdge('V4', 'V3', {} , 'V4---V3', 9);
-        graph.setEdge('V3', 'V4', {} , 'V3---V4', 9);
+        graph.setEdge('V4', 'V3', {}, 'V4---V3', 9);
+        graph.setEdge('V3', 'V4', {}, 'V3---V4', 9);
 
-        graph.setEdge('V5', 'V3', {} , 'V5---V3', 2);
-        graph.setEdge('V3', 'V5', {} , 'V3---V5', 2);
+        graph.setEdge('V5', 'V3', {}, 'V5---V3', 2);
+        graph.setEdge('V3', 'V5', {}, 'V3---V5', 2);
 
-        graph.setEdge('V3', 'V2', {} , 'V3---V2', 8);
-        graph.setEdge('V2', 'V3', {} , 'V2---V3', 8);
+        graph.setEdge('V3', 'V2', {}, 'V3---V2', 8);
+        graph.setEdge('V2', 'V3', {}, 'V2---V3', 8);
 
-        graph.setEdge('V2', 'V6', {} , 'V2---V6', 1);
-        graph.setEdge('V6', 'V2', {} , 'V6---V2', 1);
+        graph.setEdge('V2', 'V6', {}, 'V2---V6', 1);
+        graph.setEdge('V6', 'V2', {}, 'V6---V2', 1);
 
-        graph.setEdge('V1', 'V2', {} , 'V1---V2', 10);
-        graph.setEdge('V2', 'V1', {} , 'V2---V1', 10);
+        graph.setEdge('V1', 'V2', {}, 'V1---V2', 10);
+        graph.setEdge('V2', 'V1', {}, 'V2---V1', 10);
 
         var s = ['V1', 'V2', 'V3', 'V4'];
 
