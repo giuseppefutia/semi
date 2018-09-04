@@ -7,7 +7,6 @@ var Graph = require('graphlib').Graph;
 var graphlib = require('graphlib');
 var _ = require('underscore');
 
-
 var get_weight = (e) => {
     return e['weight'];
 }
@@ -143,7 +142,6 @@ var kruskal = (nodes, edges) => {
     }
     return mst;
 }
-
 
 // Step1: construct the complete undirected distance graph G1 = (V1,E1,d1) from G and S
 var step_one = (graph, steiner_nodes) => {
