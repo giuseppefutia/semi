@@ -175,7 +175,7 @@ var step_one = (graph, steiner_nodes) => {
 }
 
 // Step 2: Find the minimal spanning tree, T1, of G1. (If there are several minimal spanning trees, pick an arbitrary one.)
-function step_two(graph) {
+var step_two = (graph) => {
     var G2 = new Graph({
         multigraph: true
     });
@@ -195,7 +195,7 @@ function step_two(graph) {
 // Construct the subgraph, Gs, of G by replacing each edge in T1 by its corresponding shortest path in G.
 // (If there are several shortest paths, pick an arbitrary one.)
 // In this case graph is the original graph
-function step_three(G2, graph) {
+var step_three = (G2, graph) => {
     var G3 = new Graph({
         multigraph: true
     });
@@ -226,7 +226,7 @@ function step_three(G2, graph) {
 }
 
 // Find the minimal spanning tree, Ts, of Gs. (If there are several minimal spanning trees, pick an arbitrary one.) @param g3
-function step_four(G3) {
+var step_four = (G3) => {
     var G4 = new Graph({
         multigraph: true
     });
@@ -245,7 +245,7 @@ function step_four(G3) {
 
 // Construct a Steiner tree, Th, from Ts by deleting edges in Ts,if necessary,
 // so that all the leaves in Th are Steiner points.
-function step_five(G4, steiner_nodes) {
+var step_five = (G4, steiner_nodes) => {
     var G5 = G4;
     var non_steiner_leaves = [];
     var nodes = G4.nodes();
@@ -268,7 +268,7 @@ function step_five(G4, steiner_nodes) {
     return G5;
 }
 
-var steiner_alg = (graph, steiner_nodes) {
+var steiner_alg = (graph, steiner_nodes) => {
     var G1 = step_one(graph, steiner_nodes);
     var G2 = step_two(G1);
     var G3 = step_three(G2, graph);
