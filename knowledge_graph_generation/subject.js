@@ -17,9 +17,9 @@ var uris = [
     'cultural_objects/',
     'people/',
     'concepts/',
-    'CONST',
+    'CONST/',
     'aggregations/',
-    'CONST',
+    'CONST/',
     'places/'
 ];
 

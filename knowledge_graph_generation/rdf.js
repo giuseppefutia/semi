@@ -1,94 +1,34 @@
 var fs = require('fs');
 var path = require('path');
-var exec = require('child_process').exec;
 var CsvReadableStream = require('csv-reader');
 var subject_data = require(__dirname + '/subject.js');
+var reader = require(__dirname + '/reader.js')
 var rdfstore = require('rdfstore');
 
 // TODO: General improvement of variables naming and function decomposition
 
-// Such object should be the default one for all kind of datasets
-var csv_as_object = (headers, data) => {
-    var csv_object = {};
-    for (var i in headers) {
-        var column_data = [];
-        for (var j in data) {
-            column_data.push(data[j][i]);
-        }
-        csv_object[headers[i]] = column_data;
-    }
-    return csv_object;
-}
-
-var read_csv = (path_file, delimiter) => {
-    return new Promise(function(resolve, reject) {
-        var is_header = true;
-        var headers = [];
-        var data = [];
-        var inputStream = fs.createReadStream(path_file, 'utf8')
-            .pipe(CsvReadableStream({
-                parseNumbers: true,
-                parseBooleans: true,
-                delimiter: delimiter
-            }))
-            .on('error', function() {
-                reject();
-            })
-            .on('data', function(row) {
-                if (is_header) {
-                    headers = row;
-                    is_header = false;
-                } else {
-                    data.push(row);
-                }
-            })
-            .on('end', function() {
-                resolve(csv_as_object(headers, data));
-            });
-    });
-}
-
-var read_sm = (path_file) => {
-    return new Promise(function(resolve, reject) {
-        var columns_map = [];
-        var nodes = [];
-        var links = [];
-        fs.readFile(path_file, 'utf8', function(err, data) {
-            if (err) reject(err);
-            var sm = JSON.parse(data);
-            columns_map = sm['sourceColumns'];
-            nodes = sm['graph']['nodes'];
-            links = sm['graph']['links'];
-            var sm_data = [columns_map, nodes, links];
-            resolve(sm_data);
-        })
-    });
-}
-
 var create_subjects = (nodes) => {
     var subjects = [];
     for (var n in nodes) {
-        if (nodes[n]['type'] === 'InternalNode') {
-            var id = nodes[n]['id'];
-            var uri_class = nodes[n]['label']['uri'];
-            var index = subject_data.classes.indexOf(uri_class);
-            if (index === undefined)
-                throw new Error('Subject ' + uri_class + ' not found! Check subject.js');
-            var base_uri = subject_data.uris[index];
-            var field = subject_data.field_for_uris[index];
-            subjects.push({
-                'id': id,
-                'base_uri': base_uri,
-                'field': field,
-                'class': uri_class
-            });
-        }
+        var id = nodes[n]['id'];
+        var uri_class = nodes[n]['label']['uri'];
+        var index = subject_data.classes.indexOf(uri_class);
+        if (index === undefined)
+            throw new Error('Subject ' + uri_class + ' not found! Check subject.js');
+        var base_uri = subject_data.uris[index];
+        var field = subject_data.field_for_uris[index];
+        subjects.push({
+            'id': id,
+            'base_uri': base_uri,
+            'field': field,
+            'class': uri_class
+        });
     }
     return subjects;
 }
 
 // TODO: There are too cycles
-var extract_subjects = (data, subjects, column_nodes) => {
+var extract_subjects = (data, subjects, column_nodes, columns_map) => {
     var subjects_uris = [];
     for (var i in column_nodes) {
         var user_st = column_nodes[i]['userSemanticTypes'][0]; // Basically, you have only one semantic type defined by the user
@@ -98,6 +38,7 @@ var extract_subjects = (data, subjects, column_nodes) => {
                 var subject_class = subjects[j]['class'];
                 var subject_field = subjects[j]['field'];
                 var subject_base_uri = subjects[j]['base_uri'];
+
                 if (user_st['type']['uri'] === subject_field) {
                     var entries = data[column_nodes[i]['columnName']];
                     var subject_entries = [];
@@ -213,7 +154,7 @@ var create_sm_triples = (subjects_uris, links) => {
     return triples;
 }
 
-var create_from_csv = (data, sm) => {
+var create_rdf = (data, sm) => {
     return new Promise(function(resolve, reject) {
         var columns_map = sm[0];
         var nodes = sm[1];
@@ -236,13 +177,13 @@ var create_from_csv = (data, sm) => {
                 object_property_links.push(links[l]);
             else if (links[l]['type'] === 'DataPropertyLink')
                 data_property_links.push(links[l]);
-            else if (links[l]['type'] === 'ClassInstanceLink') // For now threat is as a data property;
+            else if (links[l]['type'] === 'ClassInstanceLink') // For now threat it as a data property;
                 data_property_links.push(links[l]);
             else throw new Error('Unknow link type: ' + links[l]['type']); // Just a check if there are strange things in the dataset
         }
-
+        // TODO: Need to make use of columns_map
         var subjects_metadata = create_subjects(internal_nodes);
-        var subjects_uris = extract_subjects(data, subjects_metadata, column_nodes);
+        var subjects_uris = extract_subjects(data, subjects_metadata, column_nodes, columns_map);
         var sm_triples = create_sm_triples(subjects_uris, object_property_links);
         var st_triples = create_st_triples(subjects_uris, data_property_links, column_nodes, data);
         var triples = {};
@@ -283,22 +224,26 @@ var csv_pipeline = (csv_path, sm_path) => {
         var sequence = Promise.resolve()
             .then(function() {
                 // Read CSV
-                return read_csv(csv_path, ',');
+                return reader.read_csv(csv_path, ',');
             })
             .then(function(csv) {
                 csv_data = csv;
                 // Read Semantic Model
-                return read_sm(sm_path);
+                return reader.read_sm(sm_path);
             })
             .then(function(sm) {
                 semantic_model_data = sm;
                 // Create RDF data
-                return create_from_csv(csv_data, semantic_model_data);
+                return create_rdf(csv_data, semantic_model_data);
             })
             .then(function(triples) {
                 resolve(generate_rdf_store(triples));
             });
     });
+}
+
+var json_pipeline = () => {
+
 }
 
 var get_related_sm = (input_name, sm_files) => {
@@ -314,7 +259,7 @@ var get_related_sm = (input_name, sm_files) => {
 
 var build_knowledge_graph = (input_dirs, sm_dirs) => {
     var write_path = 'data/evaluation/output/kg.nt'
-    fs.unlinkSync(write_path);
+    //fs.unlinkSync(write_path);
 
     var input_files = [];
     var sm_files = [];
@@ -350,8 +295,6 @@ var sm_dirs = [
 
 build_knowledge_graph(input_dirs, sm_dirs);
 
-exports.read_csv = read_csv;
-exports.read_sm = read_sm;
 exports.create_subjects = create_subjects;
-exports.create_from_csv = create_from_csv;
+exports.create_rdf = create_rdf;
 exports.generate_rdf_store = generate_rdf_store;
