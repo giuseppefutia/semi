@@ -8,6 +8,7 @@ var steiner = require(__dirname + '/../../semantic_modeling/fast-steiner-tree.js
 describe('Steiner algorithm test suite\n', function() {
 
     describe('Test the algorithm', function() {
+        // Algorithm tested with the example available here: https://www.researchgate.net/publication/227056882_A_Fast_Algorithm_for_Steiner_Trees.
         var graph = new Graph({
             multigraph: true,
         });
