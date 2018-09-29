@@ -164,6 +164,7 @@ describe('Elastic test suite\n', function() {
     });
 });
 
+/*
 describe('CSV test suite\n', function() {
     var path = '/Arezzo.csv';
     var headers = ['Note', 'Titolo', 'Lorem_ispusm'];
@@ -202,3 +203,4 @@ describe('CSV test suite\n', function() {
     });
 
 });
+*/
