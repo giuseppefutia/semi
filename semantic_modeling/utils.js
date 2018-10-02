@@ -1,6 +1,9 @@
 var PREFIX = {
     'http://schema.org/': 'schema:',
     'http://www.w3.org/2000/01/rdf-schema#': 'rdfs:',
+    'http://purl.org/procurement/public-contracts#': 'pc',
+    'http://purl.org/goodrelations/v1#' : 'gr',
+    'http://www.w3.org/2002/07/owl#' : 'owl'
 }
 
 var clean_prefix = function(uri) {
