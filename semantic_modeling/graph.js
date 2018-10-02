@@ -24,6 +24,20 @@ var add_semantic_types = (st, graph) => {
     var attributes = st['attributes'];
     var semantic_types = st['semantic_types'];
     for (var i in attributes) {
+        var value = '';
+
+        // If chain to manage different data structures
+        // TODO: For now, go only into two levels of the tree strcture, managing object or arrays
+        // TODO: It needs to be engineered
+        if (typeof(attributes[i]) === 'string') {
+            value = attributes[i];
+        } else {
+            var key = Object.keys(attributes[i]);
+            if (typeof(attributes[i][key]) === "string")
+                value = key + '__' + attributes[i][key];
+            else if (Array.isArray(attributes[i][key]))
+                value = key + '__' + attributes[i][key] + '**' + 'array';
+        }
         // Add class node
         var class_node = semantic_types[i][0].split("_")[0];
         if (!is_duplicate(class_node, graph))
@@ -31,7 +45,7 @@ var add_semantic_types = (st, graph) => {
                 type: 'class_uri'
             });
         // Add data node
-        var data_node = attributes[i];
+        var data_node = value;
         if (!is_duplicate(data_node, graph))
             graph.setNode(data_node, {
                 type: 'attribute_name'
@@ -60,7 +74,9 @@ var get_closures = (closure_query, store) => {
     return new Promise(function(resolve, reject) {
         store.execute(closure_query, function(success, results) {
             if (success !== null) reject(success);
-            var closure_classes = utils.get_clean_results(results, 'closure_classes');
+            var closure_classes = utils.get_clean_results(results, 'closures');
+            // Useful to remove blank nodes that break the code
+            closure_classes = closure_classes.filter(el => !el.includes('_:'));
             resolve(closure_classes);
         });
     });
@@ -119,7 +135,7 @@ var get_all_direct_properties = (store, all_classes, p_domain, p_range) => {
                                 if (inverse_direct_properties.length > 0)
                                     all_direct_properties = all_direct_properties.concat(inverse_direct_properties);
                                 if (counter != stop) {
-                                    counter++;
+                                    counter++;;
                                 } else {
                                     resolve(all_direct_properties);
                                 }
@@ -164,6 +180,9 @@ var get_super_classes = (sc_query, store, rscs) => {
     return new Promise(function(resolve, reject) {
         store.execute(sc_query, function(success, results) {
             if (success !== null) reject(success);
+            // Considere the case in which you do not obtain any result
+            if (results.length === 0)
+                resolve(rscs);
             for (var i in results) {
                 var query_result = utils.clean_prefix(results[i]['all_super_classes']['value']);
                 rscs.push(query_result);
@@ -204,7 +223,10 @@ var prepare_all_super_classes = (store, all_classes) => {
     return new Promise(function(resolve, reject) {
         var all_super_classes = [];
         var counter = 1;
+
         // Attention: we need to remove Thing because for that specific cases super_classes function does not resolve
+        // TODO: THIS IS VALID ONLY FOR SCHEMA!!!
+
         all_classes = all_classes.filter(function(e) {return e!='schema:Thing'})
         var stop = all_classes.length * all_classes.length;
         for (var i in all_classes) {
@@ -274,9 +296,13 @@ var get_inherited_and_inverse_properties = (ip_query, iip_query, store, c_u, c_v
 var get_indirect_properties = (c_u, c_v, p_domain, p_range, super_classes, store) => {
     return new Promise(function(resolve, reject) {
         // This counter is useful to understand when stop!
+        var indirect_properties = [];
         var counter = 1;
         var stop = super_classes[c_u].length * super_classes[c_v].length;
-        var indirect_properties = [];
+
+        // Ignore cases in which super classes are absent, so we are not able to get indirect properties
+        if (stop === 0) resolve(indirect_properties);
+
         for (var i in super_classes[c_u]) {
             for (var j in super_classes[c_v]) {
                 // To get inherited and inverse inherited properties change the order of the classes passed as input
@@ -304,6 +330,7 @@ var get_all_indirect_properties = (store, all_super_classes, p_domain, p_range) 
         var all_indirect_properties = [];
         var counter = 1;
         var count_one_key = 1
+
         // Need to count cases in which you have only one super class
         for (var i in all_super_classes) {
             var keys = Object.keys(all_super_classes[i]);
@@ -351,19 +378,23 @@ var add_indirect_properties = (idps, graph) => {
 }
 
 // BUILD THE GRAPH
-var initialize_ontology_storage = (ont_path) => {
+// XXX For now I write the code to manage only two ontologies
+var initialize_ontology_storage = (ont_paths) => {
     return new Promise(function(resolve, reject) {
         rdfstore.create(function(err, store) {
-            var ontology = fs.readFileSync(ont_path).toString();
-            store.load('text/turtle', ontology, function(err, data) {
+            var first_ontology = fs.readFileSync(ont_paths[0]).toString();
+            store.load('text/turtle', first_ontology, function(err, data) {
                 if (err) reject(err);
-                resolve(store);
+                var second_ontology = fs.readFileSync(ont_paths[1]).toString();
+                store.load('text/turtle', second_ontology, function(err, data) {
+                    resolve(store);
+                });
             });
         });
     });
 }
 
-var build_graph = (st_path, ont_path, p_domain, p_range) => {
+var build_graph = (st_path, ont_path, p_domain, p_range, o_class) => {
     return new Promise(function(resolve, reject) {
         // Create a new graph
         var graph = new Graph({
@@ -395,16 +426,16 @@ var build_graph = (st_path, ont_path, p_domain, p_range) => {
             // Get closures
             console.log('Getting closures...');
             return get_class_nodes(graph).reduce(function(closure_sequence, class_node) {
-                var query = sparql.CLOSURE_QUERY(class_node);
+                var query = sparql.CLOSURE_QUERY(class_node, o_class);
                 return get_closures(query, store);
             }, Promise.resolve());
         }).catch(function(err) {
             console.log('Error when getting closures:');
             console.log(err);
-        }).then(function(closure_classes) {
+        }).then(function(closures) {
             // Add closures
             console.log('Adding closures...');
-            return add_closures(closure_classes, graph);
+            return add_closures(closures, graph);
         }).catch(function(err) {
             console.log('Error when adding closures:');
             console.log(err);
