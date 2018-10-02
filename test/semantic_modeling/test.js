@@ -10,8 +10,10 @@ var sparql = require(__dirname + '/../../semantic_modeling/sparql_queries.js');
 // TODO: Use done()
 // TODO: Add test for add_direct_properties()
 
-describe('Graph building test suite\n', function() {
+/*
+describe('Graph building test suite on schema\n', function() {
 
+    // Tests on schema
     var ontology;
 
     before(function() {
@@ -280,10 +282,179 @@ describe('Graph building test suite\n', function() {
         it('Multi Graph should be built', function() {
             var p_domain = 'schema:domainIncludes';
             var p_range = 'schema:rangeIncludes';
-            graph_generator.build_graph(__dirname + '/semantic_types_test.json', __dirname + '/schema.ttl', p_domain, p_range)
+            graph_generator.build_graph(__dirname + '/semantic_types_test.json', [__dirname + '/schema.ttl', __dirname + '/schema.ttl'], p_domain, p_range)
                 .then(function(graph) {
                     assert.deepEqual(true, graphlib.json.write(graph)['options']['multigraph']);
                     console.log(graphlib.json.write(graph));
+                });
+        });
+    });
+});
+
+// XXX There are some problems related to wrong blank nodes generated during the conversion from RDF/XML and turtle
+describe('Graph building test suite on good relation\n', function() {
+    var ontology;
+
+    before(function() {
+        ontology = fs.readFileSync(__dirname + '/v1.ttl').toString();
+    });
+
+    var call_store = (ontology) => {
+        return new Promise(function(resolve, reject) {
+            rdfstore.create(function(err, store) {
+                store.load('text/turtle', ontology, function(err, data) {
+                    if (err) reject(err);
+                    resolve(store);
+                });
+            });
+        });
+    }
+
+    describe('QUERIES', function() {
+        it('Basic SPARQL query', function() {
+            call_store(ontology)
+                .then(function(store) {
+                    store.execute(`PREFIX gr: <http://purl.org/goodrelations/v1#>
+                                   SELECT ?b ?c {gr:hasBrand ?b ?c} LIMIT 100`, function(err, results) {
+                        if (err) console.log(err);
+                    })
+
+                });
+        });
+        it('The direct property between gr:BusinessEntity and gr:Brand should be TESTED', function() {
+            var c_u = 'gr:BusinessEntity';
+            var c_v = 'gr:Brand';
+            var p_domain = 'rdfs:domain';
+            var p_range = 'rdfs:range';
+            var dp_query = `PREFIX gr: <http://purl.org/goodrelations/v1#>
+                             SELECT ?direct_properties WHERE {
+                                 ?direct_properties ${p_domain} ${c_u} .
+                                 ?direct_properties ${p_range} ${c_v} .
+                             }`;
+            call_store(ontology)
+                .then(function(store) {
+                    graph_generator.get_direct_properties(dp_query, store, c_u, c_v)
+                        .then(function(direct_properties) {
+                            //assert.deepEqual(0, direct_properties.length);
+                        });
+                });
+        });
+    });
+
+}); */
+
+describe('Graph building test suite on public contracts\n', function() {
+    var ontology;
+
+    before(function() {
+        ontology = fs.readFileSync(__dirname + '/public-contracts.ttl').toString();
+    });
+
+    var call_store = (ontology) => {
+        return new Promise(function(resolve, reject) {
+            rdfstore.create(function(err, store) {
+                store.load('text/turtle', ontology, function(err, data) {
+                    if (err) reject(err);
+                    resolve(store);
+                });
+            });
+        });
+    }
+
+    describe('SPARQL test', function() {
+        it('Basic SPARQL query', function() {
+            var query = `
+                PREFIX schema: <http://schema.org/>
+                PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                PREFIX pc: <http://purl.org/procurement/public-contracts#>
+                PREFIX gr: <http://purl.org/goodrelations/v1#>
+                PREFIX owl: <http://www.w3.org/2002/07/owl#>
+                SELECT ?closure WHERE {
+                    {
+                        ?property rdfs:domain pc:Contract .
+                        ?property rdfs:range ?closure .
+                        ?closure a owl:Class
+                    } UNION {
+                        ?property rdfs:domain ?closure .
+                        ?property rdfs:range pc:Contract .
+                        ?closure a owl:Class
+                    }
+                }`
+
+            call_store(ontology)
+                .then(function(store) {
+                    store.execute(query, function(err, results) {
+                        if (err) console.log(err);
+                        // console.log(results);
+                    });
+                });
+        });
+    });
+
+    describe('Get closures of a class node defined in the graph', function() {
+        it('Some of the closure classes of pc:Contract are: TO BE TESTED', function() {
+            var class_node = 'pc:Contract';
+            var ontology_class = 'owl:Class'
+            var closure_query = sparql.CLOSURE_QUERY(class_node, ontology_class);
+            call_store(ontology)
+                .then(function(store) {
+                    // Get closures
+                    graph_generator.get_closures(closure_query, store, function(closure_classes) {
+
+                    });
+                });
+        });
+    });
+
+    describe('Get direct object properties from domain ontologies between 2 classes included in the graph', function() {
+        it('The direct property between pc:Contract and gr:BusinessEntity should be TESTED', function() {
+            var c_u = 'pc:Contract';
+            var c_v = 'gr:BusinessEntity';
+            var p_domain = 'rdfs:domain';
+            var p_range = 'rdfs:range';
+            var dp_query = sparql.DIRECT_PROPERTIES_QUERY(c_u, c_v, p_domain, p_range);
+            call_store(ontology)
+                .then(function(store) {
+                    graph_generator.get_direct_properties(dp_query, store, c_u, c_v)
+                        .then(function(direct_properties) {
+                            // console.log(direct_properties);
+                            //assert.deepEqual(0, direct_properties.length);
+                        });
+                });
+        });
+    });
+
+    describe('Get all direct object properties from different classes already included in the graph', function() {
+        it('Test contracts', function() {
+            var all_classes = [ 'pc:Contract',
+                                'pc:FrameworkAgreement',
+                                'pc:Tender',
+                                'pc:AwardCriteriaCombination',
+                                'pc:CriterionWeighting',
+                                'pc:TendersOpening',];
+            var p_domain = 'rdfs:domain';
+            var p_range = 'rdfs:range';
+
+            call_store(ontology)
+                .then(function(store) {
+                    graph_generator.get_all_direct_properties(store, all_classes, p_domain, p_range)
+                        .then(function(all_direct_properties) {
+                            //console.log(all_direct_properties);
+                        });
+                });
+        });
+    });
+
+    describe('Test on graph.js', function() {
+        it('Multi Graph should be built', function() {
+            var p_domain = 'rdfs:domain';
+            var p_range = 'rdfs:range';
+            var o_class = 'owl:Class';
+            graph_generator.build_graph(__dirname + '/public-contracts_semantic_types.json', [__dirname + '/public-contracts.ttl', __dirname + '/public-contracts.ttl'], p_domain, p_range, o_class)
+                .then(function(graph) {
+                    assert.deepEqual(true, graphlib.json.write(graph)['options']['multigraph']);
+                    var json_graph = graphlib.json.write(graph);
+                    console.log(json_graph['edges']);
                 });
         });
     });
