@@ -1,0 +1,41 @@
+[{
+	"source": "data/public-contracts/semantic_type/Z4ADEA9DE4_st.json",
+	"entities": ["cig",
+		{
+			"strutturaProponente": "codiceFiscaleProp"
+		},
+		{
+			"partecipanti": ["identificativo"]
+		},
+		{
+			"aggiudicatari": ["identificativo"]
+		}
+	],
+	"attributes": ["cig",
+		"oggetto",
+		{
+			"strutturaProponente": "codiceFiscaleProp"
+		},
+		{
+			"partecipanti": ["identificativo"]
+		},
+		{
+			"partecipanti": ["ragioneSociale"]
+		},
+		{
+			"aggiudicatari": ["identificativo"]
+		},
+		{
+			"aggiudicatari": ["ragioneSociale"]
+		}
+	],
+	"semantic_types": [
+		["pc:Contract_dcterms:identifier"],
+		["pc:Contract_rdfs:description"],
+		["gr:BusinessEntity_dcterms_identifier"],
+		["gr:BusinessEntity_dcterms_identifier"],
+		["gr:BusinessEntity_rdfs:label"],
+		["gr:BusinessEntity_dcterms_identifier"],
+		["gr:BusinessEntity_rdfs:label"]
+	]
+}]
