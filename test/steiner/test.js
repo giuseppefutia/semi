@@ -4,6 +4,7 @@ var assert = require('assert');
 var graphlib = require('graphlib');
 var Graph = require('graphlib').Graph;
 var steiner = require(__dirname + '/../../semantic_modeling/fast-steiner-tree.js');
+var graph_generator = require(__dirname + '/../../semantic_modeling/graph.js');
 
 describe('Steiner algorithm test suite\n', function() {
 
@@ -117,5 +118,27 @@ describe('Steiner algorithm test suite\n', function() {
         var G5 = steiner.step_five(G4, steiner_nodes);
         console.log('Steiner Tree of a RDF-similar and weighted graph: ');
         console.log(graphlib.json.write(G5));
+    });
+
+    describe('Test with other semantic types (more similar to our case)', function() {
+        var graph = new Graph({
+            multigraph: true,
+        });
+
+        var sampleData = {
+            'source': 'data/schema.csv',
+            'attributes': ['authority_identifier', 'contract_identifier', 'business_entity_identifier'], // Removed affiliation from starting sample
+            'semantic_types': [
+                ['gr:BusinessEntity_dcterms:identifier'],
+                ['pc:Contract_dcterms:identifier'],
+                ['gr:BusinessEntity_dcterms:identifier']
+            ],
+        };
+
+        graph_generator.add_semantic_types(sampleData, graph);
+        console.log('******* See this test **********');
+        console.log(graphlib.json.write(graph));
+
+
     });
 });

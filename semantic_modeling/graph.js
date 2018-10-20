@@ -23,22 +23,27 @@ var is_duplicate = (node, graph) => {
 var add_semantic_types = (st, graph) => {
     var attributes = st['attributes'];
     var semantic_types = st['semantic_types'];
-    for (var i in attributes) {
+    var existing_class_nodes = {}; // Useful to create one class node of each attribute (also for duplicated classes)
 
-        // Add class node
-        var class_node = semantic_types[i][0].split("_")[0];
-        if (!is_duplicate(class_node, graph))
-            graph.setNode(class_node, {
-                type: 'class_uri'
-            });
+    for (var i in attributes) {
+        // Create an index to manage duplicate class nodes
+        var class_node = semantic_types[i][0].split("_")[0]; // Remember: I put an index here, because I can expect candidates semantic types
+        if (existing_class_nodes[class_node] === undefined)
+            existing_class_nodes[class_node] = 0;
+        else existing_class_nodes[class_node]++;
+        var class_node_index = existing_class_nodes[class_node];
+
+        // Add class nodes
+        graph.setNode(class_node+class_node_index, {
+            type: 'class_uri'
+        });
         // Add data node
         var data_node = attributes[i];
-        if (!is_duplicate(data_node, graph))
-            graph.setNode(data_node, {
-                type: 'attribute_name'
-            });
+        graph.setNode(data_node, {
+            type: 'attribute_name'
+        });
         // Add edge
-        graph.setEdge(class_node, data_node, {
+        graph.setEdge(class_node+class_node_index, data_node, {
             label: semantic_types[i][0].split("_")[1],
             type: 'st_property_uri'
         }, semantic_types[i][0].split("_")[1], 1);
