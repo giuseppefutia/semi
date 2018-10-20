@@ -24,20 +24,7 @@ var add_semantic_types = (st, graph) => {
     var attributes = st['attributes'];
     var semantic_types = st['semantic_types'];
     for (var i in attributes) {
-        var value = '';
 
-        // If chain to manage different data structures
-        // TODO: For now, go only into two levels of the tree strcture, managing object or arrays
-        // TODO: It needs to be engineered
-        if (typeof(attributes[i]) === 'string') {
-            value = attributes[i];
-        } else {
-            var key = Object.keys(attributes[i]);
-            if (typeof(attributes[i][key]) === "string")
-                value = key + '__' + attributes[i][key];
-            else if (Array.isArray(attributes[i][key]))
-                value = key + '__' + attributes[i][key] + '**' + 'array';
-        }
         // Add class node
         var class_node = semantic_types[i][0].split("_")[0];
         if (!is_duplicate(class_node, graph))
@@ -45,7 +32,7 @@ var add_semantic_types = (st, graph) => {
                 type: 'class_uri'
             });
         // Add data node
-        var data_node = value;
+        var data_node = attributes[i];
         if (!is_duplicate(data_node, graph))
             graph.setNode(data_node, {
                 type: 'attribute_name'
@@ -155,7 +142,7 @@ var add_direct_properties = (dps, graph) => {
             var type = dps[i]['type'];
             // Add properties as edge
             graph.setEdge(subject, object, {
-                label: subject + '_' + object,
+                label: property,
                 type: type
             }, subject + '_' + object, 1); // Direct edges have weight = 1
         }
@@ -170,7 +157,7 @@ var get_recursive_super_classes = (class_node, store) => {
         var rscs = [];
         var sc_query = sparql.SUPER_CLASSES_QUERY(class_node);
         get_super_classes(sc_query, store, rscs)
-            .then(function(rscs){
+            .then(function(rscs) {
                 resolve(utils.remove_array_duplicates(rscs));
             });
     });
@@ -227,7 +214,9 @@ var prepare_all_super_classes = (store, all_classes) => {
         // Attention: we need to remove Thing because for that specific cases super_classes function does not resolve
         // TODO: THIS IS VALID ONLY FOR SCHEMA!!!
 
-        all_classes = all_classes.filter(function(e) {return e!='schema:Thing'})
+        all_classes = all_classes.filter(function(e) {
+            return e != 'schema:Thing'
+        })
         var stop = all_classes.length * all_classes.length;
         for (var i in all_classes) {
             for (var j in all_classes) {
@@ -385,7 +374,7 @@ var initialize_ontology_storage = (ont_paths) => {
             var first_ontology = fs.readFileSync(ont_paths[0]).toString();
             store.load('text/turtle', first_ontology, function(err, data) {
                 if (err) reject(err);
-                var second_ontology = fs.readFileSync(ont_paths[1]).toString();
+                var second_ontology = fs.readFileSync(ont_paths[0]).toString();
                 store.load('text/turtle', second_ontology, function(err, data) {
                     resolve(store);
                 });
