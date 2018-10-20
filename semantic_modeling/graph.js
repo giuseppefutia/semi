@@ -33,9 +33,10 @@ var add_semantic_types = (st, graph) => {
         else existing_class_nodes[class_node]++;
         var class_node_index = existing_class_nodes[class_node];
 
-        // Add class nodes
+        // Add class node
         graph.setNode(class_node+class_node_index, {
-            type: 'class_uri'
+            type: 'class_uri',
+            uri: class_node
         });
         // Add data node
         var data_node = attributes[i];
