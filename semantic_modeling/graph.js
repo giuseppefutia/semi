@@ -47,7 +47,7 @@ var add_semantic_types = (st, graph) => {
         graph.setEdge(class_node+class_node_index, data_node, {
             label: semantic_types[i][0].split("_")[1],
             type: 'st_property_uri'
-        }, semantic_types[i][0].split("_")[1], 1);
+        }, class_node+class_node_index + "***" + data_node, 1);
     }
     return graph;
 }
