@@ -40,7 +40,7 @@ var get_path_edge_list = function(source, target, dijkstraOutput, graph) {
     var edges = [];
     var target_predecessor = dijkstraOutput[target]['predecessor'];
     while (target_predecessor != source) {
-        // XXX Cannot understan why graph.edge() returns undefined and graph.getEdge() does not exist
+        // XXX Cannot understand why graph.edge() returns undefined and graph.getEdge() does not exist
         var weight = 'Infinity';
         for (var e in graph.edges()) {
             var graph_edge = graph.edges()[e];
@@ -75,6 +75,7 @@ var get_path_edge_list = function(source, target, dijkstraOutput, graph) {
     return edges;
 }
 
+// Implementation available on Wikipedia: https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm
 var bellman_ford = (nodes, edges, source) => {
     var distances = {};
     var parents = {};
@@ -87,6 +88,7 @@ var bellman_ford = (nodes, edges, source) => {
         }
         distances[source] = 0;
 
+        // Process edges
         for (i = 0; i < nodes.length - 1; i++) {
             for (var j = 0; j < edges.length; j++) {
                 c = edges[j];
@@ -94,9 +96,15 @@ var bellman_ford = (nodes, edges, source) => {
                     distances[c.w] = distances[c.v] + c.weight;
                     parents[c.w] = c.v;
                 }
+
+                // MODIFIED: it treats a directed graph as indirected
+                // TODO: Do I make the same things for negative edges?
+                if (distances[c.w] + c.weight < distances[c.v]) {
+                    distances[c.v] = distances[c.w] + c.weight;
+                    parents[c.v] = c.w;
+                }
             }
         }
-
         // Check negative edges
         for (i = 0; i < edges.length; i += 1) {
             c = edges[i];
@@ -147,6 +155,7 @@ var kruskal = (nodes, edges) => {
 var step_one = (graph, steiner_nodes) => {
     var G1 = new Graph({
         multigraph: true,
+        directed: false
     });
     // Create a graph with only steiner nodes: the semantic types, in our case
     for (var i in steiner_nodes) {
@@ -154,21 +163,22 @@ var step_one = (graph, steiner_nodes) => {
     }
     var nodes = graph.nodes(); // Return ids of the nodes
     var edges = graph.edges(); // Return edge objects {v: .., w: .., name: .., weight: ..}
-
     for (var source in steiner_nodes) {
         // Get the minimum spanning tree according to the bellman-ford algorithm
+        // I use bellman ford because I can have negative values related to epsilon
         var path = bellman_ford(nodes, edges, steiner_nodes[source]);
         for (var target in steiner_nodes) {
-            if (steiner_nodes[source] === steiner_nodes[target]) // Continue if the node are equals
-                continue;
-            if (G1.nodeEdges(steiner_nodes[source], steiner_nodes[target]).length > 0) // Continue if there are no edges between the soruce node and the target node
-                continue;
+            if (steiner_nodes[source] === steiner_nodes[target])
+                continue; // Continue if the node are equals
+            if (G1.nodeEdges(steiner_nodes[source], steiner_nodes[target]).length > 0)
+                continue; // Continue if there are no edges between the source node and the target node
             G1.setEdge(steiner_nodes[source],
                 steiner_nodes[target], {
                     label: steiner_nodes[source] + '_' + steiner_nodes[target]
                 },
                 steiner_nodes[source] + '_' + steiner_nodes[target],
-                path['distances'][steiner_nodes[target]]); // Add and edge between the source and the target using the distances computed with bellman-ford
+                 // Add and edge between the source and the target using the distances computed with bellman-ford
+                path['distances'][steiner_nodes[target]]);
         }
     }
     return G1;
