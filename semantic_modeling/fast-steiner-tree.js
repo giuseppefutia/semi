@@ -35,6 +35,18 @@ var touched_edges = (g, n) => {
     return te;
 }
 
+// We need to create inverse edges to simulate indirected graphs
+var create_inverse_edges = (g) => {
+    // The graph is serialized to get value object of labels.
+    // See issue: https://github.com/giuseppefutia/phd/issues/66
+    var graph = graphlib.json.write(g);
+    var edges = graph['edges'];
+    for (var e in edges) {
+        g.setEdge(edges[e]['w'], edges[e]['v'], edges[e]['value'], edges[e]['w'] + '---' + edges[e]['v'], edges[e]['weight']);
+    }
+    return g;
+}
+
 // TODO: correct according to the effective representation of the edge object
 var get_path_edge_list = function(source, target, dijkstraOutput, graph) {
     var edges = [];
@@ -96,13 +108,6 @@ var bellman_ford = (nodes, edges, source) => {
                     distances[c.w] = distances[c.v] + c.weight;
                     parents[c.w] = c.v;
                 }
-
-                // MODIFIED: it treats a directed graph as indirected
-                // TODO: Do I make the same things for negative edges?
-                if (distances[c.w] + c.weight < distances[c.v]) {
-                    distances[c.v] = distances[c.w] + c.weight;
-                    parents[c.v] = c.w;
-                }
             }
         }
         // Check negative edges
@@ -155,7 +160,6 @@ var kruskal = (nodes, edges) => {
 var step_one = (graph, steiner_nodes) => {
     var G1 = new Graph({
         multigraph: true,
-        directed: false
     });
     // Create a graph with only steiner nodes: the semantic types, in our case
     for (var i in steiner_nodes) {
@@ -163,6 +167,7 @@ var step_one = (graph, steiner_nodes) => {
     }
     var nodes = graph.nodes(); // Return ids of the nodes
     var edges = graph.edges(); // Return edge objects {v: .., w: .., name: .., weight: ..}
+
     for (var source in steiner_nodes) {
         // Get the minimum spanning tree according to the bellman-ford algorithm
         // I use bellman ford because I can have negative values related to epsilon
@@ -287,6 +292,7 @@ var steiner_alg = (graph, steiner_nodes) => {
     return G5;
 }
 
+exports.create_inverse_edges = create_inverse_edges;
 exports.step_one = step_one;
 exports.step_two = step_two;
 exports.step_three = step_three;
