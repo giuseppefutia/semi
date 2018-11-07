@@ -8,35 +8,30 @@ var sparql = require(__dirname + '/sparql_queries.js');
 var ε = 3;
 
 // TODO: create an high level representation of node and edge for checking inconsistencies
-// TODO: run a test on the Steiner Tree algorithm as explained in the paper
 // TODO: better management of parameters and output
-// TODO: rename label of the object properties
 // TODO: better management of SPARQL query errors using store
 // TODO: reduce rigth-depth of function that call two Promises
 
 var is_duplicate = (node, graph) => {
-    if (graph.node(node) === undefined)
-        return false;
-    return true;
+    var nodes = graph.nodes();
+    for (var n in nodes) {
+        if (graph.node(nodes[n])['label'] === node) {
+            return true;
+        }
+    }
+    return false;
 }
 
 var add_semantic_types = (st, graph) => {
     var attributes = st['attributes'];
-    var semantic_types = st['semantic_types'];
-    var existing_class_nodes = {}; // Useful to create one class node of each attribute (also for duplicated classes)
-
+    var semantic_types = st['semantic_types'];// TODO: Move the function to create inverse edges in the graph.js file
+    var entities = st['entities'];
     for (var i in attributes) {
-        // Create an index to manage duplicate class nodes
         var class_node = semantic_types[i][0].split("_")[0]; // Remember: I put an index here, because I can expect candidates semantic types
-        if (existing_class_nodes[class_node] === undefined)
-            existing_class_nodes[class_node] = 0;
-        else existing_class_nodes[class_node]++;
-        var class_node_index = existing_class_nodes[class_node];
-
         // Add class node
-        graph.setNode(class_node+class_node_index, {
+        graph.setNode(class_node + entities[i], {
             type: 'class_uri',
-            uri: class_node
+            label: class_node
         });
         // Add data node
         var data_node = attributes[i];
@@ -44,10 +39,10 @@ var add_semantic_types = (st, graph) => {
             type: 'attribute_name'
         });
         // Add edge
-        graph.setEdge(class_node+class_node_index, data_node, {
+        graph.setEdge(class_node + entities[i], data_node, {
             label: semantic_types[i][0].split("_")[1],
             type: 'st_property_uri'
-        }, class_node+class_node_index + "***" + data_node, 1);
+        }, class_node + entities[i]+ "***" + data_node, 1);
     }
     return graph;
 }
@@ -56,8 +51,9 @@ var get_class_nodes = (graph) => {
     var class_nodes = [];
     var nodes = graph.nodes();
     for (var n in nodes) {
-        if (graph.node(nodes[n])['type'] === 'class_uri')
-            class_nodes.push(nodes[n]);
+        if (graph.node(nodes[n])['type'] === 'class_uri') {
+            class_nodes.push(graph.node(nodes[n])['label']);
+        }
     }
     return class_nodes;
 }
@@ -81,14 +77,14 @@ var add_closures = (closure_classes, graph) => {
         for (var c in closure_classes) {
             if (!is_duplicate(closure_classes[c], graph))
                 graph.setNode(closure_classes[c], {
-                    type: 'class_uri'
+                    type: 'class_uri',
+                    label: closure_classes[c]
                 });
         }
         resolve(graph);
     });
 }
 
-// TODO: direct properties must involve domain and range
 var get_direct_properties = (dp_query, store, subject, object) => {
     return new Promise(function(resolve, reject) {
         store.execute(dp_query, function(success, results) {
@@ -107,7 +103,6 @@ var get_direct_properties = (dp_query, store, subject, object) => {
 }
 
 // Consider also inverse direct properties
-// Attention! You are including also direct properties between the same class (loop)
 var get_all_direct_properties = (store, all_classes, p_domain, p_range) => {
     return new Promise(function(resolve, reject) {
         var all_direct_properties = [];
@@ -146,11 +141,23 @@ var add_direct_properties = (dps, graph) => {
             var property = dps[i]['property'];
             var object = dps[i]['object'];
             var type = dps[i]['type'];
-            // Add properties as edge
-            graph.setEdge(subject, object, {
-                label: property,
-                type: type
-            }, subject + '_' + object, 1); // Direct edges have weight = 1
+
+            // Add properties as edge: avoid to add new nodes in the graph when I add a new edge
+            var nodes = graph.nodes();
+            for (var s in nodes) {
+                var subject_label_node = graph.node(nodes[s])['label'];
+                if (subject_label_node === subject) {
+                    for (var o in nodes) {
+                        var object_label_node = graph.node(nodes[o])['label'];
+                        if (object_label_node === object) {
+                            graph.setEdge(nodes[s], nodes[o], {
+                                label: property,
+                                type: type
+                            }, nodes[s] + '***' + nodes[o], 1); // Direct edges have weight = 1
+                        }
+                    }
+                }
+            }
         }
         resolve(graph);
     });
@@ -219,10 +226,10 @@ var prepare_all_super_classes = (store, all_classes) => {
 
         // Attention: we need to remove Thing because for that specific cases super_classes function does not resolve
         // TODO: THIS IS VALID ONLY FOR SCHEMA!!!
-
         all_classes = all_classes.filter(function(e) {
             return e != 'schema:Thing'
         })
+        
         var stop = all_classes.length * all_classes.length;
         for (var i in all_classes) {
             for (var j in all_classes) {
@@ -369,7 +376,6 @@ var add_indirect_properties = (idps, graph) => {
         }
         resolve(graph);
     });
-
 }
 
 // BUILD THE GRAPH
@@ -396,7 +402,7 @@ var build_graph = (st_path, ont_path, p_domain, p_range, o_class) => {
             multigraph: true
         });
 
-        // Memorize the store for SPARQL queries
+        // Define the store for SPARQL queries
         var store;
 
         // Add semantic types to the graph

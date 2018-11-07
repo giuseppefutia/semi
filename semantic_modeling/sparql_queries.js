@@ -18,6 +18,7 @@ var CLOSURE_QUERY = (class_node, ontology_class) => {
             PREFIX skos:      <http://www.w3.org/2004/02/skos/core#>
             PREFIX vann:      <http://purl.org/vocab/vann/>
             PREFIX xsd:       <http://www.w3.org/2001/XMLSchema#>
+            PREFIX owl:       <http://www.w3.org/2002/07/owl#>
             SELECT DISTINCT ?closures WHERE {
                 {
                     ?property rdfs:domain ${class_node} .

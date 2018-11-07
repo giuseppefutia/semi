@@ -3,6 +3,8 @@
  * https://github.com/usc-isi-i2/szeke/blob/master/src/main/java/edu/isi/karma/modeling/alignment/SteinerTree.java
  **/
 
+// TODO: Move the function to create inverse edges in the graph.js file
+
 var Graph = require('graphlib').Graph;
 var graphlib = require('graphlib');
 var _ = require('underscore');
@@ -42,7 +44,7 @@ var create_inverse_edges = (g) => {
     var graph = graphlib.json.write(g);
     var edges = graph['edges'];
     for (var e in edges) {
-        g.setEdge(edges[e]['w'], edges[e]['v'], edges[e]['value'], edges[e]['w'] + '---' + edges[e]['v'], edges[e]['weight']);
+        g.setEdge(edges[e]['w'], edges[e]['v'], edges[e]['value'], edges[e]['w'] + '***' + edges[e]['v'], edges[e]['weight']);
     }
     return g;
 }
@@ -99,7 +101,6 @@ var bellman_ford = (nodes, edges, source) => {
             parents[nodes[i]] = null;
         }
         distances[source] = 0;
-
         // Process edges
         for (i = 0; i < nodes.length - 1; i++) {
             for (var j = 0; j < edges.length; j++) {
