@@ -15,20 +15,20 @@ describe('Steiner algorithm test suite\n', function() {
         graph.setEdge('V9', 'V1', {
             label: 'property_label',
             type: 'property'
-        }, 'V9---V1', 1);
+        }, 'V9***V1', 1);
         graph.setEdge('V9', 'V8', {
             type: 'property',
             label: 'property_label'
-        }, 'V9---V8', 0.5);
+        }, 'V9***V8', 0.5);
         graph.setEdge('V8', 'V7', {
             type: 'property',
             label: 'property_label'
-        }, 'V8---V7', 0.5);
+        }, 'V8***V7', 0.5);
 
         var new_graph = steiner.create_inverse_edges(graph);
 
-        it('It should crate the following edges: V1---V9', function() {
-            assert.deepEqual(new_graph.edges()[3]['name'], 'V1---V9');
+        it('It should crate the following edges: V1***V9', function() {
+            assert.deepEqual(new_graph.edges()[3]['name'], 'V1***V9');
         });
     });
 
@@ -38,18 +38,18 @@ describe('Steiner algorithm test suite\n', function() {
             multigraph: true,
         });
 
-        graph.setEdge('V9', 'V1', {}, 'V9---V1', 1);
-        graph.setEdge('V9', 'V8', {}, 'V9---V8', 0.5);
-        graph.setEdge('V8', 'V7', {}, 'V8---V7', 0.5);
-        graph.setEdge('V7', 'V6', {}, 'V7---V6', 1);
-        graph.setEdge('V6', 'V5', {}, 'V6---V5', 1);
-        graph.setEdge('V9', 'V5', {}, 'V9---V5', 1);
-        graph.setEdge('V5', 'V4', {}, 'V5---V4', 2);
-        graph.setEdge('V4', 'V3', {}, 'V4---V3', 9);
-        graph.setEdge('V5', 'V3', {}, 'V5---V3', 2);
-        graph.setEdge('V3', 'V2', {}, 'V3---V2', 8);
-        graph.setEdge('V2', 'V6', {}, 'V2---V6', 1);
-        graph.setEdge('V1', 'V2', {}, 'V1---V2', 10);
+        graph.setEdge('V9', 'V1', {}, 'V9***V1', 1);
+        graph.setEdge('V9', 'V8', {}, 'V9***V8', 0.5);
+        graph.setEdge('V8', 'V7', {}, 'V8***V7', 0.5);
+        graph.setEdge('V7', 'V6', {}, 'V7***V6', 1);
+        graph.setEdge('V6', 'V5', {}, 'V6***V5', 1);
+        graph.setEdge('V9', 'V5', {}, 'V9***V5', 1);
+        graph.setEdge('V5', 'V4', {}, 'V5***V4', 2);
+        graph.setEdge('V4', 'V3', {}, 'V4***V3', 9);
+        graph.setEdge('V5', 'V3', {}, 'V5***V3', 2);
+        graph.setEdge('V3', 'V2', {}, 'V3***V2', 8);
+        graph.setEdge('V2', 'V6', {}, 'V2***V6', 1);
+        graph.setEdge('V1', 'V2', {}, 'V1***V2', 10);
 
         var graph = steiner.create_inverse_edges(graph);
 
@@ -118,6 +118,7 @@ describe('Steiner algorithm test suite\n', function() {
         var sampleData = {
             'source': 'data/schema.csv',
             'attributes': ['authority_identifier', 'contract_identifier', 'business_entity_identifier'], // Removed affiliation from starting sample
+            'entities': [0, 0, 1],
             'semantic_types': [
                 ['gr:BusinessEntity_dcterms:identifier'],
                 ['pc:Contract_dcterms:identifier'],

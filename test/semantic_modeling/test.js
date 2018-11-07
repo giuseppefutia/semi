@@ -439,7 +439,7 @@ describe('Graph building test suite on public contracts\n', function() {
                 .then(function(store) {
                     graph_generator.get_all_direct_properties(store, all_classes, p_domain, p_range)
                         .then(function(all_direct_properties) {
-                            //console.log(all_direct_properties);
+                            // console.log(all_direct_properties);
                         });
                 });
         });
