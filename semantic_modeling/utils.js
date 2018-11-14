@@ -1,3 +1,5 @@
+// TODO: PREFIX or PREFIX strings can be generated automatically
+
 var PREFIX = {
     'http://schema.org/': 'schema:',
     'http://www.w3.org/2000/01/rdf-schema#': 'rdfs:',
@@ -15,6 +17,38 @@ var PREFIX = {
     'http://www.w3.org/2004/02/skos/core#': 'skos:',
     'http://purl.org/vocab/vann/': 'vann:',
     'http://www.w3.org/2001/XMLSchema#': 'xsd:',
+}
+
+var PREFIX_STRINGS = `
+    PREFIX schema:    <http://schema.org/>
+    PREFIX rdfs:      <http://www.w3.org/2000/01/rdf-schema#>
+    PREFIX pc:        <http://purl.org/procurement/public-contracts#>
+    PREFIX gr:        <http://purl.org/goodrelations/v1#>
+    PREFIX owl:       <http://www.w3.org/2002/07/owl#>
+    PREFIX adms:      <http://www.w3.org/ns/adms#>
+    PREFIX c4n:       <http://vocab.deri.ie/c4n#>
+    PREFIX dcterms:   <http://purl.org/dc/terms/>
+    PREFIX foaf:      <http://xmlns.com/foaf/0.1/>
+    PREFIX loted:     <http://www.loted.eu/ontology#>
+    PREFIX payment:   <http://reference.data.gov.uk/def/payment#>
+    PREFIX qb:        <http://purl.org/linked-data/cube#>
+    PREFIX rdf:       <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+    PREFIX skos:      <http://www.w3.org/2004/02/skos/core#>
+    PREFIX vann:      <http://purl.org/vocab/vann/>
+    PREFIX xsd:       <http://www.w3.org/2001/XMLSchema#>
+    PREFIX owl:       <http://www.w3.org/2002/07/owl#>`
+
+var INSTANCE_URIS = {
+    'pc:Contract': 'http://pc.org/contracts/',
+    'gr:BusinessEntity': 'http://pc.org/businessEntities/'
+}
+
+var get_prefix_strings = function() {
+    return PREFIX_STRINGS;
+}
+
+var get_instance_uris = function() {
+    return INSTANCE_URIS;
 }
 
 var clean_prefix = function(uri) {
@@ -55,6 +89,8 @@ var set_property = function(subject, property, object, type) {
     return o;
 }
 
+exports.get_prefix_strings = get_prefix_strings;
+exports.get_instance_uris = get_instance_uris;
 exports.clean_prefix = clean_prefix;
 exports.get_clean_results = get_clean_results;
 exports.remove_array_duplicates = remove_array_duplicates;
