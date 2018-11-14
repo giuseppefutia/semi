@@ -4,6 +4,7 @@
  **/
 
 // TODO: Move the function to create inverse edges in the graph.js file
+// TODO: Rename this file
 
 var Graph = require('graphlib').Graph;
 var graphlib = require('graphlib');

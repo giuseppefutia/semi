@@ -11,6 +11,10 @@ var ε = 3;
 // TODO: better management of parameters and output
 // TODO: better management of SPARQL query errors using store
 // TODO: reduce rigth-depth of function that call two Promises
+// TODO: modify indirect properties with the same changes of direct properties
+// TODO: prefixes in one single place
+// TODO: add edge weight for subclasses
+// TODO: semantic_types in semantic type file should be an array of array?
 
 var is_duplicate = (node, graph) => {
     var nodes = graph.nodes();
@@ -229,7 +233,7 @@ var prepare_all_super_classes = (store, all_classes) => {
         all_classes = all_classes.filter(function(e) {
             return e != 'schema:Thing'
         })
-        
+
         var stop = all_classes.length * all_classes.length;
         for (var i in all_classes) {
             for (var j in all_classes) {
