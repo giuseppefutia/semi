@@ -11,7 +11,7 @@ var run = () => {
     var st = JSON.parse(fs.readFileSync(st_path))[0];
     var jarql_to_print = jarql.build_jarql(st);
     fs.writeFileSync(sm_path, jarql_to_print);
-    console.log('JARQL file is written in: ' + sm_path);
+    console.log('The JARQL file is written in: ' + sm_path);
 }
 
 run();
