@@ -108,19 +108,24 @@ var build_where = (st) => {
  */
 
 var build_jarql = (semantic_types) => {
-    var prefix_section = build_prefix();
+    var prefix_section = build_prefix().replace(/^ +/gm, ''); // Remove white space at each line
     var construct_section = build_construct(semantic_types);
-    var where_section = build_where(semantic_types)
+    var where_section = build_where(semantic_types);
     var jarql_string = prefix_section + construct_section + where_section;
     return jarql_string;
 }
 
 var run = () => {
+    if (arguments.length !== 5) {
+        console.log('Number of arguments is wrong!');
+        return;
+    }
     var st_path = process.argv.slice(2)[0];
     var sm_path = process.argv.slice(3)[0];
     var st = JSON.parse(fs.readFileSync(st_path))[0];
     var jarql_to_print = build_jarql(st);
     fs.writeFileSync(sm_path, jarql_to_print);
+    console.log('JARQL file is written in: ' + sm_path);
 }
 
 run();
