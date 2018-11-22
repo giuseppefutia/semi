@@ -28,7 +28,7 @@ var is_duplicate = (node, graph) => {
 
 var add_semantic_types = (st, graph) => {
     var attributes = st['attributes'];
-    var semantic_types = st['semantic_types'];// TODO: Move the function to create inverse edges in the graph.js file
+    var semantic_types = st['semantic_types']; // TODO: Move the function to create inverse edges in the graph.js file
     var entities = st['entities'];
     for (var i in attributes) {
         var class_node = semantic_types[i][0].split("_")[0]; // Remember: I put an index here, because I can expect candidates semantic types
@@ -46,7 +46,7 @@ var add_semantic_types = (st, graph) => {
         graph.setEdge(class_node + entities[i], data_node, {
             label: semantic_types[i][0].split("_")[1],
             type: 'st_property_uri'
-        }, class_node + entities[i]+ "***" + data_node, 1);
+        }, class_node + entities[i] + "***" + data_node, 1);
     }
     return graph;
 }
@@ -383,17 +383,13 @@ var add_indirect_properties = (idps, graph) => {
 }
 
 // BUILD THE GRAPH
-// XXX For now I write the code to manage only two ontologies
-var initialize_ontology_storage = (ont_paths) => {
+var initialize_ontology_storage = (ont_path) => {
     return new Promise(function(resolve, reject) {
         rdfstore.create(function(err, store) {
-            var first_ontology = fs.readFileSync(ont_paths[0]).toString();
-            store.load('text/turtle', first_ontology, function(err, data) {
+            var ontology = fs.readFileSync(ont_path).toString();
+            store.load('text/turtle', ontology, function(err, data) {
                 if (err) reject(err);
-                var second_ontology = fs.readFileSync(ont_paths[0]).toString();
-                store.load('text/turtle', second_ontology, function(err, data) {
-                    resolve(store);
-                });
+                resolve(store);
             });
         });
     });
