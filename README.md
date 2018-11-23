@@ -12,7 +12,12 @@ $ node run/graph.js data/pc/semantic_types/Z4ADEA9DE4_st.json data/pc/ontology/p
 * `data/pc/ontology/public-contracts.ttl` is the domain ontology.
 * `rdfs:domain` is the domain property in the ontology.
 * `rdfs:range` is the range property in the ontology.
-* `data/pc/semantic_models/Z4ADEA9DE4` is used for the output path for the generation of the graph in different formats.
+* `data/pc/semantic_models/Z4ADEA9DE4` is used as output path for the generation of the graph in different formats.
+
+This process generates two types of graph:
+
+* `data/pc/semantic_models/Z4ADEA9DE4.graph` is the multi-edge and weighted graph.
+* `data/pc/semantic_models/Z4ADEA9DE4_graph.json` is a beautified representation of the weighted graph.
 
 ## Semantic Model
 For the automatic generation of JARQL, you can run the following command:

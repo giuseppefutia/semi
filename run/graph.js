@@ -20,8 +20,8 @@ var run = () => {
             console.log('The graph file is written in: ' + graph_path + '.graph');
             console.log('');
             var json_graph = graphlib.json.write(graph);
-            fs.writeFileSync(graph_path + '.json', JSON.stringify(json_graph, null, 4));
-            console.log('A beautified version of the graph file is written in: ' + graph_path + '.json');
+            fs.writeFileSync(graph_path + '_graph.json', JSON.stringify(json_graph, null, 4));
+            console.log('A beautified version of the graph file is written in: ' + graph_path + '_graph.json');
         }).catch(function(err) {
             console.log('Something went wrong in the graph generation process');
             console.log(err);
