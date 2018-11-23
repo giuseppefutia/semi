@@ -1,0 +1,174 @@
+{
+    "options": {
+        "directed": true,
+        "multigraph": true,
+        "compound": false
+    },
+    "nodes": [
+        {
+            "v": "pc:Contract0",
+            "value": {
+                "type": "class_uri",
+                "label": "pc:Contract"
+            }
+        },
+        {
+            "v": "cig",
+            "value": {
+                "type": "attribute_name"
+            }
+        },
+        {
+            "v": "oggetto",
+            "value": {
+                "type": "attribute_name"
+            }
+        },
+        {
+            "v": "gr:BusinessEntity0",
+            "value": {
+                "type": "class_uri",
+                "label": "gr:BusinessEntity"
+            }
+        },
+        {
+            "v": "strutturaProponente__codiceFiscaleProp",
+            "value": {
+                "type": "attribute_name"
+            }
+        },
+        {
+            "v": "gr:BusinessEntity1",
+            "value": {
+                "type": "class_uri",
+                "label": "gr:BusinessEntity"
+            }
+        },
+        {
+            "v": "partecipanti__identificativo",
+            "value": {
+                "type": "attribute_name"
+            }
+        },
+        {
+            "v": "partecipanti__ragioneSociale",
+            "value": {
+                "type": "attribute_name"
+            }
+        },
+        {
+            "v": "aggiudicatari__identificativo",
+            "value": {
+                "type": "attribute_name"
+            }
+        },
+        {
+            "v": "aggiudicatari__ragioneSociale",
+            "value": {
+                "type": "attribute_name"
+            }
+        }
+    ],
+    "edges": [
+        {
+            "v": "pc:Contract0",
+            "w": "cig",
+            "name": "pc:Contract0***cig",
+            "value": {
+                "label": "dcterms:identifier",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "pc:Contract0",
+            "w": "oggetto",
+            "name": "pc:Contract0***oggetto",
+            "value": {
+                "label": "rdfs:description",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "gr:BusinessEntity0",
+            "w": "strutturaProponente__codiceFiscaleProp",
+            "name": "gr:BusinessEntity0***strutturaProponente__codiceFiscaleProp",
+            "value": {
+                "label": "dcterms:identifier",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "gr:BusinessEntity1",
+            "w": "partecipanti__identificativo",
+            "name": "gr:BusinessEntity1***partecipanti__identificativo",
+            "value": {
+                "label": "dcterms:identifier",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "gr:BusinessEntity1",
+            "w": "partecipanti__ragioneSociale",
+            "name": "gr:BusinessEntity1***partecipanti__ragioneSociale",
+            "value": {
+                "label": "rdfs:label",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "gr:BusinessEntity1",
+            "w": "aggiudicatari__identificativo",
+            "name": "gr:BusinessEntity1***aggiudicatari__identificativo",
+            "value": {
+                "label": "dcterms:identifier",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "gr:BusinessEntity1",
+            "w": "aggiudicatari__ragioneSociale",
+            "name": "gr:BusinessEntity1***aggiudicatari__ragioneSociale",
+            "value": {
+                "label": "rdfs:label",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "pc:Contract0",
+            "w": "pc:Contract0",
+            "name": "pc:Contract0***pc:Contract0",
+            "value": {
+                "label": "pc:lot",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "pc:Contract0",
+            "w": "gr:BusinessEntity0",
+            "name": "pc:Contract0***gr:BusinessEntity0",
+            "value": {
+                "label": "pc:onBehalfOf",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "pc:Contract0",
+            "w": "gr:BusinessEntity1",
+            "name": "pc:Contract0***gr:BusinessEntity1",
+            "value": {
+                "label": "pc:onBehalfOf",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        }
+    ]
+}
