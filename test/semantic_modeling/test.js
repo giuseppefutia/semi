@@ -10,6 +10,31 @@ var sparql = require(__dirname + '/../../semantic_modeling/sparql_queries.js');
 // TODO: Use done()
 // TODO: Add test for add_direct_properties()
 
+describe('Test graph writing and reading', function() {
+    it('The first edge of the graph should be V9***V1', function() {
+        var graph = new Graph({
+            multigraph: true,
+        });
+        graph.setEdge('V9', 'V1', {
+            label: 'property_label',
+            type: 'property'
+        }, 'V9***V1', 1);
+        graph.setEdge('V9', 'V8', {
+            type: 'property',
+            label: 'property_label'
+        }, 'V9***V8', 0.5);
+        graph.setEdge('V8', 'V7', {
+            type: 'property',
+            label: 'property_label'
+        }, 'V8***V7', 0.5);
+
+        var json = graphlib.json.write(graph);
+        fs.writeFileSync(__dirname + '/sample_graph.json', JSON.stringify(json, null, 4));
+        var json_read = graphlib.json.read(json);
+        assert.deepEqual(json_read.edges()[0]['name'], 'V9***V1');
+    });
+});
+
 /*
 describe('Graph building test suite on schema\n', function() {
 
@@ -426,12 +451,13 @@ describe('Graph building test suite on public contracts\n', function() {
 
     describe('Get all direct object properties from different classes already included in the graph', function() {
         it('Test contracts', function() {
-            var all_classes = [ 'pc:Contract',
-                                'pc:FrameworkAgreement',
-                                'pc:Tender',
-                                'pc:AwardCriteriaCombination',
-                                'pc:CriterionWeighting',
-                                'pc:TendersOpening',];
+            var all_classes = ['pc:Contract',
+                'pc:FrameworkAgreement',
+                'pc:Tender',
+                'pc:AwardCriteriaCombination',
+                'pc:CriterionWeighting',
+                'pc:TendersOpening',
+            ];
             var p_domain = 'rdfs:domain';
             var p_range = 'rdfs:range';
 
@@ -441,20 +467,6 @@ describe('Graph building test suite on public contracts\n', function() {
                         .then(function(all_direct_properties) {
                             // console.log(all_direct_properties);
                         });
-                });
-        });
-    });
-
-    describe('Test on graph.js', function() {
-        it('Multi Graph should be built', function() {
-            var p_domain = 'rdfs:domain';
-            var p_range = 'rdfs:range';
-            var o_class = 'owl:Class';
-            graph_generator.build_graph(__dirname + '/public-contracts_semantic_types.json', [__dirname + '/public-contracts.ttl', __dirname + '/public-contracts.ttl'], p_domain, p_range, o_class)
-                .then(function(graph) {
-                    assert.deepEqual(true, graphlib.json.write(graph)['options']['multigraph']);
-                    var json_graph = graphlib.json.write(graph);
-                    console.log(json_graph['edges']);
                 });
         });
     });
