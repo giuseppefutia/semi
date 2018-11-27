@@ -57,33 +57,31 @@ var get_path_edge_list = function(source, target, dijkstraOutput, graph) {
     while (target_predecessor != source) {
         // XXX Cannot understand why graph.edge() returns undefined and graph.getEdge() does not exist
         var weight = 'Infinity';
+        var value = {};
         for (var e in graph.edges()) {
             var graph_edge = graph.edges()[e];
-            if (graph_edge['v'] === target_predecessor && graph_edge['w'] === target)
+            if (graph_edge['v'] === target_predecessor && graph_edge['w'] === target) {
                 weight = graph_edge['weight'];
-        }
-        var object = {
-            label: target_predecessor + '_' + target
+                value = graph_edge['value'];
+            }
         }
         var intermediate_edge = {
             v: target_predecessor,
             w: target,
-            value: object,
-            name: target_predecessor + '_' + target,
+            value: value,
+            name: target_predecessor + '***' + target,
             weight: weight
         };
         edges.push(intermediate_edge);
         target = target_predecessor;
         target_predecessor = dijkstraOutput[target]['predecessor']
     }
-    var object = {
-        label: source + '_' + target
-    }
+    var out_edges = graph.outEdges(source, target);
     var last_edge = {
         v: source,
         w: target,
-        value: object,
-        name: source + '_' + target,
+        value: out_edges[0]['value'],
+        name: source + '***' + target,
         weight: dijkstraOutput[target]['distance']
     };
     edges.push(last_edge);
@@ -180,11 +178,9 @@ var step_one = (graph, steiner_nodes) => {
             if (G1.nodeEdges(steiner_nodes[source], steiner_nodes[target]).length > 0)
                 continue; // Continue if there are no edges between the source node and the target node
             G1.setEdge(steiner_nodes[source],
-                steiner_nodes[target], {
-                    label: steiner_nodes[source] + '_' + steiner_nodes[target]
-                },
-                steiner_nodes[source] + '_' + steiner_nodes[target],
-                 // Add and edge between the source and the target using the distances computed with bellman-ford
+                steiner_nodes[target], {},
+                steiner_nodes[source] + '***' + steiner_nodes[target],
+                // Add and edge between the source and the target using the distances computed with bellman-ford
                 path['distances'][steiner_nodes[target]]);
         }
     }
@@ -236,7 +232,7 @@ var step_three = (G2, graph) => {
                 G3.setNode(source);
             if (G3.node(target) === undefined)
                 G3.setNode(target);
-            G3.setEdge(source, target, {}, source + '_' + target, path_edges[i]['weight']);
+            G3.setEdge(source, target, path_edges[i]['value'], source + '***' + target, path_edges[i]['weight']);
         }
     }
     return G3;
@@ -255,7 +251,7 @@ var step_four = (G3) => {
     });
     for (var e in sortedEdges) {
         var edge = sortedEdges[e];
-        G4.setEdge(edge.v, edge.w, {}, edge.name, edge.weight);
+        G4.setEdge(edge.v, edge.w, edge.value, edge.name, edge.weight);
     }
     return G4;
 }
