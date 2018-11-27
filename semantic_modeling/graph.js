@@ -376,7 +376,7 @@ var add_indirect_properties = (idps, graph) => {
             graph.setEdge(subject, object, {
                 label: subject + '_' + object,
                 type: type
-            }, subject + '_' + object, 1 + ε); // Indirect edges have weight = 1 + ε
+            }, subject + '***' + object, 1 + ε); // Indirect edges have weight = 1 + ε
         }
         resolve(graph);
     });
@@ -410,7 +410,6 @@ var build_graph = (st_path, ont_path, p_domain, p_range, o_class) => {
         for (var t in types) {
             graph = add_semantic_types(types[t], graph)
         }
-
         // Promises sequence begins
         var sequence = Promise.resolve();
         sequence.then(function() {
