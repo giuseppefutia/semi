@@ -449,7 +449,7 @@ var build_graph = (st_path, ont_path, p_domain, p_range, o_class) => {
             console.log(err);
         }).then(function(direct_properties) {
             // Add direct properties
-            console.log('Adding direct properties...')
+            console.log('Adding direct properties...');
             return add_direct_properties(direct_properties, graph);
         }).catch(function() {
             console.log('Error when adding direct properties:');
