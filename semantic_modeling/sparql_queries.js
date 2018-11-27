@@ -22,12 +22,12 @@ var CLOSURE_QUERY = (class_node, ontology_class) => {
             SELECT DISTINCT ?closures WHERE {
                 {
                     ?property rdfs:domain ${class_node} .
-                    ?property rdfs:range ?closure .
+                    ?property rdfs:range ?closures .
                     ?closures a ${ontology_class}
                 }
 
                 UNION {
-                    ?property rdfs:domain ?closure .
+                    ?property rdfs:domain ?closures .
                     ?property rdfs:range ${class_node} .
                     ?closures a ${ontology_class}
                 }
