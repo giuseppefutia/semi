@@ -2,7 +2,7 @@
 A Semantic Modeling Machine.
 
 ## Multi-edge and Weighted Graph
-The multi-edge and weighted graph includes all plausible semantic models of a data source respect to domain ontology. To create such graph, you can run the following commands:
+The multi-edge and weighted graph includes all plausible semantic models of a data source respect to a domain ontology. To create such graph, you can run the following commands:
 
 ```bash
 $ node run/graph.js data/pc/semantic_types/Z4ADEA9DE4_st.json data/pc/ontology/public-contracts.ttl rdfs:domain rdfs:range owl:class data/pc/semantic_models/Z4ADEA9DE4
