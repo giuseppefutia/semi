@@ -16,6 +16,11 @@ var ε = 3;
 // TODO: add edge weight for subclasses
 // TODO: semantic_types in semantic type file should be an array of array?
 
+const promise_sequence = funcs =>
+    funcs.reduce((promise, func) =>
+        promise.then(result => func().then(Array.prototype.concat.bind(result))),
+        Promise.resolve([]))
+
 var is_duplicate = (node, graph) => {
     var nodes = graph.nodes();
     for (var n in nodes) {
@@ -425,10 +430,13 @@ var build_graph = (st_path, ont_path, p_domain, p_range, o_class) => {
             store = st;
             // Get closures
             console.log('Getting closures...');
-            return get_class_nodes(graph).reduce(function(closure_sequence, class_node) {
-                var query = sparql.CLOSURE_QUERY(class_node, o_class);
-                return get_closures(query, store);
-            }, Promise.resolve());
+            var class_nodes = get_class_nodes(graph);
+            var queries = [];
+            class_nodes.forEach(function(cn) {
+                queries.push(sparql.CLOSURE_QUERY(cn, o_class));
+            });
+            var async_functions = queries.map(query => () => get_closures(query, store));
+            return promise_sequence(async_functions);
         }).catch(function(err) {
             console.log('Error when getting closures:');
             console.log(err);

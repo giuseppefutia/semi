@@ -35,10 +35,36 @@
         },
         "aggiudicatari__ragioneSociale": {
             "type": "attribute_name"
+        },
+        "pc:FrameworkAgreement": {
+            "type": "class_uri",
+            "label": "pc:FrameworkAgreement"
+        },
+        "pc:Tender": {
+            "type": "class_uri",
+            "label": "pc:Tender"
+        },
+        "pc:AwardCriteriaCombination": {
+            "type": "class_uri",
+            "label": "pc:AwardCriteriaCombination"
+        },
+        "pc:TendersOpening": {
+            "type": "class_uri",
+            "label": "pc:TendersOpening"
         }
     },
     "_in": {
         "pc:Contract0": {
+            "pc:TendersOpening\u0001pc:Contract0\u0001pc:TendersOpening***pc:Contract0\u0001direct_property_uripc:contract\u00011": {
+                "v": "pc:TendersOpening",
+                "w": "pc:Contract0",
+                "name": "pc:TendersOpening***pc:Contract0",
+                "value": {
+                    "label": "pc:contract",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            },
             "pc:Contract0\u0001pc:Contract0\u0001pc:Contract0***pc:Contract0\u0001direct_property_uripc:lot\u00011": {
                 "v": "pc:Contract0",
                 "w": "pc:Contract0",
@@ -94,6 +120,16 @@
                     "type": "direct_property_uri"
                 },
                 "weight": 1
+            },
+            "pc:Tender\u0001gr:BusinessEntity0\u0001pc:Tender***gr:BusinessEntity0\u0001direct_property_uripc:bidder\u00011": {
+                "v": "pc:Tender",
+                "w": "gr:BusinessEntity0",
+                "name": "pc:Tender***gr:BusinessEntity0",
+                "value": {
+                    "label": "pc:bidder",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
             }
         },
         "strutturaProponente__codiceFiscaleProp": {
@@ -125,6 +161,16 @@
                 "name": "pc:Contract0***gr:BusinessEntity1",
                 "value": {
                     "label": "pc:onBehalfOf",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            },
+            "pc:Tender\u0001gr:BusinessEntity1\u0001pc:Tender***gr:BusinessEntity1\u0001direct_property_uripc:bidder\u00011": {
+                "v": "pc:Tender",
+                "w": "gr:BusinessEntity1",
+                "name": "pc:Tender***gr:BusinessEntity1",
+                "value": {
+                    "label": "pc:bidder",
                     "type": "direct_property_uri"
                 },
                 "weight": 1
@@ -177,10 +223,48 @@
                 },
                 "weight": 1
             }
-        }
+        },
+        "pc:FrameworkAgreement": {
+            "pc:Contract0\u0001pc:FrameworkAgreement\u0001pc:Contract0***pc:FrameworkAgreement\u0001direct_property_uripc:frameworkAgreement\u00011": {
+                "v": "pc:Contract0",
+                "w": "pc:FrameworkAgreement",
+                "name": "pc:Contract0***pc:FrameworkAgreement",
+                "value": {
+                    "label": "pc:frameworkAgreement",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "pc:Tender": {
+            "pc:Contract0\u0001pc:Tender\u0001pc:Contract0***pc:Tender\u0001direct_property_uripc:tender\u00011": {
+                "v": "pc:Contract0",
+                "w": "pc:Tender",
+                "name": "pc:Contract0***pc:Tender",
+                "value": {
+                    "label": "pc:tender",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "pc:AwardCriteriaCombination": {
+            "pc:Contract0\u0001pc:AwardCriteriaCombination\u0001pc:Contract0***pc:AwardCriteriaCombination\u0001direct_property_uripc:awardCriteriaCombination\u00011": {
+                "v": "pc:Contract0",
+                "w": "pc:AwardCriteriaCombination",
+                "name": "pc:Contract0***pc:AwardCriteriaCombination",
+                "value": {
+                    "label": "pc:awardCriteriaCombination",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "pc:TendersOpening": {}
     },
     "_preds": {
         "pc:Contract0": {
+            "pc:TendersOpening": 1,
             "pc:Contract0": 1
         },
         "cig": {
@@ -190,13 +274,15 @@
             "pc:Contract0": 1
         },
         "gr:BusinessEntity0": {
-            "pc:Contract0": 2
+            "pc:Contract0": 2,
+            "pc:Tender": 1
         },
         "strutturaProponente__codiceFiscaleProp": {
             "gr:BusinessEntity0": 1
         },
         "gr:BusinessEntity1": {
-            "pc:Contract0": 2
+            "pc:Contract0": 2,
+            "pc:Tender": 1
         },
         "partecipanti__identificativo": {
             "gr:BusinessEntity1": 1
@@ -209,7 +295,17 @@
         },
         "aggiudicatari__ragioneSociale": {
             "gr:BusinessEntity1": 1
-        }
+        },
+        "pc:FrameworkAgreement": {
+            "pc:Contract0": 1
+        },
+        "pc:Tender": {
+            "pc:Contract0": 1
+        },
+        "pc:AwardCriteriaCombination": {
+            "pc:Contract0": 1
+        },
+        "pc:TendersOpening": {}
     },
     "_out": {
         "pc:Contract0": {
@@ -233,16 +329,6 @@
                 },
                 "weight": 1
             },
-            "pc:Contract0\u0001pc:Contract0\u0001pc:Contract0***pc:Contract0\u0001direct_property_uripc:lot\u00011": {
-                "v": "pc:Contract0",
-                "w": "pc:Contract0",
-                "name": "pc:Contract0***pc:Contract0",
-                "value": {
-                    "label": "pc:lot",
-                    "type": "direct_property_uri"
-                },
-                "weight": 1
-            },
             "pc:Contract0\u0001gr:BusinessEntity0\u0001pc:Contract0***gr:BusinessEntity0\u0001direct_property_uripc:contractingAuthority\u00011": {
                 "v": "pc:Contract0",
                 "w": "gr:BusinessEntity0",
@@ -279,6 +365,46 @@
                 "name": "pc:Contract0***gr:BusinessEntity1",
                 "value": {
                     "label": "pc:onBehalfOf",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            },
+            "pc:Contract0\u0001pc:Tender\u0001pc:Contract0***pc:Tender\u0001direct_property_uripc:tender\u00011": {
+                "v": "pc:Contract0",
+                "w": "pc:Tender",
+                "name": "pc:Contract0***pc:Tender",
+                "value": {
+                    "label": "pc:tender",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            },
+            "pc:Contract0\u0001pc:AwardCriteriaCombination\u0001pc:Contract0***pc:AwardCriteriaCombination\u0001direct_property_uripc:awardCriteriaCombination\u00011": {
+                "v": "pc:Contract0",
+                "w": "pc:AwardCriteriaCombination",
+                "name": "pc:Contract0***pc:AwardCriteriaCombination",
+                "value": {
+                    "label": "pc:awardCriteriaCombination",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            },
+            "pc:Contract0\u0001pc:Contract0\u0001pc:Contract0***pc:Contract0\u0001direct_property_uripc:lot\u00011": {
+                "v": "pc:Contract0",
+                "w": "pc:Contract0",
+                "name": "pc:Contract0***pc:Contract0",
+                "value": {
+                    "label": "pc:lot",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            },
+            "pc:Contract0\u0001pc:FrameworkAgreement\u0001pc:Contract0***pc:FrameworkAgreement\u0001direct_property_uripc:frameworkAgreement\u00011": {
+                "v": "pc:Contract0",
+                "w": "pc:FrameworkAgreement",
+                "name": "pc:Contract0***pc:FrameworkAgreement",
+                "value": {
+                    "label": "pc:frameworkAgreement",
                     "type": "direct_property_uri"
                 },
                 "weight": 1
@@ -344,15 +470,54 @@
         "partecipanti__identificativo": {},
         "partecipanti__ragioneSociale": {},
         "aggiudicatari__identificativo": {},
-        "aggiudicatari__ragioneSociale": {}
+        "aggiudicatari__ragioneSociale": {},
+        "pc:FrameworkAgreement": {},
+        "pc:Tender": {
+            "pc:Tender\u0001gr:BusinessEntity0\u0001pc:Tender***gr:BusinessEntity0\u0001direct_property_uripc:bidder\u00011": {
+                "v": "pc:Tender",
+                "w": "gr:BusinessEntity0",
+                "name": "pc:Tender***gr:BusinessEntity0",
+                "value": {
+                    "label": "pc:bidder",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            },
+            "pc:Tender\u0001gr:BusinessEntity1\u0001pc:Tender***gr:BusinessEntity1\u0001direct_property_uripc:bidder\u00011": {
+                "v": "pc:Tender",
+                "w": "gr:BusinessEntity1",
+                "name": "pc:Tender***gr:BusinessEntity1",
+                "value": {
+                    "label": "pc:bidder",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "pc:AwardCriteriaCombination": {},
+        "pc:TendersOpening": {
+            "pc:TendersOpening\u0001pc:Contract0\u0001pc:TendersOpening***pc:Contract0\u0001direct_property_uripc:contract\u00011": {
+                "v": "pc:TendersOpening",
+                "w": "pc:Contract0",
+                "name": "pc:TendersOpening***pc:Contract0",
+                "value": {
+                    "label": "pc:contract",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            }
+        }
     },
     "_sucs": {
         "pc:Contract0": {
             "cig": 1,
             "oggetto": 1,
-            "pc:Contract0": 1,
             "gr:BusinessEntity0": 2,
-            "gr:BusinessEntity1": 2
+            "gr:BusinessEntity1": 2,
+            "pc:Tender": 1,
+            "pc:AwardCriteriaCombination": 1,
+            "pc:Contract0": 1,
+            "pc:FrameworkAgreement": 1
         },
         "cig": {},
         "oggetto": {},
@@ -369,7 +534,16 @@
         "partecipanti__identificativo": {},
         "partecipanti__ragioneSociale": {},
         "aggiudicatari__identificativo": {},
-        "aggiudicatari__ragioneSociale": {}
+        "aggiudicatari__ragioneSociale": {},
+        "pc:FrameworkAgreement": {},
+        "pc:Tender": {
+            "gr:BusinessEntity0": 1,
+            "gr:BusinessEntity1": 1
+        },
+        "pc:AwardCriteriaCombination": {},
+        "pc:TendersOpening": {
+            "pc:Contract0": 1
+        }
     },
     "_edgeObjs": {
         "pc:Contract0\u0001cig\u0001pc:Contract0***cig\u0001st_property_uridcterms:identifier\u00011": {
@@ -442,16 +616,6 @@
             },
             "weight": 1
         },
-        "pc:Contract0\u0001pc:Contract0\u0001pc:Contract0***pc:Contract0\u0001direct_property_uripc:lot\u00011": {
-            "v": "pc:Contract0",
-            "w": "pc:Contract0",
-            "name": "pc:Contract0***pc:Contract0",
-            "value": {
-                "label": "pc:lot",
-                "type": "direct_property_uri"
-            },
-            "weight": 1
-        },
         "pc:Contract0\u0001gr:BusinessEntity0\u0001pc:Contract0***gr:BusinessEntity0\u0001direct_property_uripc:contractingAuthority\u00011": {
             "v": "pc:Contract0",
             "w": "gr:BusinessEntity0",
@@ -488,6 +652,76 @@
             "name": "pc:Contract0***gr:BusinessEntity1",
             "value": {
                 "label": "pc:onBehalfOf",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        "pc:Contract0\u0001pc:Tender\u0001pc:Contract0***pc:Tender\u0001direct_property_uripc:tender\u00011": {
+            "v": "pc:Contract0",
+            "w": "pc:Tender",
+            "name": "pc:Contract0***pc:Tender",
+            "value": {
+                "label": "pc:tender",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        "pc:Contract0\u0001pc:AwardCriteriaCombination\u0001pc:Contract0***pc:AwardCriteriaCombination\u0001direct_property_uripc:awardCriteriaCombination\u00011": {
+            "v": "pc:Contract0",
+            "w": "pc:AwardCriteriaCombination",
+            "name": "pc:Contract0***pc:AwardCriteriaCombination",
+            "value": {
+                "label": "pc:awardCriteriaCombination",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        "pc:Tender\u0001gr:BusinessEntity0\u0001pc:Tender***gr:BusinessEntity0\u0001direct_property_uripc:bidder\u00011": {
+            "v": "pc:Tender",
+            "w": "gr:BusinessEntity0",
+            "name": "pc:Tender***gr:BusinessEntity0",
+            "value": {
+                "label": "pc:bidder",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        "pc:Tender\u0001gr:BusinessEntity1\u0001pc:Tender***gr:BusinessEntity1\u0001direct_property_uripc:bidder\u00011": {
+            "v": "pc:Tender",
+            "w": "gr:BusinessEntity1",
+            "name": "pc:Tender***gr:BusinessEntity1",
+            "value": {
+                "label": "pc:bidder",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        "pc:TendersOpening\u0001pc:Contract0\u0001pc:TendersOpening***pc:Contract0\u0001direct_property_uripc:contract\u00011": {
+            "v": "pc:TendersOpening",
+            "w": "pc:Contract0",
+            "name": "pc:TendersOpening***pc:Contract0",
+            "value": {
+                "label": "pc:contract",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        "pc:Contract0\u0001pc:Contract0\u0001pc:Contract0***pc:Contract0\u0001direct_property_uripc:lot\u00011": {
+            "v": "pc:Contract0",
+            "w": "pc:Contract0",
+            "name": "pc:Contract0***pc:Contract0",
+            "value": {
+                "label": "pc:lot",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        "pc:Contract0\u0001pc:FrameworkAgreement\u0001pc:Contract0***pc:FrameworkAgreement\u0001direct_property_uripc:frameworkAgreement\u00011": {
+            "v": "pc:Contract0",
+            "w": "pc:FrameworkAgreement",
+            "name": "pc:Contract0***pc:FrameworkAgreement",
+            "value": {
+                "label": "pc:frameworkAgreement",
                 "type": "direct_property_uri"
             },
             "weight": 1
@@ -522,10 +756,6 @@
             "label": "rdfs:label",
             "type": "st_property_uri"
         },
-        "pc:Contract0\u0001pc:Contract0\u0001pc:Contract0***pc:Contract0\u0001direct_property_uripc:lot\u00011": {
-            "label": "pc:lot",
-            "type": "direct_property_uri"
-        },
         "pc:Contract0\u0001gr:BusinessEntity0\u0001pc:Contract0***gr:BusinessEntity0\u0001direct_property_uripc:contractingAuthority\u00011": {
             "label": "pc:contractingAuthority",
             "type": "direct_property_uri"
@@ -541,8 +771,36 @@
         "pc:Contract0\u0001gr:BusinessEntity1\u0001pc:Contract0***gr:BusinessEntity1\u0001direct_property_uripc:onBehalfOf\u00011": {
             "label": "pc:onBehalfOf",
             "type": "direct_property_uri"
+        },
+        "pc:Contract0\u0001pc:Tender\u0001pc:Contract0***pc:Tender\u0001direct_property_uripc:tender\u00011": {
+            "label": "pc:tender",
+            "type": "direct_property_uri"
+        },
+        "pc:Contract0\u0001pc:AwardCriteriaCombination\u0001pc:Contract0***pc:AwardCriteriaCombination\u0001direct_property_uripc:awardCriteriaCombination\u00011": {
+            "label": "pc:awardCriteriaCombination",
+            "type": "direct_property_uri"
+        },
+        "pc:Tender\u0001gr:BusinessEntity0\u0001pc:Tender***gr:BusinessEntity0\u0001direct_property_uripc:bidder\u00011": {
+            "label": "pc:bidder",
+            "type": "direct_property_uri"
+        },
+        "pc:Tender\u0001gr:BusinessEntity1\u0001pc:Tender***gr:BusinessEntity1\u0001direct_property_uripc:bidder\u00011": {
+            "label": "pc:bidder",
+            "type": "direct_property_uri"
+        },
+        "pc:TendersOpening\u0001pc:Contract0\u0001pc:TendersOpening***pc:Contract0\u0001direct_property_uripc:contract\u00011": {
+            "label": "pc:contract",
+            "type": "direct_property_uri"
+        },
+        "pc:Contract0\u0001pc:Contract0\u0001pc:Contract0***pc:Contract0\u0001direct_property_uripc:lot\u00011": {
+            "label": "pc:lot",
+            "type": "direct_property_uri"
+        },
+        "pc:Contract0\u0001pc:FrameworkAgreement\u0001pc:Contract0***pc:FrameworkAgreement\u0001direct_property_uripc:frameworkAgreement\u00011": {
+            "label": "pc:frameworkAgreement",
+            "type": "direct_property_uri"
         }
     },
-    "_nodeCount": 10,
-    "_edgeCount": 12
+    "_nodeCount": 14,
+    "_edgeCount": 18
 }

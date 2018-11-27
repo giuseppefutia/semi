@@ -67,6 +67,34 @@
             "value": {
                 "type": "attribute_name"
             }
+        },
+        {
+            "v": "pc:FrameworkAgreement",
+            "value": {
+                "type": "class_uri",
+                "label": "pc:FrameworkAgreement"
+            }
+        },
+        {
+            "v": "pc:Tender",
+            "value": {
+                "type": "class_uri",
+                "label": "pc:Tender"
+            }
+        },
+        {
+            "v": "pc:AwardCriteriaCombination",
+            "value": {
+                "type": "class_uri",
+                "label": "pc:AwardCriteriaCombination"
+            }
+        },
+        {
+            "v": "pc:TendersOpening",
+            "value": {
+                "type": "class_uri",
+                "label": "pc:TendersOpening"
+            }
         }
     ],
     "edges": [
@@ -142,6 +170,96 @@
         },
         {
             "v": "pc:Contract0",
+            "w": "gr:BusinessEntity0",
+            "name": "pc:Contract0***gr:BusinessEntity0",
+            "value": {
+                "label": "pc:contractingAuthority",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "pc:Contract0",
+            "w": "gr:BusinessEntity1",
+            "name": "pc:Contract0***gr:BusinessEntity1",
+            "value": {
+                "label": "pc:contractingAuthority",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "pc:Contract0",
+            "w": "gr:BusinessEntity0",
+            "name": "pc:Contract0***gr:BusinessEntity0",
+            "value": {
+                "label": "pc:onBehalfOf",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "pc:Contract0",
+            "w": "gr:BusinessEntity1",
+            "name": "pc:Contract0***gr:BusinessEntity1",
+            "value": {
+                "label": "pc:onBehalfOf",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "pc:Contract0",
+            "w": "pc:Tender",
+            "name": "pc:Contract0***pc:Tender",
+            "value": {
+                "label": "pc:tender",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "pc:Contract0",
+            "w": "pc:AwardCriteriaCombination",
+            "name": "pc:Contract0***pc:AwardCriteriaCombination",
+            "value": {
+                "label": "pc:awardCriteriaCombination",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "pc:Tender",
+            "w": "gr:BusinessEntity0",
+            "name": "pc:Tender***gr:BusinessEntity0",
+            "value": {
+                "label": "pc:bidder",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "pc:Tender",
+            "w": "gr:BusinessEntity1",
+            "name": "pc:Tender***gr:BusinessEntity1",
+            "value": {
+                "label": "pc:bidder",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "pc:TendersOpening",
+            "w": "pc:Contract0",
+            "name": "pc:TendersOpening***pc:Contract0",
+            "value": {
+                "label": "pc:contract",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "pc:Contract0",
             "w": "pc:Contract0",
             "name": "pc:Contract0***pc:Contract0",
             "value": {
@@ -152,40 +270,10 @@
         },
         {
             "v": "pc:Contract0",
-            "w": "gr:BusinessEntity0",
-            "name": "pc:Contract0***gr:BusinessEntity0",
+            "w": "pc:FrameworkAgreement",
+            "name": "pc:Contract0***pc:FrameworkAgreement",
             "value": {
-                "label": "pc:contractingAuthority",
-                "type": "direct_property_uri"
-            },
-            "weight": 1
-        },
-        {
-            "v": "pc:Contract0",
-            "w": "gr:BusinessEntity1",
-            "name": "pc:Contract0***gr:BusinessEntity1",
-            "value": {
-                "label": "pc:contractingAuthority",
-                "type": "direct_property_uri"
-            },
-            "weight": 1
-        },
-        {
-            "v": "pc:Contract0",
-            "w": "gr:BusinessEntity0",
-            "name": "pc:Contract0***gr:BusinessEntity0",
-            "value": {
-                "label": "pc:onBehalfOf",
-                "type": "direct_property_uri"
-            },
-            "weight": 1
-        },
-        {
-            "v": "pc:Contract0",
-            "w": "gr:BusinessEntity1",
-            "name": "pc:Contract0***gr:BusinessEntity1",
-            "value": {
-                "label": "pc:onBehalfOf",
+                "label": "pc:frameworkAgreement",
                 "type": "direct_property_uri"
             },
             "weight": 1
