@@ -38,6 +38,51 @@ describe('Steiner algorithm test suite\n', function() {
             multigraph: true,
         });
 
+        graph.setNode('V1', {
+            type: 'type',
+            label: 'label'
+        });
+
+        graph.setNode('V2', {
+            type: 'type',
+            label: 'label'
+        });
+
+        graph.setNode('V3', {
+            type: 'type',
+            label: 'label'
+        });
+
+        graph.setNode('V4', {
+            type: 'type',
+            label: 'label'
+        });
+
+        graph.setNode('V5', {
+            type: 'type',
+            label: 'label'
+        });
+
+        graph.setNode('V6', {
+            type: 'type',
+            label: 'label'
+        });
+
+        graph.setNode('V7', {
+            type: 'type',
+            label: 'label'
+        });
+
+        graph.setNode('V8', {
+            type: 'type',
+            label: 'label'
+        });
+
+        graph.setNode('V9', {
+            type: 'type',
+            label: 'label'
+        });
+
         graph.setEdge('V9', 'V1', {
             type: 'property',
             label: 'This is the edge from V9 to V1'
@@ -185,6 +230,10 @@ describe('Steiner algorithm test suite\n', function() {
         graph_generator.add_semantic_types(sampleData, graph);
 
         // Add edges between semantic types
+        graph.setNode('pc:Tender0', {
+            type: 'type',
+            label: 'label'
+        });
         graph.setEdge('pc:Contract0', 'gr:BusinessEntity0', {}, 'pc:Contract0***gr:BusinessEntity0', 1);
         graph.setEdge('pc:Contract0', 'gr:BusinessEntity1', {}, 'pc:Contract0***gr:BusinessEntity1', 5);
         graph.setEdge('pc:Contract0', 'pc:Tender0', {}, 'pc:Contract0***pc:Tender0', 1);
