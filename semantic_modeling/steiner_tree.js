@@ -65,9 +65,22 @@ var get_path_edge_list = function(source, target, dijkstraOutput, graph) {
                 value = graph_edge['value'];
             }
         }
+        // Create an object for target and target predecessor: I mantaine the node information also in the steiner tree
+        var target_predecessor_obj = {
+            name: target_predecessor,
+            type: graph.node(target_predecessor)['type'],
+            label: graph.node(target_predecessor)['label']
+        };
+
+        var target_obj = {
+            name: target,
+            type: graph.node(target)['type'],
+            label: graph.node(target)['label']
+        }
+
         var intermediate_edge = {
-            v: target_predecessor,
-            w: target,
+            v: target_predecessor_obj,
+            w: target_obj,
             value: value,
             name: target_predecessor + '***' + target,
             weight: weight
@@ -77,9 +90,22 @@ var get_path_edge_list = function(source, target, dijkstraOutput, graph) {
         target_predecessor = dijkstraOutput[target]['predecessor']
     }
     var out_edges = graph.outEdges(source, target);
+
+    var source_obj = {
+        name: source,
+        type: graph.node(source)['type'],
+        label: graph.node(source)['label']
+    }
+
+    var target_obj = {
+        name: target,
+        type: graph.node(target)['type'],
+        label: graph.node(target)['label']
+    }
+
     var last_edge = {
-        v: source,
-        w: target,
+        v: source_obj,
+        w: target_obj,
         value: out_edges[0]['value'],
         name: source + '***' + target,
         weight: dijkstraOutput[target]['distance']
@@ -228,11 +254,19 @@ var step_three = (G2, graph) => {
                 continue;
             source = path_edges[i]['v'];
             target = path_edges[i]['w'];
-            if (G3.node(source) === undefined)
-                G3.setNode(source);
-            if (G3.node(target) === undefined)
-                G3.setNode(target);
-            G3.setEdge(source, target, path_edges[i]['value'], source + '***' + target, path_edges[i]['weight']);
+            if (G3.node(source['name']) === undefined) {
+                G3.setNode(source['name'], {
+                    type: source['type'],
+                    label: source['label']
+                });
+            }
+            if (G3.node(target) === undefined) {
+                G3.setNode(target['name'], {
+                    type: target['type'],
+                    label: target['label']
+                });
+            }
+            G3.setEdge(source['name'], target['name'], path_edges[i]['value'], source['name'] + '***' + target['name'], path_edges[i]['weight']);
         }
     }
     return G3;
@@ -251,6 +285,19 @@ var step_four = (G3) => {
     });
     for (var e in sortedEdges) {
         var edge = sortedEdges[e];
+        if (G4.node(edge.v) === undefined) {
+            // Get information from node G3
+            G4.setNode(edge.v, {
+                type: G3.node(edge.v)['type'],
+                label: G3.node(edge.v)['label']
+            });
+        }
+        if (G4.node(edge.w) === undefined) {
+            G4.setNode(edge.w, {
+                type: G3.node(edge.w)['type'],
+                label: G3.node(edge.w)['label']
+            });
+        }
         G4.setEdge(edge.v, edge.w, edge.value, edge.name, edge.weight);
     }
     return G4;

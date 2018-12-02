@@ -15,8 +15,9 @@ var ε = 3;
 // TODO: prefixes in one single place
 // TODO: add edge weight for subclasses
 // TODO: semantic_types in semantic type file should be an array of array?
+// TODO: Make a universal API to create nodes and edges
 
-const promise_sequence = funcs =>
+var promise_sequence = funcs =>
     funcs.reduce((promise, func) =>
         promise.then(result => func().then(Array.prototype.concat.bind(result))),
         Promise.resolve([]))
@@ -45,7 +46,8 @@ var add_semantic_types = (st, graph) => {
         // Add data node
         var data_node = attributes[i];
         graph.setNode(data_node, {
-            type: 'attribute_name'
+            type: 'attribute_name',
+            label: data_node
         });
         // Add edge
         graph.setEdge(class_node + entities[i], data_node, {
