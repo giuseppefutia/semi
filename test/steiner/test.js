@@ -13,22 +13,26 @@ describe('Steiner algorithm test suite\n', function() {
             multigraph: true,
         });
         graph.setEdge('V9', 'V1', {
-            label: 'property_label',
+            label: 'property_label***inverted',
             type: 'property'
         }, 'V9***V1', 1);
         graph.setEdge('V9', 'V8', {
             type: 'property',
-            label: 'property_label'
+            label: 'property_label***inverted'
         }, 'V9***V8', 0.5);
         graph.setEdge('V8', 'V7', {
             type: 'property',
-            label: 'property_label'
+            label: 'property_label***inverted'
         }, 'V8***V7', 0.5);
 
         var new_graph = steiner.create_inverse_edges(graph);
 
         it('It should crate the following edges: V1***V9', function() {
             assert.deepEqual(new_graph.edges()[3]['name'], 'V1***V9');
+        });
+
+        it('The edge V9***V1 should have a label that include inverted word after ***', function() {
+            assert.deepEqual(new_graph.edges()[3]['value']['label'].split('***')[1], 'inverted');
         });
     });
 
@@ -150,7 +154,7 @@ describe('Steiner algorithm test suite\n', function() {
                 name: 'V1***V9',
                 value: {
                     type: 'property',
-                    label: 'This is the edge from V9 to V1'
+                    label: 'This is the edge from V9 to V1***inverted'
                 },
                 weight: 1
             },
@@ -170,7 +174,7 @@ describe('Steiner algorithm test suite\n', function() {
                 name: 'V3***V5',
                 value: {
                     type: 'property',
-                    label: 'This is the edge from V5 to V3'
+                    label: 'This is the edge from V5 to V3***inverted'
                 },
                 weight: 2
             },
@@ -234,7 +238,10 @@ describe('Steiner algorithm test suite\n', function() {
             type: 'type',
             label: 'label'
         });
-        graph.setEdge('pc:Contract0', 'gr:BusinessEntity0', {}, 'pc:Contract0***gr:BusinessEntity0', 1);
+        graph.setEdge('pc:Contract0', 'gr:BusinessEntity0', {
+            type: 'property',
+            label: 'label'
+        }, 'pc:Contract0***gr:BusinessEntity0', 1);
         graph.setEdge('pc:Contract0', 'gr:BusinessEntity1', {}, 'pc:Contract0***gr:BusinessEntity1', 5);
         graph.setEdge('pc:Contract0', 'pc:Tender0', {}, 'pc:Contract0***pc:Tender0', 1);
         graph.setEdge('pc:Tender0', 'gr:BusinessEntity1', {}, 'pc:Tender0***gr:BusinessEntity1', 1);
@@ -246,17 +253,16 @@ describe('Steiner algorithm test suite\n', function() {
         var G1 = steiner.step_one(graph, steiner_nodes);
         var G2 = steiner.step_two(G1);
         var G3 = steiner.step_three(G2, graph);
+
         var G4 = steiner.step_four(G3);
         var G5 = steiner.step_five(G4, steiner_nodes);
-
-        //console.log(graphlib.json.write(graph));
 
         var test_edges = [{
                 v: 'authority_identifier',
                 w: 'gr:BusinessEntity0',
                 name: 'authority_identifier***gr:BusinessEntity0',
                 value: {
-                    "label": "dcterms:identifier",
+                    "label": "dcterms:identifier***inverted",
                     "type": "st_property_uri"
                 },
                 weight: 1
@@ -266,7 +272,7 @@ describe('Steiner algorithm test suite\n', function() {
                 w: 'pc:Contract0',
                 name: 'contract_identifier***pc:Contract0',
                 value: {
-                    "label": "dcterms:identifier",
+                    "label": "dcterms:identifier***inverted",
                     "type": "st_property_uri"
                 },
                 weight: 1
@@ -275,7 +281,10 @@ describe('Steiner algorithm test suite\n', function() {
                 v: 'gr:BusinessEntity0',
                 w: 'pc:Contract0',
                 name: 'gr:BusinessEntity0***pc:Contract0',
-                value: {},
+                value: {
+                    type: 'property',
+                    label: 'label***inverted'
+                },
                 weight: 1
             },
             {

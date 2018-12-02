@@ -69,7 +69,7 @@ var get_path_edge_list = function(source, target, dijkstraOutput, graph) {
                 value = graph_edge['value'];
             }
         }
-        // Create an object for target and target predecessor: I mantaine the node information also in the steiner tree
+        // Create an object for target and target predecessor: I mantain the node information also in the steiner tree
         var target_predecessor_obj = {
             name: target_predecessor,
             type: graph.node(target_predecessor)['type'],
