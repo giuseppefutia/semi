@@ -21,7 +21,7 @@ var build_prefix = () => {
 /**
  * INIT OF CONSTRUCT SECTION
  */
-var build_construct = (st, ont, steiner) => {
+var build_construct = (st, steiner) => {
     var body = '';
     var initial = 'CONSTRUCT {\n';
     var final = '}\n';
@@ -36,12 +36,25 @@ var build_construct = (st, ont, steiner) => {
         var object = '?' + attributes[i];
         body += write_triple(subject, predicate, object);
     }
-    create_semantic_relations(ont, steiner);
+    body += create_semantic_relations(steiner);
     return initial + body + final;
 }
 
-var create_semantic_relations = (ont, steiner) => {
-
+var create_semantic_relations = (steiner) => {
+    var body = '';
+    var nodes = steiner.nodes;
+    var edges = steiner.edges;
+    for (var i in edges) {
+        if (edges[i].value.type !== 'st_property_uri') { // Semantic types are already managed
+            var label = edges[i].value.label;
+            if (label.indexOf('inverted') === -1) {
+                body += write_triple(edges[i].v, edges[i].value.label, edges[i].w);
+            } else {
+                body += write_triple(edges[i].w, edges[i].value.label.split('***')[0], edges[i].v);
+            }
+        }
+    }
+    return body;
 }
 
 /**
@@ -113,9 +126,9 @@ var build_where = (st) => {
  * END OF WHERE SECTION
  */
 
-var build_jarql = (semantic_types, ontology, steiner_tree) => {
+var build_jarql = (semantic_types, steiner_tree) => {
     var prefix_section = build_prefix().replace(/^ +/gm, ''); // Remove white space at each line
-    var construct_section = build_construct(semantic_types, ontology, steiner_tree);
+    var construct_section = build_construct(semantic_types, steiner_tree);
     var where_section = build_where(semantic_types);
     var jarql_string = prefix_section + construct_section + where_section;
     return jarql_string;

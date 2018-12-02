@@ -4,6 +4,7 @@ var jarql = require(__dirname + '/../../semantic_modeling/jarql.js');
 
 describe('Test JARQL', function() {
     var st = JSON.parse(fs.readFileSync(__dirname + '/public-contracts_semantic_types.json'))[0];
+    var steiner_tree = JSON.parse(fs.readFileSync(__dirname + '/Z4ADEA9DE4_steiner.json'));
 
     describe('Build CONSTRUCT section for semantic types', function() {
         var construct_test = `
@@ -15,8 +16,10 @@ describe('Test JARQL', function() {
                 ?BusinessEntity1 rdfs:label ?partecipanti__ragioneSociale.
                 ?BusinessEntity1 dcterms:identifier ?aggiudicatari__identificativo.
                 ?BusinessEntity1 rdfs:label ?aggiudicatari__ragioneSociale.
+                pc:Contract0 pc:contractingAuthority gr:BusinessEntity0.
+                pc:Contract0 pc:contractingAuthority gr:BusinessEntity1.
             }`;
-        var construct = jarql.build_construct(st);
+        var construct = jarql.build_construct(st, steiner_tree);
         it('construct and construct_test are equal', function() {
             // In the test I remove all white spaces for a correct step
             assert.deepEqual(construct.replace(/\s/g, ''), construct_test.replace(/\s/g, ''));
@@ -110,6 +113,8 @@ describe('Test JARQL', function() {
                 ?BusinessEntity1 rdfs:label ?partecipanti__ragioneSociale.
                 ?BusinessEntity1 dcterms:identifier ?aggiudicatari__identificativo.
                 ?BusinessEntity1 rdfs:label ?aggiudicatari__ragioneSociale.
+                pc:Contract0 pc:contractingAuthority gr:BusinessEntity0.
+                pc:Contract0 pc:contractingAuthority gr:BusinessEntity1.
             }
 
             WHERE {
@@ -129,7 +134,7 @@ describe('Test JARQL', function() {
                 BIND (URI(CONCAT('http://pc.org/businessEntities/',?strutturaProponente__codiceFiscaleProp)) as ?BusinessEntity0)
                 BIND (URI(CONCAT('http://pc.org/businessEntities/',?partecipanti__identificativo)) as ?BusinessEntity1)
             }`;
-        var jarql_generated = jarql.build_jarql(st);
+        var jarql_generated = jarql.build_jarql(st, steiner_tree);
         it('jarql and jarql_test are equal', function() {
             assert.deepEqual(jarql_generated.replace(/\s/g, ''), jarql_test.replace(/\s/g, ''));
         });
