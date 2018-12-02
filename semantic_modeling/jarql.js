@@ -15,13 +15,13 @@ var write_bind = (base_uri, attribute_value, reference_entity) => {
 }
 
 var build_prefix = () => {
-    return utils.get_prefix_strings() + '\n' + 'PREFIX jarql: <http://jarql.com/>' + '\n\n'.toString();
+    return utils.get_prefix_strings() + '\n' + 'PREFIX jarql:    <http://jarql.com/>' + '\n\n'.toString();
 }
 
 /**
  * INIT OF CONSTRUCT SECTION
  */
-var build_construct = (st) => {
+var build_construct = (st, ont, steiner) => {
     var body = '';
     var initial = 'CONSTRUCT {\n';
     var final = '}\n';
@@ -36,8 +36,14 @@ var build_construct = (st) => {
         var object = '?' + attributes[i];
         body += write_triple(subject, predicate, object);
     }
+    create_semantic_relations(ont, steiner);
     return initial + body + final;
 }
+
+var create_semantic_relations = (ont, steiner) => {
+
+}
+
 /**
  * END OF CONSTRUCT SECTION
  */
@@ -107,9 +113,9 @@ var build_where = (st) => {
  * END OF WHERE SECTION
  */
 
-var build_jarql = (semantic_types) => {
+var build_jarql = (semantic_types, ontology, steiner_tree) => {
     var prefix_section = build_prefix().replace(/^ +/gm, ''); // Remove white space at each line
-    var construct_section = build_construct(semantic_types);
+    var construct_section = build_construct(semantic_types, ontology, steiner_tree);
     var where_section = build_where(semantic_types);
     var jarql_string = prefix_section + construct_section + where_section;
     return jarql_string;
