@@ -45,7 +45,11 @@ var create_inverse_edges = (g) => {
     var graph = graphlib.json.write(g);
     var edges = graph['edges'];
     for (var e in edges) {
-        g.setEdge(edges[e]['w'], edges[e]['v'], edges[e]['value'], edges[e]['w'] + '***' + edges[e]['v'], edges[e]['weight']);
+        var value = {
+            type: edges[e]['value']['type'],
+            label: edges[e]['value']['label'] + '***' + 'inverted'
+        }
+        g.setEdge(edges[e]['w'], edges[e]['v'], value, edges[e]['w'] + '***' + edges[e]['v'], edges[e]['weight']);
     }
     return g;
 }
