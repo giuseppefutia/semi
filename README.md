@@ -5,14 +5,14 @@ A Semantic Modeling Machine.
 The multi-edge and weighted graph includes all plausible semantic models of a data source respect to a domain ontology. To create such graph, you can run the following commands:
 
 ```bash
-$ node run/graph.js data/pc/semantic_types/Z4ADEA9DE4_st.json data/pc/ontology/public-contracts.ttl rdfs:domain rdfs:range owl:class data/pc/semantic_models/Z4ADEA9DE4
+$ node run/graph.js data/pc/semantic_types/Z4ADEA9DE4_st.json data/pc/ontology/public-contracts.ttl rdfs:domain rdfs:range owl:Class data/pc/semantic_models/Z4ADEA9DE4
 ```
 
 * `data/pc/semantic_types/Z4ADEA9DE4_st.json` is the input semantic type file.
 * `data/pc/ontology/public-contracts.ttl` is the domain ontology file.
 * `rdfs:domain` is the domain property in the ontology.
 * `rdfs:range` is the range property in the ontology.
-* `owl:class` is the property in the ontology to identify classes.
+* `owl:Class` is the property in the ontology to identify classes.
 * `data/pc/semantic_models/Z4ADEA9DE4` is used as output path for the generation of the graph in different formats.
 
 This script generates two types of graph:
