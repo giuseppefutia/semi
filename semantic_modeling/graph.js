@@ -37,7 +37,7 @@ var add_semantic_types = (st, graph) => {
     var semantic_types = st['semantic_types']; // TODO: Move the function to create inverse edges in the graph.js file
     var entities = st['entities'];
     for (var i in attributes) {
-        var class_node = semantic_types[i][0].split("_")[0]; // Remember: I put an index here, because I can expect candidates semantic types
+        var class_node = semantic_types[i][0].split("***")[0]; // Remember: I put an index here, because I can expect candidates semantic types
         // Add class node
         graph.setNode(class_node + entities[i], {
             type: 'class_uri',
@@ -51,7 +51,7 @@ var add_semantic_types = (st, graph) => {
         });
         // Add edge
         graph.setEdge(class_node + entities[i], data_node, {
-            label: semantic_types[i][0].split("_")[1],
+            label: semantic_types[i][0].split("***")[1],
             type: 'st_property_uri'
         }, class_node + entities[i] + "***" + data_node, 1);
     }
