@@ -1,48 +1,3 @@
-// TODO: PREFIX or PREFIX strings can be generated automatically
-
-var PREFIX = {
-    'http://schema.org/': 'schema:',
-    'http://www.w3.org/2000/01/rdf-schema#': 'rdfs:',
-    'http://purl.org/procurement/public-contracts#': 'pc:',
-    'http://purl.org/goodrelations/v1#': 'gr:',
-    'http://www.w3.org/2002/07/owl#': 'owl:',
-    'http://www.w3.org/ns/adms#': 'adms:',
-    'http://vocab.deri.ie/c4n#': 'c4n:',
-    'http://purl.org/dc/terms/': 'dcterms:',
-    'http://xmlns.com/foaf/0.1/': 'foaf:',
-    'http://www.loted.eu/ontology#': 'loted:',
-    'http://reference.data.gov.uk/def/payment#': 'payment:',
-    'http://purl.org/linked-data/cube#': 'qb:',
-    'http://www.w3.org/1999/02/22-rdf-syntax-ns#': 'rdf:',
-    'http://www.w3.org/2004/02/skos/core#': 'skos:',
-    'http://purl.org/vocab/vann/': 'vann:',
-    'http://www.w3.org/2001/XMLSchema#': 'xsd:',
-}
-
-var PREFIX_STRINGS = `
-    PREFIX schema:    <http://schema.org/>
-    PREFIX rdfs:      <http://www.w3.org/2000/01/rdf-schema#>
-    PREFIX pc:        <http://purl.org/procurement/public-contracts#>
-    PREFIX gr:        <http://purl.org/goodrelations/v1#>
-    PREFIX owl:       <http://www.w3.org/2002/07/owl#>
-    PREFIX adms:      <http://www.w3.org/ns/adms#>
-    PREFIX c4n:       <http://vocab.deri.ie/c4n#>
-    PREFIX dcterms:   <http://purl.org/dc/terms/>
-    PREFIX foaf:      <http://xmlns.com/foaf/0.1/>
-    PREFIX loted:     <http://www.loted.eu/ontology#>
-    PREFIX payment:   <http://reference.data.gov.uk/def/payment#>
-    PREFIX qb:        <http://purl.org/linked-data/cube#>
-    PREFIX rdf:       <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-    PREFIX skos:      <http://www.w3.org/2004/02/skos/core#>
-    PREFIX vann:      <http://purl.org/vocab/vann/>
-    PREFIX xsd:       <http://www.w3.org/2001/XMLSchema#>
-    PREFIX owl:       <http://www.w3.org/2002/07/owl#>`
-
-var INSTANCE_URIS = {
-    'pc:Contract': 'http://pc.org/contracts/',
-    'gr:BusinessEntity': 'http://pc.org/businessEntities/'
-}
-
 var get_prefix_strings = function() {
     return PREFIX_STRINGS;
 }
@@ -87,6 +42,48 @@ var set_property = function(subject, property, object, type) {
         'type': type
     }
     return o;
+}
+
+var generate_prefix_string = (prefix) => {
+    var prefix_arr = Object.keys(prefix).map(function(k) {
+        var white_space_length = 10 - prefix[k].length;
+        var white_space = ' '
+        for (var i = 0; i < white_space_length; i++) {
+            white_space += ' ';
+        }
+        return 'PREFIX ' + prefix[k] + white_space + '<' + k + '>' + '\n'
+    });
+
+    var prefix_str =
+        `${prefix_arr.join('_**_').split('_**_').map((item) => `${item}`).join('')}`
+
+    return prefix_str;
+}
+
+var PREFIX = {
+    'http://schema.org/': 'schema:',
+    'http://www.w3.org/2000/01/rdf-schema#': 'rdfs:',
+    'http://purl.org/procurement/public-contracts#': 'pc:',
+    'http://purl.org/goodrelations/v1#': 'gr:',
+    'http://www.w3.org/2002/07/owl#': 'owl:',
+    'http://www.w3.org/ns/adms#': 'adms:',
+    'http://vocab.deri.ie/c4n#': 'c4n:',
+    'http://purl.org/dc/terms/': 'dcterms:',
+    'http://xmlns.com/foaf/0.1/': 'foaf:',
+    'http://www.loted.eu/ontology#': 'loted:',
+    'http://reference.data.gov.uk/def/payment#': 'payment:',
+    'http://purl.org/linked-data/cube#': 'qb:',
+    'http://www.w3.org/1999/02/22-rdf-syntax-ns#': 'rdf:',
+    'http://www.w3.org/2004/02/skos/core#': 'skos:',
+    'http://purl.org/vocab/vann/': 'vann:',
+    'http://www.w3.org/2001/XMLSchema#': 'xsd:',
+}
+
+var PREFIX_STRINGS = generate_prefix_string(PREFIX)
+
+var INSTANCE_URIS = {
+    'pc:Contract': 'http://pc.org/contracts/',
+    'gr:BusinessEntity': 'http://pc.org/businessEntities/'
 }
 
 exports.get_prefix_strings = get_prefix_strings;
