@@ -1,0 +1,19 @@
+PREFIX jarql: <http://jarql.com/>
+
+CONSTRUCT {
+    ?paper <http://example.com/property/paper_id> ?paper_id.
+    ?paper <http://example.com/property/has_co_author> ?co_author.
+    ?co_author <http://example.com/property/has_co_author> ?co_author_id.
+}
+WHERE {
+    jarql:root jarql:papers ?papers.
+    ?papers jarql:paper_id ?paper_id.
+    ?papers jarql:co_authors ?co_authors.
+    ?co_authors jarql:co_author ?co_author_id.
+    BIND (URI(CONCAT('http://example.com/papers/', ?paper_id)) as ?paper)
+    BIND (URI(CONCAT('http://example.com/coauthors/', ?co_author_id)) as ?co_author)
+    OPTIONAL {
+        ?paper <http://example.com/property/has_co_author> ?co_author.
+        ?co_author <http://example.com/property/has_co_author> ?co_author_id.
+    }
+}

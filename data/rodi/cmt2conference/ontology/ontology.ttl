@@ -1,0 +1,1700 @@
+@prefix : <http://conference#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://conference> .
+
+<http://conference> rdf:type owl:Ontology .
+
+
+#################################################################
+#
+#    Datatypes
+#
+#################################################################
+
+
+###  http://www.w3.org/2001/XMLSchema#date
+
+xsd:date rdf:type rdfs:Datatype .
+
+
+
+
+
+#################################################################
+#
+#    Object Properties
+#
+#################################################################
+
+
+###  http://conference#belong_to_a_conference_volume
+
+:belong_to_a_conference_volume rdf:type owl:InverseFunctionalProperty ,
+                                        owl:ObjectProperty ;
+
+                               rdfs:label "date belongs to conference" ;
+
+                               rdfs:range :Conference_volume ;
+
+                               rdfs:domain :Important_dates .
+
+
+
+###  http://conference#belongs_to_a_review_reference
+
+:belongs_to_a_review_reference rdf:type owl:InverseFunctionalProperty ,
+                                        owl:ObjectProperty ;
+
+                               rdfs:label "topic of review preference" ;
+
+                               rdfs:range :Review_preference ;
+
+                               rdfs:domain :Topic .
+
+
+
+###  http://conference#belongs_to_reviewers
+
+:belongs_to_reviewers rdf:type owl:ObjectProperty ;
+
+                      rdfs:label "belongs to reviewers" ;
+
+                      rdfs:range :Reviewer ;
+
+                      owl:inverseOf :has_a_review_reference_or_expertise ;
+
+                      rdfs:domain [ rdf:type owl:Class ;
+                                    owl:unionOf ( :Review_expertise
+                                                  :Review_preference
+                                                )
+                                  ] .
+
+
+
+###  http://conference#contributes
+
+:contributes rdf:type owl:ObjectProperty ;
+
+             rdfs:label "contributes" ;
+
+             rdfs:range :Conference_document ;
+
+             rdfs:domain :Person .
+
+
+
+###  http://conference#gives_presentations
+
+:gives_presentations rdf:type owl:ObjectProperty ;
+
+                     rdfs:label "gives presentation" ;
+
+                     rdfs:domain :Active_conference_participant ;
+
+                     rdfs:range :Presentation ;
+
+                     owl:inverseOf :is_given_by .
+
+
+
+###  http://conference#has_a_committee_chair
+
+:has_a_committee_chair rdf:type owl:FunctionalProperty ,
+                                owl:ObjectProperty ;
+
+                       rdfs:label "has committee chair" ;
+
+                       rdfs:range :Chair ;
+
+                       rdfs:domain :Committee ;
+
+                       rdfs:subPropertyOf :has_members .
+
+
+
+###  http://conference#has_a_committee_co-chair
+
+:has_a_committee_co-chair rdf:type owl:ObjectProperty ;
+
+                          rdfs:label "has committee co-chair" ;
+
+                          rdfs:range :Co-chair ;
+
+                          rdfs:domain :Committee ;
+
+                          rdfs:subPropertyOf :has_members ;
+
+                          owl:inverseOf :was_a_committe_co-chair_of .
+
+
+
+###  http://conference#has_a_commtitee
+
+:has_a_commtitee rdf:type owl:ObjectProperty ;
+
+                 rdfs:label "has committee" ;
+
+                 rdfs:range :Committee ;
+
+                 rdfs:domain :Conference_volume .
+
+
+
+###  http://conference#has_a_program_committee
+
+:has_a_program_committee rdf:type owl:FunctionalProperty ,
+                                  owl:ObjectProperty ;
+
+                         rdfs:domain :Conference_volume ;
+
+                         rdfs:range :Program_committee ;
+
+                         rdfs:subPropertyOf :has_a_commtitee .
+
+
+
+###  http://conference#has_a_publisher
+
+:has_a_publisher rdf:type owl:FunctionalProperty ,
+                          owl:ObjectProperty ;
+
+                 rdfs:label "has publisher" ;
+
+                 rdfs:domain :Conference_proceedings ;
+
+                 rdfs:range :Publisher .
+
+
+
+###  http://conference#has_a_review
+
+:has_a_review rdf:type owl:InverseFunctionalProperty ,
+                       owl:ObjectProperty ;
+
+              rdfs:label "has review" ;
+
+              rdfs:range :Review ;
+
+              rdfs:domain :Reviewed_contribution ;
+
+              owl:inverseOf :reviews .
+
+
+
+###  http://conference#has_a_review_expertise
+
+:has_a_review_expertise rdf:type owl:InverseFunctionalProperty ,
+                                 owl:ObjectProperty ;
+
+                        rdfs:label "reviewed with expertise level" ;
+
+                        rdfs:range :Review_expertise ;
+
+                        rdfs:domain :Submitted_contribution ;
+
+                        owl:inverseOf :has_a_submitted_contribution .
+
+
+
+###  http://conference#has_a_review_reference_or_expertise
+
+:has_a_review_reference_or_expertise rdf:type owl:ObjectProperty ;
+
+                                     rdfs:label "reviewer has reference or expertise" ;
+
+                                     rdfs:domain :Reviewer ;
+
+                                     rdfs:range [ rdf:type owl:Class ;
+                                                  owl:unionOf ( :Review_expertise
+                                                                :Review_preference
+                                                              )
+                                                ] .
+
+
+
+###  http://conference#has_a_steering_committee
+
+:has_a_steering_committee rdf:type owl:FunctionalProperty ,
+                                   owl:ObjectProperty ;
+
+                          rdfs:domain :Conference_volume ;
+
+                          rdfs:range :Steering_committee ;
+
+                          rdfs:subPropertyOf :has_a_commtitee .
+
+
+
+###  http://conference#has_a_submitted_contribution
+
+:has_a_submitted_contribution rdf:type owl:FunctionalProperty ,
+                                       owl:ObjectProperty ;
+
+                              rdfs:label "has submitted topic" ;
+
+                              rdfs:domain :Review_expertise ;
+
+                              rdfs:range :Submitted_contribution .
+
+
+
+###  http://conference#has_a_topic_or_a_submission_contribution
+
+:has_a_topic_or_a_submission_contribution rdf:type owl:FunctionalProperty ,
+                                                   owl:ObjectProperty ;
+
+                                          rdfs:label "prefers topic/contribution" ;
+
+                                          rdfs:domain :Review_preference ;
+
+                                          rdfs:range [ rdf:type owl:Class ;
+                                                       owl:unionOf ( :Submitted_contribution
+                                                                     :Topic
+                                                                   )
+                                                     ] .
+
+
+
+###  http://conference#has_a_track-workshop-tutorial_chair
+
+:has_a_track-workshop-tutorial_chair rdf:type owl:FunctionalProperty ,
+                                              owl:ObjectProperty ;
+
+                                     rdfs:label "has chair" ;
+
+                                     rdfs:domain :Conference_part ;
+
+                                     rdfs:range :Track-workshop_chair ;
+
+                                     owl:inverseOf :was_a_track-workshop_chair_of .
+
+
+
+###  http://conference#has_a_track-workshop-tutorial_topic
+
+:has_a_track-workshop-tutorial_topic rdf:type owl:ObjectProperty ;
+
+                                     rdfs:label "has topic" ;
+
+                                     rdfs:domain :Conference_part ;
+
+                                     rdfs:range :Topic ;
+
+                                     owl:inverseOf :is_a_topis_of_conference_parts .
+
+
+
+###  http://conference#has_an_abstract
+
+:has_an_abstract rdf:type owl:FunctionalProperty ,
+                          owl:ObjectProperty ;
+
+                 rdfs:label "has abstract" ;
+
+                 rdfs:range :Abstract ;
+
+                 owl:inverseOf :is_the_1th_part_of ;
+
+                 rdfs:domain [ rdf:type owl:Class ;
+                               owl:unionOf ( :Paper
+                                             :Poster
+                                             :Presentation
+                                           )
+                             ] .
+
+
+
+###  http://conference#has_an_organizing_committee
+
+:has_an_organizing_committee rdf:type owl:FunctionalProperty ,
+                                      owl:ObjectProperty ;
+
+                             rdfs:domain :Conference_volume ;
+
+                             rdfs:range :Organizing_committee ;
+
+                             rdfs:subPropertyOf :has_a_commtitee .
+
+
+
+###  http://conference#has_authors
+
+:has_authors rdf:type owl:ObjectProperty ;
+
+             rdfs:label "has author" ;
+
+             rdfs:domain :Conference_document ;
+
+             rdfs:range :Person ;
+
+             owl:inverseOf :contributes .
+
+
+
+###  http://conference#has_been_assigned_a_review_reference
+
+:has_been_assigned_a_review_reference rdf:type owl:InverseFunctionalProperty ,
+                                               owl:ObjectProperty ;
+
+                                      rdfs:label "has assigned preference" ;
+
+                                      rdfs:range :Review_preference ;
+
+                                      owl:inverseOf :has_a_topic_or_a_submission_contribution ;
+
+                                      rdfs:domain [ rdf:type owl:Class ;
+                                                    owl:unionOf ( :Submitted_contribution
+                                                                  :Topic
+                                                                )
+                                                  ] .
+
+
+
+###  http://conference#has_contributions
+
+:has_contributions rdf:type owl:ObjectProperty ;
+
+                   rdfs:label "has contributions" ;
+
+                   rdfs:range :Conference_contribution ;
+
+                   rdfs:domain :Conference_volume .
+
+
+
+###  http://conference#has_important_dates
+
+:has_important_dates rdf:type owl:FunctionalProperty ,
+                              owl:ObjectProperty ;
+
+                     rdfs:label "has important dates" ;
+
+                     rdfs:domain :Conference_volume ;
+
+                     rdfs:range :Important_dates ;
+
+                     owl:inverseOf :belong_to_a_conference_volume .
+
+
+
+###  http://conference#has_members
+
+:has_members rdf:type owl:ObjectProperty ;
+
+             rdfs:label "has member" ;
+
+             rdfs:domain :Committee ;
+
+             rdfs:range :Committee_member .
+
+
+
+###  http://conference#has_parts
+
+:has_parts rdf:type owl:ObjectProperty ;
+
+           rdfs:label "has part" ;
+
+           rdfs:range :Conference_part ;
+
+           rdfs:domain :Conference_volume ;
+
+           owl:inverseOf :is_part_of_conference_volumes .
+
+
+
+###  http://conference#has_tracks
+
+:has_tracks rdf:type owl:ObjectProperty ;
+
+            rdfs:domain :Conference_volume ;
+
+            rdfs:range :Track ;
+
+            rdfs:subPropertyOf :has_parts .
+
+
+
+###  http://conference#has_tutorials
+
+:has_tutorials rdf:type owl:ObjectProperty ;
+
+               rdfs:domain :Conference_volume ;
+
+               rdfs:range :Tutorial ;
+
+               rdfs:subPropertyOf :has_parts .
+
+
+
+###  http://conference#has_workshops
+
+:has_workshops rdf:type owl:ObjectProperty ;
+
+               rdfs:domain :Conference_volume ;
+
+               rdfs:range :Workshop ;
+
+               rdfs:subPropertyOf :has_parts .
+
+
+
+###  http://conference#invited_by
+
+:invited_by rdf:type owl:ObjectProperty ;
+
+            rdfs:label "invited by" ;
+
+            rdfs:domain :Reviewer ;
+
+            rdfs:range :Reviewer .
+
+
+
+###  http://conference#invites_co-reviewers
+
+:invites_co-reviewers rdf:type owl:ObjectProperty ;
+
+                      rdfs:label "has invited for co-review" ;
+
+                      rdfs:range :Reviewer ;
+
+                      rdfs:domain :Reviewer ;
+
+                      owl:inverseOf :invited_by .
+
+
+
+###  http://conference#is_a_topis_of_conference_parts
+
+:is_a_topis_of_conference_parts rdf:type owl:ObjectProperty ;
+
+                                rdfs:label "is topic of" ;
+
+                                rdfs:range :Conference_part ;
+
+                                rdfs:domain :Topic .
+
+
+
+###  http://conference#is_given_by
+
+:is_given_by rdf:type owl:ObjectProperty ;
+
+             rdfs:label "given by" ;
+
+             rdfs:range :Active_conference_participant ;
+
+             rdfs:domain :Presentation .
+
+
+
+###  http://conference#is_part_of_conference_volumes
+
+:is_part_of_conference_volumes rdf:type owl:ObjectProperty ;
+
+                               rdfs:label "is part of" ;
+
+                               rdfs:domain :Conference_part ;
+
+                               rdfs:range :Conference_volume .
+
+
+
+###  http://conference#is_submitted_at
+
+:is_submitted_at rdf:type owl:ObjectProperty ;
+
+                 rdfs:label "submitted at" ;
+
+                 rdfs:domain :Conference_contribution ;
+
+                 rdfs:range :Conference_volume ;
+
+                 owl:inverseOf :has_contributions .
+
+
+
+###  http://conference#is_the_1th_part_of
+
+:is_the_1th_part_of rdf:type owl:InverseFunctionalProperty ,
+                             owl:ObjectProperty ;
+
+                    rdfs:label "is first part of" ;
+
+                    rdfs:domain :Abstract ;
+
+                    rdfs:range [ rdf:type owl:Class ;
+                                 owl:unionOf ( :Paper
+                                               :Poster
+                                               :Presentation
+                                             )
+                               ] .
+
+
+
+###  http://conference#issues
+
+:issues rdf:type owl:InverseFunctionalProperty ,
+                 owl:ObjectProperty ;
+
+        rdfs:label "publishes" ;
+
+        rdfs:range :Conference_proceedings ;
+
+        rdfs:domain :Publisher ;
+
+        owl:inverseOf :has_a_publisher .
+
+
+
+###  http://conference#reviews
+
+:reviews rdf:type owl:FunctionalProperty ,
+                  owl:ObjectProperty ;
+
+         rdfs:label "is review for" ;
+
+         rdfs:domain :Review ;
+
+         rdfs:range :Reviewed_contribution .
+
+
+
+###  http://conference#was_a_committe_co-chair_of
+
+:was_a_committe_co-chair_of rdf:type owl:ObjectProperty ;
+
+                            rdfs:domain :Co-chair ;
+
+                            rdfs:range :Committee ;
+
+                            rdfs:subPropertyOf :was_a_member_of .
+
+
+
+###  http://conference#was_a_committee_chair_of
+
+:was_a_committee_chair_of rdf:type owl:InverseFunctionalProperty ,
+                                   owl:ObjectProperty ;
+
+                          rdfs:domain :Chair ;
+
+                          rdfs:range :Committee ;
+
+                          owl:inverseOf :has_a_committee_chair ;
+
+                          rdfs:subPropertyOf :was_a_member_of .
+
+
+
+###  http://conference#was_a_committee_of
+
+:was_a_committee_of rdf:type owl:ObjectProperty ;
+
+                    rdfs:domain :Committee ;
+
+                    rdfs:range :Conference_volume ;
+
+                    owl:inverseOf :has_a_commtitee .
+
+
+
+###  http://conference#was_a_member_of
+
+:was_a_member_of rdf:type owl:ObjectProperty ;
+
+                 rdfs:range :Committee ;
+
+                 rdfs:domain :Committee_member ;
+
+                 owl:inverseOf :has_members .
+
+
+
+###  http://conference#was_a_program_committee_of
+
+:was_a_program_committee_of rdf:type owl:InverseFunctionalProperty ,
+                                     owl:ObjectProperty ;
+
+                            rdfs:range :Conference_volume ;
+
+                            rdfs:domain :Program_committee ;
+
+                            owl:inverseOf :has_a_program_committee ;
+
+                            rdfs:subPropertyOf :was_a_committee_of .
+
+
+
+###  http://conference#was_a_steering_committee_of
+
+:was_a_steering_committee_of rdf:type owl:InverseFunctionalProperty ,
+                                      owl:ObjectProperty ;
+
+                             rdfs:range :Conference_volume ;
+
+                             rdfs:domain :Steering_committee ;
+
+                             owl:inverseOf :has_a_steering_committee ;
+
+                             rdfs:subPropertyOf :was_a_committee_of .
+
+
+
+###  http://conference#was_a_track-workshop_chair_of
+
+:was_a_track-workshop_chair_of rdf:type owl:InverseFunctionalProperty ,
+                                        owl:ObjectProperty ;
+
+                               rdfs:range :Conference_part ;
+
+                               rdfs:domain :Track-workshop_chair .
+
+
+
+###  http://conference#was_an_organizing_committee_of
+
+:was_an_organizing_committee_of rdf:type owl:InverseFunctionalProperty ,
+                                         owl:ObjectProperty ;
+
+                                rdfs:range :Conference_volume ;
+
+                                rdfs:domain :Organizing_committee ;
+
+                                owl:inverseOf :has_an_organizing_committee ;
+
+                                rdfs:subPropertyOf :was_a_committee_of .
+
+
+
+
+
+#################################################################
+#
+#    Data properties
+#
+#################################################################
+
+
+###  http://conference#amount
+
+:amount rdf:type owl:DatatypeProperty ;
+
+        rdfs:label "amount in USD" ;
+
+        rdfs:domain :Conference_fees .
+
+
+
+###  http://conference#has_a_URL
+
+:has_a_URL rdf:type owl:DatatypeProperty ,
+                    owl:FunctionalProperty ;
+
+           rdfs:label "has URL" ;
+
+           rdfs:domain :Conference_www ;
+
+           rdfs:range xsd:string .
+
+
+
+###  http://conference#has_a_date_of_issue
+
+:has_a_date_of_issue rdf:type owl:DatatypeProperty ,
+                              owl:FunctionalProperty ;
+
+                     rdfs:label "has issue date" ;
+
+                     rdfs:domain :Conference_document ;
+
+                     rdfs:range xsd:date .
+
+
+
+###  http://conference#has_a_degree
+
+:has_a_degree rdf:type owl:DatatypeProperty ,
+                       owl:FunctionalProperty ;
+
+              rdfs:label "has degree" ;
+
+              rdfs:comment "A weight factor specifying the degree of preference." ;
+
+              rdfs:domain :Review_preference ;
+
+              rdfs:range xsd:int .
+
+
+
+###  http://conference#has_a_location
+
+:has_a_location rdf:type owl:DatatypeProperty ;
+
+                rdfs:label "has location" ;
+
+                rdfs:comment "Name of conference location (city, country)." ;
+
+                rdfs:domain :Conference_volume ;
+
+                rdfs:range xsd:string .
+
+
+
+###  http://conference#has_a_name
+
+:has_a_name rdf:type owl:DatatypeProperty ,
+                     owl:FunctionalProperty ;
+
+            rdfs:label "has name" ;
+
+            rdfs:range xsd:string ;
+
+            rdfs:domain [ rdf:type owl:Class ;
+                          owl:unionOf ( :Committee
+                                        :Conference
+                                        :Conference_part
+                                        :Conference_proceedings
+                                        :Organization
+                                        :Publisher
+                                        :Topic
+                                      )
+                        ] .
+
+
+
+###  http://conference#has_a_paper_title
+
+:has_a_paper_title rdf:type owl:DatatypeProperty ;
+
+                   rdfs:label "title" ;
+
+                   rdfs:domain [ rdf:type owl:Class ;
+                                 owl:unionOf ( :Paper
+                                               :Reviewed_contribution
+                                             )
+                               ] .
+
+
+
+###  http://conference#has_a_volume
+
+:has_a_volume rdf:type owl:DatatypeProperty ,
+                       owl:FunctionalProperty ;
+
+              rdfs:label "has volume" ;
+
+              rdfs:domain :Conference_proceedings ;
+
+              rdfs:range xsd:int .
+
+
+
+###  http://conference#has_an_ISBN
+
+:has_an_ISBN rdf:type owl:DatatypeProperty ,
+                      owl:FunctionalProperty ;
+
+             rdfs:label "has ISBN" ;
+
+             rdfs:domain :Conference_proceedings ;
+
+             rdfs:range xsd:string .
+
+
+
+###  http://conference#has_an_email
+
+:has_an_email rdf:type owl:DatatypeProperty ;
+
+              rdfs:label "has e-mail" ;
+
+              rdfs:domain :Person ;
+
+              rdfs:range xsd:string .
+
+
+
+###  http://conference#has_an_expertise
+
+:has_an_expertise rdf:type owl:DatatypeProperty ,
+                           owl:FunctionalProperty ;
+
+                  rdfs:label "has level of expertise" ;
+
+                  rdfs:domain :Review_expertise ;
+
+                  rdfs:range [ rdf:type rdfs:Datatype ;
+                               owl:oneOf [ rdf:type rdf:List ;
+                                           rdf:first "high"^^xsd:string ;
+                                           rdf:rest [ rdf:type rdf:List ;
+                                                      rdf:first "low"^^xsd:string ;
+                                                      rdf:rest [ rdf:type rdf:List ;
+                                                                 rdf:first "medium"^^xsd:string ;
+                                                                 rdf:rest [ rdf:type rdf:List ;
+                                                                            rdf:first "very high"^^xsd:string ;
+                                                                            rdf:rest rdf:nil
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ]
+                             ] .
+
+
+
+###  http://conference#has_detailed_comments
+
+:has_detailed_comments rdf:type owl:DatatypeProperty ;
+
+                       rdfs:label "review comments" ;
+
+                       rdfs:domain :Review .
+
+
+
+###  http://conference#has_gender
+
+:has_gender rdf:type owl:DatatypeProperty ;
+
+            rdfs:label "has gender" ;
+
+            rdfs:domain :Person ;
+
+            rdfs:range [ rdf:type rdfs:Datatype ;
+                         owl:oneOf [ rdf:type rdf:List ;
+                                     rdf:first "female"^^xsd:string ;
+                                     rdf:rest [ rdf:type rdf:List ;
+                                                rdf:first "male"^^xsd:string ;
+                                                rdf:rest rdf:nil
+                                              ]
+                                   ]
+                       ] .
+
+
+
+###  http://conference#has_text
+
+:has_text rdf:type owl:DatatypeProperty ;
+
+          rdfs:label "abstract text" ;
+
+          rdfs:comment "Abstract (as plain text)" ;
+
+          rdfs:domain :Extended_abstract .
+
+
+
+###  http://conference#has_the_first_name
+
+:has_the_first_name rdf:type owl:DatatypeProperty ;
+
+                    rdfs:label "has first name" ;
+
+                    rdfs:domain :Person ;
+
+                    rdfs:range xsd:string .
+
+
+
+###  http://conference#has_the_last_name
+
+:has_the_last_name rdf:type owl:DatatypeProperty ;
+
+                   rdfs:label "has last name" ;
+
+                   rdfs:domain :Person ;
+
+                   rdfs:range xsd:string .
+
+
+
+###  http://conference#is_a_date_of_acceptance_announcement
+
+:is_a_date_of_acceptance_announcement rdf:type owl:DatatypeProperty ,
+                                               owl:FunctionalProperty ;
+
+                                      rdfs:label "date of acceptance notification" ;
+
+                                      rdfs:domain :Important_dates ;
+
+                                      rdfs:range xsd:date .
+
+
+
+###  http://conference#is_a_date_of_camera_ready_paper_submission
+
+:is_a_date_of_camera_ready_paper_submission rdf:type owl:DatatypeProperty ,
+                                                     owl:FunctionalProperty ;
+
+                                            rdfs:label "date of CR deadline" ;
+
+                                            rdfs:domain :Important_dates ;
+
+                                            rdfs:range xsd:date .
+
+
+
+###  http://conference#is_a_full_paper_submission_date
+
+:is_a_full_paper_submission_date rdf:type owl:DatatypeProperty ,
+                                          owl:FunctionalProperty ;
+
+                                 rdfs:label "full paper submission deadline" ;
+
+                                 rdfs:domain :Important_dates ;
+
+                                 rdfs:range xsd:date .
+
+
+
+###  http://conference#is_a_starting_date
+
+:is_a_starting_date rdf:type owl:DatatypeProperty ,
+                             owl:FunctionalProperty ;
+
+                    rdfs:label "starting date" ;
+
+                    rdfs:domain :Important_dates ;
+
+                    rdfs:range xsd:date .
+
+
+
+###  http://conference#is_an_abstract_submission_date
+
+:is_an_abstract_submission_date rdf:type owl:DatatypeProperty ,
+                                         owl:FunctionalProperty ;
+
+                                rdfs:label "abstract submission deadline" ;
+
+                                rdfs:domain :Important_dates ;
+
+                                rdfs:range xsd:date .
+
+
+
+###  http://conference#is_an_ending_date
+
+:is_an_ending_date rdf:type owl:DatatypeProperty ,
+                            owl:FunctionalProperty ;
+
+                   rdfs:label "ending date" ;
+
+                   rdfs:domain :Important_dates ;
+
+                   rdfs:range xsd:date .
+
+
+
+
+
+#################################################################
+#
+#    Classes
+#
+#################################################################
+
+
+###  http://conference#Abstract
+
+:Abstract rdf:type owl:Class ;
+
+          rdfs:label "Abstract" ;
+
+          rdfs:subClassOf :Extended_abstract .
+
+
+
+###  http://conference#Accepted_contribution
+
+:Accepted_contribution rdf:type owl:Class ;
+
+                       rdfs:subClassOf :Reviewed_contribution ;
+
+                       owl:disjointWith :Rejected_contribution .
+
+
+
+###  http://conference#Active_conference_participant
+
+:Active_conference_participant rdf:type owl:Class ;
+
+                               rdfs:subClassOf :Conference_contributor ,
+                                               :Conference_participant ,
+                                               [ rdf:type owl:Class ;
+                                                 owl:unionOf ( :Invited_speaker
+                                                               :Regular_author
+                                                             )
+                                               ] ;
+
+                               owl:disjointWith :Passive_conference_participant .
+
+
+
+###  http://conference#Call_for_paper
+
+:Call_for_paper rdf:type owl:Class ;
+
+                rdfs:label "Call for papers" ;
+
+                rdfs:subClassOf :Conference_document .
+
+
+
+###  http://conference#Call_for_participation
+
+:Call_for_participation rdf:type owl:Class ;
+
+                        rdfs:label "Call for participation" ;
+
+                        rdfs:subClassOf :Conference_document .
+
+
+
+###  http://conference#Camera_ready_contribution
+
+:Camera_ready_contribution rdf:type owl:Class ;
+
+                           rdfs:subClassOf :Accepted_contribution .
+
+
+
+###  http://conference#Chair
+
+:Chair rdf:type owl:Class ;
+
+       owl:equivalentClass [ rdf:type owl:Restriction ;
+                             owl:onProperty :was_a_committee_chair_of ;
+                             owl:someValuesFrom :Committee
+                           ] ;
+
+       rdfs:subClassOf :Committee_member .
+
+
+
+###  http://conference#Co-chair
+
+:Co-chair rdf:type owl:Class ;
+
+          owl:equivalentClass [ rdf:type owl:Restriction ;
+                                owl:onProperty :was_a_committe_co-chair_of ;
+                                owl:someValuesFrom :Committee
+                              ] ;
+
+          rdfs:subClassOf :Committee_member .
+
+
+
+###  http://conference#Committee
+
+:Committee rdf:type owl:Class ;
+
+           rdfs:label "Conference Committee" ;
+
+           owl:equivalentClass [ rdf:type owl:Class ;
+                                 owl:unionOf ( :Organizing_committee
+                                               :Program_committee
+                                               :Steering_committee
+                                             )
+                               ] ;
+
+           rdfs:comment "Any conference committee, such as, e.g., the program committee." .
+
+
+
+###  http://conference#Committee_member
+
+:Committee_member rdf:type owl:Class ;
+
+                  rdfs:label "Committee member" ;
+
+                  owl:equivalentClass [ rdf:type owl:Restriction ;
+                                        owl:onProperty :was_a_member_of ;
+                                        owl:someValuesFrom :Committee
+                                      ] ;
+
+                  rdfs:subClassOf :Person .
+
+
+
+###  http://conference#Conference
+
+:Conference rdf:type owl:Class ;
+
+            rdfs:label "Conference" ;
+
+            rdfs:comment "A (scientific) conference" .
+
+
+
+###  http://conference#Conference_announcement
+
+:Conference_announcement rdf:type owl:Class ;
+
+                         rdfs:label "Conference announcement" ;
+
+                         rdfs:subClassOf :Conference_document ;
+
+                         rdfs:comment "Announcements made on behalf of the conference." .
+
+
+
+###  http://conference#Conference_applicant
+
+:Conference_applicant rdf:type owl:Class ;
+
+                      rdfs:label "Conference applicant" ;
+
+                      rdfs:subClassOf :Person .
+
+
+
+###  http://conference#Conference_contribution
+
+:Conference_contribution rdf:type owl:Class ;
+
+                         rdfs:label "Conference contribution" ;
+
+                         owl:equivalentClass [ rdf:type owl:Class ;
+                                               owl:unionOf ( :Invited_talk
+                                                             :Poster
+                                                             :Regular_contribution
+                                                           )
+                                             ] ,
+                                             [ rdf:type owl:Class ;
+                                               owl:unionOf ( :Presentation
+                                                             :Written_contribution
+                                                           )
+                                             ] ;
+
+                         rdfs:subClassOf :Conference_document ;
+
+                         rdfs:comment "Any contribution to the conference in any format, both peer-reviewed submissions and invited contributions." .
+
+
+
+###  http://conference#Conference_contributor
+
+:Conference_contributor rdf:type owl:Class ;
+
+                        rdfs:label "Conference contributor" ;
+
+                        rdfs:subClassOf :Person .
+
+
+
+###  http://conference#Conference_document
+
+:Conference_document rdf:type owl:Class ;
+
+                     rdfs:comment "Conference document" ,
+                                  "Documents created for primary use at the conference, including submissions of all sorts as well as public announcements, calls, etc." .
+
+
+
+###  http://conference#Conference_fees
+
+:Conference_fees rdf:type owl:Class ;
+
+                 rdfs:label "Conference fee" .
+
+
+
+###  http://conference#Conference_part
+
+:Conference_part rdf:type owl:Class ;
+
+                 rdfs:label "Part of conference" ;
+
+                 rdfs:comment "Block of events of conference (e.g., tracks), also including satellite events." .
+
+
+
+###  http://conference#Conference_participant
+
+:Conference_participant rdf:type owl:Class ;
+
+                        rdfs:label "Conference participant" ;
+
+                        owl:equivalentClass [ rdf:type owl:Class ;
+                                              owl:unionOf ( :Active_conference_participant
+                                                            :Passive_conference_participant
+                                                          )
+                                            ] ;
+
+                        rdfs:subClassOf :Person .
+
+
+
+###  http://conference#Conference_proceedings
+
+:Conference_proceedings rdf:type owl:Class ;
+
+                        rdfs:label "Conference proceedings" .
+
+
+
+###  http://conference#Conference_volume
+
+:Conference_volume rdf:type owl:Class ;
+
+                   rdfs:label "Conference Volume" ;
+
+                   rdfs:subClassOf :Conference .
+
+
+
+###  http://conference#Conference_www
+
+:Conference_www rdf:type owl:Class ;
+
+                rdfs:label "Conference website" ;
+
+                rdfs:subClassOf :Conference_document .
+
+
+
+###  http://conference#Contribution_1th-author
+
+:Contribution_1th-author rdf:type owl:Class ;
+
+                         rdfs:subClassOf :Regular_author ;
+
+                         owl:disjointWith :Contribution_co-author .
+
+
+
+###  http://conference#Contribution_co-author
+
+:Contribution_co-author rdf:type owl:Class ;
+
+                        rdfs:subClassOf :Regular_author .
+
+
+
+###  http://conference#Early_paid_applicant
+
+:Early_paid_applicant rdf:type owl:Class ;
+
+                      rdfs:subClassOf :Paid_applicant ;
+
+                      owl:disjointWith :Late_paid_applicant .
+
+
+
+###  http://conference#Extended_abstract
+
+:Extended_abstract rdf:type owl:Class ;
+
+                   rdfs:label "Extended abstract" ;
+
+                   rdfs:subClassOf :Regular_contribution ;
+
+                   owl:disjointWith :Paper .
+
+
+
+###  http://conference#Important_dates
+
+:Important_dates rdf:type owl:Class ;
+
+                 rdfs:label "Important dates" ;
+
+                 rdfs:comment "List of important dates, usually deadlines for calls, registration etc." .
+
+
+
+###  http://conference#Information_for_participants
+
+:Information_for_participants rdf:type owl:Class ;
+
+                              rdfs:label "Information for participants" ;
+
+                              rdfs:subClassOf :Conference_document .
+
+
+
+###  http://conference#Invited_speaker
+
+:Invited_speaker rdf:type owl:Class ;
+
+                 owl:equivalentClass [ rdf:type owl:Restriction ;
+                                       owl:onProperty :contributes ;
+                                       owl:someValuesFrom :Invited_talk
+                                     ] ;
+
+                 rdfs:subClassOf :Conference_contributor .
+
+
+
+###  http://conference#Invited_talk
+
+:Invited_talk rdf:type owl:Class ;
+
+              rdfs:label "Invited talk" ;
+
+              rdfs:subClassOf :Presentation ;
+
+              owl:disjointWith :Poster ,
+                               :Regular_contribution .
+
+
+
+###  http://conference#Late_paid_applicant
+
+:Late_paid_applicant rdf:type owl:Class ;
+
+                     rdfs:subClassOf :Paid_applicant .
+
+
+
+###  http://conference#Organization
+
+:Organization rdf:type owl:Class ;
+
+              rdfs:label "Organization" .
+
+
+
+###  http://conference#Organizer
+
+:Organizer rdf:type owl:Class ;
+
+           rdfs:label "Organizer" ;
+
+           rdfs:subClassOf owl:Thing ,
+                           [ rdf:type owl:Class ;
+                             owl:unionOf ( :Committee_member
+                                           :Organization
+                                         )
+                           ] .
+
+
+
+###  http://conference#Organizing_committee
+
+:Organizing_committee rdf:type owl:Class ;
+
+                      rdfs:subClassOf :Committee ;
+
+                      owl:disjointWith :Program_committee ,
+                                       :Steering_committee .
+
+
+
+###  http://conference#Paid_applicant
+
+:Paid_applicant rdf:type owl:Class ;
+
+                owl:equivalentClass [ rdf:type owl:Class ;
+                                      owl:unionOf ( :Early_paid_applicant
+                                                    :Late_paid_applicant
+                                                  )
+                                    ] ;
+
+                rdfs:subClassOf :Registeered_applicant .
+
+
+
+###  http://conference#Paper
+
+:Paper rdf:type owl:Class ;
+
+       rdfs:label "Full Paper" ;
+
+       rdfs:subClassOf :Regular_contribution .
+
+
+
+###  http://conference#Passive_conference_participant
+
+:Passive_conference_participant rdf:type owl:Class ;
+
+                                rdfs:subClassOf :Conference_participant .
+
+
+
+###  http://conference#Person
+
+:Person rdf:type owl:Class ;
+
+        rdfs:label "Person" ;
+
+        rdfs:comment "People associated with the conference" .
+
+
+
+###  http://conference#Poster
+
+:Poster rdf:type owl:Class ;
+
+        rdfs:label "Poster" ;
+
+        rdfs:subClassOf :Conference_contribution ;
+
+        owl:disjointWith :Regular_contribution .
+
+
+
+###  http://conference#Presentation
+
+:Presentation rdf:type owl:Class ;
+
+              rdfs:label "Presentation" ;
+
+              rdfs:subClassOf :Conference_contribution .
+
+
+
+###  http://conference#Program_committee
+
+:Program_committee rdf:type owl:Class ;
+
+                   rdfs:subClassOf :Committee ;
+
+                   owl:disjointWith :Steering_committee .
+
+
+
+###  http://conference#Publisher
+
+:Publisher rdf:type owl:Class ;
+
+           rdfs:label "Publisher" .
+
+
+
+###  http://conference#Registeered_applicant
+
+:Registeered_applicant rdf:type owl:Class ;
+
+                       rdfs:subClassOf :Conference_applicant .
+
+
+
+###  http://conference#Regular_author
+
+:Regular_author rdf:type owl:Class ;
+
+                owl:equivalentClass [ rdf:type owl:Class ;
+                                      owl:intersectionOf ( [ rdf:type owl:Class ;
+                                                             owl:unionOf ( :Contribution_1th-author
+                                                                           :Contribution_co-author
+                                                                         )
+                                                           ]
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :contributes ;
+                                                             owl:someValuesFrom :Conference_contribution
+                                                           ]
+                                                         )
+                                    ] ;
+
+                rdfs:subClassOf :Conference_contributor .
+
+
+
+###  http://conference#Regular_contribution
+
+:Regular_contribution rdf:type owl:Class ;
+
+                      rdfs:label "Regular conference contribution" ;
+
+                      owl:equivalentClass [ rdf:type owl:Class ;
+                                            owl:unionOf ( :Extended_abstract
+                                                          :Paper
+                                                        )
+                                          ] ;
+
+                      rdfs:subClassOf :Written_contribution .
+
+
+
+###  http://conference#Rejected_contribution
+
+:Rejected_contribution rdf:type owl:Class ;
+
+                       rdfs:subClassOf :Reviewed_contribution .
+
+
+
+###  http://conference#Review
+
+:Review rdf:type owl:Class ;
+
+        rdfs:label "Review" ;
+
+        rdfs:subClassOf :Conference_document ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :has_authors ;
+                          owl:allValuesFrom :Reviewer
+                        ] .
+
+
+
+###  http://conference#Review_expertise
+
+:Review_expertise rdf:type owl:Class ;
+
+                  rdfs:label "Review expertise" ;
+
+                  rdfs:subClassOf owl:Thing ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :belongs_to_reviewers ;
+                                    owl:someValuesFrom :Reviewer
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :has_a_submitted_contribution ;
+                                    owl:someValuesFrom :Submitted_contribution
+                                  ] .
+
+
+
+###  http://conference#Review_preference
+
+:Review_preference rdf:type owl:Class ;
+
+                   rdfs:label "Review preference" ;
+
+                   rdfs:subClassOf owl:Thing ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :has_a_topic_or_a_submission_contribution ;
+                                     owl:someValuesFrom [ rdf:type owl:Class ;
+                                                          owl:unionOf ( :Submitted_contribution
+                                                                        :Topic
+                                                                      )
+                                                        ]
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :belongs_to_reviewers ;
+                                     owl:someValuesFrom :Reviewer
+                                   ] .
+
+
+
+###  http://conference#Reviewed_contribution
+
+:Reviewed_contribution rdf:type owl:Class ;
+
+                       rdfs:label "Peer reviewed contribution" ;
+
+                       owl:equivalentClass [ rdf:type owl:Class ;
+                                             owl:unionOf ( :Accepted_contribution
+                                                           :Rejected_contribution
+                                                         )
+                                           ] ;
+
+                       rdfs:subClassOf :Submitted_contribution .
+
+
+
+###  http://conference#Reviewer
+
+:Reviewer rdf:type owl:Class ;
+
+          rdfs:label "Reviewer" ;
+
+          rdfs:subClassOf :Person .
+
+
+
+###  http://conference#Steering_committee
+
+:Steering_committee rdf:type owl:Class ;
+
+                    rdfs:subClassOf :Committee .
+
+
+
+###  http://conference#Submitted_contribution
+
+:Submitted_contribution rdf:type owl:Class ;
+
+                        rdfs:label "Submitted contribution" ;
+
+                        rdfs:subClassOf :Written_contribution ,
+                                        [ rdf:type owl:Class ;
+                                          owl:unionOf ( :Poster
+                                                        :Regular_contribution
+                                                      )
+                                        ] .
+
+
+
+###  http://conference#Topic
+
+:Topic rdf:type owl:Class ;
+
+       rdfs:label "Topic" .
+
+
+
+###  http://conference#Track
+
+:Track rdf:type owl:Class ;
+
+       rdfs:subClassOf :Conference_part ;
+
+       owl:disjointWith :Tutorial ,
+                        :Workshop .
+
+
+
+###  http://conference#Track-workshop_chair
+
+:Track-workshop_chair rdf:type owl:Class ;
+
+                      rdfs:label "Track or workshop chair" ;
+
+                      owl:equivalentClass [ rdf:type owl:Restriction ;
+                                            owl:onProperty :was_a_track-workshop_chair_of ;
+                                            owl:someValuesFrom [ rdf:type owl:Class ;
+                                                                 owl:unionOf ( :Track
+                                                                               :Workshop
+                                                                             )
+                                                               ]
+                                          ] ;
+
+                      rdfs:subClassOf :Person .
+
+
+
+###  http://conference#Tutorial
+
+:Tutorial rdf:type owl:Class ;
+
+          rdfs:subClassOf :Conference_part ;
+
+          owl:disjointWith :Workshop .
+
+
+
+###  http://conference#Workshop
+
+:Workshop rdf:type owl:Class ;
+
+          rdfs:subClassOf :Conference_part .
+
+
+
+###  http://conference#Written_contribution
+
+:Written_contribution rdf:type owl:Class ;
+
+                      rdfs:label "Written contribution" ;
+
+                      rdfs:subClassOf :Conference_contribution ,
+                                      [ rdf:type owl:Class ;
+                                        owl:unionOf ( :Poster
+                                                      :Regular_contribution
+                                                    )
+                                      ] .
+
+
+
+
+###  Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net
