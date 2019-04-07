@@ -15,7 +15,7 @@ var write_bind = (base_uri, attribute_value, reference_entity) => {
 }
 
 var build_prefix = () => {
-    return utils.get_prefix_strings() + '\n' + 'PREFIX jarql:    <http://jarql.com/>' + '\n\n'.toString();
+    return utils.get_prefix_strings() + '\n' + 'PREFIX jarql:     <http://jarql.com/>' + '\n\n'.toString();
 }
 
 /**
@@ -29,8 +29,8 @@ var build_construct = (st, steiner) => {
     var entities = st.entities;
     var semantic_types = st.semantic_types;
     for (var i in attributes) {
-        var ont_class = semantic_types[i][0].split('_')[0]; // XXX Pay attention to the index 0 of semantic types
-        var ont_property = semantic_types[i][0].split('_')[1];
+        var ont_class = semantic_types[i][0].split('***')[0]; // XXX Pay attention to the index 0 of semantic types
+        var ont_property = semantic_types[i][0].split('***')[1];
         var subject = '?' + ont_class.split(':')[1] + entities[i]; // I do not need the class of the semantic type, so I split on :
         var predicate = ont_property;
         var object = '?' + attributes[i];
@@ -100,11 +100,11 @@ var build_where_bindings = (st) => {
     var uris = st.uris;
     var binded = {};
     for (var i in attributes) {
-        var ont_class = semantic_types[i][0].split('_')[0]; // XXX Pay attention to the index 0 of semantic types
+        var ont_class = semantic_types[i][0].split('***')[0]; // XXX Pay attention to the index 0 of semantic types
         var reference_entity = '?' + ont_class.split(':')[1] + entities[i]; // I do not need the class of the semantic type, so I split on :
         if (uris[i] === true && binded[reference_entity] === undefined) {
             binded[reference_entity] = 1;
-            var base_uri = instances_uris[semantic_types[i][0].split('_')[0]]; // Check if this splitter is ok
+            var base_uri = instances_uris[semantic_types[i][0].split('***')[0]]; // Check if this splitter is ok
             var attribute_value = '?' + attributes[i];
             // reference entity should be equal to the subject defined in the construct section
             var bind = write_bind(base_uri, attribute_value, reference_entity);

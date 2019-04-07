@@ -12,8 +12,8 @@ var run = () => {
     var st = JSON.parse(fs.readFileSync(st_path))[0];
     var steiner_tree = JSON.parse(fs.readFileSync(steiner_path));
     var jarql_to_print = jarql.build_jarql(st, steiner_tree);
-    fs.writeFileSync(sm_path, jarql_to_print);
-    console.log('The JARQL file is written in: ' + sm_path);
+    fs.writeFileSync(sm_path + '_sm.query', jarql_to_print);
+    console.log('The JARQL file is written in: ' + sm_path + '_sm.query');
 }
 
 run();
