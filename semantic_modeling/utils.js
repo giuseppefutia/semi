@@ -44,7 +44,8 @@ var set_property = function(subject, property, object, type) {
     return o;
 }
 
-var generate_prefix_string = (prefix) => {
+var generate_prefix_string = () => {
+    prefix = PREFIX;
     var prefix_arr = Object.keys(prefix).map(function(k) {
         var white_space_length = 10 - prefix[k].length;
         var white_space = ' '
@@ -80,7 +81,7 @@ var PREFIX = {
     'http://www.w3.org/2002/07/owl#': 'owl:'
 }
 
-var PREFIX_STRINGS = generate_prefix_string(PREFIX)
+var PREFIX_STRINGS = generate_prefix_string()
 
 var INSTANCE_URIS = {
     'pc:Contract': 'http://pc.org/contracts/',
