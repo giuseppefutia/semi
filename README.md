@@ -45,10 +45,10 @@ This script generates two types of steiner trees:
 * `data/pc/semantic_models/Z4ADEA9DE4_steiner.json` is a beautified representation of the steiner tree.
 
 ## Initial Semantic Model
-For the automatic generation of JARQL, you can run the following command:
+For the automatic generation of the semantic model, you can run the following command:
 
 ```bash
-$ node run/steiner_tree.js data/pc/semantic_types/Z4ADEA9DE4_st.json data/pc/semantic_models/Z4ADEA9DE4_graph.json data/pc/semantic_models/Z4ADEA9DE4
+node run/jarql.js data/pc/semantic_types/Z4ADEA9DE4_st.json data/pc/semantic_models/Z4ADEA9DE4_steiner.json data/pc/semantic_models/Z4ADEA9DE4
 ```
 
 * `data/pc/semantic_types/Z4ADEA9DE4_st.json` is the input semantic type file.
