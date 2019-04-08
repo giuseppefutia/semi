@@ -78,7 +78,8 @@ var PREFIX = {
     'http://www.w3.org/2004/02/skos/core#': 'skos:',
     'http://purl.org/vocab/vann/': 'vann:',
     'http://www.w3.org/2001/XMLSchema#': 'xsd:',
-    'http://www.w3.org/2002/07/owl#': 'owl:'
+    'http://www.w3.org/2002/07/owl#': 'owl:',
+    'http://conference#': 'conference:'
 }
 
 var PREFIX_STRINGS = generate_prefix_string()
