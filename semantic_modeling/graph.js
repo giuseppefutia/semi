@@ -7,15 +7,15 @@ var sparql = require(__dirname + '/sparql_queries.js');
 
 var ε = 3;
 
+// TODO: CLEAN THE CODE --> Create promise_sequence for all the call: see clousures implementation
 // TODO: create an high level representation of node and edge for checking inconsistencies
-// TODO: better management of parameters and output
 // TODO: better management of SPARQL query errors using store
 // TODO: reduce rigth-depth of function that call two Promises
 // TODO: modify indirect properties with the same changes of direct properties
-// TODO: prefixes in one single place
 // TODO: add edge weight for subclasses
 // TODO: semantic_types in semantic type file should be an array of array?
 // TODO: Make a universal API to create nodes and edges
+// TODO: Error generated when creating the graph
 
 var promise_sequence = funcs =>
     funcs.reduce((promise, func) =>
@@ -152,23 +152,7 @@ var add_direct_properties = (dps, graph) => {
             var property = dps[i]['property'];
             var object = dps[i]['object'];
             var type = dps[i]['type'];
-
-            // Add properties as edge: avoid to add new nodes in the graph when I add a new edge
-            var nodes = graph.nodes();
-            for (var s in nodes) {
-                var subject_label_node = graph.node(nodes[s])['label'];
-                if (subject_label_node === subject) {
-                    for (var o in nodes) {
-                        var object_label_node = graph.node(nodes[o])['label'];
-                        if (object_label_node === object) {
-                            graph.setEdge(nodes[s], nodes[o], {
-                                label: property,
-                                type: type
-                            }, nodes[s] + '***' + nodes[o], 1); // Direct edges have weight = 1
-                        }
-                    }
-                }
-            }
+            add_edges(graph, subject, property, object, type, 1) // Direct edges have weight = 1
         }
         resolve(graph);
     });
@@ -311,6 +295,11 @@ var get_indirect_properties = (c_u, c_v, p_domain, p_range, super_classes, store
         // This counter is useful to understand when stop!
         var indirect_properties = [];
         var counter = 1;
+
+        // Clean super_classes of blank nodes
+        super_classes[c_u] = super_classes[c_u].filter(el => !el.includes('_:'));
+        super_classes[c_v] = super_classes[c_v].filter(el => !el.includes('_:'));
+
         var stop = super_classes[c_u].length * super_classes[c_v].length;
 
         // Ignore cases in which super classes are absent, so we are not able to get indirect properties
@@ -321,13 +310,16 @@ var get_indirect_properties = (c_u, c_v, p_domain, p_range, super_classes, store
                 // To get inherited and inverse inherited properties change the order of the classes passed as input
                 var ip_query = sparql.INHERITED_PROPERTIES_QUERY(super_classes[c_u][i], super_classes[c_v][j], p_domain, p_range);
                 var iip_query = sparql.INHERITED_PROPERTIES_QUERY(super_classes[c_v][j], super_classes[c_u][i], p_domain, p_range);
+
                 get_inherited_and_inverse_properties(ip_query, iip_query, store, super_classes[c_u][i], super_classes[c_v][j])
                     .then(function(properties) {
                         if (properties.length > 0)
                             indirect_properties = indirect_properties.concat(properties);
                         if (counter !== stop) {
                             counter++;
-                        } else resolve(indirect_properties);
+                        } else {
+                            resolve(indirect_properties);
+                        }
                     })
                     .catch(function(error) {
                         reject(error);
@@ -364,7 +356,10 @@ var get_all_indirect_properties = (store, all_super_classes, p_domain, p_range) 
                         if (counter != stop) {
                             counter++;
                         } else {
-                            resolve(all_indirect_properties);
+                            var obj = {};
+                            obj['all_super_classes'] = all_super_classes
+                            obj['all_indirect_properties'] = all_indirect_properties;
+                            resolve(obj);
                         }
                     });
             }
@@ -372,21 +367,55 @@ var get_all_indirect_properties = (store, all_super_classes, p_domain, p_range) 
     });
 }
 
-var add_indirect_properties = (idps, graph) => {
+var add_indirect_properties = (properties_super_classes, graph) => {
     return new Promise(function(resolve, reject) {
+        var idps = properties_super_classes['all_indirect_properties'];
+        var ascs = properties_super_classes['all_super_classes'];
+
         for (var i in idps) {
-            var subject = idps[i]['subject'];
+            var subject = '';
+            var object = '';
             var property = idps[i]['property'];
-            var object = idps[i]['object'];
-            var type = idps[i]['type'];
-            // Add properties as edge
-            graph.setEdge(subject, object, {
-                label: subject + '_' + object,
-                type: type
-            }, subject + '***' + object, 1 + ε); // Indirect edges have weight = 1 + ε
+            var type = idps[i]['type']
+
+            for (var j in ascs) { // XXX For now very bad
+                for (var t in ascs[j]) {
+                    if (ascs[j][t].includes(idps[i]['subject'])) {
+                        subject = t;
+                    }
+                }
+            }
+
+            for (var j in ascs) { // XXX For now very bad
+                for (var t in ascs[j]) {
+                    if (ascs[j][t].includes(idps[i]['object'])) {
+                        object = t;
+                    }
+                }
+            }
+
+            add_edges(graph, subject, property, object, type, 1 + ε) // Indirect edges have weight = 1 + ε
         }
         resolve(graph);
     });
+}
+
+var add_edges = (graph, subject, property, object, type, weight) => {
+    var nodes = graph.nodes();
+    for (var s in nodes) {
+        var subject_label_node = graph.node(nodes[s])['label'];
+        if (subject_label_node === subject) {
+            for (var o in nodes) {
+                var object_label_node = graph.node(nodes[o])['label'];
+                if (object_label_node === object) {
+                    graph.setEdge(nodes[s], nodes[o], {
+                        label: property,
+                        type: type
+                    }, nodes[s] + '***' + nodes[o], weight); // Direct edges have weight = 1
+                }
+            }
+        }
+    }
 }
 
 // BUILD THE GRAPH
@@ -479,13 +508,16 @@ var build_graph = (st_path, ont_path, p_domain, p_range, o_class) => {
         }).catch(function(err) {
             console.log('Error when getting all indirect_properties:');
             console.log(err);
-        }).then(function(indirect_properties) {
+        }).then(function(properties_super_classes) {
             // Add indirect_properties
-            return add_indirect_properties(indirect_properties, graph);
+            return add_indirect_properties(properties_super_classes, graph);
         }).then(function() {
             console.log('Graph building complete!\n');
             // TODO: check if the graph is complete (all nodes are linked) ! Otherwise, launch an exeception!
             resolve(graph);
+        }).catch(function(err) {
+            console.log('Error in building the graph:');
+            console.log(err);
         });
     });
 }
