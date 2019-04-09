@@ -1,1 +1,1 @@
-java -jar jarql-1.0.1-SNAPSHOT.jar data/rodi/cmt2conference/input/data.json data/rodi/cmt2conference/gold/semantic_models/data.query > data/rodi/cmt2conference/output/data.rdf
+java -jar jarql-1.0.1-SNAPSHOT.jar data/rodi/cmt2conference/input/cmt2conference***co_write_paper.json data/rodi/cmt2conference/semantic_models/cmt2conference***co_write_paper.query > data/rodi/cmt2conference/output/cmt2conference***co_write_paper.rdf
