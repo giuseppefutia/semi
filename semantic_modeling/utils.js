@@ -82,12 +82,14 @@ var PREFIX = {
     'http://conference#': 'conference:'
 }
 
-var PREFIX_STRINGS = generate_prefix_string()
-
 var INSTANCE_URIS = {
     'pc:Contract': 'http://pc.org/contracts/',
-    'gr:BusinessEntity': 'http://pc.org/businessEntities/'
+    'gr:BusinessEntity': 'http://pc.org/businessEntities/',
+    'conference:Paper': 'http://semi.org/papers/',
+    'conference:Contribution_1th_author': 'http://semi.org/persons/'
 }
+
+var PREFIX_STRINGS = generate_prefix_string();
 
 exports.get_prefix_strings = get_prefix_strings;
 exports.get_instance_uris = get_instance_uris;
