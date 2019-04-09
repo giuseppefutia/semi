@@ -14,6 +14,7 @@ PREFIX rdf:       <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX skos:      <http://www.w3.org/2004/02/skos/core#>
 PREFIX vann:      <http://purl.org/vocab/vann/>
 PREFIX xsd:       <http://www.w3.org/2001/XMLSchema#>
+PREFIX conference: <http://conference#>
 
 PREFIX jarql:     <http://jarql.com/>
 
@@ -25,8 +26,8 @@ CONSTRUCT {
     ?BusinessEntity1 rdfs:label ?partecipanti__ragioneSociale.
     ?BusinessEntity1 dcterms:identifier ?aggiudicatari__identificativo.
     ?BusinessEntity1 rdfs:label ?aggiudicatari__ragioneSociale.
-    pc:Contract0 pc:contractingAuthority gr:BusinessEntity0.
-    pc:Contract0 pc:contractingAuthority gr:BusinessEntity1.
+    ?Contract0 pc:contractingAuthority ?BusinessEntity0.
+    ?Contract0 pc:contractingAuthority ?BusinessEntity1.
 }
 WHERE {
     jarql:root jarql:cig ?cig.

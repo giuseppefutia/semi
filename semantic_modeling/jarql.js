@@ -48,9 +48,9 @@ var create_semantic_relations = (steiner) => {
         if (edges[i].value.type !== 'st_property_uri') { // Semantic types are already managed
             var label = edges[i].value.label;
             if (label.indexOf('inverted') === -1) {
-                body += write_triple(edges[i].v, edges[i].value.label, edges[i].w);
+                body += write_triple('?' + edges[i].v.split(':')[1], edges[i].value.label, '?' + edges[i].w.split(':')[1]);
             } else {
-                body += write_triple(edges[i].w, edges[i].value.label.split('***')[0], edges[i].v);
+                body += write_triple('?' + edges[i].w.split(':')[1], edges[i].value.label.split('***')[0], '?' + edges[i].v.split(':')[1]);
             }
         }
     }
