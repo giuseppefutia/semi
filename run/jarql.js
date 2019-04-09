@@ -13,7 +13,7 @@ var run = () => {
     var steiner_tree = JSON.parse(fs.readFileSync(steiner_path));
     var jarql_to_print = jarql.build_jarql(st, steiner_tree);
     fs.writeFileSync(sm_path + '_sm.query', jarql_to_print);
-    console.log('The JARQL file is written in: ' + sm_path + '_sm.query');
+    console.log('The JARQL file is written in: ' + sm_path + '.query');
 }
 
 run();
