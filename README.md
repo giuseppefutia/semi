@@ -53,7 +53,7 @@ node run/jarql.js data/pc/semantic_types/Z4ADEA9DE4_st.json data/pc/semantic_mod
 
 * `data/pc/semantic_types/Z4ADEA9DE4_st.json` is the input semantic type file.
 * `data/pc/semantic_models/Z4ADEA9DE4_steiner.json` is the beautified representation of the steiner tree.
-* `data/pc/semantic_models/Z4ADEA9DE4_sm.sparql` is the output JARQL semantic model.
+* `data/pc/semantic_models/Z4ADEA9DE4.query` is the output JARQL semantic model.
 
 In order to create the RDF represention of the data, you have to run the JARQL tool.
 
