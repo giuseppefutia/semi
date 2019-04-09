@@ -1259,9 +1259,9 @@ conference:Conference_www rdf:type owl:Class ;
 
 
 
-###  http://conference#Contribution_1th-author
+###  http://conference#Contribution_1th_author
 
-conference:Contribution_1th-author rdf:type owl:Class ;
+conference:Contribution_1th_author rdf:type owl:Class ;
 
                          rdfs:subClassOf conference:Regular_author ;
 
@@ -1483,7 +1483,7 @@ conference:Regular_author rdf:type owl:Class ;
 
                 owl:equivalentClass [ rdf:type owl:Class ;
                                       owl:intersectionOf ( [ rdf:type owl:Class ;
-                                                             owl:unionOf ( :Contribution_1th-author
+                                                             owl:unionOf ( :Contribution_1th_author
                                                                            :Contribution_co-author
                                                                          )
                                                            ]
