@@ -1,0 +1,1072 @@
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix http://sigkdd# <http://sigkdd#> .
+
+<http://sigkdd> rdf:type owl:Ontology .
+
+
+#################################################################
+#
+#    Object Properties
+#
+#################################################################
+
+
+###  http://sigkdd#award
+
+http://sigkdd#award rdf:type owl:ObjectProperty ;
+
+       rdfs:comment "The relationship between a person and the award he has been awarded with."@en ;
+
+       rdfs:range http://sigkdd#Award ;
+
+       rdfs:domain http://sigkdd#Best_Paper_Awards_Committee ;
+
+       owl:inverseOf http://sigkdd#awarded_by .
+
+
+
+###  http://sigkdd#awarded_by
+
+http://sigkdd#awarded_by rdf:type owl:ObjectProperty ;
+
+            rdfs:comment "The relationship between an award and the awarded person."@en ;
+
+            rdfs:domain http://sigkdd#Award ;
+
+            rdfs:range http://sigkdd#Best_Paper_Awards_Committee .
+
+
+
+###  http://sigkdd#can_stay_in
+
+http://sigkdd#can_stay_in rdf:type owl:ObjectProperty ;
+
+             rdfs:comment "The relationship between a person and a place he can be located at."@en ;
+
+             rdfs:domain http://sigkdd#Person ;
+
+             rdfs:range http://sigkdd#Place .
+
+
+
+###  http://sigkdd#design
+
+http://sigkdd#design rdf:type owl:ObjectProperty ;
+
+        rdfs:comment "The relationship between a person or an institution and the entity that has been designed."@en ;
+
+        rdfs:domain http://sigkdd#ACM_SIGKDD ;
+
+        rdfs:range http://sigkdd#Deadline ;
+
+        owl:inverseOf http://sigkdd#designed_by .
+
+
+
+###  http://sigkdd#designed_by
+
+http://sigkdd#designed_by rdf:type owl:ObjectProperty ;
+
+             rdfs:comment "The relationship between the designed entity a the person or an institution that designed it."@en ;
+
+             rdfs:range http://sigkdd#ACM_SIGKDD ;
+
+             rdfs:domain http://sigkdd#Deadline .
+
+
+
+###  http://sigkdd#hasCommittee
+
+http://sigkdd#hasCommittee rdf:type owl:ObjectProperty ;
+
+              rdfs:comment "The relation associating a conference with its committees.."@en ;
+
+              rdfs:range http://sigkdd#Committee ;
+
+              rdfs:domain http://sigkdd#Conference .
+
+
+
+###  http://sigkdd#hasReview
+
+http://sigkdd#hasReview rdf:type owl:ObjectProperty ;
+
+           rdfs:comment "The relationship linking a paper with its reviewes."@en ;
+
+           rdfs:domain http://sigkdd#Paper ;
+
+           rdfs:range http://sigkdd#Review .
+
+
+
+###  http://sigkdd#hold
+
+http://sigkdd#hold rdf:type owl:ObjectProperty ;
+
+      rdfs:comment "The relationship between the person or institution holding an activity."@en ;
+
+      rdfs:domain http://sigkdd#ACM_SIGKDD ;
+
+      rdfs:range http://sigkdd#Conference .
+
+
+
+###  http://sigkdd#holded_by
+
+http://sigkdd#holded_by rdf:type owl:ObjectProperty ;
+
+           rdfs:comment "The relationship between the an holded activity and the person or institution holding it."@en ;
+
+           rdfs:range http://sigkdd#ACM_SIGKDD ;
+
+           rdfs:domain http://sigkdd#Conference ;
+
+           owl:inverseOf http://sigkdd#hold .
+
+
+
+###  http://sigkdd#isCommitteeOf
+
+http://sigkdd#isCommitteeOf rdf:type owl:ObjectProperty ;
+
+               rdfs:comment "The relation associating a committee with the conferences."@en ;
+
+               rdfs:domain http://sigkdd#Committee ;
+
+               rdfs:range http://sigkdd#Conference .
+
+
+
+###  http://sigkdd#isReviewOf
+
+http://sigkdd#isReviewOf rdf:type owl:ObjectProperty ;
+
+            rdfs:comment "The review associated to a paper."@en ;
+
+            rdfs:domain http://sigkdd#Review ;
+
+            rdfs:range [ rdf:type owl:Class ;
+                         owl:unionOf ( http://sigkdd#Abstract
+                                       http://sigkdd#Paper
+                                     )
+                       ] .
+
+
+
+###  http://sigkdd#notification_until
+
+http://sigkdd#notification_until rdf:type owl:ObjectProperty ;
+
+                    rdfs:comment "The relationship between the person or institution to be notified and the deadline for the notification."@en ;
+
+                    rdfs:domain http://sigkdd#Author ;
+
+                    rdfs:range http://sigkdd#Deadline_Author_notification .
+
+
+
+###  http://sigkdd#obtain
+
+http://sigkdd#obtain rdf:type owl:ObjectProperty ;
+
+        rdfs:comment "The relationship between a person and the award he has been awarded with."@en ;
+
+        rdfs:domain http://sigkdd#Author ;
+
+        rdfs:range http://sigkdd#Award .
+
+
+
+###  http://sigkdd#pay
+
+http://sigkdd#pay rdf:type owl:ObjectProperty ;
+
+     rdfs:comment "The relationship between a person or institution paying an amount of money and the fee for which the money has been payed."@en ;
+
+     rdfs:domain http://sigkdd#Person ;
+
+     rdfs:range http://sigkdd#Registration_fee ;
+
+     owl:inverseOf http://sigkdd#payed_by .
+
+
+
+###  http://sigkdd#payed_by
+
+http://sigkdd#payed_by rdf:type owl:ObjectProperty ;
+
+          rdfs:comment "The relationship between a fee for which the money has been payed and the person or institution paying that amount of money."@en ;
+
+          rdfs:range http://sigkdd#Person ;
+
+          rdfs:domain http://sigkdd#Registration_fee .
+
+
+
+###  http://sigkdd#presentation
+
+http://sigkdd#presentation rdf:type owl:ObjectProperty ;
+
+              rdfs:comment "The relationship between the speaker of a presentation and the document that is presented."@en ;
+
+              rdfs:range http://sigkdd#Document ;
+
+              rdfs:domain http://sigkdd#Speaker ;
+
+              owl:inverseOf http://sigkdd#presentationed_by .
+
+
+
+###  http://sigkdd#presentationed_by
+
+http://sigkdd#presentationed_by rdf:type owl:ObjectProperty ;
+
+                   rdfs:comment "The relationship between a document to be presented and the speaker presenting it."@en ;
+
+                   rdfs:domain http://sigkdd#Document ;
+
+                   rdfs:range http://sigkdd#Speaker .
+
+
+
+###  http://sigkdd#search
+
+http://sigkdd#search rdf:type owl:ObjectProperty ;
+
+        rdfs:comment "The relationship between the conference organizing association searching for sponsors and a conference sponsor."@en ;
+
+        rdfs:domain http://sigkdd#ACM_SIGKDD ;
+
+        rdfs:range http://sigkdd#Sponzor ;
+
+        owl:inverseOf http://sigkdd#searched_by .
+
+
+
+###  http://sigkdd#searched_by
+
+http://sigkdd#searched_by rdf:type owl:ObjectProperty ;
+
+             rdfs:comment "The relationship between a conference sponsor and the conference organizing association searching for sponsors."@en ;
+
+             rdfs:range http://sigkdd#ACM_SIGKDD ;
+
+             rdfs:domain http://sigkdd#Sponzor .
+
+
+
+###  http://sigkdd#submit
+
+http://sigkdd#submit rdf:type owl:ObjectProperty ;
+
+        rdfs:comment "The relationship identyfing the papers submitted by an author,"@en ;
+
+        rdfs:domain http://sigkdd#Author ;
+
+        rdfs:range http://sigkdd#Paper .
+
+
+
+###  http://sigkdd#submit_until
+
+http://sigkdd#submit_until rdf:type owl:ObjectProperty ;
+
+              rdfs:comment "The relationship identyfing before which deadline a document is submitted,"@en ;
+
+              rdfs:range http://sigkdd#Deadline ;
+
+              rdfs:domain http://sigkdd#Document .
+
+
+
+
+
+#################################################################
+#
+#    Data properties
+#
+#################################################################
+
+
+###  http://sigkdd#City_of_conference
+
+http://sigkdd#City_of_conference rdf:type owl:DatatypeProperty ;
+
+                    rdfs:comment "the name of the city in which the conference edition is located." ;
+
+                    rdfs:domain http://sigkdd#Conference ;
+
+                    rdfs:range xsd:string .
+
+
+
+###  http://sigkdd#Currency
+
+http://sigkdd#Currency rdf:type owl:DatatypeProperty ;
+
+          rdfs:comment "The currency in which the registration fee is expressed."@en ;
+
+          rdfs:domain http://sigkdd#Fee ;
+
+          rdfs:range xsd:string .
+
+
+
+###  http://sigkdd#Date
+
+http://sigkdd#Date rdf:type owl:DatatypeProperty ;
+
+      rdfs:comment "The date associated with a deadline."@en ;
+
+      rdfs:domain http://sigkdd#Deadline ;
+
+      rdfs:range xsd:dateTime .
+
+
+
+###  http://sigkdd#E-mail
+
+http://sigkdd#E-mail rdf:type owl:DatatypeProperty ;
+
+        rdfs:comment "The electronic mail address of a person."@en ;
+
+        rdfs:domain http://sigkdd#Person ;
+
+        rdfs:range xsd:string .
+
+
+
+###  http://sigkdd#End_of_conference
+
+http://sigkdd#End_of_conference rdf:type owl:DatatypeProperty ;
+
+                   rdfs:comment "The ending date of a conference edition."@en ;
+
+                   rdfs:domain http://sigkdd#Conference ;
+
+                   rdfs:range xsd:dateTime .
+
+
+
+###  http://sigkdd#Name
+
+http://sigkdd#Name rdf:type owl:DatatypeProperty ;
+
+      rdfs:comment "The name of a person."@en ;
+
+      rdfs:domain http://sigkdd#Person ;
+
+      rdfs:range xsd:string .
+
+
+
+###  http://sigkdd#Name_of_conference
+
+http://sigkdd#Name_of_conference rdf:type owl:DatatypeProperty ;
+
+                    rdfs:comment "The name of a conference."@en ;
+
+                    rdfs:domain http://sigkdd#Conference ;
+
+                    rdfs:range xsd:string .
+
+
+
+###  http://sigkdd#Name_of_sponsor
+
+http://sigkdd#Name_of_sponsor rdf:type owl:DatatypeProperty ;
+
+                 rdfs:comment "The name of a sponsor."@en ;
+
+                 rdfs:domain http://sigkdd#Sponzor ;
+
+                 rdfs:range xsd:string .
+
+
+
+###  http://sigkdd#Nation
+
+http://sigkdd#Nation rdf:type owl:DatatypeProperty ;
+
+        rdfs:comment "The nation a person comes from."@en ;
+
+        rdfs:domain http://sigkdd#Person ;
+
+        rdfs:range xsd:string .
+
+
+
+###  http://sigkdd#Price
+
+http://sigkdd#Price rdf:type owl:DatatypeProperty ;
+
+       rdfs:comment "The registration fee amount."@en ;
+
+       rdfs:domain http://sigkdd#Fee ;
+
+       rdfs:range xsd:int .
+
+
+
+###  http://sigkdd#Start_of_conference
+
+http://sigkdd#Start_of_conference rdf:type owl:DatatypeProperty ;
+
+                     rdfs:comment "The starting date of a conference edition."@en ;
+
+                     rdfs:domain http://sigkdd#Conference ;
+
+                     rdfs:range xsd:dateTime .
+
+
+
+###  http://sigkdd#hasID
+
+http://sigkdd#hasID rdf:type owl:DatatypeProperty ;
+
+       rdfs:comment "Numerical identifier, supposed to be unique."@en ;
+
+       rdfs:domain http://sigkdd#Review ;
+
+       rdfs:range xsd:int .
+
+
+
+###  http://sigkdd#hasPostalCode
+
+http://sigkdd#hasPostalCode rdf:type owl:DatatypeProperty ;
+
+               rdfs:comment "The postal code (ZIP code)."@en ;
+
+               rdfs:domain http://sigkdd#Place ;
+
+               rdfs:range xsd:int .
+
+
+
+###  http://sigkdd#hasStreet
+
+http://sigkdd#hasStreet rdf:type owl:DatatypeProperty ;
+
+           rdfs:comment "The name of a street."@en ;
+
+           rdfs:domain http://sigkdd#Place ;
+
+           rdfs:range xsd:string .
+
+
+
+###  http://sigkdd#hasText
+
+http://sigkdd#hasText rdf:type owl:DatatypeProperty ;
+
+         rdfs:domain http://sigkdd#Review ;
+
+         rdfs:range xsd:string .
+
+
+
+###  http://sigkdd#hasTitle
+
+http://sigkdd#hasTitle rdf:type owl:DatatypeProperty ;
+
+          rdfs:range xsd:string ;
+
+          rdfs:domain [ rdf:type owl:Class ;
+                        owl:unionOf ( http://sigkdd#Abstract
+                                      http://sigkdd#Paper
+                                    )
+                      ] .
+
+
+
+###  http://www.w3.org/2003/01/geo/wgs84_pos#lat
+
+geo:lat rdf:type owl:DatatypeProperty ;
+
+        rdfs:domain http://sigkdd#Place ;
+
+        rdfs:range xsd:float .
+
+
+
+###  http://www.w3.org/2003/01/geo/wgs84_pos#long
+
+geo:long rdf:type owl:DatatypeProperty ;
+
+         rdfs:domain http://sigkdd#Place ;
+
+         rdfs:range xsd:float .
+
+
+
+
+
+#################################################################
+#
+#    Classes
+#
+#################################################################
+
+
+###  http://sigkdd#ACM_SIGKDD
+
+http://sigkdd#ACM_SIGKDD rdf:type owl:Class ;
+
+            rdfs:subClassOf owl:Thing ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty http://sigkdd#hold ;
+                              owl:someValuesFrom http://sigkdd#Conference
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty http://sigkdd#design ;
+                              owl:someValuesFrom http://sigkdd#Deadline
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty http://sigkdd#search ;
+                              owl:someValuesFrom http://sigkdd#Sponzor
+                            ] ;
+
+            rdfs:comment "KDD provides the premier forum for advancement and adoption of the \"science\" of knowledge discovery and data mining"@en .
+
+
+
+###  http://sigkdd#Abstract
+
+http://sigkdd#Abstract rdf:type owl:Class ;
+
+          owl:equivalentClass [ rdf:type owl:Restriction ;
+                                owl:onProperty http://sigkdd#submit_until ;
+                                owl:someValuesFrom http://sigkdd#Deadline_Abstract_Submission
+                              ] ;
+
+          rdfs:subClassOf http://sigkdd#Document ;
+
+          rdfs:comment "The abstract of a paper, that is a brief introduction to its content."@en .
+
+
+
+###  http://sigkdd#Author
+
+http://sigkdd#Author rdf:type owl:Class ;
+
+        owl:equivalentClass [ rdf:type owl:Restriction ;
+                              owl:onProperty http://sigkdd#submit ;
+                              owl:someValuesFrom http://sigkdd#Paper
+                            ] ;
+
+        rdfs:subClassOf http://sigkdd#Speaker ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty http://sigkdd#notification_until ;
+                          owl:someValuesFrom http://sigkdd#Deadline_Author_notification
+                        ] ;
+
+        rdfs:comment "A person who composes an article, or other written work."@en .
+
+
+
+###  http://sigkdd#Author_of_paper
+
+http://sigkdd#Author_of_paper rdf:type owl:Class ;
+
+                 rdfs:subClassOf http://sigkdd#Author ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty http://sigkdd#obtain ;
+                                   owl:someValuesFrom http://sigkdd#Best_Research_Paper_Award
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty http://sigkdd#obtain ;
+                                   owl:someValuesFrom http://sigkdd#Best_Applications_Paper_Award
+                                 ] ;
+
+                 rdfs:comment "A person who composes a paper."@en .
+
+
+
+###  http://sigkdd#Author_of_paper_student
+
+http://sigkdd#Author_of_paper_student rdf:type owl:Class ;
+
+                         rdfs:subClassOf http://sigkdd#Author ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty http://sigkdd#obtain ;
+                                           owl:someValuesFrom http://sigkdd#Best_Student_Paper_Award
+                                         ] ;
+
+                         rdfs:comment "A student who composes a paper or a senior scientist lightly involved in a paper mainly authored by students."@en .
+
+
+
+###  http://sigkdd#Award
+
+http://sigkdd#Award rdf:type owl:Class ;
+
+       owl:equivalentClass [ rdf:type owl:Restriction ;
+                             owl:onProperty http://sigkdd#awarded_by ;
+                             owl:someValuesFrom http://sigkdd#Organizator
+                           ] ;
+
+       rdfs:comment "Something awarded or granted, as for merit"@en .
+
+
+
+###  http://sigkdd#Best_Applications_Paper_Award
+
+http://sigkdd#Best_Applications_Paper_Award rdf:type owl:Class ;
+
+                               rdfs:subClassOf http://sigkdd#Award ;
+
+                               rdfs:comment "Paper award for the best application"@en .
+
+
+
+###  http://sigkdd#Best_Paper_Awards_Committee
+
+http://sigkdd#Best_Paper_Awards_Committee rdf:type owl:Class ;
+
+                             rdfs:subClassOf http://sigkdd#Committee ;
+
+                             rdfs:comment "A committee in charge of selecting the best paper to be awarded"@en .
+
+
+
+###  http://sigkdd#Best_Research_Paper_Award
+
+http://sigkdd#Best_Research_Paper_Award rdf:type owl:Class ;
+
+                           rdfs:subClassOf http://sigkdd#Award ;
+
+                           rdfs:comment "Paper award for the best research paper"@en .
+
+
+
+###  http://sigkdd#Best_Student_Paper_Award
+
+http://sigkdd#Best_Student_Paper_Award rdf:type owl:Class ;
+
+                          rdfs:subClassOf http://sigkdd#Award ;
+
+                          rdfs:comment "Paper award for the best paper mainly authored by one or more students"@en .
+
+
+
+###  http://sigkdd#Best_Student_Paper_Supporter
+
+http://sigkdd#Best_Student_Paper_Supporter rdf:type owl:Class ;
+
+                              rdfs:subClassOf http://sigkdd#Sponzor ;
+
+                              rdfs:comment "A sponsor paying for the price of the best student paper."@en .
+
+
+
+###  http://sigkdd#Bronze_Supporter
+
+http://sigkdd#Bronze_Supporter rdf:type owl:Class ;
+
+                  rdfs:subClassOf http://sigkdd#Sponzor ;
+
+                  rdfs:comment "The entry level for being a sponsor."@en .
+
+
+
+###  http://sigkdd#Committee
+
+http://sigkdd#Committee rdf:type owl:Class ;
+
+           rdfs:comment "A group of people officially delegated to perform a function, such as investigating, considering, reporting, or acting on a matter"@en .
+
+
+
+###  http://sigkdd#Conference
+
+http://sigkdd#Conference rdf:type owl:Class ;
+
+            rdfs:comment "An academic conference or symposium is a conference for researchers (not necessarily academics) to present and discuss their work. Together with academic or scientific journals, conferences provide an important channel for exchange of information between researchers."@en .
+
+
+
+###  http://sigkdd#Conference_hall
+
+http://sigkdd#Conference_hall rdf:type owl:Class ;
+
+                 rdfs:subClassOf http://sigkdd#Place ;
+
+                 rdfs:comment "A conference hall or conference room is a room provided for singular events such as business conferences and meetings."@en .
+
+
+
+###  http://sigkdd#Deadline
+
+http://sigkdd#Deadline rdf:type owl:Class ;
+
+          rdfs:comment "A time limit for an activity"@en .
+
+
+
+###  http://sigkdd#Deadline_Abstract_Submission
+
+http://sigkdd#Deadline_Abstract_Submission rdf:type owl:Class ;
+
+                              rdfs:subClassOf http://sigkdd#Deadline ;
+
+                              rdfs:comment "Time limit for abstract submission."@en .
+
+
+
+###  http://sigkdd#Deadline_Author_notification
+
+http://sigkdd#Deadline_Author_notification rdf:type owl:Class ;
+
+                              rdfs:subClassOf http://sigkdd#Deadline ;
+
+                              rdfs:comment "Time limit for notifying an author about its submitted contribution"@en .
+
+
+
+###  http://sigkdd#Deadline_Paper_Submission
+
+http://sigkdd#Deadline_Paper_Submission rdf:type owl:Class ;
+
+                           rdfs:subClassOf http://sigkdd#Deadline ;
+
+                           rdfs:comment "Time limit for submitting a paper."@en .
+
+
+
+###  http://sigkdd#Document
+
+http://sigkdd#Document rdf:type owl:Class ;
+
+          rdfs:comment "A writing that contains information."@en .
+
+
+
+###  http://sigkdd#Exhibitor
+
+http://sigkdd#Exhibitor rdf:type owl:Class ;
+
+           rdfs:subClassOf http://sigkdd#Sponzor ;
+
+           rdfs:comment "A sponsor that organizes an exhibit of its own activities and products."@en .
+
+
+
+###  http://sigkdd#Fee
+
+http://sigkdd#Fee rdf:type owl:Class ;
+
+     rdfs:comment "A fixed sum charged, as by an institution or by law, for a privilege."@en .
+
+
+
+###  http://sigkdd#General_Chair
+
+http://sigkdd#General_Chair rdf:type owl:Class ;
+
+               rdfs:subClassOf http://sigkdd#Organizator ;
+
+               rdfs:comment "A person with the purpose of overseeing the activities of all conference committee chairs, of ensuring that the objectives of the conference as established by the Steering Committee are met, and of serving as a focal point for communications between the involved entities."@en .
+
+
+
+###  http://sigkdd#Gold_Supporter
+
+http://sigkdd#Gold_Supporter rdf:type owl:Class ;
+
+                rdfs:subClassOf http://sigkdd#Sponzor ;
+
+                rdfs:comment "An advanced level of sponsorship."@en .
+
+
+
+###  http://sigkdd#Hotel
+
+http://sigkdd#Hotel rdf:type owl:Class ;
+
+       rdfs:subClassOf http://sigkdd#Place ;
+
+       rdfs:comment "An establishment that provides lodging and usually meals and other services for travelers and other paying guests."@en .
+
+
+
+###  http://sigkdd#Invited_Speaker
+
+http://sigkdd#Invited_Speaker rdf:type owl:Class ;
+
+                 rdfs:subClassOf http://sigkdd#Speaker ;
+
+                 rdfs:comment "A prominent person required to give a public speech at the conference on a topic of shared interest."@en .
+
+
+
+###  http://sigkdd#Listener
+
+http://sigkdd#Listener rdf:type owl:Class ;
+
+          rdfs:subClassOf http://sigkdd#Person ;
+
+          rdfs:comment "A person participating at a conference as a listener for others' presentations."@en .
+
+
+
+###  http://sigkdd#Main_office
+
+http://sigkdd#Main_office rdf:type owl:Class ;
+
+             rdfs:subClassOf http://sigkdd#Place ;
+
+             rdfs:comment "The office that serves as the administrative center of an enterprise or an event."@en .
+
+
+
+###  http://sigkdd#Organizator
+
+http://sigkdd#Organizator rdf:type owl:Class ;
+
+             rdfs:subClassOf http://sigkdd#Person ;
+
+             rdfs:comment "A person who organizes or is capable of organizing."@en .
+
+
+
+###  http://sigkdd#Organizing_Committee
+
+http://sigkdd#Organizing_Committee rdf:type owl:Class ;
+
+                      rdfs:subClassOf http://sigkdd#Committee ;
+
+                      rdfs:comment "The Local Organizing Committee is charged with the planning and direction of all (non-scientific) program facets of the conference including selection of venue. The Organizing Committee is responsible for planning and executing all financial aspects of the Conference and reports to the Executive Committee. The Local Organizing Committee shall include representatives of the host country and/or institution."@en .
+
+
+
+###  http://sigkdd#Organizing_Committee_member
+
+http://sigkdd#Organizing_Committee_member rdf:type owl:Class ;
+
+                             rdfs:subClassOf http://sigkdd#Organizator ;
+
+                             rdfs:comment "A person that is part of the organizing committee."@en .
+
+
+
+###  http://sigkdd#Paper
+
+http://sigkdd#Paper rdf:type owl:Class ;
+
+       owl:equivalentClass [ rdf:type owl:Restriction ;
+                             owl:onProperty http://sigkdd#submit_until ;
+                             owl:someValuesFrom http://sigkdd#Deadline_Paper_Submission
+                           ] ;
+
+       rdfs:subClassOf http://sigkdd#Document ;
+
+       rdfs:comment "A scientific article around a subject of interest."@en .
+
+
+
+###  http://sigkdd#Person
+
+http://sigkdd#Person rdf:type owl:Class ;
+
+        owl:equivalentClass [ rdf:type owl:Restriction ;
+                              owl:onProperty http://sigkdd#pay ;
+                              owl:someValuesFrom http://sigkdd#Registration_fee
+                            ] ;
+
+        rdfs:subClassOf owl:Thing ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty http://sigkdd#can_stay_in ;
+                          owl:someValuesFrom http://sigkdd#Hotel
+                        ] ;
+
+        rdfs:comment "An individual human being."@en .
+
+
+
+###  http://sigkdd#Place
+
+http://sigkdd#Place rdf:type owl:Class ;
+
+       rdfs:comment "A building or an area set aside for a specified purpose."@en .
+
+
+
+###  http://sigkdd#Platinum_Supporter
+
+http://sigkdd#Platinum_Supporter rdf:type owl:Class ;
+
+                    rdfs:subClassOf http://sigkdd#Sponzor ;
+
+                    rdfs:comment "The most advanced level of sponsorship."@en .
+
+
+
+###  http://sigkdd#Program_Chair
+
+http://sigkdd#Program_Chair rdf:type owl:Class ;
+
+               rdfs:subClassOf http://sigkdd#Organizator ;
+
+               rdfs:comment "A person that is in charge of overseeing the activities of all Program Committee members in putting together a technical program which supports the objectives of the conference, and producing the conference proceedings."@en .
+
+
+
+###  http://sigkdd#Program_Committee
+
+http://sigkdd#Program_Committee rdf:type owl:Class ;
+
+                   rdfs:subClassOf http://sigkdd#Committee ;
+
+                   rdfs:comment "The Scientific Committee has the following responsibilities: suggesting keynote speakers and approving the Organising Committee’s final list of keynote speakers; Approving the Organising Committee’s proposal concerning section profiles and titles; Reviewing abstracts after initial review by the Organising Committee; Giving feedback to the Organising Committee on the proposed programme; Adhering to the deadlines agreed to with the Organising Committee; Participating in the event"@en .
+
+
+
+###  http://sigkdd#Program_Committee_member
+
+http://sigkdd#Program_Committee_member rdf:type owl:Class ;
+
+                          rdfs:subClassOf http://sigkdd#Organizator ;
+
+                          rdfs:comment "A member of the program committee."@en .
+
+
+
+###  http://sigkdd#Registration_Non-Member
+
+http://sigkdd#Registration_Non-Member rdf:type owl:Class ;
+
+                         rdfs:subClassOf http://sigkdd#Registration_fee ;
+
+                         rdfs:comment "Registration fee for person not member of SIGKDD organization."@en .
+
+
+
+###  http://sigkdd#Registration_SIGKDD_Member
+
+http://sigkdd#Registration_SIGKDD_Member rdf:type owl:Class ;
+
+                            rdfs:subClassOf http://sigkdd#Registration_fee ;
+
+                            rdfs:comment "Registration fee for person that are member of SIGKDD organization."@en .
+
+
+
+###  http://sigkdd#Registration_SIGMOD_Member
+
+http://sigkdd#Registration_SIGMOD_Member rdf:type owl:Class ;
+
+                            rdfs:subClassOf http://sigkdd#Registration_fee ;
+
+                            rdfs:comment "Registration fee for person that are member of SIGMOD organization."@en .
+
+
+
+###  http://sigkdd#Registration_Student
+
+http://sigkdd#Registration_Student rdf:type owl:Class ;
+
+                      rdfs:subClassOf http://sigkdd#Registration_fee ;
+
+                      rdfs:comment "Registration fee for students, usually at a reduced price."@en .
+
+
+
+###  http://sigkdd#Registration_fee
+
+http://sigkdd#Registration_fee rdf:type owl:Class ;
+
+                  rdfs:subClassOf http://sigkdd#Fee ;
+
+                  rdfs:comment "Fee requested for registering and participating at a conference."@en .
+
+
+
+###  http://sigkdd#Review
+
+http://sigkdd#Review rdf:type owl:Class ;
+
+        rdfs:subClassOf http://sigkdd#Document ;
+
+        rdfs:comment "The document with the outcome of a read through of a paper in order to correct possible errors and formulate a judgement on the quality of the work and appropriateness for the intended conference."@en .
+
+
+
+###  http://sigkdd#Silver_Supporter
+
+http://sigkdd#Silver_Supporter rdf:type owl:Class ;
+
+                  rdfs:subClassOf http://sigkdd#Sponzor ;
+
+                  rdfs:comment "A mid-level for sponsorhip."@en .
+
+
+
+###  http://sigkdd#Speaker
+
+http://sigkdd#Speaker rdf:type owl:Class ;
+
+         owl:equivalentClass [ rdf:type owl:Restriction ;
+                               owl:onProperty http://sigkdd#presentation ;
+                               owl:someValuesFrom http://sigkdd#Document
+                             ] ;
+
+         rdfs:subClassOf http://sigkdd#Person ;
+
+         rdfs:comment "A person participating at a conference as a speaker in an activity involving an oral presentation,"@en .
+
+
+
+###  http://sigkdd#Sponzor
+
+http://sigkdd#Sponzor rdf:type owl:Class ;
+
+         owl:equivalentClass [ rdf:type owl:Restriction ;
+                               owl:onProperty http://sigkdd#pay ;
+                               owl:someValuesFrom http://sigkdd#Sponzor_fee
+                             ] ;
+
+         rdfs:comment "A commercial organization that pays all or part of the cost of putting on an event."@en .
+
+
+
+###  http://sigkdd#Sponzor_fee
+
+http://sigkdd#Sponzor_fee rdf:type owl:Class ;
+
+             rdfs:subClassOf http://sigkdd#Fee ;
+
+             rdfs:comment "The fee that sponsor need to pay to be considered as such."@en .
+
+
+
+###  http://sigkdd#Webmaster
+
+http://sigkdd#Webmaster rdf:type owl:Class ;
+
+           rdfs:subClassOf http://sigkdd#Organizator ;
+
+           rdfs:comment "A person whose occupation is designing, developing, marketing, or maintaining websites."@en .
+
+
+
+
+
+#################################################################
+#
+#    Annotations
+#
+#################################################################
+
+
+http://sigkdd#Reviewer rdfs:comment "One who reviews, especially one who writes reviews for correcting errors and ensuring quality."@en .
+
+
+
+
+###  Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net
