@@ -1,4 +1,3 @@
-@prefix : <http://cmt#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
@@ -8,7 +7,7 @@
 @prefix swrl: <http://www.w3.org/2003/11/swrl#> .
 @prefix swrlb: <http://www.w3.org/2003/11/swrlb#> .
 @prefix protege: <http://protege.stanford.edu/plugins/owl/protege#> .
-@base <http://cmt> .
+@predix cmt: <http://cmt> .
 
 <http://cmt> rdf:type owl:Ontology .
 
@@ -37,384 +36,384 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://cmt#acceptPaper
 
-:acceptPaper rdf:type owl:FunctionalProperty ,
+http://cmt#acceptPaper rdf:type owl:FunctionalProperty ,
                       owl:InverseFunctionalProperty ,
                       owl:ObjectProperty ;
 
              rdfs:label "accept paper"@en ;
 
-             rdfs:domain :Administrator ;
+             rdfs:domain http://cmt#Administrator ;
 
-             rdfs:range :Paper .
+             rdfs:range http://cmt#Paper .
 
 
 
 ###  http://cmt#acceptedBy
 
-:acceptedBy rdf:type owl:FunctionalProperty ,
+http://cmt#acceptedBy rdf:type owl:FunctionalProperty ,
                      owl:InverseFunctionalProperty ,
                      owl:ObjectProperty ;
 
             rdfs:label "accepted by"@en ;
 
-            rdfs:range :Administrator ;
+            rdfs:range http://cmt#Administrator ;
 
-            rdfs:domain :Paper ;
+            rdfs:domain http://cmt#Paper ;
 
-            owl:inverseOf :acceptPaper .
+            owl:inverseOf http://cmt#acceptPaper .
 
 
 
 ###  http://cmt#addProgramCommitteeMember
 
-:addProgramCommitteeMember rdf:type owl:InverseFunctionalProperty ,
+http://cmt#addProgramCommitteeMember rdf:type owl:InverseFunctionalProperty ,
                                     owl:ObjectProperty ;
 
                            rdfs:label "add program committee member"@en ;
 
-                           rdfs:domain :Administrator ;
+                           rdfs:domain http://cmt#Administrator ;
 
-                           rdfs:range :ProgramCommitteeMember ;
+                           rdfs:range http://cmt#ProgramCommitteeMember ;
 
-                           owl:inverseOf :addedBy .
+                           owl:inverseOf http://cmt#addedBy .
 
 
 
 ###  http://cmt#addedBy
 
-:addedBy rdf:type owl:FunctionalProperty ,
+http://cmt#addedBy rdf:type owl:FunctionalProperty ,
                   owl:ObjectProperty ;
 
          rdfs:label "added by"@en ;
 
-         rdfs:range :Administrator ;
+         rdfs:range http://cmt#Administrator ;
 
-         rdfs:domain :ProgramCommitteeMember .
+         rdfs:domain http://cmt#ProgramCommitteeMember .
 
 
 
 ###  http://cmt#adjustBid
 
-:adjustBid rdf:type owl:InverseFunctionalProperty ,
+http://cmt#adjustBid rdf:type owl:InverseFunctionalProperty ,
                     owl:ObjectProperty ;
 
            rdfs:label "adjust bid"@en ;
 
-           rdfs:range :Bid ;
+           rdfs:range http://cmt#Bid ;
 
-           rdfs:domain :Reviewer ;
+           rdfs:domain http://cmt#Reviewer ;
 
-           owl:inverseOf :adjustedBy .
+           owl:inverseOf http://cmt#adjustedBy .
 
 
 
 ###  http://cmt#adjustedBy
 
-:adjustedBy rdf:type owl:FunctionalProperty ,
+http://cmt#adjustedBy rdf:type owl:FunctionalProperty ,
                      owl:ObjectProperty ;
 
             rdfs:label "adjusted by"@en ;
 
-            rdfs:domain :Bid ;
+            rdfs:domain http://cmt#Bid ;
 
-            rdfs:range :Reviewer .
+            rdfs:range http://cmt#Reviewer .
 
 
 
 ###  http://cmt#assignExternalReviewer
 
-:assignExternalReviewer rdf:type owl:InverseFunctionalProperty ,
+http://cmt#assignExternalReviewer rdf:type owl:InverseFunctionalProperty ,
                                  owl:ObjectProperty ;
 
                         rdfs:label "assign external reviewer"@en ;
 
-                        rdfs:range :ExternalReviewer ;
+                        rdfs:range http://cmt#ExternalReviewer ;
 
-                        rdfs:domain :Reviewer .
+                        rdfs:domain http://cmt#Reviewer .
 
 
 
 ###  http://cmt#assignReviewer
 
-:assignReviewer rdf:type owl:ObjectProperty ;
+http://cmt#assignReviewer rdf:type owl:ObjectProperty ;
 
                 rdfs:label "assign reviewer"@en ;
 
-                rdfs:domain :Administrator ;
+                rdfs:domain http://cmt#Administrator ;
 
-                rdfs:range :Reviewer .
+                rdfs:range http://cmt#Reviewer .
 
 
 
 ###  http://cmt#assignedByAdministrator
 
-:assignedByAdministrator rdf:type owl:ObjectProperty ;
+http://cmt#assignedByAdministrator rdf:type owl:ObjectProperty ;
 
                          rdfs:label "assigned by administrator"@en ;
 
-                         rdfs:range :Administrator ;
+                         rdfs:range http://cmt#Administrator ;
 
-                         rdfs:domain :Reviewer ;
+                         rdfs:domain http://cmt#Reviewer ;
 
-                         owl:inverseOf :assignReviewer .
+                         owl:inverseOf http://cmt#assignReviewer .
 
 
 
 ###  http://cmt#assignedByReviewer
 
-:assignedByReviewer rdf:type owl:FunctionalProperty ,
+http://cmt#assignedByReviewer rdf:type owl:FunctionalProperty ,
                              owl:ObjectProperty ;
 
                     rdfs:label "assigned by reviewer"@en ;
 
-                    rdfs:domain :ExternalReviewer ;
+                    rdfs:domain http://cmt#ExternalReviewer ;
 
-                    rdfs:range :Reviewer ;
+                    rdfs:range http://cmt#Reviewer ;
 
-                    owl:inverseOf :assignExternalReviewer .
+                    owl:inverseOf http://cmt#assignExternalReviewer .
 
 
 
 ###  http://cmt#assignedTo
 
-:assignedTo rdf:type owl:ObjectProperty ;
+http://cmt#assignedTo rdf:type owl:ObjectProperty ;
 
             rdfs:label "assigned to"@en ;
 
-            rdfs:domain :Paper ;
+            rdfs:domain http://cmt#Paper ;
 
-            rdfs:range :Reviewer .
+            rdfs:range http://cmt#Reviewer .
 
 
 
 ###  http://cmt#co-writePaper
 
-:co-writePaper rdf:type owl:ObjectProperty ;
+http://cmt#co-writePaper rdf:type owl:ObjectProperty ;
 
                rdfs:label "co-write paper"@en ;
 
-               rdfs:domain :Co-author ;
+               rdfs:domain http://cmt#Co-author ;
 
-               rdfs:range :Paper ;
+               rdfs:range http://cmt#Paper ;
 
-               owl:inverseOf :hasCo-author .
+               owl:inverseOf http://cmt#hasCo-author .
 
 
 
 ###  http://cmt#detailsEnteredBy
 
-:detailsEnteredBy rdf:type owl:ObjectProperty ;
+http://cmt#detailsEnteredBy rdf:type owl:ObjectProperty ;
 
                   rdfs:label "details entered by"@en ;
 
-                  rdfs:range :Administrator ;
+                  rdfs:range http://cmt#Administrator ;
 
-                  rdfs:domain :Conference .
+                  rdfs:domain http://cmt#Conference .
 
 
 
 ###  http://cmt#enableVirtualMeeting
 
-:enableVirtualMeeting rdf:type owl:ObjectProperty ;
+http://cmt#enableVirtualMeeting rdf:type owl:ObjectProperty ;
 
                       rdfs:label "enable virtual meeting"@en ;
 
-                      rdfs:domain :Administrator ;
+                      rdfs:domain http://cmt#Administrator ;
 
-                      rdfs:range :Conference ;
+                      rdfs:range http://cmt#Conference ;
 
-                      owl:inverseOf :virtualMeetingEnabledBy .
+                      owl:inverseOf http://cmt#virtualMeetingEnabledBy .
 
 
 
 ###  http://cmt#endReview
 
-:endReview rdf:type owl:ObjectProperty ;
+http://cmt#endReview rdf:type owl:ObjectProperty ;
 
            rdfs:label "end review"@en ;
 
-           rdfs:domain :ProgramCommitteeChair ;
+           rdfs:domain http://cmt#ProgramCommitteeChair ;
 
-           rdfs:range :Review .
+           rdfs:range http://cmt#Review .
 
 
 
 ###  http://cmt#enterConferenceDetails
 
-:enterConferenceDetails rdf:type owl:ObjectProperty ;
+http://cmt#enterConferenceDetails rdf:type owl:ObjectProperty ;
 
                         rdfs:label "enter conference details"@en ;
 
-                        rdfs:domain :Administrator ;
+                        rdfs:domain http://cmt#Administrator ;
 
-                        rdfs:range :Conference ;
+                        rdfs:range http://cmt#Conference ;
 
-                        owl:inverseOf :detailsEnteredBy .
+                        owl:inverseOf http://cmt#detailsEnteredBy .
 
 
 
 ###  http://cmt#enterReviewCriteria
 
-:enterReviewCriteria rdf:type owl:ObjectProperty ;
+http://cmt#enterReviewCriteria rdf:type owl:ObjectProperty ;
 
                      rdfs:label "enter review criteria"@en ;
 
-                     rdfs:domain :Administrator ;
+                     rdfs:domain http://cmt#Administrator ;
 
-                     rdfs:range :Conference .
+                     rdfs:range http://cmt#Conference .
 
 
 
 ###  http://cmt#finalizePaperAssignment
 
-:finalizePaperAssignment rdf:type owl:ObjectProperty ;
+http://cmt#finalizePaperAssignment rdf:type owl:ObjectProperty ;
 
                          rdfs:label "finalize paper assignment"@en ;
 
-                         rdfs:domain :Administrator ;
+                         rdfs:domain http://cmt#Administrator ;
 
-                         rdfs:range :Conference ;
+                         rdfs:range http://cmt#Conference ;
 
-                         owl:inverseOf :paperAssignmentFinalizedBy .
+                         owl:inverseOf http://cmt#paperAssignmentFinalizedBy .
 
 
 
 ###  http://cmt#hardcopyMailingManifestsPrintedBy
 
-:hardcopyMailingManifestsPrintedBy rdf:type owl:ObjectProperty ;
+http://cmt#hardcopyMailingManifestsPrintedBy rdf:type owl:ObjectProperty ;
 
                                    rdfs:label "hardcopy mailing manifests printed by"@en ;
 
-                                   rdfs:range :Administrator ;
+                                   rdfs:range http://cmt#Administrator ;
 
-                                   rdfs:domain :Conference ;
+                                   rdfs:domain http://cmt#Conference ;
 
-                                   owl:inverseOf :printHardcopyMailingManifests .
+                                   owl:inverseOf http://cmt#printHardcopyMailingManifests .
 
 
 
 ###  http://cmt#hasAuthor
 
-:hasAuthor rdf:type owl:FunctionalProperty ,
+http://cmt#hasAuthor rdf:type owl:FunctionalProperty ,
                     owl:ObjectProperty ;
 
            rdfs:label "has author"@en ;
 
-           rdfs:range :Author ;
+           rdfs:range http://cmt#Author ;
 
-           rdfs:domain :Paper .
+           rdfs:domain http://cmt#Paper .
 
 
 
 ###  http://cmt#hasBeenAssigned
 
-:hasBeenAssigned rdf:type owl:ObjectProperty ;
+http://cmt#hasBeenAssigned rdf:type owl:ObjectProperty ;
 
                  rdfs:label "has been assigned"@en ;
 
-                 rdfs:range :Paper ;
+                 rdfs:range http://cmt#Paper ;
 
-                 rdfs:domain :Reviewer ;
+                 rdfs:domain http://cmt#Reviewer ;
 
-                 owl:inverseOf :assignedTo .
+                 owl:inverseOf http://cmt#assignedTo .
 
 
 
 ###  http://cmt#hasBid
 
-:hasBid rdf:type owl:InverseFunctionalProperty ,
+http://cmt#hasBid rdf:type owl:InverseFunctionalProperty ,
                  owl:ObjectProperty ;
 
         rdfs:label "has bid"@en ;
 
         rdfs:comment "Each paper gets a bid assigned to evaluate it."@en ;
 
-        rdfs:range :Bid ;
+        rdfs:range http://cmt#Bid ;
 
-        rdfs:domain :Paper .
+        rdfs:domain http://cmt#Paper .
 
 
 
 ###  http://cmt#hasCo-author
 
-:hasCo-author rdf:type owl:ObjectProperty ;
+http://cmt#hasCo-author rdf:type owl:ObjectProperty ;
 
               rdfs:label "has co-author"@en ;
 
-              rdfs:range :Co-author ;
+              rdfs:range http://cmt#Co-author ;
 
-              rdfs:domain :Paper .
+              rdfs:domain http://cmt#Paper .
 
 
 
 ###  http://cmt#hasConferenceMember
 
-:hasConferenceMember rdf:type owl:ObjectProperty ;
+http://cmt#hasConferenceMember rdf:type owl:ObjectProperty ;
 
                      rdfs:label "has conference member"@en ;
 
-                     rdfs:domain :Conference ;
+                     rdfs:domain http://cmt#Conference ;
 
-                     rdfs:range :ConferenceMember .
+                     rdfs:range http://cmt#ConferenceMember .
 
 
 
 ###  http://cmt#hasConflictOfInterest
 
-:hasConflictOfInterest rdf:type owl:ObjectProperty ;
+http://cmt#hasConflictOfInterest rdf:type owl:ObjectProperty ;
 
                        rdfs:label "has conflict of interest"@en ;
 
                        rdfs:comment "A person can mark a conflict of interest for not reviewing a paper."@en ;
 
-                       rdfs:range :Document ;
+                       rdfs:range http://cmt#Document ;
 
-                       rdfs:domain :Person .
+                       rdfs:domain http://cmt#Person .
 
 
 
 ###  http://cmt#hasDecision
 
-:hasDecision rdf:type owl:FunctionalProperty ,
+http://cmt#hasDecision rdf:type owl:FunctionalProperty ,
                       owl:ObjectProperty ;
 
              rdfs:label "has decision"@en ;
 
-             rdfs:range :Decision ;
+             rdfs:range http://cmt#Decision ;
 
-             rdfs:domain :Paper .
+             rdfs:domain http://cmt#Paper .
 
 
 
 ###  http://cmt#hasProgramCommitteeMember
 
-:hasProgramCommitteeMember rdf:type owl:ObjectProperty ;
+http://cmt#hasProgramCommitteeMember rdf:type owl:ObjectProperty ;
 
                            rdfs:label "has program committee member"@en ;
 
-                           rdfs:domain :ProgramCommittee ;
+                           rdfs:domain http://cmt#ProgramCommittee ;
 
-                           rdfs:range :ProgramCommitteeMember ;
+                           rdfs:range http://cmt#ProgramCommitteeMember ;
 
-                           owl:inverseOf :memberOfProgramCommittee .
+                           owl:inverseOf http://cmt#memberOfProgramCommittee .
 
 
 
 ###  http://cmt#hasSubjectArea
 
-:hasSubjectArea rdf:type owl:ObjectProperty ;
+http://cmt#hasSubjectArea rdf:type owl:ObjectProperty ;
 
                 rdfs:label "has subject area"@en ;
 
-                rdfs:domain :Paper ;
+                rdfs:domain http://cmt#Paper ;
 
-                rdfs:range :SubjectArea .
+                rdfs:range http://cmt#SubjectArea .
 
 
 
 ###  http://cmt#markConflictOfInterest
 
-:markConflictOfInterest rdf:type owl:ObjectProperty ;
+http://cmt#markConflictOfInterest rdf:type owl:ObjectProperty ;
 
                         rdfs:label "mark conflict of interest"@en ;
 
@@ -423,12 +422,12 @@ xsd:date rdf:type rdfs:Datatype .
 Based on that conflict, the reviewer will not be able to bid on the paper, be assigned to that paper (either automatically by the system or manually by a Chairman) or view review submissions for that paper.
 """^^xsd:string ;
 
-                        rdfs:range :Paper ;
+                        rdfs:range http://cmt#Paper ;
 
                         rdfs:domain [ rdf:type owl:Class ;
-                                      owl:unionOf ( :Author
-                                                    :Chairman
-                                                    :Reviewer
+                                      owl:unionOf ( http://cmt#Author
+                                                    http://cmt#Chairman
+                                                    http://cmt#Reviewer
                                                   )
                                     ] .
 
@@ -436,265 +435,265 @@ Based on that conflict, the reviewer will not be able to bid on the paper, be as
 
 ###  http://cmt#memberOfConference
 
-:memberOfConference rdf:type owl:ObjectProperty ;
+http://cmt#memberOfConference rdf:type owl:ObjectProperty ;
 
                     rdfs:label "member of conference"@en ;
 
-                    rdfs:range :Conference ;
+                    rdfs:range http://cmt#Conference ;
 
-                    rdfs:domain :ConferenceMember ;
+                    rdfs:domain http://cmt#ConferenceMember ;
 
-                    owl:inverseOf :hasConferenceMember .
+                    owl:inverseOf http://cmt#hasConferenceMember .
 
 
 
 ###  http://cmt#memberOfProgramCommittee
 
-:memberOfProgramCommittee rdf:type owl:ObjectProperty ;
+http://cmt#memberOfProgramCommittee rdf:type owl:ObjectProperty ;
 
                           rdfs:label "member of program committee"@en ;
 
-                          rdfs:range :ProgramCommittee ;
+                          rdfs:range http://cmt#ProgramCommittee ;
 
-                          rdfs:domain :ProgramCommitteeMember .
+                          rdfs:domain http://cmt#ProgramCommitteeMember .
 
 
 
 ###  http://cmt#paperAssignmentFinalizedBy
 
-:paperAssignmentFinalizedBy rdf:type owl:ObjectProperty ;
+http://cmt#paperAssignmentFinalizedBy rdf:type owl:ObjectProperty ;
 
                             rdfs:label "paper assignment finalized by"@en ;
 
-                            rdfs:range :Administrator ;
+                            rdfs:range http://cmt#Administrator ;
 
-                            rdfs:domain :Conference .
+                            rdfs:domain http://cmt#Conference .
 
 
 
 ###  http://cmt#paperAssignmentToolsRunBy
 
-:paperAssignmentToolsRunBy rdf:type owl:ObjectProperty ;
+http://cmt#paperAssignmentToolsRunBy rdf:type owl:ObjectProperty ;
 
                            rdfs:label "paper assignment tools run by"@en ;
 
-                           rdfs:range :Administrator ;
+                           rdfs:range http://cmt#Administrator ;
 
-                           rdfs:domain :Conference .
+                           rdfs:domain http://cmt#Conference .
 
 
 
 ###  http://cmt#printHardcopyMailingManifests
 
-:printHardcopyMailingManifests rdf:type owl:ObjectProperty ;
+http://cmt#printHardcopyMailingManifests rdf:type owl:ObjectProperty ;
 
                                rdfs:label "print hardcopy mailing manifests"@en ;
 
-                               rdfs:domain :Administrator ;
+                               rdfs:domain http://cmt#Administrator ;
 
-                               rdfs:range :Conference .
+                               rdfs:range http://cmt#Conference .
 
 
 
 ###  http://cmt#readByMeta-Reviewer
 
-:readByMeta-Reviewer rdf:type owl:FunctionalProperty ,
+http://cmt#readByMeta-Reviewer rdf:type owl:FunctionalProperty ,
                               owl:ObjectProperty ;
 
                      rdfs:label "read by meta-reviewer"@en ;
 
-                     rdfs:range :Meta-Reviewer ;
+                     rdfs:range http://cmt#Meta-Reviewer ;
 
-                     rdfs:domain :Paper .
+                     rdfs:domain http://cmt#Paper .
 
 
 
 ###  http://cmt#readByReviewer
 
-:readByReviewer rdf:type owl:ObjectProperty ;
+http://cmt#readByReviewer rdf:type owl:ObjectProperty ;
 
                 rdfs:label "read by reviewer"@en ;
 
-                rdfs:domain :Paper ;
+                rdfs:domain http://cmt#Paper ;
 
-                rdfs:range :Reviewer ;
+                rdfs:range http://cmt#Reviewer ;
 
-                owl:inverseOf :readPaper .
+                owl:inverseOf http://cmt#readPaper .
 
 
 
 ###  http://cmt#readPaper
 
-:readPaper rdf:type owl:ObjectProperty ;
+http://cmt#readPaper rdf:type owl:ObjectProperty ;
 
            rdfs:label "read paper"@en ;
 
-           rdfs:range :Paper ;
+           rdfs:range http://cmt#Paper ;
 
-           rdfs:domain :Reviewer .
+           rdfs:domain http://cmt#Reviewer .
 
 
 
 ###  http://cmt#rejectPaper
 
-:rejectPaper rdf:type owl:InverseFunctionalProperty ,
+http://cmt#rejectPaper rdf:type owl:InverseFunctionalProperty ,
                       owl:ObjectProperty ;
 
              rdfs:label "reject paper"@en ;
 
-             rdfs:domain :Administrator ;
+             rdfs:domain http://cmt#Administrator ;
 
-             rdfs:range :Paper .
+             rdfs:range http://cmt#Paper .
 
 
 
 ###  http://cmt#rejectedBy
 
-:rejectedBy rdf:type owl:FunctionalProperty ,
+http://cmt#rejectedBy rdf:type owl:FunctionalProperty ,
                      owl:ObjectProperty ;
 
             rdfs:label "rejected by"@en ;
 
-            rdfs:range :Administrator ;
+            rdfs:range http://cmt#Administrator ;
 
-            rdfs:domain :Paper ;
+            rdfs:domain http://cmt#Paper ;
 
-            owl:inverseOf :rejectPaper .
+            owl:inverseOf http://cmt#rejectPaper .
 
 
 
 ###  http://cmt#reviewCriteriaEnteredBy
 
-:reviewCriteriaEnteredBy rdf:type owl:ObjectProperty ;
+http://cmt#reviewCriteriaEnteredBy rdf:type owl:ObjectProperty ;
 
                          rdfs:label "review criteria entered by"@en ;
 
-                         rdfs:range :Administrator ;
+                         rdfs:range http://cmt#Administrator ;
 
-                         rdfs:domain :Conference ;
+                         rdfs:domain http://cmt#Conference ;
 
-                         owl:inverseOf :enterReviewCriteria .
+                         owl:inverseOf http://cmt#enterReviewCriteria .
 
 
 
 ###  http://cmt#reviewerBiddingStartedBy
 
-:reviewerBiddingStartedBy rdf:type owl:ObjectProperty ;
+http://cmt#reviewerBiddingStartedBy rdf:type owl:ObjectProperty ;
 
                           rdfs:label "reviewer bidding started by"@en ;
 
-                          rdfs:range :Administrator ;
+                          rdfs:range http://cmt#Administrator ;
 
-                          rdfs:domain :Conference ;
+                          rdfs:domain http://cmt#Conference ;
 
-                          owl:inverseOf :startReviewerBidding .
+                          owl:inverseOf http://cmt#startReviewerBidding .
 
 
 
 ###  http://cmt#runPaperAssignmentTools
 
-:runPaperAssignmentTools rdf:type owl:ObjectProperty ;
+http://cmt#runPaperAssignmentTools rdf:type owl:ObjectProperty ;
 
                          rdfs:label "run paper assignment tools"@en ;
 
-                         rdfs:domain :Administrator ;
+                         rdfs:domain http://cmt#Administrator ;
 
-                         rdfs:range :Conference ;
+                         rdfs:range http://cmt#Conference ;
 
-                         owl:inverseOf :paperAssignmentToolsRunBy .
+                         owl:inverseOf http://cmt#paperAssignmentToolsRunBy .
 
 
 
 ###  http://cmt#setMaxPapers
 
-:setMaxPapers rdf:type owl:ObjectProperty ;
+http://cmt#setMaxPapers rdf:type owl:ObjectProperty ;
 
               rdfs:label "set max papers"@en ;
 
               rdfs:comment "The maximal number od papers."@en ;
 
-              rdfs:domain :Administrator ;
+              rdfs:domain http://cmt#Administrator ;
 
-              rdfs:range :ProgramCommitteeMember .
+              rdfs:range http://cmt#ProgramCommitteeMember .
 
 
 
 ###  http://cmt#startReviewerBidding
 
-:startReviewerBidding rdf:type owl:ObjectProperty ;
+http://cmt#startReviewerBidding rdf:type owl:ObjectProperty ;
 
                       rdfs:label "start reviewer bidding"@en ;
 
-                      rdfs:domain :Administrator ;
+                      rdfs:domain http://cmt#Administrator ;
 
-                      rdfs:range :Conference .
+                      rdfs:range http://cmt#Conference .
 
 
 
 ###  http://cmt#submitPaper
 
-:submitPaper rdf:type owl:ObjectProperty ;
+http://cmt#submitPaper rdf:type owl:ObjectProperty ;
 
              rdfs:label "submit paper"@en ;
 
-             rdfs:domain :Author ;
+             rdfs:domain http://cmt#Author ;
 
-             rdfs:range :Paper .
+             rdfs:range http://cmt#Paper .
 
 
 
 ###  http://cmt#virtualMeetingEnabledBy
 
-:virtualMeetingEnabledBy rdf:type owl:ObjectProperty ;
+http://cmt#virtualMeetingEnabledBy rdf:type owl:ObjectProperty ;
 
                          rdfs:label "virtual meeting enabled by"@en ;
 
-                         rdfs:range :Administrator ;
+                         rdfs:range http://cmt#Administrator ;
 
-                         rdfs:domain :Conference .
+                         rdfs:domain http://cmt#Conference .
 
 
 
 ###  http://cmt#writePaper
 
-:writePaper rdf:type owl:InverseFunctionalProperty ,
+http://cmt#writePaper rdf:type owl:InverseFunctionalProperty ,
                      owl:ObjectProperty ;
 
             rdfs:label "writer paper"@en ;
 
-            rdfs:domain :Author ;
+            rdfs:domain http://cmt#Author ;
 
-            rdfs:range :Paper ;
+            rdfs:range http://cmt#Paper ;
 
-            owl:inverseOf :hasAuthor .
+            owl:inverseOf http://cmt#hasAuthor .
 
 
 
 ###  http://cmt#writeReview
 
-:writeReview rdf:type owl:InverseFunctionalProperty ,
+http://cmt#writeReview rdf:type owl:InverseFunctionalProperty ,
                       owl:ObjectProperty ;
 
              rdfs:label "write review"@en ;
 
-             rdfs:range :Review ;
+             rdfs:range http://cmt#Review ;
 
-             rdfs:domain :Reviewer ;
+             rdfs:domain http://cmt#Reviewer ;
 
-             owl:inverseOf :writtenBy .
+             owl:inverseOf http://cmt#writtenBy .
 
 
 
 ###  http://cmt#writtenBy
 
-:writtenBy rdf:type owl:FunctionalProperty ,
+http://cmt#writtenBy rdf:type owl:FunctionalProperty ,
                     owl:ObjectProperty ;
 
            rdfs:label "written by"@en ;
 
-           rdfs:domain :Review ;
+           rdfs:domain http://cmt#Review ;
 
-           rdfs:range :Reviewer .
+           rdfs:range http://cmt#Reviewer .
 
 
 
@@ -709,12 +708,12 @@ Based on that conflict, the reviewer will not be able to bid on the paper, be as
 
 ###  http://cmt#acceptsHardcopySubmissions
 
-:acceptsHardcopySubmissions rdf:type owl:DatatypeProperty ,
+http://cmt#acceptsHardcopySubmissions rdf:type owl:DatatypeProperty ,
                                      owl:FunctionalProperty ;
 
                             rdfs:label "accepts hardopy submissions"@en ;
 
-                            rdfs:domain :Conference ;
+                            rdfs:domain http://cmt#Conference ;
 
                             rdfs:range xsd:boolean .
 
@@ -722,12 +721,12 @@ Based on that conflict, the reviewer will not be able to bid on the paper, be as
 
 ###  http://cmt#date
 
-:date rdf:type owl:DatatypeProperty ,
+http://cmt#date rdf:type owl:DatatypeProperty ,
                owl:FunctionalProperty ;
 
       rdfs:label "date"@en ;
 
-      rdfs:domain :Conference ;
+      rdfs:domain http://cmt#Conference ;
 
       rdfs:range xsd:date .
 
@@ -735,11 +734,11 @@ Based on that conflict, the reviewer will not be able to bid on the paper, be as
 
 ###  http://cmt#email
 
-:email rdf:type owl:DatatypeProperty ;
+http://cmt#email rdf:type owl:DatatypeProperty ;
 
        rdfs:label "email"@en ;
 
-       rdfs:domain :Person ;
+       rdfs:domain http://cmt#Person ;
 
        rdfs:range xsd:string .
 
@@ -747,12 +746,12 @@ Based on that conflict, the reviewer will not be able to bid on the paper, be as
 
 ###  http://cmt#logoURL
 
-:logoURL rdf:type owl:DatatypeProperty ,
+http://cmt#logoURL rdf:type owl:DatatypeProperty ,
                   owl:FunctionalProperty ;
 
          rdfs:label "logoURL"@en ;
 
-         rdfs:domain :Conference ;
+         rdfs:domain http://cmt#Conference ;
 
          rdfs:range xsd:anyURI .
 
@@ -760,12 +759,12 @@ Based on that conflict, the reviewer will not be able to bid on the paper, be as
 
 ###  http://cmt#maxPapers
 
-:maxPapers rdf:type owl:DatatypeProperty ,
+http://cmt#maxPapers rdf:type owl:DatatypeProperty ,
                     owl:FunctionalProperty ;
 
            rdfs:label "max papers"@en ;
 
-           rdfs:domain :ProgramCommitteeMember ;
+           rdfs:domain http://cmt#ProgramCommitteeMember ;
 
            rdfs:range xsd:int .
 
@@ -773,7 +772,7 @@ Based on that conflict, the reviewer will not be able to bid on the paper, be as
 
 ###  http://cmt#name
 
-:name rdf:type owl:DatatypeProperty ,
+http://cmt#name rdf:type owl:DatatypeProperty ,
                owl:FunctionalProperty ;
 
       rdfs:label "name"@en ;
@@ -781,8 +780,8 @@ Based on that conflict, the reviewer will not be able to bid on the paper, be as
       rdfs:range xsd:string ;
 
       rdfs:domain [ rdf:type owl:Class ;
-                    owl:unionOf ( :Conference
-                                  :Person
+                    owl:unionOf ( http://cmt#Conference
+                                  http://cmt#Person
                                 )
                   ] .
 
@@ -790,12 +789,12 @@ Based on that conflict, the reviewer will not be able to bid on the paper, be as
 
 ###  http://cmt#paperID
 
-:paperID rdf:type owl:DatatypeProperty ,
+http://cmt#paperID rdf:type owl:DatatypeProperty ,
                   owl:FunctionalProperty ;
 
          rdfs:label "paper ID"@en ;
 
-         rdfs:domain :Paper ;
+         rdfs:domain http://cmt#Paper ;
 
          rdfs:range xsd:unsignedLong .
 
@@ -803,7 +802,7 @@ Based on that conflict, the reviewer will not be able to bid on the paper, be as
 
 ###  http://cmt#review
 
-:review rdf:type owl:DatatypeProperty ,
+http://cmt#review rdf:type owl:DatatypeProperty ,
                  owl:FunctionalProperty ;
 
         rdfs:label "review" ;
@@ -816,12 +815,12 @@ Based on that conflict, the reviewer will not be able to bid on the paper, be as
 
 ###  http://cmt#reviewsPerPaper
 
-:reviewsPerPaper rdf:type owl:DatatypeProperty ,
+http://cmt#reviewsPerPaper rdf:type owl:DatatypeProperty ,
                           owl:FunctionalProperty ;
 
                  rdfs:label "reviews per paper"@en ;
 
-                 rdfs:domain :Conference ;
+                 rdfs:domain http://cmt#Conference ;
 
                  rdfs:range xsd:int .
 
@@ -829,12 +828,12 @@ Based on that conflict, the reviewer will not be able to bid on the paper, be as
 
 ###  http://cmt#siteURL
 
-:siteURL rdf:type owl:DatatypeProperty ,
+http://cmt#siteURL rdf:type owl:DatatypeProperty ,
                   owl:FunctionalProperty ;
 
          rdfs:label "site URL"@en ;
 
-         rdfs:domain :Conference ;
+         rdfs:domain http://cmt#Conference ;
 
          rdfs:range xsd:anyURI .
 
@@ -842,12 +841,12 @@ Based on that conflict, the reviewer will not be able to bid on the paper, be as
 
 ###  http://cmt#title
 
-:title rdf:type owl:DatatypeProperty ,
+http://cmt#title rdf:type owl:DatatypeProperty ,
                 owl:FunctionalProperty ;
 
        rdfs:label "title"@en ;
 
-       rdfs:domain :Paper ;
+       rdfs:domain http://cmt#Paper ;
 
        rdfs:range xsd:string .
 
@@ -864,59 +863,59 @@ Based on that conflict, the reviewer will not be able to bid on the paper, be as
 
 ###  http://cmt#Acceptance
 
-:Acceptance rdf:type owl:Class ;
+http://cmt#Acceptance rdf:type owl:Class ;
 
             rdfs:label "Acceptance"@en ;
 
-            rdfs:subClassOf :Decision ;
+            rdfs:subClassOf http://cmt#Decision ;
 
-            owl:disjointWith :Rejection .
+            owl:disjointWith http://cmt#Rejection .
 
 
 
 ###  http://cmt#Administrator
 
-:Administrator rdf:type owl:Class ;
+http://cmt#Administrator rdf:type owl:Class ;
 
                rdfs:label "Administrator"@en ;
 
-               rdfs:subClassOf :User .
+               rdfs:subClassOf http://cmt#User .
 
 
 
 ###  http://cmt#AssociatedChair
 
-:AssociatedChair rdf:type owl:Class ;
+http://cmt#AssociatedChair rdf:type owl:Class ;
 
                  rdfs:label "Associated Chair"@en ;
 
-                 rdfs:subClassOf :ConferenceMember ;
+                 rdfs:subClassOf http://cmt#ConferenceMember ;
 
-                 owl:disjointWith :ConferenceChair .
+                 owl:disjointWith http://cmt#ConferenceChair .
 
 
 
 ###  http://cmt#Author
 
-:Author rdf:type owl:Class ;
+http://cmt#Author rdf:type owl:Class ;
 
         rdfs:label "Author"@en ;
 
-        rdfs:subClassOf :ConferenceMember ,
-                        :User .
+        rdfs:subClassOf http://cmt#ConferenceMember ,
+                        http://cmt#User .
 
 
 
 ###  http://cmt#AuthorNotReviewer
 
-:AuthorNotReviewer rdf:type owl:Class ;
+http://cmt#AuthorNotReviewer rdf:type owl:Class ;
 
                    rdfs:label "Author not Reviewer"@en ;
 
-                   rdfs:subClassOf :Author ;
+                   rdfs:subClassOf http://cmt#Author ;
 
-                   owl:disjointWith :ProgramCommitteeMember ,
-                                    :Reviewer ;
+                   owl:disjointWith http://cmt#ProgramCommitteeMember ,
+                                    http://cmt#Reviewer ;
 
                    rdfs:comment "A person who is an author but not a reviewer"@en .
 
@@ -924,132 +923,132 @@ Based on that conflict, the reviewer will not be able to bid on the paper, be as
 
 ###  http://cmt#Bid
 
-:Bid rdf:type owl:Class ;
+http://cmt#Bid rdf:type owl:Class ;
 
      rdfs:label "Bid"@en ;
 
-     owl:disjointWith :Conference ,
-                      :Decision ,
-                      :Document ,
-                      :Person ,
-                      :Preference ,
-                      :ProgramCommittee .
+     owl:disjointWith http://cmt#Conference ,
+                      http://cmt#Decision ,
+                      http://cmt#Document ,
+                      http://cmt#Person ,
+                      http://cmt#Preference ,
+                      http://cmt#ProgramCommittee .
 
 
 
 ###  http://cmt#Chairman
 
-:Chairman rdf:type owl:Class ;
+http://cmt#Chairman rdf:type owl:Class ;
 
           rdfs:label "Chairman"@en ;
 
           owl:equivalentClass [ rdf:type owl:Class ;
-                                owl:unionOf ( :AssociatedChair
-                                              :ConferenceChair
-                                              :ProgramCommitteeChair
+                                owl:unionOf ( http://cmt#AssociatedChair
+                                              http://cmt#ConferenceChair
+                                              http://cmt#ProgramCommitteeChair
                                             )
                               ] ;
 
-          rdfs:subClassOf :Person .
+          rdfs:subClassOf http://cmt#Person .
 
 
 
 ###  http://cmt#Co-author
 
-:Co-author rdf:type owl:Class ;
+http://cmt#Co-author rdf:type owl:Class ;
 
            rdfs:label "Co-author"@en ;
 
-           rdfs:subClassOf :Author .
+           rdfs:subClassOf http://cmt#Author .
 
 
 
 ###  http://cmt#Conference
 
-:Conference rdf:type owl:Class ;
+http://cmt#Conference rdf:type owl:Class ;
 
             rdfs:label "Conference"@en ;
 
             rdfs:subClassOf owl:Thing ,
                             [ rdf:type owl:Restriction ;
-                              owl:onProperty :reviewsPerPaper ;
+                              owl:onProperty http://cmt#reviewsPerPaper ;
                               owl:cardinality "1"^^xsd:nonNegativeInteger
                             ] ,
                             [ rdf:type owl:Restriction ;
-                              owl:onProperty :name ;
+                              owl:onProperty http://cmt#name ;
                               owl:cardinality "1"^^xsd:nonNegativeInteger
                             ] ,
                             [ rdf:type owl:Restriction ;
-                              owl:onProperty :date ;
+                              owl:onProperty http://cmt#date ;
                               owl:minCardinality "1"^^xsd:nonNegativeInteger
                             ] ;
 
-            owl:disjointWith :Decision ,
-                             :Document ,
-                             :Person ,
-                             :Preference ,
-                             :ProgramCommittee .
+            owl:disjointWith http://cmt#Decision ,
+                             http://cmt#Document ,
+                             http://cmt#Person ,
+                             http://cmt#Preference ,
+                             http://cmt#ProgramCommittee .
 
 
 
 ###  http://cmt#ConferenceChair
 
-:ConferenceChair rdf:type owl:Class ;
+http://cmt#ConferenceChair rdf:type owl:Class ;
 
                  rdfs:label "Conference Chair"@en ;
 
-                 rdfs:subClassOf :ConferenceMember .
+                 rdfs:subClassOf http://cmt#ConferenceMember .
 
 
 
 ###  http://cmt#ConferenceMember
 
-:ConferenceMember rdf:type owl:Class ;
+http://cmt#ConferenceMember rdf:type owl:Class ;
 
                   rdfs:label "Conference Member"@en ;
 
-                  rdfs:subClassOf :Person .
+                  rdfs:subClassOf http://cmt#Person .
 
 
 
 ###  http://cmt#Decision
 
-:Decision rdf:type owl:Class ;
+http://cmt#Decision rdf:type owl:Class ;
 
           rdfs:label "Decision"@en ;
 
-          owl:disjointWith :Document ,
-                           :Person ,
-                           :Preference ,
-                           :ProgramCommittee .
+          owl:disjointWith http://cmt#Document ,
+                           http://cmt#Person ,
+                           http://cmt#Preference ,
+                           http://cmt#ProgramCommittee .
 
 
 
 ###  http://cmt#Document
 
-:Document rdf:type owl:Class ;
+http://cmt#Document rdf:type owl:Class ;
 
           rdfs:label "Document"@en ;
 
-          owl:disjointWith :Person ,
-                           :Preference ,
-                           :ProgramCommittee .
+          owl:disjointWith http://cmt#Person ,
+                           http://cmt#Preference ,
+                           http://cmt#ProgramCommittee .
 
 
 
 ###  http://cmt#ExternalReviewer
 
-:ExternalReviewer rdf:type owl:Class ;
+http://cmt#ExternalReviewer rdf:type owl:Class ;
 
                   rdfs:label "External Reviewer"@en ;
 
-                  rdfs:subClassOf :Person ,
+                  rdfs:subClassOf http://cmt#Person ,
                                   [ rdf:type owl:Restriction ;
-                                    owl:onProperty :assignedByReviewer ;
+                                    owl:onProperty http://cmt#assignedByReviewer ;
                                     owl:cardinality "1"^^xsd:nonNegativeInteger
                                   ] ;
 
-                  owl:disjointWith :Reviewer ;
+                  owl:disjointWith http://cmt#Reviewer ;
 
                   rdfs:comment "An External Reviewer is a person that has been assigned to review a paper for another Reviewer, but is not themselves a Reviewer. "^^xsd:string .
 
@@ -1057,11 +1056,11 @@ Based on that conflict, the reviewer will not be able to bid on the paper, be as
 
 ###  http://cmt#Meta-Review
 
-:Meta-Review rdf:type owl:Class ;
+http://cmt#Meta-Review rdf:type owl:Class ;
 
              rdfs:label "Meta-Review"@en ;
 
-             rdfs:subClassOf :Review ;
+             rdfs:subClassOf http://cmt#Review ;
 
              rdfs:comment "A meta-review summarizes the single reviews"@en .
 
@@ -1069,11 +1068,11 @@ Based on that conflict, the reviewer will not be able to bid on the paper, be as
 
 ###  http://cmt#Meta-Reviewer
 
-:Meta-Reviewer rdf:type owl:Class ;
+http://cmt#Meta-Reviewer rdf:type owl:Class ;
 
                rdfs:label "Meta-Reviewer"@en ;
 
-               rdfs:subClassOf :Reviewer ;
+               rdfs:subClassOf http://cmt#Reviewer ;
 
                rdfs:comment "A special type of Reviewer.  There can be any number of Reviewers for a given paper, but only one Meta-Reviewer.  The Meta-Reviewer can go over all the reviews submitted for the paper and submit their own review.  Questions for the Meta-Reviewer can be different from those for a normal Reviewer.  Their role is to ensure that the reviews are good and consistent. The decision to use Meta-Reviewers is optional, and must be set before paper assignment occurs."^^xsd:string .
 
@@ -1081,39 +1080,39 @@ Based on that conflict, the reviewer will not be able to bid on the paper, be as
 
 ###  http://cmt#Paper
 
-:Paper rdf:type owl:Class ;
+http://cmt#Paper rdf:type owl:Class ;
 
        rdfs:label "Paper"@en ;
 
-       rdfs:subClassOf :Document ,
+       rdfs:subClassOf http://cmt#Document ,
                        [ rdf:type owl:Restriction ;
-                         owl:onProperty :hasDecision ;
+                         owl:onProperty http://cmt#hasDecision ;
                          owl:maxCardinality "1"^^xsd:nonNegativeInteger
                        ] ,
                        [ rdf:type owl:Restriction ;
-                         owl:onProperty :readByMeta-Reviewer ;
+                         owl:onProperty http://cmt#readByMeta-Reviewer ;
                          owl:maxCardinality "1"^^xsd:nonNegativeInteger
                        ] ,
                        [ rdf:type owl:Restriction ;
-                         owl:onProperty :hasDecision ;
+                         owl:onProperty http://cmt#hasDecision ;
                          owl:minCardinality "0"^^xsd:nonNegativeInteger
                        ] ,
                        [ rdf:type owl:Restriction ;
-                         owl:onProperty :readByReviewer ;
+                         owl:onProperty http://cmt#readByReviewer ;
                          owl:minCardinality "1"^^xsd:nonNegativeInteger
                        ] ;
 
-       owl:disjointWith :Review .
+       owl:disjointWith http://cmt#Review .
 
 
 
 ###  http://cmt#PaperAbstract
 
-:PaperAbstract rdf:type owl:Class ;
+http://cmt#PaperAbstract rdf:type owl:Class ;
 
                rdfs:label "Paper Abstract"@en ;
 
-               rdfs:subClassOf :Paper ;
+               rdfs:subClassOf http://cmt#Paper ;
 
                rdfs:comment "Only the abstract of the paper"@en .
 
@@ -1121,38 +1120,38 @@ Based on that conflict, the reviewer will not be able to bid on the paper, be as
 
 ###  http://cmt#PaperFullVersion
 
-:PaperFullVersion rdf:type owl:Class ;
+http://cmt#PaperFullVersion rdf:type owl:Class ;
 
                   rdfs:label "Paper Full Version"@en ;
 
-                  rdfs:subClassOf :Paper .
+                  rdfs:subClassOf http://cmt#Paper .
 
 
 
 ###  http://cmt#Person
 
-:Person rdf:type owl:Class ;
+http://cmt#Person rdf:type owl:Class ;
 
         rdfs:label "Person"@en ;
 
-        owl:disjointWith :Preference ,
-                         :ProgramCommittee .
+        owl:disjointWith http://cmt#Preference ,
+                         http://cmt#ProgramCommittee .
 
 
 
 ###  http://cmt#Preference
 
-:Preference rdf:type owl:Class ;
+http://cmt#Preference rdf:type owl:Class ;
 
             rdfs:label "Preference"@en ;
 
-            owl:disjointWith :ProgramCommittee .
+            owl:disjointWith http://cmt#ProgramCommittee .
 
 
 
 ###  http://cmt#ProgramCommittee
 
-:ProgramCommittee rdf:type owl:Class ;
+http://cmt#ProgramCommittee rdf:type owl:Class ;
 
                   rdfs:label "Program Committee"@en ;
 
@@ -1162,22 +1161,22 @@ Based on that conflict, the reviewer will not be able to bid on the paper, be as
 
 ###  http://cmt#ProgramCommitteeChair
 
-:ProgramCommitteeChair rdf:type owl:Class ;
+http://cmt#ProgramCommitteeChair rdf:type owl:Class ;
 
                        rdfs:label "Program Committee Chair"@en ;
 
-                       rdfs:subClassOf :ProgramCommitteeMember .
+                       rdfs:subClassOf http://cmt#ProgramCommitteeMember .
 
 
 
 ###  http://cmt#ProgramCommitteeMember
 
-:ProgramCommitteeMember rdf:type owl:Class ;
+http://cmt#ProgramCommitteeMember rdf:type owl:Class ;
 
                         rdfs:label "Porgram Committee Member"@en ;
 
-                        rdfs:subClassOf :ConferenceMember ,
-                                        :Person ;
+                        rdfs:subClassOf http://cmt#ConferenceMember ,
+                                        http://cmt#Person ;
 
                         rdfs:comment "The Program Committee consists of all members of the conference except for Authors who are not also Reviewers."^^xsd:string .
 
@@ -1185,38 +1184,38 @@ Based on that conflict, the reviewer will not be able to bid on the paper, be as
 
 ###  http://cmt#Rejection
 
-:Rejection rdf:type owl:Class ;
+http://cmt#Rejection rdf:type owl:Class ;
 
            rdfs:label "Rejection"@en ;
 
-           rdfs:subClassOf :Decision .
+           rdfs:subClassOf http://cmt#Decision .
 
 
 
 ###  http://cmt#Review
 
-:Review rdf:type owl:Class ;
+http://cmt#Review rdf:type owl:Class ;
 
         rdfs:label "Review"@en ;
 
-        rdfs:subClassOf :Document .
+        rdfs:subClassOf http://cmt#Document .
 
 
 
 ###  http://cmt#Reviewer
 
-:Reviewer rdf:type owl:Class ;
+http://cmt#Reviewer rdf:type owl:Class ;
 
           rdfs:label "Reviewer"@en ;
 
-          rdfs:subClassOf :ConferenceMember ,
-                          :User .
+          rdfs:subClassOf http://cmt#ConferenceMember ,
+                          http://cmt#User .
 
 
 
 ###  http://cmt#SubjectArea
 
-:SubjectArea rdf:type owl:Class ;
+http://cmt#SubjectArea rdf:type owl:Class ;
 
              rdfs:label "Subject Area"@en .
 
@@ -1224,11 +1223,11 @@ Based on that conflict, the reviewer will not be able to bid on the paper, be as
 
 ###  http://cmt#User
 
-:User rdf:type owl:Class ;
+http://cmt#User rdf:type owl:Class ;
 
       rdfs:label "User"@en ;
 
-      rdfs:subClassOf :Person .
+      rdfs:subClassOf http://cmt#Person .
 
 
 
