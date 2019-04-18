@@ -167,7 +167,11 @@ var get_recursive_super_classes = (class_node, store) => {
         get_super_classes(sc_query, store, rscs)
             .then(function(rscs) {
                 resolve(utils.remove_array_duplicates(rscs));
-            });
+            })
+            .catch(function(error) {
+                console.log('Something went wrong trying to get recursive super classes: ' + error);
+                reject();
+            });;
     });
 }
 
@@ -175,9 +179,8 @@ var get_super_classes = (sc_query, store, rscs) => {
     return new Promise(function(resolve, reject) {
         store.execute(sc_query, function(success, results) {
             if (success !== null) reject(success);
-            // Considere the case in which you do not obtain any result
-            if (results.length === 0)
-                resolve(rscs);
+            // Consider the case in which you do not obtain any result
+            if (results.length === 0) resolve(rscs);
             for (var i in results) {
                 var query_result = utils.clean_prefix(results[i]['all_super_classes']['value']);
                 rscs.push(query_result);
@@ -240,7 +243,10 @@ var prepare_all_super_classes = (store, all_classes) => {
                             all_super_classes.push(super_classes);
                         if (counter != stop) counter++;
                         else resolve(all_super_classes);
-                    });
+                    }).catch(function(error) {
+                        reject(error);
+                        console.log('Something went wrong in preparing super classes: ' + error);
+                    });;
             }
         }
     });
@@ -361,7 +367,10 @@ var get_all_indirect_properties = (store, all_super_classes, p_domain, p_range) 
                             obj['all_indirect_properties'] = all_indirect_properties;
                             resolve(obj);
                         }
-                    });
+                    }).catch(function(error) {
+                        reject(error);
+                        console.log('Something went wrong getting all indirect_properties properties: ' + error);
+                    });;
             }
         }
     });
@@ -511,6 +520,9 @@ var build_graph = (st_path, ont_path, p_domain, p_range, o_class) => {
         }).then(function(properties_super_classes) {
             // Add indirect_properties
             return add_indirect_properties(properties_super_classes, graph);
+        }).catch(function(err) {
+            console.log('Error when adding indirect_properties:');
+            console.log(err);
         }).then(function() {
             console.log('Graph building complete!\n');
             // TODO: check if the graph is complete (all nodes are linked) ! Otherwise, launch an exeception!
