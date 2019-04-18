@@ -9,7 +9,6 @@ var ε = 3;
 
 // TODO: CLEAN THE CODE --> Create promise_sequence for all the call: see clousures implementation
 // TODO: create an high level representation of node and edge for checking inconsistencies
-// TODO: better management of SPARQL query errors using store
 // TODO: reduce rigth-depth of function that call two Promises
 // TODO: modify indirect properties with the same changes of direct properties
 // TODO: add edge weight for subclasses
@@ -17,11 +16,23 @@ var ε = 3;
 // TODO: Make a universal API to create nodes and edges
 // TODO: Error generated when creating the graph
 
+/**
+ * Return a promise with the concatenated output of functions returning results as promises
+ * @param funcs - functions returning promises
+ */
 var promise_sequence = funcs =>
     funcs.reduce((promise, func) =>
-        promise.then(result => func().then(Array.prototype.concat.bind(result))),
+        promise
+        .then(result => func().then(Array.prototype.concat.bind(result)))
+        .catch(error => console.log(error)),
         Promise.resolve([]))
 
+
+/**
+ * Check if a node is already included in the graph
+ * @param node
+ * @param graph
+ */
 var is_duplicate = (node, graph) => {
     var nodes = graph.nodes();
     for (var n in nodes) {
@@ -32,6 +43,30 @@ var is_duplicate = (node, graph) => {
     return false;
 }
 
+
+/**
+ * Get class nodes from the graph
+ * @param graph
+ */
+var get_class_nodes = (graph) => {
+    var class_nodes = [];
+    var nodes = graph.nodes();
+    for (var n in nodes) {
+        if (graph.node(nodes[n])['type'] === 'class_uri') {
+            class_nodes.push(graph.node(nodes[n])['label']);
+        }
+    }
+    return class_nodes;
+}
+
+
+/**
+ * Add semantic types to the graph
+ * @param st - JSON structure describing semantic types
+ *             See as example: data/pc/semantic_types/Z4ADEA9DE4_st.json
+ * @param graph
+ * @returns graph enriched with semantic types
+ */
 var add_semantic_types = (st, graph) => {
     var attributes = st['attributes'];
     var semantic_types = st['semantic_types']; // TODO: Move the function to create inverse edges in the graph.js file
@@ -58,46 +93,67 @@ var add_semantic_types = (st, graph) => {
     return graph;
 }
 
-var get_class_nodes = (graph) => {
-    var class_nodes = [];
-    var nodes = graph.nodes();
-    for (var n in nodes) {
-        if (graph.node(nodes[n])['type'] === 'class_uri') {
-            class_nodes.push(graph.node(nodes[n])['label']);
-        }
-    }
-    return class_nodes;
-}
 
+/**
+ * Get all nodes in the domain ontology that are related to the semantic types
+ * @param closure_query
+ * @param store
+ */
 var get_closures = (closure_query, store) => {
-    // Get nodes in the domain ontology that relate those semantic types
     return new Promise(function(resolve, reject) {
         store.execute(closure_query, function(success, results) {
             if (success !== null) reject(success);
-            var closure_classes = utils.get_clean_results(results, 'closures');
+            var closures = utils.get_clean_results(results, 'closures');
             // Useful to remove blank nodes that break the code
-            closure_classes = closure_classes.filter(el => !el.includes('_:'));
-            resolve(closure_classes);
+            closures = closures.filter(el => !el.includes('_:'));
+            resolve(closures);
         });
     });
 }
 
-var add_closures = (closure_classes, graph) => {
+
+/**
+ * Add closures to the graph
+ * @param closures
+ * @param graph
+ * @returns graph enriched with closures, considered as node classes
+ */
+var add_closures = (closures, graph) => {
     // Closure classes are retrieved with SPARQL queries on the ontology
     return new Promise(function(resolve, reject) {
-        for (var c in closure_classes) {
-            if (!is_duplicate(closure_classes[c], graph))
-                graph.setNode(closure_classes[c], {
+        for (var c in closures) {
+            if (!is_duplicate(closures[c], graph))
+                graph.setNode(closures[c], {
                     type: 'class_uri',
-                    label: closure_classes[c]
+                    label: closures[c]
                 });
         }
         resolve(graph);
     });
 }
 
-var get_direct_properties = (dp_query, store, subject, object) => {
+
+/**
+ * Get all direct properties between two nodes in the ontology
+ * In the direct property, the subject is the domain of the property and the object
+ * is the range of the property
+ * @param dp_obj
+ * @param store
+ * @returns array of objects with the following structure:
+ *
+ * { subject: 'pc:Contract',
+ *   property: 'pc:contractingAuthority',
+ *   object: 'gr:BusinessEntity',
+ *   type: 'direct_property_uri' }
+ */
+var get_direct_properties = (dp_obj, store) => {
     return new Promise(function(resolve, reject) {
+        // Unbundle the direct properties object
+        var subject = dp_obj['subject'];
+        var object = dp_obj['object'];
+        var dp_query = dp_obj['query'];
+
+        // Perform the query
         store.execute(dp_query, function(success, results) {
             if (success !== null) reject(success);
             var direct_properties = [];
@@ -113,38 +169,50 @@ var get_direct_properties = (dp_query, store, subject, object) => {
     });
 }
 
-// Consider also inverse direct properties
-var get_all_direct_properties = (store, all_classes, p_domain, p_range) => {
-    return new Promise(function(resolve, reject) {
-        var all_direct_properties = [];
-        var counter = 1;
-        var stop = all_classes.length * all_classes.length;
-        for (var i in all_classes) {
-            for (var j in all_classes) {
-                // Direct properties query
-                var dp_query = sparql.DIRECT_PROPERTIES_QUERY(all_classes[i], all_classes[j], p_domain, p_range);
-                // Inverse direct properties query
-                var idp_query = sparql.DIRECT_PROPERTIES_QUERY(all_classes[j], all_classes[i], p_domain, p_range);
-                get_direct_properties(dp_query, store, all_classes[i], all_classes[j])
-                    .then(function(direct_properties) {
-                        if (direct_properties.length > 0)
-                            all_direct_properties = all_direct_properties.concat(direct_properties);
-                        get_direct_properties(idp_query, store, all_classes[j], all_classes[i])
-                            .then(function(inverse_direct_properties) {
-                                if (inverse_direct_properties.length > 0)
-                                    all_direct_properties = all_direct_properties.concat(inverse_direct_properties);
-                                if (counter != stop) {
-                                    counter++;;
-                                } else {
-                                    resolve(all_direct_properties);
-                                }
-                            });
-                    });
+
+/**
+ * Get all direct properties between the class nodes in the graph
+ * The class nodes are the class defined by semantic types and closures
+ * Need to consider direct properties in both directions:
+ * subject --> object
+ * object <-- subject
+ * @param store
+ * @param class_nodes
+ * @param p_domain
+ * @param p_range
+ */
+var get_all_direct_properties = (store, class_nodes, p_domain, p_range) => {
+    // Prepare queries to get direct properties
+    var query_objs = [];
+    for (var i in class_nodes) {
+        for (var j in class_nodes) {
+            // Direct properties: subject, object, query
+            var dp = {
+                'subject': class_nodes[i],
+                'object': class_nodes[j],
+                'query': sparql.DIRECT_PROPERTIES_QUERY(class_nodes[i], class_nodes[j], p_domain, p_range)
             }
+            query_objs.push(dp);
+            // Inverse direct properties query
+            var idp = {
+                'subject': class_nodes[j],
+                'object': class_nodes[i],
+                'query': sparql.DIRECT_PROPERTIES_QUERY(class_nodes[j], class_nodes[i], p_domain, p_range)
+            }
+            query_objs.push(idp);
         }
-    });
+    }
+    var funcs = query_objs.map(query_obj => () => get_direct_properties(query_obj, store));
+    return promise_sequence(funcs);
 }
 
+
+/**
+ * Add direct properties to the graph
+ * @param dps
+ * @param graph
+ * @returns graph enriched with direct properties
+ */
 var add_direct_properties = (dps, graph) => {
     return new Promise(function(resolve, reject) {
         for (var i in dps) {
@@ -158,15 +226,47 @@ var add_direct_properties = (dps, graph) => {
     });
 }
 
-// This function simulate the path expression * implemented in SPARQL 1.1 (https://www.w3.org/TR/sparql11-property-paths/)
-// In other words, this function get super classes at any level of an ontology class
-var get_recursive_super_classes = (class_node, store) => {
+
+/**
+ **************************************************************************
+ ************************ Super classes management ************************
+ **************************************************************************
+ */
+
+
+/**
+ * Get all super classes of class nodes in the graph (semantic types + closures)
+ * in a recursive way (path expression * implemented in SPARQL 1.1).
+ * This is useful to create inherited properties between class nodes in the graph
+ * @param sc_query
+ * @param store
+ */
+var get_super_classes = (sc_query, store) => {
     return new Promise(function(resolve, reject) {
-        var rscs = [];
+        store.execute(sc_query, function(success, results) {
+            if (success !== null) reject(success);
+            var rscs = [];
+            for (var i in results) {
+                var query_result = utils.clean_prefix(results[i]['all_super_classes']['value']);
+                rscs.push(query_result);
+                var new_query = sparql.SUPER_CLASSES_QUERY(query_result);
+                // Recursive call
+                get_super_classes(new_query, store, rscs);
+            };
+            resolve(rscs);
+        });
+    });
+}
+
+
+var get_all_super_classes = (class_node, store) => {
+    return new Promise(function(resolve, reject) {
+        var all_classes = [];
         var sc_query = sparql.SUPER_CLASSES_QUERY(class_node);
-        get_super_classes(sc_query, store, rscs)
-            .then(function(rscs) {
-                resolve(utils.remove_array_duplicates(rscs));
+        get_super_classes(sc_query, store)
+            .then(function(new_classes) {
+                all_classes = all_classes.concat(new_classes)
+                resolve(utils.remove_array_duplicates(all_classes));
             })
             .catch(function(error) {
                 console.log('Something went wrong trying to get recursive super classes: ' + error);
@@ -175,32 +275,15 @@ var get_recursive_super_classes = (class_node, store) => {
     });
 }
 
-var get_super_classes = (sc_query, store, rscs) => {
-    return new Promise(function(resolve, reject) {
-        store.execute(sc_query, function(success, results) {
-            if (success !== null) reject(success);
-            // Consider the case in which you do not obtain any result
-            if (results.length === 0) resolve(rscs);
-            for (var i in results) {
-                var query_result = utils.clean_prefix(results[i]['all_super_classes']['value']);
-                rscs.push(query_result);
-                var new_query = sparql.SUPER_CLASSES_QUERY(query_result);
-                get_super_classes(new_query, store, rscs);
-                resolve(rscs);
-            };
-        });
-    });
-}
-
 // I need to get super classes of both two classes to compare for establishing the relation weight
 var prepare_super_classes = (c_u, c_v, c_u_query, c_v_query, store) => {
     return new Promise(function(resolve, reject) {
         var c_u_classes = [];
         var c_v_classes = [];
-        get_recursive_super_classes(c_u, store)
+        get_all_super_classes(c_u, store)
             .then(function(cuc) {
                 c_u_classes = cuc;
-                return get_recursive_super_classes(c_v, store);
+                return get_all_super_classes(c_v, store);
             })
             .then(function(cuv) {
                 c_v_classes = cuv;
@@ -224,6 +307,7 @@ var prepare_all_super_classes = (store, all_classes) => {
 
         // Attention: we need to remove Thing because for that specific cases super_classes function does not resolve
         // TODO: THIS IS VALID ONLY FOR SCHEMA!!!
+        // TODO: Maybe should put this thing in another way
         all_classes = all_classes.filter(function(e) {
             return e != 'schema:Thing'
         })
@@ -541,7 +625,7 @@ exports.get_closures = get_closures;
 exports.add_closures = add_closures;
 exports.get_direct_properties = get_direct_properties;
 exports.get_all_direct_properties = get_all_direct_properties;
-exports.get_recursive_super_classes = get_recursive_super_classes;
+exports.get_all_super_classes = get_all_super_classes;
 exports.prepare_super_classes = prepare_super_classes;
 exports.prepare_all_super_classes = prepare_all_super_classes;
 exports.get_inherited_properties = get_inherited_properties;
