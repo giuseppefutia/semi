@@ -86,7 +86,10 @@ var INSTANCE_URIS = {
     'pc:Contract': 'http://pc.org/contracts/',
     'gr:BusinessEntity': 'http://pc.org/businessEntities/',
     'conference:Paper': 'http://semi.org/papers/',
-    'conference:Contribution_1th_author': 'http://semi.org/persons/'
+    'conference:Contribution_1th_author': 'http://semi.org/persons/',
+    'conference:Contribution_co_author': 'http://semi.org/persons/',
+    'conference:Reviewer': 'http://semi.org/persons/',
+    'conference:Review': 'http://semi.org/reviews/'
 }
 
 var PREFIX_STRINGS = generate_prefix_string();
