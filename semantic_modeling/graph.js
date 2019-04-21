@@ -7,14 +7,12 @@ var sparql = require(__dirname + '/sparql_queries.js');
 
 var ε = 3;
 
-// TODO: CLEAN THE CODE --> Create promise_sequence for all the call: see clousures implementation
-// TODO: create an high level representation of node and edge for checking inconsistencies
-// TODO: reduce rigth-depth of function that call two Promises
-// TODO: modify indirect properties with the same changes of direct properties
-// TODO: add edge weight for subclasses
-// TODO: semantic_types in semantic type file should be an array of array?
+// TODO: Create an high level representation of node and edge for checking inconsistencies
+// TODO: Semantic_types in semantic type file should be an array of array?
 // TODO: Make a universal API to create nodes and edges
 // TODO: Error generated when creating the graph
+// TODO: Add images to the README.md
+// TODO: Strange behaviour in returning inherited properties
 
 /**
  * Return a promise with the concatenated output of functions returning results as promises
@@ -56,6 +54,13 @@ var get_class_nodes = (graph) => {
             class_nodes.push(graph.node(nodes[n])['label']);
         }
     }
+    // Attention: we need to remove Thing because for that specific cases super_classes function does not resolve
+    // TODO: THIS IS VALID ONLY FOR SCHEMA!!!
+    // TODO: Maybe should put this thing in another way
+    class_nodes = class_nodes.filter(function(e) {
+        return e != 'schema:Thing'
+    });
+
     return class_nodes;
 }
 
@@ -122,6 +127,7 @@ var add_closures = (closures, graph) => {
     // Closure classes are retrieved with SPARQL queries on the ontology
     return new Promise(function(resolve, reject) {
         for (var c in closures) {
+            // Need to check if the class_node is present
             if (!is_duplicate(closures[c], graph))
                 graph.setNode(closures[c], {
                     type: 'class_uri',
@@ -159,7 +165,8 @@ var get_direct_properties = (dp_obj, store) => {
             var direct_properties = [];
             var cleaned_results = utils.get_clean_results(results, 'direct_properties');
             for (var i in cleaned_results) {
-                direct_properties.push(utils.set_property(subject,
+                direct_properties.push(utils.set_property(
+                    subject,
                     cleaned_results[i],
                     object,
                     'direct_property_uri'));
@@ -235,116 +242,92 @@ var add_direct_properties = (dps, graph) => {
 
 
 /**
- * Get all super classes of class nodes in the graph (semantic types + closures)
+ * Get all super classes of a class node in the graph (semantic types + closures)
  * in a recursive way (path expression * implemented in SPARQL 1.1).
  * This is useful to create inherited properties between class nodes in the graph
- * @param sc_query
+ * @param sc
  * @param store
+ * @param all_classes - (Useful in recursive functions)
  */
-var get_super_classes = (sc_query, store) => {
+var get_super_classes = (sc, store, all_classes) => {
     return new Promise(function(resolve, reject) {
+        var sc_query = sc['query'];
+        var starting_class = sc['starting_class'];
+        var class_node = sc['class_node'];
         store.execute(sc_query, function(success, results) {
             if (success !== null) reject(success);
-            var rscs = [];
+
+            if (all_classes[class_node] === undefined)
+                all_classes[class_node] = [];
+
             for (var i in results) {
-                var query_result = utils.clean_prefix(results[i]['all_super_classes']['value']);
-                rscs.push(query_result);
-                var new_query = sparql.SUPER_CLASSES_QUERY(query_result);
+                var super_class = utils.clean_prefix(results[i]['all_super_classes']['value']);
+                all_classes[class_node].push(super_class);
+                var new_query_object = {
+                    'class_node': class_node,
+                    'starting_class': super_class,
+                    'query': sparql.SUPER_CLASSES_QUERY(super_class)
+                }
                 // Recursive call
-                get_super_classes(new_query, store, rscs);
+                get_super_classes(new_query_object, store, all_classes);
             };
-            resolve(rscs);
+            // Remove blank nodes from retrieved super classes
+            all_classes[class_node] = all_classes[class_node].filter(el => !el.includes('_:'));
+            resolve(all_classes);
         });
     });
 }
 
 
-var get_all_super_classes = (class_node, store) => {
-    return new Promise(function(resolve, reject) {
-        var all_classes = [];
-        var sc_query = sparql.SUPER_CLASSES_QUERY(class_node);
-        get_super_classes(sc_query, store)
-            .then(function(new_classes) {
-                all_classes = all_classes.concat(new_classes)
-                resolve(utils.remove_array_duplicates(all_classes));
-            })
-            .catch(function(error) {
-                console.log('Something went wrong trying to get recursive super classes: ' + error);
-                reject();
-            });;
-    });
-}
-
-// I need to get super classes of both two classes to compare for establishing the relation weight
-var prepare_super_classes = (c_u, c_v, c_u_query, c_v_query, store) => {
-    return new Promise(function(resolve, reject) {
-        var c_u_classes = [];
-        var c_v_classes = [];
-        get_all_super_classes(c_u, store)
-            .then(function(cuc) {
-                c_u_classes = cuc;
-                return get_all_super_classes(c_v, store);
-            })
-            .then(function(cuv) {
-                c_v_classes = cuv;
-                // I need to keep the information related to the specific class
-                var super_classes = {};
-                super_classes[c_u] = c_u_classes;
-                super_classes[c_v] = c_v_classes;
-                resolve(super_classes);
-            })
-            .catch(function(error) {
-                console.log('Something went wrong trying to get super classes: ' + error);
-                reject();
-            });
-    });
-}
-
-var prepare_all_super_classes = (store, all_classes) => {
-    return new Promise(function(resolve, reject) {
-        var all_super_classes = [];
-        var counter = 1;
-
-        // Attention: we need to remove Thing because for that specific cases super_classes function does not resolve
-        // TODO: THIS IS VALID ONLY FOR SCHEMA!!!
-        // TODO: Maybe should put this thing in another way
-        all_classes = all_classes.filter(function(e) {
-            return e != 'schema:Thing'
-        })
-
-        var stop = all_classes.length * all_classes.length;
-        for (var i in all_classes) {
-            for (var j in all_classes) {
-                // First query to get a couple of super_classes coming from two different classes
-                var first_query = sparql.SUPER_CLASSES_QUERY(all_classes[i]);
-                // Second query to get a couple of super_classes coming from two different classes
-                var second_query = sparql.SUPER_CLASSES_QUERY(all_classes[j]);
-                // Attention: in this case I do not need to call the function prepare_super_classes
-                // two times, because the inverse process is already implemented in it
-                prepare_super_classes(all_classes[i], all_classes[j], first_query, second_query, store)
-                    .then(function(super_classes) {
-                        if (Object.keys(super_classes).length > 0)
-                            all_super_classes.push(super_classes);
-                        if (counter != stop) counter++;
-                        else resolve(all_super_classes);
-                    }).catch(function(error) {
-                        reject(error);
-                        console.log('Something went wrong in preparing super classes: ' + error);
-                    });;
-            }
+/**
+ * Get all super classes of all class nodes included in the graph
+ * @param store
+ * @param class_nodes
+ */
+var get_all_super_classes = (store, class_nodes) => {
+    var scs = [];
+    var all_classes = {};
+    for (var c in class_nodes) {
+        var sc = {
+            'class_node': class_nodes[c],
+            'starting_class': class_nodes[c],
+            'query': sparql.SUPER_CLASSES_QUERY(class_nodes[c])
         }
-    });
+        scs.push(sc);
+    }
+    var funcs = scs.map(sc => () => get_super_classes(sc, store, all_classes));
+    return promise_sequence(funcs);
 }
 
-var get_inherited_properties = (ip_query, store, c_u, c_v, inherited_properties) => {
+
+/**
+ *********************************************************************************
+ ************************ Inherited properties management ************************
+ *********************************************************************************
+ */
+
+/**
+ * Get properties between super classes (inherited) of a couple of class nodes
+ * @param ip
+ * @param store
+ * @returns a JSON with the following structure
+ *[{ subject: 'conference:Paper',
+ *   property: 'conference:has_authors',
+ *   object: 'conference:Contribution_co_author',
+ *   type: 'inherited' }]
+ */
+var get_inherited_properties = (ip, store) => {
     return new Promise(function(resolve, reject) {
-        var subject = c_u;
-        var object = c_v;
+        var subject = ip['subject'];
+        var object = ip['object'];
+        var ip_query = ip['query'];
+        var inherited_properties = [];
         store.execute(ip_query, function(success, results) {
             if (success !== null) reject(success);
             var cleaned_results = utils.get_clean_results(results, 'inherited_properties');
             for (var i in cleaned_results) {
-                inherited_properties.push(utils.set_property(subject,
+                inherited_properties.push(utils.set_property(
+                    subject,
                     cleaned_results[i],
                     object,
                     'inherited'));
@@ -354,145 +337,95 @@ var get_inherited_properties = (ip_query, store, c_u, c_v, inherited_properties)
     });
 }
 
-// In this function I call get_inherited_properties twice, in order to get also inverse properties
-var get_inherited_and_inverse_properties = (ip_query, iip_query, store, c_u, c_v) => {
-    return new Promise(function(resolve, reject) {
-        var inherited_properties = [];
-        var inverse_inherited_properties = [];
-        // Get inherited properties
-        get_inherited_properties(ip_query, store, c_u, c_v, inherited_properties)
-            .then(function() {
-                // Get inverse properties
-                get_inherited_properties(iip_query, store, c_v, c_u, inverse_inherited_properties)
-                    .then(function() {
-                        var properties = inherited_properties.concat(inverse_inherited_properties);
-                        resolve(properties);
-                    })
-                    .catch(function(error) {
-                        reject(error);
-                        console.log('Something went wrong getting inherited and inverse properties: ' + error);
-                    });
-            })
-            .catch(function(error) {
-                reject(error);
-                console.log('Something went wrong getting inherited and inverse properties: ' + error);
-            });
-    });
-}
+/**
+ * Get all properties between all super classes (inherited) of all class nodes
+ * Need to specify domain and range properties, because they can be different
+ * according to the  ontology
+ * @param store
+ * @param super_classes
+ * @param p_domain
+ * @param p_range
+ * @returns
+ */
+var get_all_inherited_properties = (store, super_classes, p_domain, p_range) => {
+    var query_objs = [];
+    // The promise mechanism on sequences has conflicts with recursive functions,
+    // so the element is duplicated many times
+    var super_classes = super_classes[0];
 
-var get_indirect_properties = (c_u, c_v, p_domain, p_range, super_classes, store) => {
-    return new Promise(function(resolve, reject) {
-        // This counter is useful to understand when stop!
-        var indirect_properties = [];
-        var counter = 1;
+    for (var i in super_classes) {
+        // if a class node does not have super classes, I do not need to create query
+        if (super_classes[i].length === 0) continue;
 
-        // Clean super_classes of blank nodes
-        super_classes[c_u] = super_classes[c_u].filter(el => !el.includes('_:'));
-        super_classes[c_v] = super_classes[c_v].filter(el => !el.includes('_:'));
+        for (var j in super_classes) {
+            if (super_classes[j].length === 0) continue;
+            // Do not consider relation between super classes of the same class
+            if (i === j) continue;
 
-        var stop = super_classes[c_u].length * super_classes[c_v].length;
+            // Construct the queries
+            var subjects_sc = super_classes[i];
+            var objects_sc = super_classes[j];
 
-        // Ignore cases in which super classes are absent, so we are not able to get indirect properties
-        if (stop === 0) resolve(indirect_properties);
-
-        for (var i in super_classes[c_u]) {
-            for (var j in super_classes[c_v]) {
-                // To get inherited and inverse inherited properties change the order of the classes passed as input
-                var ip_query = sparql.INHERITED_PROPERTIES_QUERY(super_classes[c_u][i], super_classes[c_v][j], p_domain, p_range);
-                var iip_query = sparql.INHERITED_PROPERTIES_QUERY(super_classes[c_v][j], super_classes[c_u][i], p_domain, p_range);
-
-                get_inherited_and_inverse_properties(ip_query, iip_query, store, super_classes[c_u][i], super_classes[c_v][j])
-                    .then(function(properties) {
-                        if (properties.length > 0)
-                            indirect_properties = indirect_properties.concat(properties);
-                        if (counter !== stop) {
-                            counter++;
-                        } else {
-                            resolve(indirect_properties);
-                        }
-                    })
-                    .catch(function(error) {
-                        reject(error);
-                        console.log('Something went wrong getting all inherited properties: ' + error);
-                    });
-            }
-        }
-    });
-}
-
-var get_all_indirect_properties = (store, all_super_classes, p_domain, p_range) => {
-    return new Promise(function(resolve, reject) {
-        var all_indirect_properties = [];
-        var counter = 1;
-        var count_one_key = 1
-
-        // Need to count cases in which you have only one super class
-        for (var i in all_super_classes) {
-            var keys = Object.keys(all_super_classes[i]);
-            if (keys.length === 1)
-                count_one_key++;
-        }
-        var stop = all_super_classes.length - count_one_key;
-        for (var i in all_super_classes) {
-            var keys = Object.keys(all_super_classes[i]);
-            if (keys.length == 2) {
-                var c_u = keys[0];
-                var c_v = keys[1];
-                var super_classes = all_super_classes[i];
-                get_indirect_properties(c_u, c_v, p_domain, p_range, super_classes, store)
-                    .then(function(indirect_properties) {
-                        if (indirect_properties.length > 0)
-                            all_indirect_properties = all_indirect_properties.concat(indirect_properties);
-                        if (counter != stop) {
-                            counter++;
-                        } else {
-                            var obj = {};
-                            obj['all_super_classes'] = all_super_classes
-                            obj['all_indirect_properties'] = all_indirect_properties;
-                            resolve(obj);
-                        }
-                    }).catch(function(error) {
-                        reject(error);
-                        console.log('Something went wrong getting all indirect_properties properties: ' + error);
-                    });;
-            }
-        }
-    });
-}
-
-var add_indirect_properties = (properties_super_classes, graph) => {
-    return new Promise(function(resolve, reject) {
-        var idps = properties_super_classes['all_indirect_properties'];
-        var ascs = properties_super_classes['all_super_classes'];
-
-        for (var i in idps) {
-            var subject = '';
-            var object = '';
-            var property = idps[i]['property'];
-            var type = idps[i]['type']
-
-            for (var j in ascs) { // XXX For now very bad
-                for (var t in ascs[j]) {
-                    if (ascs[j][t].includes(idps[i]['subject'])) {
-                        subject = t;
+            for (var s in subjects_sc) {
+                for (var o in objects_sc) {
+                    var inherited_prop = {
+                        'subject': i,
+                        'subject_super_class': subjects_sc[s],
+                        'object': j,
+                        'object_super_class': objects_sc[o],
+                        'query': sparql.INHERITED_PROPERTIES_QUERY(subjects_sc[s], objects_sc[o], p_domain, p_range)
+                    };
+                    query_objs.push(inherited_prop);
+                    var inverse_prop = {
+                        'subject': j,
+                        'subject_super_class': objects_sc[o],
+                        'object': i,
+                        'object_super_class': subjects_sc[s],
+                        'query': sparql.INHERITED_PROPERTIES_QUERY(objects_sc[o], subjects_sc[s], p_domain, p_range)
                     }
+                    query_objs.push(inherited_prop);
                 }
             }
+        }
+    }
+    var funcs = query_objs.map(query_obj => () => get_inherited_properties(query_obj, store));
+    return promise_sequence(funcs);
+}
 
-            for (var j in ascs) { // XXX For now very bad
-                for (var t in ascs[j]) {
-                    if (ascs[j][t].includes(idps[i]['object'])) {
-                        object = t;
-                    }
-                }
-            }
 
-            add_edges(graph, subject, property, object, type, 1 + ε) // Indirect edges have weight = 1 + ε
+/**
+ * Add inherited properties to the graph
+ * @param inherited_properties
+ * @param graph
+ * @returns graph enriched with inehirited properties
+ * According to Knoblock's algorithm, I need to assign different weights for
+ * rdfs:subClassOf properties
+ */
+var add_inherited_properties = (inherited_properties, graph) => {
+    console.log(inherited_properties);
+    return new Promise(function(resolve, reject) {
+        for (var i in inherited_properties) {
+            var subject = inherited_properties[i]['subject'];
+            var property = inherited_properties[i]['property'];
+            var object = inherited_properties[i]['object'];
+            var type = inherited_properties[i]['type'];
+            if (property === 'rdfs:subClassOf')
+                add_edges(graph, subject, property, object, type, 1 / ε) // rdfs:subClassOf indirect edges have weight = 1 / ε
+            else add_edges(graph, subject, property, object, type, 1 + ε) // Indirect edges have weight = 1 + ε
         }
         resolve(graph);
     });
 }
 
+/**
+ * Support function to add diverse type of edges to the graph
+ * @param graph
+ * @param subject
+ * @param property
+ * @param object
+ * @param type
+ * @param weight
+ */
 var add_edges = (graph, subject, property, object, type, weight) => {
     var nodes = graph.nodes();
     for (var s in nodes) {
@@ -504,14 +437,19 @@ var add_edges = (graph, subject, property, object, type, weight) => {
                     graph.setEdge(nodes[s], nodes[o], {
                         label: property,
                         type: type
-                    }, nodes[s] + '***' + nodes[o], weight); // Direct edges have weight = 1
+                    }, nodes[s] + '***' + nodes[o], weight);
                 }
             }
         }
     }
 }
 
-// BUILD THE GRAPH
+/**
+ ****************************************************************
+ ************************ Graph Building ************************
+ ****************************************************************
+ */
+
 var initialize_ontology_storage = (ont_path) => {
     return new Promise(function(resolve, reject) {
         rdfstore.create(function(err, store) {
@@ -559,8 +497,8 @@ var build_graph = (st_path, ont_path, p_domain, p_range, o_class) => {
             class_nodes.forEach(function(cn) {
                 queries.push(sparql.CLOSURE_QUERY(cn, o_class));
             });
-            var async_functions = queries.map(query => () => get_closures(query, store));
-            return promise_sequence(async_functions);
+            var funcs = queries.map(query => () => get_closures(query, store));
+            return promise_sequence(funcs);
         }).catch(function(err) {
             console.log('Error when getting closures:');
             console.log(err);
@@ -574,8 +512,8 @@ var build_graph = (st_path, ont_path, p_domain, p_range, o_class) => {
         }).then(function() {
             // Get direct properties
             console.log('Getting direct properties...');
-            var all_classes = get_class_nodes(graph);
-            return get_all_direct_properties(store, all_classes, p_domain, p_range);
+            var class_nodes = get_class_nodes(graph);
+            return get_all_direct_properties(store, class_nodes, p_domain, p_range);
         }).catch(function(err) {
             console.log('Error when getting direct properties:');
             console.log(err);
@@ -589,23 +527,23 @@ var build_graph = (st_path, ont_path, p_domain, p_range, o_class) => {
         }).then(function() {
             // Get all super classes
             console.log('Getting all super classes...');
-            var all_classes = get_class_nodes(graph);
-            return prepare_all_super_classes(store, all_classes);
+            var class_nodes = get_class_nodes(graph);
+            return get_all_super_classes(store, class_nodes);
         }).catch(function(err) {
             console.log('Error when getting all super_classes:');
             console.log(err);
         }).then(function(super_classes) {
-            // Get all indirect properties
-            console.log('Getting all indirect properties...');
-            return get_all_indirect_properties(store, super_classes, p_domain, p_range);
+            // Get all inherited properties
+            console.log('Getting all inherited properties...');
+            return get_all_inherited_properties(store, super_classes, p_domain, p_range);
         }).catch(function(err) {
-            console.log('Error when getting all indirect_properties:');
+            console.log('Error when getting all inherited properties:');
             console.log(err);
-        }).then(function(properties_super_classes) {
-            // Add indirect_properties
-            return add_indirect_properties(properties_super_classes, graph);
+        }).then(function(inherited_properties) {
+            // Add inherited_properties
+            return add_inherited_properties(inherited_properties, graph);
         }).catch(function(err) {
-            console.log('Error when adding indirect_properties:');
+            console.log('Error when adding inherited properties:');
             console.log(err);
         }).then(function() {
             console.log('Graph building complete!\n');
@@ -618,17 +556,4 @@ var build_graph = (st_path, ont_path, p_domain, p_range, o_class) => {
     });
 }
 
-// Export for testing
-exports.add_semantic_types = add_semantic_types;
-exports.get_class_nodes = get_class_nodes;
-exports.get_closures = get_closures;
-exports.add_closures = add_closures;
-exports.get_direct_properties = get_direct_properties;
-exports.get_all_direct_properties = get_all_direct_properties;
-exports.get_all_super_classes = get_all_super_classes;
-exports.prepare_super_classes = prepare_super_classes;
-exports.prepare_all_super_classes = prepare_all_super_classes;
-exports.get_inherited_properties = get_inherited_properties;
-exports.get_inherited_and_inverse_properties = get_inherited_and_inverse_properties;
-exports.get_indirect_properties = get_indirect_properties;
 exports.build_graph = build_graph;
