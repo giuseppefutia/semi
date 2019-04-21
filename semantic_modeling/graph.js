@@ -402,7 +402,6 @@ var get_all_inherited_properties = (store, super_classes, p_domain, p_range) => 
  * rdfs:subClassOf properties
  */
 var add_inherited_properties = (inherited_properties, graph) => {
-    console.log(inherited_properties);
     return new Promise(function(resolve, reject) {
         for (var i in inherited_properties) {
             var subject = inherited_properties[i]['subject'];
