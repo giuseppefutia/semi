@@ -1,9 +1,8 @@
-// TODO These prefixes and the other mentioned in utils.js should be defined in a configuration file
 var utils = require(__dirname + '/utils.js');
 
 var CLOSURE_QUERY = (class_node, ontology_class) => {
     return utils.get_prefix_strings() + `
-               SELECT DISTINCT ?closures WHERE {
+           SELECT DISTINCT ?closures WHERE {
                 {
                     ?property rdfs:domain ${class_node} .
                     ?property rdfs:range ?closures .
@@ -26,25 +25,8 @@ var SUPER_CLASSES_QUERY = (class_node) => {
 }
 
 var DIRECT_PROPERTIES_QUERY = (c_u, c_v, p_domain, p_range) => {
-    // I need to specify also p_range and p_domain, because they can differ between ontologies
-    // I use this function also for inverse direct properties
-    return `
-            PREFIX schema:    <http://schema.org/>
-            PREFIX rdfs:      <http://www.w3.org/2000/01/rdf-schema#>
-            PREFIX pc:        <http://purl.org/procurement/public-contracts#>
-            PREFIX gr:        <http://purl.org/goodrelations/v1#>
-            PREFIX owl:       <http://www.w3.org/2002/07/owl#>
-            PREFIX adms:      <http://www.w3.org/ns/adms#>
-            PREFIX c4n:       <http://vocab.deri.ie/c4n#>
-            PREFIX dcterms:   <http://purl.org/dc/terms/>
-            PREFIX foaf:      <http://xmlns.com/foaf/0.1/>
-            PREFIX loted:     <http://www.loted.eu/ontology#>
-            PREFIX payment:   <http://reference.data.gov.uk/def/payment#>
-            PREFIX qb:        <http://purl.org/linked-data/cube#>
-            PREFIX rdf:       <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-            PREFIX skos:      <http://www.w3.org/2004/02/skos/core#>
-            PREFIX vann:      <http://purl.org/vocab/vann/>
-            PREFIX xsd:       <http://www.w3.org/2001/XMLSchema#>
+    // p_range and p_domain can change according to ontologies
+    return utils.get_prefix_strings() + `
             SELECT ?direct_properties WHERE {
                 ?direct_properties ${p_domain} ${c_u} .
                 ?direct_properties ${p_range} ${c_v} .
@@ -52,8 +34,6 @@ var DIRECT_PROPERTIES_QUERY = (c_u, c_v, p_domain, p_range) => {
 }
 
 var INHERITED_PROPERTIES_QUERY = (c_u, c_v, p_domain, p_range) => {
-    // I need to specify also p_range and p_domain, because they can differ between ontologies
-    // I use this function also for inverse inherited properties
     return utils.get_prefix_strings() + `
             SELECT ?inherited_properties ?domain WHERE {
                 ?inherited_properties ${p_domain} ${c_u} .
