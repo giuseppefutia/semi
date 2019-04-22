@@ -134,7 +134,7 @@ var add_closures = (closures, graph) => {
                     label: closures[c]
                 });
         }
-        resolve(graph);
+        resolve();
     });
 }
 
@@ -260,6 +260,10 @@ var get_super_classes = (sc, store, all_classes) => {
             if (all_classes[class_node] === undefined)
                 all_classes[class_node] = [];
 
+            // If no parent class, the last class if always a fictitious Thing
+            if (results.length === 0)
+                all_classes[class_node].push('owl:Thing');
+
             for (var i in results) {
                 var super_class = utils.clean_prefix(results[i]['all_super_classes']['value']);
                 all_classes[class_node].push(super_class);
@@ -337,6 +341,7 @@ var get_inherited_properties = (ip, store) => {
     });
 }
 
+
 /**
  * Get all properties between all super classes (inherited) of all class nodes
  * Need to specify domain and range properties, because they can be different
@@ -348,10 +353,10 @@ var get_inherited_properties = (ip, store) => {
  * @returns
  */
 var get_all_inherited_properties = (store, super_classes, p_domain, p_range) => {
-    var query_objs = [];
-    // The promise mechanism on sequences has conflicts with recursive functions,
-    // so the element is duplicated many times
+    // XXX Promise sequence replicates the output many times. Need to fix it.
+    // For now, i take the first element
     var super_classes = super_classes[0];
+    var query_objs = [];
 
     for (var i in super_classes) {
         // if a class node does not have super classes, I do not need to create query
@@ -443,6 +448,30 @@ var add_edges = (graph, subject, property, object, type, weight) => {
     }
 }
 
+
+/**
+ * Add properties to owl:Thing
+ * As stated by Taheriyan, in cases where G consists of more than one connected
+ * components, we add a class node with the label owl:Thing to the graph and
+ * connect the class nodes that do not have any parent to this root node using
+ * a rdfs:subClassOf link.
+ * @param super_classes
+ * @param graph
+ */
+var add_properties_to_thing = (graph) => {
+    var components = graphlib.alg.components(graph);
+    // Create owl:Thing node in the graph
+    graph.setNode('owl:Thing', {
+        type: 'special',
+        label: 'owl:Thing'
+    });
+    for (var c in components) {
+        var last_class = components[c].slice(-1)[0];
+        add_edges(graph, last_class, 'rdfs:subClassOf', 'owl:Thing', 'inherited', 1 / ε) // Edges to owl:Thing have weight = 1/ε
+    }
+}
+
+
 /**
  ****************************************************************
  ************************ Graph Building ************************
@@ -470,7 +499,6 @@ var build_graph = (st_path, ont_path, p_domain, p_range, o_class) => {
 
         // Define the store for SPARQL queries
         var store;
-
         // Add semantic types to the graph
         var types = JSON.parse(fs.readFileSync(st_path, 'utf8'));
         for (var t in types) {
@@ -545,8 +573,12 @@ var build_graph = (st_path, ont_path, p_domain, p_range, o_class) => {
             console.log('Error when adding inherited properties:');
             console.log(err);
         }).then(function() {
+            console.log('Checking graph components...');
+            if (graphlib.alg.components(graph).length > 1) {
+                console.log('Warning! Need to add owl:Thing node and add relations to it');
+                add_properties_to_thing(graph);
+            }
             console.log('Graph building complete!\n');
-            // TODO: check if the graph is complete (all nodes are linked) ! Otherwise, launch an exeception!
             resolve(graph);
         }).catch(function(err) {
             console.log('Error in building the graph:');
