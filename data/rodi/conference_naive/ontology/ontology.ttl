@@ -1265,13 +1265,13 @@ conference:Contribution_1th_author rdf:type owl:Class ;
 
                          rdfs:subClassOf conference:Regular_author ;
 
-                         owl:disjointWith :Contribution_co-author .
+                         owl:disjointWith :Contribution_co_author .
 
 
 
-###  http://conference#Contribution_co-author
+###  http://conference#Contribution_co_author
 
-conference:Contribution_co-author rdf:type owl:Class ;
+conference:Contribution_co_author rdf:type owl:Class ;
 
                         rdfs:subClassOf conference:Regular_author .
 
@@ -1484,7 +1484,7 @@ conference:Regular_author rdf:type owl:Class ;
                 owl:equivalentClass [ rdf:type owl:Class ;
                                       owl:intersectionOf ( [ rdf:type owl:Class ;
                                                              owl:unionOf ( :Contribution_1th_author
-                                                                           :Contribution_co-author
+                                                                           :Contribution_co_author
                                                                          )
                                                            ]
                                                            [ rdf:type owl:Restriction ;
