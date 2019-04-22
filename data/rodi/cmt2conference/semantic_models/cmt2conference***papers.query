@@ -19,15 +19,15 @@ PREFIX conference: <http://conference#>
 PREFIX jarql:     <http://jarql.com/>
 
 CONSTRUCT {
-    ?Paper0 dcterms:identifier ?co_write_paper__paper.
-    ?Contribution_co_author0 dcterms:identifier ?co_write_paper__co_author.
-    ?Contribution_co_author0 conference:contributes ?Paper0.
+    ?Paper0 dcterms:identifier ?papers__paper_id.
+    ?Contribution_1th_author0 dcterms:identifier ?papers__author.
+    ?Contribution_1th_author0 conference:contributes ?Paper0.
 }
 WHERE {
-    jarql:root jarql:co_write_paper ?co_write_paper.
-    ?co_write_paper jarql:paper ?co_write_paper__paper.
-    jarql:root jarql:co_write_paper ?co_write_paper.
-    ?co_write_paper jarql:co_author ?co_write_paper__co_author.
-    BIND (URI(CONCAT('http://semi.org/papers/',?co_write_paper__paper)) as ?Paper0)
-    BIND (URI(CONCAT('http://semi.org/persons/',?co_write_paper__co_author)) as ?Contribution_co_author0)
+    jarql:root jarql:papers ?papers.
+    ?papers jarql:paper_id ?papers__paper_id.
+    jarql:root jarql:papers ?papers.
+    ?papers jarql:author ?papers__author.
+    BIND (URI(CONCAT('http://semi.org/papers/',?papers__paper_id)) as ?Paper0)
+    BIND (URI(CONCAT('http://semi.org/persons/',?papers__author)) as ?Contribution_1th_author0)
 }

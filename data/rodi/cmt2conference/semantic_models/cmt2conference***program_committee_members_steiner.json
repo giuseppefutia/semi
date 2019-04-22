@@ -1,0 +1,120 @@
+{
+    "options": {
+        "directed": true,
+        "multigraph": true,
+        "compound": false
+    },
+    "nodes": [
+        {
+            "v": "conference:Conference_document",
+            "value": {
+                "type": "class_uri",
+                "label": "conference:Conference_document"
+            }
+        },
+        {
+            "v": "conference:Person0",
+            "value": {
+                "type": "class_uri",
+                "label": "conference:Person"
+            }
+        },
+        {
+            "v": "conference:Conference_volume",
+            "value": {
+                "type": "class_uri",
+                "label": "conference:Conference_volume"
+            }
+        },
+        {
+            "v": "owl:Thing",
+            "value": {
+                "type": "special",
+                "label": "owl:Thing"
+            }
+        },
+        {
+            "v": "program_committee_members__program_committee_member",
+            "value": {
+                "type": "attribute_name",
+                "label": "program_committee_members__program_committee_member"
+            }
+        },
+        {
+            "v": "conference:Program_committee0",
+            "value": {
+                "type": "class_uri",
+                "label": "conference:Program_committee"
+            }
+        },
+        {
+            "v": "program_committee_members__program_committee",
+            "value": {
+                "type": "attribute_name",
+                "label": "program_committee_members__program_committee"
+            }
+        }
+    ],
+    "edges": [
+        {
+            "v": "conference:Conference_document",
+            "w": "conference:Person0",
+            "name": "conference:Conference_document***conference:Person0",
+            "value": {
+                "type": "direct_property_uri",
+                "label": "conference:contributes***inverted"
+            },
+            "weight": 1
+        },
+        {
+            "v": "conference:Conference_volume",
+            "w": "owl:Thing",
+            "name": "conference:Conference_volume***owl:Thing",
+            "value": {
+                "label": "rdfs:subClassOf",
+                "type": "inherited"
+            },
+            "weight": 0.3333333333333333
+        },
+        {
+            "v": "conference:Person0",
+            "w": "program_committee_members__program_committee_member",
+            "name": "conference:Person0***program_committee_members__program_committee_member",
+            "value": {
+                "label": "dcterms:identifier",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "conference:Program_committee0",
+            "w": "conference:Conference_volume",
+            "name": "conference:Program_committee0***conference:Conference_volume",
+            "value": {
+                "type": "direct_property_uri",
+                "label": "conference:has_a_program_committee***inverted"
+            },
+            "weight": 1
+        },
+        {
+            "v": "owl:Thing",
+            "w": "conference:Conference_document",
+            "name": "owl:Thing***conference:Conference_document",
+            "value": {
+                "type": "inherited",
+                "label": "rdfs:subClassOf***inverted"
+            },
+            "weight": 0.3333333333333333
+        },
+        {
+            "v": "program_committee_members__program_committee",
+            "w": "conference:Program_committee0",
+            "name": "program_committee_members__program_committee***conference:Program_committee0",
+            "value": {
+                "type": "st_property_uri",
+                "label": "dcterms:identifier***inverted"
+            },
+            "weight": 1
+        }
+    ]
+}
