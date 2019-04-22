@@ -266,17 +266,17 @@ var get_super_classes = (sc, store, all_classes) => {
 
             for (var i in results) {
                 var super_class = utils.clean_prefix(results[i]['all_super_classes']['value']);
-                all_classes[class_node].push(super_class);
-                var new_query_object = {
-                    'class_node': class_node,
-                    'starting_class': super_class,
-                    'query': sparql.SUPER_CLASSES_QUERY(super_class)
+                if (super_class.indexOf('_:') === -1) {
+                    all_classes[class_node].push(super_class);
+                    var new_query_object = {
+                        'class_node': class_node,
+                        'starting_class': super_class,
+                        'query': sparql.SUPER_CLASSES_QUERY(super_class)
+                    }
+                    // Recursive call
+                    get_super_classes(new_query_object, store, all_classes);
                 }
-                // Recursive call
-                get_super_classes(new_query_object, store, all_classes);
             };
-            // Remove blank nodes from retrieved super classes
-            all_classes[class_node] = all_classes[class_node].filter(el => !el.includes('_:'));
             resolve(all_classes);
         });
     });
