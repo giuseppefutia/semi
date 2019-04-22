@@ -89,7 +89,9 @@ var INSTANCE_URIS = {
     'conference:Contribution_1th_author': 'http://semi.org/persons/',
     'conference:Contribution_co_author': 'http://semi.org/persons/',
     'conference:Reviewer': 'http://semi.org/persons/',
-    'conference:Review': 'http://semi.org/reviews/'
+    'conference:Review': 'http://semi.org/reviews/',
+    'conference:Program_committee': 'http://semi.org/program_committees/',
+    'conference:Person': 'http://semi.org/persons/'
 }
 
 var PREFIX_STRINGS = generate_prefix_string();
