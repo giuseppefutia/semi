@@ -71,6 +71,7 @@ for (var i in files) {
         }
     }
 
+    // Script launching all other scripts in a single scenario
     if (sts.length > 0) {
         var final_name = basic + files[i] + '/scripts/' + files[i] + '.sh';
         fs.appendFileSync(final_name, 'sudo chmod u+x ' + basic + files[i] + '/scripts/ \n');
@@ -79,5 +80,7 @@ for (var i in files) {
         }
     }
 }
+
+// TODO: add permission to the scripts 
 
 // TODO: RDF merge of all files
