@@ -1,13 +1,19 @@
 """
 Utility functions for link prediction
-Most code is adapted from authors' implementation of RGCN link prediction:
+Most code is adapted from authors' implementation of R-GCN link prediction:
 https://github.com/MichSchli/RelationPrediction
 
+Extended by Giuseppe Futia to prepare data for R-GCN starting from an RDF file
 """
 
+import os
+import pprint
 import numpy as np
 import torch
 import dgl
+import rdflib
+import csv
+
 
 #######################################################################
 #
@@ -15,11 +21,12 @@ import dgl
 #
 #######################################################################
 
+
 def get_adj_and_degrees(num_nodes, triplets):
     """ Get adjacency list and degrees of the graph
     """
     adj_list = [[] for _ in range(num_nodes)]
-    for i,triplet in enumerate(triplets):
+    for i, triplet in enumerate(triplets):
         adj_list[triplet[0]].append([i, triplet[2]])
         adj_list[triplet[2]].append([i, triplet[0]])
 
@@ -27,13 +34,14 @@ def get_adj_and_degrees(num_nodes, triplets):
     adj_list = [np.array(a) for a in adj_list]
     return adj_list, degrees
 
+
 def sample_edge_neighborhood(adj_list, degrees, n_triplets, sample_size):
     """ Edge neighborhood sampling to reduce training graph size
     """
 
     edges = np.zeros((sample_size), dtype=np.int32)
 
-    #initialize
+    # initialize
     sample_counts = np.array([d for d in degrees])
     picked = np.array([False for _ in range(n_triplets)])
     seen = np.array([False for _ in degrees])
@@ -68,6 +76,7 @@ def sample_edge_neighborhood(adj_list, degrees, n_triplets, sample_size):
         seen[other_vertex] = True
 
     return edges
+
 
 def generate_sampled_graph_and_labels(triplets, sample_size, split_size,
                                       num_rels, adj_list, degrees,
@@ -107,11 +116,13 @@ def generate_sampled_graph_and_labels(triplets, sample_size, split_size,
                                              (src, rel, dst))
     return g, uniq_v, rel, norm, samples, labels
 
+
 def comp_deg_norm(g):
     in_deg = g.in_degrees(range(g.number_of_nodes())).float().numpy()
     norm = 1.0 / in_deg
     norm[np.isinf(norm)] = 0
     return norm
+
 
 def build_graph_from_triplets(num_nodes, num_rels, triplets):
     """ Create a DGL graph. The graph is bidirectional because RGCN authors
@@ -131,10 +142,12 @@ def build_graph_from_triplets(num_nodes, num_rels, triplets):
     print("# nodes: {}, # edges: {}".format(num_nodes, len(src)))
     return g, rel, norm
 
+
 def build_test_graph(num_nodes, num_rels, edges):
     src, rel, dst = edges.transpose()
     print("Test graph:")
     return build_graph_from_triplets(num_nodes, num_rels, (src, rel, dst))
+
 
 def negative_sampling(pos_samples, num_entity, negative_rate):
     size_of_batch = len(pos_samples)
@@ -157,11 +170,13 @@ def negative_sampling(pos_samples, num_entity, negative_rate):
 #
 #######################################################################
 
+
 def sort_and_rank(score, target):
     _, indices = torch.sort(score, dim=1, descending=True)
     indices = torch.nonzero(indices == target.view(-1, 1))
     indices = indices[:, 1].view(-1)
     return indices
+
 
 def perturb_and_get_rank(embedding, w, a, r, b, num_entity, batch_size=100):
     """ Perturb one element in the triplets
@@ -175,11 +190,11 @@ def perturb_and_get_rank(embedding, w, a, r, b, num_entity, batch_size=100):
         batch_a = a[batch_start: batch_end]
         batch_r = r[batch_start: batch_end]
         emb_ar = embedding[batch_a] * w[batch_r]
-        emb_ar = emb_ar.transpose(0, 1).unsqueeze(2) # size: D x E x 1
-        emb_c = embedding.transpose(0, 1).unsqueeze(1) # size: D x 1 x V
+        emb_ar = emb_ar.transpose(0, 1).unsqueeze(2)  # size: D x E x 1
+        emb_c = embedding.transpose(0, 1).unsqueeze(1)  # size: D x 1 x V
         # out-prod and reduce sum
-        out_prod = torch.bmm(emb_ar, emb_c) # size D x E x V
-        score = torch.sum(out_prod, dim=0) # size E x V
+        out_prod = torch.bmm(emb_ar, emb_c)  # size D x E x V
+        score = torch.sum(out_prod, dim=0)  # size E x V
         score = torch.sigmoid(score)
         target = b[batch_start: batch_end]
         ranks.append(sort_and_rank(score, target))
@@ -187,6 +202,8 @@ def perturb_and_get_rank(embedding, w, a, r, b, num_entity, batch_size=100):
 
 # TODO (lingfan): implement filtered metrics
 # return MRR (raw), and Hits @ (1, 3, 10)
+
+
 def evaluate(test_graph, model, test_triplets, num_entity, hits=[], eval_bz=100):
     with torch.no_grad():
         embedding, w = model.evaluate(test_graph)
@@ -195,12 +212,14 @@ def evaluate(test_graph, model, test_triplets, num_entity, hits=[], eval_bz=100)
         o = test_triplets[:, 2]
 
         # perturb subject
-        ranks_s = perturb_and_get_rank(embedding, w, o, r, s, num_entity, eval_bz)
+        ranks_s = perturb_and_get_rank(
+            embedding, w, o, r, s, num_entity, eval_bz)
         # perturb object
-        ranks_o = perturb_and_get_rank(embedding, w, s, r, o, num_entity, eval_bz)
+        ranks_o = perturb_and_get_rank(
+            embedding, w, s, r, o, num_entity, eval_bz)
 
         ranks = torch.cat([ranks_s, ranks_o])
-        ranks += 1 # change to 1-indexed
+        ranks += 1  # change to 1-indexed
 
         mrr = torch.mean(1.0 / ranks.float())
         print("MRR (raw): {:.6f}".format(mrr.item()))
@@ -210,3 +229,123 @@ def evaluate(test_graph, model, test_triplets, num_entity, hits=[], eval_bz=100)
             print("Hits (raw) @ {}: {:.6f}".format(hit, avg_count.item()))
     return mrr.item()
 
+#######################################################################
+#
+# Utility function for reading and preparing RDF file for R-GCN
+#
+#######################################################################
+
+
+def create_rodi_dicts(folder):
+    entities = []
+    relations = []
+
+    # read the RDF graph
+    g = rdflib.Graph()
+    g.parse(folder + '/output/final.rdf', format='turtle')
+
+    # create dictionary for entities and relationships
+    for s, p, o in g:
+        # get triples where objects are URIs
+        if str(o).find('http://') != -1:
+            if not str(s) in entities:
+                entities.append(str(s))
+            if not str(p) in relations:
+                relations.append(str(p))
+            if not str(o) in entities:
+                entities.append(str(o))
+
+    with open(folder + '/rgcn/entities.tsv', 'wt') as file:
+        writer = csv.writer(file, delimiter='\t')
+        for idx, val in enumerate(entities):
+            writer.writerow([idx, val])
+
+    with open(folder + '/rgcn/relations.tsv', 'wt') as file:
+        writer = csv.writer(file, delimiter='\t')
+        for idx, val in enumerate(relations):
+            writer.writerow([idx, val])
+
+
+def create_complete_matrix(folder, entities_dict, relations_dict):
+    entities_list = []
+    relations_list = []
+    complete = []
+
+    # read the RDF graph
+    g = rdflib.Graph()
+    g.parse(folder + '/output/final.rdf', format='turtle')
+
+    # load entity and relation dictionaries
+    with open(entities_dict) as tsv:
+        reader = csv.reader(tsv, delimiter='\t')
+        for row in reader:
+            entities_list.append(row[1])
+
+    with open(relations_dict) as tsv:
+        reader = csv.reader(tsv, delimiter='\t')
+        for row in reader:
+            relations_list.append(row[1])
+
+    for s, p, o in g:
+        # only object entities to create the matrix triple
+        if str(o).find('http://') != -1:
+            triple = []
+            s_index = entities_list.index(str(s))
+            p_index = relations_list.index(str(p))
+            o_index = entities_list.index(str(o))
+            triple.append(s_index)
+            triple.append(p_index)
+            triple.append(o_index)
+            complete.append(triple)
+
+    complete_array = np.asarray(complete)
+    np.save(folder + '/rgcn/complete', complete_array)
+
+
+def create_matrices(folder, complete_path):
+    # XXX for testing inputs now train, test and valid are equals
+    complete = np.load(complete_path)
+    training_data = complete
+    test_data = complete
+    valid_data = complete
+
+    np.save(folder + '/rgcn/train', training_data)
+    np.save(folder + '/rgcn/test', test_data)
+    np.save(folder + '/rgcn/valid', valid_data)
+
+
+def prepare_rodi_data(scenario_folder):
+    # create directory for R-GCN data if not present
+    rgcn_folder = scenario_folder + '/rgcn/'
+    try:
+        os.makedirs(rgcn_folder)
+    except FileExistsError:
+        # directory already exists
+        pass
+
+    # clean all files in the rgcn folder
+    filelist = [f for f in os.listdir(rgcn_folder)]
+    for f in filelist:
+        os.remove(os.path.join(rgcn_folder, f))
+
+    # create dictionaries for nodes and edges
+    create_rodi_dicts(scenario_folder)
+
+    # create a tensor describing all data
+    create_complete_matrix(scenario_folder, rgcn_folder
+                           + 'entities.tsv', rgcn_folder + 'relations.tsv')
+
+    # create training, tests, and valid sets
+    create_matrices(scenario_folder, rgcn_folder + 'complete.npy')
+
+    data = {}
+
+    data['train'] = np.load(rgcn_folder + 'train.npy')
+    data['test'] = np.load(rgcn_folder + 'test.npy')
+    data['valid'] = np.load(rgcn_folder + 'valid.npy')
+    entities = csv.reader(rgcn_folder + 'entities.tsv', delimiter='\t')
+    data['num_nodes'] = sum(1 for row in entities)
+    relations = csv.reader(rgcn_folder + 'relations.tsv', delimiter='\t')
+    data['num_rels'] = sum(1 for row in relations)
+
+    return data
