@@ -15,16 +15,15 @@ PREFIX skos:      <http://www.w3.org/2004/02/skos/core#>
 PREFIX vann:      <http://purl.org/vocab/vann/>
 PREFIX xsd:       <http://www.w3.org/2001/XMLSchema#>
 PREFIX conference: <http://conference#>
-
 PREFIX jarql:     <http://jarql.com/>
 
 CONSTRUCT {
     ?Program_committee0 dcterms:identifier ?program_committee_members__program_committee.
     ?Person0 dcterms:identifier ?program_committee_members__program_committee_member.
-    ?Person0 conference:contributes ?Conference_document.
-    ?Conference_volume rdfs:subClassOf ?Thing.
-    ?Conference_volume conference:has_a_program_committee ?Program_committee0.
-    ?Conference_document rdfs:subClassOf ?Thing.
+    ?Person0 conference:contributes ?Conference_document0.
+    ?Conference_volume0 rdfs:subClassOf owl:Thing.
+    ?Conference_volume0 conference:has_a_program_committee ?Program_committee0.
+    ?Conference_document0 rdfs:subClassOf owl:Thing.
 }
 WHERE {
     jarql:root jarql:program_committee_members ?program_committee_members.

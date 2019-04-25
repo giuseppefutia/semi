@@ -15,7 +15,7 @@ var write_bind = (base_uri, attribute_value, reference_entity) => {
 }
 
 var build_prefix = () => {
-    return utils.get_prefix_strings() + '\n' + 'PREFIX jarql:     <http://jarql.com/>' + '\n\n'.toString();
+    return utils.get_prefix_strings() + 'PREFIX jarql:     <http://jarql.com/>' + '\n\n'.toString();
 }
 
 /**
@@ -28,6 +28,11 @@ var build_construct = (st, steiner) => {
     var attributes = st.attributes;
     var entities = st.entities;
     var semantic_types = st.semantic_types;
+
+    // st_classes will contain classes of semantic types
+    var st_classes = [];
+
+    // Create semantic types
     for (var i in attributes) {
         var ont_class = semantic_types[i][0].split('***')[0]; // XXX Pay attention to the index 0 of semantic types
         var ont_property = semantic_types[i][0].split('***')[1];
@@ -35,26 +40,103 @@ var build_construct = (st, steiner) => {
         var predicate = ont_property;
         var object = '?' + attributes[i];
         body += write_triple(subject, predicate, object);
+        st_classes.push(subject);
     }
-    body += create_semantic_relations(steiner);
+
+    // Create semantic_relations
+    body += create_semantic_relations(steiner, st_classes);
     return initial + body + final;
 }
 
-var create_semantic_relations = (steiner) => {
+var create_semantic_relations = (steiner, st_classes) => {
     var body = '';
     var nodes = steiner.nodes;
     var edges = steiner.edges;
+    var closure_entities = [];
+
     for (var i in edges) {
-        if (edges[i].value.type !== 'st_property_uri') { // Semantic types are already managed
+        if (edges[i].value.type !== 'st_property_uri') { // Semantic types are already managed in build_construct
             var label = edges[i].value.label;
             if (label.indexOf('inverted') === -1) {
-                body += write_triple('?' + edges[i].v.split(':')[1], edges[i].value.label, '?' + edges[i].w.split(':')[1]);
+                var triple = process_edge_values(edges[i].v, label, edges[i].w, st_classes, closure_entities);
+                body += write_triple(triple['subject'], triple['property'], triple['object']);
             } else {
-                body += write_triple('?' + edges[i].w.split(':')[1], edges[i].value.label.split('***')[0], '?' + edges[i].v.split(':')[1]);
+                var subject = '?' + edges[i].w.split(':')[1];
+                var triple = process_edge_values(edges[i].w, label.split('***')[0], edges[i].v, st_classes, closure_entities);
+                body += write_triple(triple['subject'], triple['property'], triple['object']);
             }
         }
     }
     return body;
+}
+
+/**
+ * This function is very important, because it need to create entities from closure classes.
+ * For semantic types, the algorithm has already created new entities exploiting, the
+ * entities [0,1,0] field define in the semantic type file.
+ * For the closure classes the algorithm needs to create the entities in an automatic way!
+ */
+var process_edge_values = (edge_subject, edge_property, edge_object, st_classes, closure_entities) => {
+    var triple = {};
+
+
+    // Check if the subject or the object of the edges are included within
+    // semantic types class
+    var subject = '?' + edge_subject.split(':')[1];
+    var property = edge_property
+    var object = '?' + edge_object.split(':')[1];
+    var is_subject_st_class = st_classes.indexOf(subject);
+    var is_object_st_class = st_classes.indexOf(object);
+
+    // Manage different cases for closure entities
+    if (is_subject_st_class !== -1 && is_object_st_class !== -1) {
+        // Both entities are semantic st_classes
+        // subject and object remain the same
+        subject = subject;
+        object = object;
+    } else if (is_subject_st_class !== -1 && is_object_st_class === -1) {
+        // The subject is a semantic type and the object is not
+        // Need to check if the object is owl:Thing
+        if (object === '?Thing') object = 'owl:Thing';
+        else {
+            // Get last element of the subject (in other words its index)
+            var st_index = subject.slice(-1)
+            object = object + st_index;
+            closure_entities.push(object);
+        }
+    } else if (is_subject_st_class === -1 && is_object_st_class !== -1) {
+        // The object is a semantic type and the subject is not
+        // Get the last element of the object (in other words its index)
+        var st_index = object.slice(-1);
+        subject = subject + st_index;
+        closure_entities.push(subject);
+        if (object === '?Thing') object = 'owl:Thing';
+    } else {
+        // Both entities are not semantic types
+        var subject_matches = closure_entities.filter(s => s.includes(subject))
+        var subject_index = 0;
+        for (s in subject_matches) {
+            var index = closure_entities.indexOf(subject_matches[s]);
+            if (index > subject_index) subject_index = index;
+        }
+        subject = subject + subject_index;
+
+        if (object === '?Thing') object = 'owl:Thing';
+        else {
+            var object_matches = closure_entities.filter(s => s.includes(object))
+            var object_index = 0;
+            for (o in object_matches) {
+                var index = closure_entities.indexOf(object_matches[o]);
+                if (index > object_index) object_index = index;
+                object = object + object_index;
+            }
+        }
+    }
+
+    triple['subject'] = subject;
+    triple['property'] = property;
+    triple['object'] = object
+    return triple;
 }
 
 /**
@@ -69,7 +151,7 @@ var build_where_triples = (st) => {
     var body = '';
     var attributes = st.attributes;
     for (var i in attributes) {
-        // For know I check only one level of the tree in semantic types
+        // TODO: For know I check only one level of the tree in semantic types (father and child)
         if (attributes[i].split('__')[1] !== undefined) {
             var father = attributes[i].split('__')[0];
             var child = attributes[i].split('__')[1];
