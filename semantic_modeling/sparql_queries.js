@@ -41,7 +41,16 @@ var INHERITED_PROPERTIES_QUERY = (c_u, c_v, p_domain, p_range) => {
             }`;
 }
 
+// For know I consider that classes are identified as owl:Class in the ontology
+var ALL_CLASSES_QUERY = () => {
+    return utils.get_prefix_strings() + `
+            SELECT ?all_classes WHERE {
+                ?all_classes rdf:type owl:Class
+            }`
+}
+
 exports.CLOSURE_QUERY = CLOSURE_QUERY;
 exports.SUPER_CLASSES_QUERY = SUPER_CLASSES_QUERY;
 exports.DIRECT_PROPERTIES_QUERY = DIRECT_PROPERTIES_QUERY;
 exports.INHERITED_PROPERTIES_QUERY = INHERITED_PROPERTIES_QUERY;
+exports.ALL_CLASSES_QUERY = ALL_CLASSES_QUERY;

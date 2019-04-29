@@ -473,6 +473,40 @@ var add_properties_to_thing = (graph) => {
 
 
 /**
+ * Get all ontology classes (useful to generate URIs of entities in the graph)
+ * @param ac_query
+ * @param store
+ */
+var get_all_classes = (store) => {
+    return new Promise(function(resolve, reject) {
+        var ac_query = sparql.ALL_CLASSES_QUERY();
+        var all_classes = [];
+        store.execute(ac_query, function(success, results) {
+            if (success !== null) reject(success);
+            var cleaned_results = utils.get_clean_results(results, 'all_classes');
+            for (var i in cleaned_results) {
+                all_classes.push(cleaned_results[i]);
+            }
+            // Remove blank nodes
+            all_classes = all_classes.filter(el => !el.includes('_:'));
+            resolve(all_classes)
+        });
+    });
+}
+
+var save_all_classes = (all_classes, ont_path) => {
+    return new Promise(function(resolve, reject) {
+        var json = {
+            'all_classes': all_classes
+        };
+        var file_path = ont_path.replace('ontology.ttl', '');
+        file_path += 'classes'
+        fs.writeFileSync(file_path + '.json', JSON.stringify(json, null, 4));
+        resolve();
+    });
+}
+
+/**
  ****************************************************************
  ************************ Graph Building ************************
  ****************************************************************
@@ -496,7 +530,6 @@ var build_graph = (st_path, ont_path, p_domain, p_range, o_class) => {
         var graph = new Graph({
             multigraph: true
         });
-
         // Define the store for SPARQL queries
         var store;
         // Add semantic types to the graph
@@ -572,6 +605,16 @@ var build_graph = (st_path, ont_path, p_domain, p_range, o_class) => {
         }).catch(function(err) {
             console.log('Error when adding inherited properties:');
             console.log(err);
+        }).then(function() {
+            // Get all classes
+            console.log('Getting all classes of the ontology...');
+            return get_all_classes(store);
+        }).catch(function(err) {
+            console.log('Error when getting all classes:');
+            console.log(err);
+        }).then(function(all_classes) {
+            // Save all classes of the ontology in a file
+            save_all_classes(all_classes, ont_path);
         }).then(function() {
             console.log('Checking graph components...');
             if (graphlib.alg.components(graph).length > 1) {
