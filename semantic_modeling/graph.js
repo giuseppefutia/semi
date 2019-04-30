@@ -321,316 +321,313 @@ var get_all_super_classes = (store, class_nodes) => {
  *   type: 'inherited' }]
  */
 var get_inherited_properties = (ip, store) => {
-        return new Promise(function(resolve, reject) {
-                    var subject = ip['subject'];
-                    var object = ip['object'];
-                    var ip_query = ip['query'];
-                    var inherited_properties = [];
-                    store.execute(ip_query, function(success, results) {
-                        if (success !== null) reject(success);
-                        var cleaned_results = utils.get_clean_results(results, 'inherited_properties');
-                        for (var i in cleaned_results) { <<
-                            << << < HEAD
-                            inherited_properties.push(utils.set_property(subject, ===
-                                    === =
-                                    inherited_properties.push(utils.set_property(
-                                        subject, >>>
-                                        >>> > evaluation cleaned_results[i],
-                                        object,
-                                        'inherited'));
-                                }
-                                resolve(inherited_properties);
-                            });
-                    });
-                }
+    return new Promise(function(resolve, reject) {
+        var subject = ip['subject'];
+        var object = ip['object'];
+        var ip_query = ip['query'];
+        var inherited_properties = [];
+        store.execute(ip_query, function(success, results) {
+            if (success !== null) reject(success);
+            var cleaned_results = utils.get_clean_results(results, 'inherited_properties');
+            for (var i in cleaned_results) {
+                inherited_properties.push(utils.set_property(
+                    subject,
+                    cleaned_results[i],
+                    object,
+                    'inherited'));
+            }
+            resolve(inherited_properties);
+        });
+    });
+}
 
 
-                /**
-                 * Get all properties between all super classes (inherited) of all class nodes
-                 * Need to specify domain and range properties, because they can be different
-                 * according to the  ontology
-                 * @param store
-                 * @param super_classes
-                 * @param p_domain
-                 * @param p_range
-                 * @returns
-                 */
-                var get_all_inherited_properties = (store, super_classes, p_domain, p_range) => {
-                    // XXX Promise sequence replicates the output many times. Need to fix it.
-                    // For now, i take the first element
-                    var super_classes = super_classes[0];
-                    var query_objs = [];
+/**
+ * Get all properties between all super classes (inherited) of all class nodes
+ * Need to specify domain and range properties, because they can be different
+ * according to the  ontology
+ * @param store
+ * @param super_classes
+ * @param p_domain
+ * @param p_range
+ * @returns
+ */
+var get_all_inherited_properties = (store, super_classes, p_domain, p_range) => {
+    // XXX Promise sequence replicates the output many times. Need to fix it.
+    // For now, i take the first element
+    var super_classes = super_classes[0];
+    var query_objs = [];
 
-                    for (var i in super_classes) {
-                        // if a class node does not have super classes, I do not need to create query
-                        if (super_classes[i].length === 0) continue;
+    for (var i in super_classes) {
+        // if a class node does not have super classes, I do not need to create query
+        if (super_classes[i].length === 0) continue;
 
-                        for (var j in super_classes) {
-                            if (super_classes[j].length === 0) continue;
-                            // Do not consider relation between super classes of the same class
-                            if (i === j) continue;
+        for (var j in super_classes) {
+            if (super_classes[j].length === 0) continue;
+            // Do not consider relation between super classes of the same class
+            if (i === j) continue;
 
-                            // Construct the queries
-                            var subjects_sc = super_classes[i];
-                            var objects_sc = super_classes[j];
+            // Construct the queries
+            var subjects_sc = super_classes[i];
+            var objects_sc = super_classes[j];
 
-                            for (var s in subjects_sc) {
-                                for (var o in objects_sc) {
-                                    var inherited_prop = {
-                                        'subject': i,
-                                        'subject_super_class': subjects_sc[s],
-                                        'object': j,
-                                        'object_super_class': objects_sc[o],
-                                        'query': sparql.INHERITED_PROPERTIES_QUERY(subjects_sc[s], objects_sc[o], p_domain, p_range)
-                                    };
-                                    query_objs.push(inherited_prop);
-                                    var inverse_prop = {
-                                        'subject': j,
-                                        'subject_super_class': objects_sc[o],
-                                        'object': i,
-                                        'object_super_class': subjects_sc[s],
-                                        'query': sparql.INHERITED_PROPERTIES_QUERY(objects_sc[o], subjects_sc[s], p_domain, p_range)
-                                    }
-                                    query_objs.push(inherited_prop);
-                                }
-                            }
-                        }
+            for (var s in subjects_sc) {
+                for (var o in objects_sc) {
+                    var inherited_prop = {
+                        'subject': i,
+                        'subject_super_class': subjects_sc[s],
+                        'object': j,
+                        'object_super_class': objects_sc[o],
+                        'query': sparql.INHERITED_PROPERTIES_QUERY(subjects_sc[s], objects_sc[o], p_domain, p_range)
+                    };
+                    query_objs.push(inherited_prop);
+                    var inverse_prop = {
+                        'subject': j,
+                        'subject_super_class': objects_sc[o],
+                        'object': i,
+                        'object_super_class': subjects_sc[s],
+                        'query': sparql.INHERITED_PROPERTIES_QUERY(objects_sc[o], subjects_sc[s], p_domain, p_range)
                     }
-                    var funcs = query_objs.map(query_obj => () => get_inherited_properties(query_obj, store));
-                    return promise_sequence(funcs);
+                    query_objs.push(inherited_prop);
                 }
+            }
+        }
+    }
+    var funcs = query_objs.map(query_obj => () => get_inherited_properties(query_obj, store));
+    return promise_sequence(funcs);
+}
 
 
-                /**
-                 * Add inherited properties to the graph
-                 * @param inherited_properties
-                 * @param graph
-                 * @returns graph enriched with inehirited properties
-                 * According to Knoblock's algorithm, I need to assign different weights for
-                 * rdfs:subClassOf properties
-                 */
-                var add_inherited_properties = (inherited_properties, graph) => {
-                    return new Promise(function(resolve, reject) {
-                        for (var i in inherited_properties) {
-                            var subject = inherited_properties[i]['subject'];
-                            var property = inherited_properties[i]['property'];
-                            var object = inherited_properties[i]['object'];
-                            var type = inherited_properties[i]['type'];
-                            if (property === 'rdfs:subClassOf')
-                                add_edges(graph, subject, property, object, type, 1 / ε) // rdfs:subClassOf indirect edges have weight = 1 / ε
-                            else add_edges(graph, subject, property, object, type, 1 + ε) // Indirect edges have weight = 1 + ε
-                        }
-                        resolve(graph);
-                    });
+/**
+ * Add inherited properties to the graph
+ * @param inherited_properties
+ * @param graph
+ * @returns graph enriched with inehirited properties
+ * According to Knoblock's algorithm, I need to assign different weights for
+ * rdfs:subClassOf properties
+ */
+var add_inherited_properties = (inherited_properties, graph) => {
+    return new Promise(function(resolve, reject) {
+        for (var i in inherited_properties) {
+            var subject = inherited_properties[i]['subject'];
+            var property = inherited_properties[i]['property'];
+            var object = inherited_properties[i]['object'];
+            var type = inherited_properties[i]['type'];
+            if (property === 'rdfs:subClassOf')
+                add_edges(graph, subject, property, object, type, 1 / ε) // rdfs:subClassOf indirect edges have weight = 1 / ε
+            else add_edges(graph, subject, property, object, type, 1 + ε) // Indirect edges have weight = 1 + ε
+        }
+        resolve(graph);
+    });
+}
+
+/**
+ * Support function to add diverse type of edges to the graph
+ * @param graph
+ * @param subject
+ * @param property
+ * @param object
+ * @param type
+ * @param weight
+ */
+var add_edges = (graph, subject, property, object, type, weight) => {
+    var nodes = graph.nodes();
+    for (var s in nodes) {
+        var subject_label_node = graph.node(nodes[s])['label'];
+        if (subject_label_node === subject) {
+            for (var o in nodes) {
+                var object_label_node = graph.node(nodes[o])['label'];
+                if (object_label_node === object) {
+                    graph.setEdge(nodes[s], nodes[o], {
+                        label: property,
+                        type: type
+                    }, nodes[s] + '***' + nodes[o], weight);
                 }
-
-                /**
-                 * Support function to add diverse type of edges to the graph
-                 * @param graph
-                 * @param subject
-                 * @param property
-                 * @param object
-                 * @param type
-                 * @param weight
-                 */
-                var add_edges = (graph, subject, property, object, type, weight) => {
-                    var nodes = graph.nodes();
-                    for (var s in nodes) {
-                        var subject_label_node = graph.node(nodes[s])['label'];
-                        if (subject_label_node === subject) {
-                            for (var o in nodes) {
-                                var object_label_node = graph.node(nodes[o])['label'];
-                                if (object_label_node === object) {
-                                    graph.setEdge(nodes[s], nodes[o], {
-                                        label: property,
-                                        type: type
-                                    }, nodes[s] + '***' + nodes[o], weight);
-                                }
-                            }
-                        }
-                    }
-                }
+            }
+        }
+    }
+}
 
 
-                /**
-                 * Add properties to owl:Thing
-                 * As stated by Taheriyan, in cases where G consists of more than one connected
-                 * components, we add a class node with the label owl:Thing to the graph and
-                 * connect the class nodes that do not have any parent to this root node using
-                 * a rdfs:subClassOf link.
-                 * @param super_classes
-                 * @param graph
-                 */
-                var add_properties_to_thing = (graph) => {
-                    var components = graphlib.alg.components(graph);
-                    // Create owl:Thing node in the graph
-                    graph.setNode('owl:Thing', {
-                        type: 'special',
-                        label: 'owl:Thing'
-                    });
-                    for (var c in components) {
-                        var last_class = components[c].slice(-1)[0];
-                        add_edges(graph, last_class, 'rdfs:subClassOf', 'owl:Thing', 'inherited', 1 / ε) // Edges to owl:Thing have weight = 1/ε
-                    }
-                }
+/**
+ * Add properties to owl:Thing
+ * As stated by Taheriyan, in cases where G consists of more than one connected
+ * components, we add a class node with the label owl:Thing to the graph and
+ * connect the class nodes that do not have any parent to this root node using
+ * a rdfs:subClassOf link.
+ * @param super_classes
+ * @param graph
+ */
+var add_properties_to_thing = (graph) => {
+    var components = graphlib.alg.components(graph);
+    // Create owl:Thing node in the graph
+    graph.setNode('owl:Thing', {
+        type: 'special',
+        label: 'owl:Thing'
+    });
+    for (var c in components) {
+        var last_class = components[c].slice(-1)[0];
+        add_edges(graph, last_class, 'rdfs:subClassOf', 'owl:Thing', 'inherited', 1 / ε) // Edges to owl:Thing have weight = 1/ε
+    }
+}
 
 
-                /**
-                 * Get all ontology classes (useful to generate URIs of entities in the graph)
-                 * @param ac_query
-                 * @param store
-                 */
-                var get_all_classes = (store) => {
-                    return new Promise(function(resolve, reject) {
-                        var ac_query = sparql.ALL_CLASSES_QUERY();
-                        var all_classes = [];
-                        store.execute(ac_query, function(success, results) {
-                            if (success !== null) reject(success);
-                            var cleaned_results = utils.get_clean_results(results, 'all_classes');
-                            for (var i in cleaned_results) {
-                                all_classes.push(cleaned_results[i]);
-                            }
-                            // Remove blank nodes
-                            all_classes = all_classes.filter(el => !el.includes('_:'));
-                            resolve(all_classes)
-                        });
-                    });
-                }
+/**
+ * Get all ontology classes (useful to generate URIs of entities in the graph)
+ * @param ac_query
+ * @param store
+ */
+var get_all_classes = (store) => {
+    return new Promise(function(resolve, reject) {
+        var ac_query = sparql.ALL_CLASSES_QUERY();
+        var all_classes = [];
+        store.execute(ac_query, function(success, results) {
+            if (success !== null) reject(success);
+            var cleaned_results = utils.get_clean_results(results, 'all_classes');
+            for (var i in cleaned_results) {
+                all_classes.push(cleaned_results[i]);
+            }
+            // Remove blank nodes
+            all_classes = all_classes.filter(el => !el.includes('_:'));
+            resolve(all_classes)
+        });
+    });
+}
 
-                var save_all_classes = (all_classes, ont_path) => {
-                    return new Promise(function(resolve, reject) {
-                        var json = {
-                            'all_classes': all_classes
-                        };
-                        var file_path = ont_path.replace('ontology.ttl', '');
-                        file_path += 'classes'
-                        fs.writeFileSync(file_path + '.json', JSON.stringify(json, null, 4));
-                        resolve();
-                    });
-                }
+var save_all_classes = (all_classes, ont_path) => {
+    return new Promise(function(resolve, reject) {
+        var json = {
+            'all_classes': all_classes
+        };
+        var file_path = ont_path.replace('ontology.ttl', '');
+        file_path += 'classes'
+        fs.writeFileSync(file_path + '.json', JSON.stringify(json, null, 4));
+        resolve();
+    });
+}
 
-                /**
-                 ****************************************************************
-                 ************************ Graph Building ************************
-                 ****************************************************************
-                 */
+/**
+ ****************************************************************
+ ************************ Graph Building ************************
+ ****************************************************************
+ */
 
-                var initialize_ontology_storage = (ont_path) => {
-                    return new Promise(function(resolve, reject) {
-                        rdfstore.create(function(err, store) {
-                            var ontology = fs.readFileSync(ont_path).toString();
-                            store.load('text/turtle', ontology, function(err, data) {
-                                if (err) reject(err);
-                                resolve(store);
-                            });
-                        });
-                    });
-                }
+var initialize_ontology_storage = (ont_path) => {
+    return new Promise(function(resolve, reject) {
+        rdfstore.create(function(err, store) {
+            var ontology = fs.readFileSync(ont_path).toString();
+            store.load('text/turtle', ontology, function(err, data) {
+                if (err) reject(err);
+                resolve(store);
+            });
+        });
+    });
+}
 
-                var build_graph = (st_path, ont_path, p_domain, p_range, o_class) => {
-                    return new Promise(function(resolve, reject) {
-                        // Create a new graph
-                        var graph = new Graph({
-                            multigraph: true
-                        });
-                        // Define the store for SPARQL queries
-                        var store;
-                        // Add semantic types to the graph
-                        var types = JSON.parse(fs.readFileSync(st_path, 'utf8'));
-                        for (var t in types) {
-                            graph = add_semantic_types(types[t], graph)
-                        }
-                        // Promises sequence begins
-                        var sequence = Promise.resolve();
-                        sequence.then(function() {
-                            // Initialize graph storage
-                            console.log();
-                            console.log('Initializing graph...');
-                            return initialize_ontology_storage(ont_path);
-                        }).catch(function(err) {
-                            console.log('Error in the initialization stage:');
-                            console.log(err);
-                        }).then(function(st) {
-                            // Save the store created after the graph initialization
-                            store = st;
-                            // Get closures
-                            console.log('Getting closures...');
-                            var class_nodes = get_class_nodes(graph);
-                            var queries = [];
-                            class_nodes.forEach(function(cn) {
-                                queries.push(sparql.CLOSURE_QUERY(cn, o_class));
-                            });
-                            var funcs = queries.map(query => () => get_closures(query, store));
-                            return promise_sequence(funcs);
-                        }).catch(function(err) {
-                            console.log('Error when getting closures:');
-                            console.log(err);
-                        }).then(function(closures) {
-                            // Add closures
-                            console.log('Adding closures...');
-                            return add_closures(closures, graph);
-                        }).catch(function(err) {
-                            console.log('Error when adding closures:');
-                            console.log(err);
-                        }).then(function() {
-                            // Get direct properties
-                            console.log('Getting direct properties...');
-                            var class_nodes = get_class_nodes(graph);
-                            return get_all_direct_properties(store, class_nodes, p_domain, p_range);
-                        }).catch(function(err) {
-                            console.log('Error when getting direct properties:');
-                            console.log(err);
-                        }).then(function(direct_properties) {
-                            // Add direct properties
-                            console.log('Adding direct properties...');
-                            return add_direct_properties(direct_properties, graph);
-                        }).catch(function() {
-                            console.log('Error when adding direct properties:');
-                            console.log(err);
-                        }).then(function() {
-                            // Get all super classes
-                            console.log('Getting all super classes...');
-                            var class_nodes = get_class_nodes(graph);
-                            return get_all_super_classes(store, class_nodes);
-                        }).catch(function(err) {
-                            console.log('Error when getting all super_classes:');
-                            console.log(err);
-                        }).then(function(super_classes) {
-                            // Get all inherited properties
-                            console.log('Getting all inherited properties...');
-                            return get_all_inherited_properties(store, super_classes, p_domain, p_range);
-                        }).catch(function(err) {
-                            console.log('Error when getting all inherited properties:');
-                            console.log(err);
-                        }).then(function(inherited_properties) {
-                            // Add inherited_properties
-                            return add_inherited_properties(inherited_properties, graph);
-                        }).catch(function(err) {
-                            console.log('Error when adding inherited properties:');
-                            console.log(err);
-                        }).then(function() {
-                            // Get all classes
-                            console.log('Getting all classes of the ontology...');
-                            return get_all_classes(store);
-                        }).catch(function(err) {
-                            console.log('Error when getting all classes:');
-                            console.log(err);
-                        }).then(function(all_classes) {
-                            // Save all classes of the ontology in a file
-                            save_all_classes(all_classes, ont_path);
-                        }).then(function() {
-                            console.log('Checking graph components...');
-                            if (graphlib.alg.components(graph).length > 1) {
-                                console.log('Warning! Need to add owl:Thing node and add relations to it');
-                                add_properties_to_thing(graph);
-                            }
-                            console.log('Graph building complete!\n');
-                            resolve(graph);
-                        }).catch(function(err) {
-                            console.log('Error in building the graph:');
-                            console.log(err);
-                        });
-                    });
-                }
+var build_graph = (st_path, ont_path, p_domain, p_range, o_class) => {
+    return new Promise(function(resolve, reject) {
+        // Create a new graph
+        var graph = new Graph({
+            multigraph: true
+        });
+        // Define the store for SPARQL queries
+        var store;
+        // Add semantic types to the graph
+        var types = JSON.parse(fs.readFileSync(st_path, 'utf8'));
+        for (var t in types) {
+            graph = add_semantic_types(types[t], graph)
+        }
+        // Promises sequence begins
+        var sequence = Promise.resolve();
+        sequence.then(function() {
+            // Initialize graph storage
+            console.log();
+            console.log('Initializing graph...');
+            return initialize_ontology_storage(ont_path);
+        }).catch(function(err) {
+            console.log('Error in the initialization stage:');
+            console.log(err);
+        }).then(function(st) {
+            // Save the store created after the graph initialization
+            store = st;
+            // Get closures
+            console.log('Getting closures...');
+            var class_nodes = get_class_nodes(graph);
+            var queries = [];
+            class_nodes.forEach(function(cn) {
+                queries.push(sparql.CLOSURE_QUERY(cn, o_class));
+            });
+            var funcs = queries.map(query => () => get_closures(query, store));
+            return promise_sequence(funcs);
+        }).catch(function(err) {
+            console.log('Error when getting closures:');
+            console.log(err);
+        }).then(function(closures) {
+            // Add closures
+            console.log('Adding closures...');
+            return add_closures(closures, graph);
+        }).catch(function(err) {
+            console.log('Error when adding closures:');
+            console.log(err);
+        }).then(function() {
+            // Get direct properties
+            console.log('Getting direct properties...');
+            var class_nodes = get_class_nodes(graph);
+            return get_all_direct_properties(store, class_nodes, p_domain, p_range);
+        }).catch(function(err) {
+            console.log('Error when getting direct properties:');
+            console.log(err);
+        }).then(function(direct_properties) {
+            // Add direct properties
+            console.log('Adding direct properties...');
+            return add_direct_properties(direct_properties, graph);
+        }).catch(function() {
+            console.log('Error when adding direct properties:');
+            console.log(err);
+        }).then(function() {
+            // Get all super classes
+            console.log('Getting all super classes...');
+            var class_nodes = get_class_nodes(graph);
+            return get_all_super_classes(store, class_nodes);
+        }).catch(function(err) {
+            console.log('Error when getting all super_classes:');
+            console.log(err);
+        }).then(function(super_classes) {
+            // Get all inherited properties
+            console.log('Getting all inherited properties...');
+            return get_all_inherited_properties(store, super_classes, p_domain, p_range);
+        }).catch(function(err) {
+            console.log('Error when getting all inherited properties:');
+            console.log(err);
+        }).then(function(inherited_properties) {
+            // Add inherited_properties
+            return add_inherited_properties(inherited_properties, graph);
+        }).catch(function(err) {
+            console.log('Error when adding inherited properties:');
+            console.log(err);
+        }).then(function() {
+            // Get all classes
+            console.log('Getting all classes of the ontology...');
+            return get_all_classes(store);
+        }).catch(function(err) {
+            console.log('Error when getting all classes:');
+            console.log(err);
+        }).then(function(all_classes) {
+            // Save all classes of the ontology in a file
+            save_all_classes(all_classes, ont_path);
+        }).then(function() {
+            console.log('Checking graph components...');
+            if (graphlib.alg.components(graph).length > 1) {
+                console.log('Warning! Need to add owl:Thing node and add relations to it');
+                add_properties_to_thing(graph);
+            }
+            console.log('Graph building complete!\n');
+            resolve(graph);
+        }).catch(function(err) {
+            console.log('Error in building the graph:');
+            console.log(err);
+        });
+    });
+}
 
-                exports.build_graph = build_graph;
+exports.build_graph = build_graph;

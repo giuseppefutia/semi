@@ -12,19 +12,11 @@ $ npm install
 The multi-edge and weighted graph includes all plausible semantic models of a data source based on a domain ontology. To create such graph, you can run the following commands:
 
 ```bash
-<<<<<<< HEAD
-$ node run/graph.js data/pc/semantic_types/Z4ADEA9DE4_st.json data/pc/ontology/public-contracts.ttl rdfs:domain rdfs:range owl:Class data/pc/semantic_models/Z4ADEA9DE4
-```
-
-* `data/pc/semantic_types/Z4ADEA9DE4_st.json` is the input semantic type file.
-* `data/pc/ontology/public-contracts.ttl` is the domain ontology file.
-=======
 $ node run/graph.js data/pc/semantic_types/Z4ADEA9DE4_st.json data/pc/ontology/ontology.ttl rdfs:domain rdfs:range owl:Class data/pc/semantic_models/Z4ADEA9DE4
 ```
 
 * `data/pc/semantic_types/Z4ADEA9DE4_st.json` is the input semantic type file.
 * `data/pc/ontology/ontology.ttl` is the domain ontology file.
->>>>>>> evaluation
 * `rdfs:domain` is the domain property in the ontology.
 * `rdfs:range` is the range property in the ontology.
 * `owl:Class` is the property in the ontology to identify classes.
@@ -53,27 +45,16 @@ This script generates two types of steiner trees:
 * `data/pc/semantic_models/Z4ADEA9DE4_steiner.json` is a beautified representation of the steiner tree.
 
 ## Initial Semantic Model
-<<<<<<< HEAD
-For the automatic generation of JARQL, you can run the following command:
-
-```bash
-$ node run/steiner_tree.js data/pc/semantic_types/Z4ADEA9DE4_st.json data/pc/semantic_models/Z4ADEA9DE4_graph.json data/pc/semantic_models/Z4ADEA9DE4
-=======
 For the automatic generation of the semantic model, you can run the following command:
 
 ```bash
 node run/jarql.js data/pc/semantic_types/Z4ADEA9DE4_st.json data/pc/semantic_models/Z4ADEA9DE4_steiner.json data/pc/ontology/classes.json data/pc/semantic_models/Z4ADEA9DE4
->>>>>>> evaluation
 ```
 
 * `data/pc/semantic_types/Z4ADEA9DE4_st.json` is the input semantic type file.
 * `data/pc/semantic_models/Z4ADEA9DE4_steiner.json` is the beautified representation of the steiner tree.
-<<<<<<< HEAD
-* `data/pc/semantic_models/Z4ADEA9DE4_sm.sparql` is the output JARQL semantic model.
-=======
 * `data/pc/ontology/classes.json` is the list of all classes in the ontology.
 * `data/pc/semantic_models/Z4ADEA9DE4.query` is the output JARQL semantic model.
->>>>>>> evaluation
 
 In order to create the RDF represention of the data, you have to run the JARQL tool.
 
@@ -89,9 +70,5 @@ Once the .jar file is available, you can run the following command:
 ```
 $ mv target/jarql-1.0.1-SNAPSHOT.jar ../../../jarql-1.0.1-SNAPSHOT.jar
 $ cd ../../../
-<<<<<<< HEAD
-$ java -jar jarql-1.0.1-SNAPSHOT.jar data/pc/input/Z4ADEA9DE4.json data/pc/semantic_models/Z4ADEA9DE4_sm.query > data/pc/output/Z4ADEA9DE4.rdf
-=======
 $ java -jar jarql-1.0.1-SNAPSHOT.jar data/pc/input/Z4ADEA9DE4.json data/pc/semantic_models/Z4ADEA9DE4.query > data/pc/output/Z4ADEA9DE4.rdf
->>>>>>> evaluation
 ```
