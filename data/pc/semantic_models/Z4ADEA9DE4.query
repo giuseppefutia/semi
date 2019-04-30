@@ -15,17 +15,23 @@ PREFIX skos:      <http://www.w3.org/2004/02/skos/core#>
 PREFIX vann:      <http://purl.org/vocab/vann/>
 PREFIX xsd:       <http://www.w3.org/2001/XMLSchema#>
 PREFIX conference: <http://conference#>
-
 PREFIX jarql:     <http://jarql.com/>
 
 CONSTRUCT {
     ?Contract0 dcterms:identifier ?cig.
+    ?Contract0 rdf:type pc:Contract.
     ?Contract0 rdfs:description ?oggetto.
+    ?Contract0 rdf:type pc:Contract.
     ?BusinessEntity0 dcterms:identifier ?strutturaProponente__codiceFiscaleProp.
+    ?BusinessEntity0 rdf:type gr:BusinessEntity.
     ?BusinessEntity1 dcterms:identifier ?partecipanti__identificativo.
+    ?BusinessEntity1 rdf:type gr:BusinessEntity.
     ?BusinessEntity1 rdfs:label ?partecipanti__ragioneSociale.
+    ?BusinessEntity1 rdf:type gr:BusinessEntity.
     ?BusinessEntity1 dcterms:identifier ?aggiudicatari__identificativo.
+    ?BusinessEntity1 rdf:type gr:BusinessEntity.
     ?BusinessEntity1 rdfs:label ?aggiudicatari__ragioneSociale.
+    ?BusinessEntity1 rdf:type gr:BusinessEntity.
     ?Contract0 pc:contractingAuthority ?BusinessEntity0.
     ?Contract0 pc:contractingAuthority ?BusinessEntity1.
 }
@@ -42,7 +48,7 @@ WHERE {
     ?aggiudicatari jarql:identificativo ?aggiudicatari__identificativo.
     jarql:root jarql:aggiudicatari ?aggiudicatari.
     ?aggiudicatari jarql:ragioneSociale ?aggiudicatari__ragioneSociale.
-    BIND (URI(CONCAT('http://pc.org/contracts/',?cig)) as ?Contract0)
-    BIND (URI(CONCAT('http://pc.org/businessEntities/',?strutturaProponente__codiceFiscaleProp)) as ?BusinessEntity0)
-    BIND (URI(CONCAT('http://pc.org/businessEntities/',?partecipanti__identificativo)) as ?BusinessEntity1)
+    BIND (URI(CONCAT('http://purl.org/procurement/public-contracts/contract/',?cig)) as ?Contract0)
+    BIND (URI(CONCAT('undefined',?strutturaProponente__codiceFiscaleProp)) as ?BusinessEntity0)
+    BIND (URI(CONCAT('undefined',?partecipanti__identificativo)) as ?BusinessEntity1)
 }
