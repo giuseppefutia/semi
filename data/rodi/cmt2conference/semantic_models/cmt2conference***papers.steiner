@@ -1,0 +1,173 @@
+{
+    "_isDirected": true,
+    "_isMultigraph": true,
+    "_isCompound": false,
+    "_nodes": {
+        "conference:Contribution_1th_author0": {
+            "type": "class_uri",
+            "label": "conference:Contribution_1th_author"
+        },
+        "papers__author": {
+            "type": "attribute_name",
+            "label": "papers__author"
+        },
+        "conference:Paper0": {
+            "type": "class_uri",
+            "label": "conference:Paper"
+        },
+        "papers__paper_id": {
+            "type": "attribute_name",
+            "label": "papers__paper_id"
+        }
+    },
+    "_in": {
+        "conference:Contribution_1th_author0": {
+            "conference:Paper0\u0001conference:Contribution_1th_author0\u0001conference:Paper0***conference:Contribution_1th_author0\u0001inheritedconference:contributes***inverted\u00014": {
+                "v": "conference:Paper0",
+                "w": "conference:Contribution_1th_author0",
+                "name": "conference:Paper0***conference:Contribution_1th_author0",
+                "value": {
+                    "type": "inherited",
+                    "label": "conference:contributes***inverted"
+                },
+                "weight": 4
+            }
+        },
+        "papers__author": {
+            "conference:Contribution_1th_author0\u0001papers__author\u0001conference:Contribution_1th_author0***papers__author\u0001st_property_uridcterms:identifier\u00011": {
+                "v": "conference:Contribution_1th_author0",
+                "w": "papers__author",
+                "name": "conference:Contribution_1th_author0***papers__author",
+                "value": {
+                    "label": "dcterms:identifier",
+                    "type": "st_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "conference:Paper0": {
+            "papers__paper_id\u0001conference:Paper0\u0001papers__paper_id***conference:Paper0\u0001st_property_uridcterms:identifier***inverted\u00011": {
+                "v": "papers__paper_id",
+                "w": "conference:Paper0",
+                "name": "papers__paper_id***conference:Paper0",
+                "value": {
+                    "type": "st_property_uri",
+                    "label": "dcterms:identifier***inverted"
+                },
+                "weight": 1
+            }
+        },
+        "papers__paper_id": {}
+    },
+    "_preds": {
+        "conference:Contribution_1th_author0": {
+            "conference:Paper0": 1
+        },
+        "papers__author": {
+            "conference:Contribution_1th_author0": 1
+        },
+        "conference:Paper0": {
+            "papers__paper_id": 1
+        },
+        "papers__paper_id": {}
+    },
+    "_out": {
+        "conference:Contribution_1th_author0": {
+            "conference:Contribution_1th_author0\u0001papers__author\u0001conference:Contribution_1th_author0***papers__author\u0001st_property_uridcterms:identifier\u00011": {
+                "v": "conference:Contribution_1th_author0",
+                "w": "papers__author",
+                "name": "conference:Contribution_1th_author0***papers__author",
+                "value": {
+                    "label": "dcterms:identifier",
+                    "type": "st_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "papers__author": {},
+        "conference:Paper0": {
+            "conference:Paper0\u0001conference:Contribution_1th_author0\u0001conference:Paper0***conference:Contribution_1th_author0\u0001inheritedconference:contributes***inverted\u00014": {
+                "v": "conference:Paper0",
+                "w": "conference:Contribution_1th_author0",
+                "name": "conference:Paper0***conference:Contribution_1th_author0",
+                "value": {
+                    "type": "inherited",
+                    "label": "conference:contributes***inverted"
+                },
+                "weight": 4
+            }
+        },
+        "papers__paper_id": {
+            "papers__paper_id\u0001conference:Paper0\u0001papers__paper_id***conference:Paper0\u0001st_property_uridcterms:identifier***inverted\u00011": {
+                "v": "papers__paper_id",
+                "w": "conference:Paper0",
+                "name": "papers__paper_id***conference:Paper0",
+                "value": {
+                    "type": "st_property_uri",
+                    "label": "dcterms:identifier***inverted"
+                },
+                "weight": 1
+            }
+        }
+    },
+    "_sucs": {
+        "conference:Contribution_1th_author0": {
+            "papers__author": 1
+        },
+        "papers__author": {},
+        "conference:Paper0": {
+            "conference:Contribution_1th_author0": 1
+        },
+        "papers__paper_id": {
+            "conference:Paper0": 1
+        }
+    },
+    "_edgeObjs": {
+        "conference:Contribution_1th_author0\u0001papers__author\u0001conference:Contribution_1th_author0***papers__author\u0001st_property_uridcterms:identifier\u00011": {
+            "v": "conference:Contribution_1th_author0",
+            "w": "papers__author",
+            "name": "conference:Contribution_1th_author0***papers__author",
+            "value": {
+                "label": "dcterms:identifier",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        "conference:Paper0\u0001conference:Contribution_1th_author0\u0001conference:Paper0***conference:Contribution_1th_author0\u0001inheritedconference:contributes***inverted\u00014": {
+            "v": "conference:Paper0",
+            "w": "conference:Contribution_1th_author0",
+            "name": "conference:Paper0***conference:Contribution_1th_author0",
+            "value": {
+                "type": "inherited",
+                "label": "conference:contributes***inverted"
+            },
+            "weight": 4
+        },
+        "papers__paper_id\u0001conference:Paper0\u0001papers__paper_id***conference:Paper0\u0001st_property_uridcterms:identifier***inverted\u00011": {
+            "v": "papers__paper_id",
+            "w": "conference:Paper0",
+            "name": "papers__paper_id***conference:Paper0",
+            "value": {
+                "type": "st_property_uri",
+                "label": "dcterms:identifier***inverted"
+            },
+            "weight": 1
+        }
+    },
+    "_edgeLabels": {
+        "conference:Contribution_1th_author0\u0001papers__author\u0001conference:Contribution_1th_author0***papers__author\u0001st_property_uridcterms:identifier\u00011": {
+            "label": "dcterms:identifier",
+            "type": "st_property_uri"
+        },
+        "conference:Paper0\u0001conference:Contribution_1th_author0\u0001conference:Paper0***conference:Contribution_1th_author0\u0001inheritedconference:contributes***inverted\u00014": {
+            "type": "inherited",
+            "label": "conference:contributes***inverted"
+        },
+        "papers__paper_id\u0001conference:Paper0\u0001papers__paper_id***conference:Paper0\u0001st_property_uridcterms:identifier***inverted\u00011": {
+            "type": "st_property_uri",
+            "label": "dcterms:identifier***inverted"
+        }
+    },
+    "_nodeCount": 4,
+    "_edgeCount": 3
+}

@@ -1,0 +1,79 @@
+{
+    "options": {
+        "directed": true,
+        "multigraph": true,
+        "compound": false
+    },
+    "nodes": [
+        {
+            "v": "conference:Paper0",
+            "value": {
+                "type": "class_uri",
+                "label": "conference:Paper"
+            }
+        },
+        {
+            "v": "co_write_paper__paper",
+            "value": {
+                "type": "attribute_name",
+                "label": "co_write_paper__paper"
+            }
+        },
+        {
+            "v": "conference:Contribution_co_author0",
+            "value": {
+                "type": "class_uri",
+                "label": "conference:Contribution_co_author"
+            }
+        },
+        {
+            "v": "co_write_paper__co_author",
+            "value": {
+                "type": "attribute_name",
+                "label": "co_write_paper__co_author"
+            }
+        }
+    ],
+    "edges": [
+        {
+            "v": "conference:Paper0",
+            "w": "co_write_paper__paper",
+            "name": "conference:Paper0***co_write_paper__paper",
+            "value": {
+                "label": "dcterms:identifier",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "conference:Contribution_co_author0",
+            "w": "co_write_paper__co_author",
+            "name": "conference:Contribution_co_author0***co_write_paper__co_author",
+            "value": {
+                "label": "dcterms:identifier",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "conference:Paper0",
+            "w": "conference:Contribution_co_author0",
+            "name": "conference:Paper0***conference:Contribution_co_author0",
+            "value": {
+                "label": "conference:has_authors",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "conference:Contribution_co_author0",
+            "w": "conference:Paper0",
+            "name": "conference:Contribution_co_author0***conference:Paper0",
+            "value": {
+                "label": "conference:contributes",
+                "type": "inherited"
+            },
+            "weight": 4
+        }
+    ]
+}
