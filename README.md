@@ -19,7 +19,8 @@ $ conda install -c anaconda pandas
 $ conda install -c pytorch pytorch
 ```
 
-# Step-by-step semantic models generation
+# Step-by-step Semantic Models Generation
+Using the following scripts, you can generate a semantic model starting from an input source, a reference ontology and a semantic type definition.
 
 ## Multi-edge and Weighted Graph
 The multi-edge and weighted graph includes all plausible semantic models of a data source based on a domain ontology. To create such graph, you can run the following commands:
