@@ -8,10 +8,12 @@ var run = () => {
     }
     var st_path = process.argv.slice(2)[0];
     var steiner_path = process.argv.slice(3)[0];
-    var sm_path = process.argv.slice(4)[0];
+    var classes_path = process.argv.slice(4)[0];
+    var sm_path = process.argv.slice(5)[0];
     var st = JSON.parse(fs.readFileSync(st_path))[0];
     var steiner_tree = JSON.parse(fs.readFileSync(steiner_path));
-    var jarql_to_print = jarql.build_jarql(st, steiner_tree);
+    var classes = JSON.parse(fs.readFileSync(classes_path))['classes'];
+    var jarql_to_print = jarql.build_jarql(st, steiner_tree, classes_path);
     fs.writeFileSync(sm_path + '.query', jarql_to_print);
     console.log('The JARQL file is written in: ' + sm_path + '.query');
 }

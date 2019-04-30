@@ -1,9 +1,7 @@
+var fs = require('fs');
+
 var get_prefix_strings = function() {
     return PREFIX_STRINGS;
-}
-
-var get_instance_uris = function() {
-    return INSTANCE_URIS;
 }
 
 var clean_prefix = function(uri) {
@@ -57,8 +55,21 @@ var generate_prefix_string = () => {
 
     var prefix_str =
         `${prefix_arr.join('_**_').split('_**_').map((item) => `${item}`).join('')}`
-
     return prefix_str;
+}
+
+var generate_instance_uris = (all_classes) => {
+    var instances_uris = {};
+    var classes = JSON.parse(fs.readFileSync(all_classes, 'utf8'))['all_classes'];
+    for (var c in classes) {
+        // Get the prefix to build the URIS of entities
+        var value = classes[c].split(':')[0] + ':';
+        var middle_uri = classes[c].split(':')[1].toLowerCase() + '/';
+        var key = Object.keys(PREFIX).find(key => PREFIX[key] === value).replace('#', '');
+        var basic_uri = key + '/' + middle_uri;
+        instances_uris[classes[c].split(':')[1]] = basic_uri;
+    }
+    return instances_uris;
 }
 
 var PREFIX = {
@@ -82,22 +93,10 @@ var PREFIX = {
     'http://conference#': 'conference:'
 }
 
-var INSTANCE_URIS = {
-    'pc:Contract': 'http://pc.org/contracts/',
-    'gr:BusinessEntity': 'http://pc.org/businessEntities/',
-    'conference:Paper': 'http://semi.org/papers/',
-    'conference:Contribution_1th_author': 'http://semi.org/persons/',
-    'conference:Contribution_co_author': 'http://semi.org/persons/',
-    'conference:Reviewer': 'http://semi.org/persons/',
-    'conference:Review': 'http://semi.org/reviews/',
-    'conference:Program_committee': 'http://semi.org/program_committees/',
-    'conference:Person': 'http://semi.org/persons/'
-}
-
 var PREFIX_STRINGS = generate_prefix_string();
 
 exports.get_prefix_strings = get_prefix_strings;
-exports.get_instance_uris = get_instance_uris;
+exports.generate_instance_uris = generate_instance_uris;
 exports.clean_prefix = clean_prefix;
 exports.get_clean_results = get_clean_results;
 exports.remove_array_duplicates = remove_array_duplicates;
