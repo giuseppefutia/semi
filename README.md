@@ -89,6 +89,7 @@ $ java -jar jarql-1.0.1-SNAPSHOT.jar data/pc/input/Z4ADEA9DE4.json data/pc/seman
 
 ## R-GCN Model Generation and Testing
 
-```bash
-python link_predict.py -d ../../../data/pc/ --gpu 0
+```
+$ cd /dgl/rgcn/link-prediction
+$ python link_predict.py -d ../../../data/pc/ --gpu 0
 ```
