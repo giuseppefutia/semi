@@ -19,7 +19,9 @@ PREFIX jarql:     <http://jarql.com/>
 
 CONSTRUCT {
     ?Paper0 dcterms:identifier ?co_write_paper__paper.
+    ?Paper0 rdf:type conference:Paper.
     ?Contribution_co_author0 dcterms:identifier ?co_write_paper__co_author.
+    ?Contribution_co_author0 rdf:type conference:Contribution_co_author.
     ?Contribution_co_author0 conference:contributes ?Paper0.
 }
 WHERE {
@@ -27,6 +29,6 @@ WHERE {
     ?co_write_paper jarql:paper ?co_write_paper__paper.
     jarql:root jarql:co_write_paper ?co_write_paper.
     ?co_write_paper jarql:co_author ?co_write_paper__co_author.
-    BIND (URI(CONCAT('http://semi.org/papers/',?co_write_paper__paper)) as ?Paper0)
-    BIND (URI(CONCAT('http://semi.org/persons/',?co_write_paper__co_author)) as ?Contribution_co_author0)
+    BIND (URI(CONCAT('http://conference/paper/',?co_write_paper__paper)) as ?Paper0)
+    BIND (URI(CONCAT('http://conference/contribution_co_author/',?co_write_paper__co_author)) as ?Contribution_co_author0)
 }

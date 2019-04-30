@@ -19,7 +19,9 @@ PREFIX jarql:     <http://jarql.com/>
 
 CONSTRUCT {
     ?Review0 dcterms:identifier ?reviews__id.
+    ?Review0 rdf:type conference:Review.
     ?Reviewer0 dcterms:identifier ?reviews__written.
+    ?Reviewer0 rdf:type conference:Reviewer.
     ?Reviewer0 conference:contributes ?Review0.
 }
 WHERE {
@@ -27,6 +29,6 @@ WHERE {
     ?reviews jarql:id ?reviews__id.
     jarql:root jarql:reviews ?reviews.
     ?reviews jarql:written ?reviews__written.
-    BIND (URI(CONCAT('http://semi.org/reviews/',?reviews__id)) as ?Review0)
-    BIND (URI(CONCAT('http://semi.org/persons/',?reviews__written)) as ?Reviewer0)
+    BIND (URI(CONCAT('http://conference/review/',?reviews__id)) as ?Review0)
+    BIND (URI(CONCAT('http://conference/reviewer/',?reviews__written)) as ?Reviewer0)
 }
