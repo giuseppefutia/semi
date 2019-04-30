@@ -86,9 +86,15 @@ class LinkPredict(nn.Module):
 
 def main(args):
     # prepare data for rdf produced by semi from rodi
-    # data = load_data(args.dataset)
+    '''
+    data = load_data(args.dataset)
+    num_nodes = data.num_nodes
+    train_data = data.train
+    valid_data = data.valid
+    test_data = data.test
+    num_rels = data.num_rels
+    '''
     data = utils.prepare_rodi_data(args.dataset)
-
     num_nodes = data['num_nodes']
     train_data = data['train']
     valid_data = data['valid']
@@ -110,13 +116,9 @@ def main(args):
                         use_cuda=use_cuda,
                         reg_param=args.regularization)
 
-    # training, validation, and testing triplets
-    train_data = torch.LongTensor(train_data)  # Added by GF
+    # validation, and testing triplets
     valid_data = torch.LongTensor(valid_data)
     test_data = torch.LongTensor(test_data)
-
-    print(train_data)
-    print(train_data.transpose())
 
     # build test graph
     test_graph, test_rel, test_norm = utils.build_test_graph(
