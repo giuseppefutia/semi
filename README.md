@@ -1,12 +1,25 @@
-# semi
 A Semantic Modeling Machine.
 
-## Installation
-To install the tool, you need to run:
+# Installation
+To install the node.js component, you need to run:
 
 ```bash
 $ npm install
 ```
+
+To install the python component, you need to run:
+
+```bash
+$ conda create -n dgl python=3.6
+$ conda activate dgl
+$ conda install -c dglteam dgl
+$ conda install requests
+$ conda install -c conda-forge rdflib
+$ conda install -c anaconda pandas
+$ conda install -c pytorch pytorch
+```
+
+# Step-by-step semantic models generation
 
 ## Multi-edge and Weighted Graph
 The multi-edge and weighted graph includes all plausible semantic models of a data source based on a domain ontology. To create such graph, you can run the following commands:
@@ -48,7 +61,7 @@ This script generates two types of steiner trees:
 For the automatic generation of the semantic model, you can run the following command:
 
 ```bash
-node run/jarql.js data/pc/semantic_types/Z4ADEA9DE4_st.json data/pc/semantic_models/Z4ADEA9DE4_steiner.json data/pc/ontology/classes.json data/pc/semantic_models/Z4ADEA9DE4
+$ node run/jarql.js data/pc/semantic_types/Z4ADEA9DE4_st.json data/pc/semantic_models/Z4ADEA9DE4_steiner.json data/pc/ontology/classes.json data/pc/semantic_models/Z4ADEA9DE4
 ```
 
 * `data/pc/semantic_types/Z4ADEA9DE4_st.json` is the input semantic type file.
@@ -71,4 +84,10 @@ Once the .jar file is available, you can run the following command:
 $ mv target/jarql-1.0.1-SNAPSHOT.jar ../../../jarql-1.0.1-SNAPSHOT.jar
 $ cd ../../../
 $ java -jar jarql-1.0.1-SNAPSHOT.jar data/pc/input/Z4ADEA9DE4.json data/pc/semantic_models/Z4ADEA9DE4.query > data/pc/output/Z4ADEA9DE4.rdf
+```
+
+## R-GCN Model Generation and Testing
+
+```bash
+python link_predict.py -d ../../../data/pc/ --gpu 0
 ```
