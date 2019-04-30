@@ -20,6 +20,15 @@ for (var i in files) {
     }
 }
 
+// Remove all scripts
+for (var i in files) {
+    var script_dir = basic + files[i] + '/scripts/';
+    var script_files = fs.readdirSync(script_dir);
+    for (var s in script_files) {
+        fs.unlinkSync(path.join(script_dir, script_files[s]));
+    }
+}
+
 // Generate scripts for semantic modeling
 var keywords = ['graph', 'steiner', 'jarql', 'rdf'];
 
@@ -30,7 +39,7 @@ for (var i in files) {
     for (var s in sts) {
         var scripts = [];
         for (var k in keywords) {
-            // Write new file or append using keywords
+            // Write new file and append using keywords
             var content = '';
             switch (keywords[k]) {
                 case 'graph':
@@ -56,6 +65,7 @@ for (var i in files) {
                         'semantic_types' + '/' +
                         sts[s] + ' ' +
                         basic + files[i] + '/semantic_models/' + sts[s].split('_st.json')[0] + '_steiner.json ' +
+                        basic + files[i] + '/ontology/classes.json ' +
                         basic + files[i] + '/semantic_models/' + sts[s].split('_st.json')[0] + '\n';
                     break;
                 case 'rdf':
@@ -71,16 +81,18 @@ for (var i in files) {
         }
     }
 
-    // Script launching all other scripts in a single scenario
     if (sts.length > 0) {
+        // Script launching all other scripts in a single scenario
         var final_name = basic + files[i] + '/scripts/' + files[i] + '.sh';
-        fs.appendFileSync(final_name, 'sudo chmod u+x ' + basic + files[i] + '/scripts/ \n');
+        fs.appendFileSync(final_name, 'sudo chmod u+x ' + basic + files[i] + '/scripts/* \n');
         for (var sc in scripts) {
             fs.appendFileSync(final_name, scripts[sc] + '\n');
         }
+        fs.chmodSync(final_name, 0o777);
+
+        // Merge RDF files
+        var rdf_dir = basic + files[i] + '/output/';
+        var final_rdf = require('child_process').execSync('cat ' + rdf_dir + '*').toString('UTF-8');
+        fs.writeFileSync(rdf_dir + 'final.rdf', final_rdf);
     }
 }
-
-// TODO: add permission to the scripts 
-
-// TODO: RDF merge of all files
