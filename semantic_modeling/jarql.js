@@ -6,6 +6,11 @@ var JARQL_ROOT = JARQL + 'root';
 
 // TODO Create an iterative call for deep jsons (and related deep semantic types) --> Maybe using keys?
 
+// XXX Pay attention to this: for now it is a bad choice, but I run jarql.js for each file, so it should
+// be enough safe
+var closure_entities = [];
+var closure_references = [];
+
 var write_triple = (subject, predicate, object) => {
     return '    ' + subject + ' ' + predicate + ' ' + object + '.\n';
 }
@@ -55,17 +60,16 @@ var create_semantic_relations = (steiner, st_classes, classes) => {
     var body = '';
     var nodes = steiner.nodes;
     var edges = steiner.edges;
-    var closure_entities = [];
 
     for (var i in edges) {
         if (edges[i].value.type !== 'st_property_uri') { // Semantic types are already managed in build_construct
             var label = edges[i].value.label;
             if (label.indexOf('inverted') === -1) {
-                var triple = process_edge_values(edges[i].v, label, edges[i].w, st_classes, closure_entities, classes);
+                var triple = process_edge_values(edges[i].v, label, edges[i].w, st_classes, classes);
                 body += write_triple(triple['subject'], triple['property'], triple['object']);
             } else {
                 var subject = '?' + edges[i].w.split(':')[1];
-                var triple = process_edge_values(edges[i].w, label.split('***')[0], edges[i].v, st_classes, closure_entities, classes);
+                var triple = process_edge_values(edges[i].w, label.split('***')[0], edges[i].v, st_classes, classes);
                 body += write_triple(triple['subject'], triple['property'], triple['object']);
             }
         }
@@ -81,7 +85,7 @@ var create_semantic_relations = (steiner, st_classes, classes) => {
  * entities [0,1,0] field define in the semantic type file.
  * For the closure classes the algorithm needs to create the entities in an automatic way!
  */
-var process_edge_values = (edge_subject, edge_property, edge_object, st_classes, closure_entities, classes) => {
+var process_edge_values = (edge_subject, edge_property, edge_object, st_classes, classes) => {
     var triple = {};
     var instances_uris = utils.generate_instance_uris(classes);
 
@@ -106,34 +110,35 @@ var process_edge_values = (edge_subject, edge_property, edge_object, st_classes,
         else {
             // Get last element of the subject (in other words its index)
             var st_index = subject.slice(-1)
-            object = '<' + instances_uris[object.substr(1)] + object.substr(1) + st_index + '>';
+            object = object + st_index;
             closure_entities.push(object);
+            closure_references.push(subject);
         }
     } else if (is_subject_st_class === -1 && is_object_st_class !== -1) {
         // The object is a semantic type and the subject is not
         // Get the last element of the object (in other words its index)
         var st_index = object.slice(-1);
-        subject = '<' + instances_uris[subject.substr(1)] + subject.substr(1) + st_index + '>';
+        subject = subject + st_index;
         closure_entities.push(subject);
+        closure_references.push(object);
         if (object === '?Thing') object = 'owl:Thing';
     } else {
         // Both entities are not semantic types
-        var subject_matches = closure_entities.filter(s => s.includes(subject.substr(1)))
+        var subject_matches = closure_entities.filter(s => s.includes(subject))
         var subject_index = 0;
         for (s in subject_matches) {
             var index = closure_entities.indexOf(subject_matches[s]);
             if (index > subject_index) subject_index = index;
         }
-        subject = '<' + instances_uris[subject.substr(1)] + subject.substr(1) + subject_index + '>';
-
+        subject = subject + subject_index;
         if (object === '?Thing') object = 'owl:Thing';
         else {
-            var object_matches = closure_entities.filter(s => s.includes(object.substr(1)))
+            var object_matches = closure_entities.filter(s => s.includes(object))
             var object_index = 0;
             for (o in object_matches) {
                 var index = closure_entities.indexOf(object_matches[o]);
                 if (index > object_index) object_index = index;
-                object = '<' + instances_uris[object.substr(1)] + object.substr(1) + object_index + '>';
+                object = object + object_index;
             }
         }
     }
@@ -185,7 +190,9 @@ var build_where_bindings = (st, classes) => {
     var semantic_types = st.semantic_types;
     var uris = st.uris;
     var binded = {};
+    var closures_support = [];
 
+    // Binding of semantic types
     for (var i in attributes) {
         var ont_class = semantic_types[i][0].split('***')[0]; // XXX Pay attention to the index 0 of semantic types
         var reference_entity = '?' + ont_class.split(':')[1] + entities[i]; // I do not need the class of the semantic type, so I split on :
@@ -193,11 +200,30 @@ var build_where_bindings = (st, classes) => {
             binded[reference_entity] = 1;
             var base_uri = instances_uris[semantic_types[i][0].split('***')[0].split(':')[1]]; // Check if this splitter is ok
             var attribute_value = '?' + attributes[i];
+            // Store reference_entity and attribute_value to help the binding of closures
+            cl = {};
+            cl['reference_entity'] = reference_entity;
+            cl['attribute_value'] = attribute_value;
+            closures_support.push(cl);
             // Reference entity should be equal to the subject defined in the construct section
             var bind = write_bind(base_uri, attribute_value, reference_entity);
             body += bind;
         }
     }
+
+    // Binding of closure entities
+    for (var c in closure_entities) {
+        var reference_entity = closure_entities[c];
+        var base_uri = instances_uris[reference_entity.substr(1).slice(0, -1)];
+        var reference_st = closure_references[c];
+        var index = closures_support.map(function(e) {
+            return e['reference_entity'];
+        }).indexOf(reference_st);
+        var attribute_value = closures_support[index]['attribute_value'];
+        var bind = write_bind(base_uri, attribute_value, reference_entity);
+        body += bind;
+    }
+
     return body;
 }
 
