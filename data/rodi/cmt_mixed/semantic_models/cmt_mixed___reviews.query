@@ -19,7 +19,9 @@ PREFIX cmt:       <http://cmt#>
 PREFIX jarql:     <http://jarql.com/>
 
 CONSTRUCT {
+    ?Review0 dcterms:identifier ?reviews__id.
     ?Review0 rdf:type cmt:Review.
+    ?Reviewer0 dcterms:identifier ?reviews__written.
     ?Reviewer0 rdf:type cmt:Reviewer.
     ?Reviewer0 cmt:hasConflictOfInterest ?Review0.
 }

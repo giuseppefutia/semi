@@ -19,7 +19,9 @@ PREFIX cmt:       <http://cmt#>
 PREFIX jarql:     <http://jarql.com/>
 
 CONSTRUCT {
+    ?Conference0 dcterms:identifier ?person_conference__cid.
     ?Conference0 rdf:type cmt:Conference.
+    ?Person0 dcterms:identifier ?person_conference__pid.
     ?Person0 rdf:type cmt:Person.
     ?ConferenceMember0 cmt:memberOfConference ?Conference0.
     ?ConferenceMember0 rdfs:subClassOf owl:Thing.
