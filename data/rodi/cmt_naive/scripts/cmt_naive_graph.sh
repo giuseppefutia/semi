@@ -1,4 +1,4 @@
 node run/graph.js data/rodi/cmt_naive/semantic_types/cmt_naive___Paper_st.json data/rodi/cmt_naive/ontology/ontology.ttl rdfs:domain rdfs:range owl:Class data/rodi/cmt_naive/semantic_models/cmt_naive___Paper
-node run/graph.js data/rodi/cmt_naive/semantic_types/cmt_naive___ProgramCommitteeMember_st.json data/rodi/cmt_naive/ontology/ontology.ttl rdfs:domain rdfs:range owl:Class data/rodi/cmt_naive/semantic_models/cmt_naive___ProgramCommitteeMember
 node run/graph.js data/rodi/cmt_naive/semantic_types/cmt_naive___Review_st.json data/rodi/cmt_naive/ontology/ontology.ttl rdfs:domain rdfs:range owl:Class data/rodi/cmt_naive/semantic_models/cmt_naive___Review
 node run/graph.js data/rodi/cmt_naive/semantic_types/cmt_naive___co-writePaper_st.json data/rodi/cmt_naive/ontology/ontology.ttl rdfs:domain rdfs:range owl:Class data/rodi/cmt_naive/semantic_models/cmt_naive___co-writePaper
+node run/graph.js data/rodi/cmt_naive/semantic_types/cmt_naive___hasProgramCommitteeMember_st.json data/rodi/cmt_naive/ontology/ontology.ttl rdfs:domain rdfs:range owl:Class data/rodi/cmt_naive/semantic_models/cmt_naive___hasProgramCommitteeMember

@@ -19,20 +19,17 @@ PREFIX cmt:       <http://cmt#>
 PREFIX jarql:     <http://jarql.com/>
 
 CONSTRUCT {
-    ?Co-author0 dcterms:identifier ?co-writePaper__Co-author.
-    ?Co-author0 rdf:type cmt:Co-author.
-    ?Paper0 dcterms:identifier ?co-writePaper__Paper.
+    ?Co_author0 dcterms:identifier ?co_writePaper__co_author.
+    ?Co_author0 rdf:type cmt:Co_author.
+    ?Paper0 dcterms:identifier ?co_writePaper__Paper.
     ?Paper0 rdf:type cmt:Paper.
-    ?Paper0 cmt:readByMeta-Reviewer ?Meta-Reviewer0.
-    ?undefined0 rdfs:subClassOf owl:Thing.
-    ?Meta-Reviewer0 rdfs:subClassOf owl:Thing.
+    ?Paper0 cmt:hasCo_author ?Co_author0.
 }
 WHERE {
-    jarql:root jarql:co-writePaper ?co-writePaper.
-    ?co-writePaper jarql:Co-author ?co-writePaper__Co-author.
-    jarql:root jarql:co-writePaper ?co-writePaper.
-    ?co-writePaper jarql:Paper ?co-writePaper__Paper.
-    BIND (URI(CONCAT('undefined',?co-writePaper__Co-author)) as ?Co-author0)
-    BIND (URI(CONCAT('http://cmt/paper/',?co-writePaper__Paper)) as ?Paper0)
-    BIND (URI(CONCAT('http://cmt/meta-reviewer/',?co-writePaper__Paper)) as ?Meta-Reviewer0)
+    jarql:root jarql:co_writePaper ?co_writePaper.
+    ?co_writePaper jarql:co_author ?co_writePaper__co_author.
+    jarql:root jarql:co_writePaper ?co_writePaper.
+    ?co_writePaper jarql:Paper ?co_writePaper__Paper.
+    BIND (URI(CONCAT('http://cmt/co_author/',?co_writePaper__co_author)) as ?Co_author0)
+    BIND (URI(CONCAT('http://cmt/paper/',?co_writePaper__Paper)) as ?Paper0)
 }
