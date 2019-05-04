@@ -1,0 +1,69 @@
+{
+    "options": {
+        "directed": true,
+        "multigraph": true,
+        "compound": false
+    },
+    "nodes": [
+        {
+            "v": "cmt:ProgramCommittee0",
+            "value": {
+                "type": "class_uri",
+                "label": "cmt:ProgramCommittee"
+            }
+        },
+        {
+            "v": "cmt:ProgramCommitteeMember0",
+            "value": {
+                "type": "class_uri",
+                "label": "cmt:ProgramCommitteeMember"
+            }
+        },
+        {
+            "v": "hasprogramcommitteemember__programcommitteemember",
+            "value": {
+                "type": "attribute_name",
+                "label": "hasprogramcommitteemember__programcommitteemember"
+            }
+        },
+        {
+            "v": "hasprogramcommitteemember__programcommittee",
+            "value": {
+                "type": "attribute_name",
+                "label": "hasprogramcommitteemember__programcommittee"
+            }
+        }
+    ],
+    "edges": [
+        {
+            "v": "cmt:ProgramCommittee0",
+            "w": "cmt:ProgramCommitteeMember0",
+            "name": "cmt:ProgramCommittee0***cmt:ProgramCommitteeMember0",
+            "value": {
+                "type": "direct_property_uri",
+                "label": "cmt:memberOfProgramCommittee***inverted"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:ProgramCommitteeMember0",
+            "w": "hasprogramcommitteemember__programcommitteemember",
+            "name": "cmt:ProgramCommitteeMember0***hasprogramcommitteemember__programcommitteemember",
+            "value": {
+                "label": "dcterms:identifier",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "hasprogramcommitteemember__programcommittee",
+            "w": "cmt:ProgramCommittee0",
+            "name": "hasprogramcommitteemember__programcommittee***cmt:ProgramCommittee0",
+            "value": {
+                "type": "st_property_uri",
+                "label": "dcterms:identifier***inverted"
+            },
+            "weight": 1
+        }
+    ]
+}

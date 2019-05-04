@@ -1,0 +1,173 @@
+{
+    "_isDirected": true,
+    "_isMultigraph": true,
+    "_isCompound": false,
+    "_nodes": {
+        "cmt:ProgramCommittee0": {
+            "type": "class_uri",
+            "label": "cmt:ProgramCommittee"
+        },
+        "cmt:ProgramCommitteeMember0": {
+            "type": "class_uri",
+            "label": "cmt:ProgramCommitteeMember"
+        },
+        "hasprogramcommitteemember__programcommitteemember": {
+            "type": "attribute_name",
+            "label": "hasprogramcommitteemember__programcommitteemember"
+        },
+        "hasprogramcommitteemember__programcommittee": {
+            "type": "attribute_name",
+            "label": "hasprogramcommitteemember__programcommittee"
+        }
+    },
+    "_in": {
+        "cmt:ProgramCommittee0": {
+            "hasprogramcommitteemember__programcommittee\u0001cmt:ProgramCommittee0\u0001hasprogramcommitteemember__programcommittee***cmt:ProgramCommittee0\u0001st_property_uridcterms:identifier***inverted\u00011": {
+                "v": "hasprogramcommitteemember__programcommittee",
+                "w": "cmt:ProgramCommittee0",
+                "name": "hasprogramcommitteemember__programcommittee***cmt:ProgramCommittee0",
+                "value": {
+                    "type": "st_property_uri",
+                    "label": "dcterms:identifier***inverted"
+                },
+                "weight": 1
+            }
+        },
+        "cmt:ProgramCommitteeMember0": {
+            "cmt:ProgramCommittee0\u0001cmt:ProgramCommitteeMember0\u0001cmt:ProgramCommittee0***cmt:ProgramCommitteeMember0\u0001direct_property_uricmt:memberOfProgramCommittee***inverted\u00011": {
+                "v": "cmt:ProgramCommittee0",
+                "w": "cmt:ProgramCommitteeMember0",
+                "name": "cmt:ProgramCommittee0***cmt:ProgramCommitteeMember0",
+                "value": {
+                    "type": "direct_property_uri",
+                    "label": "cmt:memberOfProgramCommittee***inverted"
+                },
+                "weight": 1
+            }
+        },
+        "hasprogramcommitteemember__programcommitteemember": {
+            "cmt:ProgramCommitteeMember0\u0001hasprogramcommitteemember__programcommitteemember\u0001cmt:ProgramCommitteeMember0***hasprogramcommitteemember__programcommitteemember\u0001st_property_uridcterms:identifier\u00011": {
+                "v": "cmt:ProgramCommitteeMember0",
+                "w": "hasprogramcommitteemember__programcommitteemember",
+                "name": "cmt:ProgramCommitteeMember0***hasprogramcommitteemember__programcommitteemember",
+                "value": {
+                    "label": "dcterms:identifier",
+                    "type": "st_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "hasprogramcommitteemember__programcommittee": {}
+    },
+    "_preds": {
+        "cmt:ProgramCommittee0": {
+            "hasprogramcommitteemember__programcommittee": 1
+        },
+        "cmt:ProgramCommitteeMember0": {
+            "cmt:ProgramCommittee0": 1
+        },
+        "hasprogramcommitteemember__programcommitteemember": {
+            "cmt:ProgramCommitteeMember0": 1
+        },
+        "hasprogramcommitteemember__programcommittee": {}
+    },
+    "_out": {
+        "cmt:ProgramCommittee0": {
+            "cmt:ProgramCommittee0\u0001cmt:ProgramCommitteeMember0\u0001cmt:ProgramCommittee0***cmt:ProgramCommitteeMember0\u0001direct_property_uricmt:memberOfProgramCommittee***inverted\u00011": {
+                "v": "cmt:ProgramCommittee0",
+                "w": "cmt:ProgramCommitteeMember0",
+                "name": "cmt:ProgramCommittee0***cmt:ProgramCommitteeMember0",
+                "value": {
+                    "type": "direct_property_uri",
+                    "label": "cmt:memberOfProgramCommittee***inverted"
+                },
+                "weight": 1
+            }
+        },
+        "cmt:ProgramCommitteeMember0": {
+            "cmt:ProgramCommitteeMember0\u0001hasprogramcommitteemember__programcommitteemember\u0001cmt:ProgramCommitteeMember0***hasprogramcommitteemember__programcommitteemember\u0001st_property_uridcterms:identifier\u00011": {
+                "v": "cmt:ProgramCommitteeMember0",
+                "w": "hasprogramcommitteemember__programcommitteemember",
+                "name": "cmt:ProgramCommitteeMember0***hasprogramcommitteemember__programcommitteemember",
+                "value": {
+                    "label": "dcterms:identifier",
+                    "type": "st_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "hasprogramcommitteemember__programcommitteemember": {},
+        "hasprogramcommitteemember__programcommittee": {
+            "hasprogramcommitteemember__programcommittee\u0001cmt:ProgramCommittee0\u0001hasprogramcommitteemember__programcommittee***cmt:ProgramCommittee0\u0001st_property_uridcterms:identifier***inverted\u00011": {
+                "v": "hasprogramcommitteemember__programcommittee",
+                "w": "cmt:ProgramCommittee0",
+                "name": "hasprogramcommitteemember__programcommittee***cmt:ProgramCommittee0",
+                "value": {
+                    "type": "st_property_uri",
+                    "label": "dcterms:identifier***inverted"
+                },
+                "weight": 1
+            }
+        }
+    },
+    "_sucs": {
+        "cmt:ProgramCommittee0": {
+            "cmt:ProgramCommitteeMember0": 1
+        },
+        "cmt:ProgramCommitteeMember0": {
+            "hasprogramcommitteemember__programcommitteemember": 1
+        },
+        "hasprogramcommitteemember__programcommitteemember": {},
+        "hasprogramcommitteemember__programcommittee": {
+            "cmt:ProgramCommittee0": 1
+        }
+    },
+    "_edgeObjs": {
+        "cmt:ProgramCommittee0\u0001cmt:ProgramCommitteeMember0\u0001cmt:ProgramCommittee0***cmt:ProgramCommitteeMember0\u0001direct_property_uricmt:memberOfProgramCommittee***inverted\u00011": {
+            "v": "cmt:ProgramCommittee0",
+            "w": "cmt:ProgramCommitteeMember0",
+            "name": "cmt:ProgramCommittee0***cmt:ProgramCommitteeMember0",
+            "value": {
+                "type": "direct_property_uri",
+                "label": "cmt:memberOfProgramCommittee***inverted"
+            },
+            "weight": 1
+        },
+        "cmt:ProgramCommitteeMember0\u0001hasprogramcommitteemember__programcommitteemember\u0001cmt:ProgramCommitteeMember0***hasprogramcommitteemember__programcommitteemember\u0001st_property_uridcterms:identifier\u00011": {
+            "v": "cmt:ProgramCommitteeMember0",
+            "w": "hasprogramcommitteemember__programcommitteemember",
+            "name": "cmt:ProgramCommitteeMember0***hasprogramcommitteemember__programcommitteemember",
+            "value": {
+                "label": "dcterms:identifier",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        "hasprogramcommitteemember__programcommittee\u0001cmt:ProgramCommittee0\u0001hasprogramcommitteemember__programcommittee***cmt:ProgramCommittee0\u0001st_property_uridcterms:identifier***inverted\u00011": {
+            "v": "hasprogramcommitteemember__programcommittee",
+            "w": "cmt:ProgramCommittee0",
+            "name": "hasprogramcommitteemember__programcommittee***cmt:ProgramCommittee0",
+            "value": {
+                "type": "st_property_uri",
+                "label": "dcterms:identifier***inverted"
+            },
+            "weight": 1
+        }
+    },
+    "_edgeLabels": {
+        "cmt:ProgramCommittee0\u0001cmt:ProgramCommitteeMember0\u0001cmt:ProgramCommittee0***cmt:ProgramCommitteeMember0\u0001direct_property_uricmt:memberOfProgramCommittee***inverted\u00011": {
+            "type": "direct_property_uri",
+            "label": "cmt:memberOfProgramCommittee***inverted"
+        },
+        "cmt:ProgramCommitteeMember0\u0001hasprogramcommitteemember__programcommitteemember\u0001cmt:ProgramCommitteeMember0***hasprogramcommitteemember__programcommitteemember\u0001st_property_uridcterms:identifier\u00011": {
+            "label": "dcterms:identifier",
+            "type": "st_property_uri"
+        },
+        "hasprogramcommitteemember__programcommittee\u0001cmt:ProgramCommittee0\u0001hasprogramcommitteemember__programcommittee***cmt:ProgramCommittee0\u0001st_property_uridcterms:identifier***inverted\u00011": {
+            "type": "st_property_uri",
+            "label": "dcterms:identifier***inverted"
+        }
+    },
+    "_nodeCount": 4,
+    "_edgeCount": 3
+}
