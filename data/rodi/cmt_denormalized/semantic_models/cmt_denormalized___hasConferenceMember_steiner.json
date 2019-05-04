@@ -1,0 +1,69 @@
+{
+    "options": {
+        "directed": true,
+        "multigraph": true,
+        "compound": false
+    },
+    "nodes": [
+        {
+            "v": "cmt:Conference0",
+            "value": {
+                "type": "class_uri",
+                "label": "cmt:Conference"
+            }
+        },
+        {
+            "v": "cmt:ConferenceMember0",
+            "value": {
+                "type": "class_uri",
+                "label": "cmt:ConferenceMember"
+            }
+        },
+        {
+            "v": "hasConferenceMember__ConferenceMember",
+            "value": {
+                "type": "attribute_name",
+                "label": "hasConferenceMember__ConferenceMember"
+            }
+        },
+        {
+            "v": "hasConferenceMember__Conference",
+            "value": {
+                "type": "attribute_name",
+                "label": "hasConferenceMember__Conference"
+            }
+        }
+    ],
+    "edges": [
+        {
+            "v": "cmt:Conference0",
+            "w": "cmt:ConferenceMember0",
+            "name": "cmt:Conference0***cmt:ConferenceMember0",
+            "value": {
+                "type": "direct_property_uri",
+                "label": "cmt:memberOfConference***inverted"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:ConferenceMember0",
+            "w": "hasConferenceMember__ConferenceMember",
+            "name": "cmt:ConferenceMember0***hasConferenceMember__ConferenceMember",
+            "value": {
+                "label": "dcterms:identifier",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "hasConferenceMember__Conference",
+            "w": "cmt:Conference0",
+            "name": "hasConferenceMember__Conference***cmt:Conference0",
+            "value": {
+                "type": "st_property_uri",
+                "label": "dcterms:identifier***inverted"
+            },
+            "weight": 1
+        }
+    ]
+}

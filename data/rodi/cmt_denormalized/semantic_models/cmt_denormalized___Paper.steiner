@@ -1,0 +1,173 @@
+{
+    "_isDirected": true,
+    "_isMultigraph": true,
+    "_isCompound": false,
+    "_nodes": {
+        "Paper__ID": {
+            "type": "attribute_name",
+            "label": "Paper__ID"
+        },
+        "cmt:Paper0": {
+            "type": "class_uri",
+            "label": "cmt:Paper"
+        },
+        "cmt:Author0": {
+            "type": "class_uri",
+            "label": "cmt:Author"
+        },
+        "Paper__hasAuthor": {
+            "type": "attribute_name",
+            "label": "Paper__hasAuthor"
+        }
+    },
+    "_in": {
+        "Paper__ID": {},
+        "cmt:Paper0": {
+            "Paper__ID\u0001cmt:Paper0\u0001Paper__ID***cmt:Paper0\u0001st_property_uridcterms:identifier***inverted\u00011": {
+                "v": "Paper__ID",
+                "w": "cmt:Paper0",
+                "name": "Paper__ID***cmt:Paper0",
+                "value": {
+                    "type": "st_property_uri",
+                    "label": "dcterms:identifier***inverted"
+                },
+                "weight": 1
+            }
+        },
+        "cmt:Author0": {
+            "cmt:Paper0\u0001cmt:Author0\u0001cmt:Paper0***cmt:Author0\u0001inheritedcmt:hasConflictOfInterest***inverted\u00014": {
+                "v": "cmt:Paper0",
+                "w": "cmt:Author0",
+                "name": "cmt:Paper0***cmt:Author0",
+                "value": {
+                    "type": "inherited",
+                    "label": "cmt:hasConflictOfInterest***inverted"
+                },
+                "weight": 4
+            }
+        },
+        "Paper__hasAuthor": {
+            "cmt:Author0\u0001Paper__hasAuthor\u0001cmt:Author0***Paper__hasAuthor\u0001st_property_uridcterms:identifier\u00011": {
+                "v": "cmt:Author0",
+                "w": "Paper__hasAuthor",
+                "name": "cmt:Author0***Paper__hasAuthor",
+                "value": {
+                    "label": "dcterms:identifier",
+                    "type": "st_property_uri"
+                },
+                "weight": 1
+            }
+        }
+    },
+    "_preds": {
+        "Paper__ID": {},
+        "cmt:Paper0": {
+            "Paper__ID": 1
+        },
+        "cmt:Author0": {
+            "cmt:Paper0": 1
+        },
+        "Paper__hasAuthor": {
+            "cmt:Author0": 1
+        }
+    },
+    "_out": {
+        "Paper__ID": {
+            "Paper__ID\u0001cmt:Paper0\u0001Paper__ID***cmt:Paper0\u0001st_property_uridcterms:identifier***inverted\u00011": {
+                "v": "Paper__ID",
+                "w": "cmt:Paper0",
+                "name": "Paper__ID***cmt:Paper0",
+                "value": {
+                    "type": "st_property_uri",
+                    "label": "dcterms:identifier***inverted"
+                },
+                "weight": 1
+            }
+        },
+        "cmt:Paper0": {
+            "cmt:Paper0\u0001cmt:Author0\u0001cmt:Paper0***cmt:Author0\u0001inheritedcmt:hasConflictOfInterest***inverted\u00014": {
+                "v": "cmt:Paper0",
+                "w": "cmt:Author0",
+                "name": "cmt:Paper0***cmt:Author0",
+                "value": {
+                    "type": "inherited",
+                    "label": "cmt:hasConflictOfInterest***inverted"
+                },
+                "weight": 4
+            }
+        },
+        "cmt:Author0": {
+            "cmt:Author0\u0001Paper__hasAuthor\u0001cmt:Author0***Paper__hasAuthor\u0001st_property_uridcterms:identifier\u00011": {
+                "v": "cmt:Author0",
+                "w": "Paper__hasAuthor",
+                "name": "cmt:Author0***Paper__hasAuthor",
+                "value": {
+                    "label": "dcterms:identifier",
+                    "type": "st_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "Paper__hasAuthor": {}
+    },
+    "_sucs": {
+        "Paper__ID": {
+            "cmt:Paper0": 1
+        },
+        "cmt:Paper0": {
+            "cmt:Author0": 1
+        },
+        "cmt:Author0": {
+            "Paper__hasAuthor": 1
+        },
+        "Paper__hasAuthor": {}
+    },
+    "_edgeObjs": {
+        "Paper__ID\u0001cmt:Paper0\u0001Paper__ID***cmt:Paper0\u0001st_property_uridcterms:identifier***inverted\u00011": {
+            "v": "Paper__ID",
+            "w": "cmt:Paper0",
+            "name": "Paper__ID***cmt:Paper0",
+            "value": {
+                "type": "st_property_uri",
+                "label": "dcterms:identifier***inverted"
+            },
+            "weight": 1
+        },
+        "cmt:Author0\u0001Paper__hasAuthor\u0001cmt:Author0***Paper__hasAuthor\u0001st_property_uridcterms:identifier\u00011": {
+            "v": "cmt:Author0",
+            "w": "Paper__hasAuthor",
+            "name": "cmt:Author0***Paper__hasAuthor",
+            "value": {
+                "label": "dcterms:identifier",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        "cmt:Paper0\u0001cmt:Author0\u0001cmt:Paper0***cmt:Author0\u0001inheritedcmt:hasConflictOfInterest***inverted\u00014": {
+            "v": "cmt:Paper0",
+            "w": "cmt:Author0",
+            "name": "cmt:Paper0***cmt:Author0",
+            "value": {
+                "type": "inherited",
+                "label": "cmt:hasConflictOfInterest***inverted"
+            },
+            "weight": 4
+        }
+    },
+    "_edgeLabels": {
+        "Paper__ID\u0001cmt:Paper0\u0001Paper__ID***cmt:Paper0\u0001st_property_uridcterms:identifier***inverted\u00011": {
+            "type": "st_property_uri",
+            "label": "dcterms:identifier***inverted"
+        },
+        "cmt:Author0\u0001Paper__hasAuthor\u0001cmt:Author0***Paper__hasAuthor\u0001st_property_uridcterms:identifier\u00011": {
+            "label": "dcterms:identifier",
+            "type": "st_property_uri"
+        },
+        "cmt:Paper0\u0001cmt:Author0\u0001cmt:Paper0***cmt:Author0\u0001inheritedcmt:hasConflictOfInterest***inverted\u00014": {
+            "type": "inherited",
+            "label": "cmt:hasConflictOfInterest***inverted"
+        }
+    },
+    "_nodeCount": 4,
+    "_edgeCount": 3
+}
