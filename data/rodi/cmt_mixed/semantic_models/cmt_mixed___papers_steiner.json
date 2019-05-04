@@ -1,0 +1,69 @@
+{
+    "options": {
+        "directed": true,
+        "multigraph": true,
+        "compound": false
+    },
+    "nodes": [
+        {
+            "v": "cmt:Author0",
+            "value": {
+                "type": "class_uri",
+                "label": "cmt:Author"
+            }
+        },
+        {
+            "v": "papers__author",
+            "value": {
+                "type": "attribute_name",
+                "label": "papers__author"
+            }
+        },
+        {
+            "v": "cmt:Paper0",
+            "value": {
+                "type": "class_uri",
+                "label": "cmt:Paper"
+            }
+        },
+        {
+            "v": "papers__id",
+            "value": {
+                "type": "attribute_name",
+                "label": "papers__id"
+            }
+        }
+    ],
+    "edges": [
+        {
+            "v": "cmt:Author0",
+            "w": "papers__author",
+            "name": "cmt:Author0***papers__author",
+            "value": {
+                "label": "dcterms:identifier",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:Paper0",
+            "w": "cmt:Author0",
+            "name": "cmt:Paper0***cmt:Author0",
+            "value": {
+                "type": "inherited",
+                "label": "cmt:hasConflictOfInterest***inverted"
+            },
+            "weight": 4
+        },
+        {
+            "v": "papers__id",
+            "w": "cmt:Paper0",
+            "name": "papers__id***cmt:Paper0",
+            "value": {
+                "type": "st_property_uri",
+                "label": "dcterms:identifier***inverted"
+            },
+            "weight": 1
+        }
+    ]
+}

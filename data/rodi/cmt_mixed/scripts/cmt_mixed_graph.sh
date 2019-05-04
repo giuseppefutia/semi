@@ -1,0 +1,4 @@
+node run/graph.js data/rodi/cmt_mixed/semantic_types/cmt_mixed___co_write_paper_st.json data/rodi/cmt_mixed/ontology/ontology.ttl rdfs:domain rdfs:range owl:Class data/rodi/cmt_mixed/semantic_models/cmt_mixed___co_write_paper
+node run/graph.js data/rodi/cmt_mixed/semantic_types/cmt_mixed___papers_st.json data/rodi/cmt_mixed/ontology/ontology.ttl rdfs:domain rdfs:range owl:Class data/rodi/cmt_mixed/semantic_models/cmt_mixed___papers
+node run/graph.js data/rodi/cmt_mixed/semantic_types/cmt_mixed___person_conference_st.json data/rodi/cmt_mixed/ontology/ontology.ttl rdfs:domain rdfs:range owl:Class data/rodi/cmt_mixed/semantic_models/cmt_mixed___person_conference
+node run/graph.js data/rodi/cmt_mixed/semantic_types/cmt_mixed___reviews_st.json data/rodi/cmt_mixed/ontology/ontology.ttl rdfs:domain rdfs:range owl:Class data/rodi/cmt_mixed/semantic_models/cmt_mixed___reviews

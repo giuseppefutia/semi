@@ -1,0 +1,354 @@
+{
+    "options": {
+        "directed": true,
+        "multigraph": true,
+        "compound": false
+    },
+    "nodes": [
+        {
+            "v": "cmt:Review0",
+            "value": {
+                "type": "class_uri",
+                "label": "cmt:Review"
+            }
+        },
+        {
+            "v": "reviews__id",
+            "value": {
+                "type": "attribute_name",
+                "label": "reviews__id"
+            }
+        },
+        {
+            "v": "cmt:Reviewer0",
+            "value": {
+                "type": "class_uri",
+                "label": "cmt:Reviewer"
+            }
+        },
+        {
+            "v": "reviews__written",
+            "value": {
+                "type": "attribute_name",
+                "label": "reviews__written"
+            }
+        },
+        {
+            "v": "cmt:ProgramCommitteeChair",
+            "value": {
+                "type": "class_uri",
+                "label": "cmt:ProgramCommitteeChair"
+            }
+        },
+        {
+            "v": "cmt:Administrator",
+            "value": {
+                "type": "class_uri",
+                "label": "cmt:Administrator"
+            }
+        },
+        {
+            "v": "cmt:Paper",
+            "value": {
+                "type": "class_uri",
+                "label": "cmt:Paper"
+            }
+        },
+        {
+            "v": "cmt:Bid",
+            "value": {
+                "type": "class_uri",
+                "label": "cmt:Bid"
+            }
+        },
+        {
+            "v": "cmt:ExternalReviewer",
+            "value": {
+                "type": "class_uri",
+                "label": "cmt:ExternalReviewer"
+            }
+        }
+    ],
+    "edges": [
+        {
+            "v": "cmt:Review0",
+            "w": "reviews__id",
+            "name": "cmt:Review0***reviews__id",
+            "value": {
+                "label": "dcterms:identifier",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:Reviewer0",
+            "w": "reviews__written",
+            "name": "cmt:Reviewer0***reviews__written",
+            "value": {
+                "label": "dcterms:identifier",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:Review0",
+            "w": "cmt:Reviewer0",
+            "name": "cmt:Review0***cmt:Reviewer0",
+            "value": {
+                "label": "cmt:writtenBy",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:Reviewer0",
+            "w": "cmt:Review0",
+            "name": "cmt:Reviewer0***cmt:Review0",
+            "value": {
+                "label": "cmt:writeReview",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:ProgramCommitteeChair",
+            "w": "cmt:Review0",
+            "name": "cmt:ProgramCommitteeChair***cmt:Review0",
+            "value": {
+                "label": "cmt:endReview",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:Reviewer0",
+            "w": "cmt:Administrator",
+            "name": "cmt:Reviewer0***cmt:Administrator",
+            "value": {
+                "label": "cmt:assignedByAdministrator",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:Administrator",
+            "w": "cmt:Reviewer0",
+            "name": "cmt:Administrator***cmt:Reviewer0",
+            "value": {
+                "label": "cmt:assignReviewer",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:Reviewer0",
+            "w": "cmt:Paper",
+            "name": "cmt:Reviewer0***cmt:Paper",
+            "value": {
+                "label": "cmt:hasBeenAssigned",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:Reviewer0",
+            "w": "cmt:Paper",
+            "name": "cmt:Reviewer0***cmt:Paper",
+            "value": {
+                "label": "cmt:readPaper",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:Paper",
+            "w": "cmt:Reviewer0",
+            "name": "cmt:Paper***cmt:Reviewer0",
+            "value": {
+                "label": "cmt:assignedTo",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:Paper",
+            "w": "cmt:Reviewer0",
+            "name": "cmt:Paper***cmt:Reviewer0",
+            "value": {
+                "label": "cmt:readByReviewer",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:Reviewer0",
+            "w": "cmt:Bid",
+            "name": "cmt:Reviewer0***cmt:Bid",
+            "value": {
+                "label": "cmt:adjustBid",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:Bid",
+            "w": "cmt:Reviewer0",
+            "name": "cmt:Bid***cmt:Reviewer0",
+            "value": {
+                "label": "cmt:adjustedBy",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:Reviewer0",
+            "w": "cmt:ExternalReviewer",
+            "name": "cmt:Reviewer0***cmt:ExternalReviewer",
+            "value": {
+                "label": "cmt:assignExternalReviewer",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:ExternalReviewer",
+            "w": "cmt:Reviewer0",
+            "name": "cmt:ExternalReviewer***cmt:Reviewer0",
+            "value": {
+                "label": "cmt:assignedByReviewer",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:Administrator",
+            "w": "cmt:Paper",
+            "name": "cmt:Administrator***cmt:Paper",
+            "value": {
+                "label": "cmt:acceptPaper",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:Administrator",
+            "w": "cmt:Paper",
+            "name": "cmt:Administrator***cmt:Paper",
+            "value": {
+                "label": "cmt:rejectPaper",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:Paper",
+            "w": "cmt:Administrator",
+            "name": "cmt:Paper***cmt:Administrator",
+            "value": {
+                "label": "cmt:acceptedBy",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:Paper",
+            "w": "cmt:Administrator",
+            "name": "cmt:Paper***cmt:Administrator",
+            "value": {
+                "label": "cmt:rejectedBy",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:Paper",
+            "w": "cmt:Bid",
+            "name": "cmt:Paper***cmt:Bid",
+            "value": {
+                "label": "cmt:hasBid",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:Reviewer0",
+            "w": "cmt:Review0",
+            "name": "cmt:Reviewer0***cmt:Review0",
+            "value": {
+                "label": "cmt:hasConflictOfInterest",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "cmt:Reviewer0",
+            "w": "cmt:Paper",
+            "name": "cmt:Reviewer0***cmt:Paper",
+            "value": {
+                "label": "cmt:hasConflictOfInterest",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "cmt:ProgramCommitteeChair",
+            "w": "cmt:Review0",
+            "name": "cmt:ProgramCommitteeChair***cmt:Review0",
+            "value": {
+                "label": "cmt:hasConflictOfInterest",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "cmt:ProgramCommitteeChair",
+            "w": "cmt:Paper",
+            "name": "cmt:ProgramCommitteeChair***cmt:Paper",
+            "value": {
+                "label": "cmt:hasConflictOfInterest",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "cmt:Administrator",
+            "w": "cmt:Review0",
+            "name": "cmt:Administrator***cmt:Review0",
+            "value": {
+                "label": "cmt:hasConflictOfInterest",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "cmt:Administrator",
+            "w": "cmt:Paper",
+            "name": "cmt:Administrator***cmt:Paper",
+            "value": {
+                "label": "cmt:hasConflictOfInterest",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "cmt:ExternalReviewer",
+            "w": "cmt:Review0",
+            "name": "cmt:ExternalReviewer***cmt:Review0",
+            "value": {
+                "label": "cmt:hasConflictOfInterest",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "cmt:ExternalReviewer",
+            "w": "cmt:Paper",
+            "name": "cmt:ExternalReviewer***cmt:Paper",
+            "value": {
+                "label": "cmt:hasConflictOfInterest",
+                "type": "inherited"
+            },
+            "weight": 4
+        }
+    ]
+}
