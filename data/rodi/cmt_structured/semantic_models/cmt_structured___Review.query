@@ -1,0 +1,35 @@
+PREFIX schema:    <http://schema.org/>
+PREFIX rdfs:      <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX pc:        <http://purl.org/procurement/public-contracts#>
+PREFIX gr:        <http://purl.org/goodrelations/v1#>
+PREFIX owl:       <http://www.w3.org/2002/07/owl#>
+PREFIX adms:      <http://www.w3.org/ns/adms#>
+PREFIX c4n:       <http://vocab.deri.ie/c4n#>
+PREFIX dcterms:   <http://purl.org/dc/terms/>
+PREFIX foaf:      <http://xmlns.com/foaf/0.1/>
+PREFIX loted:     <http://www.loted.eu/ontology#>
+PREFIX payment:   <http://reference.data.gov.uk/def/payment#>
+PREFIX qb:        <http://purl.org/linked-data/cube#>
+PREFIX rdf:       <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX skos:      <http://www.w3.org/2004/02/skos/core#>
+PREFIX vann:      <http://purl.org/vocab/vann/>
+PREFIX xsd:       <http://www.w3.org/2001/XMLSchema#>
+PREFIX conference: <http://conference#>
+PREFIX cmt:       <http://cmt#>
+PREFIX jarql:     <http://jarql.com/>
+
+CONSTRUCT {
+    ?Review0 dcterms:identifier ?Review__ID.
+    ?Review0 rdf:type cmt:Review.
+    ?Reviewer0 dcterms:identifier ?Review__writtenBy.
+    ?Reviewer0 rdf:type cmt:Reviewer.
+    ?Reviewer0 cmt:hasConflictOfInterest ?Review0.
+}
+WHERE {
+    jarql:root jarql:Review ?Review.
+    ?Review jarql:ID ?Review__ID.
+    jarql:root jarql:Review ?Review.
+    ?Review jarql:writtenBy ?Review__writtenBy.
+    BIND (URI(CONCAT('http://conference/review/',?Review__ID)) as ?Review0)
+    BIND (URI(CONCAT('http://cmt/reviewer/',?Review__writtenBy)) as ?Reviewer0)
+}

@@ -1,0 +1,317 @@
+{
+    "_isDirected": true,
+    "_isMultigraph": true,
+    "_isCompound": false,
+    "_nodes": {
+        "cmt:Conference0": {
+            "type": "class_uri",
+            "label": "cmt:Conference"
+        },
+        "cmt:ConferenceMember": {
+            "type": "class_uri",
+            "label": "cmt:ConferenceMember"
+        },
+        "owl:Thing": {
+            "type": "special",
+            "label": "owl:Thing"
+        },
+        "cmt:Document": {
+            "type": "class_uri",
+            "label": "cmt:Document"
+        },
+        "cmt:Person0": {
+            "type": "class_uri",
+            "label": "cmt:Person"
+        },
+        "hasConferenceMember__ConferenceMember": {
+            "type": "attribute_name",
+            "label": "hasConferenceMember__ConferenceMember"
+        },
+        "hasConferenceMember__Conference": {
+            "type": "attribute_name",
+            "label": "hasConferenceMember__Conference"
+        }
+    },
+    "_in": {
+        "cmt:Conference0": {
+            "hasConferenceMember__Conference\u0001cmt:Conference0\u0001hasConferenceMember__Conference***cmt:Conference0\u0001st_property_uridcterms:identifier***inverted\u00011": {
+                "v": "hasConferenceMember__Conference",
+                "w": "cmt:Conference0",
+                "name": "hasConferenceMember__Conference***cmt:Conference0",
+                "value": {
+                    "type": "st_property_uri",
+                    "label": "dcterms:identifier***inverted"
+                },
+                "weight": 1
+            }
+        },
+        "cmt:ConferenceMember": {
+            "cmt:Conference0\u0001cmt:ConferenceMember\u0001cmt:Conference0***cmt:ConferenceMember\u0001direct_property_uricmt:memberOfConference***inverted\u00011": {
+                "v": "cmt:Conference0",
+                "w": "cmt:ConferenceMember",
+                "name": "cmt:Conference0***cmt:ConferenceMember",
+                "value": {
+                    "type": "direct_property_uri",
+                    "label": "cmt:memberOfConference***inverted"
+                },
+                "weight": 1
+            }
+        },
+        "owl:Thing": {
+            "cmt:ConferenceMember\u0001owl:Thing\u0001cmt:ConferenceMember***owl:Thing\u0001inheritedrdfs:subClassOf\u00010.3333333333333333": {
+                "v": "cmt:ConferenceMember",
+                "w": "owl:Thing",
+                "name": "cmt:ConferenceMember***owl:Thing",
+                "value": {
+                    "label": "rdfs:subClassOf",
+                    "type": "inherited"
+                },
+                "weight": 0.3333333333333333
+            }
+        },
+        "cmt:Document": {
+            "owl:Thing\u0001cmt:Document\u0001owl:Thing***cmt:Document\u0001inheritedrdfs:subClassOf***inverted\u00010.3333333333333333": {
+                "v": "owl:Thing",
+                "w": "cmt:Document",
+                "name": "owl:Thing***cmt:Document",
+                "value": {
+                    "type": "inherited",
+                    "label": "rdfs:subClassOf***inverted"
+                },
+                "weight": 0.3333333333333333
+            }
+        },
+        "cmt:Person0": {
+            "cmt:Document\u0001cmt:Person0\u0001cmt:Document***cmt:Person0\u0001direct_property_uricmt:hasConflictOfInterest***inverted\u00011": {
+                "v": "cmt:Document",
+                "w": "cmt:Person0",
+                "name": "cmt:Document***cmt:Person0",
+                "value": {
+                    "type": "direct_property_uri",
+                    "label": "cmt:hasConflictOfInterest***inverted"
+                },
+                "weight": 1
+            }
+        },
+        "hasConferenceMember__ConferenceMember": {
+            "cmt:Person0\u0001hasConferenceMember__ConferenceMember\u0001cmt:Person0***hasConferenceMember__ConferenceMember\u0001st_property_uridcterms:identifier\u00011": {
+                "v": "cmt:Person0",
+                "w": "hasConferenceMember__ConferenceMember",
+                "name": "cmt:Person0***hasConferenceMember__ConferenceMember",
+                "value": {
+                    "label": "dcterms:identifier",
+                    "type": "st_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "hasConferenceMember__Conference": {}
+    },
+    "_preds": {
+        "cmt:Conference0": {
+            "hasConferenceMember__Conference": 1
+        },
+        "cmt:ConferenceMember": {
+            "cmt:Conference0": 1
+        },
+        "owl:Thing": {
+            "cmt:ConferenceMember": 1
+        },
+        "cmt:Document": {
+            "owl:Thing": 1
+        },
+        "cmt:Person0": {
+            "cmt:Document": 1
+        },
+        "hasConferenceMember__ConferenceMember": {
+            "cmt:Person0": 1
+        },
+        "hasConferenceMember__Conference": {}
+    },
+    "_out": {
+        "cmt:Conference0": {
+            "cmt:Conference0\u0001cmt:ConferenceMember\u0001cmt:Conference0***cmt:ConferenceMember\u0001direct_property_uricmt:memberOfConference***inverted\u00011": {
+                "v": "cmt:Conference0",
+                "w": "cmt:ConferenceMember",
+                "name": "cmt:Conference0***cmt:ConferenceMember",
+                "value": {
+                    "type": "direct_property_uri",
+                    "label": "cmt:memberOfConference***inverted"
+                },
+                "weight": 1
+            }
+        },
+        "cmt:ConferenceMember": {
+            "cmt:ConferenceMember\u0001owl:Thing\u0001cmt:ConferenceMember***owl:Thing\u0001inheritedrdfs:subClassOf\u00010.3333333333333333": {
+                "v": "cmt:ConferenceMember",
+                "w": "owl:Thing",
+                "name": "cmt:ConferenceMember***owl:Thing",
+                "value": {
+                    "label": "rdfs:subClassOf",
+                    "type": "inherited"
+                },
+                "weight": 0.3333333333333333
+            }
+        },
+        "owl:Thing": {
+            "owl:Thing\u0001cmt:Document\u0001owl:Thing***cmt:Document\u0001inheritedrdfs:subClassOf***inverted\u00010.3333333333333333": {
+                "v": "owl:Thing",
+                "w": "cmt:Document",
+                "name": "owl:Thing***cmt:Document",
+                "value": {
+                    "type": "inherited",
+                    "label": "rdfs:subClassOf***inverted"
+                },
+                "weight": 0.3333333333333333
+            }
+        },
+        "cmt:Document": {
+            "cmt:Document\u0001cmt:Person0\u0001cmt:Document***cmt:Person0\u0001direct_property_uricmt:hasConflictOfInterest***inverted\u00011": {
+                "v": "cmt:Document",
+                "w": "cmt:Person0",
+                "name": "cmt:Document***cmt:Person0",
+                "value": {
+                    "type": "direct_property_uri",
+                    "label": "cmt:hasConflictOfInterest***inverted"
+                },
+                "weight": 1
+            }
+        },
+        "cmt:Person0": {
+            "cmt:Person0\u0001hasConferenceMember__ConferenceMember\u0001cmt:Person0***hasConferenceMember__ConferenceMember\u0001st_property_uridcterms:identifier\u00011": {
+                "v": "cmt:Person0",
+                "w": "hasConferenceMember__ConferenceMember",
+                "name": "cmt:Person0***hasConferenceMember__ConferenceMember",
+                "value": {
+                    "label": "dcterms:identifier",
+                    "type": "st_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "hasConferenceMember__ConferenceMember": {},
+        "hasConferenceMember__Conference": {
+            "hasConferenceMember__Conference\u0001cmt:Conference0\u0001hasConferenceMember__Conference***cmt:Conference0\u0001st_property_uridcterms:identifier***inverted\u00011": {
+                "v": "hasConferenceMember__Conference",
+                "w": "cmt:Conference0",
+                "name": "hasConferenceMember__Conference***cmt:Conference0",
+                "value": {
+                    "type": "st_property_uri",
+                    "label": "dcterms:identifier***inverted"
+                },
+                "weight": 1
+            }
+        }
+    },
+    "_sucs": {
+        "cmt:Conference0": {
+            "cmt:ConferenceMember": 1
+        },
+        "cmt:ConferenceMember": {
+            "owl:Thing": 1
+        },
+        "owl:Thing": {
+            "cmt:Document": 1
+        },
+        "cmt:Document": {
+            "cmt:Person0": 1
+        },
+        "cmt:Person0": {
+            "hasConferenceMember__ConferenceMember": 1
+        },
+        "hasConferenceMember__ConferenceMember": {},
+        "hasConferenceMember__Conference": {
+            "cmt:Conference0": 1
+        }
+    },
+    "_edgeObjs": {
+        "cmt:Conference0\u0001cmt:ConferenceMember\u0001cmt:Conference0***cmt:ConferenceMember\u0001direct_property_uricmt:memberOfConference***inverted\u00011": {
+            "v": "cmt:Conference0",
+            "w": "cmt:ConferenceMember",
+            "name": "cmt:Conference0***cmt:ConferenceMember",
+            "value": {
+                "type": "direct_property_uri",
+                "label": "cmt:memberOfConference***inverted"
+            },
+            "weight": 1
+        },
+        "cmt:ConferenceMember\u0001owl:Thing\u0001cmt:ConferenceMember***owl:Thing\u0001inheritedrdfs:subClassOf\u00010.3333333333333333": {
+            "v": "cmt:ConferenceMember",
+            "w": "owl:Thing",
+            "name": "cmt:ConferenceMember***owl:Thing",
+            "value": {
+                "label": "rdfs:subClassOf",
+                "type": "inherited"
+            },
+            "weight": 0.3333333333333333
+        },
+        "cmt:Document\u0001cmt:Person0\u0001cmt:Document***cmt:Person0\u0001direct_property_uricmt:hasConflictOfInterest***inverted\u00011": {
+            "v": "cmt:Document",
+            "w": "cmt:Person0",
+            "name": "cmt:Document***cmt:Person0",
+            "value": {
+                "type": "direct_property_uri",
+                "label": "cmt:hasConflictOfInterest***inverted"
+            },
+            "weight": 1
+        },
+        "cmt:Person0\u0001hasConferenceMember__ConferenceMember\u0001cmt:Person0***hasConferenceMember__ConferenceMember\u0001st_property_uridcterms:identifier\u00011": {
+            "v": "cmt:Person0",
+            "w": "hasConferenceMember__ConferenceMember",
+            "name": "cmt:Person0***hasConferenceMember__ConferenceMember",
+            "value": {
+                "label": "dcterms:identifier",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        "hasConferenceMember__Conference\u0001cmt:Conference0\u0001hasConferenceMember__Conference***cmt:Conference0\u0001st_property_uridcterms:identifier***inverted\u00011": {
+            "v": "hasConferenceMember__Conference",
+            "w": "cmt:Conference0",
+            "name": "hasConferenceMember__Conference***cmt:Conference0",
+            "value": {
+                "type": "st_property_uri",
+                "label": "dcterms:identifier***inverted"
+            },
+            "weight": 1
+        },
+        "owl:Thing\u0001cmt:Document\u0001owl:Thing***cmt:Document\u0001inheritedrdfs:subClassOf***inverted\u00010.3333333333333333": {
+            "v": "owl:Thing",
+            "w": "cmt:Document",
+            "name": "owl:Thing***cmt:Document",
+            "value": {
+                "type": "inherited",
+                "label": "rdfs:subClassOf***inverted"
+            },
+            "weight": 0.3333333333333333
+        }
+    },
+    "_edgeLabels": {
+        "cmt:Conference0\u0001cmt:ConferenceMember\u0001cmt:Conference0***cmt:ConferenceMember\u0001direct_property_uricmt:memberOfConference***inverted\u00011": {
+            "type": "direct_property_uri",
+            "label": "cmt:memberOfConference***inverted"
+        },
+        "cmt:ConferenceMember\u0001owl:Thing\u0001cmt:ConferenceMember***owl:Thing\u0001inheritedrdfs:subClassOf\u00010.3333333333333333": {
+            "label": "rdfs:subClassOf",
+            "type": "inherited"
+        },
+        "cmt:Document\u0001cmt:Person0\u0001cmt:Document***cmt:Person0\u0001direct_property_uricmt:hasConflictOfInterest***inverted\u00011": {
+            "type": "direct_property_uri",
+            "label": "cmt:hasConflictOfInterest***inverted"
+        },
+        "cmt:Person0\u0001hasConferenceMember__ConferenceMember\u0001cmt:Person0***hasConferenceMember__ConferenceMember\u0001st_property_uridcterms:identifier\u00011": {
+            "label": "dcterms:identifier",
+            "type": "st_property_uri"
+        },
+        "hasConferenceMember__Conference\u0001cmt:Conference0\u0001hasConferenceMember__Conference***cmt:Conference0\u0001st_property_uridcterms:identifier***inverted\u00011": {
+            "type": "st_property_uri",
+            "label": "dcterms:identifier***inverted"
+        },
+        "owl:Thing\u0001cmt:Document\u0001owl:Thing***cmt:Document\u0001inheritedrdfs:subClassOf***inverted\u00010.3333333333333333": {
+            "type": "inherited",
+            "label": "rdfs:subClassOf***inverted"
+        }
+    },
+    "_nodeCount": 7,
+    "_edgeCount": 6
+}
