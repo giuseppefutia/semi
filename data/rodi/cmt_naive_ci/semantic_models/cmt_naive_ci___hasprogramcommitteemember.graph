@@ -1,0 +1,327 @@
+{
+    "_isDirected": true,
+    "_isMultigraph": true,
+    "_isCompound": false,
+    "_nodes": {
+        "cmt:ProgramCommittee0": {
+            "type": "class_uri",
+            "label": "cmt:ProgramCommittee"
+        },
+        "hasprogramcommitteemember__programcommittee": {
+            "type": "attribute_name",
+            "label": "hasprogramcommitteemember__programcommittee"
+        },
+        "cmt:ProgramCommitteeMember0": {
+            "type": "class_uri",
+            "label": "cmt:ProgramCommitteeMember"
+        },
+        "hasprogramcommitteemember__programcommitteemember": {
+            "type": "attribute_name",
+            "label": "hasprogramcommitteemember__programcommitteemember"
+        },
+        "cmt:Administrator": {
+            "type": "class_uri",
+            "label": "cmt:Administrator"
+        }
+    },
+    "_in": {
+        "cmt:ProgramCommittee0": {
+            "cmt:ProgramCommitteeMember0\u0001cmt:ProgramCommittee0\u0001cmt:ProgramCommitteeMember0***cmt:ProgramCommittee0\u0001direct_property_uricmt:memberOfProgramCommittee\u00011": {
+                "v": "cmt:ProgramCommitteeMember0",
+                "w": "cmt:ProgramCommittee0",
+                "name": "cmt:ProgramCommitteeMember0***cmt:ProgramCommittee0",
+                "value": {
+                    "label": "cmt:memberOfProgramCommittee",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "hasprogramcommitteemember__programcommittee": {
+            "cmt:ProgramCommittee0\u0001hasprogramcommitteemember__programcommittee\u0001cmt:ProgramCommittee0***hasprogramcommitteemember__programcommittee\u0001st_property_uridcterms:identifier\u00011": {
+                "v": "cmt:ProgramCommittee0",
+                "w": "hasprogramcommitteemember__programcommittee",
+                "name": "cmt:ProgramCommittee0***hasprogramcommitteemember__programcommittee",
+                "value": {
+                    "label": "dcterms:identifier",
+                    "type": "st_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "cmt:ProgramCommitteeMember0": {
+            "cmt:ProgramCommittee0\u0001cmt:ProgramCommitteeMember0\u0001cmt:ProgramCommittee0***cmt:ProgramCommitteeMember0\u0001direct_property_uricmt:hasProgramCommitteeMember\u00011": {
+                "v": "cmt:ProgramCommittee0",
+                "w": "cmt:ProgramCommitteeMember0",
+                "name": "cmt:ProgramCommittee0***cmt:ProgramCommitteeMember0",
+                "value": {
+                    "label": "cmt:hasProgramCommitteeMember",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            },
+            "cmt:Administrator\u0001cmt:ProgramCommitteeMember0\u0001cmt:Administrator***cmt:ProgramCommitteeMember0\u0001direct_property_uricmt:addProgramCommitteeMember\u00011": {
+                "v": "cmt:Administrator",
+                "w": "cmt:ProgramCommitteeMember0",
+                "name": "cmt:Administrator***cmt:ProgramCommitteeMember0",
+                "value": {
+                    "label": "cmt:addProgramCommitteeMember",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            },
+            "cmt:Administrator\u0001cmt:ProgramCommitteeMember0\u0001cmt:Administrator***cmt:ProgramCommitteeMember0\u0001direct_property_uricmt:setMaxPapers\u00011": {
+                "v": "cmt:Administrator",
+                "w": "cmt:ProgramCommitteeMember0",
+                "name": "cmt:Administrator***cmt:ProgramCommitteeMember0",
+                "value": {
+                    "label": "cmt:setMaxPapers",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "hasprogramcommitteemember__programcommitteemember": {
+            "cmt:ProgramCommitteeMember0\u0001hasprogramcommitteemember__programcommitteemember\u0001cmt:ProgramCommitteeMember0***hasprogramcommitteemember__programcommitteemember\u0001st_property_uridcterms:identifier\u00011": {
+                "v": "cmt:ProgramCommitteeMember0",
+                "w": "hasprogramcommitteemember__programcommitteemember",
+                "name": "cmt:ProgramCommitteeMember0***hasprogramcommitteemember__programcommitteemember",
+                "value": {
+                    "label": "dcterms:identifier",
+                    "type": "st_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "cmt:Administrator": {
+            "cmt:ProgramCommitteeMember0\u0001cmt:Administrator\u0001cmt:ProgramCommitteeMember0***cmt:Administrator\u0001direct_property_uricmt:addedBy\u00011": {
+                "v": "cmt:ProgramCommitteeMember0",
+                "w": "cmt:Administrator",
+                "name": "cmt:ProgramCommitteeMember0***cmt:Administrator",
+                "value": {
+                    "label": "cmt:addedBy",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            }
+        }
+    },
+    "_preds": {
+        "cmt:ProgramCommittee0": {
+            "cmt:ProgramCommitteeMember0": 1
+        },
+        "hasprogramcommitteemember__programcommittee": {
+            "cmt:ProgramCommittee0": 1
+        },
+        "cmt:ProgramCommitteeMember0": {
+            "cmt:ProgramCommittee0": 1,
+            "cmt:Administrator": 2
+        },
+        "hasprogramcommitteemember__programcommitteemember": {
+            "cmt:ProgramCommitteeMember0": 1
+        },
+        "cmt:Administrator": {
+            "cmt:ProgramCommitteeMember0": 1
+        }
+    },
+    "_out": {
+        "cmt:ProgramCommittee0": {
+            "cmt:ProgramCommittee0\u0001hasprogramcommitteemember__programcommittee\u0001cmt:ProgramCommittee0***hasprogramcommitteemember__programcommittee\u0001st_property_uridcterms:identifier\u00011": {
+                "v": "cmt:ProgramCommittee0",
+                "w": "hasprogramcommitteemember__programcommittee",
+                "name": "cmt:ProgramCommittee0***hasprogramcommitteemember__programcommittee",
+                "value": {
+                    "label": "dcterms:identifier",
+                    "type": "st_property_uri"
+                },
+                "weight": 1
+            },
+            "cmt:ProgramCommittee0\u0001cmt:ProgramCommitteeMember0\u0001cmt:ProgramCommittee0***cmt:ProgramCommitteeMember0\u0001direct_property_uricmt:hasProgramCommitteeMember\u00011": {
+                "v": "cmt:ProgramCommittee0",
+                "w": "cmt:ProgramCommitteeMember0",
+                "name": "cmt:ProgramCommittee0***cmt:ProgramCommitteeMember0",
+                "value": {
+                    "label": "cmt:hasProgramCommitteeMember",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "hasprogramcommitteemember__programcommittee": {},
+        "cmt:ProgramCommitteeMember0": {
+            "cmt:ProgramCommitteeMember0\u0001hasprogramcommitteemember__programcommitteemember\u0001cmt:ProgramCommitteeMember0***hasprogramcommitteemember__programcommitteemember\u0001st_property_uridcterms:identifier\u00011": {
+                "v": "cmt:ProgramCommitteeMember0",
+                "w": "hasprogramcommitteemember__programcommitteemember",
+                "name": "cmt:ProgramCommitteeMember0***hasprogramcommitteemember__programcommitteemember",
+                "value": {
+                    "label": "dcterms:identifier",
+                    "type": "st_property_uri"
+                },
+                "weight": 1
+            },
+            "cmt:ProgramCommitteeMember0\u0001cmt:ProgramCommittee0\u0001cmt:ProgramCommitteeMember0***cmt:ProgramCommittee0\u0001direct_property_uricmt:memberOfProgramCommittee\u00011": {
+                "v": "cmt:ProgramCommitteeMember0",
+                "w": "cmt:ProgramCommittee0",
+                "name": "cmt:ProgramCommitteeMember0***cmt:ProgramCommittee0",
+                "value": {
+                    "label": "cmt:memberOfProgramCommittee",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            },
+            "cmt:ProgramCommitteeMember0\u0001cmt:Administrator\u0001cmt:ProgramCommitteeMember0***cmt:Administrator\u0001direct_property_uricmt:addedBy\u00011": {
+                "v": "cmt:ProgramCommitteeMember0",
+                "w": "cmt:Administrator",
+                "name": "cmt:ProgramCommitteeMember0***cmt:Administrator",
+                "value": {
+                    "label": "cmt:addedBy",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "hasprogramcommitteemember__programcommitteemember": {},
+        "cmt:Administrator": {
+            "cmt:Administrator\u0001cmt:ProgramCommitteeMember0\u0001cmt:Administrator***cmt:ProgramCommitteeMember0\u0001direct_property_uricmt:addProgramCommitteeMember\u00011": {
+                "v": "cmt:Administrator",
+                "w": "cmt:ProgramCommitteeMember0",
+                "name": "cmt:Administrator***cmt:ProgramCommitteeMember0",
+                "value": {
+                    "label": "cmt:addProgramCommitteeMember",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            },
+            "cmt:Administrator\u0001cmt:ProgramCommitteeMember0\u0001cmt:Administrator***cmt:ProgramCommitteeMember0\u0001direct_property_uricmt:setMaxPapers\u00011": {
+                "v": "cmt:Administrator",
+                "w": "cmt:ProgramCommitteeMember0",
+                "name": "cmt:Administrator***cmt:ProgramCommitteeMember0",
+                "value": {
+                    "label": "cmt:setMaxPapers",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            }
+        }
+    },
+    "_sucs": {
+        "cmt:ProgramCommittee0": {
+            "hasprogramcommitteemember__programcommittee": 1,
+            "cmt:ProgramCommitteeMember0": 1
+        },
+        "hasprogramcommitteemember__programcommittee": {},
+        "cmt:ProgramCommitteeMember0": {
+            "hasprogramcommitteemember__programcommitteemember": 1,
+            "cmt:ProgramCommittee0": 1,
+            "cmt:Administrator": 1
+        },
+        "hasprogramcommitteemember__programcommitteemember": {},
+        "cmt:Administrator": {
+            "cmt:ProgramCommitteeMember0": 2
+        }
+    },
+    "_edgeObjs": {
+        "cmt:ProgramCommittee0\u0001hasprogramcommitteemember__programcommittee\u0001cmt:ProgramCommittee0***hasprogramcommitteemember__programcommittee\u0001st_property_uridcterms:identifier\u00011": {
+            "v": "cmt:ProgramCommittee0",
+            "w": "hasprogramcommitteemember__programcommittee",
+            "name": "cmt:ProgramCommittee0***hasprogramcommitteemember__programcommittee",
+            "value": {
+                "label": "dcterms:identifier",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        "cmt:ProgramCommitteeMember0\u0001hasprogramcommitteemember__programcommitteemember\u0001cmt:ProgramCommitteeMember0***hasprogramcommitteemember__programcommitteemember\u0001st_property_uridcterms:identifier\u00011": {
+            "v": "cmt:ProgramCommitteeMember0",
+            "w": "hasprogramcommitteemember__programcommitteemember",
+            "name": "cmt:ProgramCommitteeMember0***hasprogramcommitteemember__programcommitteemember",
+            "value": {
+                "label": "dcterms:identifier",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        "cmt:ProgramCommittee0\u0001cmt:ProgramCommitteeMember0\u0001cmt:ProgramCommittee0***cmt:ProgramCommitteeMember0\u0001direct_property_uricmt:hasProgramCommitteeMember\u00011": {
+            "v": "cmt:ProgramCommittee0",
+            "w": "cmt:ProgramCommitteeMember0",
+            "name": "cmt:ProgramCommittee0***cmt:ProgramCommitteeMember0",
+            "value": {
+                "label": "cmt:hasProgramCommitteeMember",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        "cmt:ProgramCommitteeMember0\u0001cmt:ProgramCommittee0\u0001cmt:ProgramCommitteeMember0***cmt:ProgramCommittee0\u0001direct_property_uricmt:memberOfProgramCommittee\u00011": {
+            "v": "cmt:ProgramCommitteeMember0",
+            "w": "cmt:ProgramCommittee0",
+            "name": "cmt:ProgramCommitteeMember0***cmt:ProgramCommittee0",
+            "value": {
+                "label": "cmt:memberOfProgramCommittee",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        "cmt:ProgramCommitteeMember0\u0001cmt:Administrator\u0001cmt:ProgramCommitteeMember0***cmt:Administrator\u0001direct_property_uricmt:addedBy\u00011": {
+            "v": "cmt:ProgramCommitteeMember0",
+            "w": "cmt:Administrator",
+            "name": "cmt:ProgramCommitteeMember0***cmt:Administrator",
+            "value": {
+                "label": "cmt:addedBy",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        "cmt:Administrator\u0001cmt:ProgramCommitteeMember0\u0001cmt:Administrator***cmt:ProgramCommitteeMember0\u0001direct_property_uricmt:addProgramCommitteeMember\u00011": {
+            "v": "cmt:Administrator",
+            "w": "cmt:ProgramCommitteeMember0",
+            "name": "cmt:Administrator***cmt:ProgramCommitteeMember0",
+            "value": {
+                "label": "cmt:addProgramCommitteeMember",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        "cmt:Administrator\u0001cmt:ProgramCommitteeMember0\u0001cmt:Administrator***cmt:ProgramCommitteeMember0\u0001direct_property_uricmt:setMaxPapers\u00011": {
+            "v": "cmt:Administrator",
+            "w": "cmt:ProgramCommitteeMember0",
+            "name": "cmt:Administrator***cmt:ProgramCommitteeMember0",
+            "value": {
+                "label": "cmt:setMaxPapers",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        }
+    },
+    "_edgeLabels": {
+        "cmt:ProgramCommittee0\u0001hasprogramcommitteemember__programcommittee\u0001cmt:ProgramCommittee0***hasprogramcommitteemember__programcommittee\u0001st_property_uridcterms:identifier\u00011": {
+            "label": "dcterms:identifier",
+            "type": "st_property_uri"
+        },
+        "cmt:ProgramCommitteeMember0\u0001hasprogramcommitteemember__programcommitteemember\u0001cmt:ProgramCommitteeMember0***hasprogramcommitteemember__programcommitteemember\u0001st_property_uridcterms:identifier\u00011": {
+            "label": "dcterms:identifier",
+            "type": "st_property_uri"
+        },
+        "cmt:ProgramCommittee0\u0001cmt:ProgramCommitteeMember0\u0001cmt:ProgramCommittee0***cmt:ProgramCommitteeMember0\u0001direct_property_uricmt:hasProgramCommitteeMember\u00011": {
+            "label": "cmt:hasProgramCommitteeMember",
+            "type": "direct_property_uri"
+        },
+        "cmt:ProgramCommitteeMember0\u0001cmt:ProgramCommittee0\u0001cmt:ProgramCommitteeMember0***cmt:ProgramCommittee0\u0001direct_property_uricmt:memberOfProgramCommittee\u00011": {
+            "label": "cmt:memberOfProgramCommittee",
+            "type": "direct_property_uri"
+        },
+        "cmt:ProgramCommitteeMember0\u0001cmt:Administrator\u0001cmt:ProgramCommitteeMember0***cmt:Administrator\u0001direct_property_uricmt:addedBy\u00011": {
+            "label": "cmt:addedBy",
+            "type": "direct_property_uri"
+        },
+        "cmt:Administrator\u0001cmt:ProgramCommitteeMember0\u0001cmt:Administrator***cmt:ProgramCommitteeMember0\u0001direct_property_uricmt:addProgramCommitteeMember\u00011": {
+            "label": "cmt:addProgramCommitteeMember",
+            "type": "direct_property_uri"
+        },
+        "cmt:Administrator\u0001cmt:ProgramCommitteeMember0\u0001cmt:Administrator***cmt:ProgramCommitteeMember0\u0001direct_property_uricmt:setMaxPapers\u00011": {
+            "label": "cmt:setMaxPapers",
+            "type": "direct_property_uri"
+        }
+    },
+    "_nodeCount": 5,
+    "_edgeCount": 7
+}

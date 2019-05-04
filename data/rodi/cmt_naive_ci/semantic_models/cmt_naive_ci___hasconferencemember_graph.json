@@ -1,0 +1,277 @@
+{
+    "options": {
+        "directed": true,
+        "multigraph": true,
+        "compound": false
+    },
+    "nodes": [
+        {
+            "v": "cmt:Conference0",
+            "value": {
+                "type": "class_uri",
+                "label": "cmt:Conference"
+            }
+        },
+        {
+            "v": "hasconferencemember__conference",
+            "value": {
+                "type": "attribute_name",
+                "label": "hasconferencemember__conference"
+            }
+        },
+        {
+            "v": "cmt:Person0",
+            "value": {
+                "type": "class_uri",
+                "label": "cmt:Person"
+            }
+        },
+        {
+            "v": "hasconferencemember__conferencemember",
+            "value": {
+                "type": "attribute_name",
+                "label": "hasconferencemember__conferencemember"
+            }
+        },
+        {
+            "v": "cmt:Administrator",
+            "value": {
+                "type": "class_uri",
+                "label": "cmt:Administrator"
+            }
+        },
+        {
+            "v": "cmt:ConferenceMember",
+            "value": {
+                "type": "class_uri",
+                "label": "cmt:ConferenceMember"
+            }
+        },
+        {
+            "v": "cmt:Document",
+            "value": {
+                "type": "class_uri",
+                "label": "cmt:Document"
+            }
+        },
+        {
+            "v": "owl:Thing",
+            "value": {
+                "type": "special",
+                "label": "owl:Thing"
+            }
+        }
+    ],
+    "edges": [
+        {
+            "v": "cmt:Conference0",
+            "w": "hasconferencemember__conference",
+            "name": "cmt:Conference0***hasconferencemember__conference",
+            "value": {
+                "label": "dcterms:identifier",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:Person0",
+            "w": "hasconferencemember__conferencemember",
+            "name": "cmt:Person0***hasconferencemember__conferencemember",
+            "value": {
+                "label": "dcterms:identifier",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:Conference0",
+            "w": "cmt:Administrator",
+            "name": "cmt:Conference0***cmt:Administrator",
+            "value": {
+                "label": "cmt:detailsEnteredBy",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:Conference0",
+            "w": "cmt:Administrator",
+            "name": "cmt:Conference0***cmt:Administrator",
+            "value": {
+                "label": "cmt:virtualMeetingEnabledBy",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:Conference0",
+            "w": "cmt:Administrator",
+            "name": "cmt:Conference0***cmt:Administrator",
+            "value": {
+                "label": "cmt:paperAssignmentFinalizedBy",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:Conference0",
+            "w": "cmt:Administrator",
+            "name": "cmt:Conference0***cmt:Administrator",
+            "value": {
+                "label": "cmt:hardcopyMailingManifestsPrintedBy",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:Conference0",
+            "w": "cmt:Administrator",
+            "name": "cmt:Conference0***cmt:Administrator",
+            "value": {
+                "label": "cmt:paperAssignmentToolsRunBy",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:Conference0",
+            "w": "cmt:Administrator",
+            "name": "cmt:Conference0***cmt:Administrator",
+            "value": {
+                "label": "cmt:reviewCriteriaEnteredBy",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:Conference0",
+            "w": "cmt:Administrator",
+            "name": "cmt:Conference0***cmt:Administrator",
+            "value": {
+                "label": "cmt:reviewerBiddingStartedBy",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:Administrator",
+            "w": "cmt:Conference0",
+            "name": "cmt:Administrator***cmt:Conference0",
+            "value": {
+                "label": "cmt:enableVirtualMeeting",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:Administrator",
+            "w": "cmt:Conference0",
+            "name": "cmt:Administrator***cmt:Conference0",
+            "value": {
+                "label": "cmt:enterConferenceDetails",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:Administrator",
+            "w": "cmt:Conference0",
+            "name": "cmt:Administrator***cmt:Conference0",
+            "value": {
+                "label": "cmt:enterReviewCriteria",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:Administrator",
+            "w": "cmt:Conference0",
+            "name": "cmt:Administrator***cmt:Conference0",
+            "value": {
+                "label": "cmt:finalizePaperAssignment",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:Administrator",
+            "w": "cmt:Conference0",
+            "name": "cmt:Administrator***cmt:Conference0",
+            "value": {
+                "label": "cmt:printHardcopyMailingManifests",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:Administrator",
+            "w": "cmt:Conference0",
+            "name": "cmt:Administrator***cmt:Conference0",
+            "value": {
+                "label": "cmt:startReviewerBidding",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:Administrator",
+            "w": "cmt:Conference0",
+            "name": "cmt:Administrator***cmt:Conference0",
+            "value": {
+                "label": "cmt:runPaperAssignmentTools",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:Conference0",
+            "w": "cmt:ConferenceMember",
+            "name": "cmt:Conference0***cmt:ConferenceMember",
+            "value": {
+                "label": "cmt:hasConferenceMember",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:ConferenceMember",
+            "w": "cmt:Conference0",
+            "name": "cmt:ConferenceMember***cmt:Conference0",
+            "value": {
+                "label": "cmt:memberOfConference",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:Person0",
+            "w": "cmt:Document",
+            "name": "cmt:Person0***cmt:Document",
+            "value": {
+                "label": "cmt:hasConflictOfInterest",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:ConferenceMember",
+            "w": "owl:Thing",
+            "name": "cmt:ConferenceMember***owl:Thing",
+            "value": {
+                "label": "rdfs:subClassOf",
+                "type": "inherited"
+            },
+            "weight": 0.3333333333333333
+        },
+        {
+            "v": "cmt:Document",
+            "w": "owl:Thing",
+            "name": "cmt:Document***owl:Thing",
+            "value": {
+                "label": "rdfs:subClassOf",
+                "type": "inherited"
+            },
+            "weight": 0.3333333333333333
+        }
+    ]
+}

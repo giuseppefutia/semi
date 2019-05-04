@@ -1,0 +1,69 @@
+{
+    "options": {
+        "directed": true,
+        "multigraph": true,
+        "compound": false
+    },
+    "nodes": [
+        {
+            "v": "cmt:Review0",
+            "value": {
+                "type": "class_uri",
+                "label": "cmt:Review"
+            }
+        },
+        {
+            "v": "cmt:Reviewer0",
+            "value": {
+                "type": "class_uri",
+                "label": "cmt:Reviewer"
+            }
+        },
+        {
+            "v": "review__writtenby",
+            "value": {
+                "type": "attribute_name",
+                "label": "review__writtenby"
+            }
+        },
+        {
+            "v": "review__id",
+            "value": {
+                "type": "attribute_name",
+                "label": "review__id"
+            }
+        }
+    ],
+    "edges": [
+        {
+            "v": "cmt:Review0",
+            "w": "cmt:Reviewer0",
+            "name": "cmt:Review0***cmt:Reviewer0",
+            "value": {
+                "type": "inherited",
+                "label": "cmt:hasConflictOfInterest***inverted"
+            },
+            "weight": 4
+        },
+        {
+            "v": "cmt:Reviewer0",
+            "w": "review__writtenby",
+            "name": "cmt:Reviewer0***review__writtenby",
+            "value": {
+                "label": "dcterms:identifier",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "review__id",
+            "w": "cmt:Review0",
+            "name": "review__id***cmt:Review0",
+            "value": {
+                "type": "st_property_uri",
+                "label": "dcterms:identifier***inverted"
+            },
+            "weight": 1
+        }
+    ]
+}
