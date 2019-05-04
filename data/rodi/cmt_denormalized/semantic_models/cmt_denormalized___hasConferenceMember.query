@@ -19,7 +19,9 @@ PREFIX cmt:       <http://cmt#>
 PREFIX jarql:     <http://jarql.com/>
 
 CONSTRUCT {
+    ?Conference0 dcterms:identifier ?hasConferenceMember__Conference.
     ?Conference0 rdf:type cmt:Conference.
+    ?ConferenceMember0 dcterms:identifier ?hasConferenceMember__ConferenceMember.
     ?ConferenceMember0 rdf:type cmt:ConferenceMember.
     ?ConferenceMember0 cmt:memberOfConference ?Conference0.
 }

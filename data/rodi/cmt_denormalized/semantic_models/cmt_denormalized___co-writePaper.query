@@ -19,7 +19,9 @@ PREFIX cmt:       <http://cmt#>
 PREFIX jarql:     <http://jarql.com/>
 
 CONSTRUCT {
+    ?Co_author0 dcterms:identifier ?co_writePaper__Paper.
     ?Co_author0 rdf:type cmt:Co_author.
+    ?Paper0 dcterms:identifier ?co_writePaper__Co_author.
     ?Paper0 rdf:type cmt:Paper.
     ?Paper0 cmt:hasCo_author ?Co_author0.
 }

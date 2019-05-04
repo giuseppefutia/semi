@@ -19,7 +19,9 @@ PREFIX cmt:       <http://cmt#>
 PREFIX jarql:     <http://jarql.com/>
 
 CONSTRUCT {
+    ?ProgramCommittee0 dcterms:identifier ?hasProgramCommitteeMember__ProgramCommittee.
     ?ProgramCommittee0 rdf:type cmt:ProgramCommittee.
+    ?ProgramCommitteeMember0 dcterms:identifier ?hasProgramCommitteeMember__ProgramCommitteeMember.
     ?ProgramCommitteeMember0 rdf:type cmt:ProgramCommitteeMember.
     ?ProgramCommitteeMember0 cmt:memberOfProgramCommittee ?ProgramCommittee0.
 }
