@@ -1,0 +1,86 @@
+{
+    "options": {
+        "directed": true,
+        "multigraph": true,
+        "compound": false
+    },
+    "nodes": [
+        {
+            "v": "cmt:Meta-Reviewer",
+            "value": {
+                "type": "class_uri",
+                "label": "cmt:Meta-Reviewer"
+            }
+        },
+        {
+            "v": "cmt:Paper0",
+            "value": {
+                "type": "class_uri",
+                "label": "cmt:Paper"
+            }
+        },
+        {
+            "v": "co-writePaper__Paper",
+            "value": {
+                "type": "attribute_name",
+                "label": "co-writePaper__Paper"
+            }
+        },
+        {
+            "v": "co-writePaper__Co-author",
+            "value": {
+                "type": "attribute_name",
+                "label": "co-writePaper__Co-author"
+            }
+        },
+        {
+            "v": "owl:Thing",
+            "value": {
+                "type": "special",
+                "label": "owl:Thing"
+            }
+        }
+    ],
+    "edges": [
+        {
+            "v": "cmt:Meta-Reviewer",
+            "w": "cmt:Paper0",
+            "name": "cmt:Meta-Reviewer***cmt:Paper0",
+            "value": {
+                "type": "direct_property_uri",
+                "label": "cmt:readByMeta-Reviewer***inverted"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:Paper0",
+            "w": "co-writePaper__Paper",
+            "name": "cmt:Paper0***co-writePaper__Paper",
+            "value": {
+                "label": "dcterms:identifier",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "co-writePaper__Co-author",
+            "w": "owl:Thing",
+            "name": "co-writePaper__Co-author***owl:Thing",
+            "value": {
+                "label": "rdfs:subClassOf",
+                "type": "inherited"
+            },
+            "weight": 0.3333333333333333
+        },
+        {
+            "v": "owl:Thing",
+            "w": "cmt:Meta-Reviewer",
+            "name": "owl:Thing***cmt:Meta-Reviewer",
+            "value": {
+                "type": "inherited",
+                "label": "rdfs:subClassOf***inverted"
+            },
+            "weight": 0.3333333333333333
+        }
+    ]
+}

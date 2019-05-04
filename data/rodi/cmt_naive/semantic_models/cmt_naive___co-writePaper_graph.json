@@ -1,0 +1,402 @@
+{
+    "options": {
+        "directed": true,
+        "multigraph": true,
+        "compound": false
+    },
+    "nodes": [
+        {
+            "v": "cmt:Co-author0",
+            "value": {
+                "type": "class_uri",
+                "label": "cmt:Co-author"
+            }
+        },
+        {
+            "v": "co-writePaper__Co-author",
+            "value": {
+                "type": "attribute_name",
+                "label": "co-writePaper__Co-author"
+            }
+        },
+        {
+            "v": "cmt:Paper0",
+            "value": {
+                "type": "class_uri",
+                "label": "cmt:Paper"
+            }
+        },
+        {
+            "v": "co-writePaper__Paper",
+            "value": {
+                "type": "attribute_name",
+                "label": "co-writePaper__Paper"
+            }
+        },
+        {
+            "v": "cmt:Administrator",
+            "value": {
+                "type": "class_uri",
+                "label": "cmt:Administrator"
+            }
+        },
+        {
+            "v": "cmt:Bid",
+            "value": {
+                "type": "class_uri",
+                "label": "cmt:Bid"
+            }
+        },
+        {
+            "v": "cmt:Reviewer",
+            "value": {
+                "type": "class_uri",
+                "label": "cmt:Reviewer"
+            }
+        },
+        {
+            "v": "cmt:Co_author",
+            "value": {
+                "type": "class_uri",
+                "label": "cmt:Co_author"
+            }
+        },
+        {
+            "v": "cmt:Author",
+            "value": {
+                "type": "class_uri",
+                "label": "cmt:Author"
+            }
+        },
+        {
+            "v": "cmt:Decision",
+            "value": {
+                "type": "class_uri",
+                "label": "cmt:Decision"
+            }
+        },
+        {
+            "v": "cmt:SubjectArea",
+            "value": {
+                "type": "class_uri",
+                "label": "cmt:SubjectArea"
+            }
+        },
+        {
+            "v": "cmt:Meta-Reviewer",
+            "value": {
+                "type": "class_uri",
+                "label": "cmt:Meta-Reviewer"
+            }
+        },
+        {
+            "v": "owl:Thing",
+            "value": {
+                "type": "special",
+                "label": "owl:Thing"
+            }
+        }
+    ],
+    "edges": [
+        {
+            "v": "cmt:Co-author0",
+            "w": "co-writePaper__Co-author",
+            "name": "cmt:Co-author0***co-writePaper__Co-author",
+            "value": {
+                "label": "dcterms:identifier",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:Paper0",
+            "w": "co-writePaper__Paper",
+            "name": "cmt:Paper0***co-writePaper__Paper",
+            "value": {
+                "label": "dcterms:identifier",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:Paper0",
+            "w": "cmt:Administrator",
+            "name": "cmt:Paper0***cmt:Administrator",
+            "value": {
+                "label": "cmt:acceptedBy",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:Paper0",
+            "w": "cmt:Administrator",
+            "name": "cmt:Paper0***cmt:Administrator",
+            "value": {
+                "label": "cmt:rejectedBy",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:Administrator",
+            "w": "cmt:Paper0",
+            "name": "cmt:Administrator***cmt:Paper0",
+            "value": {
+                "label": "cmt:acceptPaper",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:Administrator",
+            "w": "cmt:Paper0",
+            "name": "cmt:Administrator***cmt:Paper0",
+            "value": {
+                "label": "cmt:rejectPaper",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:Paper0",
+            "w": "cmt:Bid",
+            "name": "cmt:Paper0***cmt:Bid",
+            "value": {
+                "label": "cmt:hasBid",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:Paper0",
+            "w": "cmt:Reviewer",
+            "name": "cmt:Paper0***cmt:Reviewer",
+            "value": {
+                "label": "cmt:assignedTo",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:Paper0",
+            "w": "cmt:Reviewer",
+            "name": "cmt:Paper0***cmt:Reviewer",
+            "value": {
+                "label": "cmt:readByReviewer",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:Reviewer",
+            "w": "cmt:Paper0",
+            "name": "cmt:Reviewer***cmt:Paper0",
+            "value": {
+                "label": "cmt:hasBeenAssigned",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:Reviewer",
+            "w": "cmt:Paper0",
+            "name": "cmt:Reviewer***cmt:Paper0",
+            "value": {
+                "label": "cmt:readPaper",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:Paper0",
+            "w": "cmt:Co_author",
+            "name": "cmt:Paper0***cmt:Co_author",
+            "value": {
+                "label": "cmt:hasCo_author",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:Co_author",
+            "w": "cmt:Paper0",
+            "name": "cmt:Co_author***cmt:Paper0",
+            "value": {
+                "label": "cmt:co-writePaper",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:Paper0",
+            "w": "cmt:Author",
+            "name": "cmt:Paper0***cmt:Author",
+            "value": {
+                "label": "cmt:hasAuthor",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:Author",
+            "w": "cmt:Paper0",
+            "name": "cmt:Author***cmt:Paper0",
+            "value": {
+                "label": "cmt:submitPaper",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:Author",
+            "w": "cmt:Paper0",
+            "name": "cmt:Author***cmt:Paper0",
+            "value": {
+                "label": "cmt:writePaper",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:Paper0",
+            "w": "cmt:Decision",
+            "name": "cmt:Paper0***cmt:Decision",
+            "value": {
+                "label": "cmt:hasDecision",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:Paper0",
+            "w": "cmt:SubjectArea",
+            "name": "cmt:Paper0***cmt:SubjectArea",
+            "value": {
+                "label": "cmt:hasSubjectArea",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:Paper0",
+            "w": "cmt:Meta-Reviewer",
+            "name": "cmt:Paper0***cmt:Meta-Reviewer",
+            "value": {
+                "label": "cmt:readByMeta-Reviewer",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:Administrator",
+            "w": "cmt:Reviewer",
+            "name": "cmt:Administrator***cmt:Reviewer",
+            "value": {
+                "label": "cmt:assignReviewer",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:Reviewer",
+            "w": "cmt:Administrator",
+            "name": "cmt:Reviewer***cmt:Administrator",
+            "value": {
+                "label": "cmt:assignedByAdministrator",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:Bid",
+            "w": "cmt:Reviewer",
+            "name": "cmt:Bid***cmt:Reviewer",
+            "value": {
+                "label": "cmt:adjustedBy",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:Reviewer",
+            "w": "cmt:Bid",
+            "name": "cmt:Reviewer***cmt:Bid",
+            "value": {
+                "label": "cmt:adjustBid",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:Administrator",
+            "w": "cmt:Paper0",
+            "name": "cmt:Administrator***cmt:Paper0",
+            "value": {
+                "label": "cmt:hasConflictOfInterest",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "cmt:Reviewer",
+            "w": "cmt:Paper0",
+            "name": "cmt:Reviewer***cmt:Paper0",
+            "value": {
+                "label": "cmt:hasConflictOfInterest",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "cmt:Co_author",
+            "w": "cmt:Paper0",
+            "name": "cmt:Co_author***cmt:Paper0",
+            "value": {
+                "label": "cmt:hasConflictOfInterest",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "cmt:Author",
+            "w": "cmt:Paper0",
+            "name": "cmt:Author***cmt:Paper0",
+            "value": {
+                "label": "cmt:hasConflictOfInterest",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "cmt:Meta-Reviewer",
+            "w": "cmt:Paper0",
+            "name": "cmt:Meta-Reviewer***cmt:Paper0",
+            "value": {
+                "label": "cmt:hasConflictOfInterest",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "co-writePaper__Co-author",
+            "w": "owl:Thing",
+            "name": "co-writePaper__Co-author***owl:Thing",
+            "value": {
+                "label": "rdfs:subClassOf",
+                "type": "inherited"
+            },
+            "weight": 0.3333333333333333
+        },
+        {
+            "v": "cmt:Meta-Reviewer",
+            "w": "owl:Thing",
+            "name": "cmt:Meta-Reviewer***owl:Thing",
+            "value": {
+                "label": "rdfs:subClassOf",
+                "type": "inherited"
+            },
+            "weight": 0.3333333333333333
+        }
+    ]
+}

@@ -1,0 +1,173 @@
+{
+    "_isDirected": true,
+    "_isMultigraph": true,
+    "_isCompound": false,
+    "_nodes": {
+        "Review__ID": {
+            "type": "attribute_name",
+            "label": "Review__ID"
+        },
+        "cmt:Review0": {
+            "type": "class_uri",
+            "label": "cmt:Review"
+        },
+        "cmt:Reviewer0": {
+            "type": "class_uri",
+            "label": "cmt:Reviewer"
+        },
+        "Review__writtenBy": {
+            "type": "attribute_name",
+            "label": "Review__writtenBy"
+        }
+    },
+    "_in": {
+        "Review__ID": {},
+        "cmt:Review0": {
+            "Review__ID\u0001cmt:Review0\u0001Review__ID***cmt:Review0\u0001st_property_uridcterms:identifier***inverted\u00011": {
+                "v": "Review__ID",
+                "w": "cmt:Review0",
+                "name": "Review__ID***cmt:Review0",
+                "value": {
+                    "type": "st_property_uri",
+                    "label": "dcterms:identifier***inverted"
+                },
+                "weight": 1
+            }
+        },
+        "cmt:Reviewer0": {
+            "cmt:Review0\u0001cmt:Reviewer0\u0001cmt:Review0***cmt:Reviewer0\u0001inheritedcmt:hasConflictOfInterest***inverted\u00014": {
+                "v": "cmt:Review0",
+                "w": "cmt:Reviewer0",
+                "name": "cmt:Review0***cmt:Reviewer0",
+                "value": {
+                    "type": "inherited",
+                    "label": "cmt:hasConflictOfInterest***inverted"
+                },
+                "weight": 4
+            }
+        },
+        "Review__writtenBy": {
+            "cmt:Reviewer0\u0001Review__writtenBy\u0001cmt:Reviewer0***Review__writtenBy\u0001st_property_uridcterms:identifier\u00011": {
+                "v": "cmt:Reviewer0",
+                "w": "Review__writtenBy",
+                "name": "cmt:Reviewer0***Review__writtenBy",
+                "value": {
+                    "label": "dcterms:identifier",
+                    "type": "st_property_uri"
+                },
+                "weight": 1
+            }
+        }
+    },
+    "_preds": {
+        "Review__ID": {},
+        "cmt:Review0": {
+            "Review__ID": 1
+        },
+        "cmt:Reviewer0": {
+            "cmt:Review0": 1
+        },
+        "Review__writtenBy": {
+            "cmt:Reviewer0": 1
+        }
+    },
+    "_out": {
+        "Review__ID": {
+            "Review__ID\u0001cmt:Review0\u0001Review__ID***cmt:Review0\u0001st_property_uridcterms:identifier***inverted\u00011": {
+                "v": "Review__ID",
+                "w": "cmt:Review0",
+                "name": "Review__ID***cmt:Review0",
+                "value": {
+                    "type": "st_property_uri",
+                    "label": "dcterms:identifier***inverted"
+                },
+                "weight": 1
+            }
+        },
+        "cmt:Review0": {
+            "cmt:Review0\u0001cmt:Reviewer0\u0001cmt:Review0***cmt:Reviewer0\u0001inheritedcmt:hasConflictOfInterest***inverted\u00014": {
+                "v": "cmt:Review0",
+                "w": "cmt:Reviewer0",
+                "name": "cmt:Review0***cmt:Reviewer0",
+                "value": {
+                    "type": "inherited",
+                    "label": "cmt:hasConflictOfInterest***inverted"
+                },
+                "weight": 4
+            }
+        },
+        "cmt:Reviewer0": {
+            "cmt:Reviewer0\u0001Review__writtenBy\u0001cmt:Reviewer0***Review__writtenBy\u0001st_property_uridcterms:identifier\u00011": {
+                "v": "cmt:Reviewer0",
+                "w": "Review__writtenBy",
+                "name": "cmt:Reviewer0***Review__writtenBy",
+                "value": {
+                    "label": "dcterms:identifier",
+                    "type": "st_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "Review__writtenBy": {}
+    },
+    "_sucs": {
+        "Review__ID": {
+            "cmt:Review0": 1
+        },
+        "cmt:Review0": {
+            "cmt:Reviewer0": 1
+        },
+        "cmt:Reviewer0": {
+            "Review__writtenBy": 1
+        },
+        "Review__writtenBy": {}
+    },
+    "_edgeObjs": {
+        "Review__ID\u0001cmt:Review0\u0001Review__ID***cmt:Review0\u0001st_property_uridcterms:identifier***inverted\u00011": {
+            "v": "Review__ID",
+            "w": "cmt:Review0",
+            "name": "Review__ID***cmt:Review0",
+            "value": {
+                "type": "st_property_uri",
+                "label": "dcterms:identifier***inverted"
+            },
+            "weight": 1
+        },
+        "cmt:Review0\u0001cmt:Reviewer0\u0001cmt:Review0***cmt:Reviewer0\u0001inheritedcmt:hasConflictOfInterest***inverted\u00014": {
+            "v": "cmt:Review0",
+            "w": "cmt:Reviewer0",
+            "name": "cmt:Review0***cmt:Reviewer0",
+            "value": {
+                "type": "inherited",
+                "label": "cmt:hasConflictOfInterest***inverted"
+            },
+            "weight": 4
+        },
+        "cmt:Reviewer0\u0001Review__writtenBy\u0001cmt:Reviewer0***Review__writtenBy\u0001st_property_uridcterms:identifier\u00011": {
+            "v": "cmt:Reviewer0",
+            "w": "Review__writtenBy",
+            "name": "cmt:Reviewer0***Review__writtenBy",
+            "value": {
+                "label": "dcterms:identifier",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        }
+    },
+    "_edgeLabels": {
+        "Review__ID\u0001cmt:Review0\u0001Review__ID***cmt:Review0\u0001st_property_uridcterms:identifier***inverted\u00011": {
+            "type": "st_property_uri",
+            "label": "dcterms:identifier***inverted"
+        },
+        "cmt:Review0\u0001cmt:Reviewer0\u0001cmt:Review0***cmt:Reviewer0\u0001inheritedcmt:hasConflictOfInterest***inverted\u00014": {
+            "type": "inherited",
+            "label": "cmt:hasConflictOfInterest***inverted"
+        },
+        "cmt:Reviewer0\u0001Review__writtenBy\u0001cmt:Reviewer0***Review__writtenBy\u0001st_property_uridcterms:identifier\u00011": {
+            "label": "dcterms:identifier",
+            "type": "st_property_uri"
+        }
+    },
+    "_nodeCount": 4,
+    "_edgeCount": 3
+}

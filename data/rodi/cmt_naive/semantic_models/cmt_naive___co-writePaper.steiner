@@ -1,0 +1,221 @@
+{
+    "_isDirected": true,
+    "_isMultigraph": true,
+    "_isCompound": false,
+    "_nodes": {
+        "cmt:Meta-Reviewer": {
+            "type": "class_uri",
+            "label": "cmt:Meta-Reviewer"
+        },
+        "cmt:Paper0": {
+            "type": "class_uri",
+            "label": "cmt:Paper"
+        },
+        "co-writePaper__Paper": {
+            "type": "attribute_name",
+            "label": "co-writePaper__Paper"
+        },
+        "co-writePaper__Co-author": {
+            "type": "attribute_name",
+            "label": "co-writePaper__Co-author"
+        },
+        "owl:Thing": {
+            "type": "special",
+            "label": "owl:Thing"
+        }
+    },
+    "_in": {
+        "cmt:Meta-Reviewer": {
+            "owl:Thing\u0001cmt:Meta-Reviewer\u0001owl:Thing***cmt:Meta-Reviewer\u0001inheritedrdfs:subClassOf***inverted\u00010.3333333333333333": {
+                "v": "owl:Thing",
+                "w": "cmt:Meta-Reviewer",
+                "name": "owl:Thing***cmt:Meta-Reviewer",
+                "value": {
+                    "type": "inherited",
+                    "label": "rdfs:subClassOf***inverted"
+                },
+                "weight": 0.3333333333333333
+            }
+        },
+        "cmt:Paper0": {
+            "cmt:Meta-Reviewer\u0001cmt:Paper0\u0001cmt:Meta-Reviewer***cmt:Paper0\u0001direct_property_uricmt:readByMeta-Reviewer***inverted\u00011": {
+                "v": "cmt:Meta-Reviewer",
+                "w": "cmt:Paper0",
+                "name": "cmt:Meta-Reviewer***cmt:Paper0",
+                "value": {
+                    "type": "direct_property_uri",
+                    "label": "cmt:readByMeta-Reviewer***inverted"
+                },
+                "weight": 1
+            }
+        },
+        "co-writePaper__Paper": {
+            "cmt:Paper0\u0001co-writePaper__Paper\u0001cmt:Paper0***co-writePaper__Paper\u0001st_property_uridcterms:identifier\u00011": {
+                "v": "cmt:Paper0",
+                "w": "co-writePaper__Paper",
+                "name": "cmt:Paper0***co-writePaper__Paper",
+                "value": {
+                    "label": "dcterms:identifier",
+                    "type": "st_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "co-writePaper__Co-author": {},
+        "owl:Thing": {
+            "co-writePaper__Co-author\u0001owl:Thing\u0001co-writePaper__Co-author***owl:Thing\u0001inheritedrdfs:subClassOf\u00010.3333333333333333": {
+                "v": "co-writePaper__Co-author",
+                "w": "owl:Thing",
+                "name": "co-writePaper__Co-author***owl:Thing",
+                "value": {
+                    "label": "rdfs:subClassOf",
+                    "type": "inherited"
+                },
+                "weight": 0.3333333333333333
+            }
+        }
+    },
+    "_preds": {
+        "cmt:Meta-Reviewer": {
+            "owl:Thing": 1
+        },
+        "cmt:Paper0": {
+            "cmt:Meta-Reviewer": 1
+        },
+        "co-writePaper__Paper": {
+            "cmt:Paper0": 1
+        },
+        "co-writePaper__Co-author": {},
+        "owl:Thing": {
+            "co-writePaper__Co-author": 1
+        }
+    },
+    "_out": {
+        "cmt:Meta-Reviewer": {
+            "cmt:Meta-Reviewer\u0001cmt:Paper0\u0001cmt:Meta-Reviewer***cmt:Paper0\u0001direct_property_uricmt:readByMeta-Reviewer***inverted\u00011": {
+                "v": "cmt:Meta-Reviewer",
+                "w": "cmt:Paper0",
+                "name": "cmt:Meta-Reviewer***cmt:Paper0",
+                "value": {
+                    "type": "direct_property_uri",
+                    "label": "cmt:readByMeta-Reviewer***inverted"
+                },
+                "weight": 1
+            }
+        },
+        "cmt:Paper0": {
+            "cmt:Paper0\u0001co-writePaper__Paper\u0001cmt:Paper0***co-writePaper__Paper\u0001st_property_uridcterms:identifier\u00011": {
+                "v": "cmt:Paper0",
+                "w": "co-writePaper__Paper",
+                "name": "cmt:Paper0***co-writePaper__Paper",
+                "value": {
+                    "label": "dcterms:identifier",
+                    "type": "st_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "co-writePaper__Paper": {},
+        "co-writePaper__Co-author": {
+            "co-writePaper__Co-author\u0001owl:Thing\u0001co-writePaper__Co-author***owl:Thing\u0001inheritedrdfs:subClassOf\u00010.3333333333333333": {
+                "v": "co-writePaper__Co-author",
+                "w": "owl:Thing",
+                "name": "co-writePaper__Co-author***owl:Thing",
+                "value": {
+                    "label": "rdfs:subClassOf",
+                    "type": "inherited"
+                },
+                "weight": 0.3333333333333333
+            }
+        },
+        "owl:Thing": {
+            "owl:Thing\u0001cmt:Meta-Reviewer\u0001owl:Thing***cmt:Meta-Reviewer\u0001inheritedrdfs:subClassOf***inverted\u00010.3333333333333333": {
+                "v": "owl:Thing",
+                "w": "cmt:Meta-Reviewer",
+                "name": "owl:Thing***cmt:Meta-Reviewer",
+                "value": {
+                    "type": "inherited",
+                    "label": "rdfs:subClassOf***inverted"
+                },
+                "weight": 0.3333333333333333
+            }
+        }
+    },
+    "_sucs": {
+        "cmt:Meta-Reviewer": {
+            "cmt:Paper0": 1
+        },
+        "cmt:Paper0": {
+            "co-writePaper__Paper": 1
+        },
+        "co-writePaper__Paper": {},
+        "co-writePaper__Co-author": {
+            "owl:Thing": 1
+        },
+        "owl:Thing": {
+            "cmt:Meta-Reviewer": 1
+        }
+    },
+    "_edgeObjs": {
+        "cmt:Meta-Reviewer\u0001cmt:Paper0\u0001cmt:Meta-Reviewer***cmt:Paper0\u0001direct_property_uricmt:readByMeta-Reviewer***inverted\u00011": {
+            "v": "cmt:Meta-Reviewer",
+            "w": "cmt:Paper0",
+            "name": "cmt:Meta-Reviewer***cmt:Paper0",
+            "value": {
+                "type": "direct_property_uri",
+                "label": "cmt:readByMeta-Reviewer***inverted"
+            },
+            "weight": 1
+        },
+        "cmt:Paper0\u0001co-writePaper__Paper\u0001cmt:Paper0***co-writePaper__Paper\u0001st_property_uridcterms:identifier\u00011": {
+            "v": "cmt:Paper0",
+            "w": "co-writePaper__Paper",
+            "name": "cmt:Paper0***co-writePaper__Paper",
+            "value": {
+                "label": "dcterms:identifier",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        "co-writePaper__Co-author\u0001owl:Thing\u0001co-writePaper__Co-author***owl:Thing\u0001inheritedrdfs:subClassOf\u00010.3333333333333333": {
+            "v": "co-writePaper__Co-author",
+            "w": "owl:Thing",
+            "name": "co-writePaper__Co-author***owl:Thing",
+            "value": {
+                "label": "rdfs:subClassOf",
+                "type": "inherited"
+            },
+            "weight": 0.3333333333333333
+        },
+        "owl:Thing\u0001cmt:Meta-Reviewer\u0001owl:Thing***cmt:Meta-Reviewer\u0001inheritedrdfs:subClassOf***inverted\u00010.3333333333333333": {
+            "v": "owl:Thing",
+            "w": "cmt:Meta-Reviewer",
+            "name": "owl:Thing***cmt:Meta-Reviewer",
+            "value": {
+                "type": "inherited",
+                "label": "rdfs:subClassOf***inverted"
+            },
+            "weight": 0.3333333333333333
+        }
+    },
+    "_edgeLabels": {
+        "cmt:Meta-Reviewer\u0001cmt:Paper0\u0001cmt:Meta-Reviewer***cmt:Paper0\u0001direct_property_uricmt:readByMeta-Reviewer***inverted\u00011": {
+            "type": "direct_property_uri",
+            "label": "cmt:readByMeta-Reviewer***inverted"
+        },
+        "cmt:Paper0\u0001co-writePaper__Paper\u0001cmt:Paper0***co-writePaper__Paper\u0001st_property_uridcterms:identifier\u00011": {
+            "label": "dcterms:identifier",
+            "type": "st_property_uri"
+        },
+        "co-writePaper__Co-author\u0001owl:Thing\u0001co-writePaper__Co-author***owl:Thing\u0001inheritedrdfs:subClassOf\u00010.3333333333333333": {
+            "label": "rdfs:subClassOf",
+            "type": "inherited"
+        },
+        "owl:Thing\u0001cmt:Meta-Reviewer\u0001owl:Thing***cmt:Meta-Reviewer\u0001inheritedrdfs:subClassOf***inverted\u00010.3333333333333333": {
+            "type": "inherited",
+            "label": "rdfs:subClassOf***inverted"
+        }
+    },
+    "_nodeCount": 5,
+    "_edgeCount": 4
+}
