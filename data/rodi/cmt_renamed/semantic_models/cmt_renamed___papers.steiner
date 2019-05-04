@@ -1,0 +1,173 @@
+{
+    "_isDirected": true,
+    "_isMultigraph": true,
+    "_isCompound": false,
+    "_nodes": {
+        "cmt:Author0": {
+            "type": "class_uri",
+            "label": "cmt:Author"
+        },
+        "papers__author": {
+            "type": "attribute_name",
+            "label": "papers__author"
+        },
+        "cmt:Paper0": {
+            "type": "class_uri",
+            "label": "cmt:Paper"
+        },
+        "papers__paper_id": {
+            "type": "attribute_name",
+            "label": "papers__paper_id"
+        }
+    },
+    "_in": {
+        "cmt:Author0": {
+            "cmt:Paper0\u0001cmt:Author0\u0001cmt:Paper0***cmt:Author0\u0001inheritedcmt:hasConflictOfInterest***inverted\u00014": {
+                "v": "cmt:Paper0",
+                "w": "cmt:Author0",
+                "name": "cmt:Paper0***cmt:Author0",
+                "value": {
+                    "type": "inherited",
+                    "label": "cmt:hasConflictOfInterest***inverted"
+                },
+                "weight": 4
+            }
+        },
+        "papers__author": {
+            "cmt:Author0\u0001papers__author\u0001cmt:Author0***papers__author\u0001st_property_uridcterms:identifier\u00011": {
+                "v": "cmt:Author0",
+                "w": "papers__author",
+                "name": "cmt:Author0***papers__author",
+                "value": {
+                    "label": "dcterms:identifier",
+                    "type": "st_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "cmt:Paper0": {
+            "papers__paper_id\u0001cmt:Paper0\u0001papers__paper_id***cmt:Paper0\u0001st_property_uridcterms:identifier***inverted\u00011": {
+                "v": "papers__paper_id",
+                "w": "cmt:Paper0",
+                "name": "papers__paper_id***cmt:Paper0",
+                "value": {
+                    "type": "st_property_uri",
+                    "label": "dcterms:identifier***inverted"
+                },
+                "weight": 1
+            }
+        },
+        "papers__paper_id": {}
+    },
+    "_preds": {
+        "cmt:Author0": {
+            "cmt:Paper0": 1
+        },
+        "papers__author": {
+            "cmt:Author0": 1
+        },
+        "cmt:Paper0": {
+            "papers__paper_id": 1
+        },
+        "papers__paper_id": {}
+    },
+    "_out": {
+        "cmt:Author0": {
+            "cmt:Author0\u0001papers__author\u0001cmt:Author0***papers__author\u0001st_property_uridcterms:identifier\u00011": {
+                "v": "cmt:Author0",
+                "w": "papers__author",
+                "name": "cmt:Author0***papers__author",
+                "value": {
+                    "label": "dcterms:identifier",
+                    "type": "st_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "papers__author": {},
+        "cmt:Paper0": {
+            "cmt:Paper0\u0001cmt:Author0\u0001cmt:Paper0***cmt:Author0\u0001inheritedcmt:hasConflictOfInterest***inverted\u00014": {
+                "v": "cmt:Paper0",
+                "w": "cmt:Author0",
+                "name": "cmt:Paper0***cmt:Author0",
+                "value": {
+                    "type": "inherited",
+                    "label": "cmt:hasConflictOfInterest***inverted"
+                },
+                "weight": 4
+            }
+        },
+        "papers__paper_id": {
+            "papers__paper_id\u0001cmt:Paper0\u0001papers__paper_id***cmt:Paper0\u0001st_property_uridcterms:identifier***inverted\u00011": {
+                "v": "papers__paper_id",
+                "w": "cmt:Paper0",
+                "name": "papers__paper_id***cmt:Paper0",
+                "value": {
+                    "type": "st_property_uri",
+                    "label": "dcterms:identifier***inverted"
+                },
+                "weight": 1
+            }
+        }
+    },
+    "_sucs": {
+        "cmt:Author0": {
+            "papers__author": 1
+        },
+        "papers__author": {},
+        "cmt:Paper0": {
+            "cmt:Author0": 1
+        },
+        "papers__paper_id": {
+            "cmt:Paper0": 1
+        }
+    },
+    "_edgeObjs": {
+        "cmt:Author0\u0001papers__author\u0001cmt:Author0***papers__author\u0001st_property_uridcterms:identifier\u00011": {
+            "v": "cmt:Author0",
+            "w": "papers__author",
+            "name": "cmt:Author0***papers__author",
+            "value": {
+                "label": "dcterms:identifier",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        "cmt:Paper0\u0001cmt:Author0\u0001cmt:Paper0***cmt:Author0\u0001inheritedcmt:hasConflictOfInterest***inverted\u00014": {
+            "v": "cmt:Paper0",
+            "w": "cmt:Author0",
+            "name": "cmt:Paper0***cmt:Author0",
+            "value": {
+                "type": "inherited",
+                "label": "cmt:hasConflictOfInterest***inverted"
+            },
+            "weight": 4
+        },
+        "papers__paper_id\u0001cmt:Paper0\u0001papers__paper_id***cmt:Paper0\u0001st_property_uridcterms:identifier***inverted\u00011": {
+            "v": "papers__paper_id",
+            "w": "cmt:Paper0",
+            "name": "papers__paper_id***cmt:Paper0",
+            "value": {
+                "type": "st_property_uri",
+                "label": "dcterms:identifier***inverted"
+            },
+            "weight": 1
+        }
+    },
+    "_edgeLabels": {
+        "cmt:Author0\u0001papers__author\u0001cmt:Author0***papers__author\u0001st_property_uridcterms:identifier\u00011": {
+            "label": "dcterms:identifier",
+            "type": "st_property_uri"
+        },
+        "cmt:Paper0\u0001cmt:Author0\u0001cmt:Paper0***cmt:Author0\u0001inheritedcmt:hasConflictOfInterest***inverted\u00014": {
+            "type": "inherited",
+            "label": "cmt:hasConflictOfInterest***inverted"
+        },
+        "papers__paper_id\u0001cmt:Paper0\u0001papers__paper_id***cmt:Paper0\u0001st_property_uridcterms:identifier***inverted\u00011": {
+            "type": "st_property_uri",
+            "label": "dcterms:identifier***inverted"
+        }
+    },
+    "_nodeCount": 4,
+    "_edgeCount": 3
+}

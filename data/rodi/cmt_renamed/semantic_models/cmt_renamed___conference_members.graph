@@ -1,0 +1,841 @@
+{
+    "_isDirected": true,
+    "_isMultigraph": true,
+    "_isCompound": false,
+    "_nodes": {
+        "cmt:Conference0": {
+            "type": "class_uri",
+            "label": "cmt:Conference"
+        },
+        "conference_members__conference": {
+            "type": "attribute_name",
+            "label": "conference_members__conference"
+        },
+        "cmt:Person0": {
+            "type": "class_uri",
+            "label": "cmt:Person"
+        },
+        "conference_members__conference_member": {
+            "type": "attribute_name",
+            "label": "conference_members__conference_member"
+        },
+        "cmt:Administrator": {
+            "type": "class_uri",
+            "label": "cmt:Administrator"
+        },
+        "cmt:ConferenceMember": {
+            "type": "class_uri",
+            "label": "cmt:ConferenceMember"
+        },
+        "cmt:Document": {
+            "type": "class_uri",
+            "label": "cmt:Document"
+        },
+        "owl:Thing": {
+            "type": "special",
+            "label": "owl:Thing"
+        }
+    },
+    "_in": {
+        "cmt:Conference0": {
+            "cmt:Administrator\u0001cmt:Conference0\u0001cmt:Administrator***cmt:Conference0\u0001direct_property_uricmt:enableVirtualMeeting\u00011": {
+                "v": "cmt:Administrator",
+                "w": "cmt:Conference0",
+                "name": "cmt:Administrator***cmt:Conference0",
+                "value": {
+                    "label": "cmt:enableVirtualMeeting",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            },
+            "cmt:Administrator\u0001cmt:Conference0\u0001cmt:Administrator***cmt:Conference0\u0001direct_property_uricmt:enterConferenceDetails\u00011": {
+                "v": "cmt:Administrator",
+                "w": "cmt:Conference0",
+                "name": "cmt:Administrator***cmt:Conference0",
+                "value": {
+                    "label": "cmt:enterConferenceDetails",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            },
+            "cmt:Administrator\u0001cmt:Conference0\u0001cmt:Administrator***cmt:Conference0\u0001direct_property_uricmt:enterReviewCriteria\u00011": {
+                "v": "cmt:Administrator",
+                "w": "cmt:Conference0",
+                "name": "cmt:Administrator***cmt:Conference0",
+                "value": {
+                    "label": "cmt:enterReviewCriteria",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            },
+            "cmt:Administrator\u0001cmt:Conference0\u0001cmt:Administrator***cmt:Conference0\u0001direct_property_uricmt:finalizePaperAssignment\u00011": {
+                "v": "cmt:Administrator",
+                "w": "cmt:Conference0",
+                "name": "cmt:Administrator***cmt:Conference0",
+                "value": {
+                    "label": "cmt:finalizePaperAssignment",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            },
+            "cmt:Administrator\u0001cmt:Conference0\u0001cmt:Administrator***cmt:Conference0\u0001direct_property_uricmt:printHardcopyMailingManifests\u00011": {
+                "v": "cmt:Administrator",
+                "w": "cmt:Conference0",
+                "name": "cmt:Administrator***cmt:Conference0",
+                "value": {
+                    "label": "cmt:printHardcopyMailingManifests",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            },
+            "cmt:Administrator\u0001cmt:Conference0\u0001cmt:Administrator***cmt:Conference0\u0001direct_property_uricmt:startReviewerBidding\u00011": {
+                "v": "cmt:Administrator",
+                "w": "cmt:Conference0",
+                "name": "cmt:Administrator***cmt:Conference0",
+                "value": {
+                    "label": "cmt:startReviewerBidding",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            },
+            "cmt:Administrator\u0001cmt:Conference0\u0001cmt:Administrator***cmt:Conference0\u0001direct_property_uricmt:runPaperAssignmentTools\u00011": {
+                "v": "cmt:Administrator",
+                "w": "cmt:Conference0",
+                "name": "cmt:Administrator***cmt:Conference0",
+                "value": {
+                    "label": "cmt:runPaperAssignmentTools",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            },
+            "cmt:ConferenceMember\u0001cmt:Conference0\u0001cmt:ConferenceMember***cmt:Conference0\u0001direct_property_uricmt:memberOfConference\u00011": {
+                "v": "cmt:ConferenceMember",
+                "w": "cmt:Conference0",
+                "name": "cmt:ConferenceMember***cmt:Conference0",
+                "value": {
+                    "label": "cmt:memberOfConference",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "conference_members__conference": {
+            "cmt:Conference0\u0001conference_members__conference\u0001cmt:Conference0***conference_members__conference\u0001st_property_uridcterms:identifier\u00011": {
+                "v": "cmt:Conference0",
+                "w": "conference_members__conference",
+                "name": "cmt:Conference0***conference_members__conference",
+                "value": {
+                    "label": "dcterms:identifier",
+                    "type": "st_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "cmt:Person0": {},
+        "conference_members__conference_member": {
+            "cmt:Person0\u0001conference_members__conference_member\u0001cmt:Person0***conference_members__conference_member\u0001st_property_uridcterms:identifier\u00011": {
+                "v": "cmt:Person0",
+                "w": "conference_members__conference_member",
+                "name": "cmt:Person0***conference_members__conference_member",
+                "value": {
+                    "label": "dcterms:identifier",
+                    "type": "st_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "cmt:Administrator": {
+            "cmt:Conference0\u0001cmt:Administrator\u0001cmt:Conference0***cmt:Administrator\u0001direct_property_uricmt:detailsEnteredBy\u00011": {
+                "v": "cmt:Conference0",
+                "w": "cmt:Administrator",
+                "name": "cmt:Conference0***cmt:Administrator",
+                "value": {
+                    "label": "cmt:detailsEnteredBy",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            },
+            "cmt:Conference0\u0001cmt:Administrator\u0001cmt:Conference0***cmt:Administrator\u0001direct_property_uricmt:virtualMeetingEnabledBy\u00011": {
+                "v": "cmt:Conference0",
+                "w": "cmt:Administrator",
+                "name": "cmt:Conference0***cmt:Administrator",
+                "value": {
+                    "label": "cmt:virtualMeetingEnabledBy",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            },
+            "cmt:Conference0\u0001cmt:Administrator\u0001cmt:Conference0***cmt:Administrator\u0001direct_property_uricmt:paperAssignmentFinalizedBy\u00011": {
+                "v": "cmt:Conference0",
+                "w": "cmt:Administrator",
+                "name": "cmt:Conference0***cmt:Administrator",
+                "value": {
+                    "label": "cmt:paperAssignmentFinalizedBy",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            },
+            "cmt:Conference0\u0001cmt:Administrator\u0001cmt:Conference0***cmt:Administrator\u0001direct_property_uricmt:hardcopyMailingManifestsPrintedBy\u00011": {
+                "v": "cmt:Conference0",
+                "w": "cmt:Administrator",
+                "name": "cmt:Conference0***cmt:Administrator",
+                "value": {
+                    "label": "cmt:hardcopyMailingManifestsPrintedBy",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            },
+            "cmt:Conference0\u0001cmt:Administrator\u0001cmt:Conference0***cmt:Administrator\u0001direct_property_uricmt:paperAssignmentToolsRunBy\u00011": {
+                "v": "cmt:Conference0",
+                "w": "cmt:Administrator",
+                "name": "cmt:Conference0***cmt:Administrator",
+                "value": {
+                    "label": "cmt:paperAssignmentToolsRunBy",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            },
+            "cmt:Conference0\u0001cmt:Administrator\u0001cmt:Conference0***cmt:Administrator\u0001direct_property_uricmt:reviewCriteriaEnteredBy\u00011": {
+                "v": "cmt:Conference0",
+                "w": "cmt:Administrator",
+                "name": "cmt:Conference0***cmt:Administrator",
+                "value": {
+                    "label": "cmt:reviewCriteriaEnteredBy",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            },
+            "cmt:Conference0\u0001cmt:Administrator\u0001cmt:Conference0***cmt:Administrator\u0001direct_property_uricmt:reviewerBiddingStartedBy\u00011": {
+                "v": "cmt:Conference0",
+                "w": "cmt:Administrator",
+                "name": "cmt:Conference0***cmt:Administrator",
+                "value": {
+                    "label": "cmt:reviewerBiddingStartedBy",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "cmt:ConferenceMember": {
+            "cmt:Conference0\u0001cmt:ConferenceMember\u0001cmt:Conference0***cmt:ConferenceMember\u0001direct_property_uricmt:hasConferenceMember\u00011": {
+                "v": "cmt:Conference0",
+                "w": "cmt:ConferenceMember",
+                "name": "cmt:Conference0***cmt:ConferenceMember",
+                "value": {
+                    "label": "cmt:hasConferenceMember",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "cmt:Document": {
+            "cmt:Person0\u0001cmt:Document\u0001cmt:Person0***cmt:Document\u0001direct_property_uricmt:hasConflictOfInterest\u00011": {
+                "v": "cmt:Person0",
+                "w": "cmt:Document",
+                "name": "cmt:Person0***cmt:Document",
+                "value": {
+                    "label": "cmt:hasConflictOfInterest",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "owl:Thing": {
+            "cmt:ConferenceMember\u0001owl:Thing\u0001cmt:ConferenceMember***owl:Thing\u0001inheritedrdfs:subClassOf\u00010.3333333333333333": {
+                "v": "cmt:ConferenceMember",
+                "w": "owl:Thing",
+                "name": "cmt:ConferenceMember***owl:Thing",
+                "value": {
+                    "label": "rdfs:subClassOf",
+                    "type": "inherited"
+                },
+                "weight": 0.3333333333333333
+            },
+            "cmt:Document\u0001owl:Thing\u0001cmt:Document***owl:Thing\u0001inheritedrdfs:subClassOf\u00010.3333333333333333": {
+                "v": "cmt:Document",
+                "w": "owl:Thing",
+                "name": "cmt:Document***owl:Thing",
+                "value": {
+                    "label": "rdfs:subClassOf",
+                    "type": "inherited"
+                },
+                "weight": 0.3333333333333333
+            }
+        }
+    },
+    "_preds": {
+        "cmt:Conference0": {
+            "cmt:Administrator": 7,
+            "cmt:ConferenceMember": 1
+        },
+        "conference_members__conference": {
+            "cmt:Conference0": 1
+        },
+        "cmt:Person0": {},
+        "conference_members__conference_member": {
+            "cmt:Person0": 1
+        },
+        "cmt:Administrator": {
+            "cmt:Conference0": 7
+        },
+        "cmt:ConferenceMember": {
+            "cmt:Conference0": 1
+        },
+        "cmt:Document": {
+            "cmt:Person0": 1
+        },
+        "owl:Thing": {
+            "cmt:ConferenceMember": 1,
+            "cmt:Document": 1
+        }
+    },
+    "_out": {
+        "cmt:Conference0": {
+            "cmt:Conference0\u0001conference_members__conference\u0001cmt:Conference0***conference_members__conference\u0001st_property_uridcterms:identifier\u00011": {
+                "v": "cmt:Conference0",
+                "w": "conference_members__conference",
+                "name": "cmt:Conference0***conference_members__conference",
+                "value": {
+                    "label": "dcterms:identifier",
+                    "type": "st_property_uri"
+                },
+                "weight": 1
+            },
+            "cmt:Conference0\u0001cmt:Administrator\u0001cmt:Conference0***cmt:Administrator\u0001direct_property_uricmt:detailsEnteredBy\u00011": {
+                "v": "cmt:Conference0",
+                "w": "cmt:Administrator",
+                "name": "cmt:Conference0***cmt:Administrator",
+                "value": {
+                    "label": "cmt:detailsEnteredBy",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            },
+            "cmt:Conference0\u0001cmt:Administrator\u0001cmt:Conference0***cmt:Administrator\u0001direct_property_uricmt:virtualMeetingEnabledBy\u00011": {
+                "v": "cmt:Conference0",
+                "w": "cmt:Administrator",
+                "name": "cmt:Conference0***cmt:Administrator",
+                "value": {
+                    "label": "cmt:virtualMeetingEnabledBy",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            },
+            "cmt:Conference0\u0001cmt:Administrator\u0001cmt:Conference0***cmt:Administrator\u0001direct_property_uricmt:paperAssignmentFinalizedBy\u00011": {
+                "v": "cmt:Conference0",
+                "w": "cmt:Administrator",
+                "name": "cmt:Conference0***cmt:Administrator",
+                "value": {
+                    "label": "cmt:paperAssignmentFinalizedBy",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            },
+            "cmt:Conference0\u0001cmt:Administrator\u0001cmt:Conference0***cmt:Administrator\u0001direct_property_uricmt:hardcopyMailingManifestsPrintedBy\u00011": {
+                "v": "cmt:Conference0",
+                "w": "cmt:Administrator",
+                "name": "cmt:Conference0***cmt:Administrator",
+                "value": {
+                    "label": "cmt:hardcopyMailingManifestsPrintedBy",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            },
+            "cmt:Conference0\u0001cmt:Administrator\u0001cmt:Conference0***cmt:Administrator\u0001direct_property_uricmt:paperAssignmentToolsRunBy\u00011": {
+                "v": "cmt:Conference0",
+                "w": "cmt:Administrator",
+                "name": "cmt:Conference0***cmt:Administrator",
+                "value": {
+                    "label": "cmt:paperAssignmentToolsRunBy",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            },
+            "cmt:Conference0\u0001cmt:Administrator\u0001cmt:Conference0***cmt:Administrator\u0001direct_property_uricmt:reviewCriteriaEnteredBy\u00011": {
+                "v": "cmt:Conference0",
+                "w": "cmt:Administrator",
+                "name": "cmt:Conference0***cmt:Administrator",
+                "value": {
+                    "label": "cmt:reviewCriteriaEnteredBy",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            },
+            "cmt:Conference0\u0001cmt:Administrator\u0001cmt:Conference0***cmt:Administrator\u0001direct_property_uricmt:reviewerBiddingStartedBy\u00011": {
+                "v": "cmt:Conference0",
+                "w": "cmt:Administrator",
+                "name": "cmt:Conference0***cmt:Administrator",
+                "value": {
+                    "label": "cmt:reviewerBiddingStartedBy",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            },
+            "cmt:Conference0\u0001cmt:ConferenceMember\u0001cmt:Conference0***cmt:ConferenceMember\u0001direct_property_uricmt:hasConferenceMember\u00011": {
+                "v": "cmt:Conference0",
+                "w": "cmt:ConferenceMember",
+                "name": "cmt:Conference0***cmt:ConferenceMember",
+                "value": {
+                    "label": "cmt:hasConferenceMember",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "conference_members__conference": {},
+        "cmt:Person0": {
+            "cmt:Person0\u0001conference_members__conference_member\u0001cmt:Person0***conference_members__conference_member\u0001st_property_uridcterms:identifier\u00011": {
+                "v": "cmt:Person0",
+                "w": "conference_members__conference_member",
+                "name": "cmt:Person0***conference_members__conference_member",
+                "value": {
+                    "label": "dcterms:identifier",
+                    "type": "st_property_uri"
+                },
+                "weight": 1
+            },
+            "cmt:Person0\u0001cmt:Document\u0001cmt:Person0***cmt:Document\u0001direct_property_uricmt:hasConflictOfInterest\u00011": {
+                "v": "cmt:Person0",
+                "w": "cmt:Document",
+                "name": "cmt:Person0***cmt:Document",
+                "value": {
+                    "label": "cmt:hasConflictOfInterest",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "conference_members__conference_member": {},
+        "cmt:Administrator": {
+            "cmt:Administrator\u0001cmt:Conference0\u0001cmt:Administrator***cmt:Conference0\u0001direct_property_uricmt:enableVirtualMeeting\u00011": {
+                "v": "cmt:Administrator",
+                "w": "cmt:Conference0",
+                "name": "cmt:Administrator***cmt:Conference0",
+                "value": {
+                    "label": "cmt:enableVirtualMeeting",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            },
+            "cmt:Administrator\u0001cmt:Conference0\u0001cmt:Administrator***cmt:Conference0\u0001direct_property_uricmt:enterConferenceDetails\u00011": {
+                "v": "cmt:Administrator",
+                "w": "cmt:Conference0",
+                "name": "cmt:Administrator***cmt:Conference0",
+                "value": {
+                    "label": "cmt:enterConferenceDetails",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            },
+            "cmt:Administrator\u0001cmt:Conference0\u0001cmt:Administrator***cmt:Conference0\u0001direct_property_uricmt:enterReviewCriteria\u00011": {
+                "v": "cmt:Administrator",
+                "w": "cmt:Conference0",
+                "name": "cmt:Administrator***cmt:Conference0",
+                "value": {
+                    "label": "cmt:enterReviewCriteria",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            },
+            "cmt:Administrator\u0001cmt:Conference0\u0001cmt:Administrator***cmt:Conference0\u0001direct_property_uricmt:finalizePaperAssignment\u00011": {
+                "v": "cmt:Administrator",
+                "w": "cmt:Conference0",
+                "name": "cmt:Administrator***cmt:Conference0",
+                "value": {
+                    "label": "cmt:finalizePaperAssignment",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            },
+            "cmt:Administrator\u0001cmt:Conference0\u0001cmt:Administrator***cmt:Conference0\u0001direct_property_uricmt:printHardcopyMailingManifests\u00011": {
+                "v": "cmt:Administrator",
+                "w": "cmt:Conference0",
+                "name": "cmt:Administrator***cmt:Conference0",
+                "value": {
+                    "label": "cmt:printHardcopyMailingManifests",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            },
+            "cmt:Administrator\u0001cmt:Conference0\u0001cmt:Administrator***cmt:Conference0\u0001direct_property_uricmt:startReviewerBidding\u00011": {
+                "v": "cmt:Administrator",
+                "w": "cmt:Conference0",
+                "name": "cmt:Administrator***cmt:Conference0",
+                "value": {
+                    "label": "cmt:startReviewerBidding",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            },
+            "cmt:Administrator\u0001cmt:Conference0\u0001cmt:Administrator***cmt:Conference0\u0001direct_property_uricmt:runPaperAssignmentTools\u00011": {
+                "v": "cmt:Administrator",
+                "w": "cmt:Conference0",
+                "name": "cmt:Administrator***cmt:Conference0",
+                "value": {
+                    "label": "cmt:runPaperAssignmentTools",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "cmt:ConferenceMember": {
+            "cmt:ConferenceMember\u0001cmt:Conference0\u0001cmt:ConferenceMember***cmt:Conference0\u0001direct_property_uricmt:memberOfConference\u00011": {
+                "v": "cmt:ConferenceMember",
+                "w": "cmt:Conference0",
+                "name": "cmt:ConferenceMember***cmt:Conference0",
+                "value": {
+                    "label": "cmt:memberOfConference",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            },
+            "cmt:ConferenceMember\u0001owl:Thing\u0001cmt:ConferenceMember***owl:Thing\u0001inheritedrdfs:subClassOf\u00010.3333333333333333": {
+                "v": "cmt:ConferenceMember",
+                "w": "owl:Thing",
+                "name": "cmt:ConferenceMember***owl:Thing",
+                "value": {
+                    "label": "rdfs:subClassOf",
+                    "type": "inherited"
+                },
+                "weight": 0.3333333333333333
+            }
+        },
+        "cmt:Document": {
+            "cmt:Document\u0001owl:Thing\u0001cmt:Document***owl:Thing\u0001inheritedrdfs:subClassOf\u00010.3333333333333333": {
+                "v": "cmt:Document",
+                "w": "owl:Thing",
+                "name": "cmt:Document***owl:Thing",
+                "value": {
+                    "label": "rdfs:subClassOf",
+                    "type": "inherited"
+                },
+                "weight": 0.3333333333333333
+            }
+        },
+        "owl:Thing": {}
+    },
+    "_sucs": {
+        "cmt:Conference0": {
+            "conference_members__conference": 1,
+            "cmt:Administrator": 7,
+            "cmt:ConferenceMember": 1
+        },
+        "conference_members__conference": {},
+        "cmt:Person0": {
+            "conference_members__conference_member": 1,
+            "cmt:Document": 1
+        },
+        "conference_members__conference_member": {},
+        "cmt:Administrator": {
+            "cmt:Conference0": 7
+        },
+        "cmt:ConferenceMember": {
+            "cmt:Conference0": 1,
+            "owl:Thing": 1
+        },
+        "cmt:Document": {
+            "owl:Thing": 1
+        },
+        "owl:Thing": {}
+    },
+    "_edgeObjs": {
+        "cmt:Conference0\u0001conference_members__conference\u0001cmt:Conference0***conference_members__conference\u0001st_property_uridcterms:identifier\u00011": {
+            "v": "cmt:Conference0",
+            "w": "conference_members__conference",
+            "name": "cmt:Conference0***conference_members__conference",
+            "value": {
+                "label": "dcterms:identifier",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        "cmt:Person0\u0001conference_members__conference_member\u0001cmt:Person0***conference_members__conference_member\u0001st_property_uridcterms:identifier\u00011": {
+            "v": "cmt:Person0",
+            "w": "conference_members__conference_member",
+            "name": "cmt:Person0***conference_members__conference_member",
+            "value": {
+                "label": "dcterms:identifier",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        "cmt:Conference0\u0001cmt:Administrator\u0001cmt:Conference0***cmt:Administrator\u0001direct_property_uricmt:detailsEnteredBy\u00011": {
+            "v": "cmt:Conference0",
+            "w": "cmt:Administrator",
+            "name": "cmt:Conference0***cmt:Administrator",
+            "value": {
+                "label": "cmt:detailsEnteredBy",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        "cmt:Conference0\u0001cmt:Administrator\u0001cmt:Conference0***cmt:Administrator\u0001direct_property_uricmt:virtualMeetingEnabledBy\u00011": {
+            "v": "cmt:Conference0",
+            "w": "cmt:Administrator",
+            "name": "cmt:Conference0***cmt:Administrator",
+            "value": {
+                "label": "cmt:virtualMeetingEnabledBy",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        "cmt:Conference0\u0001cmt:Administrator\u0001cmt:Conference0***cmt:Administrator\u0001direct_property_uricmt:paperAssignmentFinalizedBy\u00011": {
+            "v": "cmt:Conference0",
+            "w": "cmt:Administrator",
+            "name": "cmt:Conference0***cmt:Administrator",
+            "value": {
+                "label": "cmt:paperAssignmentFinalizedBy",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        "cmt:Conference0\u0001cmt:Administrator\u0001cmt:Conference0***cmt:Administrator\u0001direct_property_uricmt:hardcopyMailingManifestsPrintedBy\u00011": {
+            "v": "cmt:Conference0",
+            "w": "cmt:Administrator",
+            "name": "cmt:Conference0***cmt:Administrator",
+            "value": {
+                "label": "cmt:hardcopyMailingManifestsPrintedBy",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        "cmt:Conference0\u0001cmt:Administrator\u0001cmt:Conference0***cmt:Administrator\u0001direct_property_uricmt:paperAssignmentToolsRunBy\u00011": {
+            "v": "cmt:Conference0",
+            "w": "cmt:Administrator",
+            "name": "cmt:Conference0***cmt:Administrator",
+            "value": {
+                "label": "cmt:paperAssignmentToolsRunBy",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        "cmt:Conference0\u0001cmt:Administrator\u0001cmt:Conference0***cmt:Administrator\u0001direct_property_uricmt:reviewCriteriaEnteredBy\u00011": {
+            "v": "cmt:Conference0",
+            "w": "cmt:Administrator",
+            "name": "cmt:Conference0***cmt:Administrator",
+            "value": {
+                "label": "cmt:reviewCriteriaEnteredBy",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        "cmt:Conference0\u0001cmt:Administrator\u0001cmt:Conference0***cmt:Administrator\u0001direct_property_uricmt:reviewerBiddingStartedBy\u00011": {
+            "v": "cmt:Conference0",
+            "w": "cmt:Administrator",
+            "name": "cmt:Conference0***cmt:Administrator",
+            "value": {
+                "label": "cmt:reviewerBiddingStartedBy",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        "cmt:Administrator\u0001cmt:Conference0\u0001cmt:Administrator***cmt:Conference0\u0001direct_property_uricmt:enableVirtualMeeting\u00011": {
+            "v": "cmt:Administrator",
+            "w": "cmt:Conference0",
+            "name": "cmt:Administrator***cmt:Conference0",
+            "value": {
+                "label": "cmt:enableVirtualMeeting",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        "cmt:Administrator\u0001cmt:Conference0\u0001cmt:Administrator***cmt:Conference0\u0001direct_property_uricmt:enterConferenceDetails\u00011": {
+            "v": "cmt:Administrator",
+            "w": "cmt:Conference0",
+            "name": "cmt:Administrator***cmt:Conference0",
+            "value": {
+                "label": "cmt:enterConferenceDetails",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        "cmt:Administrator\u0001cmt:Conference0\u0001cmt:Administrator***cmt:Conference0\u0001direct_property_uricmt:enterReviewCriteria\u00011": {
+            "v": "cmt:Administrator",
+            "w": "cmt:Conference0",
+            "name": "cmt:Administrator***cmt:Conference0",
+            "value": {
+                "label": "cmt:enterReviewCriteria",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        "cmt:Administrator\u0001cmt:Conference0\u0001cmt:Administrator***cmt:Conference0\u0001direct_property_uricmt:finalizePaperAssignment\u00011": {
+            "v": "cmt:Administrator",
+            "w": "cmt:Conference0",
+            "name": "cmt:Administrator***cmt:Conference0",
+            "value": {
+                "label": "cmt:finalizePaperAssignment",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        "cmt:Administrator\u0001cmt:Conference0\u0001cmt:Administrator***cmt:Conference0\u0001direct_property_uricmt:printHardcopyMailingManifests\u00011": {
+            "v": "cmt:Administrator",
+            "w": "cmt:Conference0",
+            "name": "cmt:Administrator***cmt:Conference0",
+            "value": {
+                "label": "cmt:printHardcopyMailingManifests",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        "cmt:Administrator\u0001cmt:Conference0\u0001cmt:Administrator***cmt:Conference0\u0001direct_property_uricmt:startReviewerBidding\u00011": {
+            "v": "cmt:Administrator",
+            "w": "cmt:Conference0",
+            "name": "cmt:Administrator***cmt:Conference0",
+            "value": {
+                "label": "cmt:startReviewerBidding",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        "cmt:Administrator\u0001cmt:Conference0\u0001cmt:Administrator***cmt:Conference0\u0001direct_property_uricmt:runPaperAssignmentTools\u00011": {
+            "v": "cmt:Administrator",
+            "w": "cmt:Conference0",
+            "name": "cmt:Administrator***cmt:Conference0",
+            "value": {
+                "label": "cmt:runPaperAssignmentTools",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        "cmt:Conference0\u0001cmt:ConferenceMember\u0001cmt:Conference0***cmt:ConferenceMember\u0001direct_property_uricmt:hasConferenceMember\u00011": {
+            "v": "cmt:Conference0",
+            "w": "cmt:ConferenceMember",
+            "name": "cmt:Conference0***cmt:ConferenceMember",
+            "value": {
+                "label": "cmt:hasConferenceMember",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        "cmt:ConferenceMember\u0001cmt:Conference0\u0001cmt:ConferenceMember***cmt:Conference0\u0001direct_property_uricmt:memberOfConference\u00011": {
+            "v": "cmt:ConferenceMember",
+            "w": "cmt:Conference0",
+            "name": "cmt:ConferenceMember***cmt:Conference0",
+            "value": {
+                "label": "cmt:memberOfConference",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        "cmt:Person0\u0001cmt:Document\u0001cmt:Person0***cmt:Document\u0001direct_property_uricmt:hasConflictOfInterest\u00011": {
+            "v": "cmt:Person0",
+            "w": "cmt:Document",
+            "name": "cmt:Person0***cmt:Document",
+            "value": {
+                "label": "cmt:hasConflictOfInterest",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        "cmt:ConferenceMember\u0001owl:Thing\u0001cmt:ConferenceMember***owl:Thing\u0001inheritedrdfs:subClassOf\u00010.3333333333333333": {
+            "v": "cmt:ConferenceMember",
+            "w": "owl:Thing",
+            "name": "cmt:ConferenceMember***owl:Thing",
+            "value": {
+                "label": "rdfs:subClassOf",
+                "type": "inherited"
+            },
+            "weight": 0.3333333333333333
+        },
+        "cmt:Document\u0001owl:Thing\u0001cmt:Document***owl:Thing\u0001inheritedrdfs:subClassOf\u00010.3333333333333333": {
+            "v": "cmt:Document",
+            "w": "owl:Thing",
+            "name": "cmt:Document***owl:Thing",
+            "value": {
+                "label": "rdfs:subClassOf",
+                "type": "inherited"
+            },
+            "weight": 0.3333333333333333
+        }
+    },
+    "_edgeLabels": {
+        "cmt:Conference0\u0001conference_members__conference\u0001cmt:Conference0***conference_members__conference\u0001st_property_uridcterms:identifier\u00011": {
+            "label": "dcterms:identifier",
+            "type": "st_property_uri"
+        },
+        "cmt:Person0\u0001conference_members__conference_member\u0001cmt:Person0***conference_members__conference_member\u0001st_property_uridcterms:identifier\u00011": {
+            "label": "dcterms:identifier",
+            "type": "st_property_uri"
+        },
+        "cmt:Conference0\u0001cmt:Administrator\u0001cmt:Conference0***cmt:Administrator\u0001direct_property_uricmt:detailsEnteredBy\u00011": {
+            "label": "cmt:detailsEnteredBy",
+            "type": "direct_property_uri"
+        },
+        "cmt:Conference0\u0001cmt:Administrator\u0001cmt:Conference0***cmt:Administrator\u0001direct_property_uricmt:virtualMeetingEnabledBy\u00011": {
+            "label": "cmt:virtualMeetingEnabledBy",
+            "type": "direct_property_uri"
+        },
+        "cmt:Conference0\u0001cmt:Administrator\u0001cmt:Conference0***cmt:Administrator\u0001direct_property_uricmt:paperAssignmentFinalizedBy\u00011": {
+            "label": "cmt:paperAssignmentFinalizedBy",
+            "type": "direct_property_uri"
+        },
+        "cmt:Conference0\u0001cmt:Administrator\u0001cmt:Conference0***cmt:Administrator\u0001direct_property_uricmt:hardcopyMailingManifestsPrintedBy\u00011": {
+            "label": "cmt:hardcopyMailingManifestsPrintedBy",
+            "type": "direct_property_uri"
+        },
+        "cmt:Conference0\u0001cmt:Administrator\u0001cmt:Conference0***cmt:Administrator\u0001direct_property_uricmt:paperAssignmentToolsRunBy\u00011": {
+            "label": "cmt:paperAssignmentToolsRunBy",
+            "type": "direct_property_uri"
+        },
+        "cmt:Conference0\u0001cmt:Administrator\u0001cmt:Conference0***cmt:Administrator\u0001direct_property_uricmt:reviewCriteriaEnteredBy\u00011": {
+            "label": "cmt:reviewCriteriaEnteredBy",
+            "type": "direct_property_uri"
+        },
+        "cmt:Conference0\u0001cmt:Administrator\u0001cmt:Conference0***cmt:Administrator\u0001direct_property_uricmt:reviewerBiddingStartedBy\u00011": {
+            "label": "cmt:reviewerBiddingStartedBy",
+            "type": "direct_property_uri"
+        },
+        "cmt:Administrator\u0001cmt:Conference0\u0001cmt:Administrator***cmt:Conference0\u0001direct_property_uricmt:enableVirtualMeeting\u00011": {
+            "label": "cmt:enableVirtualMeeting",
+            "type": "direct_property_uri"
+        },
+        "cmt:Administrator\u0001cmt:Conference0\u0001cmt:Administrator***cmt:Conference0\u0001direct_property_uricmt:enterConferenceDetails\u00011": {
+            "label": "cmt:enterConferenceDetails",
+            "type": "direct_property_uri"
+        },
+        "cmt:Administrator\u0001cmt:Conference0\u0001cmt:Administrator***cmt:Conference0\u0001direct_property_uricmt:enterReviewCriteria\u00011": {
+            "label": "cmt:enterReviewCriteria",
+            "type": "direct_property_uri"
+        },
+        "cmt:Administrator\u0001cmt:Conference0\u0001cmt:Administrator***cmt:Conference0\u0001direct_property_uricmt:finalizePaperAssignment\u00011": {
+            "label": "cmt:finalizePaperAssignment",
+            "type": "direct_property_uri"
+        },
+        "cmt:Administrator\u0001cmt:Conference0\u0001cmt:Administrator***cmt:Conference0\u0001direct_property_uricmt:printHardcopyMailingManifests\u00011": {
+            "label": "cmt:printHardcopyMailingManifests",
+            "type": "direct_property_uri"
+        },
+        "cmt:Administrator\u0001cmt:Conference0\u0001cmt:Administrator***cmt:Conference0\u0001direct_property_uricmt:startReviewerBidding\u00011": {
+            "label": "cmt:startReviewerBidding",
+            "type": "direct_property_uri"
+        },
+        "cmt:Administrator\u0001cmt:Conference0\u0001cmt:Administrator***cmt:Conference0\u0001direct_property_uricmt:runPaperAssignmentTools\u00011": {
+            "label": "cmt:runPaperAssignmentTools",
+            "type": "direct_property_uri"
+        },
+        "cmt:Conference0\u0001cmt:ConferenceMember\u0001cmt:Conference0***cmt:ConferenceMember\u0001direct_property_uricmt:hasConferenceMember\u00011": {
+            "label": "cmt:hasConferenceMember",
+            "type": "direct_property_uri"
+        },
+        "cmt:ConferenceMember\u0001cmt:Conference0\u0001cmt:ConferenceMember***cmt:Conference0\u0001direct_property_uricmt:memberOfConference\u00011": {
+            "label": "cmt:memberOfConference",
+            "type": "direct_property_uri"
+        },
+        "cmt:Person0\u0001cmt:Document\u0001cmt:Person0***cmt:Document\u0001direct_property_uricmt:hasConflictOfInterest\u00011": {
+            "label": "cmt:hasConflictOfInterest",
+            "type": "direct_property_uri"
+        },
+        "cmt:ConferenceMember\u0001owl:Thing\u0001cmt:ConferenceMember***owl:Thing\u0001inheritedrdfs:subClassOf\u00010.3333333333333333": {
+            "label": "rdfs:subClassOf",
+            "type": "inherited"
+        },
+        "cmt:Document\u0001owl:Thing\u0001cmt:Document***owl:Thing\u0001inheritedrdfs:subClassOf\u00010.3333333333333333": {
+            "label": "rdfs:subClassOf",
+            "type": "inherited"
+        }
+    },
+    "_nodeCount": 8,
+    "_edgeCount": 21
+}

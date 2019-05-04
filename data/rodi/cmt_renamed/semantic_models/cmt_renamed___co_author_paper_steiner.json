@@ -1,0 +1,69 @@
+{
+    "options": {
+        "directed": true,
+        "multigraph": true,
+        "compound": false
+    },
+    "nodes": [
+        {
+            "v": "cmt:Co_author0",
+            "value": {
+                "type": "class_uri",
+                "label": "cmt:Co_author"
+            }
+        },
+        {
+            "v": "cmt:Paper0",
+            "value": {
+                "type": "class_uri",
+                "label": "cmt:Paper"
+            }
+        },
+        {
+            "v": "co_author_paper__pid",
+            "value": {
+                "type": "attribute_name",
+                "label": "co_author_paper__pid"
+            }
+        },
+        {
+            "v": "co_author_paper__cid",
+            "value": {
+                "type": "attribute_name",
+                "label": "co_author_paper__cid"
+            }
+        }
+    ],
+    "edges": [
+        {
+            "v": "cmt:Co_author0",
+            "w": "cmt:Paper0",
+            "name": "cmt:Co_author0***cmt:Paper0",
+            "value": {
+                "type": "direct_property_uri",
+                "label": "cmt:hasCo_author***inverted"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:Paper0",
+            "w": "co_author_paper__pid",
+            "name": "cmt:Paper0***co_author_paper__pid",
+            "value": {
+                "label": "dcterms:identifier",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "co_author_paper__cid",
+            "w": "cmt:Co_author0",
+            "name": "co_author_paper__cid***cmt:Co_author0",
+            "value": {
+                "type": "st_property_uri",
+                "label": "dcterms:identifier***inverted"
+            },
+            "weight": 1
+        }
+    ]
+}
