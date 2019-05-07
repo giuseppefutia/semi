@@ -1,0 +1,12 @@
+name=Q26 (Start Dates)
+orderNum=300
+
+sql=SELECT "Conference"."date" \n\
+FROM "Conference" 
+
+sparql=prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> \n\
+prefix : <http://cmt#> \n\
+SELECT ?dt \n\
+WHERE {?c rdf:type :Conference; :date ?dt}
+
+categories=attrib,in-table

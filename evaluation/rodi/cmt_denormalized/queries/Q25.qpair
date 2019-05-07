@@ -1,0 +1,12 @@
+name=Q25 (Conference Names)
+orderNum=290
+
+sql=SELECT "Conference"."name" \n\
+FROM "Conference" 
+
+sparql=prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> \n\
+prefix : <http://cmt#> \n\
+SELECT ?name \n\
+WHERE {?c rdf:type :Conference; :name ?name}
+
+categories=attrib,in-table

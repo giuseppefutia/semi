@@ -1,0 +1,12 @@
+name=Q01 (Persons)
+orderNum=05
+
+sql=SELECT COUNT(*) \n\
+FROM "Person"
+
+sparql=prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> \n\
+prefix : <http://cmt#> \n\
+SELECT (COUNT(?pers) AS ?count) \n\
+WHERE {?pers rdf:type :Person}
+
+categories=class,1-1
