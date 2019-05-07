@@ -1,0 +1,12 @@
+name=Q08 (Papers)
+orderNum=60
+
+sql=SELECT COUNT(*) \n\
+FROM papers WHERE papers.type = 1
+
+sparql=prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> \n\
+prefix : <http://cmt#> \n\
+SELECT (COUNT(?paper) AS ?count) \n\
+WHERE {?paper rdf:type :PaperFullVersion}
+
+categories=class,n-1

@@ -1,0 +1,12 @@
+name=Q11 (Program Committees)
+orderNum=90
+
+sql=SELECT COUNT(*) \n\
+FROM program_committees
+
+sparql=prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> \n\
+prefix : <http://cmt#> \n\
+SELECT (COUNT(?pc) AS ?count) \n\
+WHERE {?pc rdf:type :ProgramCommittee}
+
+categories=class,1-1

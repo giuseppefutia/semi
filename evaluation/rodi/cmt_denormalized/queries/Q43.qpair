@@ -13,7 +13,6 @@ SELECT DISTINCT ?title ?name \n\
 	?paper :title ?title . \n\
 	?reviewer rdf:type :Reviewer. \n\
 	?reviewer :name ?name . \n\
-	?paper :assignedTo ?paper \n\}
+	?paper :assignedTo ?reviewer \n\}
 
 categories=link,path-1,denorm
-

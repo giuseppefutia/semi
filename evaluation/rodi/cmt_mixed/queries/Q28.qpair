@@ -1,0 +1,12 @@
+name=Q28 (PC Names)
+orderNum=320
+
+sql=SELECT program_committees.label \n\
+FROM program_committees
+
+sparql=prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> \n\
+prefix : <http://cmt#> \n\
+SELECT ?lbl \n\
+WHERE {?pc rdf:type :ProgramCommittee; rdfs:label ?lbl}
+
+categories=attrib,in-table
