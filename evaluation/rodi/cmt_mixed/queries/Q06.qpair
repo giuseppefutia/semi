@@ -1,0 +1,12 @@
+name=Q06 (Reviewers)
+orderNum=50
+
+sql=SELECT COUNT(*) \n\
+FROM persons WHERE persons.reviewer = true
+
+sparql=prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> \n\
+prefix : <http://cmt#> \n\
+SELECT (COUNT(?rev) AS ?count) \n\
+WHERE {?rev rdf:type :Reviewer}
+
+categories=class,n-1

@@ -1,0 +1,12 @@
+name=Q04 (Conferences)
+orderNum=30
+
+sql=SELECT COUNT(*) \n\
+FROM conferences
+
+sparql=prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> \n\
+prefix : <http://cmt#> \n\
+SELECT (COUNT(?conf) AS ?count) \n\
+WHERE {?conf rdf:type :Conference}
+
+categories=class,1-1

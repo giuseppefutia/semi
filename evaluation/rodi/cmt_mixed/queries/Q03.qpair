@@ -1,0 +1,12 @@
+name=Q03 (Co-Authors)
+orderNum=20
+
+sql=SELECT COUNT(*) \n\
+FROM persons WHERE persons.co_author = true
+
+sparql=prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> \n\
+prefix : <http://cmt#> \n\
+SELECT (COUNT(?auth) AS ?count) \n\
+WHERE {?auth rdf:type :Co-author}
+
+categories=class,n-1

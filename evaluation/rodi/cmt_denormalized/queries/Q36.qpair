@@ -1,0 +1,12 @@
+name=Q36 (Abstract Titles)
+orderNum=400
+
+sql=SELECT "Paper"."title" \n\
+FROM "Paper" WHERE "Paper"."TYPE" = 2
+
+sparql=prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> \n\
+prefix : <http://cmt#> \n\
+SELECT ?title \n\
+WHERE {?abs rdf:type :PaperAbstract; :title ?title}
+
+categories=attrib,in-table

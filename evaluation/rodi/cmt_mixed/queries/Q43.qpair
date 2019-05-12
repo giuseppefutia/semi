@@ -1,0 +1,16 @@
+name=Q43 (Papers <-> Reviewers)
+orderNum=480
+
+sql=SELECT COUNT(DISTINCT paper_person.reviewer) \n\
+    FROM papers \n\
+    	JOIN paper_person ON papers.id = paper_person.paper \n\
+    	JOIN persons ON paper_person.reviewer = persons.id
+
+sparql=prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> \n\
+prefix : <http://cmt#> \n\
+SELECT (COUNT (DISTINCT ?paper) as ?cnt) \n\
+	WHERE { \n\
+	?paper :assignedTo ?reviewer \n\}
+
+categories=link,path-1,denorm
+

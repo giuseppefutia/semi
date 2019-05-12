@@ -1,0 +1,12 @@
+name=Q14 (PC Chairs)
+orderNum=130
+
+sql=SELECT COUNT(*) \n\
+FROM "ProgramCommitteeChair"
+
+sparql=prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> \n\
+prefix : <http://cmt#> \n\
+SELECT (COUNT(?chair) AS ?count) \n\
+WHERE {?chair rdf:type :ProgramCommitteeChair}
+
+categories=class,1-1

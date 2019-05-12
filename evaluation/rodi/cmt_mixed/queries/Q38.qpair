@@ -1,0 +1,12 @@
+name=Q38 (Review Texts)
+orderNum=430
+
+sql=SELECT reviews.comment \n\
+FROM reviews
+
+sparql=prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> \n\
+prefix : <http://cmt#> \n\
+SELECT ?text \n\
+WHERE {?rev rdf:type :Review; rdfs:comment ?text}
+
+categories=attrib,in-table

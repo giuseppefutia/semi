@@ -1,0 +1,12 @@
+name=Q40 (Conference URLs, Linked from Conference)
+orderNum=450
+
+sql=SELECT conferences.site_url \n\
+FROM conferences
+
+sparql=prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> \n\
+prefix : <http://cmt#> \n\
+SELECT ?url \n\
+WHERE {?c rdf:type :Conference; :siteURL ?url}
+
+categories=attrib,in-table

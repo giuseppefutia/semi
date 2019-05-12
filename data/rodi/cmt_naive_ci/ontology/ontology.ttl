@@ -10,8 +10,6 @@
 @prefix protege: <http://protege.stanford.edu/plugins/owl/protege#> .
 @prefix cmt: <http://cmt#> .
 
-<http://cmt> rdf:type owl:Ontology .
-
 
 #################################################################
 #
@@ -187,11 +185,11 @@ cmt:assignedTo rdf:type owl:ObjectProperty ;
 
 
 
-###  http://cmt#co-writePaper
+###  http://cmt#co_writePaper
 
-cmt:co-writePaper rdf:type owl:ObjectProperty ;
+cmt:co_writePaper rdf:type owl:ObjectProperty ;
 
-               rdfs:label "co-write paper"@en ;
+               rdfs:label "co_write paper"@en ;
 
                rdfs:domain :Co_author ;
 

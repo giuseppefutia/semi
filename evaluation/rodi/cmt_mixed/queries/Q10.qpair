@@ -1,0 +1,12 @@
+name=Q10 (Reviews)
+orderNum=80
+
+sql=SELECT COUNT(*) \n\
+FROM reviews
+
+sparql=prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> \n\
+prefix : <http://cmt#> \n\
+SELECT (COUNT(?rev) AS ?count) \n\
+WHERE {?rev rdf:type :Review}
+
+categories=class,1-1

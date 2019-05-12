@@ -1,0 +1,12 @@
+name=Q35 (Abstract IDs)
+orderNum=390
+
+sql=SELECT "Paper"."paperID" \n\
+FROM "Paper" WHERE "Paper"."TYPE" = 2
+
+sparql=prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> \n\
+prefix : <http://cmt#> \n\
+SELECT ?id \n\
+WHERE {?abs rdf:type :PaperAbstract; :paperID ?id}
+
+categories=attrib,in-table

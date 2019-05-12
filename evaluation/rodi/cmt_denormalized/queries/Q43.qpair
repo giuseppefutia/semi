@@ -1,0 +1,18 @@
+name=Q43 (Papers <-> Reviewers)
+orderNum=480
+
+sql=SELECT DISTINCT "title", "Person"."name" \n\
+FROM "Paper" \n\
+	JOIN "Person" ON "Paper"."Reviewer" = "Person"."ID"
+
+sparql=prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> \n\
+prefix : <http://cmt#> \n\
+SELECT DISTINCT ?title ?name \n\
+	WHERE { \n\
+	?paper rdf:type :Paper. \n\
+	?paper :title ?title . \n\
+	?reviewer rdf:type :Reviewer. \n\
+	?reviewer :name ?name . \n\
+	?paper :assignedTo ?reviewer \n\}
+
+categories=link,path-1,denorm

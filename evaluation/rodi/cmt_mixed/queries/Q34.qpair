@@ -1,0 +1,12 @@
+name=Q34 (Paper Titles)
+orderNum=380
+
+sql=SELECT papers.title \n\
+FROM papers WHERE papers.type = 1
+
+sparql=prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> \n\
+prefix : <http://cmt#> \n\
+SELECT ?title \n\
+WHERE {?paper rdf:type :PaperFullVersion; :title ?title}
+
+categories=attrib,in-table

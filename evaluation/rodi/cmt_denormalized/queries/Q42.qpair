@@ -1,0 +1,15 @@
+name=Q42 (Papers <-> Co-Authors)
+orderNum=470
+
+sql=SELECT COUNT(distinct "co-writePaper"."Paper") \n\
+    FROM "Paper" \n\
+    join "co-writePaper" on "Paper"."ID" = "co-writePaper"."Paper" \n\
+    join "Person" on "co-writePaper"."Co-author" = "Person"."ID" \n\
+
+sparql=prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> \n\
+       prefix : <http://cmt#> \n\
+       SELECT (COUNT (DISTINCT ?author) as ?cnt)  \n\
+       WHERE { \n\
+       ?paper :hasCo_author ?author }
+
+categories=link,path-X,path-2
