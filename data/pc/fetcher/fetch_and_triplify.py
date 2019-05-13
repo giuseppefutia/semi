@@ -24,7 +24,7 @@ for url in urls:
     JSONrecord = json.loads(json.dumps(xmltodict.parse(xml)))
     #print(JSONrecord)
     for lotto in JSONrecord["legge190:pubblicazione"]['data']['lotto']:
-        print(lotto)
+        #print(lotto)
         if "partecipanti" in lotto.keys():
             if lotto["partecipanti"] != None:
                 lotto["partecipanti"] = lotto["partecipanti"]["partecipante"]
