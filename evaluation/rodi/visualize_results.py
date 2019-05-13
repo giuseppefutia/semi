@@ -79,12 +79,35 @@ with open("results.csv", "w") as outfile:
 				outfile_avg.write("{},{},{}\n".format(tool,metric,avg_score))
 
 for metric, v in metrics_dict.items():
-	with open("{}_results.csv".format(metric.split("(AVG)")[0]), "w") as outfile:
+	tools_set = set()
+	with open("{}_results.csv".format(metric.split(" (AVG)")[0]), "w") as outfile:
 		outfile.write("db,tool,score\n")
 		for db_name, vv in v.items():
 			for tool, score in vv.items():
+				tools_set.add(tool)
 				outfile.write("{},{},{}\n".format(db_name,tool,score))
 
+	tools_string = ""
+	for tool_name in tools_set:
+		tools_string = tools_string + " & \\textbf{"+str(tool_name.replace("_", "\_"))+"}"
+
+	with open("{}.tex".format(metric.split(" (AVG)")[0]), "w") as outfile:
+		outfile.write("\\begin{table}[!ht]\n\\centering\n\\caption{}\n")
+		outfile.write("\\centering\n\\begin{tabular}{l"+"c"*len(tools_set)+"}\n")
+		outfile.write("\\textbf{db}"+tools_string+" \\\\\n\\hline\n")
+		for db_name, vv in v.items():
+			out_str = db_name.replace("_", "\_")
+			for tool_name in tools_set:
+				if tool_name in vv.keys():
+					if vv[tool_name] is not None:
+						out_str = out_str + " & " + str(round(vv[tool_name],2))
+					else:
+						out_str = out_str + " & " + "null"
+				else:
+					out_str = out_str + " & -"
+			out_str = out_str + " \\\\\n"
+			outfile.write(out_str)
+		outfile.write("\\end{tabular}\n\\label{tab:results}\n\\end{table}")
 
 df = pd.read_csv("results_avg.csv")
 
