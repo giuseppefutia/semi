@@ -6,10 +6,10 @@
     },
     "nodes": [
         {
-            "v": "cmt:Co_author0",
+            "v": "cmt:Paper0",
             "value": {
                 "type": "class_uri",
-                "label": "cmt:Co_author"
+                "label": "cmt:Paper"
             }
         },
         {
@@ -20,10 +20,10 @@
             }
         },
         {
-            "v": "cmt:Paper0",
+            "v": "cmt:Co_author0",
             "value": {
                 "type": "class_uri",
-                "label": "cmt:Paper"
+                "label": "cmt:Co_author"
             }
         },
         {
@@ -85,19 +85,9 @@
     ],
     "edges": [
         {
-            "v": "cmt:Co_author0",
-            "w": "co_writePaper__Paper",
-            "name": "cmt:Co_author0***co_writePaper__Paper",
-            "value": {
-                "label": "dcterms:identifier",
-                "type": "st_property_uri"
-            },
-            "weight": 1
-        },
-        {
             "v": "cmt:Paper0",
-            "w": "co_writePaper__Co_author",
-            "name": "cmt:Paper0***co_writePaper__Co_author",
+            "w": "co_writePaper__Paper",
+            "name": "cmt:Paper0***co_writePaper__Paper",
             "value": {
                 "label": "dcterms:identifier",
                 "type": "st_property_uri"
@@ -106,11 +96,11 @@
         },
         {
             "v": "cmt:Co_author0",
-            "w": "cmt:Paper0",
-            "name": "cmt:Co_author0***cmt:Paper0",
+            "w": "co_writePaper__Co_author",
+            "name": "cmt:Co_author0***co_writePaper__Co_author",
             "value": {
-                "label": "cmt:co_writePaper",
-                "type": "direct_property_uri"
+                "label": "dcterms:identifier",
+                "type": "st_property_uri"
             },
             "weight": 1
         },
@@ -120,6 +110,16 @@
             "name": "cmt:Paper0***cmt:Co_author0",
             "value": {
                 "label": "cmt:hasCo_author",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:Co_author0",
+            "w": "cmt:Paper0",
+            "name": "cmt:Co_author0***cmt:Paper0",
+            "value": {
+                "label": "cmt:co_writePaper",
                 "type": "direct_property_uri"
             },
             "weight": 1

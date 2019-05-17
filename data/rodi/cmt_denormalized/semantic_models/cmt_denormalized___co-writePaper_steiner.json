@@ -13,17 +13,17 @@
             }
         },
         {
-            "v": "cmt:Paper0",
-            "value": {
-                "type": "class_uri",
-                "label": "cmt:Paper"
-            }
-        },
-        {
             "v": "co_writePaper__Co_author",
             "value": {
                 "type": "attribute_name",
                 "label": "co_writePaper__Co_author"
+            }
+        },
+        {
+            "v": "cmt:Paper0",
+            "value": {
+                "type": "class_uri",
+                "label": "cmt:Paper"
             }
         },
         {
@@ -37,18 +37,8 @@
     "edges": [
         {
             "v": "cmt:Co_author0",
-            "w": "cmt:Paper0",
-            "name": "cmt:Co_author0***cmt:Paper0",
-            "value": {
-                "type": "direct_property_uri",
-                "label": "cmt:hasCo_author***inverted"
-            },
-            "weight": 1
-        },
-        {
-            "v": "cmt:Paper0",
             "w": "co_writePaper__Co_author",
-            "name": "cmt:Paper0***co_writePaper__Co_author",
+            "name": "cmt:Co_author0***co_writePaper__Co_author",
             "value": {
                 "label": "dcterms:identifier",
                 "type": "st_property_uri"
@@ -56,9 +46,19 @@
             "weight": 1
         },
         {
-            "v": "co_writePaper__Paper",
+            "v": "cmt:Paper0",
             "w": "cmt:Co_author0",
-            "name": "co_writePaper__Paper***cmt:Co_author0",
+            "name": "cmt:Paper0***cmt:Co_author0",
+            "value": {
+                "type": "inherited",
+                "label": "cmt:hasConflictOfInterest***inverted"
+            },
+            "weight": 4
+        },
+        {
+            "v": "co_writePaper__Paper",
+            "w": "cmt:Paper0",
+            "name": "co_writePaper__Paper***cmt:Paper0",
             "value": {
                 "type": "st_property_uri",
                 "label": "dcterms:identifier***inverted"

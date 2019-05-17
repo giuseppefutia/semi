@@ -1,0 +1,89 @@
+{
+    "options": {
+        "directed": true,
+        "multigraph": true,
+        "compound": false
+    },
+    "nodes": [
+        {
+            "v": "cmt:Co_author0",
+            "value": {
+                "type": "class_uri",
+                "label": "cmt:Co_author"
+            }
+        },
+        {
+            "v": "Person__ID",
+            "value": {
+                "type": "attribute_name",
+                "label": "Person__ID"
+            }
+        },
+        {
+            "v": "Person__name",
+            "value": {
+                "type": "attribute_name",
+                "label": "Person__name"
+            }
+        },
+        {
+            "v": "cmt:Paper",
+            "value": {
+                "type": "class_uri",
+                "label": "cmt:Paper"
+            }
+        }
+    ],
+    "edges": [
+        {
+            "v": "cmt:Co_author0",
+            "w": "Person__ID",
+            "name": "cmt:Co_author0***Person__ID",
+            "value": {
+                "label": "dcterms:identifier",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:Co_author0",
+            "w": "Person__name",
+            "name": "cmt:Co_author0***Person__name",
+            "value": {
+                "label": "rdfs:label",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:Co_author0",
+            "w": "cmt:Paper",
+            "name": "cmt:Co_author0***cmt:Paper",
+            "value": {
+                "label": "cmt:co_writePaper",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:Paper",
+            "w": "cmt:Co_author0",
+            "name": "cmt:Paper***cmt:Co_author0",
+            "value": {
+                "label": "cmt:hasCo_author",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:Co_author0",
+            "w": "cmt:Paper",
+            "name": "cmt:Co_author0***cmt:Paper",
+            "value": {
+                "label": "cmt:hasConflictOfInterest",
+                "type": "inherited"
+            },
+            "weight": 4
+        }
+    ]
+}

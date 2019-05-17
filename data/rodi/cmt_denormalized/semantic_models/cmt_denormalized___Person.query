@@ -19,17 +19,15 @@ PREFIX cmt:       <http://cmt#>
 PREFIX jarql:     <http://jarql.com/>
 
 CONSTRUCT {
-    ?Paper0 dcterms:identifier ?co_writePaper__Paper.
-    ?Paper0 rdf:type cmt:Paper.
-    ?Co_author0 dcterms:identifier ?co_writePaper__Co_author.
+    ?Co_author0 dcterms:identifier ?Person__ID.
     ?Co_author0 rdf:type cmt:Co_author.
-    ?Co_author0 cmt:hasConflictOfInterest ?Paper0.
+    ?Co_author0 rdfs:label ?Person__name.
+    ?Co_author0 rdf:type cmt:Co_author.
 }
 WHERE {
-    jarql:root jarql:co_writePaper ?co_writePaper.
-    ?co_writePaper jarql:Paper ?co_writePaper__Paper.
-    jarql:root jarql:co_writePaper ?co_writePaper.
-    ?co_writePaper jarql:Co_author ?co_writePaper__Co_author.
-    BIND (URI(CONCAT('http://cmt/paper/',?co_writePaper__Paper)) as ?Paper0)
-    BIND (URI(CONCAT('http://cmt/co_author/',?co_writePaper__Co_author)) as ?Co_author0)
+    jarql:root jarql:Person ?Person.
+    ?Person jarql:ID ?Person__ID.
+    jarql:root jarql:Person ?Person.
+    ?Person jarql:name ?Person__name.
+    BIND (URI(CONCAT('http://cmt/co_author/',?Person__ID)) as ?Co_author0)
 }
