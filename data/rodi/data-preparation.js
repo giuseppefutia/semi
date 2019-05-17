@@ -6,7 +6,12 @@ var basic = 'data/rodi/';
 var files = fs.readdirSync(basic)
 files = files.filter(f => fs.statSync(path.join(basic, f)).isDirectory());
 
+console.log('\nSplit input data of ' + files.length + ' scenarios');
+
 // Read input JSON of each scenario and split data
+
+/*
+var total_input_files;
 for (var i in files) {
     var json_path = basic + files[i] + '/input/' + files[i] + '.json';
     var data = fs.readFileSync(json_path);
@@ -16,16 +21,24 @@ for (var i in files) {
         var base = path.basename(json_path, '.json');
         var end = Object.keys(json[r])[0].toString();
         var file_data = JSON.stringify(json[r]);
-        fs.writeFileSync(dir + '/' + base + '***' + end + '.json', file_data);
+        fs.writeFileSync(dir + '/' + base + '___' + end + '.json', file_data);
     }
+    total_input_files = files.length * json.length
 }
+
+console.log('Total number of input files: ' + total_input_files);
+
+console.log('\nRemove all scripts');
+*/
+
 
 // Remove all scripts
 for (var i in files) {
     var script_dir = basic + files[i] + '/scripts/';
     var script_files = fs.readdirSync(script_dir);
     for (var s in script_files) {
-        fs.unlinkSync(path.join(script_dir, script_files[s]));
+        if (script_files[s] != '.gitignore')
+            fs.unlinkSync(path.join(script_dir, script_files[s]));
     }
 }
 
@@ -72,7 +85,7 @@ for (var i in files) {
                     content = 'java -jar jarql-1.0.1-SNAPSHOT.jar ' +
                         basic + files[i] + '/input/' + sts[s].split('_st.json')[0] + '.json ' +
                         basic + files[i] + '/semantic_models/' + sts[s].split('_st.json')[0] + '.query > ' +
-                        basic + files[i] + '/output/' + sts[s].split('_st.json')[0] + '.rdf ' + '\n';
+                        basic + files[i] + '/output/' + sts[s].split('_st.json')[0] + '.ttl ' + '\n';
                     break;
             }
             var file_name = basic + files[i] + '/scripts/' + files[i] + '_' + keywords[k] + '.sh'
@@ -82,17 +95,24 @@ for (var i in files) {
     }
 
     if (sts.length > 0) {
-        // Script launching all other scripts in a single scenario
-        var final_name = basic + files[i] + '/scripts/' + files[i] + '.sh';
-        fs.appendFileSync(final_name, 'sudo chmod u+x ' + basic + files[i] + '/scripts/* \n');
+        // Script including all other scripts in a single scenario
+        var final_script = basic + files[i] + '/scripts/' + files[i] + '.sh';
+        fs.appendFileSync(final_script, 'sudo chmod u+x ' + basic + files[i] + '/scripts/* \n');
         for (var sc in scripts) {
-            fs.appendFileSync(final_name, scripts[sc] + '\n');
+            fs.appendFileSync(final_script, scripts[sc] + '\n');
         }
-        fs.chmodSync(final_name, 0o777);
-
-        // Merge RDF files
         var rdf_dir = basic + files[i] + '/output/';
-        var final_rdf = require('child_process').execSync('cat ' + rdf_dir + '*').toString('UTF-8');
-        fs.writeFileSync(rdf_dir + 'final.rdf', final_rdf);
+        fs.appendFileSync(final_script, 'cat ' + rdf_dir + files[i] + '* > ' + rdf_dir + 'final.ttl \n');
+
+        fs.chmodSync(final_script, 0o777);
+
+        console.log('\n*** Semantic model generation for scenario: ' + files[i] + ' ***');
+
+        // Execute the script
+        require('child_process').execSync(final_script, {
+            stdio: 'inherit'
+        });
     }
 }
+
+console.log('\nData preparation completed!');
