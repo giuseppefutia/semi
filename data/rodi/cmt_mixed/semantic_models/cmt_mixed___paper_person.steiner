@@ -1,0 +1,173 @@
+{
+    "_isDirected": true,
+    "_isMultigraph": true,
+    "_isCompound": false,
+    "_nodes": {
+        "cmt:Paper0": {
+            "type": "class_uri",
+            "label": "cmt:Paper"
+        },
+        "cmt:Reviewer0": {
+            "type": "class_uri",
+            "label": "cmt:Reviewer"
+        },
+        "paper_person__reviewer": {
+            "type": "attribute_name",
+            "label": "paper_person__reviewer"
+        },
+        "paper_person__paper": {
+            "type": "attribute_name",
+            "label": "paper_person__paper"
+        }
+    },
+    "_in": {
+        "cmt:Paper0": {
+            "paper_person__paper\u0001cmt:Paper0\u0001paper_person__paper***cmt:Paper0\u0001st_property_uridcterms:identifier***inverted\u00011": {
+                "v": "paper_person__paper",
+                "w": "cmt:Paper0",
+                "name": "paper_person__paper***cmt:Paper0",
+                "value": {
+                    "type": "st_property_uri",
+                    "label": "dcterms:identifier***inverted"
+                },
+                "weight": 1
+            }
+        },
+        "cmt:Reviewer0": {
+            "cmt:Paper0\u0001cmt:Reviewer0\u0001cmt:Paper0***cmt:Reviewer0\u0001inheritedcmt:hasConflictOfInterest***inverted\u00014": {
+                "v": "cmt:Paper0",
+                "w": "cmt:Reviewer0",
+                "name": "cmt:Paper0***cmt:Reviewer0",
+                "value": {
+                    "type": "inherited",
+                    "label": "cmt:hasConflictOfInterest***inverted"
+                },
+                "weight": 4
+            }
+        },
+        "paper_person__reviewer": {
+            "cmt:Reviewer0\u0001paper_person__reviewer\u0001cmt:Reviewer0***paper_person__reviewer\u0001st_property_uridcterms:identifier\u00011": {
+                "v": "cmt:Reviewer0",
+                "w": "paper_person__reviewer",
+                "name": "cmt:Reviewer0***paper_person__reviewer",
+                "value": {
+                    "label": "dcterms:identifier",
+                    "type": "st_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "paper_person__paper": {}
+    },
+    "_preds": {
+        "cmt:Paper0": {
+            "paper_person__paper": 1
+        },
+        "cmt:Reviewer0": {
+            "cmt:Paper0": 1
+        },
+        "paper_person__reviewer": {
+            "cmt:Reviewer0": 1
+        },
+        "paper_person__paper": {}
+    },
+    "_out": {
+        "cmt:Paper0": {
+            "cmt:Paper0\u0001cmt:Reviewer0\u0001cmt:Paper0***cmt:Reviewer0\u0001inheritedcmt:hasConflictOfInterest***inverted\u00014": {
+                "v": "cmt:Paper0",
+                "w": "cmt:Reviewer0",
+                "name": "cmt:Paper0***cmt:Reviewer0",
+                "value": {
+                    "type": "inherited",
+                    "label": "cmt:hasConflictOfInterest***inverted"
+                },
+                "weight": 4
+            }
+        },
+        "cmt:Reviewer0": {
+            "cmt:Reviewer0\u0001paper_person__reviewer\u0001cmt:Reviewer0***paper_person__reviewer\u0001st_property_uridcterms:identifier\u00011": {
+                "v": "cmt:Reviewer0",
+                "w": "paper_person__reviewer",
+                "name": "cmt:Reviewer0***paper_person__reviewer",
+                "value": {
+                    "label": "dcterms:identifier",
+                    "type": "st_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "paper_person__reviewer": {},
+        "paper_person__paper": {
+            "paper_person__paper\u0001cmt:Paper0\u0001paper_person__paper***cmt:Paper0\u0001st_property_uridcterms:identifier***inverted\u00011": {
+                "v": "paper_person__paper",
+                "w": "cmt:Paper0",
+                "name": "paper_person__paper***cmt:Paper0",
+                "value": {
+                    "type": "st_property_uri",
+                    "label": "dcterms:identifier***inverted"
+                },
+                "weight": 1
+            }
+        }
+    },
+    "_sucs": {
+        "cmt:Paper0": {
+            "cmt:Reviewer0": 1
+        },
+        "cmt:Reviewer0": {
+            "paper_person__reviewer": 1
+        },
+        "paper_person__reviewer": {},
+        "paper_person__paper": {
+            "cmt:Paper0": 1
+        }
+    },
+    "_edgeObjs": {
+        "cmt:Paper0\u0001cmt:Reviewer0\u0001cmt:Paper0***cmt:Reviewer0\u0001inheritedcmt:hasConflictOfInterest***inverted\u00014": {
+            "v": "cmt:Paper0",
+            "w": "cmt:Reviewer0",
+            "name": "cmt:Paper0***cmt:Reviewer0",
+            "value": {
+                "type": "inherited",
+                "label": "cmt:hasConflictOfInterest***inverted"
+            },
+            "weight": 4
+        },
+        "cmt:Reviewer0\u0001paper_person__reviewer\u0001cmt:Reviewer0***paper_person__reviewer\u0001st_property_uridcterms:identifier\u00011": {
+            "v": "cmt:Reviewer0",
+            "w": "paper_person__reviewer",
+            "name": "cmt:Reviewer0***paper_person__reviewer",
+            "value": {
+                "label": "dcterms:identifier",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        "paper_person__paper\u0001cmt:Paper0\u0001paper_person__paper***cmt:Paper0\u0001st_property_uridcterms:identifier***inverted\u00011": {
+            "v": "paper_person__paper",
+            "w": "cmt:Paper0",
+            "name": "paper_person__paper***cmt:Paper0",
+            "value": {
+                "type": "st_property_uri",
+                "label": "dcterms:identifier***inverted"
+            },
+            "weight": 1
+        }
+    },
+    "_edgeLabels": {
+        "cmt:Paper0\u0001cmt:Reviewer0\u0001cmt:Paper0***cmt:Reviewer0\u0001inheritedcmt:hasConflictOfInterest***inverted\u00014": {
+            "type": "inherited",
+            "label": "cmt:hasConflictOfInterest***inverted"
+        },
+        "cmt:Reviewer0\u0001paper_person__reviewer\u0001cmt:Reviewer0***paper_person__reviewer\u0001st_property_uridcterms:identifier\u00011": {
+            "label": "dcterms:identifier",
+            "type": "st_property_uri"
+        },
+        "paper_person__paper\u0001cmt:Paper0\u0001paper_person__paper***cmt:Paper0\u0001st_property_uridcterms:identifier***inverted\u00011": {
+            "type": "st_property_uri",
+            "label": "dcterms:identifier***inverted"
+        }
+    },
+    "_nodeCount": 4,
+    "_edgeCount": 3
+}

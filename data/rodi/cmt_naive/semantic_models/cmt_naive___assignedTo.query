@@ -19,23 +19,17 @@ PREFIX cmt:       <http://cmt#>
 PREFIX jarql:     <http://jarql.com/>
 
 CONSTRUCT {
-    ?Paper0 dcterms:identifier ?Paper__ID.
+    ?Paper0 dcterms:identifier ?assignedTo__Paper.
     ?Paper0 rdf:type cmt:Paper.
-    ?Author0 dcterms:identifier ?Paper__hasAuthor.
-    ?Author0 rdf:type cmt:Author.
-    ?Reviewer0 dcterms:identifier ?Paper__Reviewer.
+    ?Reviewer0 dcterms:identifier ?assignedTo__Reviewer.
     ?Reviewer0 rdf:type cmt:Reviewer.
-    ?Author0 cmt:hasConflictOfInterest ?Paper0.
     ?Reviewer0 cmt:hasConflictOfInterest ?Paper0.
 }
 WHERE {
-    jarql:root jarql:Paper ?Paper.
-    ?Paper jarql:ID ?Paper__ID.
-    jarql:root jarql:Paper ?Paper.
-    ?Paper jarql:hasAuthor ?Paper__hasAuthor.
-    jarql:root jarql:Paper ?Paper.
-    ?Paper jarql:Reviewer ?Paper__Reviewer.
-    BIND (URI(CONCAT('http://cmt/paper/',?Paper__ID)) as ?Paper0)
-    BIND (URI(CONCAT('http://cmt/author/',?Paper__hasAuthor)) as ?Author0)
-    BIND (URI(CONCAT('http://cmt/reviewer/',?Paper__Reviewer)) as ?Reviewer0)
+    jarql:root jarql:assignedTo ?assignedTo.
+    ?assignedTo jarql:Paper ?assignedTo__Paper.
+    jarql:root jarql:assignedTo ?assignedTo.
+    ?assignedTo jarql:Reviewer ?assignedTo__Reviewer.
+    BIND (URI(CONCAT('http://cmt/paper/',?assignedTo__Paper)) as ?Paper0)
+    BIND (URI(CONCAT('http://cmt/reviewer/',?assignedTo__Reviewer)) as ?Reviewer0)
 }

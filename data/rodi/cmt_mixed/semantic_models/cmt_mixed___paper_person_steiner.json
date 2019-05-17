@@ -1,0 +1,69 @@
+{
+    "options": {
+        "directed": true,
+        "multigraph": true,
+        "compound": false
+    },
+    "nodes": [
+        {
+            "v": "cmt:Paper0",
+            "value": {
+                "type": "class_uri",
+                "label": "cmt:Paper"
+            }
+        },
+        {
+            "v": "cmt:Reviewer0",
+            "value": {
+                "type": "class_uri",
+                "label": "cmt:Reviewer"
+            }
+        },
+        {
+            "v": "paper_person__reviewer",
+            "value": {
+                "type": "attribute_name",
+                "label": "paper_person__reviewer"
+            }
+        },
+        {
+            "v": "paper_person__paper",
+            "value": {
+                "type": "attribute_name",
+                "label": "paper_person__paper"
+            }
+        }
+    ],
+    "edges": [
+        {
+            "v": "cmt:Paper0",
+            "w": "cmt:Reviewer0",
+            "name": "cmt:Paper0***cmt:Reviewer0",
+            "value": {
+                "type": "inherited",
+                "label": "cmt:hasConflictOfInterest***inverted"
+            },
+            "weight": 4
+        },
+        {
+            "v": "cmt:Reviewer0",
+            "w": "paper_person__reviewer",
+            "name": "cmt:Reviewer0***paper_person__reviewer",
+            "value": {
+                "label": "dcterms:identifier",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "paper_person__paper",
+            "w": "cmt:Paper0",
+            "name": "paper_person__paper***cmt:Paper0",
+            "value": {
+                "type": "st_property_uri",
+                "label": "dcterms:identifier***inverted"
+            },
+            "weight": 1
+        }
+    ]
+}

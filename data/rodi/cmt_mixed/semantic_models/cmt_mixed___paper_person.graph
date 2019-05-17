@@ -7,25 +7,17 @@
             "type": "class_uri",
             "label": "cmt:Paper"
         },
-        "Paper__ID": {
+        "paper_person__paper": {
             "type": "attribute_name",
-            "label": "Paper__ID"
-        },
-        "cmt:Author0": {
-            "type": "class_uri",
-            "label": "cmt:Author"
-        },
-        "Paper__hasAuthor": {
-            "type": "attribute_name",
-            "label": "Paper__hasAuthor"
+            "label": "paper_person__paper"
         },
         "cmt:Reviewer0": {
             "type": "class_uri",
             "label": "cmt:Reviewer"
         },
-        "Paper__Reviewer": {
+        "paper_person__reviewer": {
             "type": "attribute_name",
-            "label": "Paper__Reviewer"
+            "label": "paper_person__reviewer"
         },
         "cmt:Administrator": {
             "type": "class_uri",
@@ -38,6 +30,10 @@
         "cmt:Co_author": {
             "type": "class_uri",
             "label": "cmt:Co_author"
+        },
+        "cmt:Author": {
+            "type": "class_uri",
+            "label": "cmt:Author"
         },
         "cmt:Decision": {
             "type": "class_uri",
@@ -62,26 +58,6 @@
     },
     "_in": {
         "cmt:Paper0": {
-            "cmt:Author0\u0001cmt:Paper0\u0001cmt:Author0***cmt:Paper0\u0001direct_property_uricmt:submitPaper\u00011": {
-                "v": "cmt:Author0",
-                "w": "cmt:Paper0",
-                "name": "cmt:Author0***cmt:Paper0",
-                "value": {
-                    "label": "cmt:submitPaper",
-                    "type": "direct_property_uri"
-                },
-                "weight": 1
-            },
-            "cmt:Author0\u0001cmt:Paper0\u0001cmt:Author0***cmt:Paper0\u0001direct_property_uricmt:writePaper\u00011": {
-                "v": "cmt:Author0",
-                "w": "cmt:Paper0",
-                "name": "cmt:Author0***cmt:Paper0",
-                "value": {
-                    "label": "cmt:writePaper",
-                    "type": "direct_property_uri"
-                },
-                "weight": 1
-            },
             "cmt:Reviewer0\u0001cmt:Paper0\u0001cmt:Reviewer0***cmt:Paper0\u0001direct_property_uricmt:hasBeenAssigned\u00011": {
                 "v": "cmt:Reviewer0",
                 "w": "cmt:Paper0",
@@ -132,20 +108,40 @@
                 },
                 "weight": 1
             },
-            "cmt:Author0\u0001cmt:Paper0\u0001cmt:Author0***cmt:Paper0\u0001inheritedcmt:hasConflictOfInterest\u00014": {
-                "v": "cmt:Author0",
+            "cmt:Author\u0001cmt:Paper0\u0001cmt:Author***cmt:Paper0\u0001direct_property_uricmt:submitPaper\u00011": {
+                "v": "cmt:Author",
                 "w": "cmt:Paper0",
-                "name": "cmt:Author0***cmt:Paper0",
+                "name": "cmt:Author***cmt:Paper0",
+                "value": {
+                    "label": "cmt:submitPaper",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            },
+            "cmt:Author\u0001cmt:Paper0\u0001cmt:Author***cmt:Paper0\u0001direct_property_uricmt:writePaper\u00011": {
+                "v": "cmt:Author",
+                "w": "cmt:Paper0",
+                "name": "cmt:Author***cmt:Paper0",
+                "value": {
+                    "label": "cmt:writePaper",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            },
+            "cmt:Reviewer0\u0001cmt:Paper0\u0001cmt:Reviewer0***cmt:Paper0\u0001inheritedcmt:hasConflictOfInterest\u00014": {
+                "v": "cmt:Reviewer0",
+                "w": "cmt:Paper0",
+                "name": "cmt:Reviewer0***cmt:Paper0",
                 "value": {
                     "label": "cmt:hasConflictOfInterest",
                     "type": "inherited"
                 },
                 "weight": 4
             },
-            "cmt:Reviewer0\u0001cmt:Paper0\u0001cmt:Reviewer0***cmt:Paper0\u0001inheritedcmt:hasConflictOfInterest\u00014": {
-                "v": "cmt:Reviewer0",
+            "cmt:Administrator\u0001cmt:Paper0\u0001cmt:Administrator***cmt:Paper0\u0001inheritedcmt:hasConflictOfInterest\u00014": {
+                "v": "cmt:Administrator",
                 "w": "cmt:Paper0",
-                "name": "cmt:Reviewer0***cmt:Paper0",
+                "name": "cmt:Administrator***cmt:Paper0",
                 "value": {
                     "label": "cmt:hasConflictOfInterest",
                     "type": "inherited"
@@ -162,10 +158,10 @@
                 },
                 "weight": 4
             },
-            "cmt:Meta-Reviewer\u0001cmt:Paper0\u0001cmt:Meta-Reviewer***cmt:Paper0\u0001inheritedcmt:hasConflictOfInterest\u00014": {
-                "v": "cmt:Meta-Reviewer",
+            "cmt:Author\u0001cmt:Paper0\u0001cmt:Author***cmt:Paper0\u0001inheritedcmt:hasConflictOfInterest\u00014": {
+                "v": "cmt:Author",
                 "w": "cmt:Paper0",
-                "name": "cmt:Meta-Reviewer***cmt:Paper0",
+                "name": "cmt:Author***cmt:Paper0",
                 "value": {
                     "label": "cmt:hasConflictOfInterest",
                     "type": "inherited"
@@ -183,35 +179,11 @@
                 "weight": 4
             }
         },
-        "Paper__ID": {
-            "cmt:Paper0\u0001Paper__ID\u0001cmt:Paper0***Paper__ID\u0001st_property_uridcterms:identifier\u00011": {
+        "paper_person__paper": {
+            "cmt:Paper0\u0001paper_person__paper\u0001cmt:Paper0***paper_person__paper\u0001st_property_uridcterms:identifier\u00011": {
                 "v": "cmt:Paper0",
-                "w": "Paper__ID",
-                "name": "cmt:Paper0***Paper__ID",
-                "value": {
-                    "label": "dcterms:identifier",
-                    "type": "st_property_uri"
-                },
-                "weight": 1
-            }
-        },
-        "cmt:Author0": {
-            "cmt:Paper0\u0001cmt:Author0\u0001cmt:Paper0***cmt:Author0\u0001direct_property_uricmt:hasAuthor\u00011": {
-                "v": "cmt:Paper0",
-                "w": "cmt:Author0",
-                "name": "cmt:Paper0***cmt:Author0",
-                "value": {
-                    "label": "cmt:hasAuthor",
-                    "type": "direct_property_uri"
-                },
-                "weight": 1
-            }
-        },
-        "Paper__hasAuthor": {
-            "cmt:Author0\u0001Paper__hasAuthor\u0001cmt:Author0***Paper__hasAuthor\u0001st_property_uridcterms:identifier\u00011": {
-                "v": "cmt:Author0",
-                "w": "Paper__hasAuthor",
-                "name": "cmt:Author0***Paper__hasAuthor",
+                "w": "paper_person__paper",
+                "name": "cmt:Paper0***paper_person__paper",
                 "value": {
                     "label": "dcterms:identifier",
                     "type": "st_property_uri"
@@ -281,11 +253,11 @@
                 "weight": 1
             }
         },
-        "Paper__Reviewer": {
-            "cmt:Reviewer0\u0001Paper__Reviewer\u0001cmt:Reviewer0***Paper__Reviewer\u0001st_property_uridcterms:identifier\u00011": {
+        "paper_person__reviewer": {
+            "cmt:Reviewer0\u0001paper_person__reviewer\u0001cmt:Reviewer0***paper_person__reviewer\u0001st_property_uridcterms:identifier\u00011": {
                 "v": "cmt:Reviewer0",
-                "w": "Paper__Reviewer",
-                "name": "cmt:Reviewer0***Paper__Reviewer",
+                "w": "paper_person__reviewer",
+                "name": "cmt:Reviewer0***paper_person__reviewer",
                 "value": {
                     "label": "dcterms:identifier",
                     "type": "st_property_uri"
@@ -359,6 +331,18 @@
                 "weight": 1
             }
         },
+        "cmt:Author": {
+            "cmt:Paper0\u0001cmt:Author\u0001cmt:Paper0***cmt:Author\u0001direct_property_uricmt:hasAuthor\u00011": {
+                "v": "cmt:Paper0",
+                "w": "cmt:Author",
+                "name": "cmt:Paper0***cmt:Author",
+                "value": {
+                    "label": "cmt:hasAuthor",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            }
+        },
         "cmt:Decision": {
             "cmt:Paper0\u0001cmt:Decision\u0001cmt:Paper0***cmt:Decision\u0001direct_property_uricmt:hasDecision\u00011": {
                 "v": "cmt:Paper0",
@@ -418,20 +402,20 @@
                 },
                 "weight": 1
             },
-            "cmt:Author0\u0001cmt:Review\u0001cmt:Author0***cmt:Review\u0001inheritedcmt:hasConflictOfInterest\u00014": {
-                "v": "cmt:Author0",
+            "cmt:Reviewer0\u0001cmt:Review\u0001cmt:Reviewer0***cmt:Review\u0001inheritedcmt:hasConflictOfInterest\u00014": {
+                "v": "cmt:Reviewer0",
                 "w": "cmt:Review",
-                "name": "cmt:Author0***cmt:Review",
+                "name": "cmt:Reviewer0***cmt:Review",
                 "value": {
                     "label": "cmt:hasConflictOfInterest",
                     "type": "inherited"
                 },
                 "weight": 4
             },
-            "cmt:Reviewer0\u0001cmt:Review\u0001cmt:Reviewer0***cmt:Review\u0001inheritedcmt:hasConflictOfInterest\u00014": {
-                "v": "cmt:Reviewer0",
+            "cmt:Administrator\u0001cmt:Review\u0001cmt:Administrator***cmt:Review\u0001inheritedcmt:hasConflictOfInterest\u00014": {
+                "v": "cmt:Administrator",
                 "w": "cmt:Review",
-                "name": "cmt:Reviewer0***cmt:Review",
+                "name": "cmt:Administrator***cmt:Review",
                 "value": {
                     "label": "cmt:hasConflictOfInterest",
                     "type": "inherited"
@@ -448,10 +432,10 @@
                 },
                 "weight": 4
             },
-            "cmt:Meta-Reviewer\u0001cmt:Review\u0001cmt:Meta-Reviewer***cmt:Review\u0001inheritedcmt:hasConflictOfInterest\u00014": {
-                "v": "cmt:Meta-Reviewer",
+            "cmt:Author\u0001cmt:Review\u0001cmt:Author***cmt:Review\u0001inheritedcmt:hasConflictOfInterest\u00014": {
+                "v": "cmt:Author",
                 "w": "cmt:Review",
-                "name": "cmt:Meta-Reviewer***cmt:Review",
+                "name": "cmt:Author***cmt:Review",
                 "value": {
                     "label": "cmt:hasConflictOfInterest",
                     "type": "inherited"
@@ -472,21 +456,14 @@
     },
     "_preds": {
         "cmt:Paper0": {
-            "cmt:Author0": 3,
             "cmt:Reviewer0": 3,
-            "cmt:Administrator": 2,
+            "cmt:Administrator": 3,
             "cmt:Co_author": 2,
-            "cmt:Meta-Reviewer": 1,
+            "cmt:Author": 3,
             "cmt:ExternalReviewer": 1
         },
-        "Paper__ID": {
+        "paper_person__paper": {
             "cmt:Paper0": 1
-        },
-        "cmt:Author0": {
-            "cmt:Paper0": 1
-        },
-        "Paper__hasAuthor": {
-            "cmt:Author0": 1
         },
         "cmt:Reviewer0": {
             "cmt:Paper0": 2,
@@ -495,7 +472,7 @@
             "cmt:ExternalReviewer": 1,
             "cmt:Review": 1
         },
-        "Paper__Reviewer": {
+        "paper_person__reviewer": {
             "cmt:Reviewer0": 1
         },
         "cmt:Administrator": {
@@ -507,6 +484,9 @@
             "cmt:Reviewer0": 1
         },
         "cmt:Co_author": {
+            "cmt:Paper0": 1
+        },
+        "cmt:Author": {
             "cmt:Paper0": 1
         },
         "cmt:Decision": {
@@ -523,31 +503,21 @@
         },
         "cmt:Review": {
             "cmt:Reviewer0": 2,
-            "cmt:Author0": 1,
+            "cmt:Administrator": 1,
             "cmt:Co_author": 1,
-            "cmt:Meta-Reviewer": 1,
+            "cmt:Author": 1,
             "cmt:ExternalReviewer": 1
         }
     },
     "_out": {
         "cmt:Paper0": {
-            "cmt:Paper0\u0001Paper__ID\u0001cmt:Paper0***Paper__ID\u0001st_property_uridcterms:identifier\u00011": {
+            "cmt:Paper0\u0001paper_person__paper\u0001cmt:Paper0***paper_person__paper\u0001st_property_uridcterms:identifier\u00011": {
                 "v": "cmt:Paper0",
-                "w": "Paper__ID",
-                "name": "cmt:Paper0***Paper__ID",
+                "w": "paper_person__paper",
+                "name": "cmt:Paper0***paper_person__paper",
                 "value": {
                     "label": "dcterms:identifier",
                     "type": "st_property_uri"
-                },
-                "weight": 1
-            },
-            "cmt:Paper0\u0001cmt:Author0\u0001cmt:Paper0***cmt:Author0\u0001direct_property_uricmt:hasAuthor\u00011": {
-                "v": "cmt:Paper0",
-                "w": "cmt:Author0",
-                "name": "cmt:Paper0***cmt:Author0",
-                "value": {
-                    "label": "cmt:hasAuthor",
-                    "type": "direct_property_uri"
                 },
                 "weight": 1
             },
@@ -611,6 +581,16 @@
                 },
                 "weight": 1
             },
+            "cmt:Paper0\u0001cmt:Author\u0001cmt:Paper0***cmt:Author\u0001direct_property_uricmt:hasAuthor\u00011": {
+                "v": "cmt:Paper0",
+                "w": "cmt:Author",
+                "name": "cmt:Paper0***cmt:Author",
+                "value": {
+                    "label": "cmt:hasAuthor",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            },
             "cmt:Paper0\u0001cmt:Decision\u0001cmt:Paper0***cmt:Decision\u0001direct_property_uricmt:hasDecision\u00011": {
                 "v": "cmt:Paper0",
                 "w": "cmt:Decision",
@@ -642,65 +622,12 @@
                 "weight": 1
             }
         },
-        "Paper__ID": {},
-        "cmt:Author0": {
-            "cmt:Author0\u0001Paper__hasAuthor\u0001cmt:Author0***Paper__hasAuthor\u0001st_property_uridcterms:identifier\u00011": {
-                "v": "cmt:Author0",
-                "w": "Paper__hasAuthor",
-                "name": "cmt:Author0***Paper__hasAuthor",
-                "value": {
-                    "label": "dcterms:identifier",
-                    "type": "st_property_uri"
-                },
-                "weight": 1
-            },
-            "cmt:Author0\u0001cmt:Paper0\u0001cmt:Author0***cmt:Paper0\u0001direct_property_uricmt:submitPaper\u00011": {
-                "v": "cmt:Author0",
-                "w": "cmt:Paper0",
-                "name": "cmt:Author0***cmt:Paper0",
-                "value": {
-                    "label": "cmt:submitPaper",
-                    "type": "direct_property_uri"
-                },
-                "weight": 1
-            },
-            "cmt:Author0\u0001cmt:Paper0\u0001cmt:Author0***cmt:Paper0\u0001direct_property_uricmt:writePaper\u00011": {
-                "v": "cmt:Author0",
-                "w": "cmt:Paper0",
-                "name": "cmt:Author0***cmt:Paper0",
-                "value": {
-                    "label": "cmt:writePaper",
-                    "type": "direct_property_uri"
-                },
-                "weight": 1
-            },
-            "cmt:Author0\u0001cmt:Paper0\u0001cmt:Author0***cmt:Paper0\u0001inheritedcmt:hasConflictOfInterest\u00014": {
-                "v": "cmt:Author0",
-                "w": "cmt:Paper0",
-                "name": "cmt:Author0***cmt:Paper0",
-                "value": {
-                    "label": "cmt:hasConflictOfInterest",
-                    "type": "inherited"
-                },
-                "weight": 4
-            },
-            "cmt:Author0\u0001cmt:Review\u0001cmt:Author0***cmt:Review\u0001inheritedcmt:hasConflictOfInterest\u00014": {
-                "v": "cmt:Author0",
-                "w": "cmt:Review",
-                "name": "cmt:Author0***cmt:Review",
-                "value": {
-                    "label": "cmt:hasConflictOfInterest",
-                    "type": "inherited"
-                },
-                "weight": 4
-            }
-        },
-        "Paper__hasAuthor": {},
+        "paper_person__paper": {},
         "cmt:Reviewer0": {
-            "cmt:Reviewer0\u0001Paper__Reviewer\u0001cmt:Reviewer0***Paper__Reviewer\u0001st_property_uridcterms:identifier\u00011": {
+            "cmt:Reviewer0\u0001paper_person__reviewer\u0001cmt:Reviewer0***paper_person__reviewer\u0001st_property_uridcterms:identifier\u00011": {
                 "v": "cmt:Reviewer0",
-                "w": "Paper__Reviewer",
-                "name": "cmt:Reviewer0***Paper__Reviewer",
+                "w": "paper_person__reviewer",
+                "name": "cmt:Reviewer0***paper_person__reviewer",
                 "value": {
                     "label": "dcterms:identifier",
                     "type": "st_property_uri"
@@ -788,7 +715,7 @@
                 "weight": 4
             }
         },
-        "Paper__Reviewer": {},
+        "paper_person__reviewer": {},
         "cmt:Administrator": {
             "cmt:Administrator\u0001cmt:Paper0\u0001cmt:Administrator***cmt:Paper0\u0001direct_property_uricmt:acceptPaper\u00011": {
                 "v": "cmt:Administrator",
@@ -819,6 +746,26 @@
                     "type": "direct_property_uri"
                 },
                 "weight": 1
+            },
+            "cmt:Administrator\u0001cmt:Paper0\u0001cmt:Administrator***cmt:Paper0\u0001inheritedcmt:hasConflictOfInterest\u00014": {
+                "v": "cmt:Administrator",
+                "w": "cmt:Paper0",
+                "name": "cmt:Administrator***cmt:Paper0",
+                "value": {
+                    "label": "cmt:hasConflictOfInterest",
+                    "type": "inherited"
+                },
+                "weight": 4
+            },
+            "cmt:Administrator\u0001cmt:Review\u0001cmt:Administrator***cmt:Review\u0001inheritedcmt:hasConflictOfInterest\u00014": {
+                "v": "cmt:Administrator",
+                "w": "cmt:Review",
+                "name": "cmt:Administrator***cmt:Review",
+                "value": {
+                    "label": "cmt:hasConflictOfInterest",
+                    "type": "inherited"
+                },
+                "weight": 4
             }
         },
         "cmt:Bid": {
@@ -865,23 +812,41 @@
                 "weight": 4
             }
         },
-        "cmt:Decision": {},
-        "cmt:SubjectArea": {},
-        "cmt:Meta-Reviewer": {
-            "cmt:Meta-Reviewer\u0001cmt:Paper0\u0001cmt:Meta-Reviewer***cmt:Paper0\u0001inheritedcmt:hasConflictOfInterest\u00014": {
-                "v": "cmt:Meta-Reviewer",
+        "cmt:Author": {
+            "cmt:Author\u0001cmt:Paper0\u0001cmt:Author***cmt:Paper0\u0001direct_property_uricmt:submitPaper\u00011": {
+                "v": "cmt:Author",
                 "w": "cmt:Paper0",
-                "name": "cmt:Meta-Reviewer***cmt:Paper0",
+                "name": "cmt:Author***cmt:Paper0",
+                "value": {
+                    "label": "cmt:submitPaper",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            },
+            "cmt:Author\u0001cmt:Paper0\u0001cmt:Author***cmt:Paper0\u0001direct_property_uricmt:writePaper\u00011": {
+                "v": "cmt:Author",
+                "w": "cmt:Paper0",
+                "name": "cmt:Author***cmt:Paper0",
+                "value": {
+                    "label": "cmt:writePaper",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            },
+            "cmt:Author\u0001cmt:Paper0\u0001cmt:Author***cmt:Paper0\u0001inheritedcmt:hasConflictOfInterest\u00014": {
+                "v": "cmt:Author",
+                "w": "cmt:Paper0",
+                "name": "cmt:Author***cmt:Paper0",
                 "value": {
                     "label": "cmt:hasConflictOfInterest",
                     "type": "inherited"
                 },
                 "weight": 4
             },
-            "cmt:Meta-Reviewer\u0001cmt:Review\u0001cmt:Meta-Reviewer***cmt:Review\u0001inheritedcmt:hasConflictOfInterest\u00014": {
-                "v": "cmt:Meta-Reviewer",
+            "cmt:Author\u0001cmt:Review\u0001cmt:Author***cmt:Review\u0001inheritedcmt:hasConflictOfInterest\u00014": {
+                "v": "cmt:Author",
                 "w": "cmt:Review",
-                "name": "cmt:Meta-Reviewer***cmt:Review",
+                "name": "cmt:Author***cmt:Review",
                 "value": {
                     "label": "cmt:hasConflictOfInterest",
                     "type": "inherited"
@@ -889,6 +854,9 @@
                 "weight": 4
             }
         },
+        "cmt:Decision": {},
+        "cmt:SubjectArea": {},
+        "cmt:Meta-Reviewer": {},
         "cmt:ExternalReviewer": {
             "cmt:ExternalReviewer\u0001cmt:Reviewer0\u0001cmt:ExternalReviewer***cmt:Reviewer0\u0001direct_property_uricmt:assignedByReviewer\u00011": {
                 "v": "cmt:ExternalReviewer",
@@ -936,35 +904,30 @@
     },
     "_sucs": {
         "cmt:Paper0": {
-            "Paper__ID": 1,
-            "cmt:Author0": 1,
+            "paper_person__paper": 1,
             "cmt:Reviewer0": 2,
             "cmt:Administrator": 2,
             "cmt:Bid": 1,
             "cmt:Co_author": 1,
+            "cmt:Author": 1,
             "cmt:Decision": 1,
             "cmt:SubjectArea": 1,
             "cmt:Meta-Reviewer": 1
         },
-        "Paper__ID": {},
-        "cmt:Author0": {
-            "Paper__hasAuthor": 1,
-            "cmt:Paper0": 3,
-            "cmt:Review": 1
-        },
-        "Paper__hasAuthor": {},
+        "paper_person__paper": {},
         "cmt:Reviewer0": {
-            "Paper__Reviewer": 1,
+            "paper_person__reviewer": 1,
             "cmt:Paper0": 3,
             "cmt:Administrator": 1,
             "cmt:Bid": 1,
             "cmt:ExternalReviewer": 1,
             "cmt:Review": 2
         },
-        "Paper__Reviewer": {},
+        "paper_person__reviewer": {},
         "cmt:Administrator": {
-            "cmt:Paper0": 2,
-            "cmt:Reviewer0": 1
+            "cmt:Paper0": 3,
+            "cmt:Reviewer0": 1,
+            "cmt:Review": 1
         },
         "cmt:Bid": {
             "cmt:Reviewer0": 1
@@ -973,12 +936,13 @@
             "cmt:Paper0": 2,
             "cmt:Review": 1
         },
-        "cmt:Decision": {},
-        "cmt:SubjectArea": {},
-        "cmt:Meta-Reviewer": {
-            "cmt:Paper0": 1,
+        "cmt:Author": {
+            "cmt:Paper0": 3,
             "cmt:Review": 1
         },
+        "cmt:Decision": {},
+        "cmt:SubjectArea": {},
+        "cmt:Meta-Reviewer": {},
         "cmt:ExternalReviewer": {
             "cmt:Reviewer0": 1,
             "cmt:Paper0": 1,
@@ -989,63 +953,23 @@
         }
     },
     "_edgeObjs": {
-        "cmt:Paper0\u0001Paper__ID\u0001cmt:Paper0***Paper__ID\u0001st_property_uridcterms:identifier\u00011": {
+        "cmt:Paper0\u0001paper_person__paper\u0001cmt:Paper0***paper_person__paper\u0001st_property_uridcterms:identifier\u00011": {
             "v": "cmt:Paper0",
-            "w": "Paper__ID",
-            "name": "cmt:Paper0***Paper__ID",
+            "w": "paper_person__paper",
+            "name": "cmt:Paper0***paper_person__paper",
             "value": {
                 "label": "dcterms:identifier",
                 "type": "st_property_uri"
             },
             "weight": 1
         },
-        "cmt:Author0\u0001Paper__hasAuthor\u0001cmt:Author0***Paper__hasAuthor\u0001st_property_uridcterms:identifier\u00011": {
-            "v": "cmt:Author0",
-            "w": "Paper__hasAuthor",
-            "name": "cmt:Author0***Paper__hasAuthor",
-            "value": {
-                "label": "dcterms:identifier",
-                "type": "st_property_uri"
-            },
-            "weight": 1
-        },
-        "cmt:Reviewer0\u0001Paper__Reviewer\u0001cmt:Reviewer0***Paper__Reviewer\u0001st_property_uridcterms:identifier\u00011": {
+        "cmt:Reviewer0\u0001paper_person__reviewer\u0001cmt:Reviewer0***paper_person__reviewer\u0001st_property_uridcterms:identifier\u00011": {
             "v": "cmt:Reviewer0",
-            "w": "Paper__Reviewer",
-            "name": "cmt:Reviewer0***Paper__Reviewer",
+            "w": "paper_person__reviewer",
+            "name": "cmt:Reviewer0***paper_person__reviewer",
             "value": {
                 "label": "dcterms:identifier",
                 "type": "st_property_uri"
-            },
-            "weight": 1
-        },
-        "cmt:Paper0\u0001cmt:Author0\u0001cmt:Paper0***cmt:Author0\u0001direct_property_uricmt:hasAuthor\u00011": {
-            "v": "cmt:Paper0",
-            "w": "cmt:Author0",
-            "name": "cmt:Paper0***cmt:Author0",
-            "value": {
-                "label": "cmt:hasAuthor",
-                "type": "direct_property_uri"
-            },
-            "weight": 1
-        },
-        "cmt:Author0\u0001cmt:Paper0\u0001cmt:Author0***cmt:Paper0\u0001direct_property_uricmt:submitPaper\u00011": {
-            "v": "cmt:Author0",
-            "w": "cmt:Paper0",
-            "name": "cmt:Author0***cmt:Paper0",
-            "value": {
-                "label": "cmt:submitPaper",
-                "type": "direct_property_uri"
-            },
-            "weight": 1
-        },
-        "cmt:Author0\u0001cmt:Paper0\u0001cmt:Author0***cmt:Paper0\u0001direct_property_uricmt:writePaper\u00011": {
-            "v": "cmt:Author0",
-            "w": "cmt:Paper0",
-            "name": "cmt:Author0***cmt:Paper0",
-            "value": {
-                "label": "cmt:writePaper",
-                "type": "direct_property_uri"
             },
             "weight": 1
         },
@@ -1155,6 +1079,36 @@
             "name": "cmt:Co_author***cmt:Paper0",
             "value": {
                 "label": "cmt:co_writePaper",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        "cmt:Paper0\u0001cmt:Author\u0001cmt:Paper0***cmt:Author\u0001direct_property_uricmt:hasAuthor\u00011": {
+            "v": "cmt:Paper0",
+            "w": "cmt:Author",
+            "name": "cmt:Paper0***cmt:Author",
+            "value": {
+                "label": "cmt:hasAuthor",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        "cmt:Author\u0001cmt:Paper0\u0001cmt:Author***cmt:Paper0\u0001direct_property_uricmt:submitPaper\u00011": {
+            "v": "cmt:Author",
+            "w": "cmt:Paper0",
+            "name": "cmt:Author***cmt:Paper0",
+            "value": {
+                "label": "cmt:submitPaper",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        "cmt:Author\u0001cmt:Paper0\u0001cmt:Author***cmt:Paper0\u0001direct_property_uricmt:writePaper\u00011": {
+            "v": "cmt:Author",
+            "w": "cmt:Paper0",
+            "name": "cmt:Author***cmt:Paper0",
+            "value": {
+                "label": "cmt:writePaper",
                 "type": "direct_property_uri"
             },
             "weight": 1
@@ -1269,26 +1223,6 @@
             },
             "weight": 1
         },
-        "cmt:Author0\u0001cmt:Paper0\u0001cmt:Author0***cmt:Paper0\u0001inheritedcmt:hasConflictOfInterest\u00014": {
-            "v": "cmt:Author0",
-            "w": "cmt:Paper0",
-            "name": "cmt:Author0***cmt:Paper0",
-            "value": {
-                "label": "cmt:hasConflictOfInterest",
-                "type": "inherited"
-            },
-            "weight": 4
-        },
-        "cmt:Author0\u0001cmt:Review\u0001cmt:Author0***cmt:Review\u0001inheritedcmt:hasConflictOfInterest\u00014": {
-            "v": "cmt:Author0",
-            "w": "cmt:Review",
-            "name": "cmt:Author0***cmt:Review",
-            "value": {
-                "label": "cmt:hasConflictOfInterest",
-                "type": "inherited"
-            },
-            "weight": 4
-        },
         "cmt:Reviewer0\u0001cmt:Paper0\u0001cmt:Reviewer0***cmt:Paper0\u0001inheritedcmt:hasConflictOfInterest\u00014": {
             "v": "cmt:Reviewer0",
             "w": "cmt:Paper0",
@@ -1303,6 +1237,26 @@
             "v": "cmt:Reviewer0",
             "w": "cmt:Review",
             "name": "cmt:Reviewer0***cmt:Review",
+            "value": {
+                "label": "cmt:hasConflictOfInterest",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        "cmt:Administrator\u0001cmt:Paper0\u0001cmt:Administrator***cmt:Paper0\u0001inheritedcmt:hasConflictOfInterest\u00014": {
+            "v": "cmt:Administrator",
+            "w": "cmt:Paper0",
+            "name": "cmt:Administrator***cmt:Paper0",
+            "value": {
+                "label": "cmt:hasConflictOfInterest",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        "cmt:Administrator\u0001cmt:Review\u0001cmt:Administrator***cmt:Review\u0001inheritedcmt:hasConflictOfInterest\u00014": {
+            "v": "cmt:Administrator",
+            "w": "cmt:Review",
+            "name": "cmt:Administrator***cmt:Review",
             "value": {
                 "label": "cmt:hasConflictOfInterest",
                 "type": "inherited"
@@ -1329,20 +1283,20 @@
             },
             "weight": 4
         },
-        "cmt:Meta-Reviewer\u0001cmt:Paper0\u0001cmt:Meta-Reviewer***cmt:Paper0\u0001inheritedcmt:hasConflictOfInterest\u00014": {
-            "v": "cmt:Meta-Reviewer",
+        "cmt:Author\u0001cmt:Paper0\u0001cmt:Author***cmt:Paper0\u0001inheritedcmt:hasConflictOfInterest\u00014": {
+            "v": "cmt:Author",
             "w": "cmt:Paper0",
-            "name": "cmt:Meta-Reviewer***cmt:Paper0",
+            "name": "cmt:Author***cmt:Paper0",
             "value": {
                 "label": "cmt:hasConflictOfInterest",
                 "type": "inherited"
             },
             "weight": 4
         },
-        "cmt:Meta-Reviewer\u0001cmt:Review\u0001cmt:Meta-Reviewer***cmt:Review\u0001inheritedcmt:hasConflictOfInterest\u00014": {
-            "v": "cmt:Meta-Reviewer",
+        "cmt:Author\u0001cmt:Review\u0001cmt:Author***cmt:Review\u0001inheritedcmt:hasConflictOfInterest\u00014": {
+            "v": "cmt:Author",
             "w": "cmt:Review",
-            "name": "cmt:Meta-Reviewer***cmt:Review",
+            "name": "cmt:Author***cmt:Review",
             "value": {
                 "label": "cmt:hasConflictOfInterest",
                 "type": "inherited"
@@ -1371,29 +1325,13 @@
         }
     },
     "_edgeLabels": {
-        "cmt:Paper0\u0001Paper__ID\u0001cmt:Paper0***Paper__ID\u0001st_property_uridcterms:identifier\u00011": {
+        "cmt:Paper0\u0001paper_person__paper\u0001cmt:Paper0***paper_person__paper\u0001st_property_uridcterms:identifier\u00011": {
             "label": "dcterms:identifier",
             "type": "st_property_uri"
         },
-        "cmt:Author0\u0001Paper__hasAuthor\u0001cmt:Author0***Paper__hasAuthor\u0001st_property_uridcterms:identifier\u00011": {
+        "cmt:Reviewer0\u0001paper_person__reviewer\u0001cmt:Reviewer0***paper_person__reviewer\u0001st_property_uridcterms:identifier\u00011": {
             "label": "dcterms:identifier",
             "type": "st_property_uri"
-        },
-        "cmt:Reviewer0\u0001Paper__Reviewer\u0001cmt:Reviewer0***Paper__Reviewer\u0001st_property_uridcterms:identifier\u00011": {
-            "label": "dcterms:identifier",
-            "type": "st_property_uri"
-        },
-        "cmt:Paper0\u0001cmt:Author0\u0001cmt:Paper0***cmt:Author0\u0001direct_property_uricmt:hasAuthor\u00011": {
-            "label": "cmt:hasAuthor",
-            "type": "direct_property_uri"
-        },
-        "cmt:Author0\u0001cmt:Paper0\u0001cmt:Author0***cmt:Paper0\u0001direct_property_uricmt:submitPaper\u00011": {
-            "label": "cmt:submitPaper",
-            "type": "direct_property_uri"
-        },
-        "cmt:Author0\u0001cmt:Paper0\u0001cmt:Author0***cmt:Paper0\u0001direct_property_uricmt:writePaper\u00011": {
-            "label": "cmt:writePaper",
-            "type": "direct_property_uri"
         },
         "cmt:Paper0\u0001cmt:Reviewer0\u0001cmt:Paper0***cmt:Reviewer0\u0001direct_property_uricmt:assignedTo\u00011": {
             "label": "cmt:assignedTo",
@@ -1437,6 +1375,18 @@
         },
         "cmt:Co_author\u0001cmt:Paper0\u0001cmt:Co_author***cmt:Paper0\u0001direct_property_uricmt:co_writePaper\u00011": {
             "label": "cmt:co_writePaper",
+            "type": "direct_property_uri"
+        },
+        "cmt:Paper0\u0001cmt:Author\u0001cmt:Paper0***cmt:Author\u0001direct_property_uricmt:hasAuthor\u00011": {
+            "label": "cmt:hasAuthor",
+            "type": "direct_property_uri"
+        },
+        "cmt:Author\u0001cmt:Paper0\u0001cmt:Author***cmt:Paper0\u0001direct_property_uricmt:submitPaper\u00011": {
+            "label": "cmt:submitPaper",
+            "type": "direct_property_uri"
+        },
+        "cmt:Author\u0001cmt:Paper0\u0001cmt:Author***cmt:Paper0\u0001direct_property_uricmt:writePaper\u00011": {
+            "label": "cmt:writePaper",
             "type": "direct_property_uri"
         },
         "cmt:Paper0\u0001cmt:Decision\u0001cmt:Paper0***cmt:Decision\u0001direct_property_uricmt:hasDecision\u00011": {
@@ -1483,19 +1433,19 @@
             "label": "cmt:writtenBy",
             "type": "direct_property_uri"
         },
-        "cmt:Author0\u0001cmt:Paper0\u0001cmt:Author0***cmt:Paper0\u0001inheritedcmt:hasConflictOfInterest\u00014": {
-            "label": "cmt:hasConflictOfInterest",
-            "type": "inherited"
-        },
-        "cmt:Author0\u0001cmt:Review\u0001cmt:Author0***cmt:Review\u0001inheritedcmt:hasConflictOfInterest\u00014": {
-            "label": "cmt:hasConflictOfInterest",
-            "type": "inherited"
-        },
         "cmt:Reviewer0\u0001cmt:Paper0\u0001cmt:Reviewer0***cmt:Paper0\u0001inheritedcmt:hasConflictOfInterest\u00014": {
             "label": "cmt:hasConflictOfInterest",
             "type": "inherited"
         },
         "cmt:Reviewer0\u0001cmt:Review\u0001cmt:Reviewer0***cmt:Review\u0001inheritedcmt:hasConflictOfInterest\u00014": {
+            "label": "cmt:hasConflictOfInterest",
+            "type": "inherited"
+        },
+        "cmt:Administrator\u0001cmt:Paper0\u0001cmt:Administrator***cmt:Paper0\u0001inheritedcmt:hasConflictOfInterest\u00014": {
+            "label": "cmt:hasConflictOfInterest",
+            "type": "inherited"
+        },
+        "cmt:Administrator\u0001cmt:Review\u0001cmt:Administrator***cmt:Review\u0001inheritedcmt:hasConflictOfInterest\u00014": {
             "label": "cmt:hasConflictOfInterest",
             "type": "inherited"
         },
@@ -1507,11 +1457,11 @@
             "label": "cmt:hasConflictOfInterest",
             "type": "inherited"
         },
-        "cmt:Meta-Reviewer\u0001cmt:Paper0\u0001cmt:Meta-Reviewer***cmt:Paper0\u0001inheritedcmt:hasConflictOfInterest\u00014": {
+        "cmt:Author\u0001cmt:Paper0\u0001cmt:Author***cmt:Paper0\u0001inheritedcmt:hasConflictOfInterest\u00014": {
             "label": "cmt:hasConflictOfInterest",
             "type": "inherited"
         },
-        "cmt:Meta-Reviewer\u0001cmt:Review\u0001cmt:Meta-Reviewer***cmt:Review\u0001inheritedcmt:hasConflictOfInterest\u00014": {
+        "cmt:Author\u0001cmt:Review\u0001cmt:Author***cmt:Review\u0001inheritedcmt:hasConflictOfInterest\u00014": {
             "label": "cmt:hasConflictOfInterest",
             "type": "inherited"
         },
@@ -1524,6 +1474,6 @@
             "type": "inherited"
         }
     },
-    "_nodeCount": 14,
-    "_edgeCount": 38
+    "_nodeCount": 13,
+    "_edgeCount": 37
 }
