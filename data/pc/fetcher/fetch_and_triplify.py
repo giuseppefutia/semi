@@ -37,7 +37,7 @@ for url in urls:
                 elif "aggiudicatario" in lotto["aggiudicatari"].keys():
                     lotto["aggiudicatari"] = lotto["aggiudicatari"]["aggiudicatarioRaggruppamento"]['membro']
 
-        if random.randint(1,10) > 9:
+        if random.randint(1,10) < 9:
 
             filename = lotto['cig'] + ".json"
 
