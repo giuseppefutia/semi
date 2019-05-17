@@ -21,22 +21,13 @@ PREFIX jarql:    <http://jarql.com/>
 CONSTRUCT {
     ?Contract dcterms:identifier ?cig.
     ?Contract rdfs:description ?oggetto.
-    ?Contract pc:contractingAuthority gr:BusinessEntity.
 
     ?BusinessEntity dcterms:identifier ?strutturaProponenteCodiceFiscaleProp.
     ?BusinessEntity rdfs:label ?strutturaProponenteLabel.
 
-    ?Contract pc:tender ?tenderURI.
-    ?tenderURI a pc:Tender .
-    ?tenderURI pc:bidder ?partecipante.
 
     ?partecipante  dcterms:identifier ?partecipanticodiceFiscale.
     ?partecipante rdfs:label ?partecipantiragioneSociale.
-    ?partecipante a gr:BusinessEntity.
-
-    ?Contract pc:awardedTender ?awardedTenderURI.
-    ?tenderURI a pc:Tender .
-    ?tenderURI pc:bidder ?vincitore.
 
     ?vincitore  dcterms:identifier ?vincitoricodiceFiscale.
     ?vincitore rdfs:label ?vincitoriragioneSociale.
