@@ -1,0 +1,52 @@
+{
+    "options": {
+        "directed": true,
+        "multigraph": true,
+        "compound": false
+    },
+    "nodes": [
+        {
+            "v": "Person__ID",
+            "value": {
+                "type": "attribute_name",
+                "label": "Person__ID"
+            }
+        },
+        {
+            "v": "cmt:Co_author0",
+            "value": {
+                "type": "class_uri",
+                "label": "cmt:Co_author"
+            }
+        },
+        {
+            "v": "Person__name",
+            "value": {
+                "type": "attribute_name",
+                "label": "Person__name"
+            }
+        }
+    ],
+    "edges": [
+        {
+            "v": "Person__ID",
+            "w": "cmt:Co_author0",
+            "name": "Person__ID***cmt:Co_author0",
+            "value": {
+                "type": "st_property_uri",
+                "label": "dcterms:identifier***inverted"
+            },
+            "weight": 1
+        },
+        {
+            "v": "cmt:Co_author0",
+            "w": "Person__name",
+            "name": "cmt:Co_author0***Person__name",
+            "value": {
+                "label": "rdfs:label",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        }
+    ]
+}
