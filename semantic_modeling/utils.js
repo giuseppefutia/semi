@@ -90,7 +90,8 @@ var PREFIX = {
     'http://purl.org/vocab/vann/': 'vann:',
     'http://www.w3.org/2001/XMLSchema#': 'xsd:',
     'http://www.w3.org/2002/07/owl#': 'owl:',
-    'http://conference#': 'conference:'
+    'http://conference#': 'conference:',
+    'http://cmt#': 'cmt:'
 }
 
 var PREFIX_STRINGS = generate_prefix_string();
