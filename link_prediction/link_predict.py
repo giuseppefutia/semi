@@ -5,8 +5,6 @@ Code: https://github.com/MichSchli/RelationPrediction
 
 Difference compared to MichSchli/RelationPrediction
 * report raw metrics instead of filtered metrics
-
-Extended by Giuseppe Futia to prepare data for R-GCN starting from an RDF file
 """
 
 import argparse
@@ -23,7 +21,6 @@ from model import BaseRGCN
 
 import utils
 
-
 class EmbeddingLayer(nn.Module):
     def __init__(self, num_nodes, h_dim):
         super(EmbeddingLayer, self).__init__()
@@ -33,7 +30,6 @@ class EmbeddingLayer(nn.Module):
         node_id = g.ndata['id'].squeeze()
         g.ndata['h'] = self.embedding(node_id)
 
-
 class RGCN(BaseRGCN):
     def build_input_layer(self):
         return EmbeddingLayer(self.num_nodes, self.h_dim)
@@ -42,7 +38,6 @@ class RGCN(BaseRGCN):
         act = F.relu if idx < self.num_hidden_layers - 1 else None
         return RGCNLayer(self.h_dim, self.h_dim, self.num_rels, self.num_bases,
                          activation=act, self_loop=True, dropout=self.dropout)
-
 
 class LinkPredict(nn.Module):
     def __init__(self, in_dim, h_dim, num_rels, num_bases=-1,
@@ -57,9 +52,9 @@ class LinkPredict(nn.Module):
 
     def calc_score(self, embedding, triplets):
         # DistMult
-        s = embedding[triplets[:, 0]]
-        r = self.w_relation[triplets[:, 1]]
-        o = embedding[triplets[:, 2]]
+        s = embedding[triplets[:,0]]
+        r = self.w_relation[triplets[:,1]]
+        o = embedding[triplets[:,2]]
         score = torch.sum(s * r * o, dim=1)
         return score
 
@@ -85,21 +80,13 @@ class LinkPredict(nn.Module):
 
 
 def main(args):
-    # prepare data for rdf produced by semi from rodi
-    '''
+    # load graph data
     data = load_data(args.dataset)
     num_nodes = data.num_nodes
     train_data = data.train
     valid_data = data.valid
     test_data = data.test
     num_rels = data.num_rels
-    '''
-    data = utils.prepare_rodi_data(args.dataset)
-    num_nodes = data['num_nodes']
-    train_data = data['train']
-    valid_data = data['valid']
-    test_data = data['test']
-    num_rels = data['num_rels']
 
     # check cuda
     use_cuda = args.gpu >= 0 and torch.cuda.is_available()
@@ -116,7 +103,7 @@ def main(args):
                         use_cuda=use_cuda,
                         reg_param=args.regularization)
 
-    # validation, and testing triplets
+    # validation and testing triplets
     valid_data = torch.LongTensor(valid_data)
     test_data = torch.LongTensor(test_data)
 
@@ -124,7 +111,7 @@ def main(args):
     test_graph, test_rel, test_norm = utils.build_test_graph(
         num_nodes, num_rels, train_data)
     test_deg = test_graph.in_degrees(
-        range(test_graph.number_of_nodes())).float().view(-1, 1)
+                range(test_graph.number_of_nodes())).float().view(-1,1)
     test_node_id = torch.arange(0, num_nodes, dtype=torch.long).view(-1, 1)
     test_rel = torch.from_numpy(test_rel)
     test_norm = torch.from_numpy(test_norm).view(-1, 1)
@@ -161,7 +148,7 @@ def main(args):
         print("Done edge sampling")
 
         # set node/edge feature
-        node_id = torch.from_numpy(node_id).view(-1, 1)
+        node_id = torch.from_numpy(node_id).view(-1, 1).long()
         edge_type = torch.from_numpy(edge_type)
         node_norm = torch.from_numpy(node_norm).view(-1, 1)
         data, labels = torch.from_numpy(data), torch.from_numpy(labels)
@@ -177,8 +164,7 @@ def main(args):
         loss = model.get_loss(g, data, labels)
         t1 = time.time()
         loss.backward()
-        torch.nn.utils.clip_grad_norm_(
-            model.parameters(), args.grad_norm)  # clip gradients
+        torch.nn.utils.clip_grad_norm_(model.parameters(), args.grad_norm) # clip gradients
         optimizer.step()
         t2 = time.time()
 
@@ -217,7 +203,7 @@ def main(args):
     # use best model checkpoint
     checkpoint = torch.load(model_state_file)
     if use_cuda:
-        model.cpu()  # test on CPU
+        model.cpu() # test on CPU
     model.eval()
     model.load_state_dict(checkpoint['state_dict'])
     print("Using best epoch: {}".format(checkpoint['epoch']))
@@ -228,35 +214,37 @@ def main(args):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='RGCN')
     parser.add_argument("--dropout", type=float, default=0.2,
-                        help="dropout probability")
+            help="dropout probability")
     parser.add_argument("--n-hidden", type=int, default=500,
-                        help="number of hidden units")
+            help="number of hidden units")
     parser.add_argument("--gpu", type=int, default=-1,
-                        help="gpu")
+            help="gpu")
     parser.add_argument("--lr", type=float, default=1e-2,
-                        help="learning rate")
+            help="learning rate")
     parser.add_argument("--n-bases", type=int, default=100,
-                        help="number of weight blocks for each relation")
+            help="number of weight blocks for each relation")
     parser.add_argument("--n-layers", type=int, default=2,
-                        help="number of propagation rounds")
+            help="number of propagation rounds")
     parser.add_argument("--n-epochs", type=int, default=6000,
-                        help="number of minimum training epochs")
+            help="number of minimum training epochs")
     parser.add_argument("-d", "--dataset", type=str, required=True,
-                        help="dataset to use")
+            help="dataset to use")
     parser.add_argument("--eval-batch-size", type=int, default=500,
-                        help="batch size when evaluating")
+            help="batch size when evaluating")
     parser.add_argument("--regularization", type=float, default=0.01,
-                        help="regularization weight")
+            help="regularization weight")
     parser.add_argument("--grad-norm", type=float, default=1.0,
-                        help="norm to clip gradient to")
+            help="norm to clip gradient to")
     parser.add_argument("--graph-batch-size", type=int, default=30000,
-                        help="number of edges to sample in each iteration")
+            help="number of edges to sample in each iteration")
     parser.add_argument("--graph-split-size", type=float, default=0.5,
-                        help="portion of edges used as positive sample")
+            help="portion of edges used as positive sample")
     parser.add_argument("--negative-sample", type=int, default=10,
-                        help="number of negative samples per positive sample")
+            help="number of negative samples per positive sample")
     parser.add_argument("--evaluate-every", type=int, default=500,
-                        help="perform evaluation every n epochs")
+            help="perform evaluation every n epochs")
 
     args = parser.parse_args()
+    print(args)
     main(args)
+
