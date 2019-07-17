@@ -1,13 +1,18 @@
 """
 Utility functions for link prediction
-Most code is adapted from authors' implementation of RGCN link prediction:
+Most code is adapted from authors" implementation of RGCN link prediction:
 https://github.com/MichSchli/RelationPrediction
+
+Extended by Giuseppe Futia to export score related to validation triples.
+In particular, see the implementation of export_triples_score() function.
 
 """
 
 import numpy as np
 import torch
 import dgl
+import json
+import os
 
 #######################################################################
 #
@@ -15,11 +20,12 @@ import dgl
 #
 #######################################################################
 
+
 def get_adj_and_degrees(num_nodes, triplets):
     """ Get adjacency list and degrees of the graph
     """
     adj_list = [[] for _ in range(num_nodes)]
-    for i,triplet in enumerate(triplets):
+    for i, triplet in enumerate(triplets):
         adj_list[triplet[0]].append([i, triplet[2]])
         adj_list[triplet[2]].append([i, triplet[0]])
 
@@ -27,13 +33,14 @@ def get_adj_and_degrees(num_nodes, triplets):
     adj_list = [np.array(a) for a in adj_list]
     return adj_list, degrees
 
+
 def sample_edge_neighborhood(adj_list, degrees, n_triplets, sample_size):
     """ Edge neighborhood sampling to reduce training graph size
     """
 
     edges = np.zeros((sample_size), dtype=np.int32)
 
-    #initialize
+    # initialize
     sample_counts = np.array([d for d in degrees])
     picked = np.array([False for _ in range(n_triplets)])
     seen = np.array([False for _ in degrees])
@@ -68,6 +75,7 @@ def sample_edge_neighborhood(adj_list, degrees, n_triplets, sample_size):
         seen[other_vertex] = True
 
     return edges
+
 
 def generate_sampled_graph_and_labels(triplets, sample_size, split_size,
                                       num_rels, adj_list, degrees,
@@ -107,11 +115,13 @@ def generate_sampled_graph_and_labels(triplets, sample_size, split_size,
                                              (src, rel, dst))
     return g, uniq_v, rel, norm, samples, labels
 
+
 def comp_deg_norm(g):
     in_deg = g.in_degrees(range(g.number_of_nodes())).float().numpy()
     norm = 1.0 / in_deg
     norm[np.isinf(norm)] = 0
     return norm
+
 
 def build_graph_from_triplets(num_nodes, num_rels, triplets):
     """ Create a DGL graph. The graph is bidirectional because RGCN authors
@@ -131,10 +141,12 @@ def build_graph_from_triplets(num_nodes, num_rels, triplets):
     print("# nodes: {}, # edges: {}".format(num_nodes, len(src)))
     return g, rel, norm
 
+
 def build_test_graph(num_nodes, num_rels, edges):
     src, rel, dst = edges.transpose()
     print("Test graph:")
     return build_graph_from_triplets(num_nodes, num_rels, (src, rel, dst))
+
 
 def negative_sampling(pos_samples, num_entity, negative_rate):
     size_of_batch = len(pos_samples)
@@ -157,17 +169,21 @@ def negative_sampling(pos_samples, num_entity, negative_rate):
 #
 #######################################################################
 
+
 def sort_and_rank(score, target):
     _, indices = torch.sort(score, dim=1, descending=True)
     indices = torch.nonzero(indices == target.view(-1, 1))
     indices = indices[:, 1].view(-1)
     return indices
 
-def perturb_and_get_rank(embedding, w, a, r, b, num_entity, batch_size=100):
+
+def perturb_and_get_rank(embedding, w, a, r, b, num_entity, pert_string, epoch, batch_size=100):
     """ Perturb one element in the triplets
     """
     n_batch = (num_entity + batch_size - 1) // batch_size
     ranks = []
+    # list that stores score triples to print
+    score_list = []
     for idx in range(n_batch):
         print("batch {} / {}".format(idx, n_batch))
         batch_start = idx * batch_size
@@ -175,19 +191,25 @@ def perturb_and_get_rank(embedding, w, a, r, b, num_entity, batch_size=100):
         batch_a = a[batch_start: batch_end]
         batch_r = r[batch_start: batch_end]
         emb_ar = embedding[batch_a] * w[batch_r]
-        emb_ar = emb_ar.transpose(0, 1).unsqueeze(2) # size: D x E x 1
-        emb_c = embedding.transpose(0, 1).unsqueeze(1) # size: D x 1 x V
+        emb_ar = emb_ar.transpose(0, 1).unsqueeze(2)  # size: D x E x 1
+        emb_c = embedding.transpose(0, 1).unsqueeze(1)  # size: D x 1 x V
         # out-prod and reduce sum
-        out_prod = torch.bmm(emb_ar, emb_c) # size D x E x V
-        score = torch.sum(out_prod, dim=0) # size E x V
+        out_prod = torch.bmm(emb_ar, emb_c)  # size D x E x V
+        score = torch.sum(out_prod, dim=0)  # size E x V
         score = torch.sigmoid(score)
         target = b[batch_start: batch_end]
+        # export score values
+        score_list.extend(export_triples_score(
+            batch_a, batch_r, target, embedding, w, score))
         ranks.append(sort_and_rank(score, target))
+    print_scores_as_json(score_list, pert_string, epoch)
     return torch.cat(ranks)
 
 # TODO (lingfan): implement filtered metrics
 # return MRR (raw), and Hits @ (1, 3, 10)
-def evaluate(test_graph, model, test_triplets, num_entity, hits=[], eval_bz=100):
+
+
+def evaluate(test_graph, model, test_triplets, num_entity, epoch, hits=[], eval_bz=100):
     with torch.no_grad():
         embedding, w = model.evaluate(test_graph)
         s = test_triplets[:, 0]
@@ -195,12 +217,14 @@ def evaluate(test_graph, model, test_triplets, num_entity, hits=[], eval_bz=100)
         o = test_triplets[:, 2]
 
         # perturb subject
-        ranks_s = perturb_and_get_rank(embedding, w, o, r, s, num_entity, eval_bz)
+        ranks_s = perturb_and_get_rank(
+            embedding, w, o, r, s, num_entity, "perturb_s", epoch, eval_bz)
         # perturb object
-        ranks_o = perturb_and_get_rank(embedding, w, s, r, o, num_entity, eval_bz)
+        ranks_o = perturb_and_get_rank(
+            embedding, w, s, r, o, num_entity, "perturb_o", epoch, eval_bz)
 
         ranks = torch.cat([ranks_s, ranks_o])
-        ranks += 1 # change to 1-indexed
+        ranks += 1  # change to 1-indexed
 
         mrr = torch.mean(1.0 / ranks.float())
         print("MRR (raw): {:.6f}".format(mrr.item()))
@@ -210,3 +234,61 @@ def evaluate(test_graph, model, test_triplets, num_entity, hits=[], eval_bz=100)
             print("Hits (raw) @ {}: {:.6f}".format(hit, avg_count.item()))
     return mrr.item()
 
+# The following methods are added by Giuseppe Futia
+
+
+def print_scores_as_json(score_list, perturb_string, epoch):
+    dir_path = "./output/epoch_" + str(epoch) + "/"
+    if not os.path.exists(dir_path):
+        os.makedirs(dir_path)
+    with open(dir_path + perturb_string + "_" + "_score.json", "w") as f:
+        json.dump(score_list, f, ensure_ascii=False, indent=4)
+
+
+def create_list_from_batch(batch, embedding):
+    """ Create list of dictionaries including the id of the node (or the relation)
+        and its embedding value
+    """
+    batch_list = []
+    for index, value in enumerate(batch.tolist()):
+        new_dict = {"id": value, "emb": embedding[batch][index, :].tolist()}
+        batch_list.append(new_dict)
+    return batch_list
+
+
+def export_triples_score(s, r, o, emb_nodes, emb_rels, score):
+    """ Export score associated to each triple included in the validation dataset.
+        This function is called for each evaluation batch.
+        Exported scores could be useful for a deep analysis of the evaluation
+        results and are necessary for the refinement process of the SEMI tool.
+
+        Arguments:
+        s -- tensor batch of subject ids
+        r -- tensor batch of relation ids
+        o -- tensor batch of object ids
+        emb_nodes -- tensor with embeddings of all nodes
+        emb_rels -- tensor embeddings of all relations
+        score -- tensor of scores associated to eache triple, size(batch, num_of_nodes)
+
+        Returns:
+        score_list -- list of dictionaries including triple ids and the associated score
+    """
+    batch_s_list = create_list_from_batch(s, emb_nodes)
+    batch_r_list = create_list_from_batch(r, emb_rels)
+    batch_o_list = create_list_from_batch(o, emb_nodes)
+
+    # Prepare a list of dicts containing the triples and its scores
+    score_list = []
+    for row_index, row in enumerate(score):
+        for col_index, col in enumerate(row):
+            s_id = str(batch_s_list[row_index]["id"])
+            r_id = str(batch_r_list[row_index]["id"])
+            o_id = str(batch_o_list[row_index]["id"])
+            # score tensor includes also perturbed triples, for such reason
+            # I need to get data from the correct column
+            if str(col_index) == str(o_id):
+                score_value = col
+                score_dict = {"s": s_id, "r": r_id,
+                              "o": o_id, "score": score_value.item()}
+                score_list.append(score_dict)
+    return score_list
