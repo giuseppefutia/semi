@@ -21,6 +21,8 @@ from model import BaseRGCN
 
 import utils
 
+from visualization import VisManger
+
 
 class EmbeddingLayer(nn.Module):
     def __init__(self, num_nodes, h_dim):
@@ -83,6 +85,9 @@ class LinkPredict(nn.Module):
 
 
 def main(args):
+    # initialize visualization environment
+    vis = VisManger('main')
+
     # load graph data
     data = load_data(args.dataset)
     num_nodes = data.num_nodes
@@ -176,6 +181,8 @@ def main(args):
         backward_time.append(t2 - t1)
         print("Epoch {:04d} | Loss {:.4f} | Best MRR {:.4f} | Forward {:.4f}s | Backward {:.4f}s".
               format(epoch, loss.item(), best_mrr, forward_time[-1], backward_time[-1]))
+
+        vis.plot_loss(np.array(loss.item()), epoch)
 
         optimizer.zero_grad()
 
