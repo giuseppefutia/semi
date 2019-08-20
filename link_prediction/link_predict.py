@@ -187,8 +187,8 @@ def main(args):
             model.eval()
             print("start eval")
             mrr = utils.evaluate(test_graph, model, valid_data, num_nodes, epoch,
-                                 hits=[1, 3, 10], eval_bz=args.eval_batch_size)
-            # save best model
+                                 hits=[1, 3, 10], eval_bz=args.eval_batch_size, test_stage=False)
+            # save the best model
             if mrr < best_mrr:
                 if epoch >= args.n_epochs:
                     break
@@ -196,6 +196,12 @@ def main(args):
                 best_mrr = mrr
                 torch.save({'state_dict': model.state_dict(), 'epoch': epoch},
                            model_state_file)
+
+                # used for testing reason
+                if args.forced_stop == True:
+                    print("Force stop!")
+                    break
+
             if use_cuda:
                 model.cuda()
 

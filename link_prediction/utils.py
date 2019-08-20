@@ -177,12 +177,12 @@ def sort_and_rank(score, target):
     return indices
 
 
-def perturb_and_get_rank(embedding, w, a, r, b, num_entity, pert_string, epoch, batch_size=100):
+def perturb_and_get_rank(embedding, w, a, r, b, num_entity, pert_string, epoch, batch_size=100, test_stage=False):
     """ Perturb one element in the triplets
     """
     n_batch = (num_entity + batch_size - 1) // batch_size
     ranks = []
-    # list that stores score triples to print
+    # list that stores score triples to print filled only during the test_stage
     score_list = []
     for idx in range(n_batch):
         print("batch {} / {}".format(idx, n_batch))
@@ -198,18 +198,24 @@ def perturb_and_get_rank(embedding, w, a, r, b, num_entity, pert_string, epoch, 
         score = torch.sum(out_prod, dim=0)  # size E x V
         score = torch.sigmoid(score)
         target = b[batch_start: batch_end]
-        # export score values
-        score_list.extend(export_triples_score(
-            batch_a, batch_r, target, embedding, w, score))
         ranks.append(sort_and_rank(score, target))
-    print_scores_as_json(score_list, pert_string, epoch)
+
+        # export score values during the test stage
+        if test_stage == True:
+            score_list.extend(export_triples_score(
+                batch_a, batch_r, target, embedding, w, score))
+
+    # print the score only during the test stage
+    if test_stage == True:
+        print_scores_as_json(score_list, pert_string, epoch)
+
     return torch.cat(ranks)
 
 # TODO (lingfan): implement filtered metrics
 # return MRR (raw), and Hits @ (1, 3, 10)
 
 
-def evaluate(test_graph, model, test_triplets, num_entity, epoch, hits=[], eval_bz=100):
+def evaluate(test_graph, model, test_triplets, num_entity, epoch, hits=[], eval_bz=100, test_stage=False):
     with torch.no_grad():
         embedding, w = model.evaluate(test_graph)
         s = test_triplets[:, 0]
@@ -218,10 +224,10 @@ def evaluate(test_graph, model, test_triplets, num_entity, epoch, hits=[], eval_
 
         # perturb subject
         ranks_s = perturb_and_get_rank(
-            embedding, w, o, r, s, num_entity, "perturb_s", epoch, eval_bz)
+            embedding, w, o, r, s, num_entity, "perturb_s", epoch, eval_bz, test_stage)
         # perturb object
         ranks_o = perturb_and_get_rank(
-            embedding, w, s, r, o, num_entity, "perturb_o", epoch, eval_bz)
+            embedding, w, s, r, o, num_entity, "perturb_o", epoch, eval_bz, test_stage)
 
         ranks = torch.cat([ranks_s, ranks_o])
         ranks += 1  # change to 1-indexed
@@ -239,6 +245,7 @@ def evaluate(test_graph, model, test_triplets, num_entity, epoch, hits=[], eval_
 
 def print_scores_as_json(score_list, perturb_string, epoch):
     dir_path = "./output/epoch_" + str(epoch) + "/"
+    print("Print score as json: " + dir_path + "...")
     if not os.path.exists(dir_path):
         os.makedirs(dir_path)
     with open(dir_path + perturb_string + "_" + "_score.json", "w") as f:
@@ -267,7 +274,7 @@ def export_triples_score(s, r, o, emb_nodes, emb_rels, score):
         r -- tensor batch of relation ids
         o -- tensor batch of object ids
         emb_nodes -- tensor with embeddings of all nodes
-        emb_rels -- tensor embeddings of all relations
+        emb_rels -- tensor with embeddings of all relations
         score -- tensor of scores associated to eache triple, size(batch, num_of_nodes)
 
         Returns:
@@ -288,7 +295,9 @@ def export_triples_score(s, r, o, emb_nodes, emb_rels, score):
             # I need to get data from the correct column
             if str(col_index) == str(o_id):
                 score_value = col
-                score_dict = {"s": s_id, "r": r_id,
-                              "o": o_id, "score": score_value.item()}
+                score_dict = {"s": s_id,
+                              "r": r_id,
+                              "o": o_id,
+                              "score": score_value.item()}
                 score_list.append(score_dict)
     return score_list
