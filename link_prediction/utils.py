@@ -182,6 +182,7 @@ def perturb_and_get_rank(embedding, w, a, r, b, num_entity, pert_string, epoch, 
     """
     n_batch = (num_entity + batch_size - 1) // batch_size
     ranks = []
+
     # list that stores score triples to print filled only during the test_stage
     score_list = []
     for idx in range(n_batch):
@@ -193,6 +194,7 @@ def perturb_and_get_rank(embedding, w, a, r, b, num_entity, pert_string, epoch, 
         emb_ar = embedding[batch_a] * w[batch_r]
         emb_ar = emb_ar.transpose(0, 1).unsqueeze(2)  # size: D x E x 1
         emb_c = embedding.transpose(0, 1).unsqueeze(1)  # size: D x 1 x V
+
         # out-prod and reduce sum
         out_prod = torch.bmm(emb_ar, emb_c)  # size D x E x V
         score = torch.sum(out_prod, dim=0)  # size E x V

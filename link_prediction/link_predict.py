@@ -14,14 +14,14 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import random
-from dgl.contrib.data import load_data
+from kg import RGCNDataSet
 
 from layers import RGCNBlockLayer as RGCNLayer
 from model import BaseRGCN
 
 import utils
 
-from visualization import VisManger
+from visualization import VisManger  # Added for visualization
 
 
 class EmbeddingLayer(nn.Module):
@@ -88,13 +88,15 @@ def main(args):
     # initialize visualization environment
     vis = VisManger('main')
 
-    # load graph data
-    data = load_data(args.dataset)
-    num_nodes = data.num_nodes
-    train_data = data.train
-    valid_data = data.valid
-    test_data = data.test
-    num_rels = data.num_rels
+    # initialize the data importer and load data
+    kg = RGCNDataSet(args.dataset)
+    kg.load_data()
+
+    num_nodes = kg.num_nodes
+    train_data = kg.train
+    valid_data = kg.valid
+    test_data = kg.test
+    num_rels = kg.num_rels
 
     # check cuda
     use_cuda = args.gpu >= 0 and torch.cuda.is_available()
@@ -204,7 +206,7 @@ def main(args):
                 torch.save({'state_dict': model.state_dict(), 'epoch': epoch},
                            model_state_file)
 
-                # used for testing reason
+                # XXX used for testing reason to interrupt
                 if args.forced_stop == True:
                     print("Force stop!")
                     break
@@ -225,7 +227,7 @@ def main(args):
     model.load_state_dict(checkpoint['state_dict'])
     print("Using best epoch: {}".format(checkpoint['epoch']))
     utils.evaluate(test_graph, model, test_data, num_nodes, epoch, hits=[1, 3, 10],
-                   eval_bz=args.eval_batch_size)
+                   eval_bz=args.eval_batch_size, test_stage=True)
 
 
 if __name__ == '__main__':
@@ -245,7 +247,7 @@ if __name__ == '__main__':
     parser.add_argument("--n-epochs", type=int, default=6000,
                         help="number of minimum training epochs")
     parser.add_argument("-d", "--dataset", type=str, required=True,
-                        help="dataset to use")
+                        help="set the path of the dataset to use")
     parser.add_argument("--eval-batch-size", type=int, default=500,
                         help="batch size when evaluating")
     parser.add_argument("--regularization", type=float, default=0.01,
@@ -260,6 +262,8 @@ if __name__ == '__main__':
                         help="number of negative samples per positive sample")
     parser.add_argument("--evaluate-every", type=int, default=500,
                         help="perform evaluation every n epochs")
+    parser.add_argument("--forced-stop", type=bool, default=False,
+                        help="Force stop for testing reasons")
 
     args = parser.parse_args()
     print(args)
