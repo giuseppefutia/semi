@@ -78,16 +78,16 @@ var add_semantic_types = (st, graph) => {
     var entities = st['entities'];
     for (var i in attributes) {
         var class_node = semantic_types[i][0].split("***")[0]; // Remember: I put an index here, because I can expect candidates semantic types
+        // Add class node
+        graph.setNode(class_node + entities[i], {
+            type: 'class_uri',
+            label: class_node
+        });
         // Add data node
         var data_node = attributes[i];
         graph.setNode(data_node, {
             type: 'attribute_name',
             label: data_node
-        });
-        // Add class node
-        graph.setNode(class_node + entities[i], {
-            type: 'class_uri',
-            label: class_node
         });
         // Add edge
         graph.setEdge(class_node + entities[i], data_node, {
@@ -433,9 +433,11 @@ var add_inherited_properties = (inherited_properties, graph) => {
 var add_edges = (graph, subject, property, object, type, weight) => {
     var nodes = graph.nodes();
     for (var s in nodes) {
-        if (nodes[s] === subject) {
+        var subject_label_node = graph.node(nodes[s])['label'];
+        if (subject_label_node === subject) {
             for (var o in nodes) {
-                if (nodes[o] === object) {
+                var object_label_node = graph.node(nodes[o])['label'];
+                if (object_label_node === object) {
                     graph.setEdge(nodes[s], nodes[o], {
                         label: property,
                         type: type
