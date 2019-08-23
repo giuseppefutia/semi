@@ -89,8 +89,7 @@ var process_edge_values = (edge_subject, edge_property, edge_object, st_classes,
     var triple = {};
     var instances_uris = utils.generate_instance_uris(classes);
 
-    // Check if the subject or the object of the edges are included within
-    // semantic types class
+    // Check if the subject or the object of the edges are included within semantic types class
     var subject = '?' + edge_subject.split(':')[1];
     var property = edge_property
     var object = '?' + edge_object.split(':')[1];
