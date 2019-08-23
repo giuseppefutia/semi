@@ -1,0 +1,69 @@
+{
+    "options": {
+        "directed": true,
+        "multigraph": true,
+        "compound": false
+    },
+    "nodes": [
+        {
+            "v": "Review__ID",
+            "value": {
+                "type": "attribute_name",
+                "label": "Review__ID"
+            }
+        },
+        {
+            "v": "conference:Reviewer0",
+            "value": {
+                "type": "class_uri",
+                "label": "conference:Reviewer"
+            }
+        },
+        {
+            "v": "conference:Reviewed_contribution0",
+            "value": {
+                "type": "class_uri",
+                "label": "conference:Reviewed_contribution"
+            }
+        },
+        {
+            "v": "Review__reviews",
+            "value": {
+                "type": "attribute_name",
+                "label": "Review__reviews"
+            }
+        }
+    ],
+    "edges": [
+        {
+            "v": "Review__ID",
+            "w": "conference:Reviewer0",
+            "name": "Review__ID***conference:Reviewer0",
+            "value": {
+                "type": "st_property_uri",
+                "label": "dcterms:identifier***inverted"
+            },
+            "weight": 1
+        },
+        {
+            "v": "conference:Reviewed_contribution0",
+            "w": "Review__reviews",
+            "name": "conference:Reviewed_contribution0***Review__reviews",
+            "value": {
+                "label": "dcterms:identifier",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "conference:Reviewer0",
+            "w": "conference:Reviewed_contribution0",
+            "name": "conference:Reviewer0***conference:Reviewed_contribution0",
+            "value": {
+                "type": "inherited",
+                "label": "conference:has_authors***inverted"
+            },
+            "weight": 4
+        }
+    ]
+}

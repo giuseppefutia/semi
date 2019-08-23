@@ -1,0 +1,435 @@
+{
+    "_isDirected": true,
+    "_isMultigraph": true,
+    "_isCompound": false,
+    "_nodes": {
+        "conference:Reviewer0": {
+            "type": "class_uri",
+            "label": "conference:Reviewer"
+        },
+        "Review__ID": {
+            "type": "attribute_name",
+            "label": "Review__ID"
+        },
+        "conference:Reviewed_contribution0": {
+            "type": "class_uri",
+            "label": "conference:Reviewed_contribution"
+        },
+        "Review__reviews": {
+            "type": "attribute_name",
+            "label": "Review__reviews"
+        },
+        "conference:Review": {
+            "type": "class_uri",
+            "label": "conference:Review"
+        }
+    },
+    "_in": {
+        "conference:Reviewer0": {
+            "conference:Reviewer0\u0001conference:Reviewer0\u0001conference:Reviewer0***conference:Reviewer0\u0001direct_property_uriconference:invited_by\u00011": {
+                "v": "conference:Reviewer0",
+                "w": "conference:Reviewer0",
+                "name": "conference:Reviewer0***conference:Reviewer0",
+                "value": {
+                    "label": "conference:invited_by",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            },
+            "conference:Reviewer0\u0001conference:Reviewer0\u0001conference:Reviewer0***conference:Reviewer0\u0001direct_property_uriconference:invites_co-reviewers\u00011": {
+                "v": "conference:Reviewer0",
+                "w": "conference:Reviewer0",
+                "name": "conference:Reviewer0***conference:Reviewer0",
+                "value": {
+                    "label": "conference:invites_co-reviewers",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            },
+            "conference:Reviewed_contribution0\u0001conference:Reviewer0\u0001conference:Reviewed_contribution0***conference:Reviewer0\u0001inheritedconference:has_authors\u00014": {
+                "v": "conference:Reviewed_contribution0",
+                "w": "conference:Reviewer0",
+                "name": "conference:Reviewed_contribution0***conference:Reviewer0",
+                "value": {
+                    "label": "conference:has_authors",
+                    "type": "inherited"
+                },
+                "weight": 4
+            },
+            "conference:Review\u0001conference:Reviewer0\u0001conference:Review***conference:Reviewer0\u0001inheritedconference:has_authors\u00014": {
+                "v": "conference:Review",
+                "w": "conference:Reviewer0",
+                "name": "conference:Review***conference:Reviewer0",
+                "value": {
+                    "label": "conference:has_authors",
+                    "type": "inherited"
+                },
+                "weight": 4
+            }
+        },
+        "Review__ID": {
+            "conference:Reviewer0\u0001Review__ID\u0001conference:Reviewer0***Review__ID\u0001st_property_uridcterms:identifier\u00011": {
+                "v": "conference:Reviewer0",
+                "w": "Review__ID",
+                "name": "conference:Reviewer0***Review__ID",
+                "value": {
+                    "label": "dcterms:identifier",
+                    "type": "st_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "conference:Reviewed_contribution0": {
+            "conference:Review\u0001conference:Reviewed_contribution0\u0001conference:Review***conference:Reviewed_contribution0\u0001direct_property_uriconference:reviews\u00011": {
+                "v": "conference:Review",
+                "w": "conference:Reviewed_contribution0",
+                "name": "conference:Review***conference:Reviewed_contribution0",
+                "value": {
+                    "label": "conference:reviews",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            },
+            "conference:Reviewer0\u0001conference:Reviewed_contribution0\u0001conference:Reviewer0***conference:Reviewed_contribution0\u0001inheritedconference:contributes\u00014": {
+                "v": "conference:Reviewer0",
+                "w": "conference:Reviewed_contribution0",
+                "name": "conference:Reviewer0***conference:Reviewed_contribution0",
+                "value": {
+                    "label": "conference:contributes",
+                    "type": "inherited"
+                },
+                "weight": 4
+            }
+        },
+        "Review__reviews": {
+            "conference:Reviewed_contribution0\u0001Review__reviews\u0001conference:Reviewed_contribution0***Review__reviews\u0001st_property_uridcterms:identifier\u00011": {
+                "v": "conference:Reviewed_contribution0",
+                "w": "Review__reviews",
+                "name": "conference:Reviewed_contribution0***Review__reviews",
+                "value": {
+                    "label": "dcterms:identifier",
+                    "type": "st_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "conference:Review": {
+            "conference:Reviewed_contribution0\u0001conference:Review\u0001conference:Reviewed_contribution0***conference:Review\u0001direct_property_uriconference:has_a_review\u00011": {
+                "v": "conference:Reviewed_contribution0",
+                "w": "conference:Review",
+                "name": "conference:Reviewed_contribution0***conference:Review",
+                "value": {
+                    "label": "conference:has_a_review",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            },
+            "conference:Reviewer0\u0001conference:Review\u0001conference:Reviewer0***conference:Review\u0001inheritedconference:contributes\u00014": {
+                "v": "conference:Reviewer0",
+                "w": "conference:Review",
+                "name": "conference:Reviewer0***conference:Review",
+                "value": {
+                    "label": "conference:contributes",
+                    "type": "inherited"
+                },
+                "weight": 4
+            }
+        }
+    },
+    "_preds": {
+        "conference:Reviewer0": {
+            "conference:Reviewer0": 2,
+            "conference:Reviewed_contribution0": 1,
+            "conference:Review": 1
+        },
+        "Review__ID": {
+            "conference:Reviewer0": 1
+        },
+        "conference:Reviewed_contribution0": {
+            "conference:Review": 1,
+            "conference:Reviewer0": 1
+        },
+        "Review__reviews": {
+            "conference:Reviewed_contribution0": 1
+        },
+        "conference:Review": {
+            "conference:Reviewed_contribution0": 1,
+            "conference:Reviewer0": 1
+        }
+    },
+    "_out": {
+        "conference:Reviewer0": {
+            "conference:Reviewer0\u0001Review__ID\u0001conference:Reviewer0***Review__ID\u0001st_property_uridcterms:identifier\u00011": {
+                "v": "conference:Reviewer0",
+                "w": "Review__ID",
+                "name": "conference:Reviewer0***Review__ID",
+                "value": {
+                    "label": "dcterms:identifier",
+                    "type": "st_property_uri"
+                },
+                "weight": 1
+            },
+            "conference:Reviewer0\u0001conference:Reviewer0\u0001conference:Reviewer0***conference:Reviewer0\u0001direct_property_uriconference:invited_by\u00011": {
+                "v": "conference:Reviewer0",
+                "w": "conference:Reviewer0",
+                "name": "conference:Reviewer0***conference:Reviewer0",
+                "value": {
+                    "label": "conference:invited_by",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            },
+            "conference:Reviewer0\u0001conference:Reviewer0\u0001conference:Reviewer0***conference:Reviewer0\u0001direct_property_uriconference:invites_co-reviewers\u00011": {
+                "v": "conference:Reviewer0",
+                "w": "conference:Reviewer0",
+                "name": "conference:Reviewer0***conference:Reviewer0",
+                "value": {
+                    "label": "conference:invites_co-reviewers",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            },
+            "conference:Reviewer0\u0001conference:Reviewed_contribution0\u0001conference:Reviewer0***conference:Reviewed_contribution0\u0001inheritedconference:contributes\u00014": {
+                "v": "conference:Reviewer0",
+                "w": "conference:Reviewed_contribution0",
+                "name": "conference:Reviewer0***conference:Reviewed_contribution0",
+                "value": {
+                    "label": "conference:contributes",
+                    "type": "inherited"
+                },
+                "weight": 4
+            },
+            "conference:Reviewer0\u0001conference:Review\u0001conference:Reviewer0***conference:Review\u0001inheritedconference:contributes\u00014": {
+                "v": "conference:Reviewer0",
+                "w": "conference:Review",
+                "name": "conference:Reviewer0***conference:Review",
+                "value": {
+                    "label": "conference:contributes",
+                    "type": "inherited"
+                },
+                "weight": 4
+            }
+        },
+        "Review__ID": {},
+        "conference:Reviewed_contribution0": {
+            "conference:Reviewed_contribution0\u0001Review__reviews\u0001conference:Reviewed_contribution0***Review__reviews\u0001st_property_uridcterms:identifier\u00011": {
+                "v": "conference:Reviewed_contribution0",
+                "w": "Review__reviews",
+                "name": "conference:Reviewed_contribution0***Review__reviews",
+                "value": {
+                    "label": "dcterms:identifier",
+                    "type": "st_property_uri"
+                },
+                "weight": 1
+            },
+            "conference:Reviewed_contribution0\u0001conference:Review\u0001conference:Reviewed_contribution0***conference:Review\u0001direct_property_uriconference:has_a_review\u00011": {
+                "v": "conference:Reviewed_contribution0",
+                "w": "conference:Review",
+                "name": "conference:Reviewed_contribution0***conference:Review",
+                "value": {
+                    "label": "conference:has_a_review",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            },
+            "conference:Reviewed_contribution0\u0001conference:Reviewer0\u0001conference:Reviewed_contribution0***conference:Reviewer0\u0001inheritedconference:has_authors\u00014": {
+                "v": "conference:Reviewed_contribution0",
+                "w": "conference:Reviewer0",
+                "name": "conference:Reviewed_contribution0***conference:Reviewer0",
+                "value": {
+                    "label": "conference:has_authors",
+                    "type": "inherited"
+                },
+                "weight": 4
+            }
+        },
+        "Review__reviews": {},
+        "conference:Review": {
+            "conference:Review\u0001conference:Reviewed_contribution0\u0001conference:Review***conference:Reviewed_contribution0\u0001direct_property_uriconference:reviews\u00011": {
+                "v": "conference:Review",
+                "w": "conference:Reviewed_contribution0",
+                "name": "conference:Review***conference:Reviewed_contribution0",
+                "value": {
+                    "label": "conference:reviews",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            },
+            "conference:Review\u0001conference:Reviewer0\u0001conference:Review***conference:Reviewer0\u0001inheritedconference:has_authors\u00014": {
+                "v": "conference:Review",
+                "w": "conference:Reviewer0",
+                "name": "conference:Review***conference:Reviewer0",
+                "value": {
+                    "label": "conference:has_authors",
+                    "type": "inherited"
+                },
+                "weight": 4
+            }
+        }
+    },
+    "_sucs": {
+        "conference:Reviewer0": {
+            "Review__ID": 1,
+            "conference:Reviewer0": 2,
+            "conference:Reviewed_contribution0": 1,
+            "conference:Review": 1
+        },
+        "Review__ID": {},
+        "conference:Reviewed_contribution0": {
+            "Review__reviews": 1,
+            "conference:Review": 1,
+            "conference:Reviewer0": 1
+        },
+        "Review__reviews": {},
+        "conference:Review": {
+            "conference:Reviewed_contribution0": 1,
+            "conference:Reviewer0": 1
+        }
+    },
+    "_edgeObjs": {
+        "conference:Reviewer0\u0001Review__ID\u0001conference:Reviewer0***Review__ID\u0001st_property_uridcterms:identifier\u00011": {
+            "v": "conference:Reviewer0",
+            "w": "Review__ID",
+            "name": "conference:Reviewer0***Review__ID",
+            "value": {
+                "label": "dcterms:identifier",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        "conference:Reviewed_contribution0\u0001Review__reviews\u0001conference:Reviewed_contribution0***Review__reviews\u0001st_property_uridcterms:identifier\u00011": {
+            "v": "conference:Reviewed_contribution0",
+            "w": "Review__reviews",
+            "name": "conference:Reviewed_contribution0***Review__reviews",
+            "value": {
+                "label": "dcterms:identifier",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        "conference:Reviewer0\u0001conference:Reviewer0\u0001conference:Reviewer0***conference:Reviewer0\u0001direct_property_uriconference:invited_by\u00011": {
+            "v": "conference:Reviewer0",
+            "w": "conference:Reviewer0",
+            "name": "conference:Reviewer0***conference:Reviewer0",
+            "value": {
+                "label": "conference:invited_by",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        "conference:Reviewer0\u0001conference:Reviewer0\u0001conference:Reviewer0***conference:Reviewer0\u0001direct_property_uriconference:invites_co-reviewers\u00011": {
+            "v": "conference:Reviewer0",
+            "w": "conference:Reviewer0",
+            "name": "conference:Reviewer0***conference:Reviewer0",
+            "value": {
+                "label": "conference:invites_co-reviewers",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        "conference:Reviewed_contribution0\u0001conference:Review\u0001conference:Reviewed_contribution0***conference:Review\u0001direct_property_uriconference:has_a_review\u00011": {
+            "v": "conference:Reviewed_contribution0",
+            "w": "conference:Review",
+            "name": "conference:Reviewed_contribution0***conference:Review",
+            "value": {
+                "label": "conference:has_a_review",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        "conference:Review\u0001conference:Reviewed_contribution0\u0001conference:Review***conference:Reviewed_contribution0\u0001direct_property_uriconference:reviews\u00011": {
+            "v": "conference:Review",
+            "w": "conference:Reviewed_contribution0",
+            "name": "conference:Review***conference:Reviewed_contribution0",
+            "value": {
+                "label": "conference:reviews",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        "conference:Reviewer0\u0001conference:Reviewed_contribution0\u0001conference:Reviewer0***conference:Reviewed_contribution0\u0001inheritedconference:contributes\u00014": {
+            "v": "conference:Reviewer0",
+            "w": "conference:Reviewed_contribution0",
+            "name": "conference:Reviewer0***conference:Reviewed_contribution0",
+            "value": {
+                "label": "conference:contributes",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        "conference:Reviewer0\u0001conference:Review\u0001conference:Reviewer0***conference:Review\u0001inheritedconference:contributes\u00014": {
+            "v": "conference:Reviewer0",
+            "w": "conference:Review",
+            "name": "conference:Reviewer0***conference:Review",
+            "value": {
+                "label": "conference:contributes",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        "conference:Reviewed_contribution0\u0001conference:Reviewer0\u0001conference:Reviewed_contribution0***conference:Reviewer0\u0001inheritedconference:has_authors\u00014": {
+            "v": "conference:Reviewed_contribution0",
+            "w": "conference:Reviewer0",
+            "name": "conference:Reviewed_contribution0***conference:Reviewer0",
+            "value": {
+                "label": "conference:has_authors",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        "conference:Review\u0001conference:Reviewer0\u0001conference:Review***conference:Reviewer0\u0001inheritedconference:has_authors\u00014": {
+            "v": "conference:Review",
+            "w": "conference:Reviewer0",
+            "name": "conference:Review***conference:Reviewer0",
+            "value": {
+                "label": "conference:has_authors",
+                "type": "inherited"
+            },
+            "weight": 4
+        }
+    },
+    "_edgeLabels": {
+        "conference:Reviewer0\u0001Review__ID\u0001conference:Reviewer0***Review__ID\u0001st_property_uridcterms:identifier\u00011": {
+            "label": "dcterms:identifier",
+            "type": "st_property_uri"
+        },
+        "conference:Reviewed_contribution0\u0001Review__reviews\u0001conference:Reviewed_contribution0***Review__reviews\u0001st_property_uridcterms:identifier\u00011": {
+            "label": "dcterms:identifier",
+            "type": "st_property_uri"
+        },
+        "conference:Reviewer0\u0001conference:Reviewer0\u0001conference:Reviewer0***conference:Reviewer0\u0001direct_property_uriconference:invited_by\u00011": {
+            "label": "conference:invited_by",
+            "type": "direct_property_uri"
+        },
+        "conference:Reviewer0\u0001conference:Reviewer0\u0001conference:Reviewer0***conference:Reviewer0\u0001direct_property_uriconference:invites_co-reviewers\u00011": {
+            "label": "conference:invites_co-reviewers",
+            "type": "direct_property_uri"
+        },
+        "conference:Reviewed_contribution0\u0001conference:Review\u0001conference:Reviewed_contribution0***conference:Review\u0001direct_property_uriconference:has_a_review\u00011": {
+            "label": "conference:has_a_review",
+            "type": "direct_property_uri"
+        },
+        "conference:Review\u0001conference:Reviewed_contribution0\u0001conference:Review***conference:Reviewed_contribution0\u0001direct_property_uriconference:reviews\u00011": {
+            "label": "conference:reviews",
+            "type": "direct_property_uri"
+        },
+        "conference:Reviewer0\u0001conference:Reviewed_contribution0\u0001conference:Reviewer0***conference:Reviewed_contribution0\u0001inheritedconference:contributes\u00014": {
+            "label": "conference:contributes",
+            "type": "inherited"
+        },
+        "conference:Reviewer0\u0001conference:Review\u0001conference:Reviewer0***conference:Review\u0001inheritedconference:contributes\u00014": {
+            "label": "conference:contributes",
+            "type": "inherited"
+        },
+        "conference:Reviewed_contribution0\u0001conference:Reviewer0\u0001conference:Reviewed_contribution0***conference:Reviewer0\u0001inheritedconference:has_authors\u00014": {
+            "label": "conference:has_authors",
+            "type": "inherited"
+        },
+        "conference:Review\u0001conference:Reviewer0\u0001conference:Review***conference:Reviewer0\u0001inheritedconference:has_authors\u00014": {
+            "label": "conference:has_authors",
+            "type": "inherited"
+        }
+    },
+    "_nodeCount": 5,
+    "_edgeCount": 10
+}

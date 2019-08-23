@@ -1,0 +1,52 @@
+{
+    "options": {
+        "directed": true,
+        "multigraph": true,
+        "compound": false
+    },
+    "nodes": [
+        {
+            "v": "Abstract__ID",
+            "value": {
+                "type": "attribute_name",
+                "label": "Abstract__ID"
+            }
+        },
+        {
+            "v": "owl:Thing",
+            "value": {
+                "type": "special",
+                "label": "owl:Thing"
+            }
+        },
+        {
+            "v": "Abstract__is_the_1th_part_of",
+            "value": {
+                "type": "attribute_name",
+                "label": "Abstract__is_the_1th_part_of"
+            }
+        }
+    ],
+    "edges": [
+        {
+            "v": "Abstract__ID",
+            "w": "owl:Thing",
+            "name": "Abstract__ID***owl:Thing",
+            "value": {
+                "label": "rdfs:subClassOf",
+                "type": "inherited"
+            },
+            "weight": 0.3333333333333333
+        },
+        {
+            "v": "owl:Thing",
+            "w": "Abstract__is_the_1th_part_of",
+            "name": "owl:Thing***Abstract__is_the_1th_part_of",
+            "value": {
+                "type": "inherited",
+                "label": "rdfs:subClassOf***inverted"
+            },
+            "weight": 0.3333333333333333
+        }
+    ]
+}

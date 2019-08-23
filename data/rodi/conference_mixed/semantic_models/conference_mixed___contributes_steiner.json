@@ -1,0 +1,69 @@
+{
+    "options": {
+        "directed": true,
+        "multigraph": true,
+        "compound": false
+    },
+    "nodes": [
+        {
+            "v": "conference:Conference_contribution0",
+            "value": {
+                "type": "class_uri",
+                "label": "conference:Conference_contribution"
+            }
+        },
+        {
+            "v": "conference:Conference_contributor0",
+            "value": {
+                "type": "class_uri",
+                "label": "conference:Conference_contributor"
+            }
+        },
+        {
+            "v": "contributes__Person",
+            "value": {
+                "type": "attribute_name",
+                "label": "contributes__Person"
+            }
+        },
+        {
+            "v": "contributes__Conference_document",
+            "value": {
+                "type": "attribute_name",
+                "label": "contributes__Conference_document"
+            }
+        }
+    ],
+    "edges": [
+        {
+            "v": "conference:Conference_contribution0",
+            "w": "conference:Conference_contributor0",
+            "name": "conference:Conference_contribution0***conference:Conference_contributor0",
+            "value": {
+                "type": "inherited",
+                "label": "conference:contributes***inverted"
+            },
+            "weight": 4
+        },
+        {
+            "v": "conference:Conference_contributor0",
+            "w": "contributes__Person",
+            "name": "conference:Conference_contributor0***contributes__Person",
+            "value": {
+                "label": "dcterms:identifier",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "contributes__Conference_document",
+            "w": "conference:Conference_contribution0",
+            "name": "contributes__Conference_document***conference:Conference_contribution0",
+            "value": {
+                "type": "st_property_uri",
+                "label": "dcterms:identifier***inverted"
+            },
+            "weight": 1
+        }
+    ]
+}

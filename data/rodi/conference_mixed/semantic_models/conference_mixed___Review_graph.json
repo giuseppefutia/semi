@@ -1,0 +1,146 @@
+{
+    "options": {
+        "directed": true,
+        "multigraph": true,
+        "compound": false
+    },
+    "nodes": [
+        {
+            "v": "conference:Reviewer0",
+            "value": {
+                "type": "class_uri",
+                "label": "conference:Reviewer"
+            }
+        },
+        {
+            "v": "Review__ID",
+            "value": {
+                "type": "attribute_name",
+                "label": "Review__ID"
+            }
+        },
+        {
+            "v": "conference:Reviewed_contribution0",
+            "value": {
+                "type": "class_uri",
+                "label": "conference:Reviewed_contribution"
+            }
+        },
+        {
+            "v": "Review__reviews",
+            "value": {
+                "type": "attribute_name",
+                "label": "Review__reviews"
+            }
+        },
+        {
+            "v": "conference:Review",
+            "value": {
+                "type": "class_uri",
+                "label": "conference:Review"
+            }
+        }
+    ],
+    "edges": [
+        {
+            "v": "conference:Reviewer0",
+            "w": "Review__ID",
+            "name": "conference:Reviewer0***Review__ID",
+            "value": {
+                "label": "dcterms:identifier",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "conference:Reviewed_contribution0",
+            "w": "Review__reviews",
+            "name": "conference:Reviewed_contribution0***Review__reviews",
+            "value": {
+                "label": "dcterms:identifier",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "conference:Reviewer0",
+            "w": "conference:Reviewer0",
+            "name": "conference:Reviewer0***conference:Reviewer0",
+            "value": {
+                "label": "conference:invited_by",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "conference:Reviewer0",
+            "w": "conference:Reviewer0",
+            "name": "conference:Reviewer0***conference:Reviewer0",
+            "value": {
+                "label": "conference:invites_co-reviewers",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "conference:Reviewed_contribution0",
+            "w": "conference:Review",
+            "name": "conference:Reviewed_contribution0***conference:Review",
+            "value": {
+                "label": "conference:has_a_review",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "conference:Review",
+            "w": "conference:Reviewed_contribution0",
+            "name": "conference:Review***conference:Reviewed_contribution0",
+            "value": {
+                "label": "conference:reviews",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "conference:Reviewer0",
+            "w": "conference:Reviewed_contribution0",
+            "name": "conference:Reviewer0***conference:Reviewed_contribution0",
+            "value": {
+                "label": "conference:contributes",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "conference:Reviewer0",
+            "w": "conference:Review",
+            "name": "conference:Reviewer0***conference:Review",
+            "value": {
+                "label": "conference:contributes",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "conference:Reviewed_contribution0",
+            "w": "conference:Reviewer0",
+            "name": "conference:Reviewed_contribution0***conference:Reviewer0",
+            "value": {
+                "label": "conference:has_authors",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "conference:Review",
+            "w": "conference:Reviewer0",
+            "name": "conference:Review***conference:Reviewer0",
+            "value": {
+                "label": "conference:has_authors",
+                "type": "inherited"
+            },
+            "weight": 4
+        }
+    ]
+}

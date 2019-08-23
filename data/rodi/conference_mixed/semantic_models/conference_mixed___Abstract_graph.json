@@ -1,0 +1,86 @@
+{
+    "options": {
+        "directed": true,
+        "multigraph": true,
+        "compound": false
+    },
+    "nodes": [
+        {
+            "v": "conference:Abstract0",
+            "value": {
+                "type": "class_uri",
+                "label": "conference:Abstract"
+            }
+        },
+        {
+            "v": "Abstract__ID",
+            "value": {
+                "type": "attribute_name",
+                "label": "Abstract__ID"
+            }
+        },
+        {
+            "v": "conference:Paper0",
+            "value": {
+                "type": "class_uri",
+                "label": "conference:Paper"
+            }
+        },
+        {
+            "v": "Abstract__is_the_1th_part_of",
+            "value": {
+                "type": "attribute_name",
+                "label": "Abstract__is_the_1th_part_of"
+            }
+        },
+        {
+            "v": "owl:Thing",
+            "value": {
+                "type": "special",
+                "label": "owl:Thing"
+            }
+        }
+    ],
+    "edges": [
+        {
+            "v": "conference:Abstract0",
+            "w": "Abstract__ID",
+            "name": "conference:Abstract0***Abstract__ID",
+            "value": {
+                "label": "dcterms:identifier",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "conference:Paper0",
+            "w": "Abstract__is_the_1th_part_of",
+            "name": "conference:Paper0***Abstract__is_the_1th_part_of",
+            "value": {
+                "label": "dcterms:identifier",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "Abstract__ID",
+            "w": "owl:Thing",
+            "name": "Abstract__ID***owl:Thing",
+            "value": {
+                "label": "rdfs:subClassOf",
+                "type": "inherited"
+            },
+            "weight": 0.3333333333333333
+        },
+        {
+            "v": "Abstract__is_the_1th_part_of",
+            "w": "owl:Thing",
+            "name": "Abstract__is_the_1th_part_of***owl:Thing",
+            "value": {
+                "label": "rdfs:subClassOf",
+                "type": "inherited"
+            },
+            "weight": 0.3333333333333333
+        }
+    ]
+}

@@ -1,0 +1,86 @@
+{
+    "options": {
+        "directed": true,
+        "multigraph": true,
+        "compound": false
+    },
+    "nodes": [
+        {
+            "v": "conference:Paper0",
+            "value": {
+                "type": "class_uri",
+                "label": "conference:Paper"
+            }
+        },
+        {
+            "v": "Paper__ID",
+            "value": {
+                "type": "attribute_name",
+                "label": "Paper__ID"
+            }
+        },
+        {
+            "v": "conference:Abstract0",
+            "value": {
+                "type": "class_uri",
+                "label": "conference:Abstract"
+            }
+        },
+        {
+            "v": "Paper__has_an_abstract",
+            "value": {
+                "type": "attribute_name",
+                "label": "Paper__has_an_abstract"
+            }
+        },
+        {
+            "v": "owl:Thing",
+            "value": {
+                "type": "special",
+                "label": "owl:Thing"
+            }
+        }
+    ],
+    "edges": [
+        {
+            "v": "conference:Paper0",
+            "w": "Paper__ID",
+            "name": "conference:Paper0***Paper__ID",
+            "value": {
+                "label": "dcterms:identifier",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "conference:Abstract0",
+            "w": "Paper__has_an_abstract",
+            "name": "conference:Abstract0***Paper__has_an_abstract",
+            "value": {
+                "label": "dcterms:identifier",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "Paper__ID",
+            "w": "owl:Thing",
+            "name": "Paper__ID***owl:Thing",
+            "value": {
+                "label": "rdfs:subClassOf",
+                "type": "inherited"
+            },
+            "weight": 0.3333333333333333
+        },
+        {
+            "v": "Paper__has_an_abstract",
+            "w": "owl:Thing",
+            "name": "Paper__has_an_abstract***owl:Thing",
+            "value": {
+                "label": "rdfs:subClassOf",
+                "type": "inherited"
+            },
+            "weight": 0.3333333333333333
+        }
+    ]
+}

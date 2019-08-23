@@ -1,0 +1,173 @@
+{
+    "_isDirected": true,
+    "_isMultigraph": true,
+    "_isCompound": false,
+    "_nodes": {
+        "conference:Conference_contribution0": {
+            "type": "class_uri",
+            "label": "conference:Conference_contribution"
+        },
+        "conference:Conference_contributor0": {
+            "type": "class_uri",
+            "label": "conference:Conference_contributor"
+        },
+        "contributes__Person": {
+            "type": "attribute_name",
+            "label": "contributes__Person"
+        },
+        "contributes__Conference_document": {
+            "type": "attribute_name",
+            "label": "contributes__Conference_document"
+        }
+    },
+    "_in": {
+        "conference:Conference_contribution0": {
+            "contributes__Conference_document\u0001conference:Conference_contribution0\u0001contributes__Conference_document***conference:Conference_contribution0\u0001st_property_uridcterms:identifier***inverted\u00011": {
+                "v": "contributes__Conference_document",
+                "w": "conference:Conference_contribution0",
+                "name": "contributes__Conference_document***conference:Conference_contribution0",
+                "value": {
+                    "type": "st_property_uri",
+                    "label": "dcterms:identifier***inverted"
+                },
+                "weight": 1
+            }
+        },
+        "conference:Conference_contributor0": {
+            "conference:Conference_contribution0\u0001conference:Conference_contributor0\u0001conference:Conference_contribution0***conference:Conference_contributor0\u0001inheritedconference:contributes***inverted\u00014": {
+                "v": "conference:Conference_contribution0",
+                "w": "conference:Conference_contributor0",
+                "name": "conference:Conference_contribution0***conference:Conference_contributor0",
+                "value": {
+                    "type": "inherited",
+                    "label": "conference:contributes***inverted"
+                },
+                "weight": 4
+            }
+        },
+        "contributes__Person": {
+            "conference:Conference_contributor0\u0001contributes__Person\u0001conference:Conference_contributor0***contributes__Person\u0001st_property_uridcterms:identifier\u00011": {
+                "v": "conference:Conference_contributor0",
+                "w": "contributes__Person",
+                "name": "conference:Conference_contributor0***contributes__Person",
+                "value": {
+                    "label": "dcterms:identifier",
+                    "type": "st_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "contributes__Conference_document": {}
+    },
+    "_preds": {
+        "conference:Conference_contribution0": {
+            "contributes__Conference_document": 1
+        },
+        "conference:Conference_contributor0": {
+            "conference:Conference_contribution0": 1
+        },
+        "contributes__Person": {
+            "conference:Conference_contributor0": 1
+        },
+        "contributes__Conference_document": {}
+    },
+    "_out": {
+        "conference:Conference_contribution0": {
+            "conference:Conference_contribution0\u0001conference:Conference_contributor0\u0001conference:Conference_contribution0***conference:Conference_contributor0\u0001inheritedconference:contributes***inverted\u00014": {
+                "v": "conference:Conference_contribution0",
+                "w": "conference:Conference_contributor0",
+                "name": "conference:Conference_contribution0***conference:Conference_contributor0",
+                "value": {
+                    "type": "inherited",
+                    "label": "conference:contributes***inverted"
+                },
+                "weight": 4
+            }
+        },
+        "conference:Conference_contributor0": {
+            "conference:Conference_contributor0\u0001contributes__Person\u0001conference:Conference_contributor0***contributes__Person\u0001st_property_uridcterms:identifier\u00011": {
+                "v": "conference:Conference_contributor0",
+                "w": "contributes__Person",
+                "name": "conference:Conference_contributor0***contributes__Person",
+                "value": {
+                    "label": "dcterms:identifier",
+                    "type": "st_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "contributes__Person": {},
+        "contributes__Conference_document": {
+            "contributes__Conference_document\u0001conference:Conference_contribution0\u0001contributes__Conference_document***conference:Conference_contribution0\u0001st_property_uridcterms:identifier***inverted\u00011": {
+                "v": "contributes__Conference_document",
+                "w": "conference:Conference_contribution0",
+                "name": "contributes__Conference_document***conference:Conference_contribution0",
+                "value": {
+                    "type": "st_property_uri",
+                    "label": "dcterms:identifier***inverted"
+                },
+                "weight": 1
+            }
+        }
+    },
+    "_sucs": {
+        "conference:Conference_contribution0": {
+            "conference:Conference_contributor0": 1
+        },
+        "conference:Conference_contributor0": {
+            "contributes__Person": 1
+        },
+        "contributes__Person": {},
+        "contributes__Conference_document": {
+            "conference:Conference_contribution0": 1
+        }
+    },
+    "_edgeObjs": {
+        "conference:Conference_contribution0\u0001conference:Conference_contributor0\u0001conference:Conference_contribution0***conference:Conference_contributor0\u0001inheritedconference:contributes***inverted\u00014": {
+            "v": "conference:Conference_contribution0",
+            "w": "conference:Conference_contributor0",
+            "name": "conference:Conference_contribution0***conference:Conference_contributor0",
+            "value": {
+                "type": "inherited",
+                "label": "conference:contributes***inverted"
+            },
+            "weight": 4
+        },
+        "conference:Conference_contributor0\u0001contributes__Person\u0001conference:Conference_contributor0***contributes__Person\u0001st_property_uridcterms:identifier\u00011": {
+            "v": "conference:Conference_contributor0",
+            "w": "contributes__Person",
+            "name": "conference:Conference_contributor0***contributes__Person",
+            "value": {
+                "label": "dcterms:identifier",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        "contributes__Conference_document\u0001conference:Conference_contribution0\u0001contributes__Conference_document***conference:Conference_contribution0\u0001st_property_uridcterms:identifier***inverted\u00011": {
+            "v": "contributes__Conference_document",
+            "w": "conference:Conference_contribution0",
+            "name": "contributes__Conference_document***conference:Conference_contribution0",
+            "value": {
+                "type": "st_property_uri",
+                "label": "dcterms:identifier***inverted"
+            },
+            "weight": 1
+        }
+    },
+    "_edgeLabels": {
+        "conference:Conference_contribution0\u0001conference:Conference_contributor0\u0001conference:Conference_contribution0***conference:Conference_contributor0\u0001inheritedconference:contributes***inverted\u00014": {
+            "type": "inherited",
+            "label": "conference:contributes***inverted"
+        },
+        "conference:Conference_contributor0\u0001contributes__Person\u0001conference:Conference_contributor0***contributes__Person\u0001st_property_uridcterms:identifier\u00011": {
+            "label": "dcterms:identifier",
+            "type": "st_property_uri"
+        },
+        "contributes__Conference_document\u0001conference:Conference_contribution0\u0001contributes__Conference_document***conference:Conference_contribution0\u0001st_property_uridcterms:identifier***inverted\u00011": {
+            "type": "st_property_uri",
+            "label": "dcterms:identifier***inverted"
+        }
+    },
+    "_nodeCount": 4,
+    "_edgeCount": 3
+}

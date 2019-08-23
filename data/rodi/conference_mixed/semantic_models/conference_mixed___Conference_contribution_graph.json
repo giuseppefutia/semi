@@ -1,0 +1,113 @@
+{
+    "options": {
+        "directed": true,
+        "multigraph": true,
+        "compound": false
+    },
+    "nodes": [
+        {
+            "v": "conference:Conference_contribution0",
+            "value": {
+                "type": "class_uri",
+                "label": "conference:Conference_contribution"
+            }
+        },
+        {
+            "v": "Conference_contribution__ID",
+            "value": {
+                "type": "attribute_name",
+                "label": "Conference_contribution__ID"
+            }
+        },
+        {
+            "v": "conference:Conference0",
+            "value": {
+                "type": "class_uri",
+                "label": "conference:Conference"
+            }
+        },
+        {
+            "v": "Conference_contribution__is_submitted_at",
+            "value": {
+                "type": "attribute_name",
+                "label": "Conference_contribution__is_submitted_at"
+            }
+        },
+        {
+            "v": "conference:Conference_volume",
+            "value": {
+                "type": "class_uri",
+                "label": "conference:Conference_volume"
+            }
+        },
+        {
+            "v": "owl:Thing",
+            "value": {
+                "type": "special",
+                "label": "owl:Thing"
+            }
+        }
+    ],
+    "edges": [
+        {
+            "v": "conference:Conference_contribution0",
+            "w": "Conference_contribution__ID",
+            "name": "conference:Conference_contribution0***Conference_contribution__ID",
+            "value": {
+                "label": "dcterms:identifier",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "conference:Conference0",
+            "w": "Conference_contribution__is_submitted_at",
+            "name": "conference:Conference0***Conference_contribution__is_submitted_at",
+            "value": {
+                "label": "dcterms:identifier",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "conference:Conference_contribution0",
+            "w": "conference:Conference_volume",
+            "name": "conference:Conference_contribution0***conference:Conference_volume",
+            "value": {
+                "label": "conference:is_submitted_at",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "conference:Conference_volume",
+            "w": "conference:Conference_contribution0",
+            "name": "conference:Conference_volume***conference:Conference_contribution0",
+            "value": {
+                "label": "conference:has_contributions",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "conference:Conference_volume",
+            "w": "owl:Thing",
+            "name": "conference:Conference_volume***owl:Thing",
+            "value": {
+                "label": "rdfs:subClassOf",
+                "type": "inherited"
+            },
+            "weight": 0.3333333333333333
+        },
+        {
+            "v": "Conference_contribution__is_submitted_at",
+            "w": "owl:Thing",
+            "name": "Conference_contribution__is_submitted_at***owl:Thing",
+            "value": {
+                "label": "rdfs:subClassOf",
+                "type": "inherited"
+            },
+            "weight": 0.3333333333333333
+        }
+    ]
+}

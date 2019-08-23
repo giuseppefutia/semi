@@ -1,0 +1,303 @@
+{
+    "_isDirected": true,
+    "_isMultigraph": true,
+    "_isCompound": false,
+    "_nodes": {
+        "conference:Conference_contribution0": {
+            "type": "class_uri",
+            "label": "conference:Conference_contribution"
+        },
+        "Conference_contribution__ID": {
+            "type": "attribute_name",
+            "label": "Conference_contribution__ID"
+        },
+        "conference:Conference0": {
+            "type": "class_uri",
+            "label": "conference:Conference"
+        },
+        "Conference_contribution__is_submitted_at": {
+            "type": "attribute_name",
+            "label": "Conference_contribution__is_submitted_at"
+        },
+        "conference:Conference_volume": {
+            "type": "class_uri",
+            "label": "conference:Conference_volume"
+        },
+        "owl:Thing": {
+            "type": "special",
+            "label": "owl:Thing"
+        }
+    },
+    "_in": {
+        "conference:Conference_contribution0": {
+            "conference:Conference_volume\u0001conference:Conference_contribution0\u0001conference:Conference_volume***conference:Conference_contribution0\u0001direct_property_uriconference:has_contributions\u00011": {
+                "v": "conference:Conference_volume",
+                "w": "conference:Conference_contribution0",
+                "name": "conference:Conference_volume***conference:Conference_contribution0",
+                "value": {
+                    "label": "conference:has_contributions",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "Conference_contribution__ID": {
+            "conference:Conference_contribution0\u0001Conference_contribution__ID\u0001conference:Conference_contribution0***Conference_contribution__ID\u0001st_property_uridcterms:identifier\u00011": {
+                "v": "conference:Conference_contribution0",
+                "w": "Conference_contribution__ID",
+                "name": "conference:Conference_contribution0***Conference_contribution__ID",
+                "value": {
+                    "label": "dcterms:identifier",
+                    "type": "st_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "conference:Conference0": {},
+        "Conference_contribution__is_submitted_at": {
+            "conference:Conference0\u0001Conference_contribution__is_submitted_at\u0001conference:Conference0***Conference_contribution__is_submitted_at\u0001st_property_uridcterms:identifier\u00011": {
+                "v": "conference:Conference0",
+                "w": "Conference_contribution__is_submitted_at",
+                "name": "conference:Conference0***Conference_contribution__is_submitted_at",
+                "value": {
+                    "label": "dcterms:identifier",
+                    "type": "st_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "conference:Conference_volume": {
+            "conference:Conference_contribution0\u0001conference:Conference_volume\u0001conference:Conference_contribution0***conference:Conference_volume\u0001direct_property_uriconference:is_submitted_at\u00011": {
+                "v": "conference:Conference_contribution0",
+                "w": "conference:Conference_volume",
+                "name": "conference:Conference_contribution0***conference:Conference_volume",
+                "value": {
+                    "label": "conference:is_submitted_at",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "owl:Thing": {
+            "conference:Conference_volume\u0001owl:Thing\u0001conference:Conference_volume***owl:Thing\u0001inheritedrdfs:subClassOf\u00010.3333333333333333": {
+                "v": "conference:Conference_volume",
+                "w": "owl:Thing",
+                "name": "conference:Conference_volume***owl:Thing",
+                "value": {
+                    "label": "rdfs:subClassOf",
+                    "type": "inherited"
+                },
+                "weight": 0.3333333333333333
+            },
+            "Conference_contribution__is_submitted_at\u0001owl:Thing\u0001Conference_contribution__is_submitted_at***owl:Thing\u0001inheritedrdfs:subClassOf\u00010.3333333333333333": {
+                "v": "Conference_contribution__is_submitted_at",
+                "w": "owl:Thing",
+                "name": "Conference_contribution__is_submitted_at***owl:Thing",
+                "value": {
+                    "label": "rdfs:subClassOf",
+                    "type": "inherited"
+                },
+                "weight": 0.3333333333333333
+            }
+        }
+    },
+    "_preds": {
+        "conference:Conference_contribution0": {
+            "conference:Conference_volume": 1
+        },
+        "Conference_contribution__ID": {
+            "conference:Conference_contribution0": 1
+        },
+        "conference:Conference0": {},
+        "Conference_contribution__is_submitted_at": {
+            "conference:Conference0": 1
+        },
+        "conference:Conference_volume": {
+            "conference:Conference_contribution0": 1
+        },
+        "owl:Thing": {
+            "conference:Conference_volume": 1,
+            "Conference_contribution__is_submitted_at": 1
+        }
+    },
+    "_out": {
+        "conference:Conference_contribution0": {
+            "conference:Conference_contribution0\u0001Conference_contribution__ID\u0001conference:Conference_contribution0***Conference_contribution__ID\u0001st_property_uridcterms:identifier\u00011": {
+                "v": "conference:Conference_contribution0",
+                "w": "Conference_contribution__ID",
+                "name": "conference:Conference_contribution0***Conference_contribution__ID",
+                "value": {
+                    "label": "dcterms:identifier",
+                    "type": "st_property_uri"
+                },
+                "weight": 1
+            },
+            "conference:Conference_contribution0\u0001conference:Conference_volume\u0001conference:Conference_contribution0***conference:Conference_volume\u0001direct_property_uriconference:is_submitted_at\u00011": {
+                "v": "conference:Conference_contribution0",
+                "w": "conference:Conference_volume",
+                "name": "conference:Conference_contribution0***conference:Conference_volume",
+                "value": {
+                    "label": "conference:is_submitted_at",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "Conference_contribution__ID": {},
+        "conference:Conference0": {
+            "conference:Conference0\u0001Conference_contribution__is_submitted_at\u0001conference:Conference0***Conference_contribution__is_submitted_at\u0001st_property_uridcterms:identifier\u00011": {
+                "v": "conference:Conference0",
+                "w": "Conference_contribution__is_submitted_at",
+                "name": "conference:Conference0***Conference_contribution__is_submitted_at",
+                "value": {
+                    "label": "dcterms:identifier",
+                    "type": "st_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "Conference_contribution__is_submitted_at": {
+            "Conference_contribution__is_submitted_at\u0001owl:Thing\u0001Conference_contribution__is_submitted_at***owl:Thing\u0001inheritedrdfs:subClassOf\u00010.3333333333333333": {
+                "v": "Conference_contribution__is_submitted_at",
+                "w": "owl:Thing",
+                "name": "Conference_contribution__is_submitted_at***owl:Thing",
+                "value": {
+                    "label": "rdfs:subClassOf",
+                    "type": "inherited"
+                },
+                "weight": 0.3333333333333333
+            }
+        },
+        "conference:Conference_volume": {
+            "conference:Conference_volume\u0001conference:Conference_contribution0\u0001conference:Conference_volume***conference:Conference_contribution0\u0001direct_property_uriconference:has_contributions\u00011": {
+                "v": "conference:Conference_volume",
+                "w": "conference:Conference_contribution0",
+                "name": "conference:Conference_volume***conference:Conference_contribution0",
+                "value": {
+                    "label": "conference:has_contributions",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            },
+            "conference:Conference_volume\u0001owl:Thing\u0001conference:Conference_volume***owl:Thing\u0001inheritedrdfs:subClassOf\u00010.3333333333333333": {
+                "v": "conference:Conference_volume",
+                "w": "owl:Thing",
+                "name": "conference:Conference_volume***owl:Thing",
+                "value": {
+                    "label": "rdfs:subClassOf",
+                    "type": "inherited"
+                },
+                "weight": 0.3333333333333333
+            }
+        },
+        "owl:Thing": {}
+    },
+    "_sucs": {
+        "conference:Conference_contribution0": {
+            "Conference_contribution__ID": 1,
+            "conference:Conference_volume": 1
+        },
+        "Conference_contribution__ID": {},
+        "conference:Conference0": {
+            "Conference_contribution__is_submitted_at": 1
+        },
+        "Conference_contribution__is_submitted_at": {
+            "owl:Thing": 1
+        },
+        "conference:Conference_volume": {
+            "conference:Conference_contribution0": 1,
+            "owl:Thing": 1
+        },
+        "owl:Thing": {}
+    },
+    "_edgeObjs": {
+        "conference:Conference_contribution0\u0001Conference_contribution__ID\u0001conference:Conference_contribution0***Conference_contribution__ID\u0001st_property_uridcterms:identifier\u00011": {
+            "v": "conference:Conference_contribution0",
+            "w": "Conference_contribution__ID",
+            "name": "conference:Conference_contribution0***Conference_contribution__ID",
+            "value": {
+                "label": "dcterms:identifier",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        "conference:Conference0\u0001Conference_contribution__is_submitted_at\u0001conference:Conference0***Conference_contribution__is_submitted_at\u0001st_property_uridcterms:identifier\u00011": {
+            "v": "conference:Conference0",
+            "w": "Conference_contribution__is_submitted_at",
+            "name": "conference:Conference0***Conference_contribution__is_submitted_at",
+            "value": {
+                "label": "dcterms:identifier",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        "conference:Conference_contribution0\u0001conference:Conference_volume\u0001conference:Conference_contribution0***conference:Conference_volume\u0001direct_property_uriconference:is_submitted_at\u00011": {
+            "v": "conference:Conference_contribution0",
+            "w": "conference:Conference_volume",
+            "name": "conference:Conference_contribution0***conference:Conference_volume",
+            "value": {
+                "label": "conference:is_submitted_at",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        "conference:Conference_volume\u0001conference:Conference_contribution0\u0001conference:Conference_volume***conference:Conference_contribution0\u0001direct_property_uriconference:has_contributions\u00011": {
+            "v": "conference:Conference_volume",
+            "w": "conference:Conference_contribution0",
+            "name": "conference:Conference_volume***conference:Conference_contribution0",
+            "value": {
+                "label": "conference:has_contributions",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        "conference:Conference_volume\u0001owl:Thing\u0001conference:Conference_volume***owl:Thing\u0001inheritedrdfs:subClassOf\u00010.3333333333333333": {
+            "v": "conference:Conference_volume",
+            "w": "owl:Thing",
+            "name": "conference:Conference_volume***owl:Thing",
+            "value": {
+                "label": "rdfs:subClassOf",
+                "type": "inherited"
+            },
+            "weight": 0.3333333333333333
+        },
+        "Conference_contribution__is_submitted_at\u0001owl:Thing\u0001Conference_contribution__is_submitted_at***owl:Thing\u0001inheritedrdfs:subClassOf\u00010.3333333333333333": {
+            "v": "Conference_contribution__is_submitted_at",
+            "w": "owl:Thing",
+            "name": "Conference_contribution__is_submitted_at***owl:Thing",
+            "value": {
+                "label": "rdfs:subClassOf",
+                "type": "inherited"
+            },
+            "weight": 0.3333333333333333
+        }
+    },
+    "_edgeLabels": {
+        "conference:Conference_contribution0\u0001Conference_contribution__ID\u0001conference:Conference_contribution0***Conference_contribution__ID\u0001st_property_uridcterms:identifier\u00011": {
+            "label": "dcterms:identifier",
+            "type": "st_property_uri"
+        },
+        "conference:Conference0\u0001Conference_contribution__is_submitted_at\u0001conference:Conference0***Conference_contribution__is_submitted_at\u0001st_property_uridcterms:identifier\u00011": {
+            "label": "dcterms:identifier",
+            "type": "st_property_uri"
+        },
+        "conference:Conference_contribution0\u0001conference:Conference_volume\u0001conference:Conference_contribution0***conference:Conference_volume\u0001direct_property_uriconference:is_submitted_at\u00011": {
+            "label": "conference:is_submitted_at",
+            "type": "direct_property_uri"
+        },
+        "conference:Conference_volume\u0001conference:Conference_contribution0\u0001conference:Conference_volume***conference:Conference_contribution0\u0001direct_property_uriconference:has_contributions\u00011": {
+            "label": "conference:has_contributions",
+            "type": "direct_property_uri"
+        },
+        "conference:Conference_volume\u0001owl:Thing\u0001conference:Conference_volume***owl:Thing\u0001inheritedrdfs:subClassOf\u00010.3333333333333333": {
+            "label": "rdfs:subClassOf",
+            "type": "inherited"
+        },
+        "Conference_contribution__is_submitted_at\u0001owl:Thing\u0001Conference_contribution__is_submitted_at***owl:Thing\u0001inheritedrdfs:subClassOf\u00010.3333333333333333": {
+            "label": "rdfs:subClassOf",
+            "type": "inherited"
+        }
+    },
+    "_nodeCount": 6,
+    "_edgeCount": 6
+}

@@ -1,0 +1,461 @@
+{
+    "_isDirected": true,
+    "_isMultigraph": true,
+    "_isCompound": false,
+    "_nodes": {
+        "conference:Committee0": {
+            "type": "class_uri",
+            "label": "conference:Committee"
+        },
+        "committee_person__cid": {
+            "type": "attribute_name",
+            "label": "committee_person__cid"
+        },
+        "conference:Committee_member0": {
+            "type": "class_uri",
+            "label": "conference:Committee_member"
+        },
+        "committee_person__pid": {
+            "type": "attribute_name",
+            "label": "committee_person__pid"
+        },
+        "conference:Conference_volume": {
+            "type": "class_uri",
+            "label": "conference:Conference_volume"
+        },
+        "conference:Chair": {
+            "type": "class_uri",
+            "label": "conference:Chair"
+        },
+        "conference:Co-chair": {
+            "type": "class_uri",
+            "label": "conference:Co-chair"
+        }
+    },
+    "_in": {
+        "conference:Committee0": {
+            "conference:Committee_member0\u0001conference:Committee0\u0001conference:Committee_member0***conference:Committee0\u0001direct_property_uriconference:was_a_member_of\u00011": {
+                "v": "conference:Committee_member0",
+                "w": "conference:Committee0",
+                "name": "conference:Committee_member0***conference:Committee0",
+                "value": {
+                    "label": "conference:was_a_member_of",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            },
+            "conference:Conference_volume\u0001conference:Committee0\u0001conference:Conference_volume***conference:Committee0\u0001direct_property_uriconference:has_a_commtitee\u00011": {
+                "v": "conference:Conference_volume",
+                "w": "conference:Committee0",
+                "name": "conference:Conference_volume***conference:Committee0",
+                "value": {
+                    "label": "conference:has_a_commtitee",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            },
+            "conference:Chair\u0001conference:Committee0\u0001conference:Chair***conference:Committee0\u0001direct_property_uriconference:was_a_committee_chair_of\u00011": {
+                "v": "conference:Chair",
+                "w": "conference:Committee0",
+                "name": "conference:Chair***conference:Committee0",
+                "value": {
+                    "label": "conference:was_a_committee_chair_of",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            },
+            "conference:Co-chair\u0001conference:Committee0\u0001conference:Co-chair***conference:Committee0\u0001direct_property_uriconference:was_a_committe_co-chair_of\u00011": {
+                "v": "conference:Co-chair",
+                "w": "conference:Committee0",
+                "name": "conference:Co-chair***conference:Committee0",
+                "value": {
+                    "label": "conference:was_a_committe_co-chair_of",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "committee_person__cid": {
+            "conference:Committee0\u0001committee_person__cid\u0001conference:Committee0***committee_person__cid\u0001st_property_uridcterms:identifier\u00011": {
+                "v": "conference:Committee0",
+                "w": "committee_person__cid",
+                "name": "conference:Committee0***committee_person__cid",
+                "value": {
+                    "label": "dcterms:identifier",
+                    "type": "st_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "conference:Committee_member0": {
+            "conference:Committee0\u0001conference:Committee_member0\u0001conference:Committee0***conference:Committee_member0\u0001direct_property_uriconference:has_members\u00011": {
+                "v": "conference:Committee0",
+                "w": "conference:Committee_member0",
+                "name": "conference:Committee0***conference:Committee_member0",
+                "value": {
+                    "label": "conference:has_members",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "committee_person__pid": {
+            "conference:Committee_member0\u0001committee_person__pid\u0001conference:Committee_member0***committee_person__pid\u0001st_property_uridcterms:identifier\u00011": {
+                "v": "conference:Committee_member0",
+                "w": "committee_person__pid",
+                "name": "conference:Committee_member0***committee_person__pid",
+                "value": {
+                    "label": "dcterms:identifier",
+                    "type": "st_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "conference:Conference_volume": {
+            "conference:Committee0\u0001conference:Conference_volume\u0001conference:Committee0***conference:Conference_volume\u0001direct_property_uriconference:was_a_committee_of\u00011": {
+                "v": "conference:Committee0",
+                "w": "conference:Conference_volume",
+                "name": "conference:Committee0***conference:Conference_volume",
+                "value": {
+                    "label": "conference:was_a_committee_of",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "conference:Chair": {
+            "conference:Committee0\u0001conference:Chair\u0001conference:Committee0***conference:Chair\u0001direct_property_uriconference:has_a_committee_chair\u00011": {
+                "v": "conference:Committee0",
+                "w": "conference:Chair",
+                "name": "conference:Committee0***conference:Chair",
+                "value": {
+                    "label": "conference:has_a_committee_chair",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "conference:Co-chair": {
+            "conference:Committee0\u0001conference:Co-chair\u0001conference:Committee0***conference:Co-chair\u0001direct_property_uriconference:has_a_committee_co-chair\u00011": {
+                "v": "conference:Committee0",
+                "w": "conference:Co-chair",
+                "name": "conference:Committee0***conference:Co-chair",
+                "value": {
+                    "label": "conference:has_a_committee_co-chair",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            }
+        }
+    },
+    "_preds": {
+        "conference:Committee0": {
+            "conference:Committee_member0": 1,
+            "conference:Conference_volume": 1,
+            "conference:Chair": 1,
+            "conference:Co-chair": 1
+        },
+        "committee_person__cid": {
+            "conference:Committee0": 1
+        },
+        "conference:Committee_member0": {
+            "conference:Committee0": 1
+        },
+        "committee_person__pid": {
+            "conference:Committee_member0": 1
+        },
+        "conference:Conference_volume": {
+            "conference:Committee0": 1
+        },
+        "conference:Chair": {
+            "conference:Committee0": 1
+        },
+        "conference:Co-chair": {
+            "conference:Committee0": 1
+        }
+    },
+    "_out": {
+        "conference:Committee0": {
+            "conference:Committee0\u0001committee_person__cid\u0001conference:Committee0***committee_person__cid\u0001st_property_uridcterms:identifier\u00011": {
+                "v": "conference:Committee0",
+                "w": "committee_person__cid",
+                "name": "conference:Committee0***committee_person__cid",
+                "value": {
+                    "label": "dcterms:identifier",
+                    "type": "st_property_uri"
+                },
+                "weight": 1
+            },
+            "conference:Committee0\u0001conference:Committee_member0\u0001conference:Committee0***conference:Committee_member0\u0001direct_property_uriconference:has_members\u00011": {
+                "v": "conference:Committee0",
+                "w": "conference:Committee_member0",
+                "name": "conference:Committee0***conference:Committee_member0",
+                "value": {
+                    "label": "conference:has_members",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            },
+            "conference:Committee0\u0001conference:Conference_volume\u0001conference:Committee0***conference:Conference_volume\u0001direct_property_uriconference:was_a_committee_of\u00011": {
+                "v": "conference:Committee0",
+                "w": "conference:Conference_volume",
+                "name": "conference:Committee0***conference:Conference_volume",
+                "value": {
+                    "label": "conference:was_a_committee_of",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            },
+            "conference:Committee0\u0001conference:Chair\u0001conference:Committee0***conference:Chair\u0001direct_property_uriconference:has_a_committee_chair\u00011": {
+                "v": "conference:Committee0",
+                "w": "conference:Chair",
+                "name": "conference:Committee0***conference:Chair",
+                "value": {
+                    "label": "conference:has_a_committee_chair",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            },
+            "conference:Committee0\u0001conference:Co-chair\u0001conference:Committee0***conference:Co-chair\u0001direct_property_uriconference:has_a_committee_co-chair\u00011": {
+                "v": "conference:Committee0",
+                "w": "conference:Co-chair",
+                "name": "conference:Committee0***conference:Co-chair",
+                "value": {
+                    "label": "conference:has_a_committee_co-chair",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "committee_person__cid": {},
+        "conference:Committee_member0": {
+            "conference:Committee_member0\u0001committee_person__pid\u0001conference:Committee_member0***committee_person__pid\u0001st_property_uridcterms:identifier\u00011": {
+                "v": "conference:Committee_member0",
+                "w": "committee_person__pid",
+                "name": "conference:Committee_member0***committee_person__pid",
+                "value": {
+                    "label": "dcterms:identifier",
+                    "type": "st_property_uri"
+                },
+                "weight": 1
+            },
+            "conference:Committee_member0\u0001conference:Committee0\u0001conference:Committee_member0***conference:Committee0\u0001direct_property_uriconference:was_a_member_of\u00011": {
+                "v": "conference:Committee_member0",
+                "w": "conference:Committee0",
+                "name": "conference:Committee_member0***conference:Committee0",
+                "value": {
+                    "label": "conference:was_a_member_of",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "committee_person__pid": {},
+        "conference:Conference_volume": {
+            "conference:Conference_volume\u0001conference:Committee0\u0001conference:Conference_volume***conference:Committee0\u0001direct_property_uriconference:has_a_commtitee\u00011": {
+                "v": "conference:Conference_volume",
+                "w": "conference:Committee0",
+                "name": "conference:Conference_volume***conference:Committee0",
+                "value": {
+                    "label": "conference:has_a_commtitee",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "conference:Chair": {
+            "conference:Chair\u0001conference:Committee0\u0001conference:Chair***conference:Committee0\u0001direct_property_uriconference:was_a_committee_chair_of\u00011": {
+                "v": "conference:Chair",
+                "w": "conference:Committee0",
+                "name": "conference:Chair***conference:Committee0",
+                "value": {
+                    "label": "conference:was_a_committee_chair_of",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "conference:Co-chair": {
+            "conference:Co-chair\u0001conference:Committee0\u0001conference:Co-chair***conference:Committee0\u0001direct_property_uriconference:was_a_committe_co-chair_of\u00011": {
+                "v": "conference:Co-chair",
+                "w": "conference:Committee0",
+                "name": "conference:Co-chair***conference:Committee0",
+                "value": {
+                    "label": "conference:was_a_committe_co-chair_of",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            }
+        }
+    },
+    "_sucs": {
+        "conference:Committee0": {
+            "committee_person__cid": 1,
+            "conference:Committee_member0": 1,
+            "conference:Conference_volume": 1,
+            "conference:Chair": 1,
+            "conference:Co-chair": 1
+        },
+        "committee_person__cid": {},
+        "conference:Committee_member0": {
+            "committee_person__pid": 1,
+            "conference:Committee0": 1
+        },
+        "committee_person__pid": {},
+        "conference:Conference_volume": {
+            "conference:Committee0": 1
+        },
+        "conference:Chair": {
+            "conference:Committee0": 1
+        },
+        "conference:Co-chair": {
+            "conference:Committee0": 1
+        }
+    },
+    "_edgeObjs": {
+        "conference:Committee0\u0001committee_person__cid\u0001conference:Committee0***committee_person__cid\u0001st_property_uridcterms:identifier\u00011": {
+            "v": "conference:Committee0",
+            "w": "committee_person__cid",
+            "name": "conference:Committee0***committee_person__cid",
+            "value": {
+                "label": "dcterms:identifier",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        "conference:Committee_member0\u0001committee_person__pid\u0001conference:Committee_member0***committee_person__pid\u0001st_property_uridcterms:identifier\u00011": {
+            "v": "conference:Committee_member0",
+            "w": "committee_person__pid",
+            "name": "conference:Committee_member0***committee_person__pid",
+            "value": {
+                "label": "dcterms:identifier",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        "conference:Committee0\u0001conference:Committee_member0\u0001conference:Committee0***conference:Committee_member0\u0001direct_property_uriconference:has_members\u00011": {
+            "v": "conference:Committee0",
+            "w": "conference:Committee_member0",
+            "name": "conference:Committee0***conference:Committee_member0",
+            "value": {
+                "label": "conference:has_members",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        "conference:Committee_member0\u0001conference:Committee0\u0001conference:Committee_member0***conference:Committee0\u0001direct_property_uriconference:was_a_member_of\u00011": {
+            "v": "conference:Committee_member0",
+            "w": "conference:Committee0",
+            "name": "conference:Committee_member0***conference:Committee0",
+            "value": {
+                "label": "conference:was_a_member_of",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        "conference:Committee0\u0001conference:Conference_volume\u0001conference:Committee0***conference:Conference_volume\u0001direct_property_uriconference:was_a_committee_of\u00011": {
+            "v": "conference:Committee0",
+            "w": "conference:Conference_volume",
+            "name": "conference:Committee0***conference:Conference_volume",
+            "value": {
+                "label": "conference:was_a_committee_of",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        "conference:Conference_volume\u0001conference:Committee0\u0001conference:Conference_volume***conference:Committee0\u0001direct_property_uriconference:has_a_commtitee\u00011": {
+            "v": "conference:Conference_volume",
+            "w": "conference:Committee0",
+            "name": "conference:Conference_volume***conference:Committee0",
+            "value": {
+                "label": "conference:has_a_commtitee",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        "conference:Committee0\u0001conference:Chair\u0001conference:Committee0***conference:Chair\u0001direct_property_uriconference:has_a_committee_chair\u00011": {
+            "v": "conference:Committee0",
+            "w": "conference:Chair",
+            "name": "conference:Committee0***conference:Chair",
+            "value": {
+                "label": "conference:has_a_committee_chair",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        "conference:Chair\u0001conference:Committee0\u0001conference:Chair***conference:Committee0\u0001direct_property_uriconference:was_a_committee_chair_of\u00011": {
+            "v": "conference:Chair",
+            "w": "conference:Committee0",
+            "name": "conference:Chair***conference:Committee0",
+            "value": {
+                "label": "conference:was_a_committee_chair_of",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        "conference:Committee0\u0001conference:Co-chair\u0001conference:Committee0***conference:Co-chair\u0001direct_property_uriconference:has_a_committee_co-chair\u00011": {
+            "v": "conference:Committee0",
+            "w": "conference:Co-chair",
+            "name": "conference:Committee0***conference:Co-chair",
+            "value": {
+                "label": "conference:has_a_committee_co-chair",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        "conference:Co-chair\u0001conference:Committee0\u0001conference:Co-chair***conference:Committee0\u0001direct_property_uriconference:was_a_committe_co-chair_of\u00011": {
+            "v": "conference:Co-chair",
+            "w": "conference:Committee0",
+            "name": "conference:Co-chair***conference:Committee0",
+            "value": {
+                "label": "conference:was_a_committe_co-chair_of",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        }
+    },
+    "_edgeLabels": {
+        "conference:Committee0\u0001committee_person__cid\u0001conference:Committee0***committee_person__cid\u0001st_property_uridcterms:identifier\u00011": {
+            "label": "dcterms:identifier",
+            "type": "st_property_uri"
+        },
+        "conference:Committee_member0\u0001committee_person__pid\u0001conference:Committee_member0***committee_person__pid\u0001st_property_uridcterms:identifier\u00011": {
+            "label": "dcterms:identifier",
+            "type": "st_property_uri"
+        },
+        "conference:Committee0\u0001conference:Committee_member0\u0001conference:Committee0***conference:Committee_member0\u0001direct_property_uriconference:has_members\u00011": {
+            "label": "conference:has_members",
+            "type": "direct_property_uri"
+        },
+        "conference:Committee_member0\u0001conference:Committee0\u0001conference:Committee_member0***conference:Committee0\u0001direct_property_uriconference:was_a_member_of\u00011": {
+            "label": "conference:was_a_member_of",
+            "type": "direct_property_uri"
+        },
+        "conference:Committee0\u0001conference:Conference_volume\u0001conference:Committee0***conference:Conference_volume\u0001direct_property_uriconference:was_a_committee_of\u00011": {
+            "label": "conference:was_a_committee_of",
+            "type": "direct_property_uri"
+        },
+        "conference:Conference_volume\u0001conference:Committee0\u0001conference:Conference_volume***conference:Committee0\u0001direct_property_uriconference:has_a_commtitee\u00011": {
+            "label": "conference:has_a_commtitee",
+            "type": "direct_property_uri"
+        },
+        "conference:Committee0\u0001conference:Chair\u0001conference:Committee0***conference:Chair\u0001direct_property_uriconference:has_a_committee_chair\u00011": {
+            "label": "conference:has_a_committee_chair",
+            "type": "direct_property_uri"
+        },
+        "conference:Chair\u0001conference:Committee0\u0001conference:Chair***conference:Committee0\u0001direct_property_uriconference:was_a_committee_chair_of\u00011": {
+            "label": "conference:was_a_committee_chair_of",
+            "type": "direct_property_uri"
+        },
+        "conference:Committee0\u0001conference:Co-chair\u0001conference:Committee0***conference:Co-chair\u0001direct_property_uriconference:has_a_committee_co-chair\u00011": {
+            "label": "conference:has_a_committee_co-chair",
+            "type": "direct_property_uri"
+        },
+        "conference:Co-chair\u0001conference:Committee0\u0001conference:Co-chair***conference:Committee0\u0001direct_property_uriconference:was_a_committe_co-chair_of\u00011": {
+            "label": "conference:was_a_committe_co-chair_of",
+            "type": "direct_property_uri"
+        }
+    },
+    "_nodeCount": 7,
+    "_edgeCount": 10
+}

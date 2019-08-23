@@ -1,0 +1,69 @@
+{
+    "options": {
+        "directed": true,
+        "multigraph": true,
+        "compound": false
+    },
+    "nodes": [
+        {
+            "v": "committee_person__cid",
+            "value": {
+                "type": "attribute_name",
+                "label": "committee_person__cid"
+            }
+        },
+        {
+            "v": "conference:Committee0",
+            "value": {
+                "type": "class_uri",
+                "label": "conference:Committee"
+            }
+        },
+        {
+            "v": "conference:Committee_member0",
+            "value": {
+                "type": "class_uri",
+                "label": "conference:Committee_member"
+            }
+        },
+        {
+            "v": "committee_person__pid",
+            "value": {
+                "type": "attribute_name",
+                "label": "committee_person__pid"
+            }
+        }
+    ],
+    "edges": [
+        {
+            "v": "committee_person__cid",
+            "w": "conference:Committee0",
+            "name": "committee_person__cid***conference:Committee0",
+            "value": {
+                "type": "st_property_uri",
+                "label": "dcterms:identifier***inverted"
+            },
+            "weight": 1
+        },
+        {
+            "v": "conference:Committee0",
+            "w": "conference:Committee_member0",
+            "name": "conference:Committee0***conference:Committee_member0",
+            "value": {
+                "type": "direct_property_uri",
+                "label": "conference:was_a_member_of***inverted"
+            },
+            "weight": 1
+        },
+        {
+            "v": "conference:Committee_member0",
+            "w": "committee_person__pid",
+            "name": "conference:Committee_member0***committee_person__pid",
+            "value": {
+                "label": "dcterms:identifier",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        }
+    ]
+}

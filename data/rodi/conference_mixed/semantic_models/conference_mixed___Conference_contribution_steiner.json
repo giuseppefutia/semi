@@ -1,0 +1,86 @@
+{
+    "options": {
+        "directed": true,
+        "multigraph": true,
+        "compound": false
+    },
+    "nodes": [
+        {
+            "v": "Conference_contribution__ID",
+            "value": {
+                "type": "attribute_name",
+                "label": "Conference_contribution__ID"
+            }
+        },
+        {
+            "v": "conference:Conference_contribution0",
+            "value": {
+                "type": "class_uri",
+                "label": "conference:Conference_contribution"
+            }
+        },
+        {
+            "v": "conference:Conference_volume",
+            "value": {
+                "type": "class_uri",
+                "label": "conference:Conference_volume"
+            }
+        },
+        {
+            "v": "owl:Thing",
+            "value": {
+                "type": "special",
+                "label": "owl:Thing"
+            }
+        },
+        {
+            "v": "Conference_contribution__is_submitted_at",
+            "value": {
+                "type": "attribute_name",
+                "label": "Conference_contribution__is_submitted_at"
+            }
+        }
+    ],
+    "edges": [
+        {
+            "v": "Conference_contribution__ID",
+            "w": "conference:Conference_contribution0",
+            "name": "Conference_contribution__ID***conference:Conference_contribution0",
+            "value": {
+                "type": "st_property_uri",
+                "label": "dcterms:identifier***inverted"
+            },
+            "weight": 1
+        },
+        {
+            "v": "conference:Conference_contribution0",
+            "w": "conference:Conference_volume",
+            "name": "conference:Conference_contribution0***conference:Conference_volume",
+            "value": {
+                "type": "direct_property_uri",
+                "label": "conference:has_contributions***inverted"
+            },
+            "weight": 1
+        },
+        {
+            "v": "conference:Conference_volume",
+            "w": "owl:Thing",
+            "name": "conference:Conference_volume***owl:Thing",
+            "value": {
+                "label": "rdfs:subClassOf",
+                "type": "inherited"
+            },
+            "weight": 0.3333333333333333
+        },
+        {
+            "v": "owl:Thing",
+            "w": "Conference_contribution__is_submitted_at",
+            "name": "owl:Thing***Conference_contribution__is_submitted_at",
+            "value": {
+                "type": "inherited",
+                "label": "rdfs:subClassOf***inverted"
+            },
+            "weight": 0.3333333333333333
+        }
+    ]
+}
