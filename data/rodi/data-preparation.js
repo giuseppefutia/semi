@@ -1,16 +1,41 @@
 var fs = require('fs');
 var path = require('path');
 
-// Read all directories in rodi directory
 var basic = 'data/rodi/';
-var files = fs.readdirSync(basic)
-files = files.filter(f => fs.statSync(path.join(basic, f)).isDirectory());
+var files = [];
+
+// Prepare data for all RODI scenarios or for a subset of them
+if (process.argv.length == 2) {
+    files = fs.readdirSync(basic);
+    files = files.filter(f => fs.statSync(path.join(basic, f)).isDirectory());
+} else {
+    for (var i = 2; i < process.argv.length; i++) {
+        files.push(process.argv[i]);
+    }
+}
+
+console.log('\nStart to remove all previous files...\n');
+
+// Remove all files of the previous step
+
+var directories = ['output', 'scripts', 'semantic_models']
+
+for (var i in files) {
+    for (var d in directories) {
+        var dir = basic + files[i] + '/' + directories[d] + '/';
+        var to_remove = fs.readdirSync(dir);
+        for (var t in to_remove) {
+            fs.unlinkSync(path.join(dir, to_remove[t]));
+            console.log('Remove ' + path.join(dir, to_remove[t]))
+        }
+    }
+}
+
+console.log('\nFiles removed!');
 
 console.log('\nSplit input data of ' + files.length + ' scenarios');
 
-// Read input JSON of each scenario and split data
-
-/*
+// Read input JSON of scenarios included in files
 var total_input_files;
 for (var i in files) {
     var json_path = basic + files[i] + '/input/' + files[i] + '.json';
@@ -28,20 +53,6 @@ for (var i in files) {
 
 console.log('Total number of input files: ' + total_input_files);
 
-console.log('\nRemove all scripts');
-*/
-
-
-// Remove all scripts
-for (var i in files) {
-    var script_dir = basic + files[i] + '/scripts/';
-    var script_files = fs.readdirSync(script_dir);
-    for (var s in script_files) {
-        if (script_files[s] != '.gitignore')
-            fs.unlinkSync(path.join(script_dir, script_files[s]));
-    }
-}
-
 // Generate scripts for semantic modeling
 var keywords = ['graph', 'steiner', 'jarql', 'rdf'];
 
@@ -49,6 +60,7 @@ for (var i in files) {
     var sts_dir = basic + files[i] + '/semantic_types/';
     var sts = fs.readdirSync(sts_dir);
 
+    // Scripts are generated only if semantic types are ready
     for (var s in sts) {
         var scripts = [];
         for (var k in keywords) {
@@ -108,7 +120,7 @@ for (var i in files) {
 
         console.log('\n*** Semantic model generation for scenario: ' + files[i] + ' ***');
 
-        // Execute the script
+        // Execute the scripts
         require('child_process').execSync(final_script, {
             stdio: 'inherit'
         });
