@@ -7,6 +7,7 @@ var sparql = require(__dirname + '/sparql_queries.js');
 
 var ε = 3;
 
+// TODO: VERY IMPORTANT! Need to manage ontology restrictions for a better mapping
 // TODO: Create an high level representation of node and edge for checking inconsistencies
 // TODO: Semantic_types in semantic type file should be an array of array?
 // TODO: Make a universal API to create nodes and edges
@@ -77,17 +78,17 @@ var add_semantic_types = (st, graph) => {
     var semantic_types = st['semantic_types']; // TODO: Move the function to create inverse edges in the graph.js file
     var entities = st['entities'];
     for (var i in attributes) {
-        var class_node = semantic_types[i][0].split("***")[0]; // Remember: I put an index here, because I can expect candidates semantic types
-        // Add class node
-        graph.setNode(class_node + entities[i], {
-            type: 'class_uri',
-            label: class_node
-        });
         // Add data node
         var data_node = attributes[i];
         graph.setNode(data_node, {
             type: 'attribute_name',
             label: data_node
+        });
+        var class_node = semantic_types[i][0].split("***")[0]; // Remember: I put an index here, because I can expect candidates semantic types
+        // Add class node
+        graph.setNode(class_node + entities[i], {
+            type: 'class_uri',
+            label: class_node
         });
         // Add edge
         graph.setEdge(class_node + entities[i], data_node, {
@@ -261,8 +262,8 @@ var get_super_classes = (sc, store, all_classes) => {
                 all_classes[class_node] = [];
 
             // If no parent class, the last class if always a fictitious Thing
-            if (results.length === 0)
-                all_classes[class_node].push('owl:Thing');
+            //if (results.length === 0)
+            //all_classes[class_node].push('owl:Thing');
 
             for (var i in results) {
                 var super_class = utils.clean_prefix(results[i]['all_super_classes']['value']);
@@ -432,6 +433,17 @@ var add_inherited_properties = (inherited_properties, graph) => {
  */
 var add_edges = (graph, subject, property, object, type, weight) => {
     var nodes = graph.nodes();
+    /*
+    console.log('In add_edges');
+    console.log('nodes');
+    console.log(nodes);
+    console.log('subject')
+    console.log(subject);
+    console.log('property')
+    console.log(property);
+    console.log('object')
+    console.log(object);
+    */
     for (var s in nodes) {
         var subject_label_node = graph.node(nodes[s])['label'];
         if (subject_label_node === subject) {
@@ -466,8 +478,9 @@ var add_properties_to_thing = (graph) => {
         label: 'owl:Thing'
     });
     for (var c in components) {
-        var last_class = components[c].slice(-1)[0];
-        add_edges(graph, last_class, 'rdfs:subClassOf', 'owl:Thing', 'inherited', 1 / ε) // Edges to owl:Thing have weight = 1/ε
+        var last_node = components[c].slice(-1)[0];
+        var last_class = graph.node(last_node)['label'];
+        add_edges(graph, last_class, 'rdfs:subClassOf', 'owl:Thing', 'inherited', 1 / ε); // Edges to owl:Thing have weight = 1/ε
     }
 }
 
