@@ -92,11 +92,14 @@ def main(args):
     kg = RGCNDataSet(args.dataset)
     kg.load_data()
 
+    # get dataset data
     num_nodes = kg.num_nodes
     train_data = kg.train
     valid_data = kg.valid
     test_data = kg.test
     num_rels = kg.num_rels
+    entity_dict = kg.entity_dict
+    relation_dict = kg.relation_dict
 
     # check cuda
     use_cuda = args.gpu >= 0 and torch.cuda.is_available()
@@ -195,8 +198,16 @@ def main(args):
                 model.cpu()
             model.eval()
             print("start eval")
-            mrr = utils.evaluate(test_graph, model, valid_data, num_nodes, epoch,
-                                 hits=[1, 3, 10], eval_bz=args.eval_batch_size, test_stage=False)
+            mrr = utils.evaluate(test_graph,
+                                 model,
+                                 valid_data,
+                                 num_nodes,
+                                 epoch,
+                                 entity_dict,
+                                 relation_dict,
+                                 hits=[1, 3, 10],
+                                 eval_bz=args.eval_batch_size)
+
             # save the best model
             if mrr < best_mrr:
                 if epoch >= args.n_epochs:
@@ -206,7 +217,7 @@ def main(args):
                 torch.save({'state_dict': model.state_dict(), 'epoch': epoch},
                            model_state_file)
 
-                # XXX used for testing reason to interrupt
+                # used for testing reason to interrupt (default value is False)
                 if args.forced_stop == True:
                     print("Force stop!")
                     break
@@ -226,8 +237,15 @@ def main(args):
     model.eval()
     model.load_state_dict(checkpoint['state_dict'])
     print("Using best epoch: {}".format(checkpoint['epoch']))
-    utils.evaluate(test_graph, model, test_data, num_nodes, epoch, hits=[1, 3, 10],
-                   eval_bz=args.eval_batch_size, test_stage=True)
+    utils.evaluate(test_graph,
+                   model,
+                   test_data,
+                   num_nodes,
+                   epoch,
+                   entity_dict,
+                   relation_dict,
+                   hits=[1, 3, 10],
+                   eval_bz=args.eval_batch_size)
 
 
 if __name__ == '__main__':
@@ -263,7 +281,7 @@ if __name__ == '__main__':
     parser.add_argument("--evaluate-every", type=int, default=500,
                         help="perform evaluation every n epochs")
     parser.add_argument("--forced-stop", type=bool, default=False,
-                        help="Force stop for testing reasons")
+                        help="Force stop for testing reasons")  # --forced-stop is used only for testing reasons
 
     args = parser.parse_args()
     print(args)
