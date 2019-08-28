@@ -24,9 +24,9 @@ cat data/training/rodi/conference/*.ttl > data/training/rodi/conference/final.tt
 echo New conference/final.ttl file created
 
 # JARQL invocation for high quality KG built using sigkdd ontology
-java -jar jarql-1.0.1-SNAPSHOT.jar data/training/rodi/sigkdd/Committee.json data/training/rodi/sigkdd/semantic_models/Committee.query > data/training/rodi/sigkdd/Committee.ttl
-java -jar jarql-1.0.1-SNAPSHOT.jar data/training/rodi/sigkdd/Review.json data/training/rodi/sigkdd/semantic_models/Review.query > data/training/rodi/sigkdd/Review.ttl
-java -jar jarql-1.0.1-SNAPSHOT.jar data/training/rodi/sigkdd/submit.json data/training/rodi/sigkdd/semantic_models/submit.query > data/training/rodi/sigkdd/submit.ttl
+java -jar jarql-1.0.1-SNAPSHOT.jar data/training/rodi/sigkdd/Committee.json data/training/rodi/sigkdd/Committee.query > data/training/rodi/sigkdd/Committee.ttl
+java -jar jarql-1.0.1-SNAPSHOT.jar data/training/rodi/sigkdd/Review.json data/training/rodi/sigkdd/Review.query > data/training/rodi/sigkdd/Review.ttl
+java -jar jarql-1.0.1-SNAPSHOT.jar data/training/rodi/sigkdd/submit.json data/training/rodi/sigkdd/submit.query > data/training/rodi/sigkdd/submit.ttl
 
 echo Remove the sigkdd/final.ttl file if exist
 rm data/training/rodi/sigkdd/final.ttl
