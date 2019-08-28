@@ -28,6 +28,8 @@ class RGCNDataSet(object):
         self.train = np.zeros([0])
         self.valid = np.zeros([0])
         self.test = np.zeros([0])
+        self.entity_dict = {}
+        self.relation_dict = {}
 
     # Load data based on the path of the dataset
     def load_data(self):
@@ -48,14 +50,14 @@ class RGCNDataSet(object):
             self._prepare_matrices()
 
         # Set information on entities and relations
-        entity_dict = _read_dict(self.entity_path)
-        relation_dict = _read_dict(self.relation_path)
-        self.num_nodes = len(entity_dict)
-        self.num_rels = len(relation_dict)
+        self.entity_dict = _read_dict(self.entity_path)
+        self.relation_dict = _read_dict(self.relation_path)
+        self.num_nodes = len(self.entity_dict)
+        self.num_rels = len(self.relation_dict)
         print("# entities: {}".format(self.num_nodes))
         print("# relations: {}".format(self.num_rels))
 
-        # Set information on the datasets
+        # Set information on model datasets
         self.train = np.load(self.train_path + '.npy')
         self.valid = np.load(self.valid_path + '.npy')
         self.test = np.load(self.test_path + '.npy')
@@ -130,7 +132,7 @@ def _read_dict(dict_path):
     with open(dict_path, 'r+') as f:
         for line in f:
             line = line.strip().split('\t')
-            d[line[1]] = int(line[0])
+            d[int(line[0])] = str(line[1])
     return d
 
 
