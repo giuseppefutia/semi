@@ -85,7 +85,7 @@ class LinkPredict(nn.Module):
 
 
 def main(args):
-    # initialize visualization environment
+    # initialize visualization environment as global variable
     vis = VisManger('main')
 
     # initialize the data importer and load data
@@ -204,6 +204,7 @@ def main(args):
                                  epoch,
                                  entity_dict,
                                  relation_dict,
+                                 vis,
                                  hits=[1, 3, 10],
                                  eval_bz=args.eval_batch_size)
 
@@ -242,6 +243,7 @@ def main(args):
                    epoch,
                    entity_dict,
                    relation_dict,
+                   vis,
                    hits=[1, 3, 10],
                    eval_bz=args.eval_batch_size)
 

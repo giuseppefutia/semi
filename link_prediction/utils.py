@@ -218,7 +218,7 @@ def perturb_and_get_rank(embedding, w, a, r, b, epoch, entity_dict, relation_dic
 # return MRR (raw), and Hits @ (1, 3, 10)
 
 
-def evaluate(test_graph, model, test_triplets, epoch, entity_dict, relation_dict,
+def evaluate(test_graph, model, test_triplets, epoch, entity_dict, relation_dict, vis,
              hits=[], eval_bz=100):
     with torch.no_grad():
         embedding, w = model.evaluate(test_graph)
@@ -238,7 +238,13 @@ def evaluate(test_graph, model, test_triplets, epoch, entity_dict, relation_dict
         ranks += 1  # change to 1-indexed
         score_list.extend(score_list_o)
 
-        print_scores_as_json(score_list, epoch)
+        # print scores and ranks of triples
+        score_path = "./output/epoch_" + str(epoch) + "/"
+        print_scores_as_json(score_list, score_path)
+
+        # visualize the numbero of triples for each rank
+        rank_values, number_of_triples = prepare_ranks_for_vis(score_list)
+        vis.plot_rank(rank_values, np.array(number_of_triples))
 
         mrr = torch.mean(1.0 / ranks.float())
         print("MRR (raw): {:.6f}".format(mrr.item()))
@@ -251,13 +257,28 @@ def evaluate(test_graph, model, test_triplets, epoch, entity_dict, relation_dict
 # The following functions are added by Giuseppe Futia
 
 
-def print_scores_as_json(score_list, epoch):
-    dir_path = "./output/epoch_" + str(epoch) + "/"
+def print_scores_as_json(score_list, dir_path):
     print("Print score as json: " + dir_path + "...")
     if not os.path.exists(dir_path):
         os.makedirs(dir_path)
-    with open(dir_path + "_" + "_score.json", "w") as f:
+    with open(dir_path + "score.json", "w") as f:
         json.dump(score_list, f, ensure_ascii=False, indent=4)
+
+
+def prepare_ranks_for_vis(ranks):
+    triples_for_rank = {}  # dict[rank] = num_of_triples
+
+    for rank_dict in ranks:
+        rank_value = rank_dict['rank']
+        if (rank_value in triples_for_rank):
+            triples_for_rank[rank_value] += 1
+        else:
+            triples_for_rank[rank_value] = 1
+
+    rank_values = list(triples_for_rank.keys())
+    number_of_triples = list(triples_for_rank.values())
+
+    return rank_values, number_of_triples
 
 
 def export_triples_score(batch_s, batch_r, batch_o, batch_rank, batch_score,

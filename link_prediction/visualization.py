@@ -24,3 +24,15 @@ class VisManger:
                 title='Loss (for each epoch)',
             )
         )
+
+    def plot_rank(self, ranks, number_of_triples):
+        self.rank_win = self.vis.bar(
+            X=number_of_triples,
+            opts=dict(
+                xlabel='Rank',
+                ylabel='Number of triples',
+                title='Number of triples (for each rank)',
+                rownames=ranks,
+                stacked=True
+            )
+        )
