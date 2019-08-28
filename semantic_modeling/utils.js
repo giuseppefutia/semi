@@ -59,6 +59,7 @@ var generate_prefix_string = () => {
 }
 
 var generate_instance_uris = (all_classes) => {
+
     var instances_uris = {};
     var classes = JSON.parse(fs.readFileSync(all_classes, 'utf8'))['all_classes'];
     for (var c in classes) {
@@ -91,7 +92,8 @@ var PREFIX = {
     'http://www.w3.org/2001/XMLSchema#': 'xsd:',
     'http://www.w3.org/2002/07/owl#': 'owl:',
     'http://conference#': 'conference:',
-    'http://cmt#': 'cmt:'
+    'http://cmt#': 'cmt:',
+    'http://sigkdd#': 'sigkdd:'
 }
 
 var PREFIX_STRINGS = generate_prefix_string();
