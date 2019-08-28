@@ -183,10 +183,10 @@ def sort_and_rank(score, target):
     return scores, indices
 
 
-def perturb_and_get_rank(embedding, w, a, r, b, num_entity, epoch, entity_dict, relation_dict, batch_size=100):
+def perturb_and_get_rank(embedding, w, a, r, b, epoch, entity_dict, relation_dict, batch_size=100):
     """ Perturb one element in the triplets
     """
-    n_batch = (num_entity + batch_size - 1) // batch_size
+    n_batch = (len(a) + batch_size - 1) // batch_size
     ranks = []
 
     # list that stores score triples to print filled only during the test_stage
@@ -194,7 +194,7 @@ def perturb_and_get_rank(embedding, w, a, r, b, num_entity, epoch, entity_dict, 
     for idx in range(n_batch):
         print("batch {} / {}".format(idx, n_batch))
         batch_start = idx * batch_size
-        batch_end = min(num_entity, (idx + 1) * batch_size)
+        batch_end = min(len(a), (idx + 1) * batch_size)
         batch_a = a[batch_start: batch_end]
         batch_r = r[batch_start: batch_end]
         emb_ar = embedding[batch_a] * w[batch_r]
@@ -218,7 +218,7 @@ def perturb_and_get_rank(embedding, w, a, r, b, num_entity, epoch, entity_dict, 
 # return MRR (raw), and Hits @ (1, 3, 10)
 
 
-def evaluate(test_graph, model, test_triplets, num_entity, epoch, entity_dict, relation_dict,
+def evaluate(test_graph, model, test_triplets, epoch, entity_dict, relation_dict,
              hits=[], eval_bz=100):
     with torch.no_grad():
         embedding, w = model.evaluate(test_graph)
@@ -228,11 +228,11 @@ def evaluate(test_graph, model, test_triplets, num_entity, epoch, entity_dict, r
 
         # perturb subject (inverse validation triples: o,r,s)
         ranks_s, score_list = perturb_and_get_rank(
-            embedding, w, o, r, s, num_entity, epoch, entity_dict, relation_dict, eval_bz)
+            embedding, w, o, r, s, epoch, entity_dict, relation_dict, eval_bz)
 
         # perturb object (validation triples: s,r,o)
         ranks_o, score_list_o = perturb_and_get_rank(
-            embedding, w, s, r, o, num_entity, epoch, entity_dict, relation_dict, eval_bz)
+            embedding, w, s, r, o, epoch, entity_dict, relation_dict, eval_bz)
 
         ranks = torch.cat([ranks_s, ranks_o])
         ranks += 1  # change to 1-indexed
