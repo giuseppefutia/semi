@@ -6,8 +6,8 @@ var JARQL_ROOT = JARQL + 'root';
 
 // TODO Create an iterative call for deep jsons (and related deep semantic types) --> Maybe using keys?
 
-// XXX Pay attention to this: for now it is a bad choice, but I run jarql.js for each file, so it should
-// be enough safe
+// XXX Pay attention to these global variables: for now it is a bad choice,
+// but I run jarql.js for each file, so it should be enough safe
 var closure_entities = [];
 var closure_references = [];
 
@@ -214,14 +214,17 @@ var build_where_bindings = (st, classes) => {
     // Binding of closure entities
     for (var c in closure_entities) {
         var reference_entity = closure_entities[c];
-        var base_uri = instances_uris[reference_entity.substr(1).slice(0, -1)];
-        var reference_st = closure_references[c];
-        var index = closures_support.map(function(e) {
-            return e['reference_entity'];
-        }).indexOf(reference_st);
-        var attribute_value = closures_support[index]['attribute_value'];
-        var bind = write_bind(base_uri, attribute_value, reference_entity);
-        body += bind;
+        if (binded[reference_entity] === undefined) {
+            binded[reference_entity] = 1;
+            var base_uri = instances_uris[reference_entity.substr(1).slice(0, -1)];
+            var reference_st = closure_references[c];
+            var index = closures_support.map(function(e) {
+                return e['reference_entity'];
+            }).indexOf(reference_st);
+            var attribute_value = closures_support[index]['attribute_value'];
+            var bind = write_bind(base_uri, attribute_value, reference_entity);
+            body += bind;
+        }
     }
 
     return body;
