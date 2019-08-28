@@ -33,6 +33,11 @@ for (var i in files) {
 
 console.log('\nFiles removed!');
 
+/*
+
+For now I comment this part because I apply changes to input data due to the bug
+of JARQL engine
+
 console.log('\nSplit input data of ' + files.length + ' scenarios');
 
 // Read input JSON of scenarios included in files
@@ -52,9 +57,10 @@ for (var i in files) {
 }
 
 console.log('Total number of input files: ' + total_input_files);
+*/
 
 // Generate scripts for semantic modeling
-var keywords = ['graph', 'steiner', 'jarql', 'rdf'];
+var keywords = ['graph', 'steiner', 'jarql', 'rdf', 'plausible_jarql', 'plausible_rdf'];
 
 for (var i in files) {
     var sts_dir = basic + files[i] + '/semantic_types/';
@@ -98,6 +104,21 @@ for (var i in files) {
                         basic + files[i] + '/input/' + sts[s].split('_st.json')[0] + '.json ' +
                         basic + files[i] + '/semantic_models/' + sts[s].split('_st.json')[0] + '.query > ' +
                         basic + files[i] + '/output/' + sts[s].split('_st.json')[0] + '.ttl ' + '\n';
+                    break;
+                case 'plausible_jarql':
+                    content = 'node run/jarql.js ' +
+                        basic + files[i] + '/' +
+                        'semantic_types' + '/' +
+                        sts[s] + ' ' +
+                        basic + files[i] + '/semantic_models/' + sts[s].split('_st.json')[0] + '_graph.json ' +
+                        basic + files[i] + '/ontology/classes.json ' +
+                        basic + files[i] + '/semantic_models/' + sts[s].split('_st.json')[0] + '_graph' + '\n';
+                    break;
+                case 'plausible_rdf':
+                    content = 'java -jar jarql-1.0.1-SNAPSHOT.jar ' +
+                        basic + files[i] + '/input/' + sts[s].split('_st.json')[0] + '.json ' +
+                        basic + files[i] + '/semantic_models/' + sts[s].split('_st.json')[0] + '_graph.query > ' +
+                        basic + files[i] + '/output/' + sts[s].split('_st.json')[0] + '_graph.ttl ' + '\n';
                     break;
             }
             var file_name = basic + files[i] + '/scripts/' + files[i] + '_' + keywords[k] + '.sh'
