@@ -214,8 +214,12 @@ def main(args):
                     break
             else:
                 best_mrr = mrr
-                torch.save({'state_dict': model.state_dict(), 'epoch': epoch},
-                           model_state_file)
+                torch.save({
+                    'epoch': epoch,
+                    'model_state_dict': model.state_dict(),
+                    'optimizer_state_dict': optimizer.state_dict(),
+                    'loss': loss
+                }, model_state_file)
 
                 # used for testing reason to interrupt (default value is False)
                 if args.forced_stop == True:
@@ -235,7 +239,7 @@ def main(args):
     if use_cuda:
         model.cpu()  # test on CPU
     model.eval()
-    model.load_state_dict(checkpoint['state_dict'])
+    model.load_state_dict(checkpoint['model_state_dict'])
     print("Using best epoch: {}".format(checkpoint['epoch']))
     utils.evaluate(test_graph,
                    model,
