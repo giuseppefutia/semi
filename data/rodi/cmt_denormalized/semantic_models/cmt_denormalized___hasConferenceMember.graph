@@ -3,21 +3,21 @@
     "_isMultigraph": true,
     "_isCompound": false,
     "_nodes": {
-        "cmt:Conference0": {
-            "type": "class_uri",
-            "label": "cmt:Conference"
-        },
         "hasConferenceMember__Conference": {
             "type": "attribute_name",
             "label": "hasConferenceMember__Conference"
         },
-        "cmt:ConferenceMember0": {
+        "cmt:Conference0": {
             "type": "class_uri",
-            "label": "cmt:ConferenceMember"
+            "label": "cmt:Conference"
         },
         "hasConferenceMember__ConferenceMember": {
             "type": "attribute_name",
             "label": "hasConferenceMember__ConferenceMember"
+        },
+        "cmt:ConferenceMember0": {
+            "type": "class_uri",
+            "label": "cmt:ConferenceMember"
         },
         "cmt:Administrator": {
             "type": "class_uri",
@@ -25,6 +25,18 @@
         }
     },
     "_in": {
+        "hasConferenceMember__Conference": {
+            "cmt:Conference0\u0001hasConferenceMember__Conference\u0001cmt:Conference0***hasConferenceMember__Conference\u0001st_property_uridcterms:identifier\u00011": {
+                "v": "cmt:Conference0",
+                "w": "hasConferenceMember__Conference",
+                "name": "cmt:Conference0***hasConferenceMember__Conference",
+                "value": {
+                    "label": "dcterms:identifier",
+                    "type": "st_property_uri"
+                },
+                "weight": 1
+            }
+        },
         "cmt:Conference0": {
             "cmt:ConferenceMember0\u0001cmt:Conference0\u0001cmt:ConferenceMember0***cmt:Conference0\u0001direct_property_uricmt:memberOfConference\u00011": {
                 "v": "cmt:ConferenceMember0",
@@ -107,11 +119,11 @@
                 "weight": 1
             }
         },
-        "hasConferenceMember__Conference": {
-            "cmt:Conference0\u0001hasConferenceMember__Conference\u0001cmt:Conference0***hasConferenceMember__Conference\u0001st_property_uridcterms:identifier\u00011": {
-                "v": "cmt:Conference0",
-                "w": "hasConferenceMember__Conference",
-                "name": "cmt:Conference0***hasConferenceMember__Conference",
+        "hasConferenceMember__ConferenceMember": {
+            "cmt:ConferenceMember0\u0001hasConferenceMember__ConferenceMember\u0001cmt:ConferenceMember0***hasConferenceMember__ConferenceMember\u0001st_property_uridcterms:identifier\u00011": {
+                "v": "cmt:ConferenceMember0",
+                "w": "hasConferenceMember__ConferenceMember",
+                "name": "cmt:ConferenceMember0***hasConferenceMember__ConferenceMember",
                 "value": {
                     "label": "dcterms:identifier",
                     "type": "st_property_uri"
@@ -127,18 +139,6 @@
                 "value": {
                     "label": "cmt:hasConferenceMember",
                     "type": "direct_property_uri"
-                },
-                "weight": 1
-            }
-        },
-        "hasConferenceMember__ConferenceMember": {
-            "cmt:ConferenceMember0\u0001hasConferenceMember__ConferenceMember\u0001cmt:ConferenceMember0***hasConferenceMember__ConferenceMember\u0001st_property_uridcterms:identifier\u00011": {
-                "v": "cmt:ConferenceMember0",
-                "w": "hasConferenceMember__ConferenceMember",
-                "name": "cmt:ConferenceMember0***hasConferenceMember__ConferenceMember",
-                "value": {
-                    "label": "dcterms:identifier",
-                    "type": "st_property_uri"
                 },
                 "weight": 1
             }
@@ -217,24 +217,25 @@
         }
     },
     "_preds": {
+        "hasConferenceMember__Conference": {
+            "cmt:Conference0": 1
+        },
         "cmt:Conference0": {
             "cmt:ConferenceMember0": 1,
             "cmt:Administrator": 7
         },
-        "hasConferenceMember__Conference": {
-            "cmt:Conference0": 1
+        "hasConferenceMember__ConferenceMember": {
+            "cmt:ConferenceMember0": 1
         },
         "cmt:ConferenceMember0": {
             "cmt:Conference0": 1
-        },
-        "hasConferenceMember__ConferenceMember": {
-            "cmt:ConferenceMember0": 1
         },
         "cmt:Administrator": {
             "cmt:Conference0": 7
         }
     },
     "_out": {
+        "hasConferenceMember__Conference": {},
         "cmt:Conference0": {
             "cmt:Conference0\u0001hasConferenceMember__Conference\u0001cmt:Conference0***hasConferenceMember__Conference\u0001st_property_uridcterms:identifier\u00011": {
                 "v": "cmt:Conference0",
@@ -327,7 +328,7 @@
                 "weight": 1
             }
         },
-        "hasConferenceMember__Conference": {},
+        "hasConferenceMember__ConferenceMember": {},
         "cmt:ConferenceMember0": {
             "cmt:ConferenceMember0\u0001hasConferenceMember__ConferenceMember\u0001cmt:ConferenceMember0***hasConferenceMember__ConferenceMember\u0001st_property_uridcterms:identifier\u00011": {
                 "v": "cmt:ConferenceMember0",
@@ -350,7 +351,6 @@
                 "weight": 1
             }
         },
-        "hasConferenceMember__ConferenceMember": {},
         "cmt:Administrator": {
             "cmt:Administrator\u0001cmt:Conference0\u0001cmt:Administrator***cmt:Conference0\u0001direct_property_uricmt:enableVirtualMeeting\u00011": {
                 "v": "cmt:Administrator",
@@ -425,17 +425,17 @@
         }
     },
     "_sucs": {
+        "hasConferenceMember__Conference": {},
         "cmt:Conference0": {
             "hasConferenceMember__Conference": 1,
             "cmt:ConferenceMember0": 1,
             "cmt:Administrator": 7
         },
-        "hasConferenceMember__Conference": {},
+        "hasConferenceMember__ConferenceMember": {},
         "cmt:ConferenceMember0": {
             "hasConferenceMember__ConferenceMember": 1,
             "cmt:Conference0": 1
         },
-        "hasConferenceMember__ConferenceMember": {},
         "cmt:Administrator": {
             "cmt:Conference0": 7
         }

@@ -16,6 +16,7 @@ PREFIX vann:      <http://purl.org/vocab/vann/>
 PREFIX xsd:       <http://www.w3.org/2001/XMLSchema#>
 PREFIX conference: <http://conference#>
 PREFIX cmt:       <http://cmt#>
+PREFIX sigkdd:    <http://sigkdd#>
 PREFIX jarql:     <http://jarql.com/>
 
 CONSTRUCT {
@@ -23,6 +24,9 @@ CONSTRUCT {
     ?Co_author0 rdf:type cmt:Co_author.
     ?Co_author0 rdfs:label ?Person__name.
     ?Co_author0 rdf:type cmt:Co_author.
+    ?Co_author0 cmt:co_writePaper ?Paper0.
+    ?Paper0 cmt:hasCo_author ?Co_author0.
+    ?Co_author0 cmt:hasConflictOfInterest ?Paper0.
 }
 WHERE {
     jarql:root jarql:Person ?Person.
@@ -30,4 +34,5 @@ WHERE {
     jarql:root jarql:Person ?Person.
     ?Person jarql:name ?Person__name.
     BIND (URI(CONCAT('http://cmt/co_author/',?Person__ID)) as ?Co_author0)
+    BIND (URI(CONCAT('http://cmt/paper/',?Person__ID)) as ?Paper0)
 }

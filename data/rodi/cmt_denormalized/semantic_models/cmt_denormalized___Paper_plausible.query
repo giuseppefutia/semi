@@ -1,0 +1,83 @@
+PREFIX schema:    <http://schema.org/>
+PREFIX rdfs:      <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX pc:        <http://purl.org/procurement/public-contracts#>
+PREFIX gr:        <http://purl.org/goodrelations/v1#>
+PREFIX owl:       <http://www.w3.org/2002/07/owl#>
+PREFIX adms:      <http://www.w3.org/ns/adms#>
+PREFIX c4n:       <http://vocab.deri.ie/c4n#>
+PREFIX dcterms:   <http://purl.org/dc/terms/>
+PREFIX foaf:      <http://xmlns.com/foaf/0.1/>
+PREFIX loted:     <http://www.loted.eu/ontology#>
+PREFIX payment:   <http://reference.data.gov.uk/def/payment#>
+PREFIX qb:        <http://purl.org/linked-data/cube#>
+PREFIX rdf:       <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX skos:      <http://www.w3.org/2004/02/skos/core#>
+PREFIX vann:      <http://purl.org/vocab/vann/>
+PREFIX xsd:       <http://www.w3.org/2001/XMLSchema#>
+PREFIX conference: <http://conference#>
+PREFIX cmt:       <http://cmt#>
+PREFIX sigkdd:    <http://sigkdd#>
+PREFIX jarql:     <http://jarql.com/>
+
+CONSTRUCT {
+    ?Paper0 dcterms:identifier ?Paper__ID.
+    ?Paper0 rdf:type cmt:Paper.
+    ?Author0 dcterms:identifier ?Paper__hasAuthor.
+    ?Author0 rdf:type cmt:Author.
+    ?Reviewer0 dcterms:identifier ?Paper__Reviewer.
+    ?Reviewer0 rdf:type cmt:Reviewer.
+    ?Paper0 cmt:hasAuthor ?Author0.
+    ?Author0 cmt:submitPaper ?Paper0.
+    ?Author0 cmt:writePaper ?Paper0.
+    ?Paper0 cmt:assignedTo ?Reviewer0.
+    ?Paper0 cmt:readByReviewer ?Reviewer0.
+    ?Reviewer0 cmt:hasBeenAssigned ?Paper0.
+    ?Reviewer0 cmt:readPaper ?Paper0.
+    ?Paper0 cmt:acceptedBy ?Administrator0.
+    ?Paper0 cmt:rejectedBy ?Administrator0.
+    ?Administrator0 cmt:acceptPaper ?Paper0.
+    ?Administrator0 cmt:rejectPaper ?Paper0.
+    ?Paper0 cmt:hasBid ?Bid0.
+    ?Paper0 cmt:hasCo_author ?Co_author0.
+    ?Co_author0 cmt:co_writePaper ?Paper0.
+    ?Paper0 cmt:hasDecision ?Decision0.
+    ?Paper0 cmt:hasSubjectArea ?SubjectArea0.
+    ?Paper0 cmt:readByMeta_Reviewer ?Meta_Reviewer0.
+    ?Reviewer0 cmt:assignedByAdministrator ?Administrator0.
+    ?Administrator0 cmt:assignReviewer ?Reviewer0.
+    ?Reviewer0 cmt:adjustBid ?Bid0.
+    ?Bid0 cmt:adjustedBy ?Reviewer0.
+    ?Reviewer0 cmt:assignExternalReviewer ?ExternalReviewer0.
+    ?ExternalReviewer0 cmt:assignedByReviewer ?Reviewer0.
+    ?Reviewer0 cmt:writeReview ?Review0.
+    ?Review0 cmt:writtenBy ?Reviewer0.
+    ?Author0 cmt:hasConflictOfInterest ?Paper0.
+    ?Author0 cmt:hasConflictOfInterest ?Review0.
+    ?Reviewer0 cmt:hasConflictOfInterest ?Paper0.
+    ?Reviewer0 cmt:hasConflictOfInterest ?Review0.
+    ?Co_author0 cmt:hasConflictOfInterest ?Paper0.
+    ?Co_author5 cmt:hasConflictOfInterest ?Review16161616.
+    ?Meta_Reviewer0 cmt:hasConflictOfInterest ?Paper0.
+    ?Meta_Reviewer9 cmt:hasConflictOfInterest ?Review16161616.
+    ?ExternalReviewer0 cmt:hasConflictOfInterest ?Paper0.
+    ?ExternalReviewer14 cmt:hasConflictOfInterest ?Review16161616.
+}
+WHERE {
+    jarql:root jarql:Paper ?Paper.
+    ?Paper jarql:ID ?Paper__ID.
+    jarql:root jarql:Paper ?Paper.
+    ?Paper jarql:hasAuthor ?Paper__hasAuthor.
+    jarql:root jarql:Paper ?Paper.
+    ?Paper jarql:Reviewer ?Paper__Reviewer.
+    BIND (URI(CONCAT('http://cmt/paper/',?Paper__ID)) as ?Paper0)
+    BIND (URI(CONCAT('http://cmt/author/',?Paper__hasAuthor)) as ?Author0)
+    BIND (URI(CONCAT('http://cmt/reviewer/',?Paper__Reviewer)) as ?Reviewer0)
+    BIND (URI(CONCAT('http://cmt/administrator/',?Paper__ID)) as ?Administrator0)
+    BIND (URI(CONCAT('http://cmt/bid/',?Paper__ID)) as ?Bid0)
+    BIND (URI(CONCAT('http://cmt/co_author/',?Paper__ID)) as ?Co_author0)
+    BIND (URI(CONCAT('http://cmt/decision/',?Paper__ID)) as ?Decision0)
+    BIND (URI(CONCAT('http://cmt/subjectarea/',?Paper__ID)) as ?SubjectArea0)
+    BIND (URI(CONCAT('http://cmt/meta_reviewer/',?Paper__ID)) as ?Meta_Reviewer0)
+    BIND (URI(CONCAT('http://cmt/externalreviewer/',?Paper__Reviewer)) as ?ExternalReviewer0)
+    BIND (URI(CONCAT('http://conference/review/',?Paper__Reviewer)) as ?Review0)
+}

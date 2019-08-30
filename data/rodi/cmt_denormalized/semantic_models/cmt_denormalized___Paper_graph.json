@@ -6,13 +6,6 @@
     },
     "nodes": [
         {
-            "v": "cmt:Paper0",
-            "value": {
-                "type": "class_uri",
-                "label": "cmt:Paper"
-            }
-        },
-        {
             "v": "Paper__ID",
             "value": {
                 "type": "attribute_name",
@@ -20,10 +13,10 @@
             }
         },
         {
-            "v": "cmt:Author0",
+            "v": "cmt:Paper0",
             "value": {
                 "type": "class_uri",
-                "label": "cmt:Author"
+                "label": "cmt:Paper"
             }
         },
         {
@@ -34,10 +27,10 @@
             }
         },
         {
-            "v": "cmt:Reviewer0",
+            "v": "cmt:Author0",
             "value": {
                 "type": "class_uri",
-                "label": "cmt:Reviewer"
+                "label": "cmt:Author"
             }
         },
         {
@@ -45,6 +38,13 @@
             "value": {
                 "type": "attribute_name",
                 "label": "Paper__Reviewer"
+            }
+        },
+        {
+            "v": "cmt:Reviewer0",
+            "value": {
+                "type": "class_uri",
+                "label": "cmt:Reviewer"
             }
         },
         {
@@ -83,10 +83,10 @@
             }
         },
         {
-            "v": "cmt:Meta-Reviewer",
+            "v": "cmt:Meta_Reviewer",
             "value": {
                 "type": "class_uri",
-                "label": "cmt:Meta-Reviewer"
+                "label": "cmt:Meta_Reviewer"
             }
         },
         {
@@ -297,10 +297,10 @@
         },
         {
             "v": "cmt:Paper0",
-            "w": "cmt:Meta-Reviewer",
-            "name": "cmt:Paper0***cmt:Meta-Reviewer",
+            "w": "cmt:Meta_Reviewer",
+            "name": "cmt:Paper0***cmt:Meta_Reviewer",
             "value": {
-                "label": "cmt:readByMeta-Reviewer",
+                "label": "cmt:readByMeta_Reviewer",
                 "type": "direct_property_uri"
             },
             "weight": 1
@@ -446,9 +446,9 @@
             "weight": 4
         },
         {
-            "v": "cmt:Meta-Reviewer",
+            "v": "cmt:Meta_Reviewer",
             "w": "cmt:Paper0",
-            "name": "cmt:Meta-Reviewer***cmt:Paper0",
+            "name": "cmt:Meta_Reviewer***cmt:Paper0",
             "value": {
                 "label": "cmt:hasConflictOfInterest",
                 "type": "inherited"
@@ -456,9 +456,9 @@
             "weight": 4
         },
         {
-            "v": "cmt:Meta-Reviewer",
+            "v": "cmt:Meta_Reviewer",
             "w": "cmt:Review",
-            "name": "cmt:Meta-Reviewer***cmt:Review",
+            "name": "cmt:Meta_Reviewer***cmt:Review",
             "value": {
                 "label": "cmt:hasConflictOfInterest",
                 "type": "inherited"

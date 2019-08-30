@@ -494,14 +494,14 @@ cmt:printHardcopyMailingManifests rdf:type owl:ObjectProperty ;
 
 
 
-###  http://cmt#readByMeta-Reviewer
+###  http://cmt#readByMeta_Reviewer
 
-cmt:readByMeta-Reviewer rdf:type owl:FunctionalProperty ,
+cmt:readByMeta_Reviewer rdf:type owl:FunctionalProperty ,
                               owl:ObjectProperty ;
 
-                     rdfs:label "read by meta-reviewer"@en ;
+                     rdfs:label "read by meta_reviewer"@en ;
 
-                     rdfs:range :Meta-Reviewer ;
+                     rdfs:range :Meta_Reviewer ;
 
                      rdfs:domain :Paper .
 
@@ -1053,27 +1053,27 @@ cmt:ExternalReviewer rdf:type owl:Class ;
 
 
 
-###  http://cmt#Meta-Review
+###  http://cmt#Meta_Review
 
-cmt:Meta-Review rdf:type owl:Class ;
+cmt:Meta_Review rdf:type owl:Class ;
 
-             rdfs:label "Meta-Review"@en ;
+             rdfs:label "Meta_Review"@en ;
 
              rdfs:subClassOf :Review ;
 
-             rdfs:comment "A meta-review summarizes the single reviews"@en .
+             rdfs:comment "A meta_review summarizes the single reviews"@en .
 
 
 
-###  http://cmt#Meta-Reviewer
+###  http://cmt#Meta_Reviewer
 
-cmt:Meta-Reviewer rdf:type owl:Class ;
+cmt:Meta_Reviewer rdf:type owl:Class ;
 
-               rdfs:label "Meta-Reviewer"@en ;
+               rdfs:label "Meta_Reviewer"@en ;
 
                rdfs:subClassOf :Reviewer ;
 
-               rdfs:comment "A special type of Reviewer.  There can be any number of Reviewers for a given paper, but only one Meta-Reviewer.  The Meta-Reviewer can go over all the reviews submitted for the paper and submit their own review.  Questions for the Meta-Reviewer can be different from those for a normal Reviewer.  Their role is to ensure that the reviews are good and consistent. The decision to use Meta-Reviewers is optional, and must be set before paper assignment occurs."^^xsd:string .
+               rdfs:comment "A special type of Reviewer.  There can be any number of Reviewers for a given paper, but only one Meta_Reviewer.  The Meta_Reviewer can go over all the reviews submitted for the paper and submit their own review.  Questions for the Meta_Reviewer can be different from those for a normal Reviewer.  Their role is to ensure that the reviews are good and consistent. The decision to use Meta_Reviewers is optional, and must be set before paper assignment occurs."^^xsd:string .
 
 
 
@@ -1089,7 +1089,7 @@ cmt:Paper rdf:type owl:Class ;
                          owl:maxCardinality "1"^^xsd:nonNegativeInteger
                        ] ,
                        [ rdf:type owl:Restriction ;
-                         owl:onProperty :readByMeta-Reviewer ;
+                         owl:onProperty :readByMeta_Reviewer ;
                          owl:maxCardinality "1"^^xsd:nonNegativeInteger
                        ] ,
                        [ rdf:type owl:Restriction ;

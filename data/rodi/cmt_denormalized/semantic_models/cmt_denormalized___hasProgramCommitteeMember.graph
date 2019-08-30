@@ -3,21 +3,21 @@
     "_isMultigraph": true,
     "_isCompound": false,
     "_nodes": {
-        "cmt:ProgramCommittee0": {
-            "type": "class_uri",
-            "label": "cmt:ProgramCommittee"
-        },
         "hasProgramCommitteeMember__ProgramCommittee": {
             "type": "attribute_name",
             "label": "hasProgramCommitteeMember__ProgramCommittee"
         },
-        "cmt:ProgramCommitteeMember0": {
+        "cmt:ProgramCommittee0": {
             "type": "class_uri",
-            "label": "cmt:ProgramCommitteeMember"
+            "label": "cmt:ProgramCommittee"
         },
         "hasProgramCommitteeMember__ProgramCommitteeMember": {
             "type": "attribute_name",
             "label": "hasProgramCommitteeMember__ProgramCommitteeMember"
+        },
+        "cmt:ProgramCommitteeMember0": {
+            "type": "class_uri",
+            "label": "cmt:ProgramCommitteeMember"
         },
         "cmt:Administrator": {
             "type": "class_uri",
@@ -25,6 +25,18 @@
         }
     },
     "_in": {
+        "hasProgramCommitteeMember__ProgramCommittee": {
+            "cmt:ProgramCommittee0\u0001hasProgramCommitteeMember__ProgramCommittee\u0001cmt:ProgramCommittee0***hasProgramCommitteeMember__ProgramCommittee\u0001st_property_uridcterms:identifier\u00011": {
+                "v": "cmt:ProgramCommittee0",
+                "w": "hasProgramCommitteeMember__ProgramCommittee",
+                "name": "cmt:ProgramCommittee0***hasProgramCommitteeMember__ProgramCommittee",
+                "value": {
+                    "label": "dcterms:identifier",
+                    "type": "st_property_uri"
+                },
+                "weight": 1
+            }
+        },
         "cmt:ProgramCommittee0": {
             "cmt:ProgramCommitteeMember0\u0001cmt:ProgramCommittee0\u0001cmt:ProgramCommitteeMember0***cmt:ProgramCommittee0\u0001direct_property_uricmt:memberOfProgramCommittee\u00011": {
                 "v": "cmt:ProgramCommitteeMember0",
@@ -37,11 +49,11 @@
                 "weight": 1
             }
         },
-        "hasProgramCommitteeMember__ProgramCommittee": {
-            "cmt:ProgramCommittee0\u0001hasProgramCommitteeMember__ProgramCommittee\u0001cmt:ProgramCommittee0***hasProgramCommitteeMember__ProgramCommittee\u0001st_property_uridcterms:identifier\u00011": {
-                "v": "cmt:ProgramCommittee0",
-                "w": "hasProgramCommitteeMember__ProgramCommittee",
-                "name": "cmt:ProgramCommittee0***hasProgramCommitteeMember__ProgramCommittee",
+        "hasProgramCommitteeMember__ProgramCommitteeMember": {
+            "cmt:ProgramCommitteeMember0\u0001hasProgramCommitteeMember__ProgramCommitteeMember\u0001cmt:ProgramCommitteeMember0***hasProgramCommitteeMember__ProgramCommitteeMember\u0001st_property_uridcterms:identifier\u00011": {
+                "v": "cmt:ProgramCommitteeMember0",
+                "w": "hasProgramCommitteeMember__ProgramCommitteeMember",
+                "name": "cmt:ProgramCommitteeMember0***hasProgramCommitteeMember__ProgramCommitteeMember",
                 "value": {
                     "label": "dcterms:identifier",
                     "type": "st_property_uri"
@@ -81,18 +93,6 @@
                 "weight": 1
             }
         },
-        "hasProgramCommitteeMember__ProgramCommitteeMember": {
-            "cmt:ProgramCommitteeMember0\u0001hasProgramCommitteeMember__ProgramCommitteeMember\u0001cmt:ProgramCommitteeMember0***hasProgramCommitteeMember__ProgramCommitteeMember\u0001st_property_uridcterms:identifier\u00011": {
-                "v": "cmt:ProgramCommitteeMember0",
-                "w": "hasProgramCommitteeMember__ProgramCommitteeMember",
-                "name": "cmt:ProgramCommitteeMember0***hasProgramCommitteeMember__ProgramCommitteeMember",
-                "value": {
-                    "label": "dcterms:identifier",
-                    "type": "st_property_uri"
-                },
-                "weight": 1
-            }
-        },
         "cmt:Administrator": {
             "cmt:ProgramCommitteeMember0\u0001cmt:Administrator\u0001cmt:ProgramCommitteeMember0***cmt:Administrator\u0001direct_property_uricmt:addedBy\u00011": {
                 "v": "cmt:ProgramCommitteeMember0",
@@ -107,24 +107,25 @@
         }
     },
     "_preds": {
+        "hasProgramCommitteeMember__ProgramCommittee": {
+            "cmt:ProgramCommittee0": 1
+        },
         "cmt:ProgramCommittee0": {
             "cmt:ProgramCommitteeMember0": 1
         },
-        "hasProgramCommitteeMember__ProgramCommittee": {
-            "cmt:ProgramCommittee0": 1
+        "hasProgramCommitteeMember__ProgramCommitteeMember": {
+            "cmt:ProgramCommitteeMember0": 1
         },
         "cmt:ProgramCommitteeMember0": {
             "cmt:ProgramCommittee0": 1,
             "cmt:Administrator": 2
-        },
-        "hasProgramCommitteeMember__ProgramCommitteeMember": {
-            "cmt:ProgramCommitteeMember0": 1
         },
         "cmt:Administrator": {
             "cmt:ProgramCommitteeMember0": 1
         }
     },
     "_out": {
+        "hasProgramCommitteeMember__ProgramCommittee": {},
         "cmt:ProgramCommittee0": {
             "cmt:ProgramCommittee0\u0001hasProgramCommitteeMember__ProgramCommittee\u0001cmt:ProgramCommittee0***hasProgramCommitteeMember__ProgramCommittee\u0001st_property_uridcterms:identifier\u00011": {
                 "v": "cmt:ProgramCommittee0",
@@ -147,7 +148,7 @@
                 "weight": 1
             }
         },
-        "hasProgramCommitteeMember__ProgramCommittee": {},
+        "hasProgramCommitteeMember__ProgramCommitteeMember": {},
         "cmt:ProgramCommitteeMember0": {
             "cmt:ProgramCommitteeMember0\u0001hasProgramCommitteeMember__ProgramCommitteeMember\u0001cmt:ProgramCommitteeMember0***hasProgramCommitteeMember__ProgramCommitteeMember\u0001st_property_uridcterms:identifier\u00011": {
                 "v": "cmt:ProgramCommitteeMember0",
@@ -180,7 +181,6 @@
                 "weight": 1
             }
         },
-        "hasProgramCommitteeMember__ProgramCommitteeMember": {},
         "cmt:Administrator": {
             "cmt:Administrator\u0001cmt:ProgramCommitteeMember0\u0001cmt:Administrator***cmt:ProgramCommitteeMember0\u0001direct_property_uricmt:addProgramCommitteeMember\u00011": {
                 "v": "cmt:Administrator",
@@ -205,17 +205,17 @@
         }
     },
     "_sucs": {
+        "hasProgramCommitteeMember__ProgramCommittee": {},
         "cmt:ProgramCommittee0": {
             "hasProgramCommitteeMember__ProgramCommittee": 1,
             "cmt:ProgramCommitteeMember0": 1
         },
-        "hasProgramCommitteeMember__ProgramCommittee": {},
+        "hasProgramCommitteeMember__ProgramCommitteeMember": {},
         "cmt:ProgramCommitteeMember0": {
             "hasProgramCommitteeMember__ProgramCommitteeMember": 1,
             "cmt:ProgramCommittee0": 1,
             "cmt:Administrator": 1
         },
-        "hasProgramCommitteeMember__ProgramCommitteeMember": {},
         "cmt:Administrator": {
             "cmt:ProgramCommitteeMember0": 2
         }

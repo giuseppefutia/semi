@@ -16,20 +16,21 @@ PREFIX vann:      <http://purl.org/vocab/vann/>
 PREFIX xsd:       <http://www.w3.org/2001/XMLSchema#>
 PREFIX conference: <http://conference#>
 PREFIX cmt:       <http://cmt#>
+PREFIX sigkdd:    <http://sigkdd#>
 PREFIX jarql:     <http://jarql.com/>
 
 CONSTRUCT {
-    ?Conference0 dcterms:identifier ?hasConferenceMember__Conference.
-    ?Conference0 rdf:type cmt:Conference.
-    ?ConferenceMember0 dcterms:identifier ?hasConferenceMember__ConferenceMember.
-    ?ConferenceMember0 rdf:type cmt:ConferenceMember.
-    ?ConferenceMember0 cmt:memberOfConference ?Conference0.
+    ?Paper0 dcterms:identifier ?co_writePaper__Paper.
+    ?Paper0 rdf:type cmt:Paper.
+    ?Co_author0 dcterms:identifier ?co_writePaper__Co_author.
+    ?Co_author0 rdf:type cmt:Co_author.
+    ?Co_author0 cmt:hasConflictOfInterest ?Paper0.
 }
 WHERE {
-    jarql:root jarql:hasConferenceMember ?hasConferenceMember.
-    ?hasConferenceMember jarql:Conference ?hasConferenceMember__Conference.
-    jarql:root jarql:hasConferenceMember ?hasConferenceMember.
-    ?hasConferenceMember jarql:ConferenceMember ?hasConferenceMember__ConferenceMember.
-    BIND (URI(CONCAT('http://cmt/conference/',?hasConferenceMember__Conference)) as ?Conference0)
-    BIND (URI(CONCAT('http://cmt/conferencemember/',?hasConferenceMember__ConferenceMember)) as ?ConferenceMember0)
+    jarql:root jarql:co_writePaper ?co_writePaper.
+    ?co_writePaper jarql:Paper ?co_writePaper__Paper.
+    jarql:root jarql:co_writePaper ?co_writePaper.
+    ?co_writePaper jarql:Co_author ?co_writePaper__Co_author.
+    BIND (URI(CONCAT('http://cmt/paper/',?co_writePaper__Paper)) as ?Paper0)
+    BIND (URI(CONCAT('http://cmt/co_author/',?co_writePaper__Co_author)) as ?Co_author0)
 }

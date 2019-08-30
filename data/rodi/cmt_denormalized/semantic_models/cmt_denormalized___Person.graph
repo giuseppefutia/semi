@@ -3,13 +3,13 @@
     "_isMultigraph": true,
     "_isCompound": false,
     "_nodes": {
-        "cmt:Co_author0": {
-            "type": "class_uri",
-            "label": "cmt:Co_author"
-        },
         "Person__ID": {
             "type": "attribute_name",
             "label": "Person__ID"
+        },
+        "cmt:Co_author0": {
+            "type": "class_uri",
+            "label": "cmt:Co_author"
         },
         "Person__name": {
             "type": "attribute_name",
@@ -21,18 +21,6 @@
         }
     },
     "_in": {
-        "cmt:Co_author0": {
-            "cmt:Paper\u0001cmt:Co_author0\u0001cmt:Paper***cmt:Co_author0\u0001direct_property_uricmt:hasCo_author\u00011": {
-                "v": "cmt:Paper",
-                "w": "cmt:Co_author0",
-                "name": "cmt:Paper***cmt:Co_author0",
-                "value": {
-                    "label": "cmt:hasCo_author",
-                    "type": "direct_property_uri"
-                },
-                "weight": 1
-            }
-        },
         "Person__ID": {
             "cmt:Co_author0\u0001Person__ID\u0001cmt:Co_author0***Person__ID\u0001st_property_uridcterms:identifier\u00011": {
                 "v": "cmt:Co_author0",
@@ -41,6 +29,18 @@
                 "value": {
                     "label": "dcterms:identifier",
                     "type": "st_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "cmt:Co_author0": {
+            "cmt:Paper\u0001cmt:Co_author0\u0001cmt:Paper***cmt:Co_author0\u0001direct_property_uricmt:hasCo_author\u00011": {
+                "v": "cmt:Paper",
+                "w": "cmt:Co_author0",
+                "name": "cmt:Paper***cmt:Co_author0",
+                "value": {
+                    "label": "cmt:hasCo_author",
+                    "type": "direct_property_uri"
                 },
                 "weight": 1
             }
@@ -81,11 +81,11 @@
         }
     },
     "_preds": {
-        "cmt:Co_author0": {
-            "cmt:Paper": 1
-        },
         "Person__ID": {
             "cmt:Co_author0": 1
+        },
+        "cmt:Co_author0": {
+            "cmt:Paper": 1
         },
         "Person__name": {
             "cmt:Co_author0": 1
@@ -95,6 +95,7 @@
         }
     },
     "_out": {
+        "Person__ID": {},
         "cmt:Co_author0": {
             "cmt:Co_author0\u0001Person__ID\u0001cmt:Co_author0***Person__ID\u0001st_property_uridcterms:identifier\u00011": {
                 "v": "cmt:Co_author0",
@@ -137,7 +138,6 @@
                 "weight": 4
             }
         },
-        "Person__ID": {},
         "Person__name": {},
         "cmt:Paper": {
             "cmt:Paper\u0001cmt:Co_author0\u0001cmt:Paper***cmt:Co_author0\u0001direct_property_uricmt:hasCo_author\u00011": {
@@ -153,12 +153,12 @@
         }
     },
     "_sucs": {
+        "Person__ID": {},
         "cmt:Co_author0": {
             "Person__ID": 1,
             "Person__name": 1,
             "cmt:Paper": 2
         },
-        "Person__ID": {},
         "Person__name": {},
         "cmt:Paper": {
             "cmt:Co_author0": 1
