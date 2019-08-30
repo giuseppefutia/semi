@@ -18,7 +18,7 @@ console.log('\nStart to remove all previous files...\n');
 
 // Remove all files of the previous step
 
-var directories = ['output', 'scripts', 'semantic_models']
+var directories = ['semantic_models', 'output', 'scripts', ]
 
 for (var i in files) {
     for (var d in directories) {
@@ -97,13 +97,13 @@ for (var i in files) {
                         sts[s] + ' ' +
                         basic + files[i] + '/semantic_models/' + sts[s].split('_st.json')[0] + '_steiner.json ' +
                         basic + files[i] + '/ontology/classes.json ' +
-                        basic + files[i] + '/semantic_models/' + sts[s].split('_st.json')[0] + '\n';
+                        basic + files[i] + '/semantic_models/' + sts[s].split('_st.json')[0] + '_steiner \n ';
                     break;
                 case 'rdf':
                     content = 'java -jar jarql-1.0.1-SNAPSHOT.jar ' +
                         basic + files[i] + '/input/' + sts[s].split('_st.json')[0] + '.json ' +
-                        basic + files[i] + '/semantic_models/' + sts[s].split('_st.json')[0] + '.query > ' +
-                        basic + files[i] + '/output/' + sts[s].split('_st.json')[0] + '.ttl ' + '\n';
+                        basic + files[i] + '/semantic_models/' + sts[s].split('_st.json')[0] + '_steiner.query > ' +
+                        basic + files[i] + '/output/' + sts[s].split('_st.json')[0] + '_steiner.ttl ' + '\n';
                     break;
                 case 'plausible_jarql':
                     content = 'node run/jarql.js ' +
@@ -112,13 +112,13 @@ for (var i in files) {
                         sts[s] + ' ' +
                         basic + files[i] + '/semantic_models/' + sts[s].split('_st.json')[0] + '_graph.json ' +
                         basic + files[i] + '/ontology/classes.json ' +
-                        basic + files[i] + '/semantic_models/' + sts[s].split('_st.json')[0] + '_graph' + '\n';
+                        basic + files[i] + '/semantic_models/' + sts[s].split('_st.json')[0] + '_plausible' + '\n';
                     break;
                 case 'plausible_rdf':
                     content = 'java -jar jarql-1.0.1-SNAPSHOT.jar ' +
                         basic + files[i] + '/input/' + sts[s].split('_st.json')[0] + '.json ' +
-                        basic + files[i] + '/semantic_models/' + sts[s].split('_st.json')[0] + '_graph.query > ' +
-                        basic + files[i] + '/output/' + sts[s].split('_st.json')[0] + '_graph.ttl ' + '\n';
+                        basic + files[i] + '/semantic_models/' + sts[s].split('_st.json')[0] + '_plausible.query > ' +
+                        basic + files[i] + '/output/' + sts[s].split('_st.json')[0] + '_plausible.ttl ' + '\n';
                     break;
             }
             var file_name = basic + files[i] + '/scripts/' + files[i] + '_' + keywords[k] + '.sh'
@@ -127,6 +127,7 @@ for (var i in files) {
         }
     }
 
+    // Produce the scripts only if semantic types are available
     if (sts.length > 0) {
         // Script including all other scripts in a single scenario
         var final_script = basic + files[i] + '/scripts/' + files[i] + '.sh';
@@ -135,7 +136,12 @@ for (var i in files) {
             fs.appendFileSync(final_script, scripts[sc] + '\n');
         }
         var rdf_dir = basic + files[i] + '/output/';
-        fs.appendFileSync(final_script, 'cat ' + rdf_dir + files[i] + '* > ' + rdf_dir + 'final.ttl \n');
+
+        // RDF from all plausible semantic models
+        fs.appendFileSync(final_script, 'cat ' + rdf_dir + files[i] + '*plausible* > ' + rdf_dir + 'plausible_final.ttl \n');
+
+        // RDF from the initial semantic model
+        fs.appendFileSync(final_script, 'cat ' + rdf_dir + files[i] + '*steiner* > ' + rdf_dir + 'steiner_final.ttl \n');
 
         fs.chmodSync(final_script, 0o777);
 
