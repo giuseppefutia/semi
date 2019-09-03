@@ -89,7 +89,8 @@ def main(args):
     vis = VisManger('main')
 
     # initialize the data importer and load data
-    kg = RGCNDataSet(args.dataset)
+    kg = RGCNDataSet(args.directory, args.train,
+                     args.valid, args.test, args.parser)
     kg.load_data()
 
     # get dataset data
@@ -140,7 +141,7 @@ def main(args):
     # optimizer
     optimizer = torch.optim.Adam(model.parameters(), lr=args.lr)
 
-    model_state_file = 'model_state.pth'
+    model_state_file = args.directory + 'model_datasets/' + 'model_state.pth'
     forward_time = []
     backward_time = []
 
@@ -205,6 +206,7 @@ def main(args):
                                  entity_dict,
                                  relation_dict,
                                  vis,
+                                 args.directory,
                                  hits=[1, 3, 10],
                                  eval_bz=args.eval_batch_size)
 
@@ -248,6 +250,7 @@ def main(args):
                    entity_dict,
                    relation_dict,
                    vis,
+                   args.directory,
                    hits=[1, 3, 10],
                    eval_bz=args.eval_batch_size)
 
@@ -268,8 +271,17 @@ if __name__ == '__main__':
                         help="number of propagation rounds")
     parser.add_argument("--n-epochs", type=int, default=6000,
                         help="number of minimum training epochs")
-    parser.add_argument("-d", "--dataset", type=str, required=True,
-                        help="set the path of the dataset to use")
+    parser.add_argument("--directory", type=str, required=True,
+                        help="set the directory to store dictionaries \
+                        and datasets to train and evaluate the model")
+    parser.add_argument("--train", type=str, required=True,
+                        help="set the path of the training dataset to use")
+    parser.add_argument("--valid", type=str, required=True,
+                        help="set the path of the validation dataset to use")
+    parser.add_argument("--test", type=str, required=True,
+                        help="set the path of the testing dataset to use")
+    parser.add_argument("--parser", type=str, required=True,
+                        help="set the parser to prepare the data")
     parser.add_argument("--eval-batch-size", type=int, default=500,
                         help="batch size when evaluating")
     parser.add_argument("--regularization", type=float, default=0.01,

@@ -219,7 +219,7 @@ def perturb_and_get_rank(embedding, w, a, r, b, epoch, entity_dict, relation_dic
 
 
 def evaluate(test_graph, model, test_triplets, epoch, entity_dict, relation_dict, vis,
-             hits=[], eval_bz=100):
+             directory, hits=[], eval_bz=100):
     with torch.no_grad():
         embedding, w = model.evaluate(test_graph)
         s = test_triplets[:, 0]
@@ -239,7 +239,7 @@ def evaluate(test_graph, model, test_triplets, epoch, entity_dict, relation_dict
         score_list.extend(score_list_o)
 
         # print scores and ranks of triples
-        score_path = "./output/epoch_" + str(epoch) + "/"
+        score_path = directory + "model_datasets/epoch_" + str(epoch) + "/"
         print_scores_as_json(score_list, score_path)
 
         # visualize the numbero of triples for each rank
