@@ -1,4 +1,57 @@
-A Semantic Modeling Machine.
+# SeMi - SEmantic Modeling machIne
+
+SeMi (SEmantic Modeling machIne) is a tool to semi-automatically build large-scale [Knowledge Graphs]() from structured sources. To achieve such a goal, it combines [steiner trees detection](https://github.com/giuseppefutia/semi#steiner-tree) with [deep learning applied on graphs](https://github.com/giuseppefutia/semi#r-gcn-model-generation-and-testing), and builds semantic models of the data sources, in terms of classes and relationships within an ontology domain.
+
+Semantic models can be formalized as graphs, where leaf nodes represent the attributes of the data source and the other nodes and relationships are defined by the ontology.
+
+Considering the following JSON file,
+
+```json
+{           
+   "contract_id": "Z4ADEA9DE4",
+   "contract_object": "Excavations",
+   "proponent_struct": {
+     "business_id": "80004990927",
+     "business_name": "municipality01"
+ },
+ "participants":
+ [
+  {
+    "business_id": "08106710158",
+    "business_name": "company01"
+  }
+ ]
+}
+```
+
+and the following domain ontology,
+
+![alt text](https://github.com/giuseppefutia/semi/blob/master/images/ontology.png)
+
+the resulting semantic model is:
+
+![alt text](https://github.com/giuseppefutia/semi/blob/master/images/ontology.png)
+
+https://github.com/giuseppefutia/semi/blob/master/images/semantic_model.png
+
+
+# Download from GitHub
+
+You can download the SeMi tool using the following command (the recursive parameter is necessary to install the external libraries as git modules):
+
+```bash
+$ git clone --recursive https://github.com/giuseppefutia/SeMi
+```
+
+# External libraries
+SeMi includes two external libraries as git modules:
+* JARQL - https://github.com/linked-solutions/jarql
+* RODI - https://github.com/chrpin/rodi
+
+JARQL is a tool to materialize KGs as RDF data from JSON files using through models written using SPARQL syntax.
+RODI is a benchmark framework to compare automatic mapping tools from relational databases to ontologies for the RDF data generation.
+
+In the following section you are going to install SeMi and the external libraries.
 
 # Installation
 To install the node.js component, you need to run:
