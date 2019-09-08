@@ -57,7 +57,7 @@ var get_class_nodes = (graph) => {
     }
     // Attention: we need to remove Thing because for that specific cases super_classes function does not resolve
     // TODO: THIS IS VALID ONLY FOR SCHEMA!!!
-    // TODO: Maybe should put this thing in another way
+    // TODO: Maybe should put this thing in another place
     class_nodes = class_nodes.filter(function(e) {
         return e != 'schema:Thing'
     });
@@ -433,17 +433,6 @@ var add_inherited_properties = (inherited_properties, graph) => {
  */
 var add_edges = (graph, subject, property, object, type, weight) => {
     var nodes = graph.nodes();
-    /*
-    console.log('In add_edges');
-    console.log('nodes');
-    console.log(nodes);
-    console.log('subject')
-    console.log(subject);
-    console.log('property')
-    console.log(property);
-    console.log('object')
-    console.log(object);
-    */
     for (var s in nodes) {
         var subject_label_node = graph.node(nodes[s])['label'];
         if (subject_label_node === subject) {
@@ -644,3 +633,6 @@ var build_graph = (st_path, ont_path, p_domain, p_range, o_class) => {
 }
 
 exports.build_graph = build_graph;
+// Useful also for refinement to build the graph representing the refined semantic model
+exports.add_edges = add_edges;
+exports.add_semantic_types = add_semantic_types;
