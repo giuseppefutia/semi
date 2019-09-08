@@ -30,9 +30,7 @@ and the following domain ontology,
 
 the resulting semantic model is:
 
-![alt text](https://github.com/giuseppefutia/semi/blob/master/images/ontology.png)
-
-https://github.com/giuseppefutia/semi/blob/master/images/semantic_model.png
+![alt text](https://github.com/giuseppefutia/semi/blob/master/images/semantic_model.png)
 
 
 # Download from GitHub
