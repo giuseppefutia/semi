@@ -52,13 +52,19 @@ RODI is a benchmark framework to compare automatic mapping tools from relational
 In the following section you are going to install SeMi and the external libraries.
 
 # Installation
-To install the node.js component, you need to run:
+In this section we explain how to install SeMi and its external libraries.
+
+## Install the SeMi tool
+
+The SeMi tool is composed of a Node.js and a Python component.
+
+To install the Node.js component, you need to run:
 
 ```bash
 $ npm install
 ```
 
-To install the python component, you need to run:
+To install the Python component, you need to run:
 
 ```bash
 $ conda create -n dgl python=3.6
@@ -68,6 +74,26 @@ $ conda install requests
 $ conda install -c conda-forge rdflib
 $ conda install -c anaconda pandas
 $ conda install -c pytorch pytorch
+```
+
+## Install JARQL
+In order to use JARQL you need to create the jar file with the following command (it requires Maven and Java) and move the it in the root directory:
+
+```bash
+$ cd semantic_modeling/lib/jarql/
+$ mvn package -Pexecutable
+$ mv target/jarql-1.0.1-SNAPSHOT.jar ../../jarql-1.0.1-SNAPSHOT.jar
+```
+
+Once the .jar file is available, you can run the following command:
+
+## Install RODI (useful for the evaluation stage)
+
+To build the RODI benchmark and create a working .jar you can launch the following script:
+
+```bash
+$ cd libs/rodi
+$ ./create_jar.sh
 ```
 
 # Step-by-step Semantic Models Generation
