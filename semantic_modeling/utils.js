@@ -1,5 +1,9 @@
 var fs = require('fs');
 
+var get_prefix = function() {
+    return PREFIX;
+}
+
 var get_prefix_strings = function() {
     return PREFIX_STRINGS;
 }
@@ -98,6 +102,7 @@ var PREFIX = {
 
 var PREFIX_STRINGS = generate_prefix_string();
 
+exports.get_prefix = get_prefix;
 exports.get_prefix_strings = get_prefix_strings;
 exports.generate_instance_uris = generate_instance_uris;
 exports.clean_prefix = clean_prefix;
