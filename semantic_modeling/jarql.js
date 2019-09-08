@@ -5,6 +5,7 @@ var JARQL = 'jarql:';
 var JARQL_ROOT = JARQL + 'root';
 
 // TODO Create an iterative call for deep jsons (and related deep semantic types) --> Maybe using keys?
+// TODO rename the variable steiner, because this script is used also for the graph representing all plausible semantic models
 
 // XXX Pay attention to these global variables: for now it is a bad choice,
 // but I run jarql.js for each file, so it should be enough safe
