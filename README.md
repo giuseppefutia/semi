@@ -26,11 +26,11 @@ Considering the following JSON file,
 
 and the following domain ontology,
 
-![alt text](https://github.com/giuseppefutia/semi/blob/master/images/ontology.png)
+![Domain Ontology](https://github.com/giuseppefutia/semi/blob/master/images/ontology.png)
 
 the resulting semantic model is:
 
-![alt text](https://github.com/giuseppefutia/semi/blob/master/images/semantic_model.png)
+![Semantic Model](https://github.com/giuseppefutia/semi/blob/master/images/semantic_model.png)
 
 
 # Download from GitHub
@@ -118,6 +118,10 @@ This script generates two types of graph:
 * `data/pc/semantic_models/Z4ADEA9DE4.graph` is the multi-edge and weighted graph.
 * `data/pc/semantic_models/Z4ADEA9DE4_graph.json` is a beautified representation of the weighted graph.
 
+Below an image that represents multi-edge and weighted graph.
+
+![Multi-edge and Weighted Graph](https://github.com/giuseppefutia/semi/blob/master/images/weighted_graph.png)
+
 ## Steiner Tree
 
 To create the Steiner Tree on the multi-edge and weighted graph you can run the following command:
@@ -134,6 +138,10 @@ This script generates two types of steiner trees:
 
 * `data/pc/semantic_models/Z4ADEA9DE4.steiner` is the steiner tree.
 * `data/pc/semantic_models/Z4ADEA9DE4_steiner.json` is a beautified representation of the steiner tree.
+
+Below an image that represents a steiner tree.
+
+![Steiner Tree](https://github.com/giuseppefutia/semi/blob/master/images/steiner_tree.png)
 
 ## Initial Semantic Model
 For the automatic generation of the semantic model, you can run the following command:
