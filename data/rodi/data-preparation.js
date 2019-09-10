@@ -60,7 +60,7 @@ console.log('Total number of input files: ' + total_input_files);
 */
 
 // Generate scripts for semantic modeling
-var keywords = ['graph', 'steiner', 'jarql', 'rdf', 'plausible_jarql', 'plausible_rdf'];
+var keywords = ['graph', 'steiner', 'jarql', 'rdf', 'plausible_jarql', 'plausible_rdf', 'refinement', 'jarql_refinement', 'rdf_refinement'];
 
 for (var i in files) {
     var sts_dir = basic + files[i] + '/semantic_types/';
@@ -97,7 +97,7 @@ for (var i in files) {
                         sts[s] + ' ' +
                         basic + files[i] + '/semantic_models/' + sts[s].split('_st.json')[0] + '_steiner.json ' +
                         basic + files[i] + '/ontology/classes.json ' +
-                        basic + files[i] + '/semantic_models/' + sts[s].split('_st.json')[0] + '_steiner \n ';
+                        basic + files[i] + '/semantic_models/' + sts[s].split('_st.json')[0] + '_steiner\n ';
                     break;
                 case 'rdf':
                     content = 'java -jar jarql-1.0.1-SNAPSHOT.jar ' +
@@ -119,6 +119,31 @@ for (var i in files) {
                         basic + files[i] + '/input/' + sts[s].split('_st.json')[0] + '.json ' +
                         basic + files[i] + '/semantic_models/' + sts[s].split('_st.json')[0] + '_plausible.query > ' +
                         basic + files[i] + '/output/' + sts[s].split('_st.json')[0] + '_plausible.ttl ' + '\n';
+                    break;
+                case 'refinement':
+                    content = 'node run/refinement.js ' +
+                        basic + files[i] + '/' +
+                        'semantic_types' + '/' +
+                        sts[s] + ' ' +
+                        basic + files[i] + '/model_datasets/scores/' + sts[s].split('_st.json')[0] + '_score.json ' +
+                        basic + files[i] + '/semantic_models/' + sts[s].split('_st.json')[0] + '_steiner.json ' +
+                        basic + files[i] + '/semantic_models/' + sts[s].split('_st.json')[0] + '_graph.json ' +
+                        basic + files[i] + '/refined_semantic_models/' + sts[s].split('_st.json')[0] + '\n';
+                    break;
+                case 'jarql_refinement':
+                    content = 'node run/jarql.js ' +
+                        basic + files[i] + '/' +
+                        'semantic_types' + '/' +
+                        sts[s] + ' ' +
+                        basic + files[i] + '/refined_semantic_models/' + sts[s].split('_st.json')[0] + '_refined_graph.json ' +
+                        basic + files[i] + '/ontology/classes.json ' +
+                        basic + files[i] + '/refined_semantic_models/' + sts[s].split('_st.json')[0] + '_refined\n ';
+                    break;
+                case 'rdf_refinement':
+                    content = 'java -jar jarql-1.0.1-SNAPSHOT.jar ' +
+                        basic + files[i] + '/input/' + sts[s].split('_st.json')[0] + '.json ' +
+                        basic + files[i] + '/refined_semantic_models/' + sts[s].split('_st.json')[0] + '_refined.query > ' +
+                        basic + files[i] + '/output/' + sts[s].split('_st.json')[0] + '_refined.ttl ' + '\n';
                     break;
             }
             var file_name = basic + files[i] + '/scripts/' + files[i] + '_' + keywords[k] + '.sh'
