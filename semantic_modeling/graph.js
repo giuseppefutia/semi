@@ -634,5 +634,4 @@ var build_graph = (st_path, ont_path, p_domain, p_range, o_class) => {
 
 exports.build_graph = build_graph;
 // Useful also for refinement to build the graph representing the refined semantic model
-exports.add_edges = add_edges;
 exports.add_semantic_types = add_semantic_types;

@@ -39,6 +39,7 @@ var reconstruct_sm_graph = (semantic_types, plausible_sm, paths) => {
         multigraph: true
     });
 
+    // Add semantic types
     for (var st of semantic_types) {
         refined_graph = graph.add_semantic_types(st, refined_graph)
     }
@@ -62,13 +63,11 @@ var reconstruct_sm_graph = (semantic_types, plausible_sm, paths) => {
                 if (step['src'] === edge['v'] &&
                     step['dst'] === edge['w'] &&
                     step['rel']['name'] === edge['value']['label']) {
-                    graph.add_edges(
-                        refined_graph, edge['v'],
-                        edge['w'],
-                        edge['value']['label'],
-                        edge['value']['type'],
-                        edge['weight']
-                    );
+                    // Add edges resulting from the path
+                    refined_graph.setEdge(edge['v'], edge['w'], {
+                        label: edge['value']['label'],
+                        type: edge['value']['type']
+                    }, edge['v'] + '***' + edge['w'], edge['weight']);
                 }
             }
         }
