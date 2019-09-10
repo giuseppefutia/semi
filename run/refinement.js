@@ -22,14 +22,14 @@ var run = () => {
     );
 
     // Write the graph as it is
-    fs.writeFileSync(refined_sm_path + '.graph', JSON.stringify(refined_graph, null, 4));
-    console.log('The refined graph file is written in: ' + refined_sm_path + '.graph');
+    fs.writeFileSync(refined_sm_path + '_refined.graph', JSON.stringify(refined_graph, null, 4));
+    console.log('The refined graph file is written in: ' + refined_sm_path + '_refined.graph');
     console.log('');
 
     // Write the graph as beautified JSON
     var json_graph = graphlib.json.write(refined_graph);
-    fs.writeFileSync(refined_sm_path + '_graph.json', JSON.stringify(json_graph, null, 4));
-    console.log('A beautified version of the refined graph file is written in: ' + refined_sm_path + '_graph.json');
+    fs.writeFileSync(refined_sm_path + '_refined_graph.json', JSON.stringify(json_graph, null, 4));
+    console.log('A beautified version of the refined graph file is written in: ' + refined_sm_path + '_refined_graph.json');
 }
 
 run();
