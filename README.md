@@ -181,7 +181,7 @@ For the real-time visualization of the loss, you need to run the Visdom server w
 $ python -m visdom.server
 ```
 
-## R-GCN Model Generation and Testing
+Then you can run the script for the training and the evaluation:
 
 ```
 $ cd dgl/rgcn/link-prediction
