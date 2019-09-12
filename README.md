@@ -54,26 +54,32 @@ In the following section you are going to install SeMi and the external librarie
 # Installation
 In this section we explain how to install SeMi and its external libraries.
 
-## Install the SeMi tool
+## Install SeMi
 
 The SeMi tool is composed of a Node.js and a Python component.
 
-To install the Node.js component, you need to run:
+### Node.js component
+
+To install the Node.js component, you can run the following script from the root folder:
 
 ```bash
 $ npm install
 ```
 
-To install the Python component, you need to run:
+### Python component
+
+To install the Python component, you can run the following script to create and activate a conda virtual environment and install pip:
 
 ```bash
-$ conda create -n dgl python=3.6
-$ conda activate dgl
-$ conda install -c dglteam dgl
-$ conda install requests
-$ conda install -c conda-forge rdflib
-$ conda install -c anaconda pandas
-$ conda install -c pytorch pytorch
+$ conda create -n semi python=3.6
+$ conda activate semi
+$ conda install pip
+```
+
+To install all necessary packages, you can run:
+
+```bash
+$ pip install -r requirements.txt
 ```
 
 ## Install JARQL
@@ -155,26 +161,29 @@ $ node run/jarql.js data/pc/semantic_types/Z4ADEA9DE4_st.json data/pc/semantic_m
 * `data/pc/ontology/classes.json` is the list of all classes in the ontology.
 * `data/pc/semantic_models/Z4ADEA9DE4.query` is the output JARQL semantic model.
 
-In order to create the RDF represention of the data, you have to run the JARQL tool.
+## KG Generation Through the Initial Semantic Model
 
-The first step is to create an executable .jar containing all the dependencies running the following command (it requires Maven):
+In order to create the RDF represention into a KG of the data, you have to run the JARQL tool with the following command:
+
+```bash
+$ java -jar jarql-1.0.1-SNAPSHOT.jar data/pc/input/Z4ADEA9DE4.json data/pc/semantic_models/Z4ADEA9DE4.query > data/pc/output/Z4ADEA9DE4.ttl
+```
+
+* `data/pc/input/Z4ADEA9DE4.json` is the input file.
+* `data/pc/semantic_models/Z4ADEA9DE4.query` is the semantic model in the JARQL format.
+* `data/pc/output/Z4ADEA9DE4.ttl` is the output RDF file serialized in turtle.
+
+## R-GCN Model Generation and Testing
+
+For the real-time visualization of the loss, you need to run the Visdom server with the following command:
 
 ```
-$ cd semantic_modeling/lib/jarql/
-$ mvn package -Pexecutable
-```
-
-Once the .jar file is available, you can run the following command:
-
-```
-$ mv target/jarql-1.0.1-SNAPSHOT.jar ../../../jarql-1.0.1-SNAPSHOT.jar
-$ cd ../../../
-$ java -jar jarql-1.0.1-SNAPSHOT.jar data/pc/input/Z4ADEA9DE4.json data/pc/semantic_models/Z4ADEA9DE4.query > data/pc/output/Z4ADEA9DE4.rdf
+$ python -m visdom.server
 ```
 
 ## R-GCN Model Generation and Testing
 
 ```
-$ cd /dgl/rgcn/link-prediction
+$ cd dgl/rgcn/link-prediction
 $ python link_predict.py -d ../../../data/pc/ --gpu 0
 ```
