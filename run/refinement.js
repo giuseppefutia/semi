@@ -1,6 +1,6 @@
 var fs = require('fs');
 var graphlib = require('graphlib');
-var refiner = require(__dirname + '/../semantic_refinement/refinement.js');
+var refiner = require(__dirname + '/../src/semantic_refinement/refinement.js');
 
 var run = () => {
     if (arguments.length !== 5) {

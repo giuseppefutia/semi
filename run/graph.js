@@ -1,6 +1,6 @@
 var fs = require('fs');
 var graphlib = require('graphlib');
-var graph = require(__dirname + '/../semantic_modeling/graph.js');
+var graph = require(__dirname + '/../src/semantic_modeling/graph.js');
 
 var run = () => {
     if (arguments.length !== 5) {

@@ -1,5 +1,5 @@
 var fs = require('fs');
-var jarql = require(__dirname + '/../semantic_modeling/jarql.js');
+var jarql = require(__dirname + '/../src/semantic_modeling/jarql.js');
 
 var run = () => {
     if (arguments.length !== 5) {

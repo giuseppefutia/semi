@@ -1,6 +1,6 @@
 var fs = require('fs');
 var graphlib = require('graphlib');
-var steiner = require(__dirname + '/../semantic_modeling/steiner_tree.js');
+var steiner = require(__dirname + '/../src/semantic_modeling/steiner_tree.js');
 
 var run = () => {
     if (arguments.length !== 5) {
