@@ -3,33 +3,33 @@
     "_isMultigraph": true,
     "_isCompound": false,
     "_nodes": {
-        "pc:Contract0": {
-            "type": "class_uri",
-            "label": "pc:Contract"
-        },
         "cig": {
             "type": "attribute_name",
             "label": "cig"
+        },
+        "pc:Contract0": {
+            "type": "class_uri",
+            "label": "pc:Contract"
         },
         "oggetto": {
             "type": "attribute_name",
             "label": "oggetto"
         },
-        "gr:BusinessEntity0": {
-            "type": "class_uri",
-            "label": "gr:BusinessEntity"
-        },
         "strutturaProponente__codiceFiscaleProp": {
             "type": "attribute_name",
             "label": "strutturaProponente__codiceFiscaleProp"
         },
-        "gr:BusinessEntity1": {
+        "gr:BusinessEntity0": {
             "type": "class_uri",
             "label": "gr:BusinessEntity"
         },
         "partecipanti__identificativo": {
             "type": "attribute_name",
             "label": "partecipanti__identificativo"
+        },
+        "gr:BusinessEntity1": {
+            "type": "class_uri",
+            "label": "gr:BusinessEntity"
         },
         "partecipanti__ragioneSociale": {
             "type": "attribute_name",
@@ -61,6 +61,18 @@
         }
     },
     "_in": {
+        "cig": {
+            "pc:Contract0\u0001cig\u0001pc:Contract0***cig\u0001st_property_uridcterms:identifier\u00011": {
+                "v": "pc:Contract0",
+                "w": "cig",
+                "name": "pc:Contract0***cig",
+                "value": {
+                    "label": "dcterms:identifier",
+                    "type": "st_property_uri"
+                },
+                "weight": 1
+            }
+        },
         "pc:Contract0": {
             "pc:Contract0\u0001pc:Contract0\u0001pc:Contract0***pc:Contract0\u0001direct_property_uripc:lot\u00011": {
                 "v": "pc:Contract0",
@@ -83,18 +95,6 @@
                 "weight": 1
             }
         },
-        "cig": {
-            "pc:Contract0\u0001cig\u0001pc:Contract0***cig\u0001st_property_uridcterms:identifier\u00011": {
-                "v": "pc:Contract0",
-                "w": "cig",
-                "name": "pc:Contract0***cig",
-                "value": {
-                    "label": "dcterms:identifier",
-                    "type": "st_property_uri"
-                },
-                "weight": 1
-            }
-        },
         "oggetto": {
             "pc:Contract0\u0001oggetto\u0001pc:Contract0***oggetto\u0001st_property_urirdfs:description\u00011": {
                 "v": "pc:Contract0",
@@ -102,6 +102,18 @@
                 "name": "pc:Contract0***oggetto",
                 "value": {
                     "label": "rdfs:description",
+                    "type": "st_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "strutturaProponente__codiceFiscaleProp": {
+            "gr:BusinessEntity0\u0001strutturaProponente__codiceFiscaleProp\u0001gr:BusinessEntity0***strutturaProponente__codiceFiscaleProp\u0001st_property_uridcterms:identifier\u00011": {
+                "v": "gr:BusinessEntity0",
+                "w": "strutturaProponente__codiceFiscaleProp",
+                "name": "gr:BusinessEntity0***strutturaProponente__codiceFiscaleProp",
+                "value": {
+                    "label": "dcterms:identifier",
                     "type": "st_property_uri"
                 },
                 "weight": 1
@@ -129,11 +141,11 @@
                 "weight": 1
             }
         },
-        "strutturaProponente__codiceFiscaleProp": {
-            "gr:BusinessEntity0\u0001strutturaProponente__codiceFiscaleProp\u0001gr:BusinessEntity0***strutturaProponente__codiceFiscaleProp\u0001st_property_uridcterms:identifier\u00011": {
-                "v": "gr:BusinessEntity0",
-                "w": "strutturaProponente__codiceFiscaleProp",
-                "name": "gr:BusinessEntity0***strutturaProponente__codiceFiscaleProp",
+        "partecipanti__identificativo": {
+            "gr:BusinessEntity1\u0001partecipanti__identificativo\u0001gr:BusinessEntity1***partecipanti__identificativo\u0001st_property_uridcterms:identifier\u00011": {
+                "v": "gr:BusinessEntity1",
+                "w": "partecipanti__identificativo",
+                "name": "gr:BusinessEntity1***partecipanti__identificativo",
                 "value": {
                     "label": "dcterms:identifier",
                     "type": "st_property_uri"
@@ -159,18 +171,6 @@
                 "value": {
                     "label": "pc:bidder",
                     "type": "direct_property_uri"
-                },
-                "weight": 1
-            }
-        },
-        "partecipanti__identificativo": {
-            "gr:BusinessEntity1\u0001partecipanti__identificativo\u0001gr:BusinessEntity1***partecipanti__identificativo\u0001st_property_uridcterms:identifier\u00011": {
-                "v": "gr:BusinessEntity1",
-                "w": "partecipanti__identificativo",
-                "name": "gr:BusinessEntity1***partecipanti__identificativo",
-                "value": {
-                    "label": "dcterms:identifier",
-                    "type": "st_property_uri"
                 },
                 "weight": 1
             }
@@ -250,29 +250,29 @@
         "pc:TendersOpening": {}
     },
     "_preds": {
+        "cig": {
+            "pc:Contract0": 1
+        },
         "pc:Contract0": {
             "pc:Contract0": 1,
             "pc:TendersOpening": 1
         },
-        "cig": {
-            "pc:Contract0": 1
-        },
         "oggetto": {
             "pc:Contract0": 1
+        },
+        "strutturaProponente__codiceFiscaleProp": {
+            "gr:BusinessEntity0": 1
         },
         "gr:BusinessEntity0": {
             "pc:Contract0": 1,
             "pc:Tender": 1
         },
-        "strutturaProponente__codiceFiscaleProp": {
-            "gr:BusinessEntity0": 1
+        "partecipanti__identificativo": {
+            "gr:BusinessEntity1": 1
         },
         "gr:BusinessEntity1": {
             "pc:Contract0": 1,
             "pc:Tender": 1
-        },
-        "partecipanti__identificativo": {
-            "gr:BusinessEntity1": 1
         },
         "partecipanti__ragioneSociale": {
             "gr:BusinessEntity1": 1
@@ -295,6 +295,7 @@
         "pc:TendersOpening": {}
     },
     "_out": {
+        "cig": {},
         "pc:Contract0": {
             "pc:Contract0\u0001cig\u0001pc:Contract0***cig\u0001st_property_uridcterms:identifier\u00011": {
                 "v": "pc:Contract0",
@@ -377,8 +378,8 @@
                 "weight": 1
             }
         },
-        "cig": {},
         "oggetto": {},
+        "strutturaProponente__codiceFiscaleProp": {},
         "gr:BusinessEntity0": {
             "gr:BusinessEntity0\u0001strutturaProponente__codiceFiscaleProp\u0001gr:BusinessEntity0***strutturaProponente__codiceFiscaleProp\u0001st_property_uridcterms:identifier\u00011": {
                 "v": "gr:BusinessEntity0",
@@ -391,7 +392,7 @@
                 "weight": 1
             }
         },
-        "strutturaProponente__codiceFiscaleProp": {},
+        "partecipanti__identificativo": {},
         "gr:BusinessEntity1": {
             "gr:BusinessEntity1\u0001partecipanti__identificativo\u0001gr:BusinessEntity1***partecipanti__identificativo\u0001st_property_uridcterms:identifier\u00011": {
                 "v": "gr:BusinessEntity1",
@@ -434,7 +435,6 @@
                 "weight": 1
             }
         },
-        "partecipanti__identificativo": {},
         "partecipanti__ragioneSociale": {},
         "aggiudicatari__identificativo": {},
         "aggiudicatari__ragioneSociale": {},
@@ -476,6 +476,7 @@
         }
     },
     "_sucs": {
+        "cig": {},
         "pc:Contract0": {
             "cig": 1,
             "oggetto": 1,
@@ -486,19 +487,18 @@
             "pc:Tender": 1,
             "pc:AwardCriteriaCombination": 1
         },
-        "cig": {},
         "oggetto": {},
+        "strutturaProponente__codiceFiscaleProp": {},
         "gr:BusinessEntity0": {
             "strutturaProponente__codiceFiscaleProp": 1
         },
-        "strutturaProponente__codiceFiscaleProp": {},
+        "partecipanti__identificativo": {},
         "gr:BusinessEntity1": {
             "partecipanti__identificativo": 1,
             "partecipanti__ragioneSociale": 1,
             "aggiudicatari__identificativo": 1,
             "aggiudicatari__ragioneSociale": 1
         },
-        "partecipanti__identificativo": {},
         "partecipanti__ragioneSociale": {},
         "aggiudicatari__identificativo": {},
         "aggiudicatari__ragioneSociale": {},
@@ -643,8 +643,6 @@
             },
             "weight": 1
         },
-<<<<<<< HEAD
-=======
         "pc:TendersOpening\u0001pc:Contract0\u0001pc:TendersOpening***pc:Contract0\u0001direct_property_uripc:contract\u00011": {
             "v": "pc:TendersOpening",
             "w": "pc:Contract0",
@@ -655,7 +653,6 @@
             },
             "weight": 1
         },
->>>>>>> evaluation
         "pc:Tender\u0001gr:BusinessEntity0\u0001pc:Tender***gr:BusinessEntity0\u0001direct_property_uripc:bidder\u00011": {
             "v": "pc:Tender",
             "w": "gr:BusinessEntity0",
@@ -675,19 +672,6 @@
                 "type": "direct_property_uri"
             },
             "weight": 1
-<<<<<<< HEAD
-        },
-        "pc:TendersOpening\u0001pc:Contract0\u0001pc:TendersOpening***pc:Contract0\u0001direct_property_uripc:contract\u00011": {
-            "v": "pc:TendersOpening",
-            "w": "pc:Contract0",
-            "name": "pc:TendersOpening***pc:Contract0",
-            "value": {
-                "label": "pc:contract",
-                "type": "direct_property_uri"
-            },
-            "weight": 1
-=======
->>>>>>> evaluation
         }
     },
     "_edgeLabels": {
@@ -743,13 +727,10 @@
             "label": "pc:awardCriteriaCombination",
             "type": "direct_property_uri"
         },
-<<<<<<< HEAD
-=======
         "pc:TendersOpening\u0001pc:Contract0\u0001pc:TendersOpening***pc:Contract0\u0001direct_property_uripc:contract\u00011": {
             "label": "pc:contract",
             "type": "direct_property_uri"
         },
->>>>>>> evaluation
         "pc:Tender\u0001gr:BusinessEntity0\u0001pc:Tender***gr:BusinessEntity0\u0001direct_property_uripc:bidder\u00011": {
             "label": "pc:bidder",
             "type": "direct_property_uri"
@@ -757,13 +738,6 @@
         "pc:Tender\u0001gr:BusinessEntity1\u0001pc:Tender***gr:BusinessEntity1\u0001direct_property_uripc:bidder\u00011": {
             "label": "pc:bidder",
             "type": "direct_property_uri"
-<<<<<<< HEAD
-        },
-        "pc:TendersOpening\u0001pc:Contract0\u0001pc:TendersOpening***pc:Contract0\u0001direct_property_uripc:contract\u00011": {
-            "label": "pc:contract",
-            "type": "direct_property_uri"
-=======
->>>>>>> evaluation
         }
     },
     "_nodeCount": 14,
