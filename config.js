@@ -1,7 +1,6 @@
-
 const dev = {
     elastic: {
-        host: 'localhost'
+        host: 'localhost',
         port: 9200,
         log: 'trace'
     }
@@ -9,7 +8,7 @@ const dev = {
 
 const test = {
     elastic: {
-        host: 'localhost'
+        host: 'localhost',
         port: 9200,
         log: 'trace'
     }
