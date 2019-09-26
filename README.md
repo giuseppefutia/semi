@@ -1,6 +1,6 @@
 # SeMi - SEmantic Modeling machIne
 
-SeMi (SEmantic Modeling machIne) is a tool to semi-automatically build large-scale [Knowledge Graphs](https://en.wikipedia.org/wiki/Knowledge_base) from structured sources. To achieve such a goal, it combines [steiner trees detection](https://github.com/giuseppefutia/semi#steiner-tree) with [deep learning applied on graphs](https://github.com/giuseppefutia/semi#r-gcn-model-generation-and-testing), and builds semantic models of the data sources, in terms of classes and relationships within an ontology domain.
+SeMi (SEmantic Modeling machIne) is a tool to semi-automatically build large-scale [Knowledge Graphs](https://en.wikipedia.org/wiki/Knowledge_base) from structured sources. To achieve such a goal, it combines [steiner trees detection](https://github.com/giuseppefutia/semi#steiner-tree) with [deep learning applied on graphs](https://github.com/giuseppefutia/semi#r-gcn-model-generation-and-testing), and builds semantic models of the data sources, in terms of classes and relationships within a domain ontology.
 
 Semantic models can be formalized as graphs, where leaf nodes represent the attributes of the data source and the other nodes and relationships are defined by the ontology.
 
@@ -89,9 +89,9 @@ $ pip install -r requirements.txt
 In order to use JARQL you need to create the JARQL jar file with the following command (it requires Maven and Java) and move the it in the root directory:
 
 ```bash
-$ cd semantic_modeling/lib/jarql/
+$ cd libs/jarql/
 $ mvn package -Pexecutable
-$ mv target/jarql-1.0.1-SNAPSHOT.jar ../../jarql-1.0.1-SNAPSHOT.jar
+$ mv target/jarql-1.0.1-SNAPSHOT.jar ../jarql-1.0.1-SNAPSHOT.jar
 ```
 
 Once the .jar file is available, you can run the following command:
