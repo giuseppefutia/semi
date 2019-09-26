@@ -4,7 +4,7 @@ SeMi (SEmantic Modeling machIne) is a tool to semi-automatically build large-sca
 
 Semantic models can be formalized as graphs, where leaf nodes represent the attributes of the data source and the other nodes and relationships are defined by the ontology.
 
-Considering the following JSON file in the public procurement domain,
+Considering the following JSON file in the public procurement domain:
 
 ```json
 {           
@@ -24,7 +24,7 @@ Considering the following JSON file in the public procurement domain,
 }
 ```
 
-and the following domain ontology related to public procurement,
+And consider the following domain ontology related to public procurement:
 
 ![Domain Ontology](https://github.com/giuseppefutia/semi/blob/master/images/ontology.png)
 
