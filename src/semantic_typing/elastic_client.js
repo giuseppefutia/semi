@@ -30,6 +30,13 @@ const insert_doc = async function(index_name, _id, mapping_type, data) {
     });
 }
 
+const cat_index = async function(index_name) {
+    return await es_client.cat.count({
+        index: index_name,
+        v: true
+    });
+}
+
 const search_doc = async function(index_name, mapping_type, payload) {
     return await es_client.search({
         index: index_name,
@@ -43,4 +50,5 @@ exports.index_exist = index_exist;
 exports.create_index = create_index;
 exports.add_mapping_to_index = add_mapping_to_index;
 exports.insert_doc = insert_doc;
+exports.cat_index = cat_index;
 exports.search_doc = search_doc;
