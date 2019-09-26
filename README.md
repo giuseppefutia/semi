@@ -1,6 +1,6 @@
 # SeMi - SEmantic Modeling machIne
 
-SeMi (SEmantic Modeling machIne) is a tool to semi-automatically build large-scale [Knowledge Graphs]() from structured sources. To achieve such a goal, it combines [steiner trees detection](https://github.com/giuseppefutia/semi#steiner-tree) with [deep learning applied on graphs](https://github.com/giuseppefutia/semi#r-gcn-model-generation-and-testing), and builds semantic models of the data sources, in terms of classes and relationships within an ontology domain.
+SeMi (SEmantic Modeling machIne) is a tool to semi-automatically build large-scale [Knowledge Graphs](https://en.wikipedia.org/wiki/Knowledge_base) from structured sources. To achieve such a goal, it combines [steiner trees detection](https://github.com/giuseppefutia/semi#steiner-tree) with [deep learning applied on graphs](https://github.com/giuseppefutia/semi#r-gcn-model-generation-and-testing), and builds semantic models of the data sources, in terms of classes and relationships within an ontology domain.
 
 Semantic models can be formalized as graphs, where leaf nodes represent the attributes of the data source and the other nodes and relationships are defined by the ontology.
 
@@ -35,7 +35,7 @@ the resulting semantic model is:
 
 # Download from GitHub
 
-You can download the SeMi tool using the following command (the recursive parameter is necessary to install the external libraries as git modules):
+You can download the SeMi tool using the following command. The recursive parameter is necessary to install the external libraries that are available as git modules in this repository:
 
 ```bash
 $ git clone --recursive https://github.com/giuseppefutia/SeMi
@@ -46,8 +46,11 @@ SeMi includes two external libraries as git modules:
 * JARQL - https://github.com/linked-solutions/jarql
 * RODI - https://github.com/chrpin/rodi
 
-JARQL is a tool to materialize KGs as RDF data from JSON files using through models written using SPARQL syntax.
-RODI is a benchmark framework to compare automatic mapping tools from relational databases to ontologies for the RDF data generation.
+JARQL is a tool to materialize KGs as RDF data from JSON files using semantic models written through SPARQL syntax.
+
+RODI is a benchmark framework to compare automatic mapping tools from relational databases to ontologies for the KG generation.
+
+To run SeMi you need to install also [Elasticsearch](https://www.elastic.co/).
 
 In the following section you are going to install SeMi and the external libraries.
 
@@ -56,7 +59,7 @@ In this section we explain how to install SeMi and its external libraries.
 
 ## Install SeMi
 
-The SeMi tool is composed of a Node.js and a Python component.
+The SeMi tool is composed of a Node.js and a Python components.
 
 ### Node.js component
 
@@ -83,7 +86,7 @@ $ pip install -r requirements.txt
 ```
 
 ## Install JARQL
-In order to use JARQL you need to create the jar file with the following command (it requires Maven and Java) and move the it in the root directory:
+In order to use JARQL you need to create the JARQL jar file with the following command (it requires Maven and Java) and move the it in the root directory:
 
 ```bash
 $ cd semantic_modeling/lib/jarql/
@@ -93,14 +96,16 @@ $ mv target/jarql-1.0.1-SNAPSHOT.jar ../../jarql-1.0.1-SNAPSHOT.jar
 
 Once the .jar file is available, you can run the following command:
 
-## Install RODI (useful for the evaluation stage)
-
-To build the RODI benchmark and create a working .jar you can launch the following script:
+## Install RODI
+To build the RODI benchmark and create a working .jar you can launch the following script (it requires Maven and Java):
 
 ```bash
 $ cd libs/rodi
 $ ./create_jar.sh
 ```
+
+## Install Elasticsearch
+To install Elastic search on Ubuntu 18.04, you can follow instructions available here: https://tecadmin.net/setup-elasticsearch-on-ubuntu/
 
 # Step-by-step Semantic Models Generation
 Using the following scripts, you can generate a semantic model starting from an input source, a reference ontology and a semantic type definition.
