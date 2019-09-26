@@ -4,7 +4,7 @@ SeMi (SEmantic Modeling machIne) is a tool to semi-automatically build large-sca
 
 Semantic models can be formalized as graphs, where leaf nodes represent the attributes of the data source and the other nodes and relationships are defined by the ontology.
 
-Considering the following JSON file,
+Considering the following JSON file in the public procurement domain,
 
 ```json
 {           
@@ -24,7 +24,7 @@ Considering the following JSON file,
 }
 ```
 
-and the following domain ontology,
+and the following domain ontology related to public procurement,
 
 ![Domain Ontology](https://github.com/giuseppefutia/semi/blob/master/images/ontology.png)
 
@@ -108,7 +108,36 @@ $ ./create_jar.sh
 To install Elastic search on Ubuntu 18.04, you can follow instructions available here: https://tecadmin.net/setup-elasticsearch-on-ubuntu/
 
 # Step-by-step Semantic Models Generation
-Using the following scripts, you can generate a semantic model starting from an input source, a reference ontology and a semantic type definition.
+Using the following scripts, you can generate a semantic model starting from an *input source* and a *domain ontology*.
+
+## Semantic Types
+Semantic types (or semantic labels) consist of a combination of an ontology class and an ontology data property. To perform the semantic types detection process you need to execute two different scripts. The first script is the following:
+
+```bash
+$ node run/semantic_label_indexer.js pc data/pc/input/
+```
+
+* `pc` is the Elasticsearch index name.
+* `data/pc/input/` is the input folder containing files that have to be indexed.
+
+This step is necessary to create the Elasticsearch index used as reference to detect the semantic types. The second script is the following:
+
+```bash
+$ node run/semantic_label.js pc data/pc/input/Z4ADEA9DE4.json data/pc/semantic_types/Z4ADEA9DE4_st_auto.json
+```
+
+* `pc` is the Elasticsearch index name.
+* `data/pc/input/Z4ADEA9DE4.json` is the input file.
+* `data/pc/semantic_types/Z4ADEA9DE4_st_auto.json` is the automatically-generated semantic type.
+
+In SeMi, we consider the semantic types detection is considered a semi-automatic task.
+
+For this reason, the manual-refined version of the semantic type is available in the file
+* `data/pc/semantic_types/Z4ADEA9DE4_st.json`
+
+Below an image that represents semantic types.
+
+![Semantic Types](https://github.com/giuseppefutia/semi/blob/master/images/semantic_type.png)
 
 ## Multi-edge and Weighted Graph
 The multi-edge and weighted graph includes all plausible semantic models of a data source based on a domain ontology. To create such graph, you can run the following commands:
@@ -129,7 +158,7 @@ This script generates two types of graph:
 * `data/pc/semantic_models/Z4ADEA9DE4.graph` is the multi-edge and weighted graph.
 * `data/pc/semantic_models/Z4ADEA9DE4_graph.json` is a beautified representation of the weighted graph.
 
-Below an image that represents multi-edge and weighted graph.
+Below an image that represents a multi-edge and a weighted graph.
 
 ![Multi-edge and Weighted Graph](https://github.com/giuseppefutia/semi/blob/master/images/weighted_graph.png)
 
