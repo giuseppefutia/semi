@@ -6,21 +6,25 @@ const es_client = require('./elastic_client');
 const mapping = {
     properties: {
         semantic_type: {
-            type: "text"
+            type: "text",
+            fields: {
+                "italian": {
+                    "type": "text",
+                    "analyzer": "italian"
+                }
+            }
         },
         body: {
-            type: "text"
-        },
+            type: "text",
+            fields: {
+                "italian": {
+                    "type": "text",
+                    "analyzer": "italian"
+                }
+            }
+        }
     }
 }
-
-const pc_to_classify = [
-    'Z4ADEA9DE4.json',
-    'ZE8180442C.json',
-    'ZE8183C83E.json',
-    'ZE81959E49.json',
-    'ZE81991D74.json'
-];
 
 var build_semantic_types = async (index_name, input_folder) => {
     var index_data = prepare_data(index_name, input_folder);
@@ -78,29 +82,28 @@ var prepare_pc_data = (input_folder) => {
     index_fields['gr:BusinessEntity***rdfs:label'] = [];
 
     fs.readdirSync(input_folder).forEach(file_name => {
-        if (!pc_to_classify.includes(file_name)) {
-            var file = JSON.parse(fs.readFileSync(input_folder + file_name, 'utf8'));
-            try {
-                index_fields['pc:Contract***rdfs:description'].push(file['oggetto']);
-                index_fields['pc:Contract***dcterms:identifier'].push(file['cig']);
-                index_fields['gr:BusinessEntity***dcterms:identifier'].push(file['strutturaProponente']['codiceFiscaleProp']);
-                index_fields['gr:BusinessEntity***rdfs:label'].push(file['strutturaProponente']['denominazione']);
+        var file = JSON.parse(fs.readFileSync(input_folder + file_name, 'utf8'));
+        try {
+            index_fields['pc:Contract***rdfs:description'].push(file['oggetto']);
+            index_fields['pc:Contract***dcterms:identifier'].push(file['cig']);
+            index_fields['gr:BusinessEntity***dcterms:identifier'].push(file['strutturaProponente']['codiceFiscaleProp']);
+            index_fields['gr:BusinessEntity***rdfs:label'].push(file['strutturaProponente']['denominazione']);
 
-                for (var p of file['partecipanti']['partecipante']) {
-                    index_fields['gr:BusinessEntity***dcterms:identifier'].push(p['codiceFiscale']);
-                    index_fields['gr:BusinessEntity***dcterms:identifier'].push(p['ragioneSociale']);
-                }
-
-                for (var p of file['aggiudicatari']['aggiudicatario']) {
-                    index_fields['gr:BusinessEntity***dcterms:identifier'].push(p['codiceFiscale']);
-                    index_fields['gr:BusinessEntity***dcterms:identifier'].push(p['ragioneSociale']);
-                }
-            } catch (e) {
-                //
-            } finally {
-                //
+            for (var p of file['partecipanti']['partecipante']) {
+                index_fields['gr:BusinessEntity***dcterms:identifier'].push(p['codiceFiscale']);
+                index_fields['gr:BusinessEntity***dcterms:identifier'].push(p['ragioneSociale']);
             }
+
+            for (var p of file['aggiudicatari']['aggiudicatario']) {
+                index_fields['gr:BusinessEntity***dcterms:identifier'].push(p['codiceFiscale']);
+                index_fields['gr:BusinessEntity***dcterms:identifier'].push(p['ragioneSociale']);
+            }
+        } catch (e) {
+            //
+        } finally {
+            //
         }
+
     });
     index_fields['pc:Contract***dcterms:identifier'] = index_fields['pc:Contract***dcterms:identifier'].join(' ');
     index_fields['pc:Contract***rdfs:description'] = index_fields['pc:Contract***rdfs:description'].join(' ');

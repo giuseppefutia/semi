@@ -37,7 +37,7 @@ const cat_index = async function(index_name) {
     });
 }
 
-const search_doc = async function(index_name, mapping_type, payload) {
+const search = async function(index_name, mapping_type, payload) {
     return await es_client.search({
         index: index_name,
         type: mapping_type,
@@ -51,4 +51,4 @@ exports.create_index = create_index;
 exports.add_mapping_to_index = add_mapping_to_index;
 exports.insert_doc = insert_doc;
 exports.cat_index = cat_index;
-exports.search_doc = search_doc;
+exports.search = search;
