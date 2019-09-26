@@ -11,8 +11,6 @@ var ε = 3;
 // TODO: Create an high level representation of node and edge for checking inconsistencies
 // TODO: Semantic_types in semantic type file should be an array of array?
 // TODO: Make a universal API to create nodes and edges
-// TODO: Error generated when creating the graph
-// TODO: Add images to the README.md
 // TODO: Strange behaviour in returning inherited properties
 
 /**
