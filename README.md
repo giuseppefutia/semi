@@ -94,8 +94,6 @@ $ mvn package -Pexecutable
 $ mv target/jarql-1.0.1-SNAPSHOT.jar ../jarql-1.0.1-SNAPSHOT.jar
 ```
 
-Once the .jar file is available, you can run the following command:
-
 ## Install RODI
 To build the RODI benchmark and create a working .jar you can launch the following script (it requires Maven and Java):
 
