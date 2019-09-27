@@ -20,7 +20,7 @@ for url in urls:
     xml = "<" + res.text.split('<', 1)[-1]
     JSONrecord = json.loads(json.dumps(xmltodict.parse(xml)))
 
-    print('Download XML files and store single contracts as json...')
+    print('Download XML files and store single contracts as json...\n')
 
     for lotto in JSONrecord["legge190:pubblicazione"]['data']['lotto']:
         # XXX Sometimes the cig is missing
@@ -29,33 +29,10 @@ for url in urls:
             with open(filename, 'w', encoding='utf-8') as file:
                 file.write(json.dumps(lotto, indent=2))
 
-    print('Download and save complete!')
+            print('Download and save complete!\n')
 
-    # if "partecipanti" in lotto.keys():
-    #    if lotto["partecipanti"] != None:
-    #            if "partecipante"  in lotto["partecipanti"].keys():
-    #                lotto["partecipanti"] = lotto["partecipanti"]["partecipante"]
-    # if "aggiudicatari" in lotto.keys():
-    #    if lotto["aggiudicatari"] != None:
-    #        if "aggiudicatario" in lotto["aggiudicatari"].keys():
-    #            lotto["aggiudicatari"] = lotto["aggiudicatari"]["aggiudicatario"]
-    #        elif "aggiudicatario" in lotto["aggiudicatari"].keys():
-    #            lotto["aggiudicatari"] = lotto["aggiudicatari"]["aggiudicatarioRaggruppamento"]['membro']
+            print('Generate training KG...\n')
 
-    # if random.randint(1,10) < 9:
-
-    #    filename = lotto['cig'] + ".json"
-
-    #    with open(filename, 'w', encoding='utf-8') as tmp_file:
-    #        tmp_file.write(json.dumps(lotto, indent=2))
-    #    json.dump(lotto, "file.json", indent=2)
-    #    os.system("java -jar jarql-1.0.0.jar "+ filename + " pc.query >> final.ttl")
-
-    # else:
-
-    #    filename = lotto['cig'] + "-no-relation.json"
-
-    #    with open(filename, 'w', encoding='utf-8') as tmp_file:
-    #        tmp_file.write(json.dumps(lotto, indent=2))
-    #    json.dump(lotto, "file.json", indent=2)
-    #    os.system("java -jar jarql-1.0.0.jar "+ filename + " pc-no_relation.query >> final.ttl")
+            # Create rdf files only from stored JSONs
+            os.system("java -jar ../../jarql-1.0.1-SNAPSHOT.jar " +
+                      filename + " ../training/pc/pc.query >> ../training/pc/final.ttl")
