@@ -130,7 +130,7 @@ $ node run/semantic_label.js pc data/pc/input/Z4ADEA9DE4.json data/pc/semantic_t
 
 In SeMi, we consider the semantic types detection as a semi-automatic task.
 
-For this reason, the [manual-refined version of the semantic type](https://raw.githubusercontent.com/giuseppefutia/semi/master/data/pc/semantic_types/Z4ADEA9DE4_st.json) is available in the file
+For this reason, the [manual-refined version of the semantic type](https://raw.githubusercontent.com/giuseppefutia/semi/master/data/pc/semantic_types/Z4ADEA9DE4_st.json) is available in the file:
 * `data/pc/semantic_types/Z4ADEA9DE4_st.json`
 
 Below an image that represents semantic types.
@@ -284,6 +284,3 @@ Then you can run the script for the training and the evaluation:
 $ cd dgl/rgcn/link-prediction
 $ python link_predict.py -d ../../../data/pc/ --gpu 0
 ```
-
-## Refined Semantic Model
-node run/refinement.js data/rodi/cmt_denormalized/semantic_types/cmt_denormalized___co-writePaper_st.json data/rodi/cmt_denormalized/model_datasets/epoch_3/score.json data/rodi/cmt_denormalized/semantic_models/cmt_denormalized___co-writePaper_steiner.json data/rodi/cmt_denormalized/semantic_models/cmt_denormalized___co-writePaper_graph.json data/rodi/cmt_denormalized/refined_semantic_models/cmt_denormalized___co-writePaper
