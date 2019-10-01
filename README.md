@@ -125,12 +125,12 @@ $ node run/semantic_label.js pc data/pc/input/Z4ADEA9DE4.json data/pc/semantic_t
 ```
 
 * `pc` is the Elasticsearch index name.
-* `data/pc/input/Z4ADEA9DE4.json` is the input file.
-* `data/pc/semantic_types/Z4ADEA9DE4_st_auto.json` is the automatically-generated semantic type.
+* `data/pc/input/Z4ADEA9DE4.json` is the [input file](https://raw.githubusercontent.com/giuseppefutia/semi/master/data/pc/input/Z4ADEA9DE4.json).
+* `data/pc/semantic_types/Z4ADEA9DE4_st_auto.json` is the [automatically-generated semantic type](https://raw.githubusercontent.com/giuseppefutia/semi/master/data/pc/semantic_types/Z4ADEA9DE4_st_auto.json).
 
-In SeMi, we consider the semantic types detection is considered a semi-automatic task.
+In SeMi, we consider the semantic types detection as a semi-automatic task.
 
-For this reason, the manual-refined version of the semantic type is available in the file
+For this reason, the [manual-refined version of the semantic type](https://raw.githubusercontent.com/giuseppefutia/semi/master/data/pc/semantic_types/Z4ADEA9DE4_st.json) is available in the file
 * `data/pc/semantic_types/Z4ADEA9DE4_st.json`
 
 Below an image that represents semantic types.
@@ -144,8 +144,8 @@ The multi-edge and weighted graph includes all plausible semantic models of a da
 $ node run/graph.js data/pc/semantic_types/Z4ADEA9DE4_st.json data/pc/ontology/ontology.ttl rdfs:domain rdfs:range owl:Class data/pc/semantic_models/Z4ADEA9DE4
 ```
 
-* `data/pc/semantic_types/Z4ADEA9DE4_st.json` is the input semantic type file.
-* `data/pc/ontology/ontology.ttl` is the domain ontology file.
+* `data/pc/semantic_types/Z4ADEA9DE4_st.json` is the [input semantic type file](https://raw.githubusercontent.com/giuseppefutia/semi/master/data/pc/semantic_types/Z4ADEA9DE4_st.json).
+* `data/pc/ontology/ontology.ttl` is the [domain ontology file](https://raw.githubusercontent.com/giuseppefutia/semi/master/data/pc/ontology/ontology.ttl).
 * `rdfs:domain` is the domain property in the ontology.
 * `rdfs:range` is the range property in the ontology.
 * `owl:Class` is the property in the ontology to identify classes.
@@ -153,8 +153,8 @@ $ node run/graph.js data/pc/semantic_types/Z4ADEA9DE4_st.json data/pc/ontology/o
 
 This script generates two types of graph:
 
-* `data/pc/semantic_models/Z4ADEA9DE4.graph` is the multi-edge and weighted graph.
-* `data/pc/semantic_models/Z4ADEA9DE4_graph.json` is a beautified representation of the weighted graph.
+* `data/pc/semantic_models/Z4ADEA9DE4.graph` is the [multi-edge and weighted graph](https://raw.githubusercontent.com/giuseppefutia/semi/master/data/pc/semantic_models/Z4ADEA9DE4.graph).
+* `data/pc/semantic_models/Z4ADEA9DE4_graph.json` is a [beautified representation of the weighted graph](https://raw.githubusercontent.com/giuseppefutia/semi/master/data/pc/semantic_models/Z4ADEA9DE4_graph.json).
 
 Below an image that represents a multi-edge and a weighted graph.
 
@@ -168,14 +168,14 @@ To create the Steiner Tree on the multi-edge and weighted graph you can run the 
 $ node run/steiner_tree.js data/pc/semantic_types/Z4ADEA9DE4_st.json data/pc/semantic_models/Z4ADEA9DE4_graph.json data/pc/semantic_models/Z4ADEA9DE4
 ```
 
-* `data/pc/semantic_types/Z4ADEA9DE4_st.json` is the input semantic type file.
-* `data/pc/semantic_models/Z4ADEA9DE4_graph.json` is the beautified representation of the weighted graph.
+* `data/pc/semantic_types/Z4ADEA9DE4_st.json` is the input [semantic type file](https://raw.githubusercontent.com/giuseppefutia/semi/master/data/pc/semantic_types/Z4ADEA9DE4_st.json).
+* `data/pc/semantic_models/Z4ADEA9DE4_graph.json` is the [beautified representation of the weighted graph](https://raw.githubusercontent.com/giuseppefutia/semi/master/data/pc/semantic_models/Z4ADEA9DE4_graph.json).
 * `data/pc/semantic_models/Z4ADEA9DE4` is used as output path for the generation of the steiner tree in different formats.
 
 This script generates two types of steiner trees:
 
-* `data/pc/semantic_models/Z4ADEA9DE4.steiner` is the steiner tree.
-* `data/pc/semantic_models/Z4ADEA9DE4_steiner.json` is a beautified representation of the steiner tree.
+* `data/pc/semantic_models/Z4ADEA9DE4.steiner` is the [steiner tree](https://raw.githubusercontent.com/giuseppefutia/semi/master/data/pc/semantic_models/Z4ADEA9DE4.steiner).
+* `data/pc/semantic_models/Z4ADEA9DE4_steiner.json` is a [beautified representation of the steiner tree](https://raw.githubusercontent.com/giuseppefutia/semi/master/data/pc/semantic_models/Z4ADEA9DE4_steiner.json).
 
 Below an image that represents a steiner tree.
 
@@ -188,10 +188,50 @@ For the automatic generation of the semantic model, you can run the following co
 $ node run/jarql.js data/pc/semantic_types/Z4ADEA9DE4_st.json data/pc/semantic_models/Z4ADEA9DE4_steiner.json data/pc/ontology/classes.json data/pc/semantic_models/Z4ADEA9DE4
 ```
 
-* `data/pc/semantic_types/Z4ADEA9DE4_st.json` is the input semantic type file.
-* `data/pc/semantic_models/Z4ADEA9DE4_steiner.json` is the beautified representation of the steiner tree.
-* `data/pc/ontology/classes.json` is the list of all classes in the ontology.
-* `data/pc/semantic_models/Z4ADEA9DE4.query` is the output JARQL semantic model.
+* `data/pc/semantic_types/Z4ADEA9DE4_st.json` is the input [semantic type file](https://raw.githubusercontent.com/giuseppefutia/semi/master/data/pc/semantic_types/Z4ADEA9DE4_st.json).
+* `data/pc/semantic_models/Z4ADEA9DE4_steiner.json` is the [beautified representation of the steiner tree](https://raw.githubusercontent.com/giuseppefutia/semi/master/data/pc/semantic_models/Z4ADEA9DE4_steiner.json).
+* `data/pc/ontology/classes.json` is the list of [all classes in the ontology](https://raw.githubusercontent.com/giuseppefutia/semi/master/data/pc/ontology/classes.json).
+* `data/pc/semantic_models/Z4ADEA9DE4.query` is the output [JARQL semantic model](https://raw.githubusercontent.com/giuseppefutia/semi/master/data/pc/semantic_models/Z4ADEA9DE4.query).
+
+Below an example of serialized semantic model using SPARQL and JARQL syntax:
+
+```
+CONSTRUCT {
+    ?Contract0 dcterms:identifier ?cig.
+    ?Contract0 rdf:type pc:Contract.
+    ?Contract0 rdfs:description ?oggetto.
+    ?Contract0 rdf:type pc:Contract.
+    ?BusinessEntity0 dcterms:identifier ?strutturaProponente__codiceFiscaleProp.
+    ?BusinessEntity0 rdf:type gr:BusinessEntity.
+    ?BusinessEntity1 dcterms:identifier ?partecipanti__identificativo.
+    ?BusinessEntity1 rdf:type gr:BusinessEntity.
+    ?BusinessEntity1 rdfs:label ?partecipanti__ragioneSociale.
+    ?BusinessEntity1 rdf:type gr:BusinessEntity.
+    ?BusinessEntity1 dcterms:identifier ?aggiudicatari__identificativo.
+    ?BusinessEntity1 rdf:type gr:BusinessEntity.
+    ?BusinessEntity1 rdfs:label ?aggiudicatari__ragioneSociale.
+    ?BusinessEntity1 rdf:type gr:BusinessEntity.
+    ?Contract0 pc:contractingAuthority ?BusinessEntity0.
+    ?Contract0 pc:contractingAuthority ?BusinessEntity1.
+}
+WHERE {
+    jarql:root jarql:cig ?cig.
+    jarql:root jarql:oggetto ?oggetto.
+    jarql:root jarql:strutturaProponente ?strutturaProponente.
+    ?strutturaProponente jarql:codiceFiscaleProp ?strutturaProponente__codiceFiscaleProp.
+    jarql:root jarql:partecipanti ?partecipanti.
+    ?partecipanti jarql:identificativo ?partecipanti__identificativo.
+    jarql:root jarql:partecipanti ?partecipanti.
+    ?partecipanti jarql:ragioneSociale ?partecipanti__ragioneSociale.
+    jarql:root jarql:aggiudicatari ?aggiudicatari.
+    ?aggiudicatari jarql:identificativo ?aggiudicatari__identificativo.
+    jarql:root jarql:aggiudicatari ?aggiudicatari.
+    ?aggiudicatari jarql:ragioneSociale ?aggiudicatari__ragioneSociale.
+    BIND (URI(CONCAT('http://purl.org/procurement/public-contracts/contract/',?cig)) as ?Contract0)
+    BIND (URI(CONCAT('http://purl.org/goodrelations/v1/businessentity/',?strutturaProponente__codiceFiscaleProp)) as ?BusinessEntity0)
+    BIND (URI(CONCAT('http://purl.org/goodrelations/v1/businessentity/',?partecipanti__identificativo)) as ?BusinessEntity1)
+}
+```
 
 ## KG Generation Through the Initial Semantic Model
 
@@ -201,9 +241,34 @@ In order to create the RDF represention into a KG of the data, you have to run t
 $ java -jar jarql-1.0.1-SNAPSHOT.jar data/pc/input/Z4ADEA9DE4.json data/pc/semantic_models/Z4ADEA9DE4.query > data/pc/output/Z4ADEA9DE4.ttl
 ```
 
-* `data/pc/input/Z4ADEA9DE4.json` is the input file.
-* `data/pc/semantic_models/Z4ADEA9DE4.query` is the semantic model in the JARQL format.
-* `data/pc/output/Z4ADEA9DE4.ttl` is the output RDF file serialized in turtle.
+* `data/pc/input/Z4ADEA9DE4.json` is the [input file](https://raw.githubusercontent.com/giuseppefutia/semi/master/data/pc/input/Z4ADEA9DE4.json).
+* `data/pc/semantic_models/Z4ADEA9DE4.query` is the [semantic model in the JARQL format](https://raw.githubusercontent.com/giuseppefutia/semi/master/data/pc/semantic_models/Z4ADEA9DE4.query).
+* `data/pc/output/Z4ADEA9DE4.ttl` is the output [RDF file serialized in turtle](https://raw.githubusercontent.com/giuseppefutia/semi/master/data/pc/output/Z4ADEA9DE4.ttl).
+
+Below an example of the generated RDF file:
+
+```
+<http://purl.org/procurement/public-contracts/contract/Z4ADEA9DE4>
+        a       <http://purl.org/procurement/public-contracts#Contract> ;
+        <http://www.w3.org/2000/01/rdf-schema#description>
+                "C.E. 23 Targa E9688 ( RIP.OFF.PRIVATE ) MANUTENZIONE ORDINARIA MEZZI DI TRASPORTO"^^<http://www.w3.org/2001/XMLSchema#string> ;
+        <http://purl.org/dc/terms/identifier>
+                "Z4ADEA9DE4"^^<http://www.w3.org/2001/XMLSchema#string> ;
+        <http://purl.org/procurement/public-contracts#contractingAuthority>
+                <http://purl.org/goodrelations/v1/businessentity/03382820920> , <http://purl.org/goodrelations/v1/businessentity/80004990927> .
+
+<http://purl.org/goodrelations/v1/businessentity/03382820920>
+        a       <http://purl.org/goodrelations/v1#BusinessEntity> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "CAR WASH CARALIS DI PUSCEDDU GRAZIANO   C  S N C"^^<http://www.w3.org/2001/XMLSchema#string> ;
+        <http://purl.org/dc/terms/identifier>
+                "03382820920"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+<http://purl.org/goodrelations/v1/businessentity/80004990927>
+        a       <http://purl.org/goodrelations/v1#BusinessEntity> ;
+        <http://purl.org/dc/terms/identifier>
+                "80004990927"^^<http://www.w3.org/2001/XMLSchema#string> .
+```
 
 ## R-GCN Model Generation and Testing
 
@@ -219,3 +284,6 @@ Then you can run the script for the training and the evaluation:
 $ cd dgl/rgcn/link-prediction
 $ python link_predict.py -d ../../../data/pc/ --gpu 0
 ```
+
+## Refined Semantic Model
+node run/refinement.js data/rodi/cmt_denormalized/semantic_types/cmt_denormalized___co-writePaper_st.json data/rodi/cmt_denormalized/model_datasets/epoch_3/score.json data/rodi/cmt_denormalized/semantic_models/cmt_denormalized___co-writePaper_steiner.json data/rodi/cmt_denormalized/semantic_models/cmt_denormalized___co-writePaper_graph.json data/rodi/cmt_denormalized/refined_semantic_models/cmt_denormalized___co-writePaper
