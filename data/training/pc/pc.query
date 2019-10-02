@@ -21,7 +21,7 @@ PREFIX jarql:    <http://jarql.com/>
 CONSTRUCT {
     ?Contract dcterms:identifier ?cig.
     ?Contract rdfs:description ?oggetto.
-    ?Contract pc:contractingAuthority gr:BusinessEntity.
+    ?Contract pc:contractingAuthority ?strutturaProponenteCodiceFiscaleProp.
 
     ?BusinessEntity dcterms:identifier ?strutturaProponenteCodiceFiscaleProp.
     ?BusinessEntity rdfs:label ?strutturaProponenteLabel.
@@ -63,11 +63,10 @@ WHERE {
     }
 
 
-    BIND (URI(CONCAT('http://pc.org/contracts/',?cig)) as ?Contract)
-    BIND (URI(CONCAT('http://pc.org/businessEntities/',?strutturaProponenteCodiceFiscaleProp)) as?BusinessEntity)
-    BIND (URI(CONCAT('http://pc.org/businessEntities/',?partecipanticodiceFiscale)) as ?partecipante)
-    BIND (URI(CONCAT('http://pc.org/businessEntities/',?vincitoricodiceFiscale)) as ?vincitore)
-
+    BIND (URI(CONCAT('http://purl.org/procurement/public-contracts/contract/',?cig)) as ?Contract)
+    BIND (URI(CONCAT('http://purl.org/goodrelations/v1/businessentity/',?strutturaProponenteCodiceFiscaleProp)) as?BusinessEntity)
+    BIND (URI(CONCAT('http://purl.org/goodrelations/v1/businessentity/',?partecipanticodiceFiscale)) as ?partecipante)
+    BIND (URI(CONCAT('http://purl.org/goodrelations/v1/businessentity/',?vincitoricodiceFiscale)) as ?vincitore)
     BIND (URI(CONCAT('http://pc.org/tenders/', ?cig, '-', ?partecipanticodiceFiscale)) as ?tenderURI)
     BIND (URI(CONCAT('http://pc.org/awardedTenders/', ?cig, '-', ?vincitoricodiceFiscale)) as ?awardedTenderURI)
 }
