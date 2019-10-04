@@ -269,11 +269,12 @@ Below an example of the generated RDF file:
                 "80004990927"^^<http://www.w3.org/2001/XMLSchema#string> .
 ```
 
-## Refinement Process
+# Refinement Process
 The refinement process requires to prepare the training, the testing, and the validation datasets for the deep learning model. This model includes an encoder component called [Relational Graph Convolutional Networks (R-GCNs)]() and a decoder component called [DistMult]().
 
 The training and the testing datasets are built from a complete dataset corresponding to a KG built on top of the semantic model(s) created by domain experts based on the input data. In our example, if we consider data available in `data/pc/input` [folder](https://github.com/giuseppefutia/semi/tree/master/data/pc/input), the human-created semantic model is available in the `semi/data/training/pc/pc.query` [file](https://raw.githubusercontent.com/giuseppefutia/semi/master/data/training/pc/pc.query). The generated KG is available in the `semi/data/training/pc/complete.ttl` [file](https://github.com/giuseppefutia/semi/blob/master/data/training/pc/complete.ttl). The training dataset is available in the `semi/data/training/pc/training.ttl` [file](https://github.com/giuseppefutia/semi/blob/master/data/training/pc/training.ttl), while the test dataset is available in the [file](https://github.com/giuseppefutia/semi/blob/master/data/training/pc/test.ttl).
 
+## Plausible Semantic Models
 The validation dataset is a KG resulting from the semantic model built on top of all plausible semantic models. The creation of the validation dataset is based on different steps. The first step is the JARQL-serialized construction of plausible semantic models.
 
 ```bash
@@ -285,6 +286,7 @@ $ node run/jarql.js data/pc/semantic_types/Z4ADEA9DE4_st.json data/pc/semantic_m
 * `data/pc/ontology/classes.json` is the list of [all classes in the ontology](https://raw.githubusercontent.com/giuseppefutia/semi/master/data/pc/ontology/classes.json).
 * `data/pc/semantic_models/Z4ADEA9DE4_plausible.query` is the output [JARQL of plausible semantic models](https://raw.githubusercontent.com/giuseppefutia/semi/master/data/pc/semantic_models/Z4ADEA9DE4_plausible.query).  
 
+## Plausible KG
 The second step to create the validation dataset is the generation of the KG running the JARQL tool.
 
 ```bash
