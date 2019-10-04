@@ -103,7 +103,7 @@ $ ./create_jar.sh
 ```
 
 ## Install Elasticsearch
-To install Elastic search on Ubuntu 18.04, you can follow instructions available here: https://tecadmin.net/setup-elasticsearch-on-ubuntu/
+To install Elastic search on Ubuntu 18.04, you can follow instructions available here: https://tecadmin.net/setup-elasticsearch-on-ubuntu/.
 
 # Step-by-step Semantic Models Generation
 Using the following scripts, you can generate a semantic model starting from an *input source* and a *domain ontology*.
@@ -168,7 +168,7 @@ To create the Steiner Tree on the multi-edge and weighted graph you can run the 
 $ node run/steiner_tree.js data/pc/semantic_types/Z4ADEA9DE4_st.json data/pc/semantic_models/Z4ADEA9DE4_graph.json data/pc/semantic_models/Z4ADEA9DE4
 ```
 
-* `data/pc/semantic_types/Z4ADEA9DE4_st.json` is the input [semantic type file](https://raw.githubusercontent.com/giuseppefutia/semi/master/data/pc/semantic_types/Z4ADEA9DE4_st.json).
+* `data/pc/semantic_types/Z4ADEA9DE4_st.json` is the [semantic type file](https://raw.githubusercontent.com/giuseppefutia/semi/master/data/pc/semantic_types/Z4ADEA9DE4_st.json).
 * `data/pc/semantic_models/Z4ADEA9DE4_graph.json` is the [beautified representation of the weighted graph](https://raw.githubusercontent.com/giuseppefutia/semi/master/data/pc/semantic_models/Z4ADEA9DE4_graph.json).
 * `data/pc/semantic_models/Z4ADEA9DE4` is used as output path for the generation of the steiner tree in different formats.
 
@@ -188,7 +188,7 @@ For the automatic generation of the semantic model, you can run the following co
 $ node run/jarql.js data/pc/semantic_types/Z4ADEA9DE4_st.json data/pc/semantic_models/Z4ADEA9DE4_steiner.json data/pc/ontology/classes.json data/pc/semantic_models/Z4ADEA9DE4
 ```
 
-* `data/pc/semantic_types/Z4ADEA9DE4_st.json` is the input [semantic type file](https://raw.githubusercontent.com/giuseppefutia/semi/master/data/pc/semantic_types/Z4ADEA9DE4_st.json).
+* `data/pc/semantic_types/Z4ADEA9DE4_st.json` is the [semantic type file](https://raw.githubusercontent.com/giuseppefutia/semi/master/data/pc/semantic_types/Z4ADEA9DE4_st.json).
 * `data/pc/semantic_models/Z4ADEA9DE4_steiner.json` is the [beautified representation of the steiner tree](https://raw.githubusercontent.com/giuseppefutia/semi/master/data/pc/semantic_models/Z4ADEA9DE4_steiner.json).
 * `data/pc/ontology/classes.json` is the list of [all classes in the ontology](https://raw.githubusercontent.com/giuseppefutia/semi/master/data/pc/ontology/classes.json).
 * `data/pc/semantic_models/Z4ADEA9DE4.query` is the output [JARQL semantic model](https://raw.githubusercontent.com/giuseppefutia/semi/master/data/pc/semantic_models/Z4ADEA9DE4.query).
@@ -234,7 +234,6 @@ WHERE {
 ```
 
 ## KG Generation Through the Initial Semantic Model
-
 In order to create the RDF represention into a KG of the data, you have to run the JARQL tool with the following command:
 
 ```bash
@@ -270,17 +269,28 @@ Below an example of the generated RDF file:
                 "80004990927"^^<http://www.w3.org/2001/XMLSchema#string> .
 ```
 
-## R-GCN Model Generation and Testing
+## Refinement Process
+The refinement process requires to prepare the training, the testing, and the validation datasets for the deep learning model. This model includes an encoder component called [Relational Graph Convolutional Networks (R-GCNs)]() and a decoder component called [DistMult]().
 
-For the real-time visualization of the loss, you need to run the Visdom server with the following command:
+The training and the testing datasets are built from a complete dataset corresponding to a KG built on top of the semantic model(s) created by domain experts based on the input data. In our example, if we consider data available in `data/pc/input` [folder](https://github.com/giuseppefutia/semi/tree/master/data/pc/input), the human-created semantic model is available in the `semi/data/training/pc/pc.query` [file](https://raw.githubusercontent.com/giuseppefutia/semi/master/data/training/pc/pc.query). The generated KG is available in the `semi/data/training/pc/complete.ttl` [file](https://github.com/giuseppefutia/semi/blob/master/data/training/pc/complete.ttl). The training dataset is available in the `semi/data/training/pc/training.ttl` [file](https://github.com/giuseppefutia/semi/blob/master/data/training/pc/training.ttl), while the test dataset is available in the [file](https://github.com/giuseppefutia/semi/blob/master/data/training/pc/test.ttl).
 
-```
-$ python -m visdom.server
+The validation dataset is a KG resulting from the semantic model built on top of all plausible semantic models. The creation of the validation dataset is based on different steps. The first step is the JARQL-serialized construction of plausible semantic models.
+
+```bash
+$ node run/jarql.js data/pc/semantic_types/Z4ADEA9DE4_st.json data/pc/semantic_models/Z4ADEA9DE4_graph.json data/pc/ontology/classes.json data/pc/semantic_models/Z4ADEA9DE4_plausible
 ```
 
-Then you can run the script for the training and the evaluation:
+* `data/pc/semantic_types/Z4ADEA9DE4_st.json` is the [semantic type file](https://raw.githubusercontent.com/giuseppefutia/semi/master/data/pc/semantic_types/Z4ADEA9DE4_st.json).
+* `data/pc/semantic_models/Z4ADEA9DE4_graph.json` is the [beautified representation of the weighted graph](https://raw.githubusercontent.com/giuseppefutia/semi/master/data/pc/semantic_models/Z4ADEA9DE4_graph.json).
+* `data/pc/ontology/classes.json` is the list of [all classes in the ontology](https://raw.githubusercontent.com/giuseppefutia/semi/master/data/pc/ontology/classes.json).
+* `data/pc/semantic_models/Z4ADEA9DE4_plausible.query` is the output [JARQL of plausible semantic models](https://raw.githubusercontent.com/giuseppefutia/semi/master/data/pc/semantic_models/Z4ADEA9DE4_plausible.query).  
 
+The second step to create the validation dataset is the generation of the KG running the JARQL tool.
+
+```bash
+$ java -jar jarql-1.0.1-SNAPSHOT.jar data/pc/input/Z4ADEA9DE4.json data/pc/semantic_models/Z4ADEA9DE4_plausible.query > data/pc/output/Z4ADEA9DE4_plausible.ttl
 ```
-$ cd dgl/rgcn/link-prediction
-$ python link_predict.py -d ../../../data/pc/ --gpu 0
-```
+
+* `data/pc/input/Z4ADEA9DE4.json` is the [input file](https://raw.githubusercontent.com/giuseppefutia/semi/master/data/pc/input/Z4ADEA9DE4.json).
+* `data/pc/semantic_models/Z4ADEA9DE4_plausible.query` is the [semantic model in the JARQL format](https://raw.githubusercontent.com/giuseppefutia/semi/master/data/pc/semantic_models/Z4ADEA9DE4_plausible.query).
+* `data/pc/output/Z4ADEA9DE4_plausible.ttl` is the output [RDF file serialized in turtle](https://raw.githubusercontent.com/giuseppefutia/semi/master/data/pc/output/Z4ADEA9DE4_plausible.ttl).
