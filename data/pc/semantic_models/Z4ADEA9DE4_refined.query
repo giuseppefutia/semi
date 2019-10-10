@@ -1,0 +1,59 @@
+PREFIX schema:    <http://schema.org/>
+PREFIX rdfs:      <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX pc:        <http://purl.org/procurement/public-contracts#>
+PREFIX gr:        <http://purl.org/goodrelations/v1#>
+PREFIX owl:       <http://www.w3.org/2002/07/owl#>
+PREFIX adms:      <http://www.w3.org/ns/adms#>
+PREFIX c4n:       <http://vocab.deri.ie/c4n#>
+PREFIX dcterms:   <http://purl.org/dc/terms/>
+PREFIX foaf:      <http://xmlns.com/foaf/0.1/>
+PREFIX loted:     <http://www.loted.eu/ontology#>
+PREFIX payment:   <http://reference.data.gov.uk/def/payment#>
+PREFIX qb:        <http://purl.org/linked-data/cube#>
+PREFIX rdf:       <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX skos:      <http://www.w3.org/2004/02/skos/core#>
+PREFIX vann:      <http://purl.org/vocab/vann/>
+PREFIX xsd:       <http://www.w3.org/2001/XMLSchema#>
+PREFIX conference: <http://conference#>
+PREFIX cmt:       <http://cmt#>
+PREFIX sigkdd:    <http://sigkdd#>
+PREFIX jarql:     <http://jarql.com/>
+
+CONSTRUCT {
+    ?Contract0 dcterms:identifier ?cig.
+    ?Contract0 rdf:type pc:Contract.
+    ?Contract0 rdfs:description ?oggetto.
+    ?Contract0 rdf:type pc:Contract.
+    ?BusinessEntity0 dcterms:identifier ?strutturaProponente__codiceFiscaleProp.
+    ?BusinessEntity0 rdf:type gr:BusinessEntity.
+    ?BusinessEntity1 dcterms:identifier ?partecipanti__identificativo.
+    ?BusinessEntity1 rdf:type gr:BusinessEntity.
+    ?BusinessEntity1 rdfs:label ?partecipanti__ragioneSociale.
+    ?BusinessEntity1 rdf:type gr:BusinessEntity.
+    ?BusinessEntity1 dcterms:identifier ?aggiudicatari__identificativo.
+    ?BusinessEntity1 rdf:type gr:BusinessEntity.
+    ?BusinessEntity1 rdfs:label ?aggiudicatari__ragioneSociale.
+    ?BusinessEntity1 rdf:type gr:BusinessEntity.
+    ?Contract0 pc:tender ?Tender0.
+    ?Tender0 pc:bidder ?BusinessEntity0.
+    ?Tender1 pc:bidder ?BusinessEntity1.
+}
+WHERE {
+    jarql:root jarql:cig ?cig.
+    jarql:root jarql:oggetto ?oggetto.
+    jarql:root jarql:strutturaProponente ?strutturaProponente.
+    ?strutturaProponente jarql:codiceFiscaleProp ?strutturaProponente__codiceFiscaleProp.
+    jarql:root jarql:partecipanti ?partecipanti.
+    ?partecipanti jarql:identificativo ?partecipanti__identificativo.
+    jarql:root jarql:partecipanti ?partecipanti.
+    ?partecipanti jarql:ragioneSociale ?partecipanti__ragioneSociale.
+    jarql:root jarql:aggiudicatari ?aggiudicatari.
+    ?aggiudicatari jarql:identificativo ?aggiudicatari__identificativo.
+    jarql:root jarql:aggiudicatari ?aggiudicatari.
+    ?aggiudicatari jarql:ragioneSociale ?aggiudicatari__ragioneSociale.
+    BIND (URI(CONCAT('http://purl.org/procurement/public-contracts/contract/',?cig)) as ?Contract0)
+    BIND (URI(CONCAT('http://purl.org/goodrelations/v1/businessentity/',?strutturaProponente__codiceFiscaleProp)) as ?BusinessEntity0)
+    BIND (URI(CONCAT('http://purl.org/goodrelations/v1/businessentity/',?partecipanti__identificativo)) as ?BusinessEntity1)
+    BIND (URI(CONCAT('http://purl.org/procurement/public-contracts/tender/',?cig)) as ?Tender0)
+    BIND (URI(CONCAT('http://purl.org/procurement/public-contracts/tender/',?partecipanti__identificativo)) as ?Tender1)
+}
