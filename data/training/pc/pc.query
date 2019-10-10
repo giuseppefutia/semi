@@ -21,7 +21,7 @@ PREFIX jarql:    <http://jarql.com/>
 CONSTRUCT {
     ?Contract dcterms:identifier ?cig.
     ?Contract rdfs:description ?oggetto.
-    ?Contract pc:contractingAuthority ?strutturaProponenteCodiceFiscaleProp.
+    ?Contract pc:contractingAuthority ?BusinessEntity.
 
     ?BusinessEntity dcterms:identifier ?strutturaProponenteCodiceFiscaleProp.
     ?BusinessEntity rdfs:label ?strutturaProponenteLabel.
