@@ -270,7 +270,9 @@ Below an example of the generated RDF file:
 ```
 
 # Refinement Process
-The refinement process requires to prepare the training, the testing, and the validation datasets for the deep learning model. This model includes an encoder component called [Relational Graph Convolutional Networks (R-GCNs)]() and a decoder component called [DistMult]().
+The refinement process requires to prepare the training, the testing, and the validation datasets for the deep learning model. Such model is an autoencoder and its main goal is to reconstruct KG edges using the latent representation of nodes and relationships. The autoencoder is composed of:
+* An encoder called [Relational Graph Convolutional Networks (R-GCNs)](https://arxiv.org/abs/1703.06103):
+* A decoder called [DistMult](https://arxiv.org/abs/1412.6575).
 
 The training and the testing datasets are built from a complete dataset corresponding to a KG built on top of the semantic model(s) created by domain experts based on the input data. In our example, if we consider data available in `data/pc/input` [folder](https://github.com/giuseppefutia/semi/tree/master/data/pc/input), the human-created semantic model is available in the `semi/data/training/pc/pc.query` [file](https://raw.githubusercontent.com/giuseppefutia/semi/master/data/training/pc/pc.query). The generated KG is available in the `semi/data/training/pc/complete.ttl` [file](https://github.com/giuseppefutia/semi/blob/master/data/training/pc/complete.ttl). The training dataset is available in the `semi/data/training/pc/training.ttl` [file](https://github.com/giuseppefutia/semi/blob/master/data/training/pc/training.ttl), while the test dataset is available in the [file](https://github.com/giuseppefutia/semi/blob/master/data/training/pc/test.ttl).
 
