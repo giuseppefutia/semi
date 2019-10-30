@@ -1,39 +1,30 @@
 {
     "name": "semi",
-    "version": "0.1",
-    "description": "A Semantic Modeling Machine",
+    "version": "0.1.0",
+    "description": "A SEmantic Modeling machIne",
     "main": "None",
     "dependencies": {
-        "csv-reader": "^1.0.3",
-        "elasticsearch": "^15.0.0",
-        "graphlib": "git+ssh://git@github.com/giuseppefutia/graphlib.git#edge-weight",
-        "mocha": "^5.2.0",
+        "csvjson": "^5.1.0",
+        "elasticsearch": "^16.4.0",
+        "graphlib": "github:giuseppefutia/graphlib#edge-weight",
+        "package.json": "^2.0.1",
         "rdfstore": "^0.9.17",
-        "underscore": "^1.9.1"
+        "sqlite3": "^4.1.0",
+        "underscore": "^1.9.1",
+        "xml2json": "^0.11.2"
     },
     "devDependencies": {},
     "scripts": {
-        "test": "mocha test/*/*.js",
-        "test-graph": "mocha test/semantic_modeling/*.js",
-        "test-steiner": "mocha test/steiner/*.js",
-        "test-jarql": "mocha test/jarql/*.js"
+        "test": "echo \"Error: no test specified\" && exit 1"
     },
     "repository": {
         "type": "git",
-        "url": "git://github.com/giuseppefutia/semi.git"
+        "url": "git+https://github.com/giuseppefutia/semi.git"
     },
-    "keywords": [
-        "semantic modeling",
-        "knowledge graph",
-        "neural networks"
-    ],
-    "author": "",
+    "author": "Giuseppe Futia",
     "license": "GPL-3.0",
     "bugs": {
         "url": "https://github.com/giuseppefutia/semi/issues"
     },
-    "homepage": "https://github.com/giuseppefutia/semi#readme",
-    "directories": {
-        "test": "test"
-    }
+    "homepage": "https://github.com/giuseppefutia/semi#readme"
 }
