@@ -5,10 +5,10 @@ matrix:
       - language: python
         python:
             - "3.6"
-        before_script:
+        install:
             - pip install -r requirements.txt
       - language:
         node_js:
             - 11.15.0
-        before_script:
+        install:
             - npm install
