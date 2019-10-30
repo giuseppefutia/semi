@@ -1,9 +1,10 @@
-sudo: required
-dist: trusty
-matrix:
-    include:
-        language: python
-        python:
-            - "3.6"
-        install:
-            - pip install -r requirements.txt
+language: python
+python:
+    - "3.6"
+install:
+    - pip install -r requirements.txt
+language: node_js
+node_js:
+    - 11.15.0
+install:
+    - npm install
