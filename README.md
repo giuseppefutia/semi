@@ -32,8 +32,10 @@ the resulting semantic model is:
 
 ![Semantic Model](https://github.com/giuseppefutia/semi/blob/master/images/semantic_model.png)
 
+# Requirements
+Before installing SeMi, you need to check the following [requirements](https://github.com/giuseppefutia/semi/wiki/Requirements).
 
-# Download from GitHub
+# Download
 
 You can download the SeMi tool using the following command. The recursive parameter is necessary to install the external libraries that are available as git modules in this repository:
 
@@ -41,69 +43,12 @@ You can download the SeMi tool using the following command. The recursive parame
 $ git clone --recursive https://github.com/giuseppefutia/SeMi
 ```
 
-# External libraries
-SeMi includes two external libraries as git modules:
-* JARQL - https://github.com/linked-solutions/jarql
-* RODI - https://github.com/chrpin/rodi
+You need to use the `--recursive` parameter in order to download two different external libraries as git modules.
+* [JARQL](https://github.com/giuseppefutia/jarql): a tool to materialize KGs as RDF data from JSON files using semantic models written through SPARQL syntax.
+* [RODI](https://github.com/giuseppefutia/rodi): a benchmark framework to compare automatic mapping tools from relational databases to ontologies for the KG generation.
 
-JARQL is a tool to materialize KGs as RDF data from JSON files using semantic models written through SPARQL syntax.
-
-RODI is a benchmark framework to compare automatic mapping tools from relational databases to ontologies for the KG generation.
-
-To run SeMi you need to install also [Elasticsearch](https://www.elastic.co/).
-
-In the following section you are going to install SeMi and the external libraries.
-
-# Installation
-In this section we explain how to install SeMi and its external libraries.
-
-## Install SeMi
-
-The SeMi tool is composed of a Node.js and a Python components.
-
-### Node.js component
-
-To install the Node.js component, you can run the following script from the root folder:
-
-```bash
-$ npm install
-```
-
-### Python component
-
-To install the Python component, you can run the following script to create and activate a conda virtual environment and install pip:
-
-```bash
-$ conda create -n semi python=3.6
-$ conda activate semi
-$ conda install pip
-```
-
-To install all necessary packages, you can run:
-
-```bash
-$ pip install -r requirements.txt
-```
-
-## Install JARQL
-In order to use JARQL you need to create the JARQL jar file with the following command (it requires Maven and Java) and move the it in the root directory:
-
-```bash
-$ cd libs/jarql/
-$ mvn package -Pexecutable
-$ mv target/jarql-1.0.1-SNAPSHOT.jar ../jarql-1.0.1-SNAPSHOT.jar
-```
-
-## Install RODI
-To build the RODI benchmark and create a working .jar you can launch the following script (it requires Maven and Java):
-
-```bash
-$ cd libs/rodi
-$ ./create_jar.sh
-```
-
-## Install Elasticsearch
-To install Elastic search on Ubuntu 18.04, you can follow instructions available here: https://tecadmin.net/setup-elasticsearch-on-ubuntu/.
+# Set-up
+To install SeMi, you can use the following [instructions](https://github.com/giuseppefutia/semi/wiki/Installation).
 
 # Step-by-step Semantic Models Generation
 Using the following scripts, you can generate a semantic model starting from an *input source* and a *domain ontology*.
@@ -318,6 +263,8 @@ Using the default settings, such twofold information is available at: http://loc
 To train the autoencoder, you can launch the following script:
 
 ```bash
+cd src/link_prediction/
+
 python link_predict.py --directory ../../data/pc/  --train ../../data/training/pc/training.ttl --valid ../../data/training/pc/valid.ttl --test ../../data/training/pc/test.ttl --score pc --parser PC --gpu 0 --graph-batch-size 1000 --n-hidden 100 --graph-split-size 1
 ```
 
@@ -327,7 +274,7 @@ python link_predict.py --directory ../../data/pc/  --train ../../data/training/p
 * `--test ../../data/training/pc/test.ttl` is the file containing the test KG.
 * `--score pc` is the subdirectory in which the scores assigned to the test KG will be stored.
 * `--parser PC` is the parameter to drive the construction of the dictionaries of entities and relationships.
-* `--gpu 0` is the parameter to establish how many GPUs (if available) can be used to train the model.  
+* `--gpu 0` is the parameter to establish how many GPUs (if available) can be used to train the model.
 * `--graph-batch-size 1000` is a parameter to indicate the number of edges extracted at each step of the graph sampling process.
 * `--n-hidden 100` is an hyperparameter of the model to define the number of neurons (and consequently the dimension of the embeddings) at each network layer.
 * `--graph-split-size 1` is a parameter to establish the portion of edges used as positive examples.
