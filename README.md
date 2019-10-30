@@ -36,16 +36,7 @@ the resulting semantic model is:
 Before installing SeMi, you need to check the following [requirements](https://github.com/giuseppefutia/semi/wiki/Requirements).
 
 # Download
-
-You can download the SeMi tool using the following command. The recursive parameter is necessary to install the external libraries that are available as git modules in this repository:
-
-```bash
-$ git clone --recursive https://github.com/giuseppefutia/SeMi
-```
-
-You need to use the `--recursive` parameter in order to download two different external libraries as git modules.
-* [JARQL](https://github.com/giuseppefutia/jarql): a tool to materialize KGs as RDF data from JSON files using semantic models written through SPARQL syntax.
-* [RODI](https://github.com/giuseppefutia/rodi): a benchmark framework to compare automatic mapping tools from relational databases to ontologies for the KG generation.
+To download SeMi, you can run the commands available [here](https://github.com/giuseppefutia/semi/wiki/Download).
 
 # Set-up
 To install SeMi, you can use the following [instructions](https://github.com/giuseppefutia/semi/wiki/Installation).
