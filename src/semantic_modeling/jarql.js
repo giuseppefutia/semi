@@ -16,6 +16,10 @@ var write_triple = (subject, predicate, object) => {
     return '    ' + subject + ' ' + predicate + ' ' + object + '.\n';
 }
 
+var write_optional_triple = (subject, predicate, object) => {
+    return '    OPTIONAL { ' + subject + ' ' + predicate + ' ' + object + '. }\n';
+}
+
 var write_bind = (base_uri, attribute_value, reference_entity) => {
     return '    BIND (URI(CONCAT(\'' + base_uri + '\',' + attribute_value + ')) as ' + reference_entity + ')\n';
 }
@@ -81,10 +85,10 @@ var create_semantic_relations = (steiner, st_classes, classes) => {
 
 // TODO: it should be simplified
 /**
- * This function is very important, because it need to create entities from closure classes.
+ * This function is very important, because it creates entities from closure classes.
  * For semantic types, the algorithm has already created new entities exploiting, the
  * entities [0,1,0] field define in the semantic type file.
- * For the closure classes the algorithm needs to create the entities in an automatic way!
+ * For the closure classes the algorithm creates the entities in an automatic way!
  */
 var process_edge_values = (edge_subject, edge_property, edge_object, st_classes, classes) => {
     var triple = {};
@@ -168,16 +172,16 @@ var build_where_triples = (st) => {
             var subject0 = JARQL_ROOT;
             var predicate0 = JARQL + father;
             var object0 = '?' + father;
-            body += write_triple(subject0, predicate0, object0);
+            body += write_optional_triple(subject0, predicate0, object0);
             var subject1 = object0;
             var predicate1 = JARQL + child;
             var object1 = '?' + attributes[i];
-            body += write_triple(subject1, predicate1, object1);
+            body += write_optional_triple(subject1, predicate1, object1);
         } else {
             var subject = JARQL_ROOT;
             var predicate = JARQL + attributes[i];
             var object = '?' + attributes[i];
-            body += write_triple(subject, predicate, object);
+            body += write_optional_triple(subject, predicate, object);
         }
     }
     return body;
