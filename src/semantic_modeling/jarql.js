@@ -2,7 +2,7 @@ var fs = require('fs');
 var utils = require(__dirname + '/utils.js');
 
 var JARQL = 'jarql:';
-var JARQL_ROOT = JARQL + 'root';
+var JARQL_ROOT = '?root';
 
 // TODO Create an iterative call for deep jsons (and related deep semantic types) --> Maybe using keys?
 // TODO rename the variable steiner, because this script is used also for the graph representing all plausible semantic models
@@ -164,6 +164,7 @@ var process_edge_values = (edge_subject, edge_property, edge_object, st_classes,
 var build_where_triples = (st) => {
     var body = '';
     var attributes = st.attributes;
+    body += write_triple('?root', 'a', 'jarql:Root')
     for (var i in attributes) {
         // TODO: For know I check only one level of the tree in semantic types (father and child)
         if (attributes[i].split('__')[1] !== undefined) {
