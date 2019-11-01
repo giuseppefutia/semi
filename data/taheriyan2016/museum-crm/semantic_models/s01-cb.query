@@ -45,15 +45,15 @@ CONSTRUCT {
     ?E54_Dimension0 crm:P1_is_identified_by ?E82_Actor_Appellation0.
 }
 WHERE {
-    OPTIONAL { ?root a jarql:Root . }
-    OPTIONAL { jarql:root jarql:Attribution ?Attribution. }
-    OPTIONAL { jarql:root jarql:Alpha_Sort ?Alpha_Sort. }
-    OPTIONAL { jarql:root jarql:Begin_Date ?Begin_Date. }
-    OPTIONAL { jarql:root jarql:End_Date ?End_Date. }
-    OPTIONAL { jarql:root jarql:Title ?Title. }
-    OPTIONAL { jarql:root jarql:Dated ?Dated. }
-    OPTIONAL { jarql:root jarql:Medium ?Medium. }
-    OPTIONAL { jarql:root jarql:Dimensions ?Dimensions. }
+    ?root a jarql:Root.
+    OPTIONAL { ?root jarql:Attribution ?Attribution. }
+    OPTIONAL { ?root jarql:Alpha_Sort ?Alpha_Sort. }
+    OPTIONAL { ?root jarql:Begin_Date ?Begin_Date. }
+    OPTIONAL { ?root jarql:End_Date ?End_Date. }
+    OPTIONAL { ?root jarql:Title ?Title. }
+    OPTIONAL { ?root jarql:Dated ?Dated. }
+    OPTIONAL { ?root jarql:Medium ?Medium. }
+    OPTIONAL { ?root jarql:Dimensions ?Dimensions. }
     BIND (URI(CONCAT('undefined',?Alpha_Sort)) as ?E82_Actor_Appellation0)
     BIND (URI(CONCAT('undefined',?Title)) as ?E35_Title0)
     BIND (URI(CONCAT('undefined',?Medium)) as ?E55_Type0)
