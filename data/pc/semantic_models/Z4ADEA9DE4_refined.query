@@ -17,6 +17,7 @@ PREFIX xsd:       <http://www.w3.org/2001/XMLSchema#>
 PREFIX conference: <http://conference#>
 PREFIX cmt:       <http://cmt#>
 PREFIX sigkdd:    <http://sigkdd#>
+PREFIX crm:       <http://erlangen-crm.org/current/>
 PREFIX jarql:     <http://jarql.com/>
 
 CONSTRUCT {
@@ -39,18 +40,19 @@ CONSTRUCT {
     ?Tender1 pc:bidder ?BusinessEntity1.
 }
 WHERE {
-    jarql:root jarql:cig ?cig.
-    jarql:root jarql:oggetto ?oggetto.
-    jarql:root jarql:strutturaProponente ?strutturaProponente.
-    ?strutturaProponente jarql:codiceFiscaleProp ?strutturaProponente__codiceFiscaleProp.
-    jarql:root jarql:partecipanti ?partecipanti.
-    ?partecipanti jarql:identificativo ?partecipanti__identificativo.
-    jarql:root jarql:partecipanti ?partecipanti.
-    ?partecipanti jarql:ragioneSociale ?partecipanti__ragioneSociale.
-    jarql:root jarql:aggiudicatari ?aggiudicatari.
-    ?aggiudicatari jarql:identificativo ?aggiudicatari__identificativo.
-    jarql:root jarql:aggiudicatari ?aggiudicatari.
-    ?aggiudicatari jarql:ragioneSociale ?aggiudicatari__ragioneSociale.
+    ?root a jarql:Root.
+    OPTIONAL { ?root jarql:cig ?cig. }
+    OPTIONAL { ?root jarql:oggetto ?oggetto. }
+    OPTIONAL { ?root jarql:strutturaProponente ?strutturaProponente. }
+    OPTIONAL { ?strutturaProponente jarql:codiceFiscaleProp ?strutturaProponente__codiceFiscaleProp. }
+    OPTIONAL { ?root jarql:partecipanti ?partecipanti. }
+    OPTIONAL { ?partecipanti jarql:identificativo ?partecipanti__identificativo. }
+    OPTIONAL { ?root jarql:partecipanti ?partecipanti. }
+    OPTIONAL { ?partecipanti jarql:ragioneSociale ?partecipanti__ragioneSociale. }
+    OPTIONAL { ?root jarql:aggiudicatari ?aggiudicatari. }
+    OPTIONAL { ?aggiudicatari jarql:identificativo ?aggiudicatari__identificativo. }
+    OPTIONAL { ?root jarql:aggiudicatari ?aggiudicatari. }
+    OPTIONAL { ?aggiudicatari jarql:ragioneSociale ?aggiudicatari__ragioneSociale. }
     BIND (URI(CONCAT('http://purl.org/procurement/public-contracts/contract/',?cig)) as ?Contract0)
     BIND (URI(CONCAT('http://purl.org/goodrelations/v1/businessentity/',?strutturaProponente__codiceFiscaleProp)) as ?BusinessEntity0)
     BIND (URI(CONCAT('http://purl.org/goodrelations/v1/businessentity/',?partecipanti__identificativo)) as ?BusinessEntity1)
