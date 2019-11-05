@@ -281,7 +281,7 @@ The output of the training stage is a [JSON file](https://raw.githubusercontent.
 Scores generated during the training stage enable to create a refined semantic model, driven by the importance of the relationships reconstructed using the training KG. You need to run the following command:
 
 ```bash
-node run/refinement.js data/pc/semantic_types/Z4ADEA9DE4_st.json data/pc/model_datasets/scores/pc/6000/score.json data/pc/semantic_models/Z4ADEA9DE4_steiner.json data/pc/semantic_models/Z4ADEA9DE4_graph.json data/pc/semantic_models/Z4ADEA9DE4_refined
+node run/refinement.js data/pc/semantic_types/Z4ADEA9DE4_st.json data/pc/model_datasets/scores/pc/6000/score.json data/pc/semantic_models/Z4ADEA9DE4_steiner.json data/pc/semantic_models/Z4ADEA9DE4_graph.json data/pc/semantic_models/Z4ADEA9DE4
 ```
 
 * `data/pc/semantic_types/Z4ADEA9DE4_st.json` is the [semantic type file](https://raw.githubusercontent.com/giuseppefutia/semi/master/data/pc/semantic_types/Z4ADEA9DE4_st.json).
