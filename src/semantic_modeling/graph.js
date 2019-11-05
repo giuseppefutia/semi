@@ -3,6 +3,7 @@ var graphlib = require('graphlib');
 var rdfstore = require('rdfstore');
 var Graph = require('graphlib').Graph;
 var utils = require(__dirname + '/utils.js');
+var graph_utils = require(__dirname + '/graph_utils.js');
 var sparql = require(__dirname + '/sparql_queries.js');
 
 var ε = 3;
@@ -10,7 +11,6 @@ var ε = 3;
 // TODO: VERY IMPORTANT! Need to manage ontology restrictions for a better mapping
 // TODO: Create an high level representation of node and edge for checking inconsistencies
 // TODO: Semantic_types in semantic type file should be an array of array?
-// TODO: Make a universal API to create nodes and edges
 // TODO: Strange behaviour in returning inherited properties
 
 /**
@@ -61,40 +61,6 @@ var get_class_nodes = (graph) => {
     });
 
     return class_nodes;
-}
-
-
-/**
- * Add semantic types to the graph
- * @param st - JSON structure describing semantic types
- *             See as example: data/pc/semantic_types/Z4ADEA9DE4_st.json
- * @param graph
- * @returns graph enriched with semantic types
- */
-var add_semantic_types = (st, graph) => {
-    var attributes = st['attributes'];
-    var semantic_types = st['semantic_types']; // TODO: Move the function to create inverse edges in the graph.js file
-    var entities = st['entities'];
-    for (var i in attributes) {
-        // Add data node
-        var data_node = attributes[i];
-        graph.setNode(data_node, {
-            type: 'attribute_name',
-            label: data_node
-        });
-        var class_node = semantic_types[i][0].split("***")[0]; // Remember: I put an index here, because I can expect candidates semantic types
-        // Add class node
-        graph.setNode(class_node + entities[i], {
-            type: 'class_uri',
-            label: class_node
-        });
-        // Add edge
-        graph.setEdge(class_node + entities[i], data_node, {
-            label: semantic_types[i][0].split("***")[1],
-            type: 'st_property_uri'
-        }, class_node + entities[i] + "***" + data_node, 1);
-    }
-    return graph;
 }
 
 
@@ -226,7 +192,7 @@ var add_direct_properties = (dps, graph) => {
             var property = dps[i]['property'];
             var object = dps[i]['object'];
             var type = dps[i]['type'];
-            add_edges(graph, subject, property, object, type, 1) // Direct edges have weight = 1
+            graph_utils.add_edges(graph, subject, property, object, type, 1) // Direct edges have weight = 1
         }
         resolve(graph);
     });
@@ -413,38 +379,11 @@ var add_inherited_properties = (inherited_properties, graph) => {
             var object = inherited_properties[i]['object'];
             var type = inherited_properties[i]['type'];
             if (property === 'rdfs:subClassOf')
-                add_edges(graph, subject, property, object, type, 1 / ε) // rdfs:subClassOf indirect edges have weight = 1 / ε
-            else add_edges(graph, subject, property, object, type, 1 + ε) // Indirect edges have weight = 1 + ε
+                graph_utils.add_edges(graph, subject, property, object, type, 1 / ε) // rdfs:subClassOf indirect edges have weight = 1 / ε
+            else graph_utils.add_edges(graph, subject, property, object, type, 1 + ε) // Indirect edges have weight = 1 + ε
         }
         resolve(graph);
     });
-}
-
-/**
- * Support function to add diverse type of edges to the graph
- * @param graph
- * @param subject
- * @param property
- * @param object
- * @param type
- * @param weight
- */
-var add_edges = (graph, subject, property, object, type, weight) => {
-    var nodes = graph.nodes();
-    for (var s in nodes) {
-        var subject_label_node = graph.node(nodes[s])['label'];
-        if (subject_label_node === subject) {
-            for (var o in nodes) {
-                var object_label_node = graph.node(nodes[o])['label'];
-                if (object_label_node === object) {
-                    graph.setEdge(nodes[s], nodes[o], {
-                        label: property,
-                        type: type
-                    }, nodes[s] + '***' + nodes[o], weight);
-                }
-            }
-        }
-    }
 }
 
 
@@ -454,7 +393,6 @@ var add_edges = (graph, subject, property, object, type, weight) => {
  * components, we add a class node with the label owl:Thing to the graph and
  * connect the class nodes that do not have any parent to this root node using
  * a rdfs:subClassOf link.
- * @param super_classes
  * @param graph
  */
 var add_properties_to_thing = (graph) => {
@@ -467,7 +405,7 @@ var add_properties_to_thing = (graph) => {
     for (var c in components) {
         var last_node = components[c].slice(-1)[0];
         var last_class = graph.node(last_node)['label'];
-        add_edges(graph, last_class, 'rdfs:subClassOf', 'owl:Thing', 'inherited', 1 / ε); // Edges to owl:Thing have weight = 1/ε
+        graph_utils.add_edges(graph, last_class, 'rdfs:subClassOf', 'owl:Thing', 'inherited', 1 / ε); // Edges to owl:Thing have weight = 1/ε
     }
 }
 
@@ -535,7 +473,7 @@ var build_graph = (st_path, ont_path, p_domain, p_range, o_class) => {
         // Add semantic types to the graph
         var types = JSON.parse(fs.readFileSync(st_path, 'utf8'));
         for (var t in types) {
-            graph = add_semantic_types(types[t], graph)
+            graph_utils.add_semantic_types(types[t], graph)
         }
         // Promises sequence begins
         var sequence = Promise.resolve();
@@ -631,5 +569,3 @@ var build_graph = (st_path, ont_path, p_domain, p_range, o_class) => {
 }
 
 exports.build_graph = build_graph;
-// Useful also for refinement to build the graph representing the refined semantic model
-exports.add_semantic_types = add_semantic_types;

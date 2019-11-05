@@ -2,6 +2,7 @@ var fs = require('fs');
 var graphlib = require('graphlib');
 var Graph = require('graphlib').Graph;
 var average = require(__dirname + '/average.js');
+var graph_utils = require(__dirname + '/../semantic_modeling/graph_utils.js');
 var graph = require(__dirname + '/../semantic_modeling/graph.js');
 
 
@@ -41,7 +42,7 @@ var reconstruct_sm_graph = (semantic_types, plausible_sm, paths) => {
 
     // Add semantic types
     for (var st of semantic_types) {
-        refined_graph = graph.add_semantic_types(st, refined_graph)
+        refined_graph = graph_utils.add_semantic_types(st, refined_graph)
     }
 
     // For each pair of semantic types set the path in which the average value
