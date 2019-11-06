@@ -1,0 +1,275 @@
+{
+    "options": {
+        "directed": true,
+        "multigraph": true,
+        "compound": false
+    },
+    "nodes": [
+        {
+            "v": "artworkTitle",
+            "value": {
+                "type": "attribute_name",
+                "label": "artworkTitle"
+            }
+        },
+        {
+            "v": "crm:E35_Title1",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E35_Title"
+            }
+        },
+        {
+            "v": "birthDate",
+            "value": {
+                "type": "attribute_name",
+                "label": "birthDate"
+            }
+        },
+        {
+            "v": "crm:E52_Time-Span1",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E52_Time-Span"
+            }
+        },
+        {
+            "v": "deathDate",
+            "value": {
+                "type": "attribute_name",
+                "label": "deathDate"
+            }
+        },
+        {
+            "v": "crm:E52_Time-Span2",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E52_Time-Span"
+            }
+        },
+        {
+            "v": "dateOfStartOfCreation",
+            "value": {
+                "type": "attribute_name",
+                "label": "dateOfStartOfCreation"
+            }
+        },
+        {
+            "v": "crm:E52_Time-Span3",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E52_Time-Span"
+            }
+        },
+        {
+            "v": "dateOfEndOfCreation",
+            "value": {
+                "type": "attribute_name",
+                "label": "dateOfEndOfCreation"
+            }
+        },
+        {
+            "v": "crm:E52_Time-Span4",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E52_Time-Span"
+            }
+        },
+        {
+            "v": "dimensions",
+            "value": {
+                "type": "attribute_name",
+                "label": "dimensions"
+            }
+        },
+        {
+            "v": "crm:E54_Dimension1",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E54_Dimension"
+            }
+        },
+        {
+            "v": "medium",
+            "value": {
+                "type": "attribute_name",
+                "label": "medium"
+            }
+        },
+        {
+            "v": "crm:E55_Type1",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E55_Type"
+            }
+        },
+        {
+            "v": "classification",
+            "value": {
+                "type": "attribute_name",
+                "label": "classification"
+            }
+        },
+        {
+            "v": "crm:E55_Type2",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E55_Type"
+            }
+        },
+        {
+            "v": "nationality",
+            "value": {
+                "type": "attribute_name",
+                "label": "nationality"
+            }
+        },
+        {
+            "v": "crm:E74_Group1",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E74_Group"
+            }
+        },
+        {
+            "v": "artistName",
+            "value": {
+                "type": "attribute_name",
+                "label": "artistName"
+            }
+        },
+        {
+            "v": "crm:E82_Actor_Appellation1",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E82_Actor_Appellation"
+            }
+        },
+        {
+            "v": "creditLine",
+            "value": {
+                "type": "attribute_name",
+                "label": "creditLine"
+            }
+        },
+        {
+            "v": "crm:E8_Acquisition1",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E8_Acquisition"
+            }
+        }
+    ],
+    "edges": [
+        {
+            "v": "crm:E35_Title1",
+            "w": "artworkTitle",
+            "name": "crm:E35_Title1***artworkTitle",
+            "value": {
+                "label": "rdfs:label",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E52_Time-Span1",
+            "w": "birthDate",
+            "name": "crm:E52_Time-Span1***birthDate",
+            "value": {
+                "label": "crm:P82_at_some_time_within",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E52_Time-Span2",
+            "w": "deathDate",
+            "name": "crm:E52_Time-Span2***deathDate",
+            "value": {
+                "label": "crm:P82_at_some_time_within",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E52_Time-Span3",
+            "w": "dateOfStartOfCreation",
+            "name": "crm:E52_Time-Span3***dateOfStartOfCreation",
+            "value": {
+                "label": "crm:P82a_begin_of_the_begin",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E52_Time-Span4",
+            "w": "dateOfEndOfCreation",
+            "name": "crm:E52_Time-Span4***dateOfEndOfCreation",
+            "value": {
+                "label": "crm:P82b_end_of_the_end",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E54_Dimension1",
+            "w": "dimensions",
+            "name": "crm:E54_Dimension1***dimensions",
+            "value": {
+                "label": "crm:P3_has_note",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E55_Type1",
+            "w": "medium",
+            "name": "crm:E55_Type1***medium",
+            "value": {
+                "label": "rdfs:label",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E55_Type2",
+            "w": "classification",
+            "name": "crm:E55_Type2***classification",
+            "value": {
+                "label": "rdfs:label",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E74_Group1",
+            "w": "nationality",
+            "name": "crm:E74_Group1***nationality",
+            "value": {
+                "label": "rdfs:label",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E82_Actor_Appellation1",
+            "w": "artistName",
+            "name": "crm:E82_Actor_Appellation1***artistName",
+            "value": {
+                "label": "rdfs:label",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E8_Acquisition1",
+            "w": "creditLine",
+            "name": "crm:E8_Acquisition1***creditLine",
+            "value": {
+                "label": "crm:P3_has_note",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        }
+    ]
+}

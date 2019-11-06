@@ -1,0 +1,67 @@
+PREFIX schema:    <http://schema.org/>
+PREFIX rdfs:      <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX pc:        <http://purl.org/procurement/public-contracts#>
+PREFIX gr:        <http://purl.org/goodrelations/v1#>
+PREFIX owl:       <http://www.w3.org/2002/07/owl#>
+PREFIX adms:      <http://www.w3.org/ns/adms#>
+PREFIX c4n:       <http://vocab.deri.ie/c4n#>
+PREFIX dcterms:   <http://purl.org/dc/terms/>
+PREFIX foaf:      <http://xmlns.com/foaf/0.1/>
+PREFIX loted:     <http://www.loted.eu/ontology#>
+PREFIX payment:   <http://reference.data.gov.uk/def/payment#>
+PREFIX qb:        <http://purl.org/linked-data/cube#>
+PREFIX rdf:       <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX skos:      <http://www.w3.org/2004/02/skos/core#>
+PREFIX vann:      <http://purl.org/vocab/vann/>
+PREFIX xsd:       <http://www.w3.org/2001/XMLSchema#>
+PREFIX conference: <http://conference#>
+PREFIX cmt:       <http://cmt#>
+PREFIX sigkdd:    <http://sigkdd#>
+PREFIX crm:       <http://erlangen-crm.org/current/>
+PREFIX id:        <http://collection.britishmuseum.org/id/>
+PREFIX idThes:    <http://collection.britishmuseum.org/id/thesauri/>
+PREFIX prov:      <http://www.w3.org/ns/prov#>
+PREFIX bmo:       <http://collection.britishmuseum.org/id/ontology/>
+PREFIX jarql:     <http://jarql.com/>
+
+CONSTRUCT {
+    ?E22_Man-Made_Object1 crm:P3_has_note ?Description.
+    ?E22_Man-Made_Object1 rdf:type crm:E22_Man-Made_Object.
+    ?E38_Image1 http://isi.edu/integration/karma/dev#classLink ?Image.
+    ?E38_Image1 rdf:type crm:E38_Image.
+    ?E52_Time-Span1 crm:P82_at_some_time_within ?AquisitionDate.
+    ?E52_Time-Span1 rdf:type crm:E52_Time-Span.
+    ?E52_Time-Span2 crm:P82_at_some_time_within ?ArtistBornDate.
+    ?E52_Time-Span2 rdf:type crm:E52_Time-Span.
+    ?E52_Time-Span3 crm:P82_at_some_time_within ?ArtistDiedDate.
+    ?E52_Time-Span3 rdf:type crm:E52_Time-Span.
+    ?E52_Time-Span4 crm:P82_at_some_time_within ?DateOfWork.
+    ?E52_Time-Span4 rdf:type crm:E52_Time-Span.
+    ?E54_Dimension1 crm:P3_has_note ?Dimension.
+    ?E54_Dimension1 rdf:type crm:E54_Dimension.
+    ?E55_Type1 rdfs:label ?Classification.
+    ?E55_Type1 rdf:type crm:E55_Type.
+    ?E55_Type2 rdfs:label ?Medium.
+    ?E55_Type2 rdf:type crm:E55_Type.
+    ?E82_Actor_Appellation1 rdfs:label ?Artist.
+    ?E82_Actor_Appellation1 rdf:type crm:E82_Actor_Appellation.
+    ?E82_Actor_Appellation2 rdfs:label ?Title.
+    ?E82_Actor_Appellation2 rdf:type crm:E82_Actor_Appellation.
+    ?E8_Acquisition1 crm:P3_has_note ?CreditLine.
+    ?E8_Acquisition1 rdf:type crm:E8_Acquisition.
+}
+WHERE {
+    ?root a jarql:Root.
+    OPTIONAL { ?root jarql:Description ?Description. }
+    OPTIONAL { ?root jarql:Image ?Image. }
+    OPTIONAL { ?root jarql:AquisitionDate ?AquisitionDate. }
+    OPTIONAL { ?root jarql:ArtistBornDate ?ArtistBornDate. }
+    OPTIONAL { ?root jarql:ArtistDiedDate ?ArtistDiedDate. }
+    OPTIONAL { ?root jarql:DateOfWork ?DateOfWork. }
+    OPTIONAL { ?root jarql:Dimension ?Dimension. }
+    OPTIONAL { ?root jarql:Classification ?Classification. }
+    OPTIONAL { ?root jarql:Medium ?Medium. }
+    OPTIONAL { ?root jarql:Artist ?Artist. }
+    OPTIONAL { ?root jarql:Title ?Title. }
+    OPTIONAL { ?root jarql:CreditLine ?CreditLine. }
+}

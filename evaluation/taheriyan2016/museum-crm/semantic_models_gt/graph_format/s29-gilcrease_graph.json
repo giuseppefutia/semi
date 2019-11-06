@@ -1,0 +1,203 @@
+{
+    "options": {
+        "directed": true,
+        "multigraph": true,
+        "compound": false
+    },
+    "nodes": [
+        {
+            "v": "Description",
+            "value": {
+                "type": "attribute_name",
+                "label": "Description"
+            }
+        },
+        {
+            "v": "crm:E22_Man-Made_Object1",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E22_Man-Made_Object"
+            }
+        },
+        {
+            "v": "Title",
+            "value": {
+                "type": "attribute_name",
+                "label": "Title"
+            }
+        },
+        {
+            "v": "crm:E35_Title1",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E35_Title"
+            }
+        },
+        {
+            "v": "Dated",
+            "value": {
+                "type": "attribute_name",
+                "label": "Dated"
+            }
+        },
+        {
+            "v": "crm:E52_Time-Span1",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E52_Time-Span"
+            }
+        },
+        {
+            "v": "Dimensions",
+            "value": {
+                "type": "attribute_name",
+                "label": "Dimensions"
+            }
+        },
+        {
+            "v": "crm:E54_Dimension1",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E54_Dimension"
+            }
+        },
+        {
+            "v": "Culture",
+            "value": {
+                "type": "attribute_name",
+                "label": "Culture"
+            }
+        },
+        {
+            "v": "crm:E55_Type1",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E55_Type"
+            }
+        },
+        {
+            "v": "Object Name",
+            "value": {
+                "type": "attribute_name",
+                "label": "Object Name"
+            }
+        },
+        {
+            "v": "crm:E55_Type2",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E55_Type"
+            }
+        },
+        {
+            "v": "Medium",
+            "value": {
+                "type": "attribute_name",
+                "label": "Medium"
+            }
+        },
+        {
+            "v": "crm:E55_Type3",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E55_Type"
+            }
+        },
+        {
+            "v": "Attribution",
+            "value": {
+                "type": "attribute_name",
+                "label": "Attribution"
+            }
+        },
+        {
+            "v": "crm:E82_Actor_Appellation1",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E82_Actor_Appellation"
+            }
+        }
+    ],
+    "edges": [
+        {
+            "v": "crm:E22_Man-Made_Object1",
+            "w": "Description",
+            "name": "crm:E22_Man-Made_Object1***Description",
+            "value": {
+                "label": "crm:P3_has_note",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E35_Title1",
+            "w": "Title",
+            "name": "crm:E35_Title1***Title",
+            "value": {
+                "label": "rdfs:label",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E52_Time-Span1",
+            "w": "Dated",
+            "name": "crm:E52_Time-Span1***Dated",
+            "value": {
+                "label": "crm:P82_at_some_time_within",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E54_Dimension1",
+            "w": "Dimensions",
+            "name": "crm:E54_Dimension1***Dimensions",
+            "value": {
+                "label": "crm:P3_has_note",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E55_Type1",
+            "w": "Culture",
+            "name": "crm:E55_Type1***Culture",
+            "value": {
+                "label": "rdfs:label",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E55_Type2",
+            "w": "Object Name",
+            "name": "crm:E55_Type2***Object Name",
+            "value": {
+                "label": "rdfs:label",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E55_Type3",
+            "w": "Medium",
+            "name": "crm:E55_Type3***Medium",
+            "value": {
+                "label": "rdfs:label",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E82_Actor_Appellation1",
+            "w": "Attribution",
+            "name": "crm:E82_Actor_Appellation1***Attribution",
+            "value": {
+                "label": "rdfs:label",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        }
+    ]
+}

@@ -1,0 +1,131 @@
+{
+    "options": {
+        "directed": true,
+        "multigraph": true,
+        "compound": false
+    },
+    "nodes": [
+        {
+            "v": "birth_data_and_place",
+            "value": {
+                "type": "attribute_name",
+                "label": "birth_data_and_place"
+            }
+        },
+        {
+            "v": "crm:E33_Linguistic_Object1",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E33_Linguistic_Object"
+            }
+        },
+        {
+            "v": "long_biography",
+            "value": {
+                "type": "attribute_name",
+                "label": "long_biography"
+            }
+        },
+        {
+            "v": "crm:E33_Linguistic_Object2",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E33_Linguistic_Object"
+            }
+        },
+        {
+            "v": "occupation",
+            "value": {
+                "type": "attribute_name",
+                "label": "occupation"
+            }
+        },
+        {
+            "v": "crm:E33_Linguistic_Object3",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E33_Linguistic_Object"
+            }
+        },
+        {
+            "v": "nationality",
+            "value": {
+                "type": "attribute_name",
+                "label": "nationality"
+            }
+        },
+        {
+            "v": "crm:E74_Group1",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E74_Group"
+            }
+        },
+        {
+            "v": "artist_name",
+            "value": {
+                "type": "attribute_name",
+                "label": "artist_name"
+            }
+        },
+        {
+            "v": "crm:E82_Actor_Appellation1",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E82_Actor_Appellation"
+            }
+        }
+    ],
+    "edges": [
+        {
+            "v": "crm:E33_Linguistic_Object1",
+            "w": "birth_data_and_place",
+            "name": "crm:E33_Linguistic_Object1***birth_data_and_place",
+            "value": {
+                "label": "crm:P3_has_note",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E33_Linguistic_Object2",
+            "w": "long_biography",
+            "name": "crm:E33_Linguistic_Object2***long_biography",
+            "value": {
+                "label": "crm:P3_has_note",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E33_Linguistic_Object3",
+            "w": "occupation",
+            "name": "crm:E33_Linguistic_Object3***occupation",
+            "value": {
+                "label": "crm:P3_has_note",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E74_Group1",
+            "w": "nationality",
+            "name": "crm:E74_Group1***nationality",
+            "value": {
+                "label": "rdfs:label",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E82_Actor_Appellation1",
+            "w": "artist_name",
+            "name": "crm:E82_Actor_Appellation1***artist_name",
+            "value": {
+                "label": "rdfs:label",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        }
+    ]
+}

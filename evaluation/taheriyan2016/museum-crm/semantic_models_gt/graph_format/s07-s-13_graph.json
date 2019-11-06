@@ -1,0 +1,299 @@
+{
+    "options": {
+        "directed": true,
+        "multigraph": true,
+        "compound": false
+    },
+    "nodes": [
+        {
+            "v": "Label_on_page",
+            "value": {
+                "type": "attribute_name",
+                "label": "Label_on_page"
+            }
+        },
+        {
+            "v": "crm:E33_Linguistic_Object1",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E33_Linguistic_Object"
+            }
+        },
+        {
+            "v": "origin",
+            "value": {
+                "type": "attribute_name",
+                "label": "origin"
+            }
+        },
+        {
+            "v": "crm:E33_Linguistic_Object2",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E33_Linguistic_Object"
+            }
+        },
+        {
+            "v": "title",
+            "value": {
+                "type": "attribute_name",
+                "label": "title"
+            }
+        },
+        {
+            "v": "crm:E35_Title1",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E35_Title"
+            }
+        },
+        {
+            "v": "image_url",
+            "value": {
+                "type": "attribute_name",
+                "label": "image_url"
+            }
+        },
+        {
+            "v": "crm:E38_Image1",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E38_Image"
+            }
+        },
+        {
+            "v": "dates",
+            "value": {
+                "type": "attribute_name",
+                "label": "dates"
+            }
+        },
+        {
+            "v": "crm:E52_Time-Span1",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E52_Time-Span"
+            }
+        },
+        {
+            "v": "birth_year",
+            "value": {
+                "type": "attribute_name",
+                "label": "birth_year"
+            }
+        },
+        {
+            "v": "crm:E52_Time-Span2",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E52_Time-Span"
+            }
+        },
+        {
+            "v": "death_year",
+            "value": {
+                "type": "attribute_name",
+                "label": "death_year"
+            }
+        },
+        {
+            "v": "crm:E52_Time-Span3",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E52_Time-Span"
+            }
+        },
+        {
+            "v": "dimension",
+            "value": {
+                "type": "attribute_name",
+                "label": "dimension"
+            }
+        },
+        {
+            "v": "crm:E54_Dimension1",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E54_Dimension"
+            }
+        },
+        {
+            "v": "technique",
+            "value": {
+                "type": "attribute_name",
+                "label": "technique"
+            }
+        },
+        {
+            "v": "crm:E55_Type1",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E55_Type"
+            }
+        },
+        {
+            "v": "nationality",
+            "value": {
+                "type": "attribute_name",
+                "label": "nationality"
+            }
+        },
+        {
+            "v": "crm:E74_Group1",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E74_Group"
+            }
+        },
+        {
+            "v": "name",
+            "value": {
+                "type": "attribute_name",
+                "label": "name"
+            }
+        },
+        {
+            "v": "crm:E82_Actor_Appellation1",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E82_Actor_Appellation"
+            }
+        },
+        {
+            "v": "credit_line",
+            "value": {
+                "type": "attribute_name",
+                "label": "credit_line"
+            }
+        },
+        {
+            "v": "crm:E8_Acquisition1",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E8_Acquisition"
+            }
+        }
+    ],
+    "edges": [
+        {
+            "v": "crm:E33_Linguistic_Object1",
+            "w": "Label_on_page",
+            "name": "crm:E33_Linguistic_Object1***Label_on_page",
+            "value": {
+                "label": "crm:P3_has_note",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E33_Linguistic_Object2",
+            "w": "origin",
+            "name": "crm:E33_Linguistic_Object2***origin",
+            "value": {
+                "label": "crm:P3_has_note",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E35_Title1",
+            "w": "title",
+            "name": "crm:E35_Title1***title",
+            "value": {
+                "label": "rdfs:label",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E38_Image1",
+            "w": "image_url",
+            "name": "crm:E38_Image1***image_url",
+            "value": {
+                "label": "http://isi.edu/integration/karma/dev#classLink",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E52_Time-Span1",
+            "w": "dates",
+            "name": "crm:E52_Time-Span1***dates",
+            "value": {
+                "label": "crm:P82_at_some_time_within",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E52_Time-Span2",
+            "w": "birth_year",
+            "name": "crm:E52_Time-Span2***birth_year",
+            "value": {
+                "label": "crm:P82_at_some_time_within",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E52_Time-Span3",
+            "w": "death_year",
+            "name": "crm:E52_Time-Span3***death_year",
+            "value": {
+                "label": "crm:P82_at_some_time_within",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E54_Dimension1",
+            "w": "dimension",
+            "name": "crm:E54_Dimension1***dimension",
+            "value": {
+                "label": "crm:P3_has_note",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E55_Type1",
+            "w": "technique",
+            "name": "crm:E55_Type1***technique",
+            "value": {
+                "label": "rdfs:label",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E74_Group1",
+            "w": "nationality",
+            "name": "crm:E74_Group1***nationality",
+            "value": {
+                "label": "rdfs:label",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E82_Actor_Appellation1",
+            "w": "name",
+            "name": "crm:E82_Actor_Appellation1***name",
+            "value": {
+                "label": "rdfs:label",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E8_Acquisition1",
+            "w": "credit_line",
+            "name": "crm:E8_Acquisition1***credit_line",
+            "value": {
+                "label": "crm:P3_has_note",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        }
+    ]
+}

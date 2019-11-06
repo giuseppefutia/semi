@@ -1,0 +1,251 @@
+{
+    "options": {
+        "directed": true,
+        "multigraph": true,
+        "compound": false
+    },
+    "nodes": [
+        {
+            "v": "Artwork_in_Focus",
+            "value": {
+                "type": "attribute_name",
+                "label": "Artwork_in_Focus"
+            }
+        },
+        {
+            "v": "crm:E21_Person1",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E21_Person"
+            }
+        },
+        {
+            "v": "Artwork_Details",
+            "value": {
+                "type": "attribute_name",
+                "label": "Artwork_Details"
+            }
+        },
+        {
+            "v": "crm:E22_Man-Made_Object1",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E22_Man-Made_Object"
+            }
+        },
+        {
+            "v": "Title",
+            "value": {
+                "type": "attribute_name",
+                "label": "Title"
+            }
+        },
+        {
+            "v": "crm:E35_Title1",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E35_Title"
+            }
+        },
+        {
+            "v": "Image_URL",
+            "value": {
+                "type": "attribute_name",
+                "label": "Image_URL"
+            }
+        },
+        {
+            "v": "crm:E38_Image1",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E38_Image"
+            }
+        },
+        {
+            "v": "Residence",
+            "value": {
+                "type": "attribute_name",
+                "label": "Residence"
+            }
+        },
+        {
+            "v": "crm:E48_Place_Name1",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E48_Place_Name"
+            }
+        },
+        {
+            "v": "Production_Year",
+            "value": {
+                "type": "attribute_name",
+                "label": "Production_Year"
+            }
+        },
+        {
+            "v": "crm:E52_Time-Span1",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E52_Time-Span"
+            }
+        },
+        {
+            "v": "birth_date",
+            "value": {
+                "type": "attribute_name",
+                "label": "birth_date"
+            }
+        },
+        {
+            "v": "crm:E52_Time-Span2",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E52_Time-Span"
+            }
+        },
+        {
+            "v": "death_date",
+            "value": {
+                "type": "attribute_name",
+                "label": "death_date"
+            }
+        },
+        {
+            "v": "crm:E52_Time-Span3",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E52_Time-Span"
+            }
+        },
+        {
+            "v": "Classification",
+            "value": {
+                "type": "attribute_name",
+                "label": "Classification"
+            }
+        },
+        {
+            "v": "crm:E55_Type1",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E55_Type"
+            }
+        },
+        {
+            "v": "Artist_Name",
+            "value": {
+                "type": "attribute_name",
+                "label": "Artist_Name"
+            }
+        },
+        {
+            "v": "crm:E82_Actor_Appellation1",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E82_Actor_Appellation"
+            }
+        }
+    ],
+    "edges": [
+        {
+            "v": "crm:E21_Person1",
+            "w": "Artwork_in_Focus",
+            "name": "crm:E21_Person1***Artwork_in_Focus",
+            "value": {
+                "label": "crm:P3_has_note",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E22_Man-Made_Object1",
+            "w": "Artwork_Details",
+            "name": "crm:E22_Man-Made_Object1***Artwork_Details",
+            "value": {
+                "label": "crm:P3_has_note",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E35_Title1",
+            "w": "Title",
+            "name": "crm:E35_Title1***Title",
+            "value": {
+                "label": "rdfs:label",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E38_Image1",
+            "w": "Image_URL",
+            "name": "crm:E38_Image1***Image_URL",
+            "value": {
+                "label": "http://isi.edu/integration/karma/dev#classLink",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E48_Place_Name1",
+            "w": "Residence",
+            "name": "crm:E48_Place_Name1***Residence",
+            "value": {
+                "label": "rdfs:label",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E52_Time-Span1",
+            "w": "Production_Year",
+            "name": "crm:E52_Time-Span1***Production_Year",
+            "value": {
+                "label": "crm:P82_at_some_time_within",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E52_Time-Span2",
+            "w": "birth_date",
+            "name": "crm:E52_Time-Span2***birth_date",
+            "value": {
+                "label": "crm:P82_at_some_time_within",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E52_Time-Span3",
+            "w": "death_date",
+            "name": "crm:E52_Time-Span3***death_date",
+            "value": {
+                "label": "crm:P82_at_some_time_within",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E55_Type1",
+            "w": "Classification",
+            "name": "crm:E55_Type1***Classification",
+            "value": {
+                "label": "rdfs:label",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E82_Actor_Appellation1",
+            "w": "Artist_Name",
+            "name": "crm:E82_Actor_Appellation1***Artist_Name",
+            "value": {
+                "label": "rdfs:label",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        }
+    ]
+}
