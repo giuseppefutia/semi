@@ -206,15 +206,15 @@ var build_where_bindings = (st, classes) => {
             binded[reference_entity] = 1;
             var base_uri = instances_uris[semantic_types[i][0].split('***')[0].split(':')[1]]; // Check if this splitter is ok
             var attribute_value = '?' + attributes[i];
-            // Store reference_entity and attribute_value to help the binding of closures
-            cl = {};
-            cl['reference_entity'] = reference_entity;
-            cl['attribute_value'] = attribute_value;
-            closures_support.push(cl);
             // Reference entity should be equal to the subject defined in the construct section
             var bind = write_bind(base_uri, attribute_value, reference_entity);
             body += bind;
         }
+        // Store reference_entity and attribute_value to help the binding of closures
+        cl = {};
+        cl['reference_entity'] = reference_entity;
+        cl['attribute_value'] = '?' + attributes[i];
+        closures_support.push(cl);
     }
 
     // Binding of closure entities
