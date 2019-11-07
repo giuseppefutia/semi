@@ -97,7 +97,12 @@ var PREFIX = {
     'http://www.w3.org/2002/07/owl#': 'owl:',
     'http://conference#': 'conference:',
     'http://cmt#': 'cmt:',
-    'http://sigkdd#': 'sigkdd:'
+    'http://sigkdd#': 'sigkdd:',
+    'http://erlangen-crm.org/current/': 'crm:',
+    'http://collection.britishmuseum.org/id/': 'id:',
+    'http://collection.britishmuseum.org/id/thesauri/': 'idThes:',
+    'http://www.w3.org/ns/prov#': 'prov:',
+    'http://collection.britishmuseum.org/id/ontology/': 'bmo:'
 }
 
 var PREFIX_STRINGS = generate_prefix_string();
