@@ -126,7 +126,6 @@ files.forEach(file_name => {
     var json_graph = graphlib.json.write(g);
     fs.writeFileSync(graph_path + '_graph.json', JSON.stringify(json_graph, null, 4));
 
-
     // Create and store JARQL files from the graph representation
     var classes_path = 'data/taheriyan2016/' + data_folder + '/ontology/classes.json';
     var jarql_path = 'evaluation/taheriyan2016/' + data_folder + '/semantic_models_gt/jarql_format/' + file_name.split('.')[0];
