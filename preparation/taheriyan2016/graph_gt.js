@@ -67,7 +67,6 @@ var create_edge = (edge_object) => {
 // Load data of the ground truth available in JSON format
 var data_folder = process.argv.slice(2)[0];
 var input_folder = 'evaluation/taheriyan2016/' + data_folder + '/semantic_models_gt/json_format/';
-var output_folder = 'evaluation/taheriyan2016/' + data_folder + '/semantic_models_gt/graph_format/';
 
 var files = fs.readdirSync(input_folder);
 files.forEach(file_name => {
@@ -107,7 +106,6 @@ files.forEach(file_name => {
         })
         .map(e_obj => {
             return create_edge(e_obj);
-
         });
 
     // Create and store graph and its beautified version
