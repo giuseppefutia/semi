@@ -91,8 +91,8 @@ files.forEach(file_name => {
             file_name.split('.')[0];
             var output_st =
                 'data/taheriyan2016/' +
-                data_folder + '/semantic_types/' +
-                file_name.split('.')[0] + '_st_auto.json';
+                data_folder + '/semantic_types/auto/' +
+                file_name.split('.')[0] + '_st.json';
 
             // Store semantic types
             fs.writeFileSync(output_st, JSON.stringify(st, null, 4));

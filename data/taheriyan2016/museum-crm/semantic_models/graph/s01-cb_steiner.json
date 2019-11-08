@@ -13,7 +13,7 @@
             }
         },
         {
-            "v": "crm:E82_Actor_Appellation0",
+            "v": "crm:E82_Actor_Appellation1",
             "value": {
                 "type": "class_uri",
                 "label": "crm:E82_Actor_Appellation"
@@ -27,7 +27,7 @@
             }
         },
         {
-            "v": "crm:E52_Time-Span0",
+            "v": "crm:E52_Time-Span2",
             "value": {
                 "type": "class_uri",
                 "label": "crm:E52_Time-Span"
@@ -41,10 +41,24 @@
             }
         },
         {
+            "v": "crm:E52_Time-Span1",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E52_Time-Span"
+            }
+        },
+        {
             "v": "End_Date",
             "value": {
                 "type": "attribute_name",
                 "label": "End_Date"
+            }
+        },
+        {
+            "v": "crm:E52_Time-Span3",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E52_Time-Span"
             }
         },
         {
@@ -55,7 +69,7 @@
             }
         },
         {
-            "v": "crm:E35_Title0",
+            "v": "crm:E35_Title1",
             "value": {
                 "type": "class_uri",
                 "label": "crm:E35_Title"
@@ -69,7 +83,7 @@
             }
         },
         {
-            "v": "crm:E54_Dimension0",
+            "v": "crm:E54_Dimension1",
             "value": {
                 "type": "class_uri",
                 "label": "crm:E54_Dimension"
@@ -83,7 +97,7 @@
             }
         },
         {
-            "v": "crm:E55_Type0",
+            "v": "crm:E55_Type1",
             "value": {
                 "type": "class_uri",
                 "label": "crm:E55_Type"
@@ -114,8 +128,8 @@
     "edges": [
         {
             "v": "Attribution",
-            "w": "crm:E82_Actor_Appellation0",
-            "name": "Attribution***crm:E82_Actor_Appellation0",
+            "w": "crm:E82_Actor_Appellation1",
+            "name": "Attribution***crm:E82_Actor_Appellation1",
             "value": {
                 "type": "st_property_uri",
                 "label": "rdf:label***inverted"
@@ -124,8 +138,8 @@
         },
         {
             "v": "Begin_Date",
-            "w": "crm:E52_Time-Span0",
-            "name": "Begin_Date***crm:E52_Time-Span0",
+            "w": "crm:E52_Time-Span2",
+            "name": "Begin_Date***crm:E52_Time-Span2",
             "value": {
                 "type": "st_property_uri",
                 "label": "crm:P82_at_some_time_within***inverted"
@@ -134,8 +148,8 @@
         },
         {
             "v": "Dated",
-            "w": "crm:E52_Time-Span0",
-            "name": "Dated***crm:E52_Time-Span0",
+            "w": "crm:E52_Time-Span1",
+            "name": "Dated***crm:E52_Time-Span1",
             "value": {
                 "type": "st_property_uri",
                 "label": "crm:P82_at_some_time_within***inverted"
@@ -144,8 +158,8 @@
         },
         {
             "v": "End_Date",
-            "w": "crm:E52_Time-Span0",
-            "name": "End_Date***crm:E52_Time-Span0",
+            "w": "crm:E52_Time-Span3",
+            "name": "End_Date***crm:E52_Time-Span3",
             "value": {
                 "type": "st_property_uri",
                 "label": "crm:P82_at_some_time_within***inverted"
@@ -154,8 +168,8 @@
         },
         {
             "v": "Title",
-            "w": "crm:E35_Title0",
-            "name": "Title***crm:E35_Title0",
+            "w": "crm:E35_Title1",
+            "name": "Title***crm:E35_Title1",
             "value": {
                 "type": "st_property_uri",
                 "label": "rdfs:label***inverted"
@@ -163,9 +177,9 @@
             "weight": 1
         },
         {
-            "v": "crm:E35_Title0",
+            "v": "crm:E35_Title1",
             "w": "crm:E71_Man-Made_Thing",
-            "name": "crm:E35_Title0***crm:E71_Man-Made_Thing",
+            "name": "crm:E35_Title1***crm:E71_Man-Made_Thing",
             "value": {
                 "type": "inherited",
                 "label": "crm:P67i_is_referred_to_by***inverted"
@@ -173,9 +187,9 @@
             "weight": 4
         },
         {
-            "v": "crm:E52_Time-Span0",
-            "w": "crm:E54_Dimension0",
-            "name": "crm:E52_Time-Span0***crm:E54_Dimension0",
+            "v": "crm:E52_Time-Span1",
+            "w": "crm:E54_Dimension1",
+            "name": "crm:E52_Time-Span1***crm:E54_Dimension1",
             "value": {
                 "type": "direct_property_uri",
                 "label": "crm:P84i_was_maximum_duration_of***inverted"
@@ -183,9 +197,29 @@
             "weight": 1
         },
         {
-            "v": "crm:E54_Dimension0",
+            "v": "crm:E52_Time-Span2",
+            "w": "crm:E54_Dimension1",
+            "name": "crm:E52_Time-Span2***crm:E54_Dimension1",
+            "value": {
+                "type": "direct_property_uri",
+                "label": "crm:P84i_was_maximum_duration_of***inverted"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E52_Time-Span3",
+            "w": "crm:E54_Dimension1",
+            "name": "crm:E52_Time-Span3***crm:E54_Dimension1",
+            "value": {
+                "type": "direct_property_uri",
+                "label": "crm:P84i_was_maximum_duration_of***inverted"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E54_Dimension1",
             "w": "Dimensions",
-            "name": "crm:E54_Dimension0***Dimensions",
+            "name": "crm:E54_Dimension1***Dimensions",
             "value": {
                 "label": "crm:P3_has_note",
                 "type": "st_property_uri"
@@ -193,9 +227,9 @@
             "weight": 1
         },
         {
-            "v": "crm:E55_Type0",
+            "v": "crm:E55_Type1",
             "w": "Medium",
-            "name": "crm:E55_Type0***Medium",
+            "name": "crm:E55_Type1***Medium",
             "value": {
                 "label": "rdfs:label",
                 "type": "st_property_uri"
@@ -203,9 +237,9 @@
             "weight": 1
         },
         {
-            "v": "crm:E55_Type0",
+            "v": "crm:E55_Type1",
             "w": "crm:E70_Thing",
-            "name": "crm:E55_Type0***crm:E70_Thing",
+            "name": "crm:E55_Type1***crm:E70_Thing",
             "value": {
                 "type": "direct_property_uri",
                 "label": "crm:P101_had_as_general_use***inverted"
@@ -214,8 +248,8 @@
         },
         {
             "v": "crm:E70_Thing",
-            "w": "crm:E54_Dimension0",
-            "name": "crm:E70_Thing***crm:E54_Dimension0",
+            "w": "crm:E54_Dimension1",
+            "name": "crm:E70_Thing***crm:E54_Dimension1",
             "value": {
                 "type": "direct_property_uri",
                 "label": "crm:P43i_is_dimension_of***inverted"
@@ -224,8 +258,8 @@
         },
         {
             "v": "crm:E71_Man-Made_Thing",
-            "w": "crm:E55_Type0",
-            "name": "crm:E71_Man-Made_Thing***crm:E55_Type0",
+            "w": "crm:E55_Type1",
+            "name": "crm:E71_Man-Made_Thing***crm:E55_Type1",
             "value": {
                 "type": "inherited",
                 "label": "crm:P130i_features_are_also_found_on***inverted"
@@ -233,9 +267,9 @@
             "weight": 4
         },
         {
-            "v": "crm:E82_Actor_Appellation0",
+            "v": "crm:E82_Actor_Appellation1",
             "w": "Alpha_Sort",
-            "name": "crm:E82_Actor_Appellation0***Alpha_Sort",
+            "name": "crm:E82_Actor_Appellation1***Alpha_Sort",
             "value": {
                 "label": "rdfs:label",
                 "type": "st_property_uri"
@@ -243,9 +277,9 @@
             "weight": 1
         },
         {
-            "v": "crm:E82_Actor_Appellation0",
-            "w": "crm:E54_Dimension0",
-            "name": "crm:E82_Actor_Appellation0***crm:E54_Dimension0",
+            "v": "crm:E82_Actor_Appellation1",
+            "w": "crm:E54_Dimension1",
+            "name": "crm:E82_Actor_Appellation1***crm:E54_Dimension1",
             "value": {
                 "type": "inherited",
                 "label": "crm:P1_is_identified_by***inverted"
