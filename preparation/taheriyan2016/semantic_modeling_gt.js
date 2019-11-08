@@ -116,7 +116,18 @@ files.forEach(file_name => {
     graph_utils.add_semantic_types(st[0], g);
 
     for (var e of edges) {
-        graph_utils.add_edges(g, e['subject'], e['property'], e['object'], e['type'], e['weight']);
+        g.setNode(e['subject'], {
+            type: 'class_uri',
+            label: e['subject'].slice(0, -1) // XXX Need to be fixed in case of many nodes of the same type
+        });
+        g.setNode(e['object'], {
+            type: 'class_uri',
+            label: e['object'].slice(0, -1) // XXX Need to be fixed in case of many nodes of the same type
+        });
+        g.setEdge(e['subject'], e['object'], {
+            label: e['property'],
+            type: e['type']
+        }, e['subject'] + '***' + e['property'], e['weight']);
     }
 
     var graph_path = 'evaluation/taheriyan2016/' + data_folder + '/semantic_models_gt/graph_format/' + file_name.split('.')[0];
@@ -125,6 +136,7 @@ files.forEach(file_name => {
     fs.writeFileSync(graph_path + '_graph.json', JSON.stringify(json_graph, null, 4));
 
     // Create and store JARQL files from the graph representation
+    console.log(file_name);
     var classes_path = 'data/taheriyan2016/' + data_folder + '/ontology/classes.json';
     var jarql_path = 'evaluation/taheriyan2016/' + data_folder + '/semantic_models_gt/jarql_format/' + file_name.split('.')[0];
     var classes = JSON.parse(fs.readFileSync(classes_path))['classes'];
