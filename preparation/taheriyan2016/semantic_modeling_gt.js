@@ -66,7 +66,7 @@ var create_edge = (edge_object) => {
 
 // Load data of the ground truth available in JSON format
 var data_folder = process.argv.slice(2)[0];
-var input_folder = 'evaluation/taheriyan2016/' + data_folder + '/semantic_models_gt/json_format/';
+var input_folder = 'evaluation/taheriyan2016/' + data_folder + '/semantic_models_gt/json/';
 
 var files = fs.readdirSync(input_folder);
 files.forEach(file_name => {
@@ -130,15 +130,14 @@ files.forEach(file_name => {
         }, e['subject'] + '***' + e['property'], e['weight']);
     }
 
-    var graph_path = 'evaluation/taheriyan2016/' + data_folder + '/semantic_models_gt/graph_format/' + file_name.split('.')[0];
+    var graph_path = 'evaluation/taheriyan2016/' + data_folder + '/semantic_models_gt/graph/' + file_name.split('.')[0];
     fs.writeFileSync(graph_path + '.graph', JSON.stringify(g, null, 4));
     var json_graph = graphlib.json.write(g);
     fs.writeFileSync(graph_path + '_graph.json', JSON.stringify(json_graph, null, 4));
 
     // Create and store JARQL files from the graph representation
-    console.log(file_name);
     var classes_path = 'data/taheriyan2016/' + data_folder + '/ontology/classes.json';
-    var jarql_path = 'evaluation/taheriyan2016/' + data_folder + '/semantic_models_gt/jarql_format/' + file_name.split('.')[0];
+    var jarql_path = 'evaluation/taheriyan2016/' + data_folder + '/semantic_models_gt/jarql/' + file_name.split('.')[0];
     var classes = JSON.parse(fs.readFileSync(classes_path))['classes'];
     var jarql_to_print = jarql.build_jarql(st[0], graphlib.json.write(g), classes_path);
     fs.writeFileSync(jarql_path + '.query', jarql_to_print);

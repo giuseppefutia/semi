@@ -27,9 +27,9 @@ PREFIX jarql:     <http://jarql.com/>
 CONSTRUCT {
     ?E35_Title1 rdfs:label ?Title.
     ?E35_Title1 rdf:type crm:E35_Title.
-    ?E52_Time-Span1 crm:P82_at_some_time_within ?Begin Date.
+    ?E52_Time-Span1 crm:P82_at_some_time_within ?Begin_Date.
     ?E52_Time-Span1 rdf:type crm:E52_Time-Span.
-    ?E52_Time-Span2 crm:P82_at_some_time_within ?End Date.
+    ?E52_Time-Span2 crm:P82_at_some_time_within ?End_Date.
     ?E52_Time-Span2 rdf:type crm:E52_Time-Span.
     ?E52_Time-Span3 crm:P82_at_some_time_within ?Dated.
     ?E52_Time-Span3 rdf:type crm:E52_Time-Span.
@@ -39,14 +39,31 @@ CONSTRUCT {
     ?E55_Type1 rdf:type crm:E55_Type.
     ?E82_Actor_Appellation1 rdfs:label ?Attribution.
     ?E82_Actor_Appellation1 rdf:type crm:E82_Actor_Appellation.
+    ?E12_Production10 crm:P14_carried_out_by ?E21_Person1.
+    ?E12_Production11 crm:P32_used_general_technique ?E55_Type1.
+    ?E12_Production13 crm:P4_has_time-span ?E52_Time-Span3.
+    ?E21_Person10 crm:P100i_died_in ?E69_Death1.
+    ?E21_Person11 crm:P131_is_identified_by ?E82_Actor_Appellation1.
+    ?E21_Person12 crm:P98i_was_born ?E67_Birth1.
+    ?E22_Man-Made_Object11 crm:P102_has_title ?E35_Title1.
+    ?E22_Man-Made_Object13 crm:P108i_was_produced_by ?E12_Production101.
+    ?E22_Man-Made_Object11 crm:P43_has_dimension ?E54_Dimension1.
+    ?E67_Birth11 crm:P4_has_time-span ?E52_Time-Span1.
+    ?E69_Death12 crm:P4_has_time-span ?E52_Time-Span2.
 }
 WHERE {
     ?root a jarql:Root.
     OPTIONAL { ?root jarql:Title ?Title. }
-    OPTIONAL { ?root jarql:Begin Date ?Begin Date. }
-    OPTIONAL { ?root jarql:End Date ?End Date. }
+    OPTIONAL { ?root jarql:Begin_Date ?Begin_Date. }
+    OPTIONAL { ?root jarql:End_Date ?End_Date. }
     OPTIONAL { ?root jarql:Dated ?Dated. }
     OPTIONAL { ?root jarql:Dimensions ?Dimensions. }
     OPTIONAL { ?root jarql:Medium ?Medium. }
     OPTIONAL { ?root jarql:Attribution ?Attribution. }
+    BIND (URI(CONCAT('undefined',?Medium)) as ?E12_Production11)
+    BIND (URI(CONCAT('undefined',?Dated)) as ?E12_Production13)
+    BIND (URI(CONCAT('undefined',?Attribution)) as ?E21_Person11)
+    BIND (URI(CONCAT('undefined',?Title)) as ?E22_Man-Made_Object11)
+    BIND (URI(CONCAT('undefined',?Begin_Date)) as ?E67_Birth11)
+    BIND (URI(CONCAT('undefined',?End_Date)) as ?E69_Death12)
 }

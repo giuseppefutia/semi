@@ -51,6 +51,21 @@ CONSTRUCT {
     ?E82_Actor_Appellation1 rdf:type crm:E82_Actor_Appellation.
     ?E82_Actor_Appellation2 rdfs:label ?Artist Name.
     ?E82_Actor_Appellation2 rdf:type crm:E82_Actor_Appellation.
+    ?E12_Production11 crm:P14_carried_out_by ?E21_Person12.
+    ?E12_Production12 crm:P32_used_general_technique ?E55_Type2.
+    ?E12_Production13 crm:P4_has_time-span ?E52_Time-Span3.
+    ?E21_Person12 crm:P100i_died_in ?E69_Death16.
+    ?E21_Person11 crm:P107i_is_current_or_former_member_of ?E74_Group1.
+    ?E21_Person11 crm:P131_is_identified_by ?E82_Actor_Appellation1.
+    ?E21_Person12 crm:P98i_was_born ?E67_Birth15.
+    ?E22_Man-Made_Object11 crm:P102_has_title ?E35_Title1.
+    ?E22_Man-Made_Object11 crm:P104_is_subject_to ?E30_Right1.
+    ?E22_Man-Made_Object13 crm:P108i_was_produced_by ?E12_Production10177.
+    ?E22_Man-Made_Object11 crm:P2_has_type ?E55_Type1.
+    ?E22_Man-Made_Object11 crm:P43_has_dimension ?E54_Dimension1.
+    ?E22_Man-Made_Object11 crm:P51_has_former_or_current_owner ?E40_Legal_Body1.
+    ?E67_Birth11 crm:P4_has_time-span ?E52_Time-Span1.
+    ?E69_Death12 crm:P4_has_time-span ?E52_Time-Span2.
 }
 WHERE {
     ?root a jarql:Root.
@@ -67,4 +82,11 @@ WHERE {
     OPTIONAL { ?root jarql:Artist Nationality ?Artist Nationality. }
     OPTIONAL { ?root jarql:Artist Appellation ?Artist Appellation. }
     OPTIONAL { ?root jarql:Artist Name ?Artist Name. }
+    BIND (URI(CONCAT('undefined',?Object Work Type)) as ?E12_Production11)
+    BIND (URI(CONCAT('undefined',?Object Earliest Date)) as ?E12_Production13)
+    BIND (URI(CONCAT('undefined',?Artist Appellation)) as ?E21_Person11)
+    BIND (URI(CONCAT('undefined',?Object Title)) as ?E22_Man-Made_Object11)
+    BIND (URI(CONCAT('undefined',?Artist Birth Date)) as ?E67_Birth11)
+    BIND (URI(CONCAT('undefined',?Artist Death Date)) as ?E69_Death12)
+    BIND (URI(CONCAT('undefined',?Object Facet Value 1)) as ?E12_Production12)
 }
