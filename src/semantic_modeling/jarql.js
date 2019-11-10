@@ -7,11 +7,6 @@ var JARQL_ROOT = '?root';
 // TODO Create an iterative call for deep jsons (and related deep semantic types) --> Maybe using keys?
 // TODO rename the variable steiner, because this script is used also for the graph representing all plausible semantic models
 
-// XXX Pay attention to these global variables: for now it is a bad choice,
-// but I run jarql.js for each file, so it should be enough safe
-var closure_entities = [];
-var closure_references = [];
-
 var write_triple = (subject, predicate, object) => {
     return '    ' + subject + ' ' + predicate + ' ' + object + '.\n';
 }
@@ -31,7 +26,7 @@ var build_prefix = () => {
 /**
  * INIT OF CONSTRUCT SECTION
  */
-var build_construct = (st, steiner, classes) => {
+var build_construct = (st, steiner, classes, closure_entities, closure_references) => {
     var construct = {};
     var body = '';
     var initial = 'CONSTRUCT {\n';
@@ -56,11 +51,11 @@ var build_construct = (st, steiner, classes) => {
     }
 
     // Create semantic_relations
-    body += create_semantic_relations(steiner, st_classes, classes);
+    body += create_semantic_relations(steiner, st_classes, classes, closure_entities, closure_references);
     return initial + body + final;
 }
 
-var create_semantic_relations = (steiner, st_classes, classes) => {
+var create_semantic_relations = (steiner, st_classes, classes, closure_entities, closure_references) => {
     var semantic_relations = {};
     var body = '';
     var nodes = steiner.nodes;
@@ -70,11 +65,11 @@ var create_semantic_relations = (steiner, st_classes, classes) => {
         if (edges[i].value.type !== 'st_property_uri') { // Semantic types are already managed in build_construct
             var label = edges[i].value.label;
             if (label.indexOf('inverted') === -1) {
-                var triple = process_edge_values(edges[i].v, label, edges[i].w, st_classes, classes);
+                var triple = process_edge_values(edges[i].v, label, edges[i].w, st_classes, classes, closure_entities, closure_references);
                 body += write_triple(triple['subject'], triple['property'], triple['object']);
             } else {
                 var subject = '?' + edges[i].w.split(':')[1];
-                var triple = process_edge_values(edges[i].w, label.split('***')[0], edges[i].v, st_classes, classes);
+                var triple = process_edge_values(edges[i].w, label.split('***')[0], edges[i].v, st_classes, classes, closure_entities, closure_references);
                 body += write_triple(triple['subject'], triple['property'], triple['object']);
             }
         }
@@ -90,7 +85,8 @@ var create_semantic_relations = (steiner, st_classes, classes) => {
  * entities [0,1,0] field define in the semantic type file.
  * For the closure classes the algorithm creates the entities in an automatic way!
  */
-var process_edge_values = (edge_subject, edge_property, edge_object, st_classes, classes) => {
+var process_edge_values = (edge_subject, edge_property, edge_object, st_classes, classes, closure_entities, closure_references) => {
+    console.log(closure_entities);
     var triple = {};
     var instances_uris = utils.generate_instance_uris(classes);
 
@@ -115,7 +111,13 @@ var process_edge_values = (edge_subject, edge_property, edge_object, st_classes,
         else {
             // Get last element of the subject (in other words its index)
             var st_index = subject.slice(-1)
-            object = object + st_index;
+
+            // Check if the object has already an index
+            var object_last_char = object.charAt(object.length - 1);
+            if (isNaN(parseInt(object_last_char))) {
+                object = object + st_index;
+            }
+
             closure_entities.push(object);
             closure_references.push(subject);
         }
@@ -123,7 +125,16 @@ var process_edge_values = (edge_subject, edge_property, edge_object, st_classes,
         // The object is a semantic type and the subject is not
         // Get the last element of the object (in other words its index)
         var st_index = object.slice(-1);
-        subject = subject + st_index;
+
+        // Check if the subject has already an index
+        var subject_last_char = subject.charAt(subject.length - 1);
+        console.log(subject);
+        console.log(subject_last_char);
+        if (isNaN(parseInt(subject_last_char))) {
+            subject = subject + st_index;
+            console.log('cazzo')
+        }
+
         closure_entities.push(subject);
         closure_references.push(object);
         if (object === '?Thing') object = 'owl:Thing';
@@ -135,7 +146,13 @@ var process_edge_values = (edge_subject, edge_property, edge_object, st_classes,
             var index = closure_entities.indexOf(subject_matches[s]);
             if (index > subject_index) subject_index = index;
         }
-        subject = subject + subject_index;
+
+        // Check if the subject has already an index
+        var subject_last_char = subject.charAt(subject.length - 1);
+        if (isNaN(parseInt(subject_last_char))) {
+            subject = subject + st_index;
+        }
+
         if (object === '?Thing') object = 'owl:Thing';
         else {
             var object_matches = closure_entities.filter(s => s.includes(object))
@@ -143,7 +160,13 @@ var process_edge_values = (edge_subject, edge_property, edge_object, st_classes,
             for (o in object_matches) {
                 var index = closure_entities.indexOf(object_matches[o]);
                 if (index > object_index) object_index = index;
-                object = object + object_index;
+
+                // Check if the object has already an index
+                var object_last_char = object.charAt(object.length - 1);
+                if (isNaN(parseInt(object_last_char))) {
+                    object = object + st_index;
+                }
+
             }
         }
     }
@@ -188,7 +211,7 @@ var build_where_triples = (st) => {
     return body;
 }
 
-var build_where_bindings = (st, classes) => {
+var build_where_bindings = (st, classes, closure_entities, closure_references) => {
     var body = '';
     var instances_uris = utils.generate_instance_uris(classes);
     var attributes = st.attributes;
@@ -232,16 +255,15 @@ var build_where_bindings = (st, classes) => {
             body += bind;
         }
     }
-
     return body;
 }
 
-var build_where = (st, cl) => {
+var build_where = (st, cl, closure_entities, closure_references) => {
     var body = ''
     var initial = 'WHERE {\n';
     var final = '}';
     var triples = build_where_triples(st);
-    var bindings = build_where_bindings(st, cl);
+    var bindings = build_where_bindings(st, cl, closure_entities, closure_references);
     return initial + triples + bindings + final;
 }
 /**
@@ -249,9 +271,11 @@ var build_where = (st, cl) => {
  */
 
 var build_jarql = (semantic_types, steiner_tree, classes) => {
+    var closure_entities = [];
+    var closure_references = [];
     var prefix_section = build_prefix().replace(/^ +/gm, ''); // Remove white space at each line
-    var construct_section = build_construct(semantic_types, steiner_tree, classes);
-    var where_section = build_where(semantic_types, classes);
+    var construct_section = build_construct(semantic_types, steiner_tree, classes, closure_entities, closure_references);
+    var where_section = build_where(semantic_types, classes, closure_entities, closure_references);
     var jarql_string = prefix_section + construct_section + where_section;
     return jarql_string;
 }
