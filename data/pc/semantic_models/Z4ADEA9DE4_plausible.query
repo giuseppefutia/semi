@@ -18,6 +18,10 @@ PREFIX conference: <http://conference#>
 PREFIX cmt:       <http://cmt#>
 PREFIX sigkdd:    <http://sigkdd#>
 PREFIX crm:       <http://erlangen-crm.org/current/>
+PREFIX id:        <http://collection.britishmuseum.org/id/>
+PREFIX idThes:    <http://collection.britishmuseum.org/id/thesauri/>
+PREFIX prov:      <http://www.w3.org/ns/prov#>
+PREFIX bmo:       <http://collection.britishmuseum.org/id/ontology/>
 PREFIX jarql:     <http://jarql.com/>
 
 CONSTRUCT {
@@ -41,9 +45,13 @@ CONSTRUCT {
     ?Contract0 pc:frameworkAgreement ?FrameworkAgreement0.
     ?Contract0 pc:tender ?Tender0.
     ?Contract0 pc:awardCriteriaCombination ?AwardCriteriaCombination0.
+    ?Contract0 pc:location ?Place0.
+    ?Contract0 pc:contractPrice ?PriceSpecification0.
+    ?Contract0 pc:documentationPrice ?PriceSpecification0.
     ?TendersOpening0 pc:contract ?Contract0.
     ?Tender0 pc:bidder ?BusinessEntity0.
     ?Tender1 pc:bidder ?BusinessEntity1.
+    ?Tender8 pc:offeredPrice ?PriceSpecification44.
 }
 WHERE {
     ?root a jarql:Root.
@@ -65,6 +73,8 @@ WHERE {
     BIND (URI(CONCAT('http://purl.org/procurement/public-contracts/frameworkagreement/',?cig)) as ?FrameworkAgreement0)
     BIND (URI(CONCAT('http://purl.org/procurement/public-contracts/tender/',?cig)) as ?Tender0)
     BIND (URI(CONCAT('http://purl.org/procurement/public-contracts/awardcriteriacombination/',?cig)) as ?AwardCriteriaCombination0)
+    BIND (URI(CONCAT('http://schema.org//place/',?cig)) as ?Place0)
+    BIND (URI(CONCAT('http://purl.org/goodrelations/v1/pricespecification/',?cig)) as ?PriceSpecification0)
     BIND (URI(CONCAT('http://purl.org/procurement/public-contracts/tendersopening/',?cig)) as ?TendersOpening0)
     BIND (URI(CONCAT('http://purl.org/procurement/public-contracts/tender/',?partecipanti__identificativo)) as ?Tender1)
 }
