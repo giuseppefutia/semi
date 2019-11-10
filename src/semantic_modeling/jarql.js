@@ -86,7 +86,6 @@ var create_semantic_relations = (steiner, st_classes, classes, closure_entities,
  * For the closure classes the algorithm creates the entities in an automatic way!
  */
 var process_edge_values = (edge_subject, edge_property, edge_object, st_classes, classes, closure_entities, closure_references) => {
-    console.log(closure_entities);
     var triple = {};
     var instances_uris = utils.generate_instance_uris(classes);
 
@@ -128,11 +127,8 @@ var process_edge_values = (edge_subject, edge_property, edge_object, st_classes,
 
         // Check if the subject has already an index
         var subject_last_char = subject.charAt(subject.length - 1);
-        console.log(subject);
-        console.log(subject_last_char);
         if (isNaN(parseInt(subject_last_char))) {
             subject = subject + st_index;
-            console.log('cazzo')
         }
 
         closure_entities.push(subject);
