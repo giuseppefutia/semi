@@ -2,17 +2,23 @@
     {
         "attributes": [
             "values",
+            "artist_uri",
             "birthValue",
             "deathValue",
+            "artist_appellation_uri",
             "values"
         ],
         "entities": [
             1,
+            2,
             1,
             2,
-            1
+            1,
+            2
         ],
         "uris": [
+            false,
+            false,
             false,
             false,
             false,
@@ -23,10 +29,16 @@
                 "crm:E39_Actor***crm:P3_has_note"
             ],
             [
+                "crm:E39_Actor***http://isi.edu/integration/karma/dev#classLink"
+            ],
+            [
                 "crm:E52_Time-Span***crm:P82_at_some_time_within"
             ],
             [
                 "crm:E52_Time-Span***crm:P82_at_some_time_within"
+            ],
+            [
+                "crm:E82_Actor_Appellation***http://isi.edu/integration/karma/dev#classLink"
             ],
             [
                 "crm:E82_Actor_Appellation***rdfs:label"

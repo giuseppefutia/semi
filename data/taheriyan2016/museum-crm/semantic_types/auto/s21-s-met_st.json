@@ -1,19 +1,27 @@
 [
     {
         "attributes": [
+            "artistURI",
+            "objectURI",
             "artworkTitle",
             "birthDate",
             "deathDate",
             "dateOfStartOfCreation",
             "dateOfEndOfCreation",
             "dimensions",
+            "medium_URI",
             "medium",
+            "classification_URI",
             "classification",
+            "nationality_URI",
             "nationality",
+            "artistAppellationURI",
             "artistName",
             "creditLine"
         ],
         "entities": [
+            1,
+            1,
             1,
             1,
             2,
@@ -22,8 +30,12 @@
             1,
             1,
             2,
+            3,
+            4,
             1,
+            2,
             1,
+            2,
             1
         ],
         "uris": [
@@ -37,9 +49,21 @@
             false,
             false,
             false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
             false
         ],
         "semantic_types": [
+            [
+                "crm:E21_Person***http://isi.edu/integration/karma/dev#classLink"
+            ],
+            [
+                "crm:E22_Man-Made_Object***http://isi.edu/integration/karma/dev#classLink"
+            ],
             [
                 "crm:E35_Title***rdfs:label"
             ],
@@ -59,13 +83,25 @@
                 "crm:E54_Dimension***crm:P3_has_note"
             ],
             [
-                "crm:E55_Type***rdfs:label"
+                "crm:E55_Type***http://isi.edu/integration/karma/dev#classLink"
             ],
             [
                 "crm:E55_Type***rdfs:label"
+            ],
+            [
+                "crm:E55_Type***http://isi.edu/integration/karma/dev#classLink"
+            ],
+            [
+                "crm:E55_Type***rdfs:label"
+            ],
+            [
+                "crm:E74_Group***http://isi.edu/integration/karma/dev#classLink"
             ],
             [
                 "crm:E74_Group***rdfs:label"
+            ],
+            [
+                "crm:E82_Actor_Appellation***http://isi.edu/integration/karma/dev#classLink"
             ],
             [
                 "crm:E82_Actor_Appellation***rdfs:label"

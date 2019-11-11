@@ -1,12 +1,15 @@
 [
     {
         "attributes": [
+            "artist_uri",
             "description",
             "title",
             "image",
             "year",
+            "technique_uri",
             "technique",
             "name",
+            "artist_appellation_uri",
             "artist"
         ],
         "entities": [
@@ -16,9 +19,15 @@
             1,
             1,
             1,
-            1
+            2,
+            1,
+            1,
+            2
         ],
         "uris": [
+            false,
+            false,
+            false,
             false,
             false,
             false,
@@ -28,6 +37,9 @@
             false
         ],
         "semantic_types": [
+            [
+                "crm:E21_Person***http://isi.edu/integration/karma/dev#classLink"
+            ],
             [
                 "crm:E22_Man-Made_Object***crm:P3_has_note"
             ],
@@ -41,10 +53,16 @@
                 "crm:E52_Time-Span***crm:P82_at_some_time_within"
             ],
             [
+                "crm:E55_Type***http://isi.edu/integration/karma/dev#classLink"
+            ],
+            [
                 "crm:E55_Type***rdfs:label"
             ],
             [
                 "crm:E78_Collection***rdfs:label"
+            ],
+            [
+                "crm:E82_Actor_Appellation***http://isi.edu/integration/karma/dev#classLink"
             ],
             [
                 "crm:E82_Actor_Appellation***rdfs:label"

@@ -1,13 +1,17 @@
 [
     {
         "attributes": [
+            "artist_uri",
+            "object_uri",
             "title",
             "image_url",
             "birth_date",
             "death_date",
             "made",
             "dim",
+            "nationality_URI",
             "nationality",
+            "artist_appellation_uri",
             "artist",
             "prov"
         ],
@@ -15,11 +19,15 @@
             1,
             1,
             1,
+            1,
+            1,
             2,
             3,
             1,
             1,
+            2,
             1,
+            2,
             1
         ],
         "uris": [
@@ -31,9 +39,19 @@
             false,
             false,
             false,
+            false,
+            false,
+            false,
+            false,
             false
         ],
         "semantic_types": [
+            [
+                "crm:E21_Person***http://isi.edu/integration/karma/dev#classLink"
+            ],
+            [
+                "crm:E22_Man-Made_Object***http://isi.edu/integration/karma/dev#classLink"
+            ],
             [
                 "crm:E35_Title***rdfs:label"
             ],
@@ -53,7 +71,13 @@
                 "crm:E54_Dimension***crm:P3_has_note"
             ],
             [
+                "crm:E74_Group***http://isi.edu/integration/karma/dev#classLink"
+            ],
+            [
                 "crm:E74_Group***rdfs:label"
+            ],
+            [
+                "crm:E82_Actor_Appellation***http://isi.edu/integration/karma/dev#classLink"
             ],
             [
                 "crm:E82_Actor_Appellation***rdfs:label"

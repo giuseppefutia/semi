@@ -1,20 +1,29 @@
 [
     {
         "attributes": [
+            "artist_uri",
             "title",
             "birthDate",
             "deathDate",
+            "nationality_URI",
             "nationality",
+            "artist_appellation_uri",
             "name"
         ],
         "entities": [
             1,
             1,
+            1,
             2,
             1,
-            1
+            2,
+            1,
+            2
         ],
         "uris": [
+            false,
+            false,
+            false,
             false,
             false,
             false,
@@ -22,6 +31,9 @@
             false
         ],
         "semantic_types": [
+            [
+                "crm:E21_Person***http://isi.edu/integration/karma/dev#classLink"
+            ],
             [
                 "crm:E35_Title***rdfs:label"
             ],
@@ -32,7 +44,13 @@
                 "crm:E52_Time-Span***crm:P82_at_some_time_within"
             ],
             [
+                "crm:E74_Group***http://isi.edu/integration/karma/dev#classLink"
+            ],
+            [
                 "crm:E74_Group***rdfs:label"
+            ],
+            [
+                "crm:E82_Actor_Appellation***http://isi.edu/integration/karma/dev#classLink"
             ],
             [
                 "crm:E82_Actor_Appellation***rdfs:label"
