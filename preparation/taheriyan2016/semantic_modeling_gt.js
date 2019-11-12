@@ -26,28 +26,6 @@ var get_base_uri = (uri) =>
         return uri.includes(key);
     });
 
-var create_st = (st, stored_st, column, node) => {
-    // Fill attributes
-    st[0]['attributes'].push(column['columnName']);
-
-    // Fill uris
-    st[0]['uris'].push(false);
-
-    // Fill semantic types
-    var st_domain = node['userSemanticTypes'][0]['domain']['uri'];
-    var class_base_uri = get_base_uri(st_domain);
-    var st_class = st_domain.replace(class_base_uri, PREFIX[class_base_uri]);
-    var st_type = node['userSemanticTypes'][0]['type']['uri'];
-    var prop_base_uri = get_base_uri(st_type);
-    var st_property = st_type.replace(prop_base_uri, PREFIX[prop_base_uri]);
-    st[0]['semantic_types'].push([st_class + '***' + st_property]);
-
-    // Fill index of entities
-    if (stored_st[st_domain] === undefined) stored_st[st_domain] = 1;
-    else stored_st[st_domain]++;
-    st[0]['entities'].push(stored_st[st_domain]);
-}
-
 var create_edge = (edge_object) => {
     // Create new edge representation using the old edge representation
     var edge = {};
@@ -71,33 +49,7 @@ var input_folder = 'evaluation/taheriyan2016/' + data_folder + '/semantic_models
 var files = fs.readdirSync(input_folder);
 files.forEach(file_name => {
     var gt = JSON.parse(fs.readFileSync(input_folder + file_name, 'utf-8'));
-    var gt_nodes = gt['graph']['nodes'];
     var gt_edges = gt['graph']['links'];
-
-    // Create and store semantic type file using nodes information of the ground truth
-    var columns = array_to_object(gt['sourceColumns'], 'id');
-    var st = [{}];
-    var stored_st = {}
-
-    st[0]['attributes'] = [];
-    st[0]['entities'] = [];
-    st[0]['uris'] = [];
-    st[0]['semantic_types'] = [];
-
-    for (var n of gt_nodes) {
-        var column = columns[n['id']];
-        if (column !== undefined && column['columnName'].toLowerCase().indexOf('uri') === -1) {
-            create_st(st, stored_st, column, n);
-            file_name.split('.')[0];
-            var output_st =
-                'data/taheriyan2016/' +
-                data_folder + '/semantic_types/auto/' +
-                file_name.split('.')[0] + '_st.json';
-
-            // Store semantic types
-            fs.writeFileSync(output_st, JSON.stringify(st, null, 4));
-        }
-    }
 
     // Create edges
     var edges = gt_edges
@@ -135,6 +87,7 @@ files.forEach(file_name => {
     var json_graph = graphlib.json.write(g);
     fs.writeFileSync(graph_path + '_graph.json', JSON.stringify(json_graph, null, 4));
 
+    // XXX The generation of the JARQL should be managed outside (after the manual creation of semantic types)
     // Create and store JARQL files from the graph representation
     var classes_path = 'data/taheriyan2016/' + data_folder + '/ontology/classes.json';
     var jarql_path = 'evaluation/taheriyan2016/' + data_folder + '/semantic_models_gt/jarql/' + file_name.split('.')[0];

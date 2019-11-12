@@ -5,7 +5,7 @@ var xmljson = require('xml2json');
 
 /**
  *
- * Process and clean taheriyan2016 sources data to prepare JSONs for SeMi
+ * Process taheriyan2016 sources data to prepare JSONs for SeMi
  *
  */
 

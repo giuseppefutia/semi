@@ -14,12 +14,14 @@ const PREFIX = utils.get_prefix();
  **/
 
 var data_folder = process.argv.slice(2)[0];
+var input_file = process.argv.slice(3)[0];
 var input_folder = 'data/taheriyan2016/' + data_folder + '/sources/updated_json/';
 var files = fs.readdirSync(input_folder);
-files.forEach(file_name => {
+
+var generate_sm = (file_name) => {
     var input_path = input_folder + file_name;
     var f = file_name.split('.')[0];
-    var st_path = 'data/taheriyan2016/' + data_folder + '/semantic_types/manual/' + f + '_st.json';
+    var st_path = 'data/taheriyan2016/' + data_folder + '/semantic_types/updated/' + f + '_st.json';
     var o_path = 'data/taheriyan2016/' + data_folder + '/ontology/ontology.ttl';
     var classes_path = 'data/taheriyan2016/' + data_folder + '/ontology/classes.json';
     var p_domain = 'rdfs:domain';
@@ -30,6 +32,7 @@ files.forEach(file_name => {
 
     graph.build_graph(st_path, o_path, p_domain, p_range, o_class)
         .then(function(multi_graph) {
+            console.log('\nProcessing ' + file_name + ' ...\n');
 
             var f = file_name.split('.')[0];
 
@@ -58,8 +61,20 @@ files.forEach(file_name => {
             var jarql_to_print = jarql.build_jarql(st, json_steiner, classes_path);
             fs.writeFileSync(jarql_path + '.query', jarql_to_print);
 
+            console.log('\nEnd of processing ' + file_name + ' ...\n\n');
+
         }).catch(function(err) {
             console.log('Something went wrong in the graph generation process');
             console.log(err);
         });
-});
+}
+
+console.log('Generate semantic models with SeMi from Taheriyan data...');
+
+if (input_file === undefined) {
+    files.forEach(file_name => {
+        generate_sm(file_name);
+    });
+} else {
+    generate_sm(input_file + '.json');
+}
