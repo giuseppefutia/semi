@@ -21,13 +21,6 @@ var create_st = (st, stored_st, column, node) => {
     // Fill attributes
     st[0]['attributes'].push(column['columnName']);
 
-    // Fill uris
-    if (column['columnName'].toLowerCase().indexOf('uri') !== -1 || column['columnName'].toLowerCase().indexOf('url') !== -1) {
-        st[0]['uris'].push(true);
-    } else {
-        st[0]['uris'].push(false);
-    }
-
     // Fill semantic types
     var st_domain = node['userSemanticTypes'][0]['domain']['uri'];
     var class_base_uri = get_base_uri(st_domain);
@@ -36,6 +29,13 @@ var create_st = (st, stored_st, column, node) => {
     var prop_base_uri = get_base_uri(st_type);
     var st_property = st_type.replace(prop_base_uri, PREFIX[prop_base_uri]);
     st[0]['semantic_types'].push([st_class + '***' + st_property]);
+
+    // Fill uris
+    if (st_property.indexOf('http://isi.edu/integration/karma/dev#classLink') !== -1) {
+        st[0]['uris'].push(true);
+    } else {
+        st[0]['uris'].push(false);
+    }
 
     // Fill index of entities
     if (stored_st[st_domain] === undefined) stored_st[st_domain] = 1;
