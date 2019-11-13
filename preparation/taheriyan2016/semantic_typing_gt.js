@@ -22,7 +22,11 @@ var create_st = (st, stored_st, column, node) => {
     st[0]['attributes'].push(column['columnName']);
 
     // Fill uris
-    st[0]['uris'].push(false);
+    if (column['columnName'].toLowerCase().indexOf('uri') !== -1 || column['columnName'].toLowerCase().indexOf('url') !== -1) {
+        st[0]['uris'].push(true);
+    } else {
+        st[0]['uris'].push(false);
+    }
 
     // Fill semantic types
     var st_domain = node['userSemanticTypes'][0]['domain']['uri'];
