@@ -1,0 +1,2363 @@
+{
+    "options": {
+        "directed": true,
+        "multigraph": true,
+        "compound": false
+    },
+    "nodes": [
+        {
+            "v": "AUTHOR_URI",
+            "value": {
+                "type": "attribute_name",
+                "label": "AUTHOR_URI"
+            }
+        },
+        {
+            "v": "crm:E21_Person1",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E21_Person"
+            }
+        },
+        {
+            "v": "DESCRIPTION",
+            "value": {
+                "type": "attribute_name",
+                "label": "DESCRIPTION"
+            }
+        },
+        {
+            "v": "crm:E22_Man-Made_Object1",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E22_Man-Made_Object"
+            }
+        },
+        {
+            "v": "VIDEO",
+            "value": {
+                "type": "attribute_name",
+                "label": "VIDEO"
+            }
+        },
+        {
+            "v": "crm:E31_Document1",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E31_Document"
+            }
+        },
+        {
+            "v": "TITLE NO AUTHOR",
+            "value": {
+                "type": "attribute_name",
+                "label": "TITLE NO AUTHOR"
+            }
+        },
+        {
+            "v": "crm:E35_Title1",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E35_Title"
+            }
+        },
+        {
+            "v": "IMAGE__IMAGESRC",
+            "value": {
+                "type": "attribute_name",
+                "label": "IMAGE__IMAGESRC"
+            }
+        },
+        {
+            "v": "crm:E38_Image1",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E38_Image"
+            }
+        },
+        {
+            "v": "VIDEO_TYPE_URI",
+            "value": {
+                "type": "attribute_name",
+                "label": "VIDEO_TYPE_URI"
+            }
+        },
+        {
+            "v": "crm:E55_Type1",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E55_Type"
+            }
+        },
+        {
+            "v": "AUTHOR_APPELLATION_URI",
+            "value": {
+                "type": "attribute_name",
+                "label": "AUTHOR_APPELLATION_URI"
+            }
+        },
+        {
+            "v": "crm:E82_Actor_Appellation1",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E82_Actor_Appellation"
+            }
+        },
+        {
+            "v": "AUTHOR",
+            "value": {
+                "type": "attribute_name",
+                "label": "AUTHOR"
+            }
+        },
+        {
+            "v": "crm:E82_Actor_Appellation2",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E82_Actor_Appellation"
+            }
+        },
+        {
+            "v": "crm:E69_Death",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E69_Death"
+            }
+        },
+        {
+            "v": "crm:E39_Actor",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E39_Actor"
+            }
+        },
+        {
+            "v": "crm:E67_Birth",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E67_Birth"
+            }
+        },
+        {
+            "v": "crm:E1_CRM_Entity",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E1_CRM_Entity"
+            }
+        },
+        {
+            "v": "crm:E71_Man-Made_Thing",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E71_Man-Made_Thing"
+            }
+        },
+        {
+            "v": "crm:E70_Thing",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E70_Thing"
+            }
+        },
+        {
+            "v": "crm:E7_Activity",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E7_Activity"
+            }
+        },
+        {
+            "v": "crm:E83_Type_Creation",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E83_Type_Creation"
+            }
+        },
+        {
+            "v": "crm:E17_Type_Assignment",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E17_Type_Assignment"
+            }
+        },
+        {
+            "v": "crm:E32_Authority_Document",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E32_Authority_Document"
+            }
+        }
+    ],
+    "edges": [
+        {
+            "v": "crm:E21_Person1",
+            "w": "AUTHOR_URI",
+            "name": "crm:E21_Person1***AUTHOR_URI",
+            "value": {
+                "label": "http://isi.edu/integration/karma/dev#classLink",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E22_Man-Made_Object1",
+            "w": "DESCRIPTION",
+            "name": "crm:E22_Man-Made_Object1***DESCRIPTION",
+            "value": {
+                "label": "crm:P3_has_note",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E31_Document1",
+            "w": "VIDEO",
+            "name": "crm:E31_Document1***VIDEO",
+            "value": {
+                "label": "http://isi.edu/integration/karma/dev#classLink",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E35_Title1",
+            "w": "TITLE NO AUTHOR",
+            "name": "crm:E35_Title1***TITLE NO AUTHOR",
+            "value": {
+                "label": "rdfs:label",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E38_Image1",
+            "w": "IMAGE__IMAGESRC",
+            "name": "crm:E38_Image1***IMAGE__IMAGESRC",
+            "value": {
+                "label": "http://isi.edu/integration/karma/dev#classLink",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E55_Type1",
+            "w": "VIDEO_TYPE_URI",
+            "name": "crm:E55_Type1***VIDEO_TYPE_URI",
+            "value": {
+                "label": "http://isi.edu/integration/karma/dev#classLink",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E82_Actor_Appellation1",
+            "w": "AUTHOR_APPELLATION_URI",
+            "name": "crm:E82_Actor_Appellation1***AUTHOR_APPELLATION_URI",
+            "value": {
+                "label": "http://isi.edu/integration/karma/dev#classLink",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E82_Actor_Appellation2",
+            "w": "AUTHOR",
+            "name": "crm:E82_Actor_Appellation2***AUTHOR",
+            "value": {
+                "label": "rdfs:label",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E21_Person1",
+            "w": "crm:E69_Death",
+            "name": "crm:E21_Person1***crm:E69_Death",
+            "value": {
+                "label": "crm:P100i_died_in",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E69_Death",
+            "w": "crm:E21_Person1",
+            "name": "crm:E69_Death***crm:E21_Person1",
+            "value": {
+                "label": "crm:P100_was_death_of",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E21_Person1",
+            "w": "crm:E39_Actor",
+            "name": "crm:E21_Person1***crm:E39_Actor",
+            "value": {
+                "label": "id:ontology/PX_pupil_of",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E21_Person1",
+            "w": "crm:E67_Birth",
+            "name": "crm:E21_Person1***crm:E67_Birth",
+            "value": {
+                "label": "crm:P96i_gave_birth",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E21_Person1",
+            "w": "crm:E67_Birth",
+            "name": "crm:E21_Person1***crm:E67_Birth",
+            "value": {
+                "label": "crm:P97i_was_father_for",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E21_Person1",
+            "w": "crm:E67_Birth",
+            "name": "crm:E21_Person1***crm:E67_Birth",
+            "value": {
+                "label": "crm:P98i_was_born",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E67_Birth",
+            "w": "crm:E21_Person1",
+            "name": "crm:E67_Birth***crm:E21_Person1",
+            "value": {
+                "label": "crm:P96_by_mother",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E67_Birth",
+            "w": "crm:E21_Person1",
+            "name": "crm:E67_Birth***crm:E21_Person1",
+            "value": {
+                "label": "crm:P97_from_father",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E67_Birth",
+            "w": "crm:E21_Person1",
+            "name": "crm:E67_Birth***crm:E21_Person1",
+            "value": {
+                "label": "crm:P98_brought_into_life",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E31_Document1",
+            "w": "crm:E1_CRM_Entity",
+            "name": "crm:E31_Document1***crm:E1_CRM_Entity",
+            "value": {
+                "label": "crm:P70_documents",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E1_CRM_Entity",
+            "w": "crm:E31_Document1",
+            "name": "crm:E1_CRM_Entity***crm:E31_Document1",
+            "value": {
+                "label": "crm:P70i_is_documented_in",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E35_Title1",
+            "w": "crm:E71_Man-Made_Thing",
+            "name": "crm:E35_Title1***crm:E71_Man-Made_Thing",
+            "value": {
+                "label": "crm:P102i_is_title_of",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E71_Man-Made_Thing",
+            "w": "crm:E35_Title1",
+            "name": "crm:E71_Man-Made_Thing***crm:E35_Title1",
+            "value": {
+                "label": "crm:P102_has_title",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E55_Type1",
+            "w": "crm:E55_Type1",
+            "name": "crm:E55_Type1***crm:E55_Type1",
+            "value": {
+                "label": "crm:P127_has_broader_term",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E55_Type1",
+            "w": "crm:E55_Type1",
+            "name": "crm:E55_Type1***crm:E55_Type1",
+            "value": {
+                "label": "crm:P127i_has_narrower_term",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E55_Type1",
+            "w": "crm:E1_CRM_Entity",
+            "name": "crm:E55_Type1***crm:E1_CRM_Entity",
+            "value": {
+                "label": "crm:P137i_is_exemplified_by",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E55_Type1",
+            "w": "crm:E1_CRM_Entity",
+            "name": "crm:E55_Type1***crm:E1_CRM_Entity",
+            "value": {
+                "label": "crm:P2i_is_type_of",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E1_CRM_Entity",
+            "w": "crm:E55_Type1",
+            "name": "crm:E1_CRM_Entity***crm:E55_Type1",
+            "value": {
+                "label": "crm:P137_exemplifies",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E1_CRM_Entity",
+            "w": "crm:E55_Type1",
+            "name": "crm:E1_CRM_Entity***crm:E55_Type1",
+            "value": {
+                "label": "crm:P2_has_type",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E55_Type1",
+            "w": "crm:E71_Man-Made_Thing",
+            "name": "crm:E55_Type1***crm:E71_Man-Made_Thing",
+            "value": {
+                "label": "crm:P103i_was_intention_of",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E71_Man-Made_Thing",
+            "w": "crm:E55_Type1",
+            "name": "crm:E71_Man-Made_Thing***crm:E55_Type1",
+            "value": {
+                "label": "crm:P103_was_intended_for",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E55_Type1",
+            "w": "crm:E70_Thing",
+            "name": "crm:E55_Type1***crm:E70_Thing",
+            "value": {
+                "label": "crm:P101i_was_use_of",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E70_Thing",
+            "w": "crm:E55_Type1",
+            "name": "crm:E70_Thing***crm:E55_Type1",
+            "value": {
+                "label": "crm:P101_had_as_general_use",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E55_Type1",
+            "w": "crm:E7_Activity",
+            "name": "crm:E55_Type1***crm:E7_Activity",
+            "value": {
+                "label": "crm:P125i_was_type_of_object_used_in",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E55_Type1",
+            "w": "crm:E7_Activity",
+            "name": "crm:E55_Type1***crm:E7_Activity",
+            "value": {
+                "label": "crm:P21i_was_purpose_of",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E55_Type1",
+            "w": "crm:E7_Activity",
+            "name": "crm:E55_Type1***crm:E7_Activity",
+            "value": {
+                "label": "crm:P32i_was_technique_of",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E7_Activity",
+            "w": "crm:E55_Type1",
+            "name": "crm:E7_Activity***crm:E55_Type1",
+            "value": {
+                "label": "crm:P125_used_object_of_type",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E7_Activity",
+            "w": "crm:E55_Type1",
+            "name": "crm:E7_Activity***crm:E55_Type1",
+            "value": {
+                "label": "crm:P21_had_general_purpose",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E7_Activity",
+            "w": "crm:E55_Type1",
+            "name": "crm:E7_Activity***crm:E55_Type1",
+            "value": {
+                "label": "crm:P32_used_general_technique",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E55_Type1",
+            "w": "crm:E83_Type_Creation",
+            "name": "crm:E55_Type1***crm:E83_Type_Creation",
+            "value": {
+                "label": "crm:P135i_was_created_by",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E83_Type_Creation",
+            "w": "crm:E55_Type1",
+            "name": "crm:E83_Type_Creation***crm:E55_Type1",
+            "value": {
+                "label": "crm:P135_created_type",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E55_Type1",
+            "w": "crm:E17_Type_Assignment",
+            "name": "crm:E55_Type1***crm:E17_Type_Assignment",
+            "value": {
+                "label": "crm:P42i_was_assigned_by",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E17_Type_Assignment",
+            "w": "crm:E55_Type1",
+            "name": "crm:E17_Type_Assignment***crm:E55_Type1",
+            "value": {
+                "label": "crm:P42_assigned",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E55_Type1",
+            "w": "crm:E32_Authority_Document",
+            "name": "crm:E55_Type1***crm:E32_Authority_Document",
+            "value": {
+                "label": "crm:P71i_is_listed_in",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E32_Authority_Document",
+            "w": "crm:E55_Type1",
+            "name": "crm:E32_Authority_Document***crm:E55_Type1",
+            "value": {
+                "label": "crm:P71_lists",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E82_Actor_Appellation1",
+            "w": "crm:E39_Actor",
+            "name": "crm:E82_Actor_Appellation1***crm:E39_Actor",
+            "value": {
+                "label": "crm:P131i_identifies",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E82_Actor_Appellation2",
+            "w": "crm:E39_Actor",
+            "name": "crm:E82_Actor_Appellation2***crm:E39_Actor",
+            "value": {
+                "label": "crm:P131i_identifies",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E39_Actor",
+            "w": "crm:E82_Actor_Appellation1",
+            "name": "crm:E39_Actor***crm:E82_Actor_Appellation1",
+            "value": {
+                "label": "crm:P131_is_identified_by",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E39_Actor",
+            "w": "crm:E82_Actor_Appellation2",
+            "name": "crm:E39_Actor***crm:E82_Actor_Appellation2",
+            "value": {
+                "label": "crm:P131_is_identified_by",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E1_CRM_Entity",
+            "w": "crm:E7_Activity",
+            "name": "crm:E1_CRM_Entity***crm:E7_Activity",
+            "value": {
+                "label": "crm:P15i_influenced",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E1_CRM_Entity",
+            "w": "crm:E7_Activity",
+            "name": "crm:E1_CRM_Entity***crm:E7_Activity",
+            "value": {
+                "label": "crm:P17i_motivated",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E7_Activity",
+            "w": "crm:E1_CRM_Entity",
+            "name": "crm:E7_Activity***crm:E1_CRM_Entity",
+            "value": {
+                "label": "crm:P15_was_influenced_by",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E7_Activity",
+            "w": "crm:E1_CRM_Entity",
+            "name": "crm:E7_Activity***crm:E1_CRM_Entity",
+            "value": {
+                "label": "crm:P17_was_motivated_by",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E1_CRM_Entity",
+            "w": "crm:E83_Type_Creation",
+            "name": "crm:E1_CRM_Entity***crm:E83_Type_Creation",
+            "value": {
+                "label": "crm:P136i_supported_type_creation",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E83_Type_Creation",
+            "w": "crm:E1_CRM_Entity",
+            "name": "crm:E83_Type_Creation***crm:E1_CRM_Entity",
+            "value": {
+                "label": "crm:P136_was_based_on",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E1_CRM_Entity",
+            "w": "crm:E17_Type_Assignment",
+            "name": "crm:E1_CRM_Entity***crm:E17_Type_Assignment",
+            "value": {
+                "label": "crm:P41i_was_classified_by",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E17_Type_Assignment",
+            "w": "crm:E1_CRM_Entity",
+            "name": "crm:E17_Type_Assignment***crm:E1_CRM_Entity",
+            "value": {
+                "label": "crm:P41_classified",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E71_Man-Made_Thing",
+            "w": "crm:E7_Activity",
+            "name": "crm:E71_Man-Made_Thing***crm:E7_Activity",
+            "value": {
+                "label": "crm:P19i_was_made_for",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E7_Activity",
+            "w": "crm:E71_Man-Made_Thing",
+            "name": "crm:E7_Activity***crm:E71_Man-Made_Thing",
+            "value": {
+                "label": "crm:P19_was_intended_use_of",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E70_Thing",
+            "w": "crm:E70_Thing",
+            "name": "crm:E70_Thing***crm:E70_Thing",
+            "value": {
+                "label": "crm:P130_shows_features_of",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E70_Thing",
+            "w": "crm:E70_Thing",
+            "name": "crm:E70_Thing***crm:E70_Thing",
+            "value": {
+                "label": "crm:P130i_features_are_also_found_on",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E70_Thing",
+            "w": "crm:E7_Activity",
+            "name": "crm:E70_Thing***crm:E7_Activity",
+            "value": {
+                "label": "crm:P16i_was_used_for",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E7_Activity",
+            "w": "crm:E70_Thing",
+            "name": "crm:E7_Activity***crm:E70_Thing",
+            "value": {
+                "label": "crm:P16_used_specific_object",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E7_Activity",
+            "w": "crm:E7_Activity",
+            "name": "crm:E7_Activity***crm:E7_Activity",
+            "value": {
+                "label": "crm:P134_continued",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E7_Activity",
+            "w": "crm:E7_Activity",
+            "name": "crm:E7_Activity***crm:E7_Activity",
+            "value": {
+                "label": "crm:P134i_was_continued_by",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E21_Person1",
+            "w": "crm:E22_Man-Made_Object1",
+            "name": "crm:E21_Person1***crm:E22_Man-Made_Object1",
+            "value": {
+                "label": "crm:P49i_is_former_or_current_keeper_of",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E21_Person1",
+            "w": "crm:E22_Man-Made_Object1",
+            "name": "crm:E21_Person1***crm:E22_Man-Made_Object1",
+            "value": {
+                "label": "crm:P51i_is_former_or_current_owner_of",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E21_Person1",
+            "w": "crm:E22_Man-Made_Object1",
+            "name": "crm:E21_Person1***crm:E22_Man-Made_Object1",
+            "value": {
+                "label": "crm:P105i_has_right_on",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E21_Person1",
+            "w": "crm:E31_Document1",
+            "name": "crm:E21_Person1***crm:E31_Document1",
+            "value": {
+                "label": "crm:P105i_has_right_on",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E21_Person1",
+            "w": "crm:E38_Image1",
+            "name": "crm:E21_Person1***crm:E38_Image1",
+            "value": {
+                "label": "crm:P105i_has_right_on",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E21_Person1",
+            "w": "crm:E69_Death",
+            "name": "crm:E21_Person1***crm:E69_Death",
+            "value": {
+                "label": "crm:P11i_participated_in",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E21_Person1",
+            "w": "crm:E7_Activity",
+            "name": "crm:E21_Person1***crm:E7_Activity",
+            "value": {
+                "label": "crm:P11i_participated_in",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E21_Person1",
+            "w": "crm:E7_Activity",
+            "name": "crm:E21_Person1***crm:E7_Activity",
+            "value": {
+                "label": "crm:P8i_witnessed",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E22_Man-Made_Object1",
+            "w": "crm:E21_Person1",
+            "name": "crm:E22_Man-Made_Object1***crm:E21_Person1",
+            "value": {
+                "label": "crm:P49_has_former_or_current_keeper",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E22_Man-Made_Object1",
+            "w": "crm:E21_Person1",
+            "name": "crm:E22_Man-Made_Object1***crm:E21_Person1",
+            "value": {
+                "label": "crm:P51_has_former_or_current_owner",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E22_Man-Made_Object1",
+            "w": "crm:E21_Person1",
+            "name": "crm:E22_Man-Made_Object1***crm:E21_Person1",
+            "value": {
+                "label": "crm:P105_right_held_by",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E22_Man-Made_Object1",
+            "w": "crm:E31_Document1",
+            "name": "crm:E22_Man-Made_Object1***crm:E31_Document1",
+            "value": {
+                "label": "crm:P128_carries",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E22_Man-Made_Object1",
+            "w": "crm:E35_Title1",
+            "name": "crm:E22_Man-Made_Object1***crm:E35_Title1",
+            "value": {
+                "label": "crm:P128_carries",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E22_Man-Made_Object1",
+            "w": "crm:E38_Image1",
+            "name": "crm:E22_Man-Made_Object1***crm:E38_Image1",
+            "value": {
+                "label": "crm:P65_shows_visual_item",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E22_Man-Made_Object1",
+            "w": "crm:E38_Image1",
+            "name": "crm:E22_Man-Made_Object1***crm:E38_Image1",
+            "value": {
+                "label": "crm:P128_carries",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E22_Man-Made_Object1",
+            "w": "crm:E39_Actor",
+            "name": "crm:E22_Man-Made_Object1***crm:E39_Actor",
+            "value": {
+                "label": "crm:P62_depicts",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E22_Man-Made_Object1",
+            "w": "crm:E70_Thing",
+            "name": "crm:E22_Man-Made_Object1***crm:E70_Thing",
+            "value": {
+                "label": "crm:P62_depicts",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E22_Man-Made_Object1",
+            "w": "crm:E7_Activity",
+            "name": "crm:E22_Man-Made_Object1***crm:E7_Activity",
+            "value": {
+                "label": "crm:P8i_witnessed",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E22_Man-Made_Object1",
+            "w": "crm:E32_Authority_Document",
+            "name": "crm:E22_Man-Made_Object1***crm:E32_Authority_Document",
+            "value": {
+                "label": "crm:P128_carries",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E31_Document1",
+            "w": "crm:E21_Person1",
+            "name": "crm:E31_Document1***crm:E21_Person1",
+            "value": {
+                "label": "crm:P105_right_held_by",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E31_Document1",
+            "w": "crm:E22_Man-Made_Object1",
+            "name": "crm:E31_Document1***crm:E22_Man-Made_Object1",
+            "value": {
+                "label": "crm:P128i_is_carried_by",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E31_Document1",
+            "w": "crm:E35_Title1",
+            "name": "crm:E31_Document1***crm:E35_Title1",
+            "value": {
+                "label": "crm:P106_is_composed_of",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E31_Document1",
+            "w": "crm:E35_Title1",
+            "name": "crm:E31_Document1***crm:E35_Title1",
+            "value": {
+                "label": "crm:P106i_forms_part_of",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E31_Document1",
+            "w": "crm:E38_Image1",
+            "name": "crm:E31_Document1***crm:E38_Image1",
+            "value": {
+                "label": "crm:P148_has_component",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E31_Document1",
+            "w": "crm:E38_Image1",
+            "name": "crm:E31_Document1***crm:E38_Image1",
+            "value": {
+                "label": "crm:P148i_is_component_of",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E31_Document1",
+            "w": "crm:E38_Image1",
+            "name": "crm:E31_Document1***crm:E38_Image1",
+            "value": {
+                "label": "crm:P106_is_composed_of",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E31_Document1",
+            "w": "crm:E38_Image1",
+            "name": "crm:E31_Document1***crm:E38_Image1",
+            "value": {
+                "label": "crm:P106i_forms_part_of",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E31_Document1",
+            "w": "crm:E38_Image1",
+            "name": "crm:E31_Document1***crm:E38_Image1",
+            "value": {
+                "label": "crm:P130_shows_features_of",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E31_Document1",
+            "w": "crm:E38_Image1",
+            "name": "crm:E31_Document1***crm:E38_Image1",
+            "value": {
+                "label": "crm:P130i_features_are_also_found_on",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E31_Document1",
+            "w": "crm:E82_Actor_Appellation1",
+            "name": "crm:E31_Document1***crm:E82_Actor_Appellation1",
+            "value": {
+                "label": "crm:P106_is_composed_of",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E31_Document1",
+            "w": "crm:E82_Actor_Appellation2",
+            "name": "crm:E31_Document1***crm:E82_Actor_Appellation2",
+            "value": {
+                "label": "crm:P106_is_composed_of",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E31_Document1",
+            "w": "crm:E82_Actor_Appellation1",
+            "name": "crm:E31_Document1***crm:E82_Actor_Appellation1",
+            "value": {
+                "label": "crm:P106i_forms_part_of",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E31_Document1",
+            "w": "crm:E82_Actor_Appellation2",
+            "name": "crm:E31_Document1***crm:E82_Actor_Appellation2",
+            "value": {
+                "label": "crm:P106i_forms_part_of",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E31_Document1",
+            "w": "crm:E39_Actor",
+            "name": "crm:E31_Document1***crm:E39_Actor",
+            "value": {
+                "label": "crm:P129_is_about",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E31_Document1",
+            "w": "crm:E39_Actor",
+            "name": "crm:E31_Document1***crm:E39_Actor",
+            "value": {
+                "label": "crm:P67_refers_to",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E31_Document1",
+            "w": "crm:E71_Man-Made_Thing",
+            "name": "crm:E31_Document1***crm:E71_Man-Made_Thing",
+            "value": {
+                "label": "crm:P130_shows_features_of",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E31_Document1",
+            "w": "crm:E71_Man-Made_Thing",
+            "name": "crm:E31_Document1***crm:E71_Man-Made_Thing",
+            "value": {
+                "label": "crm:P130i_features_are_also_found_on",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E31_Document1",
+            "w": "crm:E70_Thing",
+            "name": "crm:E31_Document1***crm:E70_Thing",
+            "value": {
+                "label": "crm:P129_is_about",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E31_Document1",
+            "w": "crm:E70_Thing",
+            "name": "crm:E31_Document1***crm:E70_Thing",
+            "value": {
+                "label": "crm:P67_refers_to",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E31_Document1",
+            "w": "crm:E83_Type_Creation",
+            "name": "crm:E31_Document1***crm:E83_Type_Creation",
+            "value": {
+                "label": "crm:P94i_was_created_by",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E35_Title1",
+            "w": "crm:E22_Man-Made_Object1",
+            "name": "crm:E35_Title1***crm:E22_Man-Made_Object1",
+            "value": {
+                "label": "crm:P128i_is_carried_by",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E35_Title1",
+            "w": "crm:E31_Document1",
+            "name": "crm:E35_Title1***crm:E31_Document1",
+            "value": {
+                "label": "crm:P106_is_composed_of",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E35_Title1",
+            "w": "crm:E31_Document1",
+            "name": "crm:E35_Title1***crm:E31_Document1",
+            "value": {
+                "label": "crm:P106i_forms_part_of",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E35_Title1",
+            "w": "crm:E38_Image1",
+            "name": "crm:E35_Title1***crm:E38_Image1",
+            "value": {
+                "label": "crm:P106_is_composed_of",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E35_Title1",
+            "w": "crm:E38_Image1",
+            "name": "crm:E35_Title1***crm:E38_Image1",
+            "value": {
+                "label": "crm:P106i_forms_part_of",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E35_Title1",
+            "w": "crm:E82_Actor_Appellation1",
+            "name": "crm:E35_Title1***crm:E82_Actor_Appellation1",
+            "value": {
+                "label": "crm:P139_has_alternative_form",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E35_Title1",
+            "w": "crm:E82_Actor_Appellation2",
+            "name": "crm:E35_Title1***crm:E82_Actor_Appellation2",
+            "value": {
+                "label": "crm:P139_has_alternative_form",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E35_Title1",
+            "w": "crm:E82_Actor_Appellation1",
+            "name": "crm:E35_Title1***crm:E82_Actor_Appellation1",
+            "value": {
+                "label": "crm:P106_is_composed_of",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E35_Title1",
+            "w": "crm:E82_Actor_Appellation2",
+            "name": "crm:E35_Title1***crm:E82_Actor_Appellation2",
+            "value": {
+                "label": "crm:P106_is_composed_of",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E35_Title1",
+            "w": "crm:E82_Actor_Appellation1",
+            "name": "crm:E35_Title1***crm:E82_Actor_Appellation1",
+            "value": {
+                "label": "crm:P106i_forms_part_of",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E35_Title1",
+            "w": "crm:E82_Actor_Appellation2",
+            "name": "crm:E35_Title1***crm:E82_Actor_Appellation2",
+            "value": {
+                "label": "crm:P106i_forms_part_of",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E35_Title1",
+            "w": "crm:E39_Actor",
+            "name": "crm:E35_Title1***crm:E39_Actor",
+            "value": {
+                "label": "crm:P1i_identifies",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E35_Title1",
+            "w": "crm:E70_Thing",
+            "name": "crm:E35_Title1***crm:E70_Thing",
+            "value": {
+                "label": "crm:P1i_identifies",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E38_Image1",
+            "w": "crm:E21_Person1",
+            "name": "crm:E38_Image1***crm:E21_Person1",
+            "value": {
+                "label": "crm:P105_right_held_by",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E38_Image1",
+            "w": "crm:E22_Man-Made_Object1",
+            "name": "crm:E38_Image1***crm:E22_Man-Made_Object1",
+            "value": {
+                "label": "crm:P65i_is_shown_by",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E38_Image1",
+            "w": "crm:E22_Man-Made_Object1",
+            "name": "crm:E38_Image1***crm:E22_Man-Made_Object1",
+            "value": {
+                "label": "crm:P128i_is_carried_by",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E38_Image1",
+            "w": "crm:E31_Document1",
+            "name": "crm:E38_Image1***crm:E31_Document1",
+            "value": {
+                "label": "crm:P148_has_component",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E38_Image1",
+            "w": "crm:E31_Document1",
+            "name": "crm:E38_Image1***crm:E31_Document1",
+            "value": {
+                "label": "crm:P148i_is_component_of",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E38_Image1",
+            "w": "crm:E31_Document1",
+            "name": "crm:E38_Image1***crm:E31_Document1",
+            "value": {
+                "label": "crm:P106_is_composed_of",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E38_Image1",
+            "w": "crm:E31_Document1",
+            "name": "crm:E38_Image1***crm:E31_Document1",
+            "value": {
+                "label": "crm:P106i_forms_part_of",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E38_Image1",
+            "w": "crm:E31_Document1",
+            "name": "crm:E38_Image1***crm:E31_Document1",
+            "value": {
+                "label": "crm:P130_shows_features_of",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E38_Image1",
+            "w": "crm:E31_Document1",
+            "name": "crm:E38_Image1***crm:E31_Document1",
+            "value": {
+                "label": "crm:P130i_features_are_also_found_on",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E38_Image1",
+            "w": "crm:E35_Title1",
+            "name": "crm:E38_Image1***crm:E35_Title1",
+            "value": {
+                "label": "crm:P106_is_composed_of",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E38_Image1",
+            "w": "crm:E35_Title1",
+            "name": "crm:E38_Image1***crm:E35_Title1",
+            "value": {
+                "label": "crm:P106i_forms_part_of",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E38_Image1",
+            "w": "crm:E82_Actor_Appellation1",
+            "name": "crm:E38_Image1***crm:E82_Actor_Appellation1",
+            "value": {
+                "label": "crm:P106_is_composed_of",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E38_Image1",
+            "w": "crm:E82_Actor_Appellation2",
+            "name": "crm:E38_Image1***crm:E82_Actor_Appellation2",
+            "value": {
+                "label": "crm:P106_is_composed_of",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E38_Image1",
+            "w": "crm:E82_Actor_Appellation1",
+            "name": "crm:E38_Image1***crm:E82_Actor_Appellation1",
+            "value": {
+                "label": "crm:P106i_forms_part_of",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E38_Image1",
+            "w": "crm:E82_Actor_Appellation2",
+            "name": "crm:E38_Image1***crm:E82_Actor_Appellation2",
+            "value": {
+                "label": "crm:P106i_forms_part_of",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E38_Image1",
+            "w": "crm:E39_Actor",
+            "name": "crm:E38_Image1***crm:E39_Actor",
+            "value": {
+                "label": "crm:P138_represents",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E38_Image1",
+            "w": "crm:E39_Actor",
+            "name": "crm:E38_Image1***crm:E39_Actor",
+            "value": {
+                "label": "crm:P129_is_about",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E38_Image1",
+            "w": "crm:E39_Actor",
+            "name": "crm:E38_Image1***crm:E39_Actor",
+            "value": {
+                "label": "crm:P67_refers_to",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E38_Image1",
+            "w": "crm:E71_Man-Made_Thing",
+            "name": "crm:E38_Image1***crm:E71_Man-Made_Thing",
+            "value": {
+                "label": "crm:P130_shows_features_of",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E38_Image1",
+            "w": "crm:E71_Man-Made_Thing",
+            "name": "crm:E38_Image1***crm:E71_Man-Made_Thing",
+            "value": {
+                "label": "crm:P130i_features_are_also_found_on",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E38_Image1",
+            "w": "crm:E70_Thing",
+            "name": "crm:E38_Image1***crm:E70_Thing",
+            "value": {
+                "label": "crm:P138_represents",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E38_Image1",
+            "w": "crm:E70_Thing",
+            "name": "crm:E38_Image1***crm:E70_Thing",
+            "value": {
+                "label": "crm:P129_is_about",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E38_Image1",
+            "w": "crm:E70_Thing",
+            "name": "crm:E38_Image1***crm:E70_Thing",
+            "value": {
+                "label": "crm:P67_refers_to",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E38_Image1",
+            "w": "crm:E83_Type_Creation",
+            "name": "crm:E38_Image1***crm:E83_Type_Creation",
+            "value": {
+                "label": "crm:P94i_was_created_by",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E55_Type1",
+            "w": "crm:E83_Type_Creation",
+            "name": "crm:E55_Type1***crm:E83_Type_Creation",
+            "value": {
+                "label": "crm:P94i_was_created_by",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E82_Actor_Appellation1",
+            "w": "crm:E31_Document1",
+            "name": "crm:E82_Actor_Appellation1***crm:E31_Document1",
+            "value": {
+                "label": "crm:P106_is_composed_of",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E82_Actor_Appellation2",
+            "w": "crm:E31_Document1",
+            "name": "crm:E82_Actor_Appellation2***crm:E31_Document1",
+            "value": {
+                "label": "crm:P106_is_composed_of",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E82_Actor_Appellation1",
+            "w": "crm:E31_Document1",
+            "name": "crm:E82_Actor_Appellation1***crm:E31_Document1",
+            "value": {
+                "label": "crm:P106i_forms_part_of",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E82_Actor_Appellation2",
+            "w": "crm:E31_Document1",
+            "name": "crm:E82_Actor_Appellation2***crm:E31_Document1",
+            "value": {
+                "label": "crm:P106i_forms_part_of",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E82_Actor_Appellation1",
+            "w": "crm:E35_Title1",
+            "name": "crm:E82_Actor_Appellation1***crm:E35_Title1",
+            "value": {
+                "label": "crm:P139_has_alternative_form",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E82_Actor_Appellation2",
+            "w": "crm:E35_Title1",
+            "name": "crm:E82_Actor_Appellation2***crm:E35_Title1",
+            "value": {
+                "label": "crm:P139_has_alternative_form",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E82_Actor_Appellation1",
+            "w": "crm:E35_Title1",
+            "name": "crm:E82_Actor_Appellation1***crm:E35_Title1",
+            "value": {
+                "label": "crm:P106_is_composed_of",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E82_Actor_Appellation2",
+            "w": "crm:E35_Title1",
+            "name": "crm:E82_Actor_Appellation2***crm:E35_Title1",
+            "value": {
+                "label": "crm:P106_is_composed_of",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E82_Actor_Appellation1",
+            "w": "crm:E35_Title1",
+            "name": "crm:E82_Actor_Appellation1***crm:E35_Title1",
+            "value": {
+                "label": "crm:P106i_forms_part_of",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E82_Actor_Appellation2",
+            "w": "crm:E35_Title1",
+            "name": "crm:E82_Actor_Appellation2***crm:E35_Title1",
+            "value": {
+                "label": "crm:P106i_forms_part_of",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E82_Actor_Appellation1",
+            "w": "crm:E38_Image1",
+            "name": "crm:E82_Actor_Appellation1***crm:E38_Image1",
+            "value": {
+                "label": "crm:P106_is_composed_of",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E82_Actor_Appellation2",
+            "w": "crm:E38_Image1",
+            "name": "crm:E82_Actor_Appellation2***crm:E38_Image1",
+            "value": {
+                "label": "crm:P106_is_composed_of",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E82_Actor_Appellation1",
+            "w": "crm:E38_Image1",
+            "name": "crm:E82_Actor_Appellation1***crm:E38_Image1",
+            "value": {
+                "label": "crm:P106i_forms_part_of",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E82_Actor_Appellation2",
+            "w": "crm:E38_Image1",
+            "name": "crm:E82_Actor_Appellation2***crm:E38_Image1",
+            "value": {
+                "label": "crm:P106i_forms_part_of",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E82_Actor_Appellation1",
+            "w": "crm:E39_Actor",
+            "name": "crm:E82_Actor_Appellation1***crm:E39_Actor",
+            "value": {
+                "label": "crm:P1i_identifies",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E82_Actor_Appellation2",
+            "w": "crm:E39_Actor",
+            "name": "crm:E82_Actor_Appellation2***crm:E39_Actor",
+            "value": {
+                "label": "crm:P1i_identifies",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E82_Actor_Appellation1",
+            "w": "crm:E70_Thing",
+            "name": "crm:E82_Actor_Appellation1***crm:E70_Thing",
+            "value": {
+                "label": "crm:P1i_identifies",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E82_Actor_Appellation2",
+            "w": "crm:E70_Thing",
+            "name": "crm:E82_Actor_Appellation2***crm:E70_Thing",
+            "value": {
+                "label": "crm:P1i_identifies",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E69_Death",
+            "w": "crm:E21_Person1",
+            "name": "crm:E69_Death***crm:E21_Person1",
+            "value": {
+                "label": "crm:P11_had_participant",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E69_Death",
+            "w": "crm:E39_Actor",
+            "name": "crm:E69_Death***crm:E39_Actor",
+            "value": {
+                "label": "crm:P93_took_out_of_existence",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E69_Death",
+            "w": "crm:E39_Actor",
+            "name": "crm:E69_Death***crm:E39_Actor",
+            "value": {
+                "label": "crm:P12_occurred_in_the_presence_of",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E69_Death",
+            "w": "crm:E70_Thing",
+            "name": "crm:E69_Death***crm:E70_Thing",
+            "value": {
+                "label": "crm:P93_took_out_of_existence",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E69_Death",
+            "w": "crm:E70_Thing",
+            "name": "crm:E69_Death***crm:E70_Thing",
+            "value": {
+                "label": "crm:P12_occurred_in_the_presence_of",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E39_Actor",
+            "w": "crm:E22_Man-Made_Object1",
+            "name": "crm:E39_Actor***crm:E22_Man-Made_Object1",
+            "value": {
+                "label": "crm:P62i_is_depicted_by",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E39_Actor",
+            "w": "crm:E31_Document1",
+            "name": "crm:E39_Actor***crm:E31_Document1",
+            "value": {
+                "label": "crm:P129i_is_subject_of",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E39_Actor",
+            "w": "crm:E31_Document1",
+            "name": "crm:E39_Actor***crm:E31_Document1",
+            "value": {
+                "label": "crm:P67i_is_referred_to_by",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E39_Actor",
+            "w": "crm:E35_Title1",
+            "name": "crm:E39_Actor***crm:E35_Title1",
+            "value": {
+                "label": "crm:P1_is_identified_by",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E39_Actor",
+            "w": "crm:E38_Image1",
+            "name": "crm:E39_Actor***crm:E38_Image1",
+            "value": {
+                "label": "crm:P138i_has_representation",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E39_Actor",
+            "w": "crm:E38_Image1",
+            "name": "crm:E39_Actor***crm:E38_Image1",
+            "value": {
+                "label": "crm:P129i_is_subject_of",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E39_Actor",
+            "w": "crm:E38_Image1",
+            "name": "crm:E39_Actor***crm:E38_Image1",
+            "value": {
+                "label": "crm:P67i_is_referred_to_by",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E39_Actor",
+            "w": "crm:E82_Actor_Appellation1",
+            "name": "crm:E39_Actor***crm:E82_Actor_Appellation1",
+            "value": {
+                "label": "crm:P1_is_identified_by",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E39_Actor",
+            "w": "crm:E82_Actor_Appellation2",
+            "name": "crm:E39_Actor***crm:E82_Actor_Appellation2",
+            "value": {
+                "label": "crm:P1_is_identified_by",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E39_Actor",
+            "w": "crm:E69_Death",
+            "name": "crm:E39_Actor***crm:E69_Death",
+            "value": {
+                "label": "crm:P93i_was_taken_out_of_existence_by",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E39_Actor",
+            "w": "crm:E69_Death",
+            "name": "crm:E39_Actor***crm:E69_Death",
+            "value": {
+                "label": "crm:P12i_was_present_at",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E39_Actor",
+            "w": "crm:E67_Birth",
+            "name": "crm:E39_Actor***crm:E67_Birth",
+            "value": {
+                "label": "crm:P92i_was_brought_into_existence_by",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E39_Actor",
+            "w": "crm:E7_Activity",
+            "name": "crm:E39_Actor***crm:E7_Activity",
+            "value": {
+                "label": "crm:P12i_was_present_at",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E39_Actor",
+            "w": "crm:E17_Type_Assignment",
+            "name": "crm:E39_Actor***crm:E17_Type_Assignment",
+            "value": {
+                "label": "crm:P140i_was_attributed_by",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E39_Actor",
+            "w": "crm:E17_Type_Assignment",
+            "name": "crm:E39_Actor***crm:E17_Type_Assignment",
+            "value": {
+                "label": "crm:P141i_was_assigned_by",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E39_Actor",
+            "w": "crm:E32_Authority_Document",
+            "name": "crm:E39_Actor***crm:E32_Authority_Document",
+            "value": {
+                "label": "crm:P70i_is_documented_in",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E67_Birth",
+            "w": "crm:E39_Actor",
+            "name": "crm:E67_Birth***crm:E39_Actor",
+            "value": {
+                "label": "crm:P92_brought_into_existence",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E67_Birth",
+            "w": "crm:E70_Thing",
+            "name": "crm:E67_Birth***crm:E70_Thing",
+            "value": {
+                "label": "crm:P92_brought_into_existence",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E71_Man-Made_Thing",
+            "w": "crm:E31_Document1",
+            "name": "crm:E71_Man-Made_Thing***crm:E31_Document1",
+            "value": {
+                "label": "crm:P130_shows_features_of",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E71_Man-Made_Thing",
+            "w": "crm:E31_Document1",
+            "name": "crm:E71_Man-Made_Thing***crm:E31_Document1",
+            "value": {
+                "label": "crm:P130i_features_are_also_found_on",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E71_Man-Made_Thing",
+            "w": "crm:E38_Image1",
+            "name": "crm:E71_Man-Made_Thing***crm:E38_Image1",
+            "value": {
+                "label": "crm:P130_shows_features_of",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E71_Man-Made_Thing",
+            "w": "crm:E38_Image1",
+            "name": "crm:E71_Man-Made_Thing***crm:E38_Image1",
+            "value": {
+                "label": "crm:P130i_features_are_also_found_on",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E70_Thing",
+            "w": "crm:E22_Man-Made_Object1",
+            "name": "crm:E70_Thing***crm:E22_Man-Made_Object1",
+            "value": {
+                "label": "crm:P62i_is_depicted_by",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E70_Thing",
+            "w": "crm:E31_Document1",
+            "name": "crm:E70_Thing***crm:E31_Document1",
+            "value": {
+                "label": "crm:P129i_is_subject_of",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E70_Thing",
+            "w": "crm:E31_Document1",
+            "name": "crm:E70_Thing***crm:E31_Document1",
+            "value": {
+                "label": "crm:P67i_is_referred_to_by",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E70_Thing",
+            "w": "crm:E35_Title1",
+            "name": "crm:E70_Thing***crm:E35_Title1",
+            "value": {
+                "label": "crm:P1_is_identified_by",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E70_Thing",
+            "w": "crm:E38_Image1",
+            "name": "crm:E70_Thing***crm:E38_Image1",
+            "value": {
+                "label": "crm:P138i_has_representation",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E70_Thing",
+            "w": "crm:E38_Image1",
+            "name": "crm:E70_Thing***crm:E38_Image1",
+            "value": {
+                "label": "crm:P129i_is_subject_of",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E70_Thing",
+            "w": "crm:E38_Image1",
+            "name": "crm:E70_Thing***crm:E38_Image1",
+            "value": {
+                "label": "crm:P67i_is_referred_to_by",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E70_Thing",
+            "w": "crm:E82_Actor_Appellation1",
+            "name": "crm:E70_Thing***crm:E82_Actor_Appellation1",
+            "value": {
+                "label": "crm:P1_is_identified_by",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E70_Thing",
+            "w": "crm:E82_Actor_Appellation2",
+            "name": "crm:E70_Thing***crm:E82_Actor_Appellation2",
+            "value": {
+                "label": "crm:P1_is_identified_by",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E70_Thing",
+            "w": "crm:E69_Death",
+            "name": "crm:E70_Thing***crm:E69_Death",
+            "value": {
+                "label": "crm:P93i_was_taken_out_of_existence_by",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E70_Thing",
+            "w": "crm:E69_Death",
+            "name": "crm:E70_Thing***crm:E69_Death",
+            "value": {
+                "label": "crm:P12i_was_present_at",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E70_Thing",
+            "w": "crm:E67_Birth",
+            "name": "crm:E70_Thing***crm:E67_Birth",
+            "value": {
+                "label": "crm:P92i_was_brought_into_existence_by",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E70_Thing",
+            "w": "crm:E7_Activity",
+            "name": "crm:E70_Thing***crm:E7_Activity",
+            "value": {
+                "label": "crm:P12i_was_present_at",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E70_Thing",
+            "w": "crm:E17_Type_Assignment",
+            "name": "crm:E70_Thing***crm:E17_Type_Assignment",
+            "value": {
+                "label": "crm:P140i_was_attributed_by",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E70_Thing",
+            "w": "crm:E17_Type_Assignment",
+            "name": "crm:E70_Thing***crm:E17_Type_Assignment",
+            "value": {
+                "label": "crm:P141i_was_assigned_by",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E70_Thing",
+            "w": "crm:E32_Authority_Document",
+            "name": "crm:E70_Thing***crm:E32_Authority_Document",
+            "value": {
+                "label": "crm:P70i_is_documented_in",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E7_Activity",
+            "w": "crm:E21_Person1",
+            "name": "crm:E7_Activity***crm:E21_Person1",
+            "value": {
+                "label": "crm:P11_had_participant",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E7_Activity",
+            "w": "crm:E21_Person1",
+            "name": "crm:E7_Activity***crm:E21_Person1",
+            "value": {
+                "label": "crm:P8_took_place_on_or_within",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E7_Activity",
+            "w": "crm:E22_Man-Made_Object1",
+            "name": "crm:E7_Activity***crm:E22_Man-Made_Object1",
+            "value": {
+                "label": "crm:P8_took_place_on_or_within",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E7_Activity",
+            "w": "crm:E39_Actor",
+            "name": "crm:E7_Activity***crm:E39_Actor",
+            "value": {
+                "label": "crm:P12_occurred_in_the_presence_of",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E7_Activity",
+            "w": "crm:E70_Thing",
+            "name": "crm:E7_Activity***crm:E70_Thing",
+            "value": {
+                "label": "crm:P12_occurred_in_the_presence_of",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E83_Type_Creation",
+            "w": "crm:E31_Document1",
+            "name": "crm:E83_Type_Creation***crm:E31_Document1",
+            "value": {
+                "label": "crm:P94_has_created",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E83_Type_Creation",
+            "w": "crm:E38_Image1",
+            "name": "crm:E83_Type_Creation***crm:E38_Image1",
+            "value": {
+                "label": "crm:P94_has_created",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E83_Type_Creation",
+            "w": "crm:E55_Type1",
+            "name": "crm:E83_Type_Creation***crm:E55_Type1",
+            "value": {
+                "label": "crm:P94_has_created",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E17_Type_Assignment",
+            "w": "crm:E39_Actor",
+            "name": "crm:E17_Type_Assignment***crm:E39_Actor",
+            "value": {
+                "label": "crm:P140_assigned_attribute_to",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E17_Type_Assignment",
+            "w": "crm:E39_Actor",
+            "name": "crm:E17_Type_Assignment***crm:E39_Actor",
+            "value": {
+                "label": "crm:P141_assigned",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E17_Type_Assignment",
+            "w": "crm:E70_Thing",
+            "name": "crm:E17_Type_Assignment***crm:E70_Thing",
+            "value": {
+                "label": "crm:P140_assigned_attribute_to",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E17_Type_Assignment",
+            "w": "crm:E70_Thing",
+            "name": "crm:E17_Type_Assignment***crm:E70_Thing",
+            "value": {
+                "label": "crm:P141_assigned",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E32_Authority_Document",
+            "w": "crm:E22_Man-Made_Object1",
+            "name": "crm:E32_Authority_Document***crm:E22_Man-Made_Object1",
+            "value": {
+                "label": "crm:P128i_is_carried_by",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E32_Authority_Document",
+            "w": "crm:E39_Actor",
+            "name": "crm:E32_Authority_Document***crm:E39_Actor",
+            "value": {
+                "label": "crm:P70_documents",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E32_Authority_Document",
+            "w": "crm:E70_Thing",
+            "name": "crm:E32_Authority_Document***crm:E70_Thing",
+            "value": {
+                "label": "crm:P70_documents",
+                "type": "inherited"
+            },
+            "weight": 4
+        }
+    ]
+}

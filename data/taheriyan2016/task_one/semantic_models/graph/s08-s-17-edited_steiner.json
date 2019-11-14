@@ -1,0 +1,324 @@
+{
+    "options": {
+        "directed": true,
+        "multigraph": true,
+        "compound": false
+    },
+    "nodes": [
+        {
+            "v": "AUTHOR_APPELLATION_URI",
+            "value": {
+                "type": "attribute_name",
+                "label": "AUTHOR_APPELLATION_URI"
+            }
+        },
+        {
+            "v": "crm:E82_Actor_Appellation1",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E82_Actor_Appellation"
+            }
+        },
+        {
+            "v": "AUTHOR_URI",
+            "value": {
+                "type": "attribute_name",
+                "label": "AUTHOR_URI"
+            }
+        },
+        {
+            "v": "crm:E21_Person1",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E21_Person"
+            }
+        },
+        {
+            "v": "DESCRIPTION",
+            "value": {
+                "type": "attribute_name",
+                "label": "DESCRIPTION"
+            }
+        },
+        {
+            "v": "crm:E22_Man-Made_Object1",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E22_Man-Made_Object"
+            }
+        },
+        {
+            "v": "IMAGE__IMAGESRC",
+            "value": {
+                "type": "attribute_name",
+                "label": "IMAGE__IMAGESRC"
+            }
+        },
+        {
+            "v": "crm:E38_Image1",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E38_Image"
+            }
+        },
+        {
+            "v": "TITLE NO AUTHOR",
+            "value": {
+                "type": "attribute_name",
+                "label": "TITLE NO AUTHOR"
+            }
+        },
+        {
+            "v": "crm:E35_Title1",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E35_Title"
+            }
+        },
+        {
+            "v": "VIDEO",
+            "value": {
+                "type": "attribute_name",
+                "label": "VIDEO"
+            }
+        },
+        {
+            "v": "crm:E31_Document1",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E31_Document"
+            }
+        },
+        {
+            "v": "crm:E1_CRM_Entity",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E1_CRM_Entity"
+            }
+        },
+        {
+            "v": "crm:E55_Type1",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E55_Type"
+            }
+        },
+        {
+            "v": "crm:E39_Actor",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E39_Actor"
+            }
+        },
+        {
+            "v": "crm:E71_Man-Made_Thing",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E71_Man-Made_Thing"
+            }
+        },
+        {
+            "v": "crm:E82_Actor_Appellation2",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E82_Actor_Appellation"
+            }
+        },
+        {
+            "v": "VIDEO_TYPE_URI",
+            "value": {
+                "type": "attribute_name",
+                "label": "VIDEO_TYPE_URI"
+            }
+        },
+        {
+            "v": "AUTHOR",
+            "value": {
+                "type": "attribute_name",
+                "label": "AUTHOR"
+            }
+        }
+    ],
+    "edges": [
+        {
+            "v": "AUTHOR_APPELLATION_URI",
+            "w": "crm:E82_Actor_Appellation1",
+            "name": "AUTHOR_APPELLATION_URI***crm:E82_Actor_Appellation1",
+            "value": {
+                "type": "st_property_uri",
+                "label": "http://isi.edu/integration/karma/dev#classLink***inverted"
+            },
+            "weight": 1
+        },
+        {
+            "v": "AUTHOR_URI",
+            "w": "crm:E21_Person1",
+            "name": "AUTHOR_URI***crm:E21_Person1",
+            "value": {
+                "type": "st_property_uri",
+                "label": "http://isi.edu/integration/karma/dev#classLink***inverted"
+            },
+            "weight": 1
+        },
+        {
+            "v": "DESCRIPTION",
+            "w": "crm:E22_Man-Made_Object1",
+            "name": "DESCRIPTION***crm:E22_Man-Made_Object1",
+            "value": {
+                "type": "st_property_uri",
+                "label": "crm:P3_has_note***inverted"
+            },
+            "weight": 1
+        },
+        {
+            "v": "IMAGE__IMAGESRC",
+            "w": "crm:E38_Image1",
+            "name": "IMAGE__IMAGESRC***crm:E38_Image1",
+            "value": {
+                "type": "st_property_uri",
+                "label": "http://isi.edu/integration/karma/dev#classLink***inverted"
+            },
+            "weight": 1
+        },
+        {
+            "v": "TITLE NO AUTHOR",
+            "w": "crm:E35_Title1",
+            "name": "TITLE NO AUTHOR***crm:E35_Title1",
+            "value": {
+                "type": "st_property_uri",
+                "label": "rdfs:label***inverted"
+            },
+            "weight": 1
+        },
+        {
+            "v": "VIDEO",
+            "w": "crm:E31_Document1",
+            "name": "VIDEO***crm:E31_Document1",
+            "value": {
+                "type": "st_property_uri",
+                "label": "http://isi.edu/integration/karma/dev#classLink***inverted"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E1_CRM_Entity",
+            "w": "crm:E55_Type1",
+            "name": "crm:E1_CRM_Entity***crm:E55_Type1",
+            "value": {
+                "type": "direct_property_uri",
+                "label": "crm:P2i_is_type_of***inverted"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E21_Person1",
+            "w": "crm:E39_Actor",
+            "name": "crm:E21_Person1***crm:E39_Actor",
+            "value": {
+                "label": "id:ontology/PX_pupil_of",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E22_Man-Made_Object1",
+            "w": "crm:E38_Image1",
+            "name": "crm:E22_Man-Made_Object1***crm:E38_Image1",
+            "value": {
+                "type": "inherited",
+                "label": "crm:P128i_is_carried_by***inverted"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E31_Document1",
+            "w": "crm:E1_CRM_Entity",
+            "name": "crm:E31_Document1***crm:E1_CRM_Entity",
+            "value": {
+                "type": "direct_property_uri",
+                "label": "crm:P70i_is_documented_in***inverted"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E35_Title1",
+            "w": "crm:E71_Man-Made_Thing",
+            "name": "crm:E35_Title1***crm:E71_Man-Made_Thing",
+            "value": {
+                "type": "direct_property_uri",
+                "label": "crm:P102_has_title***inverted"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E35_Title1",
+            "w": "crm:E82_Actor_Appellation2",
+            "name": "crm:E35_Title1***crm:E82_Actor_Appellation2",
+            "value": {
+                "type": "inherited",
+                "label": "crm:P106i_forms_part_of***inverted"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E38_Image1",
+            "w": "crm:E82_Actor_Appellation2",
+            "name": "crm:E38_Image1***crm:E82_Actor_Appellation2",
+            "value": {
+                "type": "inherited",
+                "label": "crm:P106i_forms_part_of***inverted"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E39_Actor",
+            "w": "crm:E82_Actor_Appellation2",
+            "name": "crm:E39_Actor***crm:E82_Actor_Appellation2",
+            "value": {
+                "type": "inherited",
+                "label": "crm:P1i_identifies***inverted"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E55_Type1",
+            "w": "VIDEO_TYPE_URI",
+            "name": "crm:E55_Type1***VIDEO_TYPE_URI",
+            "value": {
+                "label": "http://isi.edu/integration/karma/dev#classLink",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E71_Man-Made_Thing",
+            "w": "crm:E55_Type1",
+            "name": "crm:E71_Man-Made_Thing***crm:E55_Type1",
+            "value": {
+                "type": "direct_property_uri",
+                "label": "crm:P103i_was_intention_of***inverted"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E82_Actor_Appellation1",
+            "w": "crm:E39_Actor",
+            "name": "crm:E82_Actor_Appellation1***crm:E39_Actor",
+            "value": {
+                "type": "inherited",
+                "label": "crm:P1_is_identified_by***inverted"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E82_Actor_Appellation2",
+            "w": "AUTHOR",
+            "name": "crm:E82_Actor_Appellation2***AUTHOR",
+            "value": {
+                "label": "rdfs:label",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        }
+    ]
+}
