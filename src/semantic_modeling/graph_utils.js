@@ -7,7 +7,7 @@
  */
 var add_semantic_types = (st, graph) => {
     var attributes = st['attributes'];
-    var semantic_types = st['semantic_types']; // TODO: Move the function to create inverse edges in the graph.js file
+    var semantic_types = st['semantic_types']; // TODO: Move here the function to create inverse edges in the graph.js file
     var entities = st['entities'];
     for (var i in attributes) {
         // Add data node
