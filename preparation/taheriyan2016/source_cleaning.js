@@ -55,6 +55,112 @@ var data_folder = process.argv.slice(2)[0];
 
 /**
  *
+ * s01-cb.json -- Original file: CSV
+ *
+ **/
+console.log('\nProcessing s01-cb.json...\n');
+var source_path = 'data/taheriyan2016/' + data_folder + '/sources/original_json/s01-cb.json';
+var output_path = 'data/taheriyan2016/' + data_folder + '/sources/updated_json/s01-cb.json';
+var source = JSON.parse(fs.readFileSync(source_path, 'utf-8'));
+
+// NOTE: Add Actor_URI field
+if (source[0]['Actor_URI'] === undefined) {
+    for (var obj of source) {
+        obj['Actor_URI'] = obj['Alpha Sort'];
+    }
+}
+
+// NOTE: Add Medium_URI field
+if (source[0]['Medium_URI'] === undefined) {
+    for (var obj of source) {
+        obj['Medium_URI'] = obj['Medium'];
+    }
+}
+
+// NOTE: Add Artist_Appellation_URI field
+if (source[0]['Artist_Appellation_URI'] === undefined) {
+    for (var obj of source) {
+        obj['Artist_Appellation_URI'] = obj['Attribution'];
+    }
+}
+
+fs.writeFileSync(output_path, JSON.stringify(source, null, 4));
+
+/**
+ *
+ * s02-dma.json -- Original file: CSV
+ *
+ **/
+console.log('\nProcessing s02-dma.json...\n');
+var source_path = 'data/taheriyan2016/' + data_folder + '/sources/original_json/s02-dma.json';
+var output_path = 'data/taheriyan2016/' + data_folder + '/sources/updated_json/s02-dma.json';
+var source = JSON.parse(fs.readFileSync(source_path, 'utf-8'));
+
+// NOTE: Add Artist URI field
+if (source[0]['Artist URI'] === undefined) {
+    for (var obj of source) {
+        obj['Artist URI'] = obj['Artist Name'];
+    }
+}
+
+// NOTE: Add Object_URI field
+if (source[0]['Object_URI'] === undefined) {
+    for (var obj of source) {
+        obj['Object_URI'] = obj['Object ID'];
+    }
+}
+
+// NOTE: Add Museum URI field
+if (source[0]['Museum URI'] === undefined) {
+    for (var obj of source) {
+        obj['Museum URI'] = obj['Object Link Source'];
+    }
+}
+
+// NOTE: Add Object Work Type URI field
+if (source[0]['Object Work Type URI'] === undefined) {
+    for (var obj of source) {
+        obj['Object Work Type URI'] = obj['Object Work Type'];
+    }
+}
+
+// NOTE: Add Medium URI field
+if (source[0]['Medium URI'] === undefined) {
+    for (var obj of source) {
+        obj['Medium URI'] = obj['Object Facet Value 1'];
+    }
+}
+
+// NOTE: Add Nationality_URI field
+if (source[0]['Nationality_URI'] === undefined) {
+    for (var obj of source) {
+        obj['Nationality_URI'] = obj['Artist Nationality'];
+    }
+}
+
+// NOTE: Add Nationality_URI field
+if (source[0]['Nationality_URI'] === undefined) {
+    for (var obj of source) {
+        obj['Nationality_URI'] = obj['Artist Nationality'];
+    }
+}
+
+// NOTE: Artist Appellation field
+if (source[0]['Artist Appellation'] === undefined) {
+    for (var obj of source) {
+        obj['Artist Appellation'] = obj['Artist Name'];
+    }
+}
+
+console.log('... end of processing of s01-cb.json.\n\n');
+
+fs.writeFileSync(output_path, JSON.stringify(source, null, 4));
+
+console.log('... end of processing of s02-dma.json.\n\n');
+
+
+/**
+ *
  * s03-ima-artists.json -- Original file: XML
  *
  **/
@@ -108,14 +214,14 @@ if (source[0]['materialsURI'] === undefined) {
 // NOTE: add provenanceTypeURI field
 if (source[0]['provenanceTypeURI'] === undefined) {
     for (var obj of source) {
-        obj['provenanceTypeURI'] = obj['provenance'];
+        obj['provenanceTypeURI'] = obj['accessionNumber'];
     }
 }
 
 // NOTE: add galleryLabelTypeURI field
 if (source[0]['galleryLabelTypeURI'] === undefined) {
     for (var obj of source) {
-        obj['galleryLabelTypeURI'] = obj['galleryLabel'];
+        obj['galleryLabelTypeURI'] = obj['title'];
     }
 }
 
@@ -173,7 +279,7 @@ if (source[0]['Medium URI'] === undefined) {
 // NOTE: add Medium URI field
 if (source[0]['ProvenanceTypeURI'] === undefined) {
     for (var obj of source) {
-        obj['ProvenanceTypeURI'] = obj['Provenance'];
+        obj['ProvenanceTypeURI'] = obj['id'];
     }
 }
 
@@ -406,7 +512,7 @@ if (source[0]['artist_appellation_uri'] === undefined) {
 // NOTE: Add birthValue field
 if (source[0]['birthValue'] === undefined) {
     for (var obj of source) {
-        if (obj['birth_death_date'].length > 1) {
+        if (obj['birth_death_date'].length > 0) {
             obj['birthValue'] = obj['birth_death_date'][0].split(' - ')[0];
         } else obj['birthValue'] = [];
     }
@@ -415,7 +521,7 @@ if (source[0]['birthValue'] === undefined) {
 // NOTE: Add deathValue field
 if (source[0]['deathValue'] === undefined) {
     for (var obj of source) {
-        if (obj['birth_death_date'].length > 1) {
+        if (obj['birth_death_date'].length > 0) {
             obj['deathValue'] = obj['birth_death_date'][0].split(' - ')[1];
         } else obj['deathValue'] = [];
     }
@@ -485,7 +591,7 @@ source = source['getty_artists']
 // NOTE: Add biography_type_uri field
 if (source[0]['biography_type_uri'] === undefined) {
     for (var obj of source) {
-        obj['biography_type_uri'] = obj['long_biography'];
+        obj['biography_type_uri'] = obj['artist_name'];
     }
 }
 
@@ -502,7 +608,6 @@ if (source[0]['nationality_uri'] === undefined) {
         obj['nationality_uri'] = obj['nationality'];
     }
 }
-
 
 fs.writeFileSync(output_path, JSON.stringify(source, null, 4));
 
