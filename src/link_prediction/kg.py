@@ -11,7 +11,7 @@ class RGCNDataSet(object):
         num_nodes: int
             number of entities of the Knowledge Graph
         num_rels: int
-            number of relations (including reverse relations) of the Knowledge Graph
+            number of relations of the Knowledge Graph
         train: numpy.array
             triplets for training (src, rel, dst)
         valid: numpy.array
