@@ -1,0 +1,1039 @@
+{
+    "_isDirected": true,
+    "_isMultigraph": true,
+    "_isCompound": false,
+    "_nodes": {
+        "Actor_URI": {
+            "type": "attribute_name",
+            "label": "Actor_URI"
+        },
+        "crm:E21_Person1": {
+            "type": "class_uri",
+            "label": "crm:E21_Person"
+        },
+        "Title": {
+            "type": "attribute_name",
+            "label": "Title"
+        },
+        "crm:E35_Title1": {
+            "type": "class_uri",
+            "label": "crm:E35_Title"
+        },
+        "Begin Date": {
+            "type": "attribute_name",
+            "label": "Begin Date"
+        },
+        "crm:E52_Time-Span1": {
+            "type": "class_uri",
+            "label": "crm:E52_Time-Span"
+        },
+        "End Date": {
+            "type": "attribute_name",
+            "label": "End Date"
+        },
+        "crm:E52_Time-Span2": {
+            "type": "class_uri",
+            "label": "crm:E52_Time-Span"
+        },
+        "Dated": {
+            "type": "attribute_name",
+            "label": "Dated"
+        },
+        "crm:E52_Time-Span3": {
+            "type": "class_uri",
+            "label": "crm:E52_Time-Span"
+        },
+        "Dimensions": {
+            "type": "attribute_name",
+            "label": "Dimensions"
+        },
+        "crm:E54_Dimension1": {
+            "type": "class_uri",
+            "label": "crm:E54_Dimension"
+        },
+        "Medium_URI": {
+            "type": "attribute_name",
+            "label": "Medium_URI"
+        },
+        "crm:E55_Type1": {
+            "type": "class_uri",
+            "label": "crm:E55_Type"
+        },
+        "Medium": {
+            "type": "attribute_name",
+            "label": "Medium"
+        },
+        "crm:E55_Type2": {
+            "type": "class_uri",
+            "label": "crm:E55_Type"
+        },
+        "Artist_Appellation_URI": {
+            "type": "attribute_name",
+            "label": "Artist_Appellation_URI"
+        },
+        "crm:E82_Actor_Appellation1": {
+            "type": "class_uri",
+            "label": "crm:E82_Actor_Appellation"
+        },
+        "Attribution": {
+            "type": "attribute_name",
+            "label": "Attribution"
+        },
+        "crm:E82_Actor_Appellation2": {
+            "type": "class_uri",
+            "label": "crm:E82_Actor_Appellation"
+        },
+        "crm:E12_Production1": {
+            "type": "class_uri",
+            "label": "crm:E12_Production"
+        },
+        "crm:E69_Death1": {
+            "type": "class_uri",
+            "label": "crm:E69_Death"
+        },
+        "crm:E67_Birth1": {
+            "type": "class_uri",
+            "label": "crm:E67_Birth"
+        },
+        "crm:E22_Man-Made_Object1": {
+            "type": "class_uri",
+            "label": "crm:E22_Man-Made_Object"
+        }
+    },
+    "_in": {
+        "Actor_URI": {
+            "crm:E21_Person1\u0001Actor_URI\u0001crm:E21_Person1***Actor_URI\u0001st_property_urihttp://isi.edu/integration/karma/dev#classLink\u00011": {
+                "v": "crm:E21_Person1",
+                "w": "Actor_URI",
+                "name": "crm:E21_Person1***Actor_URI",
+                "value": {
+                    "label": "http://isi.edu/integration/karma/dev#classLink",
+                    "type": "st_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "crm:E21_Person1": {
+            "crm:E12_Production1\u0001crm:E21_Person1\u0001crm:E12_Production1***crm:P14_carried_out_by\u0001propertycrm:P14_carried_out_by\u00011": {
+                "v": "crm:E12_Production1",
+                "w": "crm:E21_Person1",
+                "name": "crm:E12_Production1***crm:P14_carried_out_by",
+                "value": {
+                    "label": "crm:P14_carried_out_by",
+                    "type": "property"
+                },
+                "weight": 1
+            }
+        },
+        "Title": {
+            "crm:E35_Title1\u0001Title\u0001crm:E35_Title1***Title\u0001st_property_urirdfs:label\u00011": {
+                "v": "crm:E35_Title1",
+                "w": "Title",
+                "name": "crm:E35_Title1***Title",
+                "value": {
+                    "label": "rdfs:label",
+                    "type": "st_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "crm:E35_Title1": {
+            "crm:E22_Man-Made_Object1\u0001crm:E35_Title1\u0001crm:E22_Man-Made_Object1***crm:P102_has_title\u0001propertycrm:P102_has_title\u00011": {
+                "v": "crm:E22_Man-Made_Object1",
+                "w": "crm:E35_Title1",
+                "name": "crm:E22_Man-Made_Object1***crm:P102_has_title",
+                "value": {
+                    "label": "crm:P102_has_title",
+                    "type": "property"
+                },
+                "weight": 1
+            }
+        },
+        "Begin Date": {
+            "crm:E52_Time-Span1\u0001Begin Date\u0001crm:E52_Time-Span1***Begin Date\u0001st_property_uricrm:P82_at_some_time_within\u00011": {
+                "v": "crm:E52_Time-Span1",
+                "w": "Begin Date",
+                "name": "crm:E52_Time-Span1***Begin Date",
+                "value": {
+                    "label": "crm:P82_at_some_time_within",
+                    "type": "st_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "crm:E52_Time-Span1": {
+            "crm:E67_Birth1\u0001crm:E52_Time-Span1\u0001crm:E67_Birth1***crm:P4_has_time-span\u0001propertycrm:P4_has_time-span\u00011": {
+                "v": "crm:E67_Birth1",
+                "w": "crm:E52_Time-Span1",
+                "name": "crm:E67_Birth1***crm:P4_has_time-span",
+                "value": {
+                    "label": "crm:P4_has_time-span",
+                    "type": "property"
+                },
+                "weight": 1
+            }
+        },
+        "End Date": {
+            "crm:E52_Time-Span2\u0001End Date\u0001crm:E52_Time-Span2***End Date\u0001st_property_uricrm:P82_at_some_time_within\u00011": {
+                "v": "crm:E52_Time-Span2",
+                "w": "End Date",
+                "name": "crm:E52_Time-Span2***End Date",
+                "value": {
+                    "label": "crm:P82_at_some_time_within",
+                    "type": "st_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "crm:E52_Time-Span2": {
+            "crm:E69_Death1\u0001crm:E52_Time-Span2\u0001crm:E69_Death1***crm:P4_has_time-span\u0001propertycrm:P4_has_time-span\u00011": {
+                "v": "crm:E69_Death1",
+                "w": "crm:E52_Time-Span2",
+                "name": "crm:E69_Death1***crm:P4_has_time-span",
+                "value": {
+                    "label": "crm:P4_has_time-span",
+                    "type": "property"
+                },
+                "weight": 1
+            }
+        },
+        "Dated": {
+            "crm:E52_Time-Span3\u0001Dated\u0001crm:E52_Time-Span3***Dated\u0001st_property_uricrm:P82_at_some_time_within\u00011": {
+                "v": "crm:E52_Time-Span3",
+                "w": "Dated",
+                "name": "crm:E52_Time-Span3***Dated",
+                "value": {
+                    "label": "crm:P82_at_some_time_within",
+                    "type": "st_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "crm:E52_Time-Span3": {
+            "crm:E12_Production1\u0001crm:E52_Time-Span3\u0001crm:E12_Production1***crm:P4_has_time-span\u0001propertycrm:P4_has_time-span\u00011": {
+                "v": "crm:E12_Production1",
+                "w": "crm:E52_Time-Span3",
+                "name": "crm:E12_Production1***crm:P4_has_time-span",
+                "value": {
+                    "label": "crm:P4_has_time-span",
+                    "type": "property"
+                },
+                "weight": 1
+            }
+        },
+        "Dimensions": {
+            "crm:E54_Dimension1\u0001Dimensions\u0001crm:E54_Dimension1***Dimensions\u0001st_property_uricrm:P3_has_note\u00011": {
+                "v": "crm:E54_Dimension1",
+                "w": "Dimensions",
+                "name": "crm:E54_Dimension1***Dimensions",
+                "value": {
+                    "label": "crm:P3_has_note",
+                    "type": "st_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "crm:E54_Dimension1": {
+            "crm:E22_Man-Made_Object1\u0001crm:E54_Dimension1\u0001crm:E22_Man-Made_Object1***crm:P43_has_dimension\u0001propertycrm:P43_has_dimension\u00011": {
+                "v": "crm:E22_Man-Made_Object1",
+                "w": "crm:E54_Dimension1",
+                "name": "crm:E22_Man-Made_Object1***crm:P43_has_dimension",
+                "value": {
+                    "label": "crm:P43_has_dimension",
+                    "type": "property"
+                },
+                "weight": 1
+            }
+        },
+        "Medium_URI": {
+            "crm:E55_Type1\u0001Medium_URI\u0001crm:E55_Type1***Medium_URI\u0001st_property_urihttp://isi.edu/integration/karma/dev#classLink\u00011": {
+                "v": "crm:E55_Type1",
+                "w": "Medium_URI",
+                "name": "crm:E55_Type1***Medium_URI",
+                "value": {
+                    "label": "http://isi.edu/integration/karma/dev#classLink",
+                    "type": "st_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "crm:E55_Type1": {
+            "crm:E12_Production1\u0001crm:E55_Type1\u0001crm:E12_Production1***crm:P32_used_general_technique\u0001propertycrm:P32_used_general_technique\u00011": {
+                "v": "crm:E12_Production1",
+                "w": "crm:E55_Type1",
+                "name": "crm:E12_Production1***crm:P32_used_general_technique",
+                "value": {
+                    "label": "crm:P32_used_general_technique",
+                    "type": "property"
+                },
+                "weight": 1
+            }
+        },
+        "Medium": {
+            "crm:E55_Type2\u0001Medium\u0001crm:E55_Type2***Medium\u0001st_property_urirdfs:label\u00011": {
+                "v": "crm:E55_Type2",
+                "w": "Medium",
+                "name": "crm:E55_Type2***Medium",
+                "value": {
+                    "label": "rdfs:label",
+                    "type": "st_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "crm:E55_Type2": {},
+        "Artist_Appellation_URI": {
+            "crm:E82_Actor_Appellation1\u0001Artist_Appellation_URI\u0001crm:E82_Actor_Appellation1***Artist_Appellation_URI\u0001st_property_urihttp://isi.edu/integration/karma/dev#classLink\u00011": {
+                "v": "crm:E82_Actor_Appellation1",
+                "w": "Artist_Appellation_URI",
+                "name": "crm:E82_Actor_Appellation1***Artist_Appellation_URI",
+                "value": {
+                    "label": "http://isi.edu/integration/karma/dev#classLink",
+                    "type": "st_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "crm:E82_Actor_Appellation1": {
+            "crm:E21_Person1\u0001crm:E82_Actor_Appellation1\u0001crm:E21_Person1***crm:P131_is_identified_by\u0001propertycrm:P131_is_identified_by\u00011": {
+                "v": "crm:E21_Person1",
+                "w": "crm:E82_Actor_Appellation1",
+                "name": "crm:E21_Person1***crm:P131_is_identified_by",
+                "value": {
+                    "label": "crm:P131_is_identified_by",
+                    "type": "property"
+                },
+                "weight": 1
+            }
+        },
+        "Attribution": {
+            "crm:E82_Actor_Appellation2\u0001Attribution\u0001crm:E82_Actor_Appellation2***Attribution\u0001st_property_urirdfs:label\u00011": {
+                "v": "crm:E82_Actor_Appellation2",
+                "w": "Attribution",
+                "name": "crm:E82_Actor_Appellation2***Attribution",
+                "value": {
+                    "label": "rdfs:label",
+                    "type": "st_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "crm:E82_Actor_Appellation2": {},
+        "crm:E12_Production1": {
+            "crm:E22_Man-Made_Object1\u0001crm:E12_Production1\u0001crm:E22_Man-Made_Object1***crm:P108i_was_produced_by\u0001propertycrm:P108i_was_produced_by\u00011": {
+                "v": "crm:E22_Man-Made_Object1",
+                "w": "crm:E12_Production1",
+                "name": "crm:E22_Man-Made_Object1***crm:P108i_was_produced_by",
+                "value": {
+                    "label": "crm:P108i_was_produced_by",
+                    "type": "property"
+                },
+                "weight": 1
+            }
+        },
+        "crm:E69_Death1": {
+            "crm:E21_Person1\u0001crm:E69_Death1\u0001crm:E21_Person1***crm:P100i_died_in\u0001propertycrm:P100i_died_in\u00011": {
+                "v": "crm:E21_Person1",
+                "w": "crm:E69_Death1",
+                "name": "crm:E21_Person1***crm:P100i_died_in",
+                "value": {
+                    "label": "crm:P100i_died_in",
+                    "type": "property"
+                },
+                "weight": 1
+            }
+        },
+        "crm:E67_Birth1": {
+            "crm:E21_Person1\u0001crm:E67_Birth1\u0001crm:E21_Person1***crm:P98i_was_born\u0001propertycrm:P98i_was_born\u00011": {
+                "v": "crm:E21_Person1",
+                "w": "crm:E67_Birth1",
+                "name": "crm:E21_Person1***crm:P98i_was_born",
+                "value": {
+                    "label": "crm:P98i_was_born",
+                    "type": "property"
+                },
+                "weight": 1
+            }
+        },
+        "crm:E22_Man-Made_Object1": {}
+    },
+    "_preds": {
+        "Actor_URI": {
+            "crm:E21_Person1": 1
+        },
+        "crm:E21_Person1": {
+            "crm:E12_Production1": 1
+        },
+        "Title": {
+            "crm:E35_Title1": 1
+        },
+        "crm:E35_Title1": {
+            "crm:E22_Man-Made_Object1": 1
+        },
+        "Begin Date": {
+            "crm:E52_Time-Span1": 1
+        },
+        "crm:E52_Time-Span1": {
+            "crm:E67_Birth1": 1
+        },
+        "End Date": {
+            "crm:E52_Time-Span2": 1
+        },
+        "crm:E52_Time-Span2": {
+            "crm:E69_Death1": 1
+        },
+        "Dated": {
+            "crm:E52_Time-Span3": 1
+        },
+        "crm:E52_Time-Span3": {
+            "crm:E12_Production1": 1
+        },
+        "Dimensions": {
+            "crm:E54_Dimension1": 1
+        },
+        "crm:E54_Dimension1": {
+            "crm:E22_Man-Made_Object1": 1
+        },
+        "Medium_URI": {
+            "crm:E55_Type1": 1
+        },
+        "crm:E55_Type1": {
+            "crm:E12_Production1": 1
+        },
+        "Medium": {
+            "crm:E55_Type2": 1
+        },
+        "crm:E55_Type2": {},
+        "Artist_Appellation_URI": {
+            "crm:E82_Actor_Appellation1": 1
+        },
+        "crm:E82_Actor_Appellation1": {
+            "crm:E21_Person1": 1
+        },
+        "Attribution": {
+            "crm:E82_Actor_Appellation2": 1
+        },
+        "crm:E82_Actor_Appellation2": {},
+        "crm:E12_Production1": {
+            "crm:E22_Man-Made_Object1": 1
+        },
+        "crm:E69_Death1": {
+            "crm:E21_Person1": 1
+        },
+        "crm:E67_Birth1": {
+            "crm:E21_Person1": 1
+        },
+        "crm:E22_Man-Made_Object1": {}
+    },
+    "_out": {
+        "Actor_URI": {},
+        "crm:E21_Person1": {
+            "crm:E21_Person1\u0001Actor_URI\u0001crm:E21_Person1***Actor_URI\u0001st_property_urihttp://isi.edu/integration/karma/dev#classLink\u00011": {
+                "v": "crm:E21_Person1",
+                "w": "Actor_URI",
+                "name": "crm:E21_Person1***Actor_URI",
+                "value": {
+                    "label": "http://isi.edu/integration/karma/dev#classLink",
+                    "type": "st_property_uri"
+                },
+                "weight": 1
+            },
+            "crm:E21_Person1\u0001crm:E69_Death1\u0001crm:E21_Person1***crm:P100i_died_in\u0001propertycrm:P100i_died_in\u00011": {
+                "v": "crm:E21_Person1",
+                "w": "crm:E69_Death1",
+                "name": "crm:E21_Person1***crm:P100i_died_in",
+                "value": {
+                    "label": "crm:P100i_died_in",
+                    "type": "property"
+                },
+                "weight": 1
+            },
+            "crm:E21_Person1\u0001crm:E82_Actor_Appellation1\u0001crm:E21_Person1***crm:P131_is_identified_by\u0001propertycrm:P131_is_identified_by\u00011": {
+                "v": "crm:E21_Person1",
+                "w": "crm:E82_Actor_Appellation1",
+                "name": "crm:E21_Person1***crm:P131_is_identified_by",
+                "value": {
+                    "label": "crm:P131_is_identified_by",
+                    "type": "property"
+                },
+                "weight": 1
+            },
+            "crm:E21_Person1\u0001crm:E67_Birth1\u0001crm:E21_Person1***crm:P98i_was_born\u0001propertycrm:P98i_was_born\u00011": {
+                "v": "crm:E21_Person1",
+                "w": "crm:E67_Birth1",
+                "name": "crm:E21_Person1***crm:P98i_was_born",
+                "value": {
+                    "label": "crm:P98i_was_born",
+                    "type": "property"
+                },
+                "weight": 1
+            }
+        },
+        "Title": {},
+        "crm:E35_Title1": {
+            "crm:E35_Title1\u0001Title\u0001crm:E35_Title1***Title\u0001st_property_urirdfs:label\u00011": {
+                "v": "crm:E35_Title1",
+                "w": "Title",
+                "name": "crm:E35_Title1***Title",
+                "value": {
+                    "label": "rdfs:label",
+                    "type": "st_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "Begin Date": {},
+        "crm:E52_Time-Span1": {
+            "crm:E52_Time-Span1\u0001Begin Date\u0001crm:E52_Time-Span1***Begin Date\u0001st_property_uricrm:P82_at_some_time_within\u00011": {
+                "v": "crm:E52_Time-Span1",
+                "w": "Begin Date",
+                "name": "crm:E52_Time-Span1***Begin Date",
+                "value": {
+                    "label": "crm:P82_at_some_time_within",
+                    "type": "st_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "End Date": {},
+        "crm:E52_Time-Span2": {
+            "crm:E52_Time-Span2\u0001End Date\u0001crm:E52_Time-Span2***End Date\u0001st_property_uricrm:P82_at_some_time_within\u00011": {
+                "v": "crm:E52_Time-Span2",
+                "w": "End Date",
+                "name": "crm:E52_Time-Span2***End Date",
+                "value": {
+                    "label": "crm:P82_at_some_time_within",
+                    "type": "st_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "Dated": {},
+        "crm:E52_Time-Span3": {
+            "crm:E52_Time-Span3\u0001Dated\u0001crm:E52_Time-Span3***Dated\u0001st_property_uricrm:P82_at_some_time_within\u00011": {
+                "v": "crm:E52_Time-Span3",
+                "w": "Dated",
+                "name": "crm:E52_Time-Span3***Dated",
+                "value": {
+                    "label": "crm:P82_at_some_time_within",
+                    "type": "st_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "Dimensions": {},
+        "crm:E54_Dimension1": {
+            "crm:E54_Dimension1\u0001Dimensions\u0001crm:E54_Dimension1***Dimensions\u0001st_property_uricrm:P3_has_note\u00011": {
+                "v": "crm:E54_Dimension1",
+                "w": "Dimensions",
+                "name": "crm:E54_Dimension1***Dimensions",
+                "value": {
+                    "label": "crm:P3_has_note",
+                    "type": "st_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "Medium_URI": {},
+        "crm:E55_Type1": {
+            "crm:E55_Type1\u0001Medium_URI\u0001crm:E55_Type1***Medium_URI\u0001st_property_urihttp://isi.edu/integration/karma/dev#classLink\u00011": {
+                "v": "crm:E55_Type1",
+                "w": "Medium_URI",
+                "name": "crm:E55_Type1***Medium_URI",
+                "value": {
+                    "label": "http://isi.edu/integration/karma/dev#classLink",
+                    "type": "st_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "Medium": {},
+        "crm:E55_Type2": {
+            "crm:E55_Type2\u0001Medium\u0001crm:E55_Type2***Medium\u0001st_property_urirdfs:label\u00011": {
+                "v": "crm:E55_Type2",
+                "w": "Medium",
+                "name": "crm:E55_Type2***Medium",
+                "value": {
+                    "label": "rdfs:label",
+                    "type": "st_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "Artist_Appellation_URI": {},
+        "crm:E82_Actor_Appellation1": {
+            "crm:E82_Actor_Appellation1\u0001Artist_Appellation_URI\u0001crm:E82_Actor_Appellation1***Artist_Appellation_URI\u0001st_property_urihttp://isi.edu/integration/karma/dev#classLink\u00011": {
+                "v": "crm:E82_Actor_Appellation1",
+                "w": "Artist_Appellation_URI",
+                "name": "crm:E82_Actor_Appellation1***Artist_Appellation_URI",
+                "value": {
+                    "label": "http://isi.edu/integration/karma/dev#classLink",
+                    "type": "st_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "Attribution": {},
+        "crm:E82_Actor_Appellation2": {
+            "crm:E82_Actor_Appellation2\u0001Attribution\u0001crm:E82_Actor_Appellation2***Attribution\u0001st_property_urirdfs:label\u00011": {
+                "v": "crm:E82_Actor_Appellation2",
+                "w": "Attribution",
+                "name": "crm:E82_Actor_Appellation2***Attribution",
+                "value": {
+                    "label": "rdfs:label",
+                    "type": "st_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "crm:E12_Production1": {
+            "crm:E12_Production1\u0001crm:E21_Person1\u0001crm:E12_Production1***crm:P14_carried_out_by\u0001propertycrm:P14_carried_out_by\u00011": {
+                "v": "crm:E12_Production1",
+                "w": "crm:E21_Person1",
+                "name": "crm:E12_Production1***crm:P14_carried_out_by",
+                "value": {
+                    "label": "crm:P14_carried_out_by",
+                    "type": "property"
+                },
+                "weight": 1
+            },
+            "crm:E12_Production1\u0001crm:E55_Type1\u0001crm:E12_Production1***crm:P32_used_general_technique\u0001propertycrm:P32_used_general_technique\u00011": {
+                "v": "crm:E12_Production1",
+                "w": "crm:E55_Type1",
+                "name": "crm:E12_Production1***crm:P32_used_general_technique",
+                "value": {
+                    "label": "crm:P32_used_general_technique",
+                    "type": "property"
+                },
+                "weight": 1
+            },
+            "crm:E12_Production1\u0001crm:E52_Time-Span3\u0001crm:E12_Production1***crm:P4_has_time-span\u0001propertycrm:P4_has_time-span\u00011": {
+                "v": "crm:E12_Production1",
+                "w": "crm:E52_Time-Span3",
+                "name": "crm:E12_Production1***crm:P4_has_time-span",
+                "value": {
+                    "label": "crm:P4_has_time-span",
+                    "type": "property"
+                },
+                "weight": 1
+            }
+        },
+        "crm:E69_Death1": {
+            "crm:E69_Death1\u0001crm:E52_Time-Span2\u0001crm:E69_Death1***crm:P4_has_time-span\u0001propertycrm:P4_has_time-span\u00011": {
+                "v": "crm:E69_Death1",
+                "w": "crm:E52_Time-Span2",
+                "name": "crm:E69_Death1***crm:P4_has_time-span",
+                "value": {
+                    "label": "crm:P4_has_time-span",
+                    "type": "property"
+                },
+                "weight": 1
+            }
+        },
+        "crm:E67_Birth1": {
+            "crm:E67_Birth1\u0001crm:E52_Time-Span1\u0001crm:E67_Birth1***crm:P4_has_time-span\u0001propertycrm:P4_has_time-span\u00011": {
+                "v": "crm:E67_Birth1",
+                "w": "crm:E52_Time-Span1",
+                "name": "crm:E67_Birth1***crm:P4_has_time-span",
+                "value": {
+                    "label": "crm:P4_has_time-span",
+                    "type": "property"
+                },
+                "weight": 1
+            }
+        },
+        "crm:E22_Man-Made_Object1": {
+            "crm:E22_Man-Made_Object1\u0001crm:E35_Title1\u0001crm:E22_Man-Made_Object1***crm:P102_has_title\u0001propertycrm:P102_has_title\u00011": {
+                "v": "crm:E22_Man-Made_Object1",
+                "w": "crm:E35_Title1",
+                "name": "crm:E22_Man-Made_Object1***crm:P102_has_title",
+                "value": {
+                    "label": "crm:P102_has_title",
+                    "type": "property"
+                },
+                "weight": 1
+            },
+            "crm:E22_Man-Made_Object1\u0001crm:E12_Production1\u0001crm:E22_Man-Made_Object1***crm:P108i_was_produced_by\u0001propertycrm:P108i_was_produced_by\u00011": {
+                "v": "crm:E22_Man-Made_Object1",
+                "w": "crm:E12_Production1",
+                "name": "crm:E22_Man-Made_Object1***crm:P108i_was_produced_by",
+                "value": {
+                    "label": "crm:P108i_was_produced_by",
+                    "type": "property"
+                },
+                "weight": 1
+            },
+            "crm:E22_Man-Made_Object1\u0001crm:E54_Dimension1\u0001crm:E22_Man-Made_Object1***crm:P43_has_dimension\u0001propertycrm:P43_has_dimension\u00011": {
+                "v": "crm:E22_Man-Made_Object1",
+                "w": "crm:E54_Dimension1",
+                "name": "crm:E22_Man-Made_Object1***crm:P43_has_dimension",
+                "value": {
+                    "label": "crm:P43_has_dimension",
+                    "type": "property"
+                },
+                "weight": 1
+            }
+        }
+    },
+    "_sucs": {
+        "Actor_URI": {},
+        "crm:E21_Person1": {
+            "Actor_URI": 1,
+            "crm:E69_Death1": 1,
+            "crm:E82_Actor_Appellation1": 1,
+            "crm:E67_Birth1": 1
+        },
+        "Title": {},
+        "crm:E35_Title1": {
+            "Title": 1
+        },
+        "Begin Date": {},
+        "crm:E52_Time-Span1": {
+            "Begin Date": 1
+        },
+        "End Date": {},
+        "crm:E52_Time-Span2": {
+            "End Date": 1
+        },
+        "Dated": {},
+        "crm:E52_Time-Span3": {
+            "Dated": 1
+        },
+        "Dimensions": {},
+        "crm:E54_Dimension1": {
+            "Dimensions": 1
+        },
+        "Medium_URI": {},
+        "crm:E55_Type1": {
+            "Medium_URI": 1
+        },
+        "Medium": {},
+        "crm:E55_Type2": {
+            "Medium": 1
+        },
+        "Artist_Appellation_URI": {},
+        "crm:E82_Actor_Appellation1": {
+            "Artist_Appellation_URI": 1
+        },
+        "Attribution": {},
+        "crm:E82_Actor_Appellation2": {
+            "Attribution": 1
+        },
+        "crm:E12_Production1": {
+            "crm:E21_Person1": 1,
+            "crm:E55_Type1": 1,
+            "crm:E52_Time-Span3": 1
+        },
+        "crm:E69_Death1": {
+            "crm:E52_Time-Span2": 1
+        },
+        "crm:E67_Birth1": {
+            "crm:E52_Time-Span1": 1
+        },
+        "crm:E22_Man-Made_Object1": {
+            "crm:E35_Title1": 1,
+            "crm:E12_Production1": 1,
+            "crm:E54_Dimension1": 1
+        }
+    },
+    "_edgeObjs": {
+        "crm:E21_Person1\u0001Actor_URI\u0001crm:E21_Person1***Actor_URI\u0001st_property_urihttp://isi.edu/integration/karma/dev#classLink\u00011": {
+            "v": "crm:E21_Person1",
+            "w": "Actor_URI",
+            "name": "crm:E21_Person1***Actor_URI",
+            "value": {
+                "label": "http://isi.edu/integration/karma/dev#classLink",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        "crm:E35_Title1\u0001Title\u0001crm:E35_Title1***Title\u0001st_property_urirdfs:label\u00011": {
+            "v": "crm:E35_Title1",
+            "w": "Title",
+            "name": "crm:E35_Title1***Title",
+            "value": {
+                "label": "rdfs:label",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        "crm:E52_Time-Span1\u0001Begin Date\u0001crm:E52_Time-Span1***Begin Date\u0001st_property_uricrm:P82_at_some_time_within\u00011": {
+            "v": "crm:E52_Time-Span1",
+            "w": "Begin Date",
+            "name": "crm:E52_Time-Span1***Begin Date",
+            "value": {
+                "label": "crm:P82_at_some_time_within",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        "crm:E52_Time-Span2\u0001End Date\u0001crm:E52_Time-Span2***End Date\u0001st_property_uricrm:P82_at_some_time_within\u00011": {
+            "v": "crm:E52_Time-Span2",
+            "w": "End Date",
+            "name": "crm:E52_Time-Span2***End Date",
+            "value": {
+                "label": "crm:P82_at_some_time_within",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        "crm:E52_Time-Span3\u0001Dated\u0001crm:E52_Time-Span3***Dated\u0001st_property_uricrm:P82_at_some_time_within\u00011": {
+            "v": "crm:E52_Time-Span3",
+            "w": "Dated",
+            "name": "crm:E52_Time-Span3***Dated",
+            "value": {
+                "label": "crm:P82_at_some_time_within",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        "crm:E54_Dimension1\u0001Dimensions\u0001crm:E54_Dimension1***Dimensions\u0001st_property_uricrm:P3_has_note\u00011": {
+            "v": "crm:E54_Dimension1",
+            "w": "Dimensions",
+            "name": "crm:E54_Dimension1***Dimensions",
+            "value": {
+                "label": "crm:P3_has_note",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        "crm:E55_Type1\u0001Medium_URI\u0001crm:E55_Type1***Medium_URI\u0001st_property_urihttp://isi.edu/integration/karma/dev#classLink\u00011": {
+            "v": "crm:E55_Type1",
+            "w": "Medium_URI",
+            "name": "crm:E55_Type1***Medium_URI",
+            "value": {
+                "label": "http://isi.edu/integration/karma/dev#classLink",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        "crm:E55_Type2\u0001Medium\u0001crm:E55_Type2***Medium\u0001st_property_urirdfs:label\u00011": {
+            "v": "crm:E55_Type2",
+            "w": "Medium",
+            "name": "crm:E55_Type2***Medium",
+            "value": {
+                "label": "rdfs:label",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        "crm:E82_Actor_Appellation1\u0001Artist_Appellation_URI\u0001crm:E82_Actor_Appellation1***Artist_Appellation_URI\u0001st_property_urihttp://isi.edu/integration/karma/dev#classLink\u00011": {
+            "v": "crm:E82_Actor_Appellation1",
+            "w": "Artist_Appellation_URI",
+            "name": "crm:E82_Actor_Appellation1***Artist_Appellation_URI",
+            "value": {
+                "label": "http://isi.edu/integration/karma/dev#classLink",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        "crm:E82_Actor_Appellation2\u0001Attribution\u0001crm:E82_Actor_Appellation2***Attribution\u0001st_property_urirdfs:label\u00011": {
+            "v": "crm:E82_Actor_Appellation2",
+            "w": "Attribution",
+            "name": "crm:E82_Actor_Appellation2***Attribution",
+            "value": {
+                "label": "rdfs:label",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        "crm:E12_Production1\u0001crm:E21_Person1\u0001crm:E12_Production1***crm:P14_carried_out_by\u0001propertycrm:P14_carried_out_by\u00011": {
+            "v": "crm:E12_Production1",
+            "w": "crm:E21_Person1",
+            "name": "crm:E12_Production1***crm:P14_carried_out_by",
+            "value": {
+                "label": "crm:P14_carried_out_by",
+                "type": "property"
+            },
+            "weight": 1
+        },
+        "crm:E12_Production1\u0001crm:E55_Type1\u0001crm:E12_Production1***crm:P32_used_general_technique\u0001propertycrm:P32_used_general_technique\u00011": {
+            "v": "crm:E12_Production1",
+            "w": "crm:E55_Type1",
+            "name": "crm:E12_Production1***crm:P32_used_general_technique",
+            "value": {
+                "label": "crm:P32_used_general_technique",
+                "type": "property"
+            },
+            "weight": 1
+        },
+        "crm:E12_Production1\u0001crm:E52_Time-Span3\u0001crm:E12_Production1***crm:P4_has_time-span\u0001propertycrm:P4_has_time-span\u00011": {
+            "v": "crm:E12_Production1",
+            "w": "crm:E52_Time-Span3",
+            "name": "crm:E12_Production1***crm:P4_has_time-span",
+            "value": {
+                "label": "crm:P4_has_time-span",
+                "type": "property"
+            },
+            "weight": 1
+        },
+        "crm:E21_Person1\u0001crm:E69_Death1\u0001crm:E21_Person1***crm:P100i_died_in\u0001propertycrm:P100i_died_in\u00011": {
+            "v": "crm:E21_Person1",
+            "w": "crm:E69_Death1",
+            "name": "crm:E21_Person1***crm:P100i_died_in",
+            "value": {
+                "label": "crm:P100i_died_in",
+                "type": "property"
+            },
+            "weight": 1
+        },
+        "crm:E21_Person1\u0001crm:E82_Actor_Appellation1\u0001crm:E21_Person1***crm:P131_is_identified_by\u0001propertycrm:P131_is_identified_by\u00011": {
+            "v": "crm:E21_Person1",
+            "w": "crm:E82_Actor_Appellation1",
+            "name": "crm:E21_Person1***crm:P131_is_identified_by",
+            "value": {
+                "label": "crm:P131_is_identified_by",
+                "type": "property"
+            },
+            "weight": 1
+        },
+        "crm:E21_Person1\u0001crm:E67_Birth1\u0001crm:E21_Person1***crm:P98i_was_born\u0001propertycrm:P98i_was_born\u00011": {
+            "v": "crm:E21_Person1",
+            "w": "crm:E67_Birth1",
+            "name": "crm:E21_Person1***crm:P98i_was_born",
+            "value": {
+                "label": "crm:P98i_was_born",
+                "type": "property"
+            },
+            "weight": 1
+        },
+        "crm:E22_Man-Made_Object1\u0001crm:E35_Title1\u0001crm:E22_Man-Made_Object1***crm:P102_has_title\u0001propertycrm:P102_has_title\u00011": {
+            "v": "crm:E22_Man-Made_Object1",
+            "w": "crm:E35_Title1",
+            "name": "crm:E22_Man-Made_Object1***crm:P102_has_title",
+            "value": {
+                "label": "crm:P102_has_title",
+                "type": "property"
+            },
+            "weight": 1
+        },
+        "crm:E22_Man-Made_Object1\u0001crm:E12_Production1\u0001crm:E22_Man-Made_Object1***crm:P108i_was_produced_by\u0001propertycrm:P108i_was_produced_by\u00011": {
+            "v": "crm:E22_Man-Made_Object1",
+            "w": "crm:E12_Production1",
+            "name": "crm:E22_Man-Made_Object1***crm:P108i_was_produced_by",
+            "value": {
+                "label": "crm:P108i_was_produced_by",
+                "type": "property"
+            },
+            "weight": 1
+        },
+        "crm:E22_Man-Made_Object1\u0001crm:E54_Dimension1\u0001crm:E22_Man-Made_Object1***crm:P43_has_dimension\u0001propertycrm:P43_has_dimension\u00011": {
+            "v": "crm:E22_Man-Made_Object1",
+            "w": "crm:E54_Dimension1",
+            "name": "crm:E22_Man-Made_Object1***crm:P43_has_dimension",
+            "value": {
+                "label": "crm:P43_has_dimension",
+                "type": "property"
+            },
+            "weight": 1
+        },
+        "crm:E67_Birth1\u0001crm:E52_Time-Span1\u0001crm:E67_Birth1***crm:P4_has_time-span\u0001propertycrm:P4_has_time-span\u00011": {
+            "v": "crm:E67_Birth1",
+            "w": "crm:E52_Time-Span1",
+            "name": "crm:E67_Birth1***crm:P4_has_time-span",
+            "value": {
+                "label": "crm:P4_has_time-span",
+                "type": "property"
+            },
+            "weight": 1
+        },
+        "crm:E69_Death1\u0001crm:E52_Time-Span2\u0001crm:E69_Death1***crm:P4_has_time-span\u0001propertycrm:P4_has_time-span\u00011": {
+            "v": "crm:E69_Death1",
+            "w": "crm:E52_Time-Span2",
+            "name": "crm:E69_Death1***crm:P4_has_time-span",
+            "value": {
+                "label": "crm:P4_has_time-span",
+                "type": "property"
+            },
+            "weight": 1
+        }
+    },
+    "_edgeLabels": {
+        "crm:E21_Person1\u0001Actor_URI\u0001crm:E21_Person1***Actor_URI\u0001st_property_urihttp://isi.edu/integration/karma/dev#classLink\u00011": {
+            "label": "http://isi.edu/integration/karma/dev#classLink",
+            "type": "st_property_uri"
+        },
+        "crm:E35_Title1\u0001Title\u0001crm:E35_Title1***Title\u0001st_property_urirdfs:label\u00011": {
+            "label": "rdfs:label",
+            "type": "st_property_uri"
+        },
+        "crm:E52_Time-Span1\u0001Begin Date\u0001crm:E52_Time-Span1***Begin Date\u0001st_property_uricrm:P82_at_some_time_within\u00011": {
+            "label": "crm:P82_at_some_time_within",
+            "type": "st_property_uri"
+        },
+        "crm:E52_Time-Span2\u0001End Date\u0001crm:E52_Time-Span2***End Date\u0001st_property_uricrm:P82_at_some_time_within\u00011": {
+            "label": "crm:P82_at_some_time_within",
+            "type": "st_property_uri"
+        },
+        "crm:E52_Time-Span3\u0001Dated\u0001crm:E52_Time-Span3***Dated\u0001st_property_uricrm:P82_at_some_time_within\u00011": {
+            "label": "crm:P82_at_some_time_within",
+            "type": "st_property_uri"
+        },
+        "crm:E54_Dimension1\u0001Dimensions\u0001crm:E54_Dimension1***Dimensions\u0001st_property_uricrm:P3_has_note\u00011": {
+            "label": "crm:P3_has_note",
+            "type": "st_property_uri"
+        },
+        "crm:E55_Type1\u0001Medium_URI\u0001crm:E55_Type1***Medium_URI\u0001st_property_urihttp://isi.edu/integration/karma/dev#classLink\u00011": {
+            "label": "http://isi.edu/integration/karma/dev#classLink",
+            "type": "st_property_uri"
+        },
+        "crm:E55_Type2\u0001Medium\u0001crm:E55_Type2***Medium\u0001st_property_urirdfs:label\u00011": {
+            "label": "rdfs:label",
+            "type": "st_property_uri"
+        },
+        "crm:E82_Actor_Appellation1\u0001Artist_Appellation_URI\u0001crm:E82_Actor_Appellation1***Artist_Appellation_URI\u0001st_property_urihttp://isi.edu/integration/karma/dev#classLink\u00011": {
+            "label": "http://isi.edu/integration/karma/dev#classLink",
+            "type": "st_property_uri"
+        },
+        "crm:E82_Actor_Appellation2\u0001Attribution\u0001crm:E82_Actor_Appellation2***Attribution\u0001st_property_urirdfs:label\u00011": {
+            "label": "rdfs:label",
+            "type": "st_property_uri"
+        },
+        "crm:E12_Production1\u0001crm:E21_Person1\u0001crm:E12_Production1***crm:P14_carried_out_by\u0001propertycrm:P14_carried_out_by\u00011": {
+            "label": "crm:P14_carried_out_by",
+            "type": "property"
+        },
+        "crm:E12_Production1\u0001crm:E55_Type1\u0001crm:E12_Production1***crm:P32_used_general_technique\u0001propertycrm:P32_used_general_technique\u00011": {
+            "label": "crm:P32_used_general_technique",
+            "type": "property"
+        },
+        "crm:E12_Production1\u0001crm:E52_Time-Span3\u0001crm:E12_Production1***crm:P4_has_time-span\u0001propertycrm:P4_has_time-span\u00011": {
+            "label": "crm:P4_has_time-span",
+            "type": "property"
+        },
+        "crm:E21_Person1\u0001crm:E69_Death1\u0001crm:E21_Person1***crm:P100i_died_in\u0001propertycrm:P100i_died_in\u00011": {
+            "label": "crm:P100i_died_in",
+            "type": "property"
+        },
+        "crm:E21_Person1\u0001crm:E82_Actor_Appellation1\u0001crm:E21_Person1***crm:P131_is_identified_by\u0001propertycrm:P131_is_identified_by\u00011": {
+            "label": "crm:P131_is_identified_by",
+            "type": "property"
+        },
+        "crm:E21_Person1\u0001crm:E67_Birth1\u0001crm:E21_Person1***crm:P98i_was_born\u0001propertycrm:P98i_was_born\u00011": {
+            "label": "crm:P98i_was_born",
+            "type": "property"
+        },
+        "crm:E22_Man-Made_Object1\u0001crm:E35_Title1\u0001crm:E22_Man-Made_Object1***crm:P102_has_title\u0001propertycrm:P102_has_title\u00011": {
+            "label": "crm:P102_has_title",
+            "type": "property"
+        },
+        "crm:E22_Man-Made_Object1\u0001crm:E12_Production1\u0001crm:E22_Man-Made_Object1***crm:P108i_was_produced_by\u0001propertycrm:P108i_was_produced_by\u00011": {
+            "label": "crm:P108i_was_produced_by",
+            "type": "property"
+        },
+        "crm:E22_Man-Made_Object1\u0001crm:E54_Dimension1\u0001crm:E22_Man-Made_Object1***crm:P43_has_dimension\u0001propertycrm:P43_has_dimension\u00011": {
+            "label": "crm:P43_has_dimension",
+            "type": "property"
+        },
+        "crm:E67_Birth1\u0001crm:E52_Time-Span1\u0001crm:E67_Birth1***crm:P4_has_time-span\u0001propertycrm:P4_has_time-span\u00011": {
+            "label": "crm:P4_has_time-span",
+            "type": "property"
+        },
+        "crm:E69_Death1\u0001crm:E52_Time-Span2\u0001crm:E69_Death1***crm:P4_has_time-span\u0001propertycrm:P4_has_time-span\u00011": {
+            "label": "crm:P4_has_time-span",
+            "type": "property"
+        }
+    },
+    "_nodeCount": 24,
+    "_edgeCount": 21
+}

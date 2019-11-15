@@ -45,11 +45,13 @@ var create_edge = (edge_object) => {
 // Load data of the ground truth available in JSON format
 var data_folder = process.argv.slice(2)[0];
 var input_folder = 'evaluation/taheriyan2016/' + data_folder + '/semantic_models_gt/json/';
+var st_folder = 'data/taheriyan2016/' + data_folder + '/semantic_types/updated/';
 
 var files = fs.readdirSync(input_folder);
 files.forEach(file_name => {
     var gt = JSON.parse(fs.readFileSync(input_folder + file_name, 'utf-8'));
     var gt_edges = gt['graph']['links'];
+    var st = JSON.parse(fs.readFileSync(st_folder + file_name.split('.')[0] + '_st.json'));
 
     // Create edges
     var edges = gt_edges

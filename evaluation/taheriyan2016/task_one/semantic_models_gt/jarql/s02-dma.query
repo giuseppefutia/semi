@@ -1,0 +1,113 @@
+PREFIX schema:    <http://schema.org/>
+PREFIX rdfs:      <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX pc:        <http://purl.org/procurement/public-contracts#>
+PREFIX gr:        <http://purl.org/goodrelations/v1#>
+PREFIX owl:       <http://www.w3.org/2002/07/owl#>
+PREFIX adms:      <http://www.w3.org/ns/adms#>
+PREFIX c4n:       <http://vocab.deri.ie/c4n#>
+PREFIX dcterms:   <http://purl.org/dc/terms/>
+PREFIX foaf:      <http://xmlns.com/foaf/0.1/>
+PREFIX loted:     <http://www.loted.eu/ontology#>
+PREFIX payment:   <http://reference.data.gov.uk/def/payment#>
+PREFIX qb:        <http://purl.org/linked-data/cube#>
+PREFIX rdf:       <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX skos:      <http://www.w3.org/2004/02/skos/core#>
+PREFIX vann:      <http://purl.org/vocab/vann/>
+PREFIX xsd:       <http://www.w3.org/2001/XMLSchema#>
+PREFIX conference: <http://conference#>
+PREFIX cmt:       <http://cmt#>
+PREFIX sigkdd:    <http://sigkdd#>
+PREFIX crm:       <http://erlangen-crm.org/current/>
+PREFIX id:        <http://collection.britishmuseum.org/id/>
+PREFIX idThes:    <http://collection.britishmuseum.org/id/thesauri/>
+PREFIX prov:      <http://www.w3.org/ns/prov#>
+PREFIX bmo:       <http://collection.britishmuseum.org/id/ontology/>
+PREFIX jarql:     <http://jarql.com/>
+
+CONSTRUCT {
+    ?E21_Person1 http://isi.edu/integration/karma/dev#classLink ?Artist URI.
+    ?E21_Person1 rdf:type crm:E21_Person.
+    ?E22_Man-Made_Object1 http://isi.edu/integration/karma/dev#classLink ?Object_URI.
+    ?E22_Man-Made_Object1 rdf:type crm:E22_Man-Made_Object.
+    ?E30_Right1 crm:P3_has_note ?Object Rights.
+    ?E30_Right1 rdf:type crm:E30_Right.
+    ?E35_Title1 rdfs:label ?Object Title.
+    ?E35_Title1 rdf:type crm:E35_Title.
+    ?E40_Legal_Body1 http://isi.edu/integration/karma/dev#classLink ?Museum URI.
+    ?E40_Legal_Body1 rdf:type crm:E40_Legal_Body.
+    ?E40_Legal_Body2 rdfs:label ?Object Link Source.
+    ?E40_Legal_Body2 rdf:type crm:E40_Legal_Body.
+    ?E52_Time-Span1 crm:P82_at_some_time_within ?Artist Birth Date.
+    ?E52_Time-Span1 rdf:type crm:E52_Time-Span.
+    ?E52_Time-Span2 crm:P82_at_some_time_within ?Artist Death Date.
+    ?E52_Time-Span2 rdf:type crm:E52_Time-Span.
+    ?E52_Time-Span3 crm:P82a_begin_of_the_begin ?Object Earliest Date.
+    ?E52_Time-Span3 rdf:type crm:E52_Time-Span.
+    ?E52_Time-Span4 crm:P82b_end_of_the_end ?Object Latest Date.
+    ?E52_Time-Span4 rdf:type crm:E52_Time-Span.
+    ?E54_Dimension1 crm:P3_has_note ?dimensions.
+    ?E54_Dimension1 rdf:type crm:E54_Dimension.
+    ?E55_Type1 http://isi.edu/integration/karma/dev#classLink ?Object Work Type URI.
+    ?E55_Type1 rdf:type crm:E55_Type.
+    ?E55_Type2 rdfs:label ?Object Work Type.
+    ?E55_Type2 rdf:type crm:E55_Type.
+    ?E55_Type3 http://isi.edu/integration/karma/dev#classLink ?Medium URI.
+    ?E55_Type3 rdf:type crm:E55_Type.
+    ?E55_Type4 rdfs:label ?Object Facet Value 1.
+    ?E55_Type4 rdf:type crm:E55_Type.
+    ?E74_Group1 http://isi.edu/integration/karma/dev#classLink ?Nationality_URI.
+    ?E74_Group1 rdf:type crm:E74_Group.
+    ?E74_Group2 rdfs:label ?Artist Nationality.
+    ?E74_Group2 rdf:type crm:E74_Group.
+    ?E82_Actor_Appellation1 http://isi.edu/integration/karma/dev#classLink ?Artist Appellation.
+    ?E82_Actor_Appellation1 rdf:type crm:E82_Actor_Appellation.
+    ?E82_Actor_Appellation2 rdfs:label ?Artist Name.
+    ?E82_Actor_Appellation2 rdf:type crm:E82_Actor_Appellation.
+    ?E12_Production1 crm:P14_carried_out_by ?E21_Person1.
+    ?E12_Production1 crm:P32_used_general_technique ?E55_Type2.
+    ?E12_Production1 crm:P4_has_time-span ?E52_Time-Span3.
+    ?E21_Person1 crm:P100i_died_in ?E69_Death1.
+    ?E21_Person1 crm:P107i_is_current_or_former_member_of ?E74_Group1.
+    ?E21_Person1 crm:P131_is_identified_by ?E82_Actor_Appellation1.
+    ?E21_Person1 crm:P98i_was_born ?E67_Birth1.
+    ?E22_Man-Made_Object1 crm:P102_has_title ?E35_Title1.
+    ?E22_Man-Made_Object1 crm:P104_is_subject_to ?E30_Right1.
+    ?E22_Man-Made_Object1 crm:P108i_was_produced_by ?E12_Production1.
+    ?E22_Man-Made_Object1 crm:P2_has_type ?E55_Type1.
+    ?E22_Man-Made_Object1 crm:P43_has_dimension ?E54_Dimension1.
+    ?E22_Man-Made_Object1 crm:P51_has_former_or_current_owner ?E40_Legal_Body1.
+    ?E67_Birth1 crm:P4_has_time-span ?E52_Time-Span1.
+    ?E69_Death1 crm:P4_has_time-span ?E52_Time-Span2.
+}
+WHERE {
+    ?root a jarql:Root.
+    OPTIONAL { ?root jarql:Artist URI ?Artist URI. }
+    OPTIONAL { ?root jarql:Object_URI ?Object_URI. }
+    OPTIONAL { ?root jarql:Object Rights ?Object Rights. }
+    OPTIONAL { ?root jarql:Object Title ?Object Title. }
+    OPTIONAL { ?root jarql:Museum URI ?Museum URI. }
+    OPTIONAL { ?root jarql:Object Link Source ?Object Link Source. }
+    OPTIONAL { ?root jarql:Artist Birth Date ?Artist Birth Date. }
+    OPTIONAL { ?root jarql:Artist Death Date ?Artist Death Date. }
+    OPTIONAL { ?root jarql:Object Earliest Date ?Object Earliest Date. }
+    OPTIONAL { ?root jarql:Object Latest Date ?Object Latest Date. }
+    OPTIONAL { ?root jarql:dimensions ?dimensions. }
+    OPTIONAL { ?root jarql:Object Work Type URI ?Object Work Type URI. }
+    OPTIONAL { ?root jarql:Object Work Type ?Object Work Type. }
+    OPTIONAL { ?root jarql:Medium URI ?Medium URI. }
+    OPTIONAL { ?root jarql:Object Facet Value 1 ?Object Facet Value 1. }
+    OPTIONAL { ?root jarql:Nationality_URI ?Nationality_URI. }
+    OPTIONAL { ?root jarql:Artist Nationality ?Artist Nationality. }
+    OPTIONAL { ?root jarql:Artist Appellation ?Artist Appellation. }
+    OPTIONAL { ?root jarql:Artist Name ?Artist Name. }
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e21_person/',?Artist URI)) as ?E21_Person1)
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e22_man-made_object/',?Object_URI)) as ?E22_Man-Made_Object1)
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e40_legal_body/',?Museum URI)) as ?E40_Legal_Body1)
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e55_type/',?Object Work Type URI)) as ?E55_Type1)
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e55_type/',?Medium URI)) as ?E55_Type3)
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e74_group/',?Nationality_URI)) as ?E74_Group1)
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e82_actor_appellation/',?Artist Appellation)) as ?E82_Actor_Appellation1)
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e12_production/',?Artist URI)) as ?E12_Production1)
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e69_death/',?Artist URI)) as ?E69_Death1)
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e67_birth/',?Artist URI)) as ?E67_Birth1)
+}
