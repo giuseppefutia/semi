@@ -25,15 +25,15 @@ PREFIX bmo:       <http://collection.britishmuseum.org/id/ontology/>
 PREFIX jarql:     <http://jarql.com/>
 
 CONSTRUCT {
-    ?E21_Person1 http://isi.edu/integration/karma/dev#classLink ?Artist URI.
+    ?E21_Person1 rdfs:label ?Artist URI.
     ?E21_Person1 rdf:type crm:E21_Person.
-    ?E22_Man-Made_Object1 http://isi.edu/integration/karma/dev#classLink ?Object_URI.
+    ?E22_Man-Made_Object1 rdfs:label ?Object_URI.
     ?E22_Man-Made_Object1 rdf:type crm:E22_Man-Made_Object.
     ?E30_Right1 crm:P3_has_note ?Object Rights.
     ?E30_Right1 rdf:type crm:E30_Right.
     ?E35_Title1 rdfs:label ?Object Title.
     ?E35_Title1 rdf:type crm:E35_Title.
-    ?E40_Legal_Body1 http://isi.edu/integration/karma/dev#classLink ?Museum URI.
+    ?E40_Legal_Body1 rdfs:label ?Museum URI.
     ?E40_Legal_Body1 rdf:type crm:E40_Legal_Body.
     ?E40_Legal_Body2 rdfs:label ?Object Link Source.
     ?E40_Legal_Body2 rdf:type crm:E40_Legal_Body.
@@ -47,19 +47,19 @@ CONSTRUCT {
     ?E52_Time-Span4 rdf:type crm:E52_Time-Span.
     ?E54_Dimension1 crm:P3_has_note ?dimensions.
     ?E54_Dimension1 rdf:type crm:E54_Dimension.
-    ?E55_Type1 http://isi.edu/integration/karma/dev#classLink ?Object Work Type URI.
+    ?E55_Type1 rdfs:label ?Object Work Type URI.
     ?E55_Type1 rdf:type crm:E55_Type.
     ?E55_Type2 rdfs:label ?Object Work Type.
     ?E55_Type2 rdf:type crm:E55_Type.
-    ?E55_Type3 http://isi.edu/integration/karma/dev#classLink ?Medium URI.
+    ?E55_Type3 rdfs:label ?Medium URI.
     ?E55_Type3 rdf:type crm:E55_Type.
     ?E55_Type4 rdfs:label ?Object Facet Value 1.
     ?E55_Type4 rdf:type crm:E55_Type.
-    ?E74_Group1 http://isi.edu/integration/karma/dev#classLink ?Nationality_URI.
+    ?E74_Group1 rdfs:label ?Nationality_URI.
     ?E74_Group1 rdf:type crm:E74_Group.
     ?E74_Group2 rdfs:label ?Artist Nationality.
     ?E74_Group2 rdf:type crm:E74_Group.
-    ?E82_Actor_Appellation1 http://isi.edu/integration/karma/dev#classLink ?Artist Appellation.
+    ?E82_Actor_Appellation1 rdfs:label ?Artist Appellation.
     ?E82_Actor_Appellation1 rdf:type crm:E82_Actor_Appellation.
     ?E82_Actor_Appellation2 rdfs:label ?Artist Name.
     ?E82_Actor_Appellation2 rdf:type crm:E82_Actor_Appellation.

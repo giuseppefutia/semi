@@ -25,9 +25,9 @@ PREFIX bmo:       <http://collection.britishmuseum.org/id/ontology/>
 PREFIX jarql:     <http://jarql.com/>
 
 CONSTRUCT {
-    ?E21_Person1 http://isi.edu/integration/karma/dev#classLink ?artist_uri.
+    ?E21_Person1 rdfs:label ?artist_uri.
     ?E21_Person1 rdf:type crm:E21_Person.
-    ?E22_Man-Made_Object1 http://isi.edu/integration/karma/dev#classLink ?sourceURL.
+    ?E22_Man-Made_Object1 rdfs:label ?sourceURL.
     ?E22_Man-Made_Object1 rdf:type crm:E22_Man-Made_Object.
     ?E33_Linguistic_Object1 crm:P3_has_note ?provenance.
     ?E33_Linguistic_Object1 rdf:type crm:E33_Linguistic_Object.
@@ -35,7 +35,7 @@ CONSTRUCT {
     ?E33_Linguistic_Object2 rdf:type crm:E33_Linguistic_Object.
     ?E35_Title1 rdfs:label ?title.
     ?E35_Title1 rdf:type crm:E35_Title.
-    ?E38_Image1 http://isi.edu/integration/karma/dev#classLink ?imageURL.
+    ?E38_Image1 rdfs:label ?imageURL.
     ?E38_Image1 rdf:type crm:E38_Image.
     ?E52_Time-Span1 crm:P82_at_some_time_within ?birthDate.
     ?E52_Time-Span1 rdf:type crm:E52_Time-Span.
@@ -45,19 +45,19 @@ CONSTRUCT {
     ?E52_Time-Span3 rdf:type crm:E52_Time-Span.
     ?E54_Dimension1 crm:P3_has_note ?dimensions.
     ?E54_Dimension1 rdf:type crm:E54_Dimension.
-    ?E55_Type1 http://isi.edu/integration/karma/dev#classLink ?material_URI.
+    ?E55_Type1 rdfs:label ?material_URI.
     ?E55_Type1 rdf:type crm:E55_Type.
     ?E55_Type2 rdfs:label ?materials.
     ?E55_Type2 rdf:type crm:E55_Type.
-    ?E55_Type3 http://isi.edu/integration/karma/dev#classLink ?provenance_type_uri.
+    ?E55_Type3 rdfs:label ?provenance_type_uri.
     ?E55_Type3 rdf:type crm:E55_Type.
-    ?E55_Type4 http://isi.edu/integration/karma/dev#classLink ?galleryLabel_type_uri.
+    ?E55_Type4 rdfs:label ?galleryLabel_type_uri.
     ?E55_Type4 rdf:type crm:E55_Type.
-    ?E74_Group1 http://isi.edu/integration/karma/dev#classLink ?nationality_URI.
+    ?E74_Group1 rdfs:label ?nationality_URI.
     ?E74_Group1 rdf:type crm:E74_Group.
     ?E74_Group2 rdfs:label ?nationality.
     ?E74_Group2 rdf:type crm:E74_Group.
-    ?E82_Actor_Appellation1 http://isi.edu/integration/karma/dev#classLink ?artist_appellation_uri.
+    ?E82_Actor_Appellation1 rdfs:label ?artist_appellation_uri.
     ?E82_Actor_Appellation1 rdf:type crm:E82_Actor_Appellation.
     ?E82_Actor_Appellation2 rdfs:label ?artist.
     ?E82_Actor_Appellation2 rdf:type crm:E82_Actor_Appellation.
@@ -103,6 +103,14 @@ WHERE {
     OPTIONAL { ?root jarql:artist_appellation_uri ?artist_appellation_uri. }
     OPTIONAL { ?root jarql:artist ?artist. }
     OPTIONAL { ?root jarql:creditLine ?creditLine. }
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e21_person/',?artist_uri)) as ?E21_Person1)
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e22_man-made_object/',?sourceURL)) as ?E22_Man-Made_Object1)
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e38_image/',?imageURL)) as ?E38_Image1)
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e55_type/',?material_URI)) as ?E55_Type1)
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e55_type/',?provenance_type_uri)) as ?E55_Type3)
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e55_type/',?galleryLabel_type_uri)) as ?E55_Type4)
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e74_group/',?nationality_URI)) as ?E74_Group1)
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e82_actor_appellation/',?artist_appellation_uri)) as ?E82_Actor_Appellation1)
     BIND (URI(CONCAT('http://erlangen-crm.org/current//e12_production/',?artist_uri)) as ?E12_Production1)
     BIND (URI(CONCAT('http://erlangen-crm.org/current//e69_death/',?artist_uri)) as ?E69_Death1)
     BIND (URI(CONCAT('http://erlangen-crm.org/current//e67_birth/',?artist_uri)) as ?E67_Birth1)

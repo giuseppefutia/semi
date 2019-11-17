@@ -25,13 +25,13 @@ PREFIX bmo:       <http://collection.britishmuseum.org/id/ontology/>
 PREFIX jarql:     <http://jarql.com/>
 
 CONSTRUCT {
-    ?E21_Person1 http://isi.edu/integration/karma/dev#classLink ?Artist_URI.
+    ?E21_Person1 rdfs:label ?Artist_URI.
     ?E21_Person1 rdf:type crm:E21_Person.
-    ?E22_Man-Made_Object1 http://isi.edu/integration/karma/dev#classLink ?Linktodata.
+    ?E22_Man-Made_Object1 rdfs:label ?Linktodata.
     ?E22_Man-Made_Object1 rdf:type crm:E22_Man-Made_Object.
     ?E35_Title1 rdfs:label ?Titleofartwork.
     ?E35_Title1 rdf:type crm:E35_Title.
-    ?E38_Image1 http://isi.edu/integration/karma/dev#classLink ?ImageURL.
+    ?E38_Image1 rdfs:label ?ImageURL.
     ?E38_Image1 rdf:type crm:E38_Image.
     ?E52_Time-Span1 crm:P82_at_some_time_within ?birthYear.
     ?E52_Time-Span1 rdf:type crm:E52_Time-Span.
@@ -39,15 +39,15 @@ CONSTRUCT {
     ?E52_Time-Span2 rdf:type crm:E52_Time-Span.
     ?E54_Dimension1 crm:P3_has_note ?Dimensions.
     ?E54_Dimension1 rdf:type crm:E54_Dimension.
-    ?E55_Type1 http://isi.edu/integration/karma/dev#classLink ?Technique_uri.
+    ?E55_Type1 rdfs:label ?Technique_uri.
     ?E55_Type1 rdf:type crm:E55_Type.
     ?E55_Type2 rdfs:label ?Typeofartwork.
     ?E55_Type2 rdf:type crm:E55_Type.
-    ?E74_Group1 http://isi.edu/integration/karma/dev#classLink ?Nationality_uri.
+    ?E74_Group1 rdfs:label ?Nationality_uri.
     ?E74_Group1 rdf:type crm:E74_Group.
     ?E74_Group2 rdfs:label ?Nationality.
     ?E74_Group2 rdf:type crm:E74_Group.
-    ?E82_Actor_Appellation1 http://isi.edu/integration/karma/dev#classLink ?Artist_Appellation_URI.
+    ?E82_Actor_Appellation1 rdfs:label ?Artist_Appellation_URI.
     ?E82_Actor_Appellation1 rdf:type crm:E82_Actor_Appellation.
     ?E82_Actor_Appellation2 rdfs:label ?Artistname.
     ?E82_Actor_Appellation2 rdf:type crm:E82_Actor_Appellation.
@@ -83,6 +83,12 @@ WHERE {
     OPTIONAL { ?root jarql:Artist_Appellation_URI ?Artist_Appellation_URI. }
     OPTIONAL { ?root jarql:Artistname ?Artistname. }
     OPTIONAL { ?root jarql:Credit ?Credit. }
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e21_person/',?Artist_URI)) as ?E21_Person1)
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e22_man-made_object/',?Linktodata)) as ?E22_Man-Made_Object1)
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e38_image/',?ImageURL)) as ?E38_Image1)
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e55_type/',?Technique_uri)) as ?E55_Type1)
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e74_group/',?Nationality_uri)) as ?E74_Group1)
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e82_actor_appellation/',?Artist_Appellation_URI)) as ?E82_Actor_Appellation1)
     BIND (URI(CONCAT('http://erlangen-crm.org/current//e12_production/',?Artist_URI)) as ?E12_Production1)
     BIND (URI(CONCAT('http://erlangen-crm.org/current//e69_death/',?Artist_URI)) as ?E69_Death1)
     BIND (URI(CONCAT('http://erlangen-crm.org/current//e67_birth/',?Artist_URI)) as ?E67_Birth1)

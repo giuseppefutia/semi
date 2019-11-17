@@ -25,7 +25,7 @@ PREFIX bmo:       <http://collection.britishmuseum.org/id/ontology/>
 PREFIX jarql:     <http://jarql.com/>
 
 CONSTRUCT {
-    ?E21_Person1 http://isi.edu/integration/karma/dev#classLink ?artist_uri.
+    ?E21_Person1 rdfs:label ?artist_uri.
     ?E21_Person1 rdf:type crm:E21_Person.
     ?E35_Title1 rdfs:label ?title.
     ?E35_Title1 rdf:type crm:E35_Title.
@@ -33,11 +33,11 @@ CONSTRUCT {
     ?E52_Time-Span1 rdf:type crm:E52_Time-Span.
     ?E52_Time-Span2 crm:P82_at_some_time_within ?deathDate.
     ?E52_Time-Span2 rdf:type crm:E52_Time-Span.
-    ?E74_Group1 http://isi.edu/integration/karma/dev#classLink ?nationality_URI.
+    ?E74_Group1 rdfs:label ?nationality_URI.
     ?E74_Group1 rdf:type crm:E74_Group.
     ?E74_Group2 rdfs:label ?nationality.
     ?E74_Group2 rdf:type crm:E74_Group.
-    ?E82_Actor_Appellation1 http://isi.edu/integration/karma/dev#classLink ?artist_appellation_uri.
+    ?E82_Actor_Appellation1 rdfs:label ?artist_appellation_uri.
     ?E82_Actor_Appellation1 rdf:type crm:E82_Actor_Appellation.
     ?E82_Actor_Appellation2 rdfs:label ?name.
     ?E82_Actor_Appellation2 rdf:type crm:E82_Actor_Appellation.
@@ -61,6 +61,9 @@ WHERE {
     OPTIONAL { ?root jarql:nationality ?nationality. }
     OPTIONAL { ?root jarql:artist_appellation_uri ?artist_appellation_uri. }
     OPTIONAL { ?root jarql:name ?name. }
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e21_person/',?artist_uri)) as ?E21_Person1)
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e74_group/',?nationality_URI)) as ?E74_Group1)
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e82_actor_appellation/',?artist_appellation_uri)) as ?E82_Actor_Appellation1)
     BIND (URI(CONCAT('http://erlangen-crm.org/current//e12_production/',?artist_uri)) as ?E12_Production1)
     BIND (URI(CONCAT('http://erlangen-crm.org/current//e69_death/',?artist_uri)) as ?E69_Death1)
     BIND (URI(CONCAT('http://erlangen-crm.org/current//e67_birth/',?artist_uri)) as ?E67_Birth1)

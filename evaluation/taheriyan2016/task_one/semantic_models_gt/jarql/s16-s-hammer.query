@@ -25,25 +25,25 @@ PREFIX bmo:       <http://collection.britishmuseum.org/id/ontology/>
 PREFIX jarql:     <http://jarql.com/>
 
 CONSTRUCT {
-    ?E21_Person1 http://isi.edu/integration/karma/dev#classLink ?artist_uri.
+    ?E21_Person1 rdfs:label ?item__artist_uri.
     ?E21_Person1 rdf:type crm:E21_Person.
-    ?E22_Man-Made_Object1 crm:P3_has_note ?description.
+    ?E22_Man-Made_Object1 crm:P3_has_note ?item__description.
     ?E22_Man-Made_Object1 rdf:type crm:E22_Man-Made_Object.
-    ?E35_Title1 rdfs:label ?title.
+    ?E35_Title1 rdfs:label ?item__title.
     ?E35_Title1 rdf:type crm:E35_Title.
-    ?E38_Image1 http://isi.edu/integration/karma/dev#classLink ?image.
+    ?E38_Image1 rdfs:label ?item__image.
     ?E38_Image1 rdf:type crm:E38_Image.
-    ?E52_Time-Span1 crm:P82_at_some_time_within ?year.
+    ?E52_Time-Span1 crm:P82_at_some_time_within ?item__year.
     ?E52_Time-Span1 rdf:type crm:E52_Time-Span.
-    ?E55_Type1 http://isi.edu/integration/karma/dev#classLink ?technique_uri.
+    ?E55_Type1 rdfs:label ?item__technique_uri.
     ?E55_Type1 rdf:type crm:E55_Type.
-    ?E55_Type2 rdfs:label ?technique.
+    ?E55_Type2 rdfs:label ?item__technique.
     ?E55_Type2 rdf:type crm:E55_Type.
-    ?E78_Collection1 rdfs:label ?name.
+    ?E78_Collection1 rdfs:label ?item__name.
     ?E78_Collection1 rdf:type crm:E78_Collection.
-    ?E82_Actor_Appellation1 http://isi.edu/integration/karma/dev#classLink ?artist_appellation_uri.
+    ?E82_Actor_Appellation1 rdfs:label ?item__artist_appellation_uri.
     ?E82_Actor_Appellation1 rdf:type crm:E82_Actor_Appellation.
-    ?E82_Actor_Appellation2 rdfs:label ?artist.
+    ?E82_Actor_Appellation2 rdfs:label ?item__artist.
     ?E82_Actor_Appellation2 rdf:type crm:E82_Actor_Appellation.
     ?E12_Production1 crm:P14_carried_out_by ?E21_Person1.
     ?E12_Production1 crm:P4_has_time-span ?E52_Time-Span1.
@@ -56,15 +56,29 @@ CONSTRUCT {
 }
 WHERE {
     ?root a jarql:Root.
-    OPTIONAL { ?root jarql:artist_uri ?artist_uri. }
-    OPTIONAL { ?root jarql:description ?description. }
-    OPTIONAL { ?root jarql:title ?title. }
-    OPTIONAL { ?root jarql:image ?image. }
-    OPTIONAL { ?root jarql:year ?year. }
-    OPTIONAL { ?root jarql:technique_uri ?technique_uri. }
-    OPTIONAL { ?root jarql:technique ?technique. }
-    OPTIONAL { ?root jarql:name ?name. }
-    OPTIONAL { ?root jarql:artist_appellation_uri ?artist_appellation_uri. }
-    OPTIONAL { ?root jarql:artist ?artist. }
-    BIND (URI(CONCAT('http://erlangen-crm.org/current//e12_production/',?artist_uri)) as ?E12_Production1)
+    OPTIONAL { ?root jarql:item ?item. }
+    OPTIONAL { ?item jarql:artist_uri ?item__artist_uri. }
+    OPTIONAL { ?root jarql:item ?item. }
+    OPTIONAL { ?item jarql:description ?item__description. }
+    OPTIONAL { ?root jarql:item ?item. }
+    OPTIONAL { ?item jarql:title ?item__title. }
+    OPTIONAL { ?root jarql:item ?item. }
+    OPTIONAL { ?item jarql:image ?item__image. }
+    OPTIONAL { ?root jarql:item ?item. }
+    OPTIONAL { ?item jarql:year ?item__year. }
+    OPTIONAL { ?root jarql:item ?item. }
+    OPTIONAL { ?item jarql:technique_uri ?item__technique_uri. }
+    OPTIONAL { ?root jarql:item ?item. }
+    OPTIONAL { ?item jarql:technique ?item__technique. }
+    OPTIONAL { ?root jarql:item ?item. }
+    OPTIONAL { ?item jarql:name ?item__name. }
+    OPTIONAL { ?root jarql:item ?item. }
+    OPTIONAL { ?item jarql:artist_appellation_uri ?item__artist_appellation_uri. }
+    OPTIONAL { ?root jarql:item ?item. }
+    OPTIONAL { ?item jarql:artist ?item__artist. }
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e21_person/',?item__artist_uri)) as ?E21_Person1)
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e38_image/',?item__image)) as ?E38_Image1)
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e55_type/',?item__technique_uri)) as ?E55_Type1)
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e82_actor_appellation/',?item__artist_appellation_uri)) as ?E82_Actor_Appellation1)
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e12_production/',?item__artist_uri)) as ?E12_Production1)
 }
