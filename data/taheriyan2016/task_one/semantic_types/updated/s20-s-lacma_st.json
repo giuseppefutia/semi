@@ -1,31 +1,43 @@
 [{
     "attributes": [
-        "Actor_URI",
+        "Artwork_in_Focus",
+        "Artist_URI",
+        "Artwork_Details",
+        "Object_URI",
         "Title",
-        "Begin Date",
-        "End Date",
-        "Dated",
-        "Dimensions",
-        "Medium_URI",
-        "Medium",
+        "Image_URL",
+        "Residence",
+        "Production_Year",
+        "birth_date",
+        "death_date",
+        "Classification_URI",
+        "Classification",
         "Artist_Appellation_URI",
-        "Attribution"
+        "Artist_Name"
     ],
     "entities": [
+        1,
+        2,
+        1,
+        2,
+        1,
         1,
         1,
         1,
         2,
         3,
         1,
-        1,
         2,
         1,
         2
     ],
     "uris": [
+        false,
         true,
         false,
+        true,
+        false,
+        true,
         false,
         false,
         false,
@@ -37,13 +49,25 @@
     ],
     "semantic_types": [
         [
+            "crm:E21_Person***crm:P3_has_note"
+        ],
+        [
             "crm:E21_Person***rdfs:label"
+        ],
+        [
+            "crm:E22_Man-Made_Object***crm:P3_has_note"
+        ],
+        [
+            "crm:E22_Man-Made_Object***rdfs:label"
         ],
         [
             "crm:E35_Title***rdfs:label"
         ],
         [
-            "crm:E52_Time-Span***crm:P82_at_some_time_within"
+            "crm:E38_Image***rdfs:label"
+        ],
+        [
+            "crm:E48_Place_Name***rdfs:label"
         ],
         [
             "crm:E52_Time-Span***crm:P82_at_some_time_within"
@@ -52,7 +76,7 @@
             "crm:E52_Time-Span***crm:P82_at_some_time_within"
         ],
         [
-            "crm:E54_Dimension***crm:P3_has_note"
+            "crm:E52_Time-Span***crm:P82_at_some_time_within"
         ],
         [
             "crm:E55_Type***rdfs:label"

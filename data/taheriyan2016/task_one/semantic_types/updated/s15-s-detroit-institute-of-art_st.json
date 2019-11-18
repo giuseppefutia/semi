@@ -1,65 +1,62 @@
 [{
     "attributes": [
-        "Artist URI",
-        "Object_URI",
-        "Object Rights",
-        "Object Title",
-        "Museum URI",
-        "Object Link Source",
-        "Artist Birth Date",
-        "Artist Death Date",
-        "Object Earliest Date",
-        "Object Latest Date",
+        "artist_uri",
+        "provenance",
+        "object_uri",
+        "title",
+        "imageURL",
+        "birth",
+        "death",
+        "date",
         "dimensions",
-        "Object Work Type URI",
-        "Object Work Type",
-        "Medium URI",
-        "Object Facet Value 1",
-        "Nationality_URI",
-        "Artist Nationality",
-        "Artist Appellation",
-        "Artist Name"
+        "medium_URI",
+        "medium",
+        "classification_URI",
+        "classification",
+        "nationality_URI",
+        "nationality",
+        "artist_appellation_uri",
+        "name",
+        "credit"
     ],
     "entities": [
         1,
         1,
+        2,
         1,
         1,
         1,
         2,
+        3,
+        1,
         1,
         2,
         3,
         4,
         1,
-        1,
-        2,
-        3,
-        4,
-        1,
         2,
         1,
-        2
+        2,
+        1
     ],
     "uris": [
         true,
-        true,
-        false,
         false,
         true,
         false,
-        false,
-        false,
-        false,
-        false,
-        false,
         true,
+        false,
+        false,
+        false,
         false,
         true,
         false,
         true,
         false,
         true,
+        false,
+        true,
+        false,
         false
     ],
     "semantic_types": [
@@ -67,19 +64,16 @@
             "crm:E21_Person***rdfs:label"
         ],
         [
-            "crm:E22_Man-Made_Object***rdfs:label"
+            "crm:E22_Man-Made_Object***crm:P3_has_note"
         ],
         [
-            "crm:E30_Right***crm:P3_has_note"
+            "crm:E22_Man-Made_Object***rdfs:label"
         ],
         [
             "crm:E35_Title***rdfs:label"
         ],
         [
-            "crm:E40_Legal_Body***rdfs:label"
-        ],
-        [
-            "crm:E40_Legal_Body***rdfs:label"
+            "crm:E38_Image***rdfs:label"
         ],
         [
             "crm:E52_Time-Span***crm:P82_at_some_time_within"
@@ -88,10 +82,7 @@
             "crm:E52_Time-Span***crm:P82_at_some_time_within"
         ],
         [
-            "crm:E52_Time-Span***crm:P82a_begin_of_the_begin"
-        ],
-        [
-            "crm:E52_Time-Span***crm:P82b_end_of_the_end"
+            "crm:E52_Time-Span***crm:P82_at_some_time_within"
         ],
         [
             "crm:E54_Dimension***crm:P3_has_note"
@@ -119,6 +110,9 @@
         ],
         [
             "crm:E82_Actor_Appellation***rdfs:label"
+        ],
+        [
+            "crm:E8_Acquisition***crm:P3_has_note"
         ]
     ]
 }]
