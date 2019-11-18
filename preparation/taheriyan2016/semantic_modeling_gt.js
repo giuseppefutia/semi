@@ -49,6 +49,10 @@ var st_folder = 'data/taheriyan2016/' + data_folder + '/semantic_types/updated/'
 
 var files = fs.readdirSync(input_folder);
 files.forEach(file_name => {
+    console.log('Bulding semantic model of: ' + file_name);
+    if (file_name === 's21-s-met_st.json') {
+        return
+    }
     var gt = JSON.parse(fs.readFileSync(input_folder + file_name, 'utf-8'));
     var gt_edges = gt['graph']['links'];
     var st = JSON.parse(fs.readFileSync(st_folder + file_name.split('.')[0] + '_st.json'));
