@@ -5,52 +5,6 @@ var fs = require('fs');
  *
  **/
 
-/** BEGIN OF UTIL FUNCTIONS **/
-
-var rename_keys = (obj, new_keys) => {
-    const key_values = Object.keys(obj).map(key => {
-        const new_key = new_keys[key] || key;
-        return {
-            [new_key]: obj[key]
-        };
-    });
-    return Object.assign({}, ...key_values);
-}
-
-var replace_underscores_in_source = (obj) => {
-    return Object.keys(obj).map(obj_without_ => {
-        obj_with_ = obj_without_.replace(/\s/g, '_');
-        return {
-            [obj_without_]: obj_with_
-        };
-    });
-}
-
-var replace_underscores_in_st = (obj) => {
-    var attrs = obj['attributes'];
-    return attrs.map(item => {
-        return item.replace(/\s/g, '_');
-    })
-}
-
-var array_to_object = (arr) => {
-    return arr.reduce((result, item) => {
-        var key = Object.keys(item)[0];
-        result[key] = item[key];
-        return result;
-    }, {})
-}
-
-var create_appellation = (obj, s_field, a_field) => {
-    // Taheriyan sometimes includes an "appellation" field that is not listed in the input source.
-    // For this reason I need to add such new appellation field in the input source.
-    var updated_appellation = obj[s_field].split(' ');
-    updated_appellation = updated_appellation[1] + ', ' + updated_appellation[0];
-    return updated_appellation;
-}
-
-/** END OF UTIL FUNCTIONS **/
-
 var data_folder = process.argv.slice(2)[0];
 
 /**
@@ -157,7 +111,6 @@ console.log('... end of processing of s01-cb.json.\n\n');
 fs.writeFileSync(output_path, JSON.stringify(source, null, 4));
 
 console.log('... end of processing of s02-dma.json.\n\n');
-
 
 /**
  *
@@ -288,6 +241,10 @@ if (source[0]['Appellation URI'] === undefined) {
     for (var obj of source) {
         obj['Appellation URI'] = obj['Who'];
     }
+}
+
+for (var obj of source) {
+    obj['related-artworks'] = obj['related-artworks'].map(String);
 }
 
 fs.writeFileSync(output_path, JSON.stringify(source, null, 4));
@@ -624,7 +581,7 @@ console.log('\nProcessing s12-s-19-artworks.json...\n');
 var source_path = 'data/taheriyan2016/' + data_folder + '/sources/original_json/s12-s-19-artworks.json';
 var output_path = 'data/taheriyan2016/' + data_folder + '/sources/updated_json/s12-s-19-artworks.json';
 var source = JSON.parse(fs.readFileSync(source_path, 'utf-8'));
-source = source['artwork']
+source = source['artwork'];
 
 // NOTE: Add artist_uri field
 if (source[0]['artist_uri'] === undefined) {
@@ -670,123 +627,959 @@ var source_path = 'data/taheriyan2016/' + data_folder + '/sources/original_json/
 var output_path = 'data/taheriyan2016/' + data_folder + '/sources/updated_json/s13-s-art-institute-of-chicago.json';
 var source = JSON.parse(fs.readFileSync(source_path, 'utf-8'));
 
+source = source['Items']['Item'];
+
+// NOTE: Add Artist_URI field
+if (source[0]['Artist_URI'] === undefined) {
+    for (var obj of source) {
+        obj['Artist_URI'] = obj['Artistname'];
+    }
+}
+
+// NOTE: Add Technique_uri field
+if (source[0]['Technique_uri'] === undefined) {
+    for (var obj of source) {
+        obj['Technique_uri'] = obj['Typeofartwork'];
+    }
+}
+
+// NOTE: Add Nationality_uri field
+if (source[0]['Nationality_uri'] === undefined) {
+    for (var obj of source) {
+        obj['Nationality_uri'] = obj['Nationality'];
+    }
+}
+
+// NOTE: Add Artist_Appellation_URI field
+if (source[0]['Artist_Appellation_URI'] === undefined) {
+    for (var obj of source) {
+        obj['Artist_Appellation_URI'] = obj['Artistname'];
+    }
+}
+
 fs.writeFileSync(output_path, JSON.stringify(source, null, 4));
 
 console.log('... end of processing of s13-s-art-institute-of-chicago.json.\n\n');
 
+/**
+ *
+ * s14-s-california-african-american.json-- Original file: JSON
+ *
+ **/
 
+console.log('\nProcessing s14-s-california-african-american.json...\n');
 
-
-/** s01-cb.json -- Original file: JSON. **/
-
-// NOTE: Add underscores in the source
-// ***** MANUALLY DONE ***** //
-
-// NOTE: Add underscores in the semantic type
-// ***** MANUALLY DONE ***** //
-
-// NOTE: Fields that become URI
-// * Alpha_Sort
-// * Title
-// * Medium
-// ***** MANUALLY DONE ***** //
-
-
-
-/** s02-dma.json -- Original file: JSON **/
-
-/*
-var source_path = 'data/taheriyan2016/' + data_folder + '/sources/updated_json/s02-dma.json';
-var st_path = 'data/taheriyan2016/' + data_folder + '/semantic_types/manual/s02-dma_st.json';
-
+var source_path = 'data/taheriyan2016/' + data_folder + '/sources/original_json/s14-s-california-african-american.json';
+var output_path = 'data/taheriyan2016/' + data_folder + '/sources/updated_json/s14-s-california-african-american.json';
 var source = JSON.parse(fs.readFileSync(source_path, 'utf-8'));
-var st = JSON.parse(fs.readFileSync(st_path, 'utf-8'));
 
-// NOTE: Add appellation field and value if necessary
-if (source[0]['Artist_Appellation'] === undefined) {
+source = source['artworks'];
+
+// NOTE: Add object_uri field
+if (source[0]['object_uri'] === undefined) {
     for (var obj of source) {
-        var appellation = create_appellation(obj, 'Artist Name', 'Artist Appellation');
-        obj['Artist Appellation'] = appellation;
+        obj['object_uri'] = obj['title'];
     }
 }
 
-// NOTE: Replace keys with underscore within source
-var updated_source = [];
-for (var obj of source) {
-    var new_keys = array_to_object(replace_underscores_in_source(obj));
-    var updated_obj = rename_keys(obj, new_keys);
-    updated_source.push(updated_obj);
+// NOTE: Add artist_uri field
+if (source[0]['artist_uri'] === undefined) {
+    for (var obj of source) {
+        obj['artist_uri'] = obj['artist'];
+    }
 }
 
-fs.writeFileSync(source_path, JSON.stringify(updated_source, null, 4));
-
-// NOTE: Replace st with underscores
-for (var obj in st) {
-    var attr = replace_underscores_in_st(st[obj]);
-    st[obj]['attributes'] = attr;
+// NOTE: Add technique_uri field
+if (source[0]['technique_uri'] === undefined) {
+    for (var obj of source) {
+        obj['technique_uri'] = obj['technique'];
+    }
 }
 
-// NOTE: Fields that become URI
-// Object_Title
-// Object_Link_Source
-// Object_Work_Type
-// Object_Facet_Value_1
-// Artist_Nationality
+// NOTE: Add ethnicity_uri field
+if (source[0]['ethnicity_uri'] === undefined) {
+    for (var obj of source) {
+        obj['ethnicity_uri'] = obj['enthnicity'];
+    }
+}
 
+// NOTE: Add artist_appellation_uri field
+if (source[0]['artist_appellation_uri'] === undefined) {
+    for (var obj of source) {
+        obj['artist_appellation_uri'] = obj['accessionId'];
+    }
+}
 
-fs.writeFileSync(st_path, JSON.stringify(st, null, 4));
+fs.writeFileSync(output_path, JSON.stringify(source, null, 4));
 
-console.log('End of processing of s02-dma.json...\n\n');
+console.log('... end of processing of s14-s-california-african-american.json.\n\n');
 
+/**
+ *
+ * s15-s-detroit-institute-of-art.json-- Original file: JSON
+ *
+ **/
 
+console.log('\nProcessing s15-s-detroit-institute-of-art.json...\n');
 
-/** s03-ima-artists.json -- Original file: XML
-console.log('\nProcessing s03-ima-artists.json...\n');
+var source_path = 'data/taheriyan2016/' + data_folder + '/sources/original_json/s15-s-detroit-institute-of-art.json';
+var output_path = 'data/taheriyan2016/' + data_folder + '/sources/updated_json/s15-s-detroit-institute-of-art.json';
+var source = JSON.parse(fs.readFileSync(source_path, 'utf-8'));
 
-// NOTE: Remove external keys from the source (derived from the XML file)
-// ***** MANUALLY DONE ***** //
+source = source['paintings'];
 
-// NOTE: Replace keys with underscore within source
-// ***** MANUALLY DONE ***** //
+// NOTE: Add artist_uri field
+if (source[0]['artist_uri'] === undefined) {
+    for (var obj of source) {
+        obj['artist_uri'] = obj['name'];
+    }
+}
 
-// NOTE: Replace "name_first_last" with "name" in the semantic type. In fact, the name of the attribute in the source is name
-// ***** MANUALLY DONE ***** //
+// NOTE: Add object_uri field
+if (source[0]['object_uri'] === undefined) {
+    for (var obj of source) {
+        obj['object_uri'] = obj['accession'];
+    }
+}
 
-// NOTE: Add "artist__" in the semantic type to enable the JSON parser
+// NOTE: Add medium_URI field
+if (source[0]['medium_URI'] === undefined) {
+    for (var obj of source) {
+        obj['medium_URI'] = obj['medium'];
+    }
+}
 
-// NOTE: Fields that become URI
-// artist__title
-// artist__nationality
-// artist__name
+// NOTE: Add classification_URI field
+if (source[0]['classification_URI'] === undefined) {
+    for (var obj of source) {
+        obj['classification_URI'] = obj['classification'];
+    }
+}
 
-console.log('End of processing of s03-ima-artists.json...\n\n');
+// NOTE: Add nationality_URI field
+if (source[0]['nationality_URI'] === undefined) {
+    for (var obj of source) {
+        obj['nationality_URI'] = obj['nationality'];
+    }
+}
 
+// NOTE: Add artist_appellation_uri field
+if (source[0]['artist_appellation_uri'] === undefined) {
+    for (var obj of source) {
+        obj['artist_appellation_uri'] = obj['name'];
+    }
+}
 
+fs.writeFileSync(output_path, JSON.stringify(source, null, 4));
 
-/** s04-ima-artworks.json -- Original file: XML
-console.log('\nProcessing s04-ima-artworks.json...\n');
+console.log('... end of processing of s15-s-detroit-institute-of-art.json.\n\n');
 
-// TODO: this is a complex structure that requires update also in the SeMi code
+/**
+ *
+ * s16-s-hammer.json-- Original file: XML
+ *
+ **/
 
-// NOTE: Fields that become URI
+console.log('\nProcessing s16-s-hammer.json...\n');
 
-console.log('End of processing of s04-ima-artworks.json...\n\n');
+var source_path = 'data/taheriyan2016/' + data_folder + '/sources/original_json/s16-s-hammer.json';
+var output_path = 'data/taheriyan2016/' + data_folder + '/sources/updated_json/s16-s-hammer.json';
+var source = JSON.parse(fs.readFileSync(source_path, 'utf-8'));
 
+source = source['collections']['collection'];
 
+// WARNING: YOU HAVE NESTED JSONs
 
-/** s05-met.json -- Original file: JSON
-console.log('\nProcessing s05-met.json...\n');
+// NOTE: Add artist_uri field
+if (source[0]['item'][0]['artist_uri'] === undefined) {
+    for (var obj of source) {
+        for (var item of obj['item']) {
+            item['artist_uri'] = item['artist'];
+        }
+    }
+}
 
-// TODO: this is a complex structure that requires update also in the SeMi code
+// NOTE: Add technique_uri field
+if (source[0]['item'][0]['technique_uri'] === undefined) {
+    for (var obj of source) {
+        for (var item of obj['item']) {
+            item['technique_uri'] = item['technique'];
+        }
+    }
+}
 
-console.log('End of processing of s05-met.json...\n\n');
+// NOTE: Add artist_appellation_uri field
+if (source[0]['item'][0]['artist_appellation_uri'] === undefined) {
+    for (var obj of source) {
+        for (var item of obj['item']) {
+            item['artist_appellation_uri'] = item['artist'];
+        }
+    }
+}
 
+fs.writeFileSync(output_path, JSON.stringify(source, null, 4));
 
-/** s05-met.json -- Original file: JSON
-console.log('\nProcessing s06-met.json...\n');
+console.log('... end of processing of s16-s-hammer.json.\n\n');
 
-// TODO: this is a complex structure that requires update also in the SeMi code
+/**
+ *
+ * s17-s-houston-museum-of-fine-arts-- Original file: JSON
+ *
+ **/
 
-// NOTE: Fields that become URI
+console.log('\nProcessing s17-s-houston-museum-of-fine-arts.json...\n');
 
-console.log('End of processing of s06-met.json...\n\n');*/
+var source_path = 'data/taheriyan2016/' + data_folder + '/sources/original_json/s17-s-houston-museum-of-fine-arts.json';
+var output_path = 'data/taheriyan2016/' + data_folder + '/sources/updated_json/s17-s-houston-museum-of-fine-arts.json';
+var source = JSON.parse(fs.readFileSync(source_path, 'utf-8'));
+
+// NOTE: Add artist_uri field
+if (source[0]['artist_uri'] === undefined) {
+    for (var obj of source) {
+        obj['artist_uri'] = obj['artist'];
+    }
+}
+
+// NOTE: technique_uri field
+if (source[0]['technique_uri'] === undefined) {
+    for (var obj of source) {
+        obj['technique_uri'] = obj['technique'];
+    }
+}
+
+// NOTE: nationality_URI field
+if (source[0]['nationality_URI'] === undefined) {
+    for (var obj of source) {
+        obj['nationality_URI'] = obj['nationality'];
+    }
+}
+
+// NOTE: artist_appellation_uri field
+if (source[0]['artist_appellation_uri'] === undefined) {
+    for (var obj of source) {
+        obj['artist_appellation_uri'] = obj['artist'];
+    }
+}
+
+fs.writeFileSync(output_path, JSON.stringify(source, null, 4));
+
+console.log('... end of processing of s17-s-houston-museum-of-fine-arts.json.\n\n');
+
+/**
+ *
+ * s18-s-indianapolis-artists.json-- Original file: JSON
+ *
+ **/
+
+console.log('\nProcessing s18-s-indianapolis-artists.json...\n');
+
+var source_path = 'data/taheriyan2016/' + data_folder + '/sources/original_json/s18-s-indianapolis-artists.json';
+var output_path = 'data/taheriyan2016/' + data_folder + '/sources/updated_json/s18-s-indianapolis-artists.json';
+var source = JSON.parse(fs.readFileSync(source_path, 'utf-8'));
+
+source = source['artists']['artist'];
+
+// NOTE: artist_uri field
+if (source[0]['artist_uri'] === undefined) {
+    for (var obj of source) {
+        obj['artist_uri'] = obj['name'];
+    }
+}
+
+// NOTE: nationality_URI field
+if (source[0]['nationality_URI'] === undefined) {
+    for (var obj of source) {
+        obj['nationality_URI'] = obj['nationality'];
+    }
+}
+
+// NOTE: artist_appellation_uri field
+if (source[0]['artist_appellation_uri'] === undefined) {
+    for (var obj of source) {
+        obj['artist_appellation_uri'] = obj['name'];
+    }
+}
+
+fs.writeFileSync(output_path, JSON.stringify(source, null, 4));
+
+console.log('... end of processing of s18-s-indianapolis-artists.json.\n\n');
+
+/**
+ *
+ * s19-s-indianapolis-artworks.json-- Original file: XML
+ *
+ **/
+
+console.log('\nProcessing s19-s-indianapolis-artworks.json...\n');
+
+var source_path = 'data/taheriyan2016/' + data_folder + '/sources/original_json/s19-s-indianapolis-artworks.json';
+var output_path = 'data/taheriyan2016/' + data_folder + '/sources/updated_json/s19-s-indianapolis-artworks.json';
+var source = JSON.parse(fs.readFileSync(source_path, 'utf-8'));
+
+source = source['artworks']['artwork'];
+
+// NOTE: artist_uri field
+if (source[0]['artist_uri'] === undefined) {
+    for (var obj of source) {
+        obj['artist_uri'] = obj['artist'];
+    }
+}
+
+// NOTE: material_URI field
+if (source[0]['material_URI'] === undefined) {
+    for (var obj of source) {
+        obj['material_URI'] = obj['materials'];
+    }
+}
+
+// NOTE: material_URI field
+if (source[0]['material_URI'] === undefined) {
+    for (var obj of source) {
+        obj['material_URI'] = obj['materials'];
+    }
+}
+
+// NOTE: provenance_type_uri field
+if (source[0]['provenance_type_uri'] === undefined) {
+    for (var obj of source) {
+        obj['provenance_type_uri'] = obj['accessionNumber'];
+    }
+}
+
+// NOTE: galleryLabel_type_uri field
+if (source[0]['galleryLabel_type_uri'] === undefined) {
+    for (var obj of source) {
+        obj['galleryLabel_type_uri'] = obj['accessionNumber'];
+    }
+}
+
+// NOTE: nationality_URI field
+if (source[0]['nationality_URI'] === undefined) {
+    for (var obj of source) {
+        obj['nationality_URI'] = obj['nationality'];
+    }
+}
+
+// NOTE: artist_appellation_uri field
+if (source[0]['artist_appellation_uri'] === undefined) {
+    for (var obj of source) {
+        obj['artist_appellation_uri'] = obj['artist'];
+    }
+}
+
+fs.writeFileSync(output_path, JSON.stringify(source, null, 4));
+
+console.log('... end of processing of s19-s-indianapolis-artworks.json.\n\n');
+
+/**
+ *
+ * s20-s-lacma.json-- Original file: XML
+ *
+ **/
+
+console.log('\nProcessing s20-s-lacma.json...\n');
+
+var source_path = 'data/taheriyan2016/' + data_folder + '/sources/original_json/s20-s-lacma.json';
+var output_path = 'data/taheriyan2016/' + data_folder + '/sources/updated_json/s20-s-lacma.json';
+var source = JSON.parse(fs.readFileSync(source_path, 'utf-8'));
+
+source = source['Items']['Item'];
+
+// NOTE: Artist_URI field
+if (source[0]['Artist_URI'] === undefined) {
+    for (var obj of source) {
+        obj['Artist_URI'] = obj['Artist_Name'];
+    }
+}
+
+// NOTE: Object_URI field
+if (source[0]['Object_URI'] === undefined) {
+    for (var obj of source) {
+        obj['Object_URI'] = obj['ID'];
+    }
+}
+
+// NOTE: Classification_URI field
+if (source[0]['Classification_URI'] === undefined) {
+    for (var obj of source) {
+        obj['Classification_URI'] = obj['ID'];
+    }
+}
+
+fs.writeFileSync(output_path, JSON.stringify(source, null, 4));
+
+console.log('... end of processing of s20-s-lacma.json.\n\n');
+
+/**
+ *
+ * s21-s-met.json-- Original file: JSON
+ *
+ **/
+
+console.log('\nProcessing s21-s-met.json...\n');
+
+var source_path = 'data/taheriyan2016/' + data_folder + '/sources/original_json/s21-s-met.json';
+var output_path = 'data/taheriyan2016/' + data_folder + '/sources/updated_json/s21-s-met.json';
+
+console.log('It seems to be an invalid JSON!!!');
+
+/*
+
+var source = JSON.parse(fs.readFileSync(source_path, 'utf-8'));
+
+source = source['artWork'];
+
+// NOTE: artistURI field
+if (source[0]['artistURI'] === undefined) {
+    for (var obj of source) {
+        obj['artistURI'] = obj['artistName'];
+    }
+}
+
+// NOTE: objectURI field
+if (source[0]['objectURI'] === undefined) {
+    for (var obj of source) {
+        obj['objectURI'] = obj['accessionNumber'];
+    }
+}
+
+// NOTE: medium_URI field
+if (source[0]['medium_URI'] === undefined) {
+    for (var obj of source) {
+        obj['medium_URI'] = obj['medium'];
+    }
+}
+
+// NOTE: classification_URI field
+if (source[0]['classification_URI'] === undefined) {
+    for (var obj of source) {
+        obj['classification_URI'] = obj['classification'];
+    }
+}
+
+// NOTE: nationality_URI field
+if (source[0]['nationality_URI'] === undefined) {
+    for (var obj of source) {
+        obj['nationality_URI'] = obj['nationality'];
+    }
+}
+
+// NOTE: nationality_URI field
+if (source[0]['artistAppellationURI'] === undefined) {
+    for (var obj of source) {
+        obj['artistAppellationURI'] = obj['artistName'];
+    }
+}
+
+fs.writeFileSync(output_path, JSON.stringify(source, null, 4));
+
+console.log('... end of processing of s21-s-met.json.\n\n');
+*/
+
+/**
+ *
+ * s22-s-moca.json-- Original file: XML
+ *
+ **/
+
+console.log('\nProcessing s22-s-moca.json...\n');
+
+var source_path = 'data/taheriyan2016/' + data_folder + '/sources/original_json/s22-s-moca.json';
+var output_path = 'data/taheriyan2016/' + data_folder + '/sources/updated_json/s22-s-moca.json';
+var source = JSON.parse(fs.readFileSync(source_path, 'utf-8'));
+
+source = source['artworks']['Artist_Name'];
+
+// NOTE: person_uri field
+if (source[0]['person_uri'] === undefined) {
+    for (var obj of source) {
+        obj['person_uri'] = obj['name'];
+    }
+}
+
+// NOTE: object_uri field
+if (source[0]['object_uri'] === undefined) {
+    for (var obj of source) {
+        obj['object_uri'] = obj['Assension_Number'];
+    }
+}
+
+// NOTE: Artwork_Name field
+if (source[0]['Artwork_Name'] === undefined) {
+    for (var obj of source) {
+        var name = obj['Artwork_Name_and_Year'].split(',');
+        name.pop();
+        name.join(',');
+        obj['Artwork_Name'] = name[0];
+    }
+}
+
+// NOTE: Artwork_Year field
+if (source[0]['Artwork_Year'] === undefined) {
+    for (var obj of source) {
+        var year = obj['Artwork_Name_and_Year'].split(',').pop();
+        obj['Artwork_Year'] = year;
+    }
+}
+
+// NOTE: object_uri field
+if (source[0]['person_appellation_uri'] === undefined) {
+    for (var obj of source) {
+        obj['person_appellation_uri'] = obj['name'];
+    }
+}
+
+fs.writeFileSync(output_path, JSON.stringify(source, null, 4));
+
+console.log('... end of processing of s22-s-moca.json.\n\n');
+
+/**
+ *
+ * s23-s-national-portrait-gallery.json-- Original file: JSON
+ *
+ **/
+
+console.log('\nProcessing s23-s-national-portrait-gallery.json...\n');
+
+var source_path = 'data/taheriyan2016/' + data_folder + '/sources/original_json/s23-s-national-portrait-gallery.json';
+var output_path = 'data/taheriyan2016/' + data_folder + '/sources/updated_json/s23-s-national-portrait-gallery.json';
+var source = JSON.parse(fs.readFileSync(source_path, 'utf-8'));
+
+// NOTE: Artist_URI field
+if (source[0]['Artist_URI'] === undefined) {
+    for (var obj of source) {
+        obj['Artist_URI'] = obj['name'];
+    }
+}
+
+// NOTE: Object_URI field
+if (source[0]['Object_URI'] === undefined) {
+    for (var obj of source) {
+        obj['Object_URI'] = obj['Title'];
+    }
+}
+
+// NOTE: Classification_URI field
+if (source[0]['Classification_URI'] === undefined) {
+    for (var obj of source) {
+        obj['Classification_URI'] = obj['Classification'];
+    }
+}
+
+// NOTE: Medium_URI field
+if (source[0]['Medium_URI'] === undefined) {
+    for (var obj of source) {
+        obj['Medium_URI'] = obj['Medium'];
+    }
+}
+
+// NOTE: Subclassification_URI field
+if (source[0]['Subclassification_URI'] === undefined) {
+    for (var obj of source) {
+        obj['Subclassification_URI'] = obj['Subclassification'];
+    }
+}
+
+// NOTE: Subclassification_URI field
+if (source[0]['Artist_Appellation_URI'] === undefined) {
+    for (var obj of source) {
+        obj['Artist_Appellation_URI'] = obj['name'];
+    }
+}
+
+fs.writeFileSync(output_path, JSON.stringify(source, null, 4));
+
+console.log('... end of processing of s23-s-national-portrait-gallery.json.\n\n');
+
+/**
+ *
+ * s24-s-norton-simon.json-- Original file: JSON
+ *
+ **/
+
+console.log('\nProcessing s24-s-norton-simon.json...\n');
+
+var source_path = 'data/taheriyan2016/' + data_folder + '/sources/original_json/s24-s-norton-simon.json';
+var output_path = 'data/taheriyan2016/' + data_folder + '/sources/updated_json/s24-s-norton-simon.json';
+var source = JSON.parse(fs.readFileSync(source_path, 'utf-8'));
+
+// NOTE: artist_uri field
+if (source[0]['artist_uri'] === undefined) {
+    for (var obj of source) {
+        obj['artist_uri'] = obj['artist'];
+    }
+}
+
+// NOTE: object_uri field
+if (source[0]['object_uri'] === undefined) {
+    for (var obj of source) {
+        obj['object_uri'] = obj['access'];
+    }
+}
+
+// NOTE: birth_date field
+if (source[0]['birth_date'] === undefined) {
+    for (var obj of source) {
+        obj['birth_date'] = obj['artist_period'].split('-')[0];
+    }
+}
+
+// NOTE: death_date field
+if (source[0]['death_date'] === undefined) {
+    for (var obj of source) {
+        obj['death_date'] = obj['artist_period'].split('-')[1];
+    }
+}
+
+// NOTE: nationality_URI field
+if (source[0]['nationality_URI'] === undefined) {
+    for (var obj of source) {
+        obj['nationality_URI'] = obj['nationality'];
+    }
+}
+
+// NOTE: artist_appellation_uri field
+if (source[0]['artist_appellation_uri'] === undefined) {
+    for (var obj of source) {
+        obj['artist_appellation_uri'] = obj['artist'];
+    }
+}
+
+fs.writeFileSync(output_path, JSON.stringify(source, null, 4));
+
+console.log('... end of processing of s24-s-norton-simon.json.\n\n');
+
+/**
+ *
+ * s25-s-oakland-museum-paintings.json-- Original file: JSON
+ *
+ **/
+
+console.log('\nProcessing s25-s-oakland-museum-paintings.json...\n');
+
+var source_path = 'data/taheriyan2016/' + data_folder + '/sources/original_json/s25-s-oakland-museum-paintings.json';
+var output_path = 'data/taheriyan2016/' + data_folder + '/sources/updated_json/s25-s-oakland-museum-paintings.json';
+var source = JSON.parse(fs.readFileSync(source_path, 'utf-8'));
+
+// NOTE: Artist_URI field
+if (source[0]['Artist_URI'] === undefined) {
+    for (var obj of source) {
+        obj['Artist_URI'] = obj['ArtistName'];
+    }
+}
+
+// NOTE: Object_uri field
+if (source[0]['Object_uri'] === undefined) {
+    for (var obj of source) {
+        obj['Object_uri'] = obj['Accession_id'];
+    }
+}
+
+// NOTE: BirthDate field
+if (source[0]['BirthDate'] === undefined) {
+    for (var obj of source) {
+        obj['BirthDate'] = obj['BirthDeathDate'].split('-')[0];
+    }
+}
+
+// NOTE: DeathDate field
+if (source[0]['DeathDate'] === undefined) {
+    for (var obj of source) {
+        obj['DeathDate'] = obj['BirthDeathDate'].split('-')[1];
+    }
+}
+
+// NOTE: Subtype_URI field
+if (source[0]['Subtype_URI'] === undefined) {
+    for (var obj of source) {
+        obj['Subtype_URI'] = obj['Subtype_of_Art'];
+    }
+}
+
+// NOTE: Type_URI field
+if (source[0]['Type_URI'] === undefined) {
+    for (var obj of source) {
+        obj['Type_URI'] = obj['Type_of_Art'];
+    }
+}
+
+// NOTE: Artist_Appellation_URI field
+if (source[0]['Artist_Appellation_URI'] === undefined) {
+    for (var obj of source) {
+        obj['Artist_Appellation_URI'] = obj['ArtistName'];
+    }
+}
+
+fs.writeFileSync(output_path, JSON.stringify(source, null, 4));
+
+console.log('... end of processing of s25-s-oakland-museum-paintings.json.\n\n');
+
+/**
+ *
+ * s26-s-san-francisco-moma-- Original file: JSON
+ *
+ **/
+
+console.log('\nProcessing s26-s-san-francisco-moma.json...\n');
+
+var source_path = 'data/taheriyan2016/' + data_folder + '/sources/original_json/s26-s-san-francisco-moma.json';
+var output_path = 'data/taheriyan2016/' + data_folder + '/sources/updated_json/s26-s-san-francisco-moma.json';
+var source = JSON.parse(fs.readFileSync(source_path, 'utf-8'));
+
+source = source['art-works'];
+
+// NOTE: artistURI field
+if (source[0]['art-work']['artistURI'] === undefined) {
+    for (var obj of source) {
+        obj['art-work']['artistURI'] = obj['art-work']['artistName'];
+    }
+}
+
+// NOTE: Type_URI field
+if (source[0]['art-work']['Type_URI'] === undefined) {
+    for (var obj of source) {
+        obj['art-work']['Type_URI'] = obj['art-work']['type'];
+    }
+}
+
+// NOTE: nationality_URI field
+if (source[0]['art-work']['nationality_URI'] === undefined) {
+    for (var obj of source) {
+        obj['art-work']['nationality_URI'] = obj['art-work']['nationality'];
+    }
+}
+
+// NOTE: artistAppellationURI field
+if (source[0]['art-work']['artistAppellationURI'] === undefined) {
+    for (var obj of source) {
+        obj['art-work']['artistAppellationURI'] = obj['art-work']['artistName'];
+    }
+}
+
+fs.writeFileSync(output_path, JSON.stringify(source, null, 4));
+
+console.log('... end of processing of s26-s-san-francisco-moma.json.\n\n');
+
+/**
+ *
+ * s27-s-the-huntington.json-- Original file: JSON
+ *
+ **/
+
+console.log('\nProcessing s27-s-the-huntington.json...\n');
+
+var source_path = 'data/taheriyan2016/' + data_folder + '/sources/original_json/s27-s-the-huntington.json';
+var output_path = 'data/taheriyan2016/' + data_folder + '/sources/updated_json/s27-s-the-huntington.json';
+var source = JSON.parse(fs.readFileSync(source_path, 'utf-8'));
+
+source = source['drawings'];
+
+// NOTE: artist_URI field
+if (source[0]['artist']['artist_URI'] === undefined) {
+    for (var obj of source) {
+        obj['artist']['artist_URI'] = obj['artist']['name'];
+    }
+}
+
+// NOTE: object_uri field
+if (source[0]['object_uri'] === undefined) {
+    for (var obj of source) {
+        obj['object_uri'] = obj['object_no'];
+    }
+}
+
+// NOTE: medium_uri field
+if (source[0]['medium_uri'] === undefined) {
+    for (var obj of source) {
+        obj['medium_uri'] = obj['medium'];
+    }
+}
+
+// NOTE: Nationality_URI field
+if (source[0]['Nationality_URI'] === undefined) {
+    for (var obj of source) {
+        obj['Nationality_URI'] = obj['nationality'];
+    }
+}
+
+// NOTE: Nationality_URI field
+if (source[0]['artist']['artist_appellation_uri'] === undefined) {
+    for (var obj of source) {
+        obj['artist']['artist_appellation_uri'] = obj['artist']['name'];
+    }
+}
+
+fs.writeFileSync(output_path, JSON.stringify(source, null, 4));
+
+console.log('... end of processing of s27-s-the-huntington.json.\n\n');
+
+/**
+ *
+ * s28-wildlife-art.json-- Original file: CSV
+ *
+ **/
+
+console.log('\nProcessing s28-wildlife-art.json...\n');
+
+var source_path = 'data/taheriyan2016/' + data_folder + '/sources/original_json/s28-wildlife-art.json';
+var output_path = 'data/taheriyan2016/' + data_folder + '/sources/updated_json/s28-wildlife-art.json';
+var source = JSON.parse(fs.readFileSync(source_path, 'utf-8'));
+
+// NOTE: Maker_URI field
+if (source[0]['Maker_URI'] === undefined) {
+    for (var obj of source) {
+        obj['Maker_URI'] = obj['Maker'];
+    }
+}
+
+// NOTE: Object_URI field
+if (source[0]['Object_URI'] === undefined) {
+    for (var obj of source) {
+        obj['Object_URI'] = obj['ID Number'];
+    }
+}
+
+// NOTE: Maker Birth Date field
+if (source[0]['Maker Birth Date'] === undefined) {
+    for (var obj of source) {
+        var first_split = obj['Maker Bio'].split(', ');
+        if (first_split[1] !== undefined) {
+            var second_split = first_split[1].split(' - ');
+            if (second_split[0] !== undefined) {
+                obj['Maker Birth Date'] = second_split[0];
+            } else {
+                obj['Maker Birth Date'] = '';
+            }
+        } else {
+            obj['Maker Birth Date'] = '';
+        }
+    }
+}
+
+// NOTE: Maker Death Date field
+if (source[0]['Maker Death Date'] === undefined) {
+    for (var obj of source) {
+        var first_split = obj['Maker Bio'].split(', ');
+        if (first_split[1] !== undefined) {
+            var second_split = first_split[1].split(' - ');
+            if (second_split[0] !== undefined) {
+                obj['Maker Death Date'] = second_split[1];
+            } else {
+                obj['Maker Death Date'] = '';
+            }
+        } else {
+            obj['Maker Death Date'] = '';
+        }
+    }
+}
+
+// NOTE: Home Location URI field
+if (source[0]['Home Location URI'] === undefined) {
+    for (var obj of source) {
+        obj['Home Location URI'] = obj['Home Location'];
+    }
+}
+
+// NOTE: Category_URI field
+if (source[0]['Category_URI'] === undefined) {
+    for (var obj of source) {
+        obj['Category_URI'] = obj['Category'];
+    }
+}
+
+// NOTE: Materials_URI field
+if (source[0]['Materials_URI'] === undefined) {
+    for (var obj of source) {
+        obj['Materials_URI'] = obj['Materials'];
+    }
+}
+
+// NOTE: Collector_Information_typeURI
+if (source[0]['Collector_Information_typeURI'] === undefined) {
+    for (var obj of source) {
+        obj['Collector_Information_typeURI'] = obj['Collector'];
+    }
+}
+
+// NOTE: Nationality_URI
+if (source[0]['Nationality_URI'] === undefined) {
+    for (var obj of source) {
+        obj['Nationality_URI'] = obj['Nationality'];
+    }
+}
+
+// NOTE: Maker_Appellation_URI
+if (source[0]['Maker_Appellation_URI'] === undefined) {
+    for (var obj of source) {
+        obj['Maker_Appellation_URI'] = obj['Maker'];
+    }
+}
+
+// NOTE: Acquisition_URI
+if (source[0]['Acquisition_URI'] === undefined) {
+    for (var obj of source) {
+        obj['Acquisition_URI'] = obj['How Acquired?'];
+    }
+}
+
+fs.writeFileSync(output_path, JSON.stringify(source, null, 4));
+
+console.log('... end of processing of s28-wildlife-art.json.\n\n');
+
+/**
+ *
+ * s29-gilcrease.json-- Original file: CSV
+ *
+ **/
+
+console.log('\nProcessing s29-gilcrease.json...\n');
+
+var source_path = 'data/taheriyan2016/' + data_folder + '/sources/original_json/s29-gilcrease.json';
+var output_path = 'data/taheriyan2016/' + data_folder + '/sources/updated_json/s29-gilcrease.json';
+var source = JSON.parse(fs.readFileSync(source_path, 'utf-8'));
+
+// NOTE: Attribution_URI
+if (source[0]['Attribution_URI'] === undefined) {
+    for (var obj of source) {
+        obj['Attribution_URI'] = obj['Attribution'];
+    }
+}
+
+// NOTE: Object_URI
+if (source[0]['Object_URI'] === undefined) {
+    for (var obj of source) {
+        obj['Object_URI'] = obj['ObjectID'];
+    }
+}
+
+// NOTE: Culture_URI
+if (source[0]['Culture_URI'] === undefined) {
+    for (var obj of source) {
+        obj['Culture_URI'] = obj['Culture'];
+    }
+}
+
+// NOTE: Type_URI
+if (source[0]['Type_URI'] === undefined) {
+    for (var obj of source) {
+        obj['Type_URI'] = obj['Media'];
+    }
+}
+
+// NOTE: Medium_URI
+if (source[0]['Medium_URI'] === undefined) {
+    for (var obj of source) {
+        obj['Medium_URI'] = obj['Medium'];
+    }
+}
+
+// NOTE: Attribution_Appellation_URI
+if (source[0]['Attribution_Appellation_URI'] === undefined) {
+    for (var obj of source) {
+        obj['Attribution_Appellation_URI'] = obj['Attribution'];
+    }
+}
+
+fs.writeFileSync(output_path, JSON.stringify(source, null, 4));
+
+console.log('... end of processing of s29-gilcrease.json.\n\n');
