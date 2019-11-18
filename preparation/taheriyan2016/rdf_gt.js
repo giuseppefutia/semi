@@ -45,8 +45,11 @@ var source_folder = 'data/taheriyan2016/' + data_folder + '/sources/updated_json
 var sm_folder = 'evaluation/taheriyan2016/' + data_folder + '/semantic_models_gt/jarql/';
 var output_folder = 'evaluation/taheriyan2016/' + data_folder + '/semantic_models_gt/rdf/';
 
+var start = new Date();
+
 var generate_rdf = (file_name) => {
     console.log('\nStart processing ' + file_name + '...\n\n');
+    var start_processing = new Date();
 
     var source_path = source_folder + file_name;
     var source = JSON.parse(fs.readFileSync(source_path, 'utf-8'));
@@ -82,6 +85,10 @@ var generate_rdf = (file_name) => {
     fs.unlinkSync(tmp_source_path);
     fs.unlinkSync(tmp_sm_path);
 
+    var end_processing = new Date() - start_processing;
+
+    console.log('\nFile processed in %ds', end_processing / 1000)
+
     console.log('\n\nEnd processing ' + file_name + '.\n\n');
 }
 
@@ -94,3 +101,6 @@ if (input_file === undefined) {
 } else {
     generate_rdf(input_file + '.json');
 }
+
+var end = new Date() - start;
+console.log('Execution time: %dminutes', end / 1000 / 60)
