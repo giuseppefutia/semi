@@ -25,9 +25,9 @@ PREFIX bmo:       <http://collection.britishmuseum.org/id/ontology/>
 PREFIX jarql:     <http://jarql.com/>
 
 CONSTRUCT {
-    ?E21_Person1 http://isi.edu/integration/karma/dev#classLink ?Artist_uri.
+    ?E21_Person1 rdfs:label ?Artist_uri.
     ?E21_Person1 rdf:type crm:E21_Person.
-    ?E22_Man-Made_Object1 http://isi.edu/integration/karma/dev#classLink ?Object_URI.
+    ?E22_Man-Made_Object1 rdfs:label ?Object_URI.
     ?E22_Man-Made_Object1 rdf:type crm:E22_Man-Made_Object.
     ?E33_Linguistic_Object1 crm:P3_has_note ?Label_on_page.
     ?E33_Linguistic_Object1 rdf:type crm:E33_Linguistic_Object.
@@ -35,7 +35,7 @@ CONSTRUCT {
     ?E33_Linguistic_Object2 rdf:type crm:E33_Linguistic_Object.
     ?E35_Title1 rdfs:label ?title.
     ?E35_Title1 rdf:type crm:E35_Title.
-    ?E38_Image1 http://isi.edu/integration/karma/dev#classLink ?image_url.
+    ?E38_Image1 rdfs:label ?image_url.
     ?E38_Image1 rdf:type crm:E38_Image.
     ?E52_Time-Span1 crm:P82_at_some_time_within ?dates.
     ?E52_Time-Span1 rdf:type crm:E52_Time-Span.
@@ -45,19 +45,19 @@ CONSTRUCT {
     ?E52_Time-Span3 rdf:type crm:E52_Time-Span.
     ?E54_Dimension1 crm:P3_has_note ?dimension.
     ?E54_Dimension1 rdf:type crm:E54_Dimension.
-    ?E55_Type1 http://isi.edu/integration/karma/dev#classLink ?technique_uri.
+    ?E55_Type1 rdfs:label ?technique_uri.
     ?E55_Type1 rdf:type crm:E55_Type.
     ?E55_Type2 rdfs:label ?technique.
     ?E55_Type2 rdf:type crm:E55_Type.
-    ?E55_Type3 http://isi.edu/integration/karma/dev#classLink ?label_type_uri.
+    ?E55_Type3 rdfs:label ?label_type_uri.
     ?E55_Type3 rdf:type crm:E55_Type.
-    ?E55_Type4 http://isi.edu/integration/karma/dev#classLink ?origin_type_uri.
+    ?E55_Type4 rdfs:label ?origin_type_uri.
     ?E55_Type4 rdf:type crm:E55_Type.
-    ?E74_Group1 http://isi.edu/integration/karma/dev#classLink ?nationality_uri.
+    ?E74_Group1 rdfs:label ?nationality_uri.
     ?E74_Group1 rdf:type crm:E74_Group.
     ?E74_Group2 rdfs:label ?nationality.
     ?E74_Group2 rdf:type crm:E74_Group.
-    ?E82_Actor_Appellation1 http://isi.edu/integration/karma/dev#classLink ?Artist_appellation_uri.
+    ?E82_Actor_Appellation1 rdfs:label ?Artist_appellation_uri.
     ?E82_Actor_Appellation1 rdf:type crm:E82_Actor_Appellation.
     ?E82_Actor_Appellation2 rdfs:label ?name.
     ?E82_Actor_Appellation2 rdf:type crm:E82_Actor_Appellation.

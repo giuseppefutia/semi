@@ -1,0 +1,1019 @@
+{
+    "_isDirected": true,
+    "_isMultigraph": true,
+    "_isCompound": false,
+    "_nodes": {
+        "Artwork_Name": {
+            "type": "attribute_name",
+            "label": "Artwork_Name"
+        },
+        "crm:E35_Title1": {
+            "type": "class_uri",
+            "label": "crm:E35_Title"
+        },
+        "Artwork_Year": {
+            "type": "attribute_name",
+            "label": "Artwork_Year"
+        },
+        "crm:E52_Time-Span1": {
+            "type": "class_uri",
+            "label": "crm:E52_Time-Span"
+        },
+        "Dimensions": {
+            "type": "attribute_name",
+            "label": "Dimensions"
+        },
+        "crm:E54_Dimension1": {
+            "type": "class_uri",
+            "label": "crm:E54_Dimension"
+        },
+        "Process": {
+            "type": "attribute_name",
+            "label": "Process"
+        },
+        "crm:E12_Production1": {
+            "type": "class_uri",
+            "label": "crm:E12_Production"
+        },
+        "crm:E8_Acquisition1": {
+            "type": "class_uri",
+            "label": "crm:E8_Acquisition"
+        },
+        "crm:E18_Physical_Thing": {
+            "type": "class_uri",
+            "label": "crm:E18_Physical_Thing"
+        },
+        "crm:E21_Person1": {
+            "type": "class_uri",
+            "label": "crm:E21_Person"
+        },
+        "crm:E39_Actor": {
+            "type": "class_uri",
+            "label": "crm:E39_Actor"
+        },
+        "crm:E22_Man-Made_Object1": {
+            "type": "class_uri",
+            "label": "crm:E22_Man-Made_Object"
+        },
+        "crm:E82_Actor_Appellation2": {
+            "type": "class_uri",
+            "label": "crm:E82_Actor_Appellation"
+        },
+        "crm:E38_Image1": {
+            "type": "class_uri",
+            "label": "crm:E38_Image"
+        },
+        "crm:E82_Actor_Appellation1": {
+            "type": "class_uri",
+            "label": "crm:E82_Actor_Appellation"
+        },
+        "Provenance": {
+            "type": "attribute_name",
+            "label": "Provenance"
+        },
+        "image": {
+            "type": "attribute_name",
+            "label": "image"
+        },
+        "name": {
+            "type": "attribute_name",
+            "label": "name"
+        },
+        "object_uri": {
+            "type": "attribute_name",
+            "label": "object_uri"
+        },
+        "person_appellation_uri": {
+            "type": "attribute_name",
+            "label": "person_appellation_uri"
+        },
+        "person_uri": {
+            "type": "attribute_name",
+            "label": "person_uri"
+        }
+    },
+    "_in": {
+        "Artwork_Name": {},
+        "crm:E35_Title1": {
+            "Artwork_Name\u0001crm:E35_Title1\u0001Artwork_Name***crm:E35_Title1\u0001st_property_urirdfs:label***inverted\u00011": {
+                "v": "Artwork_Name",
+                "w": "crm:E35_Title1",
+                "name": "Artwork_Name***crm:E35_Title1",
+                "value": {
+                    "type": "st_property_uri",
+                    "label": "rdfs:label***inverted"
+                },
+                "weight": 1
+            }
+        },
+        "Artwork_Year": {},
+        "crm:E52_Time-Span1": {
+            "Artwork_Year\u0001crm:E52_Time-Span1\u0001Artwork_Year***crm:E52_Time-Span1\u0001st_property_uricrm:P82_at_some_time_within***inverted\u00011": {
+                "v": "Artwork_Year",
+                "w": "crm:E52_Time-Span1",
+                "name": "Artwork_Year***crm:E52_Time-Span1",
+                "value": {
+                    "type": "st_property_uri",
+                    "label": "crm:P82_at_some_time_within***inverted"
+                },
+                "weight": 1
+            }
+        },
+        "Dimensions": {},
+        "crm:E54_Dimension1": {
+            "Dimensions\u0001crm:E54_Dimension1\u0001Dimensions***crm:E54_Dimension1\u0001st_property_uricrm:P3_has_note***inverted\u00011": {
+                "v": "Dimensions",
+                "w": "crm:E54_Dimension1",
+                "name": "Dimensions***crm:E54_Dimension1",
+                "value": {
+                    "type": "st_property_uri",
+                    "label": "crm:P3_has_note***inverted"
+                },
+                "weight": 1
+            },
+            "crm:E52_Time-Span1\u0001crm:E54_Dimension1\u0001crm:E52_Time-Span1***crm:E54_Dimension1\u0001direct_property_uricrm:P84i_was_maximum_duration_of***inverted\u00011": {
+                "v": "crm:E52_Time-Span1",
+                "w": "crm:E54_Dimension1",
+                "name": "crm:E52_Time-Span1***crm:E54_Dimension1",
+                "value": {
+                    "type": "direct_property_uri",
+                    "label": "crm:P84i_was_maximum_duration_of***inverted"
+                },
+                "weight": 1
+            }
+        },
+        "Process": {},
+        "crm:E12_Production1": {
+            "Process\u0001crm:E12_Production1\u0001Process***crm:E12_Production1\u0001st_property_uricrm:P3_has_note***inverted\u00011": {
+                "v": "Process",
+                "w": "crm:E12_Production1",
+                "name": "Process***crm:E12_Production1",
+                "value": {
+                    "type": "st_property_uri",
+                    "label": "crm:P3_has_note***inverted"
+                },
+                "weight": 1
+            }
+        },
+        "crm:E8_Acquisition1": {
+            "crm:E12_Production1\u0001crm:E8_Acquisition1\u0001crm:E12_Production1***crm:E8_Acquisition1\u0001inheritedcrm:P20i_was_purpose_of***inverted\u00014": {
+                "v": "crm:E12_Production1",
+                "w": "crm:E8_Acquisition1",
+                "name": "crm:E12_Production1***crm:E8_Acquisition1",
+                "value": {
+                    "type": "inherited",
+                    "label": "crm:P20i_was_purpose_of***inverted"
+                },
+                "weight": 4
+            },
+            "crm:E18_Physical_Thing\u0001crm:E8_Acquisition1\u0001crm:E18_Physical_Thing***crm:E8_Acquisition1\u0001direct_property_uricrm:P24_transferred_title_of***inverted\u00011": {
+                "v": "crm:E18_Physical_Thing",
+                "w": "crm:E8_Acquisition1",
+                "name": "crm:E18_Physical_Thing***crm:E8_Acquisition1",
+                "value": {
+                    "type": "direct_property_uri",
+                    "label": "crm:P24_transferred_title_of***inverted"
+                },
+                "weight": 1
+            },
+            "crm:E22_Man-Made_Object1\u0001crm:E8_Acquisition1\u0001crm:E22_Man-Made_Object1***crm:E8_Acquisition1\u0001inheritedcrm:P19_was_intended_use_of***inverted\u00014": {
+                "v": "crm:E22_Man-Made_Object1",
+                "w": "crm:E8_Acquisition1",
+                "name": "crm:E22_Man-Made_Object1***crm:E8_Acquisition1",
+                "value": {
+                    "type": "inherited",
+                    "label": "crm:P19_was_intended_use_of***inverted"
+                },
+                "weight": 4
+            },
+            "crm:E38_Image1\u0001crm:E8_Acquisition1\u0001crm:E38_Image1***crm:E8_Acquisition1\u0001inheritedcrm:P16_used_specific_object***inverted\u00014": {
+                "v": "crm:E38_Image1",
+                "w": "crm:E8_Acquisition1",
+                "name": "crm:E38_Image1***crm:E8_Acquisition1",
+                "value": {
+                    "type": "inherited",
+                    "label": "crm:P16_used_specific_object***inverted"
+                },
+                "weight": 4
+            },
+            "crm:E54_Dimension1\u0001crm:E8_Acquisition1\u0001crm:E54_Dimension1***crm:E8_Acquisition1\u0001inheritedcrm:P17_was_motivated_by***inverted\u00014": {
+                "v": "crm:E54_Dimension1",
+                "w": "crm:E8_Acquisition1",
+                "name": "crm:E54_Dimension1***crm:E8_Acquisition1",
+                "value": {
+                    "type": "inherited",
+                    "label": "crm:P17_was_motivated_by***inverted"
+                },
+                "weight": 4
+            }
+        },
+        "crm:E18_Physical_Thing": {
+            "crm:E39_Actor\u0001crm:E18_Physical_Thing\u0001crm:E39_Actor***crm:E18_Physical_Thing\u0001direct_property_uricrm:P51_has_former_or_current_owner***inverted\u00011": {
+                "v": "crm:E39_Actor",
+                "w": "crm:E18_Physical_Thing",
+                "name": "crm:E39_Actor***crm:E18_Physical_Thing",
+                "value": {
+                    "type": "direct_property_uri",
+                    "label": "crm:P51_has_former_or_current_owner***inverted"
+                },
+                "weight": 1
+            }
+        },
+        "crm:E21_Person1": {
+            "person_uri\u0001crm:E21_Person1\u0001person_uri***crm:E21_Person1\u0001st_property_urirdfs:label***inverted\u00011": {
+                "v": "person_uri",
+                "w": "crm:E21_Person1",
+                "name": "person_uri***crm:E21_Person1",
+                "value": {
+                    "type": "st_property_uri",
+                    "label": "rdfs:label***inverted"
+                },
+                "weight": 1
+            }
+        },
+        "crm:E39_Actor": {
+            "crm:E21_Person1\u0001crm:E39_Actor\u0001crm:E21_Person1***crm:E39_Actor\u0001direct_property_uriid:ontology/PX_pupil_of\u00011": {
+                "v": "crm:E21_Person1",
+                "w": "crm:E39_Actor",
+                "name": "crm:E21_Person1***crm:E39_Actor",
+                "value": {
+                    "label": "id:ontology/PX_pupil_of",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            },
+            "crm:E82_Actor_Appellation1\u0001crm:E39_Actor\u0001crm:E82_Actor_Appellation1***crm:E39_Actor\u0001inheritedcrm:P1_is_identified_by***inverted\u00014": {
+                "v": "crm:E82_Actor_Appellation1",
+                "w": "crm:E39_Actor",
+                "name": "crm:E82_Actor_Appellation1***crm:E39_Actor",
+                "value": {
+                    "type": "inherited",
+                    "label": "crm:P1_is_identified_by***inverted"
+                },
+                "weight": 4
+            }
+        },
+        "crm:E22_Man-Made_Object1": {
+            "object_uri\u0001crm:E22_Man-Made_Object1\u0001object_uri***crm:E22_Man-Made_Object1\u0001st_property_urirdfs:label***inverted\u00011": {
+                "v": "object_uri",
+                "w": "crm:E22_Man-Made_Object1",
+                "name": "object_uri***crm:E22_Man-Made_Object1",
+                "value": {
+                    "type": "st_property_uri",
+                    "label": "rdfs:label***inverted"
+                },
+                "weight": 1
+            }
+        },
+        "crm:E82_Actor_Appellation2": {
+            "crm:E35_Title1\u0001crm:E82_Actor_Appellation2\u0001crm:E35_Title1***crm:E82_Actor_Appellation2\u0001inheritedcrm:P106i_forms_part_of***inverted\u00014": {
+                "v": "crm:E35_Title1",
+                "w": "crm:E82_Actor_Appellation2",
+                "name": "crm:E35_Title1***crm:E82_Actor_Appellation2",
+                "value": {
+                    "type": "inherited",
+                    "label": "crm:P106i_forms_part_of***inverted"
+                },
+                "weight": 4
+            },
+            "crm:E39_Actor\u0001crm:E82_Actor_Appellation2\u0001crm:E39_Actor***crm:E82_Actor_Appellation2\u0001inheritedcrm:P1i_identifies***inverted\u00014": {
+                "v": "crm:E39_Actor",
+                "w": "crm:E82_Actor_Appellation2",
+                "name": "crm:E39_Actor***crm:E82_Actor_Appellation2",
+                "value": {
+                    "type": "inherited",
+                    "label": "crm:P1i_identifies***inverted"
+                },
+                "weight": 4
+            },
+            "name\u0001crm:E82_Actor_Appellation2\u0001name***crm:E82_Actor_Appellation2\u0001st_property_urirdfs:label***inverted\u00011": {
+                "v": "name",
+                "w": "crm:E82_Actor_Appellation2",
+                "name": "name***crm:E82_Actor_Appellation2",
+                "value": {
+                    "type": "st_property_uri",
+                    "label": "rdfs:label***inverted"
+                },
+                "weight": 1
+            }
+        },
+        "crm:E38_Image1": {
+            "image\u0001crm:E38_Image1\u0001image***crm:E38_Image1\u0001st_property_urirdfs:label***inverted\u00011": {
+                "v": "image",
+                "w": "crm:E38_Image1",
+                "name": "image***crm:E38_Image1",
+                "value": {
+                    "type": "st_property_uri",
+                    "label": "rdfs:label***inverted"
+                },
+                "weight": 1
+            }
+        },
+        "crm:E82_Actor_Appellation1": {
+            "person_appellation_uri\u0001crm:E82_Actor_Appellation1\u0001person_appellation_uri***crm:E82_Actor_Appellation1\u0001st_property_urirdfs:label***inverted\u00011": {
+                "v": "person_appellation_uri",
+                "w": "crm:E82_Actor_Appellation1",
+                "name": "person_appellation_uri***crm:E82_Actor_Appellation1",
+                "value": {
+                    "type": "st_property_uri",
+                    "label": "rdfs:label***inverted"
+                },
+                "weight": 1
+            }
+        },
+        "Provenance": {
+            "crm:E8_Acquisition1\u0001Provenance\u0001crm:E8_Acquisition1***Provenance\u0001st_property_uricrm:P3_has_note\u00011": {
+                "v": "crm:E8_Acquisition1",
+                "w": "Provenance",
+                "name": "crm:E8_Acquisition1***Provenance",
+                "value": {
+                    "label": "crm:P3_has_note",
+                    "type": "st_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "image": {},
+        "name": {},
+        "object_uri": {},
+        "person_appellation_uri": {},
+        "person_uri": {}
+    },
+    "_preds": {
+        "Artwork_Name": {},
+        "crm:E35_Title1": {
+            "Artwork_Name": 1
+        },
+        "Artwork_Year": {},
+        "crm:E52_Time-Span1": {
+            "Artwork_Year": 1
+        },
+        "Dimensions": {},
+        "crm:E54_Dimension1": {
+            "Dimensions": 1,
+            "crm:E52_Time-Span1": 1
+        },
+        "Process": {},
+        "crm:E12_Production1": {
+            "Process": 1
+        },
+        "crm:E8_Acquisition1": {
+            "crm:E12_Production1": 1,
+            "crm:E18_Physical_Thing": 1,
+            "crm:E22_Man-Made_Object1": 1,
+            "crm:E38_Image1": 1,
+            "crm:E54_Dimension1": 1
+        },
+        "crm:E18_Physical_Thing": {
+            "crm:E39_Actor": 1
+        },
+        "crm:E21_Person1": {
+            "person_uri": 1
+        },
+        "crm:E39_Actor": {
+            "crm:E21_Person1": 1,
+            "crm:E82_Actor_Appellation1": 1
+        },
+        "crm:E22_Man-Made_Object1": {
+            "object_uri": 1
+        },
+        "crm:E82_Actor_Appellation2": {
+            "crm:E35_Title1": 1,
+            "crm:E39_Actor": 1,
+            "name": 1
+        },
+        "crm:E38_Image1": {
+            "image": 1
+        },
+        "crm:E82_Actor_Appellation1": {
+            "person_appellation_uri": 1
+        },
+        "Provenance": {
+            "crm:E8_Acquisition1": 1
+        },
+        "image": {},
+        "name": {},
+        "object_uri": {},
+        "person_appellation_uri": {},
+        "person_uri": {}
+    },
+    "_out": {
+        "Artwork_Name": {
+            "Artwork_Name\u0001crm:E35_Title1\u0001Artwork_Name***crm:E35_Title1\u0001st_property_urirdfs:label***inverted\u00011": {
+                "v": "Artwork_Name",
+                "w": "crm:E35_Title1",
+                "name": "Artwork_Name***crm:E35_Title1",
+                "value": {
+                    "type": "st_property_uri",
+                    "label": "rdfs:label***inverted"
+                },
+                "weight": 1
+            }
+        },
+        "crm:E35_Title1": {
+            "crm:E35_Title1\u0001crm:E82_Actor_Appellation2\u0001crm:E35_Title1***crm:E82_Actor_Appellation2\u0001inheritedcrm:P106i_forms_part_of***inverted\u00014": {
+                "v": "crm:E35_Title1",
+                "w": "crm:E82_Actor_Appellation2",
+                "name": "crm:E35_Title1***crm:E82_Actor_Appellation2",
+                "value": {
+                    "type": "inherited",
+                    "label": "crm:P106i_forms_part_of***inverted"
+                },
+                "weight": 4
+            }
+        },
+        "Artwork_Year": {
+            "Artwork_Year\u0001crm:E52_Time-Span1\u0001Artwork_Year***crm:E52_Time-Span1\u0001st_property_uricrm:P82_at_some_time_within***inverted\u00011": {
+                "v": "Artwork_Year",
+                "w": "crm:E52_Time-Span1",
+                "name": "Artwork_Year***crm:E52_Time-Span1",
+                "value": {
+                    "type": "st_property_uri",
+                    "label": "crm:P82_at_some_time_within***inverted"
+                },
+                "weight": 1
+            }
+        },
+        "crm:E52_Time-Span1": {
+            "crm:E52_Time-Span1\u0001crm:E54_Dimension1\u0001crm:E52_Time-Span1***crm:E54_Dimension1\u0001direct_property_uricrm:P84i_was_maximum_duration_of***inverted\u00011": {
+                "v": "crm:E52_Time-Span1",
+                "w": "crm:E54_Dimension1",
+                "name": "crm:E52_Time-Span1***crm:E54_Dimension1",
+                "value": {
+                    "type": "direct_property_uri",
+                    "label": "crm:P84i_was_maximum_duration_of***inverted"
+                },
+                "weight": 1
+            }
+        },
+        "Dimensions": {
+            "Dimensions\u0001crm:E54_Dimension1\u0001Dimensions***crm:E54_Dimension1\u0001st_property_uricrm:P3_has_note***inverted\u00011": {
+                "v": "Dimensions",
+                "w": "crm:E54_Dimension1",
+                "name": "Dimensions***crm:E54_Dimension1",
+                "value": {
+                    "type": "st_property_uri",
+                    "label": "crm:P3_has_note***inverted"
+                },
+                "weight": 1
+            }
+        },
+        "crm:E54_Dimension1": {
+            "crm:E54_Dimension1\u0001crm:E8_Acquisition1\u0001crm:E54_Dimension1***crm:E8_Acquisition1\u0001inheritedcrm:P17_was_motivated_by***inverted\u00014": {
+                "v": "crm:E54_Dimension1",
+                "w": "crm:E8_Acquisition1",
+                "name": "crm:E54_Dimension1***crm:E8_Acquisition1",
+                "value": {
+                    "type": "inherited",
+                    "label": "crm:P17_was_motivated_by***inverted"
+                },
+                "weight": 4
+            }
+        },
+        "Process": {
+            "Process\u0001crm:E12_Production1\u0001Process***crm:E12_Production1\u0001st_property_uricrm:P3_has_note***inverted\u00011": {
+                "v": "Process",
+                "w": "crm:E12_Production1",
+                "name": "Process***crm:E12_Production1",
+                "value": {
+                    "type": "st_property_uri",
+                    "label": "crm:P3_has_note***inverted"
+                },
+                "weight": 1
+            }
+        },
+        "crm:E12_Production1": {
+            "crm:E12_Production1\u0001crm:E8_Acquisition1\u0001crm:E12_Production1***crm:E8_Acquisition1\u0001inheritedcrm:P20i_was_purpose_of***inverted\u00014": {
+                "v": "crm:E12_Production1",
+                "w": "crm:E8_Acquisition1",
+                "name": "crm:E12_Production1***crm:E8_Acquisition1",
+                "value": {
+                    "type": "inherited",
+                    "label": "crm:P20i_was_purpose_of***inverted"
+                },
+                "weight": 4
+            }
+        },
+        "crm:E8_Acquisition1": {
+            "crm:E8_Acquisition1\u0001Provenance\u0001crm:E8_Acquisition1***Provenance\u0001st_property_uricrm:P3_has_note\u00011": {
+                "v": "crm:E8_Acquisition1",
+                "w": "Provenance",
+                "name": "crm:E8_Acquisition1***Provenance",
+                "value": {
+                    "label": "crm:P3_has_note",
+                    "type": "st_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "crm:E18_Physical_Thing": {
+            "crm:E18_Physical_Thing\u0001crm:E8_Acquisition1\u0001crm:E18_Physical_Thing***crm:E8_Acquisition1\u0001direct_property_uricrm:P24_transferred_title_of***inverted\u00011": {
+                "v": "crm:E18_Physical_Thing",
+                "w": "crm:E8_Acquisition1",
+                "name": "crm:E18_Physical_Thing***crm:E8_Acquisition1",
+                "value": {
+                    "type": "direct_property_uri",
+                    "label": "crm:P24_transferred_title_of***inverted"
+                },
+                "weight": 1
+            }
+        },
+        "crm:E21_Person1": {
+            "crm:E21_Person1\u0001crm:E39_Actor\u0001crm:E21_Person1***crm:E39_Actor\u0001direct_property_uriid:ontology/PX_pupil_of\u00011": {
+                "v": "crm:E21_Person1",
+                "w": "crm:E39_Actor",
+                "name": "crm:E21_Person1***crm:E39_Actor",
+                "value": {
+                    "label": "id:ontology/PX_pupil_of",
+                    "type": "direct_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "crm:E39_Actor": {
+            "crm:E39_Actor\u0001crm:E18_Physical_Thing\u0001crm:E39_Actor***crm:E18_Physical_Thing\u0001direct_property_uricrm:P51_has_former_or_current_owner***inverted\u00011": {
+                "v": "crm:E39_Actor",
+                "w": "crm:E18_Physical_Thing",
+                "name": "crm:E39_Actor***crm:E18_Physical_Thing",
+                "value": {
+                    "type": "direct_property_uri",
+                    "label": "crm:P51_has_former_or_current_owner***inverted"
+                },
+                "weight": 1
+            },
+            "crm:E39_Actor\u0001crm:E82_Actor_Appellation2\u0001crm:E39_Actor***crm:E82_Actor_Appellation2\u0001inheritedcrm:P1i_identifies***inverted\u00014": {
+                "v": "crm:E39_Actor",
+                "w": "crm:E82_Actor_Appellation2",
+                "name": "crm:E39_Actor***crm:E82_Actor_Appellation2",
+                "value": {
+                    "type": "inherited",
+                    "label": "crm:P1i_identifies***inverted"
+                },
+                "weight": 4
+            }
+        },
+        "crm:E22_Man-Made_Object1": {
+            "crm:E22_Man-Made_Object1\u0001crm:E8_Acquisition1\u0001crm:E22_Man-Made_Object1***crm:E8_Acquisition1\u0001inheritedcrm:P19_was_intended_use_of***inverted\u00014": {
+                "v": "crm:E22_Man-Made_Object1",
+                "w": "crm:E8_Acquisition1",
+                "name": "crm:E22_Man-Made_Object1***crm:E8_Acquisition1",
+                "value": {
+                    "type": "inherited",
+                    "label": "crm:P19_was_intended_use_of***inverted"
+                },
+                "weight": 4
+            }
+        },
+        "crm:E82_Actor_Appellation2": {},
+        "crm:E38_Image1": {
+            "crm:E38_Image1\u0001crm:E8_Acquisition1\u0001crm:E38_Image1***crm:E8_Acquisition1\u0001inheritedcrm:P16_used_specific_object***inverted\u00014": {
+                "v": "crm:E38_Image1",
+                "w": "crm:E8_Acquisition1",
+                "name": "crm:E38_Image1***crm:E8_Acquisition1",
+                "value": {
+                    "type": "inherited",
+                    "label": "crm:P16_used_specific_object***inverted"
+                },
+                "weight": 4
+            }
+        },
+        "crm:E82_Actor_Appellation1": {
+            "crm:E82_Actor_Appellation1\u0001crm:E39_Actor\u0001crm:E82_Actor_Appellation1***crm:E39_Actor\u0001inheritedcrm:P1_is_identified_by***inverted\u00014": {
+                "v": "crm:E82_Actor_Appellation1",
+                "w": "crm:E39_Actor",
+                "name": "crm:E82_Actor_Appellation1***crm:E39_Actor",
+                "value": {
+                    "type": "inherited",
+                    "label": "crm:P1_is_identified_by***inverted"
+                },
+                "weight": 4
+            }
+        },
+        "Provenance": {},
+        "image": {
+            "image\u0001crm:E38_Image1\u0001image***crm:E38_Image1\u0001st_property_urirdfs:label***inverted\u00011": {
+                "v": "image",
+                "w": "crm:E38_Image1",
+                "name": "image***crm:E38_Image1",
+                "value": {
+                    "type": "st_property_uri",
+                    "label": "rdfs:label***inverted"
+                },
+                "weight": 1
+            }
+        },
+        "name": {
+            "name\u0001crm:E82_Actor_Appellation2\u0001name***crm:E82_Actor_Appellation2\u0001st_property_urirdfs:label***inverted\u00011": {
+                "v": "name",
+                "w": "crm:E82_Actor_Appellation2",
+                "name": "name***crm:E82_Actor_Appellation2",
+                "value": {
+                    "type": "st_property_uri",
+                    "label": "rdfs:label***inverted"
+                },
+                "weight": 1
+            }
+        },
+        "object_uri": {
+            "object_uri\u0001crm:E22_Man-Made_Object1\u0001object_uri***crm:E22_Man-Made_Object1\u0001st_property_urirdfs:label***inverted\u00011": {
+                "v": "object_uri",
+                "w": "crm:E22_Man-Made_Object1",
+                "name": "object_uri***crm:E22_Man-Made_Object1",
+                "value": {
+                    "type": "st_property_uri",
+                    "label": "rdfs:label***inverted"
+                },
+                "weight": 1
+            }
+        },
+        "person_appellation_uri": {
+            "person_appellation_uri\u0001crm:E82_Actor_Appellation1\u0001person_appellation_uri***crm:E82_Actor_Appellation1\u0001st_property_urirdfs:label***inverted\u00011": {
+                "v": "person_appellation_uri",
+                "w": "crm:E82_Actor_Appellation1",
+                "name": "person_appellation_uri***crm:E82_Actor_Appellation1",
+                "value": {
+                    "type": "st_property_uri",
+                    "label": "rdfs:label***inverted"
+                },
+                "weight": 1
+            }
+        },
+        "person_uri": {
+            "person_uri\u0001crm:E21_Person1\u0001person_uri***crm:E21_Person1\u0001st_property_urirdfs:label***inverted\u00011": {
+                "v": "person_uri",
+                "w": "crm:E21_Person1",
+                "name": "person_uri***crm:E21_Person1",
+                "value": {
+                    "type": "st_property_uri",
+                    "label": "rdfs:label***inverted"
+                },
+                "weight": 1
+            }
+        }
+    },
+    "_sucs": {
+        "Artwork_Name": {
+            "crm:E35_Title1": 1
+        },
+        "crm:E35_Title1": {
+            "crm:E82_Actor_Appellation2": 1
+        },
+        "Artwork_Year": {
+            "crm:E52_Time-Span1": 1
+        },
+        "crm:E52_Time-Span1": {
+            "crm:E54_Dimension1": 1
+        },
+        "Dimensions": {
+            "crm:E54_Dimension1": 1
+        },
+        "crm:E54_Dimension1": {
+            "crm:E8_Acquisition1": 1
+        },
+        "Process": {
+            "crm:E12_Production1": 1
+        },
+        "crm:E12_Production1": {
+            "crm:E8_Acquisition1": 1
+        },
+        "crm:E8_Acquisition1": {
+            "Provenance": 1
+        },
+        "crm:E18_Physical_Thing": {
+            "crm:E8_Acquisition1": 1
+        },
+        "crm:E21_Person1": {
+            "crm:E39_Actor": 1
+        },
+        "crm:E39_Actor": {
+            "crm:E18_Physical_Thing": 1,
+            "crm:E82_Actor_Appellation2": 1
+        },
+        "crm:E22_Man-Made_Object1": {
+            "crm:E8_Acquisition1": 1
+        },
+        "crm:E82_Actor_Appellation2": {},
+        "crm:E38_Image1": {
+            "crm:E8_Acquisition1": 1
+        },
+        "crm:E82_Actor_Appellation1": {
+            "crm:E39_Actor": 1
+        },
+        "Provenance": {},
+        "image": {
+            "crm:E38_Image1": 1
+        },
+        "name": {
+            "crm:E82_Actor_Appellation2": 1
+        },
+        "object_uri": {
+            "crm:E22_Man-Made_Object1": 1
+        },
+        "person_appellation_uri": {
+            "crm:E82_Actor_Appellation1": 1
+        },
+        "person_uri": {
+            "crm:E21_Person1": 1
+        }
+    },
+    "_edgeObjs": {
+        "Artwork_Name\u0001crm:E35_Title1\u0001Artwork_Name***crm:E35_Title1\u0001st_property_urirdfs:label***inverted\u00011": {
+            "v": "Artwork_Name",
+            "w": "crm:E35_Title1",
+            "name": "Artwork_Name***crm:E35_Title1",
+            "value": {
+                "type": "st_property_uri",
+                "label": "rdfs:label***inverted"
+            },
+            "weight": 1
+        },
+        "Artwork_Year\u0001crm:E52_Time-Span1\u0001Artwork_Year***crm:E52_Time-Span1\u0001st_property_uricrm:P82_at_some_time_within***inverted\u00011": {
+            "v": "Artwork_Year",
+            "w": "crm:E52_Time-Span1",
+            "name": "Artwork_Year***crm:E52_Time-Span1",
+            "value": {
+                "type": "st_property_uri",
+                "label": "crm:P82_at_some_time_within***inverted"
+            },
+            "weight": 1
+        },
+        "Dimensions\u0001crm:E54_Dimension1\u0001Dimensions***crm:E54_Dimension1\u0001st_property_uricrm:P3_has_note***inverted\u00011": {
+            "v": "Dimensions",
+            "w": "crm:E54_Dimension1",
+            "name": "Dimensions***crm:E54_Dimension1",
+            "value": {
+                "type": "st_property_uri",
+                "label": "crm:P3_has_note***inverted"
+            },
+            "weight": 1
+        },
+        "Process\u0001crm:E12_Production1\u0001Process***crm:E12_Production1\u0001st_property_uricrm:P3_has_note***inverted\u00011": {
+            "v": "Process",
+            "w": "crm:E12_Production1",
+            "name": "Process***crm:E12_Production1",
+            "value": {
+                "type": "st_property_uri",
+                "label": "crm:P3_has_note***inverted"
+            },
+            "weight": 1
+        },
+        "crm:E12_Production1\u0001crm:E8_Acquisition1\u0001crm:E12_Production1***crm:E8_Acquisition1\u0001inheritedcrm:P20i_was_purpose_of***inverted\u00014": {
+            "v": "crm:E12_Production1",
+            "w": "crm:E8_Acquisition1",
+            "name": "crm:E12_Production1***crm:E8_Acquisition1",
+            "value": {
+                "type": "inherited",
+                "label": "crm:P20i_was_purpose_of***inverted"
+            },
+            "weight": 4
+        },
+        "crm:E18_Physical_Thing\u0001crm:E8_Acquisition1\u0001crm:E18_Physical_Thing***crm:E8_Acquisition1\u0001direct_property_uricrm:P24_transferred_title_of***inverted\u00011": {
+            "v": "crm:E18_Physical_Thing",
+            "w": "crm:E8_Acquisition1",
+            "name": "crm:E18_Physical_Thing***crm:E8_Acquisition1",
+            "value": {
+                "type": "direct_property_uri",
+                "label": "crm:P24_transferred_title_of***inverted"
+            },
+            "weight": 1
+        },
+        "crm:E21_Person1\u0001crm:E39_Actor\u0001crm:E21_Person1***crm:E39_Actor\u0001direct_property_uriid:ontology/PX_pupil_of\u00011": {
+            "v": "crm:E21_Person1",
+            "w": "crm:E39_Actor",
+            "name": "crm:E21_Person1***crm:E39_Actor",
+            "value": {
+                "label": "id:ontology/PX_pupil_of",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        "crm:E22_Man-Made_Object1\u0001crm:E8_Acquisition1\u0001crm:E22_Man-Made_Object1***crm:E8_Acquisition1\u0001inheritedcrm:P19_was_intended_use_of***inverted\u00014": {
+            "v": "crm:E22_Man-Made_Object1",
+            "w": "crm:E8_Acquisition1",
+            "name": "crm:E22_Man-Made_Object1***crm:E8_Acquisition1",
+            "value": {
+                "type": "inherited",
+                "label": "crm:P19_was_intended_use_of***inverted"
+            },
+            "weight": 4
+        },
+        "crm:E35_Title1\u0001crm:E82_Actor_Appellation2\u0001crm:E35_Title1***crm:E82_Actor_Appellation2\u0001inheritedcrm:P106i_forms_part_of***inverted\u00014": {
+            "v": "crm:E35_Title1",
+            "w": "crm:E82_Actor_Appellation2",
+            "name": "crm:E35_Title1***crm:E82_Actor_Appellation2",
+            "value": {
+                "type": "inherited",
+                "label": "crm:P106i_forms_part_of***inverted"
+            },
+            "weight": 4
+        },
+        "crm:E38_Image1\u0001crm:E8_Acquisition1\u0001crm:E38_Image1***crm:E8_Acquisition1\u0001inheritedcrm:P16_used_specific_object***inverted\u00014": {
+            "v": "crm:E38_Image1",
+            "w": "crm:E8_Acquisition1",
+            "name": "crm:E38_Image1***crm:E8_Acquisition1",
+            "value": {
+                "type": "inherited",
+                "label": "crm:P16_used_specific_object***inverted"
+            },
+            "weight": 4
+        },
+        "crm:E39_Actor\u0001crm:E18_Physical_Thing\u0001crm:E39_Actor***crm:E18_Physical_Thing\u0001direct_property_uricrm:P51_has_former_or_current_owner***inverted\u00011": {
+            "v": "crm:E39_Actor",
+            "w": "crm:E18_Physical_Thing",
+            "name": "crm:E39_Actor***crm:E18_Physical_Thing",
+            "value": {
+                "type": "direct_property_uri",
+                "label": "crm:P51_has_former_or_current_owner***inverted"
+            },
+            "weight": 1
+        },
+        "crm:E39_Actor\u0001crm:E82_Actor_Appellation2\u0001crm:E39_Actor***crm:E82_Actor_Appellation2\u0001inheritedcrm:P1i_identifies***inverted\u00014": {
+            "v": "crm:E39_Actor",
+            "w": "crm:E82_Actor_Appellation2",
+            "name": "crm:E39_Actor***crm:E82_Actor_Appellation2",
+            "value": {
+                "type": "inherited",
+                "label": "crm:P1i_identifies***inverted"
+            },
+            "weight": 4
+        },
+        "crm:E52_Time-Span1\u0001crm:E54_Dimension1\u0001crm:E52_Time-Span1***crm:E54_Dimension1\u0001direct_property_uricrm:P84i_was_maximum_duration_of***inverted\u00011": {
+            "v": "crm:E52_Time-Span1",
+            "w": "crm:E54_Dimension1",
+            "name": "crm:E52_Time-Span1***crm:E54_Dimension1",
+            "value": {
+                "type": "direct_property_uri",
+                "label": "crm:P84i_was_maximum_duration_of***inverted"
+            },
+            "weight": 1
+        },
+        "crm:E54_Dimension1\u0001crm:E8_Acquisition1\u0001crm:E54_Dimension1***crm:E8_Acquisition1\u0001inheritedcrm:P17_was_motivated_by***inverted\u00014": {
+            "v": "crm:E54_Dimension1",
+            "w": "crm:E8_Acquisition1",
+            "name": "crm:E54_Dimension1***crm:E8_Acquisition1",
+            "value": {
+                "type": "inherited",
+                "label": "crm:P17_was_motivated_by***inverted"
+            },
+            "weight": 4
+        },
+        "crm:E82_Actor_Appellation1\u0001crm:E39_Actor\u0001crm:E82_Actor_Appellation1***crm:E39_Actor\u0001inheritedcrm:P1_is_identified_by***inverted\u00014": {
+            "v": "crm:E82_Actor_Appellation1",
+            "w": "crm:E39_Actor",
+            "name": "crm:E82_Actor_Appellation1***crm:E39_Actor",
+            "value": {
+                "type": "inherited",
+                "label": "crm:P1_is_identified_by***inverted"
+            },
+            "weight": 4
+        },
+        "crm:E8_Acquisition1\u0001Provenance\u0001crm:E8_Acquisition1***Provenance\u0001st_property_uricrm:P3_has_note\u00011": {
+            "v": "crm:E8_Acquisition1",
+            "w": "Provenance",
+            "name": "crm:E8_Acquisition1***Provenance",
+            "value": {
+                "label": "crm:P3_has_note",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        "image\u0001crm:E38_Image1\u0001image***crm:E38_Image1\u0001st_property_urirdfs:label***inverted\u00011": {
+            "v": "image",
+            "w": "crm:E38_Image1",
+            "name": "image***crm:E38_Image1",
+            "value": {
+                "type": "st_property_uri",
+                "label": "rdfs:label***inverted"
+            },
+            "weight": 1
+        },
+        "name\u0001crm:E82_Actor_Appellation2\u0001name***crm:E82_Actor_Appellation2\u0001st_property_urirdfs:label***inverted\u00011": {
+            "v": "name",
+            "w": "crm:E82_Actor_Appellation2",
+            "name": "name***crm:E82_Actor_Appellation2",
+            "value": {
+                "type": "st_property_uri",
+                "label": "rdfs:label***inverted"
+            },
+            "weight": 1
+        },
+        "object_uri\u0001crm:E22_Man-Made_Object1\u0001object_uri***crm:E22_Man-Made_Object1\u0001st_property_urirdfs:label***inverted\u00011": {
+            "v": "object_uri",
+            "w": "crm:E22_Man-Made_Object1",
+            "name": "object_uri***crm:E22_Man-Made_Object1",
+            "value": {
+                "type": "st_property_uri",
+                "label": "rdfs:label***inverted"
+            },
+            "weight": 1
+        },
+        "person_appellation_uri\u0001crm:E82_Actor_Appellation1\u0001person_appellation_uri***crm:E82_Actor_Appellation1\u0001st_property_urirdfs:label***inverted\u00011": {
+            "v": "person_appellation_uri",
+            "w": "crm:E82_Actor_Appellation1",
+            "name": "person_appellation_uri***crm:E82_Actor_Appellation1",
+            "value": {
+                "type": "st_property_uri",
+                "label": "rdfs:label***inverted"
+            },
+            "weight": 1
+        },
+        "person_uri\u0001crm:E21_Person1\u0001person_uri***crm:E21_Person1\u0001st_property_urirdfs:label***inverted\u00011": {
+            "v": "person_uri",
+            "w": "crm:E21_Person1",
+            "name": "person_uri***crm:E21_Person1",
+            "value": {
+                "type": "st_property_uri",
+                "label": "rdfs:label***inverted"
+            },
+            "weight": 1
+        }
+    },
+    "_edgeLabels": {
+        "Artwork_Name\u0001crm:E35_Title1\u0001Artwork_Name***crm:E35_Title1\u0001st_property_urirdfs:label***inverted\u00011": {
+            "type": "st_property_uri",
+            "label": "rdfs:label***inverted"
+        },
+        "Artwork_Year\u0001crm:E52_Time-Span1\u0001Artwork_Year***crm:E52_Time-Span1\u0001st_property_uricrm:P82_at_some_time_within***inverted\u00011": {
+            "type": "st_property_uri",
+            "label": "crm:P82_at_some_time_within***inverted"
+        },
+        "Dimensions\u0001crm:E54_Dimension1\u0001Dimensions***crm:E54_Dimension1\u0001st_property_uricrm:P3_has_note***inverted\u00011": {
+            "type": "st_property_uri",
+            "label": "crm:P3_has_note***inverted"
+        },
+        "Process\u0001crm:E12_Production1\u0001Process***crm:E12_Production1\u0001st_property_uricrm:P3_has_note***inverted\u00011": {
+            "type": "st_property_uri",
+            "label": "crm:P3_has_note***inverted"
+        },
+        "crm:E12_Production1\u0001crm:E8_Acquisition1\u0001crm:E12_Production1***crm:E8_Acquisition1\u0001inheritedcrm:P20i_was_purpose_of***inverted\u00014": {
+            "type": "inherited",
+            "label": "crm:P20i_was_purpose_of***inverted"
+        },
+        "crm:E18_Physical_Thing\u0001crm:E8_Acquisition1\u0001crm:E18_Physical_Thing***crm:E8_Acquisition1\u0001direct_property_uricrm:P24_transferred_title_of***inverted\u00011": {
+            "type": "direct_property_uri",
+            "label": "crm:P24_transferred_title_of***inverted"
+        },
+        "crm:E21_Person1\u0001crm:E39_Actor\u0001crm:E21_Person1***crm:E39_Actor\u0001direct_property_uriid:ontology/PX_pupil_of\u00011": {
+            "label": "id:ontology/PX_pupil_of",
+            "type": "direct_property_uri"
+        },
+        "crm:E22_Man-Made_Object1\u0001crm:E8_Acquisition1\u0001crm:E22_Man-Made_Object1***crm:E8_Acquisition1\u0001inheritedcrm:P19_was_intended_use_of***inverted\u00014": {
+            "type": "inherited",
+            "label": "crm:P19_was_intended_use_of***inverted"
+        },
+        "crm:E35_Title1\u0001crm:E82_Actor_Appellation2\u0001crm:E35_Title1***crm:E82_Actor_Appellation2\u0001inheritedcrm:P106i_forms_part_of***inverted\u00014": {
+            "type": "inherited",
+            "label": "crm:P106i_forms_part_of***inverted"
+        },
+        "crm:E38_Image1\u0001crm:E8_Acquisition1\u0001crm:E38_Image1***crm:E8_Acquisition1\u0001inheritedcrm:P16_used_specific_object***inverted\u00014": {
+            "type": "inherited",
+            "label": "crm:P16_used_specific_object***inverted"
+        },
+        "crm:E39_Actor\u0001crm:E18_Physical_Thing\u0001crm:E39_Actor***crm:E18_Physical_Thing\u0001direct_property_uricrm:P51_has_former_or_current_owner***inverted\u00011": {
+            "type": "direct_property_uri",
+            "label": "crm:P51_has_former_or_current_owner***inverted"
+        },
+        "crm:E39_Actor\u0001crm:E82_Actor_Appellation2\u0001crm:E39_Actor***crm:E82_Actor_Appellation2\u0001inheritedcrm:P1i_identifies***inverted\u00014": {
+            "type": "inherited",
+            "label": "crm:P1i_identifies***inverted"
+        },
+        "crm:E52_Time-Span1\u0001crm:E54_Dimension1\u0001crm:E52_Time-Span1***crm:E54_Dimension1\u0001direct_property_uricrm:P84i_was_maximum_duration_of***inverted\u00011": {
+            "type": "direct_property_uri",
+            "label": "crm:P84i_was_maximum_duration_of***inverted"
+        },
+        "crm:E54_Dimension1\u0001crm:E8_Acquisition1\u0001crm:E54_Dimension1***crm:E8_Acquisition1\u0001inheritedcrm:P17_was_motivated_by***inverted\u00014": {
+            "type": "inherited",
+            "label": "crm:P17_was_motivated_by***inverted"
+        },
+        "crm:E82_Actor_Appellation1\u0001crm:E39_Actor\u0001crm:E82_Actor_Appellation1***crm:E39_Actor\u0001inheritedcrm:P1_is_identified_by***inverted\u00014": {
+            "type": "inherited",
+            "label": "crm:P1_is_identified_by***inverted"
+        },
+        "crm:E8_Acquisition1\u0001Provenance\u0001crm:E8_Acquisition1***Provenance\u0001st_property_uricrm:P3_has_note\u00011": {
+            "label": "crm:P3_has_note",
+            "type": "st_property_uri"
+        },
+        "image\u0001crm:E38_Image1\u0001image***crm:E38_Image1\u0001st_property_urirdfs:label***inverted\u00011": {
+            "type": "st_property_uri",
+            "label": "rdfs:label***inverted"
+        },
+        "name\u0001crm:E82_Actor_Appellation2\u0001name***crm:E82_Actor_Appellation2\u0001st_property_urirdfs:label***inverted\u00011": {
+            "type": "st_property_uri",
+            "label": "rdfs:label***inverted"
+        },
+        "object_uri\u0001crm:E22_Man-Made_Object1\u0001object_uri***crm:E22_Man-Made_Object1\u0001st_property_urirdfs:label***inverted\u00011": {
+            "type": "st_property_uri",
+            "label": "rdfs:label***inverted"
+        },
+        "person_appellation_uri\u0001crm:E82_Actor_Appellation1\u0001person_appellation_uri***crm:E82_Actor_Appellation1\u0001st_property_urirdfs:label***inverted\u00011": {
+            "type": "st_property_uri",
+            "label": "rdfs:label***inverted"
+        },
+        "person_uri\u0001crm:E21_Person1\u0001person_uri***crm:E21_Person1\u0001st_property_urirdfs:label***inverted\u00011": {
+            "type": "st_property_uri",
+            "label": "rdfs:label***inverted"
+        }
+    },
+    "_nodeCount": 22,
+    "_edgeCount": 21
+}

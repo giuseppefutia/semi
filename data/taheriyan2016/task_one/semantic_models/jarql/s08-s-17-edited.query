@@ -25,19 +25,19 @@ PREFIX bmo:       <http://collection.britishmuseum.org/id/ontology/>
 PREFIX jarql:     <http://jarql.com/>
 
 CONSTRUCT {
-    ?E21_Person1 http://isi.edu/integration/karma/dev#classLink ?AUTHOR_URI.
+    ?E21_Person1 rdfs:label ?AUTHOR_URI.
     ?E21_Person1 rdf:type crm:E21_Person.
     ?E22_Man-Made_Object1 crm:P3_has_note ?DESCRIPTION.
     ?E22_Man-Made_Object1 rdf:type crm:E22_Man-Made_Object.
-    ?E31_Document1 http://isi.edu/integration/karma/dev#classLink ?VIDEO.
+    ?E31_Document1 rdfs:label ?VIDEO.
     ?E31_Document1 rdf:type crm:E31_Document.
     ?E35_Title1 rdfs:label ?TITLE NO AUTHOR.
     ?E35_Title1 rdf:type crm:E35_Title.
-    ?E38_Image1 http://isi.edu/integration/karma/dev#classLink ?IMAGE__IMAGESRC.
+    ?E38_Image1 rdfs:label ?IMAGE__IMAGESRC.
     ?E38_Image1 rdf:type crm:E38_Image.
-    ?E55_Type1 http://isi.edu/integration/karma/dev#classLink ?VIDEO_TYPE_URI.
+    ?E55_Type1 rdfs:label ?VIDEO_TYPE_URI.
     ?E55_Type1 rdf:type crm:E55_Type.
-    ?E82_Actor_Appellation1 http://isi.edu/integration/karma/dev#classLink ?AUTHOR_APPELLATION_URI.
+    ?E82_Actor_Appellation1 rdfs:label ?AUTHOR_APPELLATION_URI.
     ?E82_Actor_Appellation1 rdf:type crm:E82_Actor_Appellation.
     ?E82_Actor_Appellation2 rdfs:label ?AUTHOR.
     ?E82_Actor_Appellation2 rdf:type crm:E82_Actor_Appellation.

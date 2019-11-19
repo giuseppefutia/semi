@@ -55,6 +55,62 @@
             }
         },
         {
+            "v": "crm:E74_Group2",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E74_Group"
+            }
+        },
+        {
+            "v": "Artist URI",
+            "value": {
+                "type": "attribute_name",
+                "label": "Artist URI"
+            }
+        },
+        {
+            "v": "crm:E21_Person1",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E21_Person"
+            }
+        },
+        {
+            "v": "Medium URI",
+            "value": {
+                "type": "attribute_name",
+                "label": "Medium URI"
+            }
+        },
+        {
+            "v": "crm:E55_Type3",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E55_Type"
+            }
+        },
+        {
+            "v": "Museum URI",
+            "value": {
+                "type": "attribute_name",
+                "label": "Museum URI"
+            }
+        },
+        {
+            "v": "crm:E40_Legal_Body1",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E40_Legal_Body"
+            }
+        },
+        {
+            "v": "Nationality_URI",
+            "value": {
+                "type": "attribute_name",
+                "label": "Nationality_URI"
+            }
+        },
+        {
             "v": "crm:E74_Group1",
             "value": {
                 "type": "class_uri",
@@ -76,17 +132,17 @@
             }
         },
         {
-            "v": "Object ID",
+            "v": "Object Facet Value 1",
             "value": {
                 "type": "attribute_name",
-                "label": "Object ID"
+                "label": "Object Facet Value 1"
             }
         },
         {
-            "v": "crm:E22_Man-Made_Object1",
+            "v": "crm:E55_Type4",
             "value": {
                 "type": "class_uri",
-                "label": "crm:E22_Man-Made_Object"
+                "label": "crm:E55_Type"
             }
         },
         {
@@ -111,7 +167,7 @@
             }
         },
         {
-            "v": "crm:E40_Legal_Body1",
+            "v": "crm:E40_Legal_Body2",
             "value": {
                 "type": "class_uri",
                 "label": "crm:E40_Legal_Body"
@@ -146,10 +202,10 @@
             }
         },
         {
-            "v": "Object Work Type",
+            "v": "Object Work Type URI",
             "value": {
                 "type": "attribute_name",
-                "label": "Object Work Type"
+                "label": "Object Work Type URI"
             }
         },
         {
@@ -160,17 +216,31 @@
             }
         },
         {
-            "v": "crm:E21_Person1",
+            "v": "Object Work Type",
             "value": {
-                "type": "class_uri",
-                "label": "crm:E21_Person"
+                "type": "attribute_name",
+                "label": "Object Work Type"
             }
         },
         {
-            "v": "Artist Name",
+            "v": "crm:E55_Type2",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E55_Type"
+            }
+        },
+        {
+            "v": "Object_URI",
             "value": {
                 "type": "attribute_name",
-                "label": "Artist Name"
+                "label": "Object_URI"
+            }
+        },
+        {
+            "v": "crm:E22_Man-Made_Object1",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E22_Man-Made_Object"
             }
         },
         {
@@ -178,6 +248,13 @@
             "value": {
                 "type": "class_uri",
                 "label": "crm:E39_Actor"
+            }
+        },
+        {
+            "v": "crm:E82_Actor_Appellation2",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E82_Actor_Appellation"
             }
         },
         {
@@ -202,10 +279,10 @@
             }
         },
         {
-            "v": "Object Facet Value 1",
+            "v": "Artist Name",
             "value": {
                 "type": "attribute_name",
-                "label": "Object Facet Value 1"
+                "label": "Artist Name"
             }
         },
         {
@@ -249,8 +326,48 @@
         },
         {
             "v": "Artist Nationality",
+            "w": "crm:E74_Group2",
+            "name": "Artist Nationality***crm:E74_Group2",
+            "value": {
+                "type": "st_property_uri",
+                "label": "rdfs:label***inverted"
+            },
+            "weight": 1
+        },
+        {
+            "v": "Artist URI",
+            "w": "crm:E21_Person1",
+            "name": "Artist URI***crm:E21_Person1",
+            "value": {
+                "type": "st_property_uri",
+                "label": "rdfs:label***inverted"
+            },
+            "weight": 1
+        },
+        {
+            "v": "Medium URI",
+            "w": "crm:E55_Type3",
+            "name": "Medium URI***crm:E55_Type3",
+            "value": {
+                "type": "st_property_uri",
+                "label": "rdfs:label***inverted"
+            },
+            "weight": 1
+        },
+        {
+            "v": "Museum URI",
+            "w": "crm:E40_Legal_Body1",
+            "name": "Museum URI***crm:E40_Legal_Body1",
+            "value": {
+                "type": "st_property_uri",
+                "label": "rdfs:label***inverted"
+            },
+            "weight": 1
+        },
+        {
+            "v": "Nationality_URI",
             "w": "crm:E74_Group1",
-            "name": "Artist Nationality***crm:E74_Group1",
+            "name": "Nationality_URI***crm:E74_Group1",
             "value": {
                 "type": "st_property_uri",
                 "label": "rdfs:label***inverted"
@@ -268,12 +385,12 @@
             "weight": 1
         },
         {
-            "v": "Object ID",
-            "w": "crm:E22_Man-Made_Object1",
-            "name": "Object ID***crm:E22_Man-Made_Object1",
+            "v": "Object Facet Value 1",
+            "w": "crm:E55_Type4",
+            "name": "Object Facet Value 1***crm:E55_Type4",
             "value": {
                 "type": "st_property_uri",
-                "label": "dcterms:identifier***inverted"
+                "label": "rdfs:label***inverted"
             },
             "weight": 1
         },
@@ -289,8 +406,8 @@
         },
         {
             "v": "Object Link Source",
-            "w": "crm:E40_Legal_Body1",
-            "name": "Object Link Source***crm:E40_Legal_Body1",
+            "w": "crm:E40_Legal_Body2",
+            "name": "Object Link Source***crm:E40_Legal_Body2",
             "value": {
                 "type": "st_property_uri",
                 "label": "rdfs:label***inverted"
@@ -318,9 +435,29 @@
             "weight": 1
         },
         {
-            "v": "Object Work Type",
+            "v": "Object Work Type URI",
             "w": "crm:E55_Type1",
-            "name": "Object Work Type***crm:E55_Type1",
+            "name": "Object Work Type URI***crm:E55_Type1",
+            "value": {
+                "type": "st_property_uri",
+                "label": "rdfs:label***inverted"
+            },
+            "weight": 1
+        },
+        {
+            "v": "Object Work Type",
+            "w": "crm:E55_Type2",
+            "name": "Object Work Type***crm:E55_Type2",
+            "value": {
+                "type": "st_property_uri",
+                "label": "rdfs:label***inverted"
+            },
+            "weight": 1
+        },
+        {
+            "v": "Object_URI",
+            "w": "crm:E22_Man-Made_Object1",
+            "name": "Object_URI***crm:E22_Man-Made_Object1",
             "value": {
                 "type": "st_property_uri",
                 "label": "rdfs:label***inverted"
@@ -329,21 +466,21 @@
         },
         {
             "v": "crm:E21_Person1",
-            "w": "Artist Name",
-            "name": "crm:E21_Person1***Artist Name",
+            "w": "crm:E39_Actor",
+            "name": "crm:E21_Person1***crm:E39_Actor",
             "value": {
-                "label": "rdfs:label",
-                "type": "st_property_uri"
+                "label": "id:ontology/PX_pupil_of",
+                "type": "direct_property_uri"
             },
             "weight": 1
         },
         {
             "v": "crm:E22_Man-Made_Object1",
-            "w": "crm:E21_Person1",
-            "name": "crm:E22_Man-Made_Object1***crm:E21_Person1",
+            "w": "crm:E82_Actor_Appellation2",
+            "name": "crm:E22_Man-Made_Object1***crm:E82_Actor_Appellation2",
             "value": {
                 "type": "inherited",
-                "label": "crm:P130i_features_are_also_found_on***inverted"
+                "label": "crm:P62i_is_depicted_by***inverted"
             },
             "weight": 4
         },
@@ -369,18 +506,28 @@
         },
         {
             "v": "crm:E39_Actor",
-            "w": "crm:E21_Person1",
-            "name": "crm:E39_Actor***crm:E21_Person1",
+            "w": "crm:E82_Actor_Appellation2",
+            "name": "crm:E39_Actor***crm:E82_Actor_Appellation2",
             "value": {
-                "type": "direct_property_uri",
-                "label": "id:ontology/PX_pupil_of***inverted"
+                "type": "inherited",
+                "label": "crm:P1i_identifies***inverted"
             },
-            "weight": 1
+            "weight": 4
         },
         {
             "v": "crm:E40_Legal_Body1",
-            "w": "crm:E21_Person1",
-            "name": "crm:E40_Legal_Body1***crm:E21_Person1",
+            "w": "crm:E82_Actor_Appellation2",
+            "name": "crm:E40_Legal_Body1***crm:E82_Actor_Appellation2",
+            "value": {
+                "type": "inherited",
+                "label": "crm:P105_right_held_by***inverted"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E40_Legal_Body2",
+            "w": "crm:E82_Actor_Appellation2",
+            "name": "crm:E40_Legal_Body2***crm:E82_Actor_Appellation2",
             "value": {
                 "type": "inherited",
                 "label": "crm:P105_right_held_by***inverted"
@@ -439,18 +586,38 @@
         },
         {
             "v": "crm:E55_Type1",
-            "w": "Object Facet Value 1",
-            "name": "crm:E55_Type1***Object Facet Value 1",
+            "w": "crm:E55_Type4",
+            "name": "crm:E55_Type1***crm:E55_Type4",
             "value": {
-                "label": "rdfs:label",
-                "type": "st_property_uri"
+                "type": "direct_property_uri",
+                "label": "crm:P127i_has_narrower_term***inverted"
             },
             "weight": 1
         },
         {
-            "v": "crm:E55_Type1",
-            "w": "crm:E21_Person1",
-            "name": "crm:E55_Type1***crm:E21_Person1",
+            "v": "crm:E55_Type2",
+            "w": "crm:E55_Type4",
+            "name": "crm:E55_Type2***crm:E55_Type4",
+            "value": {
+                "type": "direct_property_uri",
+                "label": "crm:P127i_has_narrower_term***inverted"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E55_Type3",
+            "w": "crm:E55_Type4",
+            "name": "crm:E55_Type3***crm:E55_Type4",
+            "value": {
+                "type": "direct_property_uri",
+                "label": "crm:P127i_has_narrower_term***inverted"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E55_Type4",
+            "w": "crm:E82_Actor_Appellation2",
+            "name": "crm:E55_Type4***crm:E82_Actor_Appellation2",
             "value": {
                 "type": "inherited",
                 "label": "crm:P130i_features_are_also_found_on***inverted"
@@ -459,8 +626,8 @@
         },
         {
             "v": "crm:E70_Thing",
-            "w": "crm:E55_Type1",
-            "name": "crm:E70_Thing***crm:E55_Type1",
+            "w": "crm:E55_Type4",
+            "name": "crm:E70_Thing***crm:E55_Type4",
             "value": {
                 "type": "direct_property_uri",
                 "label": "crm:P101i_was_use_of***inverted"
@@ -469,8 +636,8 @@
         },
         {
             "v": "crm:E71_Man-Made_Thing",
-            "w": "crm:E55_Type1",
-            "name": "crm:E71_Man-Made_Thing***crm:E55_Type1",
+            "w": "crm:E55_Type4",
+            "name": "crm:E71_Man-Made_Thing***crm:E55_Type4",
             "value": {
                 "type": "inherited",
                 "label": "crm:P130i_features_are_also_found_on***inverted"
@@ -488,6 +655,16 @@
             "weight": 1
         },
         {
+            "v": "crm:E74_Group2",
+            "w": "crm:E39_Actor",
+            "name": "crm:E74_Group2***crm:E39_Actor",
+            "value": {
+                "type": "direct_property_uri",
+                "label": "id:ontology/PX_profession***inverted"
+            },
+            "weight": 1
+        },
+        {
             "v": "crm:E82_Actor_Appellation1",
             "w": "crm:E39_Actor",
             "name": "crm:E82_Actor_Appellation1***crm:E39_Actor",
@@ -496,6 +673,16 @@
                 "label": "crm:P1_is_identified_by***inverted"
             },
             "weight": 4
+        },
+        {
+            "v": "crm:E82_Actor_Appellation2",
+            "w": "Artist Name",
+            "name": "crm:E82_Actor_Appellation2***Artist Name",
+            "value": {
+                "label": "rdfs:label",
+                "type": "st_property_uri"
+            },
+            "weight": 1
         },
         {
             "v": "dimensions",

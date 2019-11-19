@@ -1853,6 +1853,26 @@
             "w": "crm:E66_Formation",
             "name": "crm:E21_Person1***crm:E66_Formation",
             "value": {
+                "label": "crm:P92i_was_brought_into_existence_by",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E21_Person1",
+            "w": "crm:E66_Formation",
+            "name": "crm:E21_Person1***crm:E66_Formation",
+            "value": {
+                "label": "crm:P12i_was_present_at",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E21_Person1",
+            "w": "crm:E66_Formation",
+            "name": "crm:E21_Person1***crm:E66_Formation",
+            "value": {
                 "label": "crm:P8i_witnessed",
                 "type": "inherited"
             },
@@ -1870,10 +1890,60 @@
         },
         {
             "v": "crm:E21_Person1",
+            "w": "crm:E68_Dissolution",
+            "name": "crm:E21_Person1***crm:E68_Dissolution",
+            "value": {
+                "label": "crm:P93i_was_taken_out_of_existence_by",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E21_Person1",
+            "w": "crm:E68_Dissolution",
+            "name": "crm:E21_Person1***crm:E68_Dissolution",
+            "value": {
+                "label": "crm:P12i_was_present_at",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E21_Person1",
             "w": "crm:E69_Death",
             "name": "crm:E21_Person1***crm:E69_Death",
             "value": {
                 "label": "crm:P11i_participated_in",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E21_Person1",
+            "w": "crm:E69_Death",
+            "name": "crm:E21_Person1***crm:E69_Death",
+            "value": {
+                "label": "crm:P93i_was_taken_out_of_existence_by",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E21_Person1",
+            "w": "crm:E69_Death",
+            "name": "crm:E21_Person1***crm:E69_Death",
+            "value": {
+                "label": "crm:P12i_was_present_at",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E21_Person1",
+            "w": "crm:E67_Birth",
+            "name": "crm:E21_Person1***crm:E67_Birth",
+            "value": {
+                "label": "crm:P92i_was_brought_into_existence_by",
                 "type": "inherited"
             },
             "weight": 4
@@ -3463,7 +3533,27 @@
             "w": "crm:E21_Person1",
             "name": "crm:E66_Formation***crm:E21_Person1",
             "value": {
+                "label": "crm:P92_brought_into_existence",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E66_Formation",
+            "w": "crm:E21_Person1",
+            "name": "crm:E66_Formation***crm:E21_Person1",
+            "value": {
                 "label": "crm:P11_had_participant",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E66_Formation",
+            "w": "crm:E21_Person1",
+            "name": "crm:E66_Formation***crm:E21_Person1",
+            "value": {
+                "label": "crm:P12_occurred_in_the_presence_of",
                 "type": "inherited"
             },
             "weight": 4
@@ -3743,7 +3833,27 @@
             "w": "crm:E21_Person1",
             "name": "crm:E68_Dissolution***crm:E21_Person1",
             "value": {
+                "label": "crm:P93_took_out_of_existence",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E68_Dissolution",
+            "w": "crm:E21_Person1",
+            "name": "crm:E68_Dissolution***crm:E21_Person1",
+            "value": {
                 "label": "crm:P11_had_participant",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E68_Dissolution",
+            "w": "crm:E21_Person1",
+            "name": "crm:E68_Dissolution***crm:E21_Person1",
+            "value": {
+                "label": "crm:P12_occurred_in_the_presence_of",
                 "type": "inherited"
             },
             "weight": 4
@@ -3873,7 +3983,27 @@
             "w": "crm:E21_Person1",
             "name": "crm:E69_Death***crm:E21_Person1",
             "value": {
+                "label": "crm:P93_took_out_of_existence",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E69_Death",
+            "w": "crm:E21_Person1",
+            "name": "crm:E69_Death***crm:E21_Person1",
+            "value": {
                 "label": "crm:P11_had_participant",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E69_Death",
+            "w": "crm:E21_Person1",
+            "name": "crm:E69_Death***crm:E21_Person1",
+            "value": {
+                "label": "crm:P12_occurred_in_the_presence_of",
                 "type": "inherited"
             },
             "weight": 4
@@ -3962,6 +4092,16 @@
             "v": "crm:E67_Birth",
             "w": "crm:E74_Group1",
             "name": "crm:E67_Birth***crm:E74_Group1",
+            "value": {
+                "label": "crm:P92_brought_into_existence",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E67_Birth",
+            "w": "crm:E21_Person1",
+            "name": "crm:E67_Birth***crm:E21_Person1",
             "value": {
                 "label": "crm:P92_brought_into_existence",
                 "type": "inherited"

@@ -194,7 +194,7 @@
             "w": "AUTHOR_URI",
             "name": "crm:E21_Person1***AUTHOR_URI",
             "value": {
-                "label": "http://isi.edu/integration/karma/dev#classLink",
+                "label": "rdfs:label",
                 "type": "st_property_uri"
             },
             "weight": 1
@@ -214,7 +214,7 @@
             "w": "VIDEO",
             "name": "crm:E31_Document1***VIDEO",
             "value": {
-                "label": "http://isi.edu/integration/karma/dev#classLink",
+                "label": "rdfs:label",
                 "type": "st_property_uri"
             },
             "weight": 1
@@ -234,7 +234,7 @@
             "w": "IMAGE__IMAGESRC",
             "name": "crm:E38_Image1***IMAGE__IMAGESRC",
             "value": {
-                "label": "http://isi.edu/integration/karma/dev#classLink",
+                "label": "rdfs:label",
                 "type": "st_property_uri"
             },
             "weight": 1
@@ -244,7 +244,7 @@
             "w": "VIDEO_TYPE_URI",
             "name": "crm:E55_Type1***VIDEO_TYPE_URI",
             "value": {
-                "label": "http://isi.edu/integration/karma/dev#classLink",
+                "label": "rdfs:label",
                 "type": "st_property_uri"
             },
             "weight": 1
@@ -254,7 +254,7 @@
             "w": "AUTHOR_APPELLATION_URI",
             "name": "crm:E82_Actor_Appellation1***AUTHOR_APPELLATION_URI",
             "value": {
-                "label": "http://isi.edu/integration/karma/dev#classLink",
+                "label": "rdfs:label",
                 "type": "st_property_uri"
             },
             "weight": 1
@@ -844,7 +844,27 @@
             "w": "crm:E22_Man-Made_Object1",
             "name": "crm:E21_Person1***crm:E22_Man-Made_Object1",
             "value": {
-                "label": "crm:P105i_has_right_on",
+                "label": "crm:P62i_is_depicted_by",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E21_Person1",
+            "w": "crm:E22_Man-Made_Object1",
+            "name": "crm:E21_Person1***crm:E22_Man-Made_Object1",
+            "value": {
+                "label": "crm:P46_is_composed_of",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E21_Person1",
+            "w": "crm:E22_Man-Made_Object1",
+            "name": "crm:E21_Person1***crm:E22_Man-Made_Object1",
+            "value": {
+                "label": "crm:P46i_forms_part_of",
                 "type": "inherited"
             },
             "weight": 4
@@ -861,10 +881,130 @@
         },
         {
             "v": "crm:E21_Person1",
+            "w": "crm:E31_Document1",
+            "name": "crm:E21_Person1***crm:E31_Document1",
+            "value": {
+                "label": "crm:P129i_is_subject_of",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E21_Person1",
+            "w": "crm:E31_Document1",
+            "name": "crm:E21_Person1***crm:E31_Document1",
+            "value": {
+                "label": "crm:P67i_is_referred_to_by",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E21_Person1",
+            "w": "crm:E31_Document1",
+            "name": "crm:E21_Person1***crm:E31_Document1",
+            "value": {
+                "label": "crm:P130_shows_features_of",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E21_Person1",
+            "w": "crm:E31_Document1",
+            "name": "crm:E21_Person1***crm:E31_Document1",
+            "value": {
+                "label": "crm:P130i_features_are_also_found_on",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E21_Person1",
+            "w": "crm:E35_Title1",
+            "name": "crm:E21_Person1***crm:E35_Title1",
+            "value": {
+                "label": "crm:P1_is_identified_by",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E21_Person1",
             "w": "crm:E38_Image1",
             "name": "crm:E21_Person1***crm:E38_Image1",
             "value": {
                 "label": "crm:P105i_has_right_on",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E21_Person1",
+            "w": "crm:E38_Image1",
+            "name": "crm:E21_Person1***crm:E38_Image1",
+            "value": {
+                "label": "crm:P138i_has_representation",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E21_Person1",
+            "w": "crm:E38_Image1",
+            "name": "crm:E21_Person1***crm:E38_Image1",
+            "value": {
+                "label": "crm:P129i_is_subject_of",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E21_Person1",
+            "w": "crm:E38_Image1",
+            "name": "crm:E21_Person1***crm:E38_Image1",
+            "value": {
+                "label": "crm:P67i_is_referred_to_by",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E21_Person1",
+            "w": "crm:E38_Image1",
+            "name": "crm:E21_Person1***crm:E38_Image1",
+            "value": {
+                "label": "crm:P130_shows_features_of",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E21_Person1",
+            "w": "crm:E38_Image1",
+            "name": "crm:E21_Person1***crm:E38_Image1",
+            "value": {
+                "label": "crm:P130i_features_are_also_found_on",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E21_Person1",
+            "w": "crm:E82_Actor_Appellation1",
+            "name": "crm:E21_Person1***crm:E82_Actor_Appellation1",
+            "value": {
+                "label": "crm:P1_is_identified_by",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E21_Person1",
+            "w": "crm:E82_Actor_Appellation2",
+            "name": "crm:E21_Person1***crm:E82_Actor_Appellation2",
+            "value": {
+                "label": "crm:P1_is_identified_by",
                 "type": "inherited"
             },
             "weight": 4
@@ -881,6 +1021,56 @@
         },
         {
             "v": "crm:E21_Person1",
+            "w": "crm:E69_Death",
+            "name": "crm:E21_Person1***crm:E69_Death",
+            "value": {
+                "label": "crm:P93i_was_taken_out_of_existence_by",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E21_Person1",
+            "w": "crm:E69_Death",
+            "name": "crm:E21_Person1***crm:E69_Death",
+            "value": {
+                "label": "crm:P12i_was_present_at",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E21_Person1",
+            "w": "crm:E67_Birth",
+            "name": "crm:E21_Person1***crm:E67_Birth",
+            "value": {
+                "label": "crm:P92i_was_brought_into_existence_by",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E21_Person1",
+            "w": "crm:E71_Man-Made_Thing",
+            "name": "crm:E21_Person1***crm:E71_Man-Made_Thing",
+            "value": {
+                "label": "crm:P130_shows_features_of",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E21_Person1",
+            "w": "crm:E71_Man-Made_Thing",
+            "name": "crm:E21_Person1***crm:E71_Man-Made_Thing",
+            "value": {
+                "label": "crm:P130i_features_are_also_found_on",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E21_Person1",
             "w": "crm:E7_Activity",
             "name": "crm:E21_Person1***crm:E7_Activity",
             "value": {
@@ -894,7 +1084,57 @@
             "w": "crm:E7_Activity",
             "name": "crm:E21_Person1***crm:E7_Activity",
             "value": {
+                "label": "crm:P12i_was_present_at",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E21_Person1",
+            "w": "crm:E7_Activity",
+            "name": "crm:E21_Person1***crm:E7_Activity",
+            "value": {
                 "label": "crm:P8i_witnessed",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E21_Person1",
+            "w": "crm:E17_Type_Assignment",
+            "name": "crm:E21_Person1***crm:E17_Type_Assignment",
+            "value": {
+                "label": "crm:P140i_was_attributed_by",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E21_Person1",
+            "w": "crm:E17_Type_Assignment",
+            "name": "crm:E21_Person1***crm:E17_Type_Assignment",
+            "value": {
+                "label": "crm:P141i_was_assigned_by",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E21_Person1",
+            "w": "crm:E32_Authority_Document",
+            "name": "crm:E21_Person1***crm:E32_Authority_Document",
+            "value": {
+                "label": "crm:P70i_is_documented_in",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E22_Man-Made_Object1",
+            "w": "crm:E21_Person1",
+            "name": "crm:E22_Man-Made_Object1***crm:E21_Person1",
+            "value": {
+                "label": "crm:P62_depicts",
                 "type": "inherited"
             },
             "weight": 4
@@ -924,7 +1164,17 @@
             "w": "crm:E21_Person1",
             "name": "crm:E22_Man-Made_Object1***crm:E21_Person1",
             "value": {
-                "label": "crm:P105_right_held_by",
+                "label": "crm:P46_is_composed_of",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E22_Man-Made_Object1",
+            "w": "crm:E21_Person1",
+            "name": "crm:E22_Man-Made_Object1***crm:E21_Person1",
+            "value": {
+                "label": "crm:P46i_forms_part_of",
                 "type": "inherited"
             },
             "weight": 4
@@ -1014,7 +1264,47 @@
             "w": "crm:E21_Person1",
             "name": "crm:E31_Document1***crm:E21_Person1",
             "value": {
+                "label": "crm:P129_is_about",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E31_Document1",
+            "w": "crm:E21_Person1",
+            "name": "crm:E31_Document1***crm:E21_Person1",
+            "value": {
+                "label": "crm:P67_refers_to",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E31_Document1",
+            "w": "crm:E21_Person1",
+            "name": "crm:E31_Document1***crm:E21_Person1",
+            "value": {
                 "label": "crm:P105_right_held_by",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E31_Document1",
+            "w": "crm:E21_Person1",
+            "name": "crm:E31_Document1***crm:E21_Person1",
+            "value": {
+                "label": "crm:P130_shows_features_of",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E31_Document1",
+            "w": "crm:E21_Person1",
+            "name": "crm:E31_Document1***crm:E21_Person1",
+            "value": {
+                "label": "crm:P130i_features_are_also_found_on",
                 "type": "inherited"
             },
             "weight": 4
@@ -1221,6 +1511,16 @@
         },
         {
             "v": "crm:E35_Title1",
+            "w": "crm:E21_Person1",
+            "name": "crm:E35_Title1***crm:E21_Person1",
+            "value": {
+                "label": "crm:P1i_identifies",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E35_Title1",
             "w": "crm:E22_Man-Made_Object1",
             "name": "crm:E35_Title1***crm:E22_Man-Made_Object1",
             "value": {
@@ -1354,7 +1654,57 @@
             "w": "crm:E21_Person1",
             "name": "crm:E38_Image1***crm:E21_Person1",
             "value": {
+                "label": "crm:P138_represents",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E38_Image1",
+            "w": "crm:E21_Person1",
+            "name": "crm:E38_Image1***crm:E21_Person1",
+            "value": {
+                "label": "crm:P129_is_about",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E38_Image1",
+            "w": "crm:E21_Person1",
+            "name": "crm:E38_Image1***crm:E21_Person1",
+            "value": {
+                "label": "crm:P67_refers_to",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E38_Image1",
+            "w": "crm:E21_Person1",
+            "name": "crm:E38_Image1***crm:E21_Person1",
+            "value": {
                 "label": "crm:P105_right_held_by",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E38_Image1",
+            "w": "crm:E21_Person1",
+            "name": "crm:E38_Image1***crm:E21_Person1",
+            "value": {
+                "label": "crm:P130_shows_features_of",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E38_Image1",
+            "w": "crm:E21_Person1",
+            "name": "crm:E38_Image1***crm:E21_Person1",
+            "value": {
+                "label": "crm:P130i_features_are_also_found_on",
                 "type": "inherited"
             },
             "weight": 4
@@ -1601,6 +1951,26 @@
         },
         {
             "v": "crm:E82_Actor_Appellation1",
+            "w": "crm:E21_Person1",
+            "name": "crm:E82_Actor_Appellation1***crm:E21_Person1",
+            "value": {
+                "label": "crm:P1i_identifies",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E82_Actor_Appellation2",
+            "w": "crm:E21_Person1",
+            "name": "crm:E82_Actor_Appellation2***crm:E21_Person1",
+            "value": {
+                "label": "crm:P1i_identifies",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E82_Actor_Appellation1",
             "w": "crm:E31_Document1",
             "name": "crm:E82_Actor_Appellation1***crm:E31_Document1",
             "value": {
@@ -1784,7 +2154,27 @@
             "w": "crm:E21_Person1",
             "name": "crm:E69_Death***crm:E21_Person1",
             "value": {
+                "label": "crm:P93_took_out_of_existence",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E69_Death",
+            "w": "crm:E21_Person1",
+            "name": "crm:E69_Death***crm:E21_Person1",
+            "value": {
                 "label": "crm:P11_had_participant",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E69_Death",
+            "w": "crm:E21_Person1",
+            "name": "crm:E69_Death***crm:E21_Person1",
+            "value": {
+                "label": "crm:P12_occurred_in_the_presence_of",
                 "type": "inherited"
             },
             "weight": 4
@@ -1991,6 +2381,16 @@
         },
         {
             "v": "crm:E67_Birth",
+            "w": "crm:E21_Person1",
+            "name": "crm:E67_Birth***crm:E21_Person1",
+            "value": {
+                "label": "crm:P92_brought_into_existence",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E67_Birth",
             "w": "crm:E39_Actor",
             "name": "crm:E67_Birth***crm:E39_Actor",
             "value": {
@@ -2005,6 +2405,26 @@
             "name": "crm:E67_Birth***crm:E70_Thing",
             "value": {
                 "label": "crm:P92_brought_into_existence",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E71_Man-Made_Thing",
+            "w": "crm:E21_Person1",
+            "name": "crm:E71_Man-Made_Thing***crm:E21_Person1",
+            "value": {
+                "label": "crm:P130_shows_features_of",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E71_Man-Made_Thing",
+            "w": "crm:E21_Person1",
+            "name": "crm:E71_Man-Made_Thing***crm:E21_Person1",
+            "value": {
+                "label": "crm:P130i_features_are_also_found_on",
                 "type": "inherited"
             },
             "weight": 4
@@ -2224,6 +2644,16 @@
             "w": "crm:E21_Person1",
             "name": "crm:E7_Activity***crm:E21_Person1",
             "value": {
+                "label": "crm:P12_occurred_in_the_presence_of",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E7_Activity",
+            "w": "crm:E21_Person1",
+            "name": "crm:E7_Activity***crm:E21_Person1",
+            "value": {
                 "label": "crm:P8_took_place_on_or_within",
                 "type": "inherited"
             },
@@ -2291,6 +2721,26 @@
         },
         {
             "v": "crm:E17_Type_Assignment",
+            "w": "crm:E21_Person1",
+            "name": "crm:E17_Type_Assignment***crm:E21_Person1",
+            "value": {
+                "label": "crm:P140_assigned_attribute_to",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E17_Type_Assignment",
+            "w": "crm:E21_Person1",
+            "name": "crm:E17_Type_Assignment***crm:E21_Person1",
+            "value": {
+                "label": "crm:P141_assigned",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E17_Type_Assignment",
             "w": "crm:E39_Actor",
             "name": "crm:E17_Type_Assignment***crm:E39_Actor",
             "value": {
@@ -2325,6 +2775,16 @@
             "name": "crm:E17_Type_Assignment***crm:E70_Thing",
             "value": {
                 "label": "crm:P141_assigned",
+                "type": "inherited"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E32_Authority_Document",
+            "w": "crm:E21_Person1",
+            "name": "crm:E32_Authority_Document***crm:E21_Person1",
+            "value": {
+                "label": "crm:P70_documents",
                 "type": "inherited"
             },
             "weight": 4

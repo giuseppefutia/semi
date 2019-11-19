@@ -44,22 +44,26 @@ var generate_sm = (file_name) => {
             fs.writeFileSync(output_graph + f + '_graph.json', JSON.stringify(json_graph, null, 4));
 
             // Steiner tree and its JSON serialization
-            var types = JSON.parse(fs.readFileSync(st_path, 'utf8'))[0];
-            var attributes = types['attributes'];
-            var graph_path = output_graph;
+            var st = JSON.parse(fs.readFileSync(st_path, 'utf8'))[0];
+            var attributes = st['attributes'];
             var enriched_graph = steiner.create_inverse_edges(multi_graph);
             var steiner_tree = steiner.steiner_alg(enriched_graph, attributes);
             fs.writeFileSync(output_graph + f + '.steiner', JSON.stringify(steiner_tree, null, 4));
             var json_steiner = graphlib.json.write(steiner_tree);
             fs.writeFileSync(output_graph + f + '_steiner.json', JSON.stringify(json_steiner, null, 4));
 
-            // JARQL serialization of the Steiner tree
-            var steiner_path = output_graph + f + '_steiner.json';
+            // JARQL serialization
             var jarql_path = output_jarql + f;
-            var st = JSON.parse(fs.readFileSync(st_path))[0];
+
+            // JARQL serialization of the steiner tree
+            var steiner_path = output_graph + f + '_steiner.json';
             var json_steiner = JSON.parse(fs.readFileSync(steiner_path));
-            var jarql_to_print = jarql.build_jarql(st, json_steiner, classes_path);
-            fs.writeFileSync(jarql_path + '.query', jarql_to_print);
+            var jarql_steiner = jarql.build_jarql(st, json_steiner, classes_path);
+            fs.writeFileSync(jarql_path + '.query', jarql_steiner);
+
+            // JARQL serialization of the Multigraph
+            var jarql_multi = jarql.build_jarql(st, json_graph, classes_path);
+            fs.writeFileSync(jarql_path + '_plausible.query', jarql_multi);
 
             console.log('\nEnd of processing ' + file_name + ' ...\n\n');
 
