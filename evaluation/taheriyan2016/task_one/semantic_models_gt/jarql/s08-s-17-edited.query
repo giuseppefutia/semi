@@ -1,0 +1,69 @@
+PREFIX schema:    <http://schema.org/>
+PREFIX rdfs:      <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX pc:        <http://purl.org/procurement/public-contracts#>
+PREFIX gr:        <http://purl.org/goodrelations/v1#>
+PREFIX owl:       <http://www.w3.org/2002/07/owl#>
+PREFIX adms:      <http://www.w3.org/ns/adms#>
+PREFIX c4n:       <http://vocab.deri.ie/c4n#>
+PREFIX dcterms:   <http://purl.org/dc/terms/>
+PREFIX foaf:      <http://xmlns.com/foaf/0.1/>
+PREFIX loted:     <http://www.loted.eu/ontology#>
+PREFIX payment:   <http://reference.data.gov.uk/def/payment#>
+PREFIX qb:        <http://purl.org/linked-data/cube#>
+PREFIX rdf:       <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX skos:      <http://www.w3.org/2004/02/skos/core#>
+PREFIX vann:      <http://purl.org/vocab/vann/>
+PREFIX xsd:       <http://www.w3.org/2001/XMLSchema#>
+PREFIX conference: <http://conference#>
+PREFIX cmt:       <http://cmt#>
+PREFIX sigkdd:    <http://sigkdd#>
+PREFIX crm:       <http://erlangen-crm.org/current/>
+PREFIX id:        <http://collection.britishmuseum.org/id/>
+PREFIX idThes:    <http://collection.britishmuseum.org/id/thesauri/>
+PREFIX prov:      <http://www.w3.org/ns/prov#>
+PREFIX bmo:       <http://collection.britishmuseum.org/id/ontology/>
+PREFIX jarql:     <http://jarql.com/>
+
+CONSTRUCT {
+    ?E21_Person1 rdfs:label ?AUTHOR_URI.
+    ?E21_Person1 rdf:type crm:E21_Person.
+    ?E22_Man-Made_Object1 crm:P3_has_note ?DESCRIPTION.
+    ?E22_Man-Made_Object1 rdf:type crm:E22_Man-Made_Object.
+    ?E31_Document1 rdfs:label ?VIDEO.
+    ?E31_Document1 rdf:type crm:E31_Document.
+    ?E35_Title1 rdfs:label ?TITLE NO AUTHOR.
+    ?E35_Title1 rdf:type crm:E35_Title.
+    ?E38_Image1 rdfs:label ?IMAGE__IMAGESRC.
+    ?E38_Image1 rdf:type crm:E38_Image.
+    ?E55_Type1 rdfs:label ?VIDEO_TYPE_URI.
+    ?E55_Type1 rdf:type crm:E55_Type.
+    ?E82_Actor_Appellation1 rdfs:label ?AUTHOR_APPELLATION_URI.
+    ?E82_Actor_Appellation1 rdf:type crm:E82_Actor_Appellation.
+    ?E82_Actor_Appellation2 rdfs:label ?AUTHOR.
+    ?E82_Actor_Appellation2 rdf:type crm:E82_Actor_Appellation.
+    ?E12_Production1 crm:P14_carried_out_by ?E21_Person1.
+    ?E21_Person1 crm:P131_is_identified_by ?E82_Actor_Appellation1.
+    ?E22_Man-Made_Object1 crm:P102_has_title ?E35_Title1.
+    ?E22_Man-Made_Object1 crm:P108i_was_produced_by ?E12_Production1.
+    ?E22_Man-Made_Object1 crm:P138i_has_representation ?E38_Image1.
+    ?E31_Document1 crm:P2_has_type ?E55_Type1.
+    ?E31_Document1 crm:P70_documents ?E22_Man-Made_Object1.
+}
+WHERE {
+    ?root a jarql:Root.
+    OPTIONAL { ?root jarql:AUTHOR_URI ?AUTHOR_URI. }
+    OPTIONAL { ?root jarql:DESCRIPTION ?DESCRIPTION. }
+    OPTIONAL { ?root jarql:VIDEO ?VIDEO. }
+    OPTIONAL { ?root jarql:TITLE NO AUTHOR ?TITLE NO AUTHOR. }
+    OPTIONAL { ?root jarql:IMAGE ?IMAGE. }
+    OPTIONAL { ?IMAGE jarql:IMAGESRC ?IMAGE__IMAGESRC. }
+    OPTIONAL { ?root jarql:VIDEO_TYPE_URI ?VIDEO_TYPE_URI. }
+    OPTIONAL { ?root jarql:AUTHOR_APPELLATION_URI ?AUTHOR_APPELLATION_URI. }
+    OPTIONAL { ?root jarql:AUTHOR ?AUTHOR. }
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e21_person/',?AUTHOR_URI)) as ?E21_Person1)
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e31_document/',?VIDEO)) as ?E31_Document1)
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e38_image/',?IMAGE__IMAGESRC)) as ?E38_Image1)
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e55_type/',?VIDEO_TYPE_URI)) as ?E55_Type1)
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e82_actor_appellation/',?AUTHOR_APPELLATION_URI)) as ?E82_Actor_Appellation1)
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e12_production/',?AUTHOR_URI)) as ?E12_Production1)
+}
