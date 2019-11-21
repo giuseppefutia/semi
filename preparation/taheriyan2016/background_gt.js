@@ -21,7 +21,7 @@ var sources = fs.readdirSync(source_folder); // Iterate on cleaned and enriched 
 sources.forEach(source_name => {
     console.log('\nStart generating background KG for ' + source_name + '...\n');
 
-    var background_file = background_folder + source_name.split('.')[0] + '_background.rdf';
+    var background_file = background_folder + source_name.split('.')[0] + '.rdf';
 
     try {
         fs.unlinkSync(background_file);
