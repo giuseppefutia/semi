@@ -1,46 +1,60 @@
-[{
-    "attributes": [
-        "title",
-        "birthDate",
-        "deathDate",
-        "nationality",
-        "appellation",
-        "name"
-    ],
-    "entities": [
-        1,
-        1,
-        2,
-        1,
-        1,
-        1
-    ],
-    "uris": [
-        false,
-        false,
-        false,
-        true,
-        true,
-        true
-    ],
-    "semantic_types": [
-        [
-            "crm:E35_Title***rdfs:label"
+[
+    {
+        "attributes": [
+            "Artist URI",
+            "title",
+            "birthDate",
+            "deathDate",
+            "nationality uri",
+            "nationality",
+            "artist appellation uri",
+            "name first last"
         ],
-        [
-            "crm:E52_Time-Span***crm:P82_at_some_time_within"
+        "entities": [
+            1,
+            1,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
         ],
-        [
-            "crm:E52_Time-Span***crm:P82_at_some_time_within"
+        "uris": [
+            true,
+            false,
+            false,
+            false,
+            true,
+            false,
+            true,
+            false
         ],
-        [
-            "crm:E74_Group***rdfs:label"
-        ],
-        [
-            "crm:E21_Person***rdfs:label"
-        ],
-        [
-            "crm:E82_Actor_Appellation***rdfs:label"
+        "semantic_types": [
+            [
+                "crm:E21_Person***rdfs:label"
+            ],
+            [
+                "crm:E35_Title***rdfs:label"
+            ],
+            [
+                "crm:E52_Time-Span***crm:P82_at_some_time_within"
+            ],
+            [
+                "crm:E52_Time-Span***crm:P82_at_some_time_within"
+            ],
+            [
+                "crm:E74_Group***rdfs:label"
+            ],
+            [
+                "crm:E74_Group***rdfs:label"
+            ],
+            [
+                "crm:E82_Actor_Appellation***rdfs:label"
+            ],
+            [
+                "crm:E82_Actor_Appellation***rdfs:label"
+            ]
         ]
-    ]
-}]
+    }
+]
