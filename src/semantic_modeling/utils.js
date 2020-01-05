@@ -102,7 +102,12 @@ var PREFIX = {
     'http://collection.britishmuseum.org/id/': 'id:',
     'http://collection.britishmuseum.org/id/thesauri/': 'idThes:',
     'http://www.w3.org/ns/prov#': 'prov:',
-    'http://collection.britishmuseum.org/id/ontology/': 'bmo:'
+    'http://collection.britishmuseum.org/id/ontology/': 'bmo:',
+    'http://www.americanartcollaborative.org/ontology/': 'aac-ont:',
+    'http://www.w3.org/2008/05/skos#': 'skos2:',
+    'http://rdvocab.info/ElementsGr2/': 'ElementsGr2:',
+    'http://www.europeana.eu/schemas/edm/': 'edm:'
+
 }
 
 var PREFIX_STRINGS = generate_prefix_string();
