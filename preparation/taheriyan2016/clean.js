@@ -126,6 +126,42 @@ var replace_classLink = (st) => {
     });
 }
 
+var clean_task_one = (a, attrs, source_name, source, attr_index, st) => {
+    // Include non-trivial semantic type fields in sources
+    utils.TASK_01_NEW_FIELDS[source_name].forEach(f => {
+        // Anomaly
+        if (source_name === 's26-s-san-francisco-moma.json') {
+            for (var obj of source) {
+                obj['art-work'][Object.keys(f)[0]] = obj['art-work'][Object.values(f)[0]];
+            }
+        }
+        // Anomaly
+        else if (source_name === 's16-s-hammer.json') {
+            for (var obj of source) {
+                for (var item of obj['item']) {
+                    item[Object.keys(f)[0]] = item[Object.values(f)[0]];
+                }
+            }
+        }
+        // Anomaly
+        else if (source_name === 's27-s-the-huntington.json') {
+            for (var obj of source) {
+                obj['artist_appellation_uri'] = obj['artist']['name'];
+                obj['object_uri'] = obj['object_no'];
+                obj['Nationality_URI'] = obj['artist']['nationality'];
+                obj['artist_URI'] = obj['artist']['name'];
+            }
+        }
+        // Default behaviour
+        else {
+            for (var obj of source) {
+                obj[Object.keys(f)[0]] = obj[Object.values(f)[0]];
+            }
+        }
+    });
+
+}
+
 var clean_task_two = (a, attrs, source_name, source, attr_index, st) => {
 
     // Include non-trivial semantic type fields in sources
@@ -206,19 +242,26 @@ sources.forEach((source_name, index) => {
             create_uri_field(source_name, source, field, a);
         }
 
-        if (task === 'task_02') {
-            // Check the 'value' cases
-            if (a === 'values') {
-                // Replace 'values' in semantic types with the related field in the source
-                var field = utils.TASK_02_VALUES[source_name][values_index];
-                attrs[attr_index] = field;
-                console.log('\n   Replace "values" with: ' + field);
-                st[0]['attributes'] = attrs;
-                values_index++;
-            }
-            clean_task_two(a, attrs, source_name, source, values_index, attr_index, st);
+        // Check the 'value' cases
+        if (a === 'values') {
+            // Replace 'values' in semantic types with the related field in the source
+            var field = utils.VALUES[source_name][values_index];
+            attrs[attr_index] = field;
+            console.log('\n   Replace "values" with: ' + field);
+            st[0]['attributes'] = attrs;
+            values_index++;
+        }
+
+        // Task 01
+        if (task === 'task_01') {
+            clean_task_one(a, attrs, source_name, source, attr_index, st);
+        }
+        // Task 02
+        else if (task === 'task_02') {
+            clean_task_two(a, attrs, source_name, source, attr_index, st);
         }
     });
+
     // Special updates on semantic types
     special_semantic_types_update(sts[index], st);
 
@@ -240,14 +283,6 @@ sources.forEach((source_name, index) => {
         console.log('    In source: ' + uri_in_sources.sort())
         console.log('    In semantic type: ' + uri_in_st_attributes.sort())
     }
-
-    // Raise a Warning message if the number of attributes in the semantic type and in the source are different
-    /*    var source_length = Object.keys(source[0]).length;
-        var attrs_length = st[0]['attributes'].length
-        if (source_length !== attrs_length) {
-            console.log('\n   *** WARNING: the number of fields and attributes is different! ***');
-            console.log('   ' + source_length + ' vs ' + attrs_length);
-        }*/
 
     // Print updated sources and semantic types
     fs.writeFileSync(output_path, JSON.stringify(source, null, 4));
