@@ -16,12 +16,29 @@ module.exports.SOURCE_TO_CLEAN_BRACKETS = {
     's27-s-the-huntington.json': 1,
 };
 
-module.exports.VALUES = {
+module.exports.TASK_01_VALUES = {
     's05-met.json': ['What', 'Dimensions'],
     's09-s-18-artists.json': ['name', 'name'],
     's10-s-18-artworks.json': ['description', 'accession_id', 'inscription', 'title', 'accession_id', 'dimensions', 'materials', 'collection_name', 'collection_name', 'artist', 'credit'],
     's23-s-national-portrait-gallery.json': ['Sitter']
 };
+
+module.exports.TASK_02_VALUES = {
+    's05-met.json': ['What', 'Dimensions'],
+    's09-s-18-artists.json': ['name', 'name'],
+    's10-s-18-artworks.json': ['description', 'accession_id', 'inscription', 'title', 'accession_id', 'dimensions', 'materials', 'collection_name', 'collection_name', 'artist', 'credit'],
+    's23-s-national-portrait-gallery.json': ['Sitter']
+};
+
+module.exports.TASK_03_VALUES = {
+    's04-ima-artworks.json': ['keyword'],
+    's05-met.json': ['Heilbrunn Timeline of Art History', 'Dimensions', 'related-artworks', 'Provenance'], // Pay attention to this field
+    's06-npg.json': ['Keywords', 'Sitter'],
+    's09-s-18-artists.json': ['name', 'name'], // Here do not use biography data to avoid problems in URIs
+    's10-s-18-artworks.json': ['title', 'collection_name', 'subject_tags', 'title', 'image_URL', 'technique_type', 'accession_id', 'materials', 'dimensions', 'artist'], // Use title instead of description to avoid problems in URIs; pay attention to dimensions
+    's19-s-indianapolis-artworks.json': ['keyword'],
+    's23-s-national-portrait-gallery.json': ['Keywords', 'Sitter'],
+}
 
 module.exports.TASK_01_NEW_FIELDS = {
     's01-cb.json': [{
@@ -510,14 +527,14 @@ module.exports.TASK_02_NEW_FIELDS = {
 }
 
 module.exports.TASK_03_URIS = {
-    's01-cb.csv.model.json': [{
+    's01-cb.json': [{
             'http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1': 'Title'
         },
         {
             'http://www.americanartcollaborative.org/ontology/Person1': 'Attribution'
         }
     ],
-    's02-dma.csv.model.json': [{
+    's02-dma.json': [{
             'http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1': 'Object Title'
         },
         {
@@ -527,10 +544,10 @@ module.exports.TASK_03_URIS = {
             'http://www.w3.org/2008/05/skos#Concept1': 'Object Work Type'
         }
     ],
-    's03-ima-artists.xml.model.json': [{
+    's03-ima-artists.json': [{
         'http://www.americanartcollaborative.org/ontology/Person1': 'name'
     }],
-    's04-ima-artworks.xml.model.json': [{
+    's04-ima-artworks.json': [{
             'http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1': 'title"'
         },
         {
@@ -555,7 +572,7 @@ module.exports.TASK_03_URIS = {
             'http://www.europeana.eu/schemas/edm/WebResource1': 'imageURL'
         }
     ],
-    's05-met.json.model.json': [{
+    's05-met.json': [{
             'http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1': 'id'
         },
         {
@@ -580,7 +597,7 @@ module.exports.TASK_03_URIS = {
             'http://www.europeana.eu/schemas/edm/WebResource1': 'image'
         }
     ],
-    's06-npg.json.model.json': [{
+    's06-npg.json': [{
             'http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1': 'Title'
         },
         {
@@ -602,7 +619,7 @@ module.exports.TASK_03_URIS = {
             'http://www.europeana.eu/schemas/edm/WebResource1': 'Image'
         }
     ],
-    's07-s-13.json.model.json': [{
+    's07-s-13.json': [{
             'http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1': 'title'
         },
         {
@@ -621,7 +638,7 @@ module.exports.TASK_03_URIS = {
             'http://www.europeana.eu/schemas/edm/WebResource2': 'image_url'
         }
     ],
-    's08-s-17-edited.xml.model.json': [{
+    's08-s-17-edited.json': [{
             'http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1': 'TITLE'
         },
         {
@@ -637,10 +654,10 @@ module.exports.TASK_03_URIS = {
             'http://www.europeana.eu/schemas/edm/WebResource2': 'VIDEO'
         }
     ],
-    's09-s-18-artists.json.model.json': [{
+    's09-s-18-artists.json': [{
         'http://www.americanartcollaborative.org/ontology/Person1': 'name'
     }],
-    's10-s-18-artworks.json.model.json': [{
+    's10-s-18-artworks.json': [{
             'http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1': 'collection_name'
         },
         {
@@ -659,10 +676,10 @@ module.exports.TASK_03_URIS = {
             'http://www.europeana.eu/schemas/edm/WebResource1': 'image_URL'
         }
     ],
-    's11-s-19-artists.json.model.json': [{
+    's11-s-19-artists.json': [{
         'http://www.americanartcollaborative.org/ontology/Person1': 'artist_name'
     }],
-    's12-s-19-artworks.json.model.json': [{
+    's12-s-19-artworks.json': [{
             'http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1': 'title'
         },
         {
@@ -675,7 +692,7 @@ module.exports.TASK_03_URIS = {
             'http://www.europeana.eu/schemas/edm/WebResource1': 'img_url'
         }
     ],
-    's13-s-art-institute-of-chicago.xml.model.json': [{
+    's13-s-art-institute-of-chicago.json': [{
             'http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1': 'Titleofartwork'
         },
         {
@@ -688,7 +705,7 @@ module.exports.TASK_03_URIS = {
             'http://www.europeana.eu/schemas/edm/WebResource1': 'ImageURL'
         }
     ],
-    's14-s-california-african-american.json.model.json': [{
+    's14-s-california-african-american.json': [{
             'http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1': 'title'
         },
         {
@@ -707,7 +724,7 @@ module.exports.TASK_03_URIS = {
             'http://www.europeana.eu/schemas/edm/WebResource1': 'imageUrl'
         }
     ],
-    's15-s-detroit-institute-of-art.json.model.json': [{
+    's15-s-detroit-institute-of-art.json': [{
             'http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1': 'title'
         },
         {
@@ -723,7 +740,7 @@ module.exports.TASK_03_URIS = {
             'http://www.europeana.eu/schemas/edm/WebResource1': 'imageURL'
         }
     ],
-    's16-s-hammer.xml.model.json': [{
+    's16-s-hammer.json': [{
             'http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1': 'title'
         },
         {
@@ -736,7 +753,7 @@ module.exports.TASK_03_URIS = {
             'http://www.europeana.eu/schemas/edm/WebResource1': 'image'
         }
     ],
-    's17-s-houston-museum-of-fine-arts.json.model.json': [{
+    's17-s-houston-museum-of-fine-arts.json': [{
             'http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1': 'title'
         },
         {
@@ -752,14 +769,14 @@ module.exports.TASK_03_URIS = {
             'http://www.europeana.eu/schemas/edm/WebResource1': 'photo'
         }
     ],
-    's18-s-indianapolis-artists.xml.model.json': [{
+    's18-s-indianapolis-artists.json': [{
             'http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1': 'title'
         },
         {
             'http://www.americanartcollaborative.org/ontology/Person1': 'name'
         }
     ],
-    's19-s-indianapolis-artworks.xml.model.json': [{
+    's19-s-indianapolis-artworks.json': [{
             'http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1': 'title'
         },
         {
@@ -784,7 +801,7 @@ module.exports.TASK_03_URIS = {
             'http://www.europeana.eu/schemas/edm/WebResource1': 'imageURL'
         }
     ],
-    's20-s-lacma.xml.model.json': [{
+    's20-s-lacma.json': [{
             'http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1': 'Artwork_Title_and_Dates'
         },
         {
@@ -797,7 +814,7 @@ module.exports.TASK_03_URIS = {
             'http://www.europeana.eu/schemas/edm/WebResource1': 'Image_URL'
         }
     ],
-    's22-s-moca.xml.model.json': [{
+    's22-s-moca.json': [{
             'http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1': 'Artwork_Name_and_Year'
         },
         {
@@ -810,7 +827,7 @@ module.exports.TASK_03_URIS = {
             'http://www.europeana.eu/schemas/edm/WebResource1': 'image'
         }
     ],
-    's23-s-national-portrait-gallery.json.model.json': [{
+    's23-s-national-portrait-gallery.json': [{
             'http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1': 'Title'
         },
         {
@@ -832,7 +849,7 @@ module.exports.TASK_03_URIS = {
             'http://www.europeana.eu/schemas/edm/WebResource1': 'Image'
         }
     ],
-    's24-s-norton-simon.json.model.json': [{
+    's24-s-norton-simon.json': [{
             'http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1': 'title'
         },
         {
@@ -845,7 +862,7 @@ module.exports.TASK_03_URIS = {
             'http://www.europeana.eu/schemas/edm/WebResource1': 'image_url'
         }
     ],
-    's25-s-oakland-museum-paintings.json.model.json': [{
+    's25-s-oakland-museum-paintings.json': [{
             'http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1': 'Title'
         },
         {
@@ -864,7 +881,7 @@ module.exports.TASK_03_URIS = {
             'http://www.europeana.eu/schemas/edm/WebResource1': 'Pic_URL'
         }
     ],
-    's26-s-san-francisco-moma.json.model.json': [{
+    's26-s-san-francisco-moma.json': [{
             'http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1': 'title'
         },
         {
@@ -889,7 +906,7 @@ module.exports.TASK_03_URIS = {
             'http://www.europeana.eu/schemas/edm/WebResource1': 'image-URL'
         }
     ],
-    's27-s-the-huntington.json.model.json': [{
+    's27-s-the-huntington.json': [{
             'http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1': 'Artwork_Title'
         },
         {
@@ -902,7 +919,7 @@ module.exports.TASK_03_URIS = {
             'http://www.europeana.eu/schemas/edm/WebResource1': 'image_url'
         }
     ],
-    's28-wildlife-art.csv.model.json': [{
+    's28-wildlife-art.json': [{
             'http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1': 'Title'
         },
         {
@@ -918,7 +935,7 @@ module.exports.TASK_03_URIS = {
             'http://www.w3.org/2008/05/skos#Concept2': 'Materials'
         }
     ],
-    's29-gilcrease.csv.model.json': [{
+    's29-gilcrease.json': [{
             'http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1': 'Title'
         },
         {

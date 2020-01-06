@@ -77,28 +77,67 @@ var create_uri_field = (source_name, source, field, uri_field) => {
 }
 
 var special_semantic_types_update = (st_name, st) => {
+    // s04-ima-artworks.json
+    if (st_name === 's04-ima-artworks.json') {
+        var attrs = st[0]['attributes'];
+        var new_attrs = attrs.map(i => {
+            if (i === 'keyword') {
+                return 'keywords.' + i
+            } else {
+                return i;
+            }
+        });
+        st[0]['attributes'] = new_attrs;
+        console.log('\n   Semantic type issue: ');
+        console.log('   There is an array in the source: add string "keywords." to the semantic type attributes');
+    }
+    // s19-s-indianapolis-artworks_st.json
+    if (st_name === 's19-s-indianapolis-artworks_st.json') {
+        var attrs = st[0]['attributes'];
+        var new_attrs = attrs.map(i => {
+            if (i === 'keyword') {
+                return 'keywords.' + i;
+            }
+            //
+            else if (i === 'relatedArtworksURL') {
+                return 'relatedArtworks.' + i;
+            }
+            //
+            else if (i === 'relatedArtworksTitle') {
+                return 'relatedArtworks.' + i;
+            }
+            //
+            else {
+                return i;
+            }
+        });
+        st[0]['attributes'] = new_attrs;
+        console.log('\n   Semantic type issue: ');
+    }
+
     // s16-s-hammer_st.json'
     if (st_name === 's16-s-hammer_st.json') {
         var attrs = st[0]['attributes'];
-        var new_attrs = attrs.filter(i => {
-            return i !== 'name';
-        }).map(i => {
-            return 'item.' + i;
+        var new_attrs = attrs.map(i => {
+            if (i === 'name') {
+                return i;
+            } else {
+                return 'item.' + i;
+            }
         });
-        new_attrs.push('name');
         st[0]['attributes'] = new_attrs;
         console.log('\n   Semantic type issue: ');
-        console.log('   There is an array in the source: add string "item". to the semantic type attributes');
+        console.log('   There is an array in the source: add string "item." to the semantic type attributes');
     }
     // s26-s-san-francisco-moma_st.json
     else if (st_name === 's26-s-san-francisco-moma_st.json') {
         var attrs = st[0]['attributes'];
-        new_attrs = attrs.map(i => {
+        var new_attrs = attrs.map(i => {
             return 'art-work.' + i;
         });
         st[0]['attributes'] = new_attrs;
         console.log('\n   Semantic type issue: ');
-        console.log('   There is an array in the source: add string "artwork". to the semantic type attributes');
+        console.log('   There is an array in the source: add string "artwork." to the semantic type attributes');
     }
     // s27-s-the-huntington_st.json
     else if (st_name === 's27-s-the-huntington_st.json') {
@@ -124,6 +163,14 @@ var replace_classLink = (st) => {
         }
         return i;
     });
+}
+
+var replace_values = (st, attrs, attr_index, values) => {
+    // Replace 'values' in semantic types with the related field in the source
+    var field = values
+    attrs[attr_index] = field;
+    console.log('\n   Replace "values" with: ' + field);
+    st[0]['attributes'] = attrs;
 }
 
 var clean_task_one = (a, attrs, source_name, source, attr_index, st) => {
@@ -163,7 +210,6 @@ var clean_task_one = (a, attrs, source_name, source, attr_index, st) => {
 }
 
 var clean_task_two = (a, attrs, source_name, source, attr_index, st) => {
-
     // Include non-trivial semantic type fields in sources
     utils.TASK_02_NEW_FIELDS[source_name].forEach(f => {
         // Anomaly
@@ -200,6 +246,20 @@ var clean_task_two = (a, attrs, source_name, source, attr_index, st) => {
     });
 }
 
+var clean_task_three = (source_name, st) => {
+    // Change uris from false to true
+    var attrs = st[0]['attributes'];
+    attrs.forEach((a, index) => {
+        utils.TASK_03_URIS[source_name].forEach(f => {
+            if (a.indexOf(Object.values(f)[0]) !== -1) {
+                st[0]['uris'][index] = true;
+            } else if (Object.values(f)[0] === 'TODO') {
+                st[0]['uris'][index] = true;
+            }
+        });
+    });
+}
+
 sources.forEach((source_name, index) => {
     var source_path = source_folder + source_name;
     var output_path = output_folder + source_name;
@@ -225,7 +285,8 @@ sources.forEach((source_name, index) => {
     }
 
     // Get special attributes from the semantic types
-    var values_index = 0; // Useful to map "values" field of semantic types to the correct field in the source "
+    var values_index = 0; // Useful to map "values" field of semantic types to the correct field in the source
+
     attrs.forEach((a, attr_index) => {
 
         // Check the following cases : '_uri', ' uri', 'uri'
@@ -242,25 +303,39 @@ sources.forEach((source_name, index) => {
             create_uri_field(source_name, source, field, a);
         }
 
-        // Check the 'value' cases
-        if (a === 'values') {
-            // Replace 'values' in semantic types with the related field in the source
-            var field = utils.VALUES[source_name][values_index];
-            attrs[attr_index] = field;
-            console.log('\n   Replace "values" with: ' + field);
-            st[0]['attributes'] = attrs;
-            values_index++;
-        }
-
         // Task 01
         if (task === 'task_01') {
+            // Check the 'value' cases
+            if (a === 'values') {
+                values = utils.TASK_01_VALUES[source_name][values_index];
+                replace_values(st, attrs, attr_index, values);
+                values_index++;
+            }
             clean_task_one(a, attrs, source_name, source, attr_index, st);
         }
         // Task 02
         else if (task === 'task_02') {
+            // Check the 'value' cases
+            if (a === 'values') {
+                values = utils.TASK_02_VALUES[source_name][values_index];
+                replace_values(st, attrs, attr_index, values);
+                values_index++;
+            }
             clean_task_two(a, attrs, source_name, source, attr_index, st);
         }
+        // Task 03
+        else if (task === 'task_03') {
+            // Check the 'value' cases
+            if (a === 'values') {
+                values = utils.TASK_03_VALUES[source_name][values_index];
+                replace_values(st, attrs, attr_index, values);
+                values_index++;
+            }
+        }
     });
+
+    // Special cleaning on task_03 data
+    clean_task_three(source_name, st);
 
     // Special updates on semantic types
     special_semantic_types_update(sts[index], st);
@@ -268,15 +343,21 @@ sources.forEach((source_name, index) => {
     // Replace http://isi.edu/integration/karma/dev#classLink with rdfs:label
     replace_classLink(st);
 
+    // Raise a warning if some values are present
+    var values_in_sources = Object.keys(source[0]).filter(i => {
+        return i.match(/values/gi);
+    });
+    if (values_in_sources.length > 0) {
+        console.log('\n   *** WARNING: there are still some values in the source ***');
+    }
+
     // Raise a warning message if there is no correspondance in uris in sources and semantic types
     var uri_in_sources = Object.keys(source[0]).filter(i => {
         return i.match(/uri/gi);
     });
-
     var uri_in_st_attributes = st[0]['attributes'].filter(i => {
         return i.match(/uri/gi);
-    })
-
+    });
     if (uri_in_sources.length !== uri_in_st_attributes.length) {
         console.log('\n   *** WARNING: the number of uris is different! ***');
         console.log('   ' + uri_in_sources.length + ' vs ' + uri_in_st_attributes.length);
