@@ -508,3 +508,424 @@ module.exports.TASK_02_NEW_FIELDS = {
         'Attribution_Appellation_URI': 'Attribution'
     }]
 }
+
+module.exports.TASK_03_URIS = {
+    's01-cb.csv.model.json': [{
+            'http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1': 'Title'
+        },
+        {
+            'http://www.americanartcollaborative.org/ontology/Person1': 'Attribution'
+        }
+    ],
+    's02-dma.csv.model.json': [{
+            'http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1': 'Object Title'
+        },
+        {
+            'http://www.americanartcollaborative.org/ontology/Person1': 'Artist Name'
+        },
+        {
+            'http://www.w3.org/2008/05/skos#Concept1': 'Object Work Type'
+        }
+    ],
+    's03-ima-artists.xml.model.json': [{
+        'http://www.americanartcollaborative.org/ontology/Person1': 'name'
+    }],
+    's04-ima-artworks.xml.model.json': [{
+            'http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1': 'title"'
+        },
+        {
+            'http://www.americanartcollaborative.org/ontology/CulturalHeritageObject2': 'relatedArtworksTitle'
+        },
+        {
+            'http://www.americanartcollaborative.org/ontology/Person1': 'artist'
+        },
+        {
+            'http://www.w3.org/2008/05/skos#Concept1': 'keywords'
+        },
+        {
+            'http://xmlns.com/foaf/0.1/Document2': 'relatedArtworksURL'
+        },
+        {
+            'http://xmlns.com/foaf/0.1/Document1': 'sourceURL'
+        },
+        {
+            'http://www.europeana.eu/schemas/edm/EuropeanaAggregation1': 'TODO'
+        },
+        {
+            'http://www.europeana.eu/schemas/edm/WebResource1': 'imageURL'
+        }
+    ],
+    's05-met.json.model.json': [{
+            'http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1': 'id'
+        },
+        {
+            'http://www.americanartcollaborative.org/ontology/CulturalHeritageObject2': 'related-artworks'
+        },
+        {
+            'http://www.americanartcollaborative.org/ontology/Person1': 'Who'
+        },
+        {
+            'http://www.americanartcollaborative.org/ontology/Place1': 'Where'
+        },
+        {
+            'http://www.w3.org/2008/05/skos#Concept1': 'What'
+        },
+        {
+            'http://www.w3.org/2008/05/skos#Concept2': 'Heilbrunn Timeline of Art History'
+        },
+        {
+            'http://www.europeana.eu/schemas/edm/EuropeanaAggregation1': 'TODO'
+        },
+        {
+            'http://www.europeana.eu/schemas/edm/WebResource1': 'image'
+        }
+    ],
+    's06-npg.json.model.json': [{
+            'http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1': 'Title'
+        },
+        {
+            'http://www.americanartcollaborative.org/ontology/Person1': 'Artist'
+        },
+        {
+            'http://www.americanartcollaborative.org/ontology/Person2': 'John Adams Whipple'
+        },
+        {
+            'http://www.w3.org/2008/05/skos#Concept1': 'Keywords'
+        },
+        {
+            'http://www.w3.org/2008/05/skos#Concept2': 'Classification'
+        },
+        {
+            'http://www.europeana.eu/schemas/edm/EuropeanaAggregation1': 'TODO'
+        },
+        {
+            'http://www.europeana.eu/schemas/edm/WebResource1': 'Image'
+        }
+    ],
+    's07-s-13.json.model.json': [{
+            'http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1': 'title'
+        },
+        {
+            'http://www.americanartcollaborative.org/ontology/Person1': 'name'
+        },
+        {
+            'http://www.w3.org/2008/05/skos#Concept1': 'category'
+        },
+        {
+            'http://www.europeana.eu/schemas/edm/EuropeanaAggregation1': 'TODO'
+        },
+        {
+            'http://www.europeana.eu/schemas/edm/WebResource1': 'audio_url'
+        },
+        {
+            'http://www.europeana.eu/schemas/edm/WebResource2': 'image_url'
+        }
+    ],
+    's08-s-17-edited.xml.model.json': [{
+            'http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1': 'TITLE'
+        },
+        {
+            'http://www.americanartcollaborative.org/ontology/Person1': 'AUTHOR'
+        },
+        {
+            'http://www.europeana.eu/schemas/edm/EuropeanaAggregation1': 'TODO'
+        },
+        {
+            'http://www.europeana.eu/schemas/edm/WebResource1': 'IMAGESRC'
+        },
+        {
+            'http://www.europeana.eu/schemas/edm/WebResource2': 'VIDEO'
+        }
+    ],
+    's09-s-18-artists.json.model.json': [{
+        'http://www.americanartcollaborative.org/ontology/Person1': 'name'
+    }],
+    's10-s-18-artworks.json.model.json': [{
+            'http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1': 'collection_name'
+        },
+        {
+            'http://www.americanartcollaborative.org/ontology/Person1': 'artist'
+        },
+        {
+            'http://www.w3.org/2008/05/skos#Concept1': 'materials'
+        },
+        {
+            'http://www.w3.org/2008/05/skos#Concept2': 'subject_tags'
+        },
+        {
+            'http://www.europeana.eu/schemas/edm/EuropeanaAggregation1': 'TODO'
+        },
+        {
+            'http://www.europeana.eu/schemas/edm/WebResource1': 'image_URL'
+        }
+    ],
+    's11-s-19-artists.json.model.json': [{
+        'http://www.americanartcollaborative.org/ontology/Person1': 'artist_name'
+    }],
+    's12-s-19-artworks.json.model.json': [{
+            'http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1': 'title'
+        },
+        {
+            'http://www.americanartcollaborative.org/ontology/Person1': 'artist_name'
+        },
+        {
+            'http://www.europeana.eu/schemas/edm/EuropeanaAggregation1': 'TODO'
+        },
+        {
+            'http://www.europeana.eu/schemas/edm/WebResource1': 'img_url'
+        }
+    ],
+    's13-s-art-institute-of-chicago.xml.model.json': [{
+            'http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1': 'Titleofartwork'
+        },
+        {
+            'http://www.americanartcollaborative.org/ontology/Person1': 'Artistname'
+        },
+        {
+            'http://www.europeana.eu/schemas/edm/EuropeanaAggregation1': 'TODO'
+        },
+        {
+            'http://www.europeana.eu/schemas/edm/WebResource1': 'ImageURL'
+        }
+    ],
+    's14-s-california-african-american.json.model.json': [{
+            'http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1': 'title'
+        },
+        {
+            'http://www.americanartcollaborative.org/ontology/Person1': 'artist'
+        },
+        {
+            'http://www.w3.org/2008/05/skos#Concept1': 'technique'
+        },
+        {
+            'http://xmlns.com/foaf/0.1/Document1': 'url' // Pay attention to this field
+        },
+        {
+            'http://www.europeana.eu/schemas/edm/EuropeanaAggregation1': 'TODO'
+        },
+        {
+            'http://www.europeana.eu/schemas/edm/WebResource1': 'imageUrl'
+        }
+    ],
+    's15-s-detroit-institute-of-art.json.model.json': [{
+            'http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1': 'title'
+        },
+        {
+            'http://www.americanartcollaborative.org/ontology/Person1': 'John Mix Stanley'
+        },
+        {
+            'http://www.w3.org/2008/05/skos#Concept1': 'classification'
+        },
+        {
+            'http://www.europeana.eu/schemas/edm/EuropeanaAggregation1': 'TODO'
+        },
+        {
+            'http://www.europeana.eu/schemas/edm/WebResource1': 'imageURL'
+        }
+    ],
+    's16-s-hammer.xml.model.json': [{
+            'http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1': 'title'
+        },
+        {
+            'http://www.americanartcollaborative.org/ontology/Person1': 'artist'
+        },
+        {
+            'http://www.europeana.eu/schemas/edm/EuropeanaAggregation1': 'TODO'
+        },
+        {
+            'http://www.europeana.eu/schemas/edm/WebResource1': 'image'
+        }
+    ],
+    's17-s-houston-museum-of-fine-arts.json.model.json': [{
+            'http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1': 'title'
+        },
+        {
+            'http://www.americanartcollaborative.org/ontology/Person1': 'artist'
+        },
+        {
+            'http://xmlns.com/foaf/0.1/Document1': 'link'
+        },
+        {
+            'http://www.europeana.eu/schemas/edm/EuropeanaAggregation1': 'TODO'
+        },
+        {
+            'http://www.europeana.eu/schemas/edm/WebResource1': 'photo'
+        }
+    ],
+    's18-s-indianapolis-artists.xml.model.json': [{
+            'http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1': 'title'
+        },
+        {
+            'http://www.americanartcollaborative.org/ontology/Person1': 'name'
+        }
+    ],
+    's19-s-indianapolis-artworks.xml.model.json': [{
+            'http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1': 'title'
+        },
+        {
+            'http://www.americanartcollaborative.org/ontology/CulturalHeritageObject2': 'relatedArtworksTitle'
+        },
+        {
+            'http://www.americanartcollaborative.org/ontology/Person1': 'artist'
+        },
+        {
+            'http://www.w3.org/2008/05/skos#Concept1': 'materials'
+        },
+        {
+            'http://xmlns.com/foaf/0.1/Document2': 'sourceURL'
+        },
+        {
+            'http://xmlns.com/foaf/0.1/Document1': 'relatedArtworksURL'
+        },
+        {
+            'http://www.europeana.eu/schemas/edm/EuropeanaAggregation1': 'TODO'
+        },
+        {
+            'http://www.europeana.eu/schemas/edm/WebResource1': 'imageURL'
+        }
+    ],
+    's20-s-lacma.xml.model.json': [{
+            'http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1': 'Artwork_Title_and_Dates'
+        },
+        {
+            'http://www.americanartcollaborative.org/ontology/Person1': 'Artist_Name'
+        },
+        {
+            'http://www.europeana.eu/schemas/edm/EuropeanaAggregation1': 'TODO'
+        },
+        {
+            'http://www.europeana.eu/schemas/edm/WebResource1': 'Image_URL'
+        }
+    ],
+    's22-s-moca.xml.model.json': [{
+            'http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1': 'Artwork_Name_and_Year'
+        },
+        {
+            'http://www.americanartcollaborative.org/ontology/Person1': 'Artist_Name'
+        },
+        {
+            'http://www.europeana.eu/schemas/edm/EuropeanaAggregation1': 'TODO'
+        },
+        {
+            'http://www.europeana.eu/schemas/edm/WebResource1': 'image'
+        }
+    ],
+    's23-s-national-portrait-gallery.json.model.json': [{
+            'http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1': 'Title'
+        },
+        {
+            'http://www.americanartcollaborative.org/ontology/Person1': 'Artist'
+        },
+        {
+            'http://www.americanartcollaborative.org/ontology/Person2': 'CopyAfter'
+        },
+        {
+            'http://www.w3.org/2008/05/skos#Concept1': 'Keywords'
+        },
+        {
+            'http://www.w3.org/2008/05/skos#Concept2': 'Classification'
+        },
+        {
+            'http://www.europeana.eu/schemas/edm/EuropeanaAggregation1': 'TODO'
+        },
+        {
+            'http://www.europeana.eu/schemas/edm/WebResource1': 'Image'
+        }
+    ],
+    's24-s-norton-simon.json.model.json': [{
+            'http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1': 'title'
+        },
+        {
+            'http://www.americanartcollaborative.org/ontology/Person1': 'artist'
+        },
+        {
+            'http://www.europeana.eu/schemas/edm/EuropeanaAggregation1': 'TODO'
+        },
+        {
+            'http://www.europeana.eu/schemas/edm/WebResource1': 'image_url'
+        }
+    ],
+    's25-s-oakland-museum-paintings.json.model.json': [{
+            'http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1': 'Title'
+        },
+        {
+            'http://www.americanartcollaborative.org/ontology/Person1': 'ArtistName'
+        },
+        {
+            'http://www.w3.org/2008/05/skos#Concept1': 'Type_of_Art'
+        },
+        {
+            'http://www.w3.org/2008/05/skos#Concept2': 'Subtype_of_Art'
+        },
+        {
+            'http://www.europeana.eu/schemas/edm/EuropeanaAggregation1': 'TODO'
+        },
+        {
+            'http://www.europeana.eu/schemas/edm/WebResource1': 'Pic_URL'
+        }
+    ],
+    's26-s-san-francisco-moma.json.model.json': [{
+            'http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1': 'title'
+        },
+        {
+            'http://www.americanartcollaborative.org/ontology/Person1': 'artistName'
+        },
+        {
+            'http://www.w3.org/2008/05/skos#Concept1': 'type'
+        },
+        {
+            'http://xmlns.com/foaf/0.1/Document1': 'url'
+        },
+        {
+            'http://www.americanartcollaborative.org/ontology/Place1': 'birthPlaceCity'
+        },
+        {
+            'http://www.americanartcollaborative.org/ontology/Place2': 'deathPlaceCity'
+        },
+        {
+            'http://www.europeana.eu/schemas/edm/EuropeanaAggregation1': 'TODO'
+        },
+        {
+            'http://www.europeana.eu/schemas/edm/WebResource1': 'image-URL'
+        }
+    ],
+    's27-s-the-huntington.json.model.json': [{
+            'http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1': 'Artwork_Title'
+        },
+        {
+            'http://www.americanartcollaborative.org/ontology/Person1': 'name'
+        },
+        {
+            'http://www.europeana.eu/schemas/edm/EuropeanaAggregation1': 'TODO'
+        },
+        {
+            'http://www.europeana.eu/schemas/edm/WebResource1': 'image_url'
+        }
+    ],
+    's28-wildlife-art.csv.model.json': [{
+            'http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1': 'Title'
+        },
+        {
+            'http://www.americanartcollaborative.org/ontology/Person1': 'Maker'
+        },
+        {
+            'http://www.americanartcollaborative.org/ontology/Place1': 'Home Location'
+        },
+        {
+            'http://www.w3.org/2008/05/skos#Concept1': 'Category'
+        },
+        {
+            'http://www.w3.org/2008/05/skos#Concept2': 'Materials'
+        }
+    ],
+    's29-gilcrease.csv.model.json': [{
+            'http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1': 'Title'
+        },
+        {
+            'http://www.americanartcollaborative.org/ontology/Person1': 'Attribution'
+        },
+        {
+            'http://www.w3.org/2008/05/skos#Concept1': 'Classification'
+        }
+    ]
+}
