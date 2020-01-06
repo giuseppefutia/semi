@@ -17,7 +17,7 @@ var get_base_uri = (uri) =>
         return uri.includes(key);
     });
 
-var create_st = (st, stored_st, column, node) => {
+var create_st = (st, column, node, index) => {
     // Fill attributes
     st[0]['attributes'].push(column['columnName']);
 
@@ -30,17 +30,15 @@ var create_st = (st, stored_st, column, node) => {
     var st_property = st_type.replace(prop_base_uri, PREFIX[prop_base_uri]);
     st[0]['semantic_types'].push([st_class + '***' + st_property]);
 
-    // Fill uris
+    // Fill uris: default behaviour based on http://isi.edu/integration/karma/dev#classLink
     if (st_property.indexOf('http://isi.edu/integration/karma/dev#classLink') !== -1) {
         st[0]['uris'].push(true);
     } else {
         st[0]['uris'].push(false);
     }
 
-    // Fill index of entities
-    if (stored_st[st_domain] === undefined) stored_st[st_domain] = 1;
-    else stored_st[st_domain]++;
-    st[0]['entities'].push(stored_st[st_domain]);
+    // Fill index of entities using links in the graph
+    st[0]['entities'].push(index);
 }
 
 // Load data of the ground truth available in JSON format
@@ -48,14 +46,15 @@ var data_folder = process.argv.slice(2)[0];
 var input_folder = 'evaluation/taheriyan2016/' + data_folder + '/semantic_models_gt/json/';
 
 var files = fs.readdirSync(input_folder);
+
 files.forEach(file_name => {
     var gt = JSON.parse(fs.readFileSync(input_folder + file_name, 'utf-8'));
     var gt_nodes = gt['graph']['nodes'];
+    var gt_links = gt['graph']['links'];
 
     // Create and store semantic type file using nodes information of the ground truth
     var columns = array_to_object(gt['sourceColumns'], 'id');
     var st = [{}];
-    var stored_st = {}
 
     st[0]['attributes'] = [];
     st[0]['entities'] = [];
@@ -65,7 +64,19 @@ files.forEach(file_name => {
     for (var n of gt_nodes) {
         var column = columns[n['id']];
         if (column !== undefined) {
-            create_st(st, stored_st, column, n);
+
+            // Get index of the entity from the links
+            var link_for_index = gt_links.filter(i => {
+                return i['id'].split('---')[2] === n['id'];
+            });
+            if (link_for_index.length > 1) {
+                console.log('*** Warning: ' + n['id'] + ' in file ' + file_name + ' is used for more than once ***');
+            }
+            var index = link_for_index[0]['id'].split('---')[0].slice(-1);
+
+            // Create semantic type
+            create_st(st, column, n, index);
+
             file_name.split('.')[0];
             var output_st =
                 'data/taheriyan2016/' +
