@@ -37,11 +37,23 @@ var files = fs.readdirSync(input_folder);
 files.forEach(file_name => {
     var output_path = 'data/taheriyan2016/' + data_folder + '/sources/original_json/' + file_name.split('.')[0] + '.json';
 
-    if (path.extname(file_name) === '.csv') {
-        convert_csv(input_folder, file_name, output_path);
-    } else if (path.extname(file_name, output_path) === '.xml') {
-        convert_xml(input_folder, file_name, output_path);
-    } else if (path.extname(file_name) === '.json') {
-        fs.copyFileSync(input_folder + file_name, output_path);
+    // Manage specific case of task_04
+    if (data_folder === 'task_04') {
+        var d = fs.readFileSync(input_folder + file_name, 'utf8');
+        var d_with_square = '[' + d + ']';
+        var d_with_commas = d_with_square.replace(/}\n{/gi, '},\n{');
+        var json = JSON.parse(d_with_commas);
+        var json_string = JSON.stringify(json, null, 2);
+        fs.writeFileSync(output_path, json_string);
+
+    } else {
+        // Default behaviour
+        if (path.extname(file_name) === '.csv') {
+            convert_csv(input_folder, file_name, output_path);
+        } else if (path.extname(file_name, output_path) === '.xml') {
+            convert_xml(input_folder, file_name, output_path);
+        } else if (path.extname(file_name) === '.json') {
+            fs.copyFileSync(input_folder + file_name, output_path);
+        }
     }
 });
