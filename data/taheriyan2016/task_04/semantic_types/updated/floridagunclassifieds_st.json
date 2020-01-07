@@ -1,20 +1,22 @@
 [
     {
         "attributes": [
-            "Accessories4054",
-            "Name4209",
-            "Fax4229",
-            "Name4205",
-            "Seller4193",
-            "Phone4225",
-            "On6622",
+            "Florida1109",
+            "Type1157",
+            "Listed1744",
+            "Address1179",
+            "Number1168",
+            "Manufacturer1151",
+            "432213",
             "file_name",
-            "Accepted4257",
-            "Description4273",
-            "0077",
-            "Price4278",
-            "State4214",
-            "Zip4218"
+            "ID1470",
+            "Listed1186",
+            "hours1236",
+            "Expires1191",
+            "0082",
+            "Go1129",
+            "Nabors1763",
+            "Single1162"
         ],
         "entities": [
             "1",
@@ -22,6 +24,7 @@
             "1",
             "1",
             "1",
+            "2",
             "1",
             "1",
             "1",
@@ -30,42 +33,45 @@
             "1",
             "1",
             "1",
+            "2",
             "1"
         ],
         "uris": [
+            true,
+            false,
+            true,
+            false,
+            false,
+            true,
+            false,
+            true,
             false,
             false,
             false,
             false,
+            true,
             false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false
+            true,
+            true
         ],
         "semantic_types": [
             [
                 "schema-dig:Firearm***schema:category"
             ],
             [
-                "schema-dig:PersonOrOrganization***schema:familyName"
+                "schema-dig:Firearm***schema:category"
             ],
             [
-                "schema-dig:PersonOrOrganization***schema:faxNumber"
+                "schema-dig:PersonOrOrganization***schema-dig:identifier"
             ],
             [
-                "schema-dig:PersonOrOrganization***schema:givenName"
-            ],
-            [
-                "schema-dig:PersonOrOrganization***schema:name"
+                "schema-dig:PersonOrOrganization***schema:email"
             ],
             [
                 "schema-dig:PersonOrOrganization***schema:telephone"
+            ],
+            [
+                "schema-dig:PersonOrOrganization***schema:name"
             ],
             [
                 "schema:CreativeWork***schema:copyrightYear"
@@ -74,10 +80,16 @@
                 "schema:CreativeWork***schema:name"
             ],
             [
-                "schema:Offer***schema:acceptedPaymentMethod"
+                "schema:Offer***schema-dig:identifier"
+            ],
+            [
+                "schema:Offer***schema:datePosted"
             ],
             [
                 "schema:Offer***schema:description"
+            ],
+            [
+                "schema:Offer***schema:expires"
             ],
             [
                 "schema:Offer***schema:name"
@@ -86,10 +98,10 @@
                 "schema:Offer***schema:price"
             ],
             [
-                "schema:PostalAddress***schema:addressRegion"
+                "schema:Offer***schema:name"
             ],
             [
-                "schema:PostalAddress***schema:postalCode"
+                "schema:Place***schema:name"
             ]
         ]
     }

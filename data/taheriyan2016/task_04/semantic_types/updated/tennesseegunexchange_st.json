@@ -1,20 +1,20 @@
 [
     {
         "attributes": [
-            "Accessories4054",
-            "Name4209",
-            "Fax4229",
-            "Name4205",
-            "Seller4193",
-            "Phone4225",
-            "On6622",
+            "Pistols1112",
+            "Listed1964",
+            "Phone1330",
+            "Facebook2081",
             "file_name",
-            "Accepted4257",
-            "Description4273",
-            "0077",
-            "Price4278",
-            "State4214",
-            "Zip4218"
+            "ID1421",
+            "Listed1361",
+            "Description1392",
+            "Expires1366",
+            "0036",
+            "Post1309",
+            "Today2013",
+            "Phone1340",
+            "Code1354"
         ],
         "entities": [
             "1",
@@ -28,41 +28,32 @@
             "1",
             "1",
             "1",
-            "1",
+            "2",
             "1",
             "1"
         ],
         "uris": [
+            true,
+            true,
+            false,
+            false,
+            true,
+            true,
             false,
             false,
             false,
             false,
             false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false
+            true,
+            true,
+            true
         ],
         "semantic_types": [
             [
                 "schema-dig:Firearm***schema:category"
             ],
             [
-                "schema-dig:PersonOrOrganization***schema:familyName"
-            ],
-            [
-                "schema-dig:PersonOrOrganization***schema:faxNumber"
-            ],
-            [
-                "schema-dig:PersonOrOrganization***schema:givenName"
-            ],
-            [
-                "schema-dig:PersonOrOrganization***schema:name"
+                "schema-dig:PersonOrOrganization***schema-dig:identifier"
             ],
             [
                 "schema-dig:PersonOrOrganization***schema:telephone"
@@ -74,10 +65,16 @@
                 "schema:CreativeWork***schema:name"
             ],
             [
-                "schema:Offer***schema:acceptedPaymentMethod"
+                "schema:Offer***schema-dig:identifier"
+            ],
+            [
+                "schema:Offer***schema:datePosted"
             ],
             [
                 "schema:Offer***schema:description"
+            ],
+            [
+                "schema:Offer***schema:expires"
             ],
             [
                 "schema:Offer***schema:name"
@@ -86,7 +83,10 @@
                 "schema:Offer***schema:price"
             ],
             [
-                "schema:PostalAddress***schema:addressRegion"
+                "schema:Offer***schema:name"
+            ],
+            [
+                "schema:Place***schema:name"
             ],
             [
                 "schema:PostalAddress***schema:postalCode"

@@ -1,16 +1,22 @@
 [
     {
         "attributes": [
-            "Telephone1241",
-            "Copyright1795",
+            "Listed1334",
+            "Us1790",
             "file_name",
-            "Ad1096",
-            "Updated1527",
-            "Alaska0011",
-            "Price1219",
-            "Location1192"
+            "ID1019",
+            "Listed0971",
+            "Description1013",
+            "Expires0976",
+            "0036",
+            "Post0929",
+            "Code0964",
+            "Street0950"
         ],
         "entities": [
+            "1",
+            "1",
+            "1",
             "1",
             "1",
             "1",
@@ -21,18 +27,21 @@
             "1"
         ],
         "uris": [
+            true,
+            false,
+            true,
+            true,
             false,
             false,
             false,
             false,
             false,
-            false,
-            false,
-            false
+            true,
+            true
         ],
         "semantic_types": [
             [
-                "schema-dig:PersonOrOrganization***schema:telephone"
+                "schema-dig:PersonOrOrganization***schema-dig:identifier"
             ],
             [
                 "schema:CreativeWork***schema:copyrightYear"
@@ -44,7 +53,13 @@
                 "schema:Offer***schema-dig:identifier"
             ],
             [
-                "schema:Offer***schema:dateModified"
+                "schema:Offer***schema:datePosted"
+            ],
+            [
+                "schema:Offer***schema:description"
+            ],
+            [
+                "schema:Offer***schema:expires"
             ],
             [
                 "schema:Offer***schema:name"
@@ -53,7 +68,10 @@
                 "schema:Offer***schema:price"
             ],
             [
-                "schema:Place***schema:name"
+                "schema:PostalAddress***schema:postalCode"
+            ],
+            [
+                "schema:PostalAddress***schema:streetAddress"
             ]
         ]
     }
