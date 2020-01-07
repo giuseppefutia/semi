@@ -106,8 +106,8 @@ var PREFIX = {
     'http://www.americanartcollaborative.org/ontology/': 'aac-ont:',
     'http://www.w3.org/2008/05/skos#': 'skos2:',
     'http://rdvocab.info/ElementsGr2/': 'ElementsGr2:',
-    'http://www.europeana.eu/schemas/edm/': 'edm:'
-
+    'http://www.europeana.eu/schemas/edm/': 'edm:',
+    'http://schema.dig.isi.edu/ontology/': 'schema-dig:'
 }
 
 var PREFIX_STRINGS = generate_prefix_string();
