@@ -47,6 +47,10 @@ var input_folder = 'evaluation/taheriyan2016/' + data_folder + '/semantic_models
 
 var files = fs.readdirSync(input_folder);
 
+// TEMPORARY CODE
+// var TASK_URI = {};
+// TEMPORARY CODE
+
 files.forEach(file_name => {
     var gt = JSON.parse(fs.readFileSync(input_folder + file_name, 'utf-8'));
     var gt_nodes = gt['graph']['nodes'];
@@ -60,6 +64,23 @@ files.forEach(file_name => {
     st[0]['entities'] = [];
     st[0]['uris'] = [];
     st[0]['semantic_types'] = [];
+
+    // TEMPORARY CODE
+    /**
+    TASK_URI[file_name] = [];
+
+    var internal_nodes = gt_nodes.filter(i => {
+        return i['type'] == 'InternalNode';
+    });
+
+    internal_nodes.forEach(i => {
+        var elem = {
+            [i['id']]: 'TODO'
+        };
+        TASK_URI[file_name].push(elem);
+    });
+    **/
+    // TEMPORARY CODE
 
     for (var n of gt_nodes) {
         var column = columns[n['id']];
@@ -88,3 +109,6 @@ files.forEach(file_name => {
         }
     }
 });
+
+// TEMPORARY CODE
+//fs.writeFileSync('preparation/taheriyan2016/uri.json', JSON.stringify(TASK_URI, null, 4));
