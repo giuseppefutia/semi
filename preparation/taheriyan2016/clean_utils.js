@@ -548,7 +548,7 @@ module.exports.TASK_03_URIS = {
         'http://www.americanartcollaborative.org/ontology/Person1': 'name'
     }],
     's04-ima-artworks.json': [{
-            'http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1': 'title"'
+            'http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1': 'title'
         },
         {
             'http://www.americanartcollaborative.org/ontology/CulturalHeritageObject2': 'relatedArtworksTitle'
@@ -943,6 +943,282 @@ module.exports.TASK_03_URIS = {
         },
         {
             'http://www.w3.org/2008/05/skos#Concept1': 'Classification'
+        }
+    ]
+}
+
+module.exports.TASK_04_URIS = {
+    'alaskaslist.json': [{
+            'http://schema.dig.isi.edu/ontology/PersonOrOrganization1': 'Telephone1241'
+        },
+        {
+            'http://schema.org/CreativeWork1': 'file_name'
+        },
+        {
+            'http://schema.org/Offer1': 'Ad1096'
+        },
+        {
+            'http://schema.org/Place1': 'Location1192'
+        }
+    ],
+    'armslist.json': [{
+            'http://schema.dig.isi.edu/ontology/Firearm1': 'In0403'
+        },
+        {
+            'http://schema.dig.isi.edu/ontology/PersonOrOrganization1': 'No0426'
+        },
+        {
+            'http://schema.org/CreativeWork1': 'file_name'
+        },
+        {
+            'http://schema.org/Offer1': 'post0299'
+        },
+        {
+            'http://schema.org/Place1': 'Location0408'
+        }
+    ],
+    'dallasguns.json': [{
+            'http://schema.dig.isi.edu/ontology/Firearm1': 'Model2378'
+        },
+        {
+            'http://schema.dig.isi.edu/ontology/PersonOrOrganization2': 'Seller2279'
+        },
+        {
+            'http://schema.dig.isi.edu/ontology/PersonOrOrganization1': 'Manf2363'
+        },
+        {
+            'http://schema.org/ContactPoint1': 'Contact2291'
+        },
+        {
+            'http://schema.org/CreativeWork1': 'file_name'
+        },
+        {
+            'http://schema.org/Offer1': 'Sale0017'
+        },
+        {
+            'http://schema.org/Place1': 'St2327'
+        },
+        {
+            'http://schema.org/PostalAddress1': 'Address2324'
+        }
+    ],
+    'elpasoguntrader.json': [{
+            'http://schema.dig.isi.edu/ontology/PersonOrOrganization1': 'Created0714'
+        },
+        {
+            'http://schema.org/CreativeWork1': 'file_name'
+        },
+        {
+            'http://schema.org/Offer1': 'Trader0615'
+        },
+        {
+            'http://schema.org/Offer2': 'bottom1509'
+        },
+        {
+            'http://schema.org/Offer3': 'bottom1530'
+        }
+    ],
+    'floridagunclassifieds.json': [{
+            'http://schema.dig.isi.edu/ontology/Firearm1': 'Florida1109'
+        },
+        {
+            'http://schema.dig.isi.edu/ontology/PersonOrOrganization2': 'Manufacturer1151'
+        },
+        {
+            'http://schema.dig.isi.edu/ontology/PersonOrOrganization1': 'Listed1744'
+        },
+        {
+            'http://schema.org/CreativeWork1': 'file_name'
+        },
+        {
+            'http://schema.org/Offer1': 'Nabors1763' // Pay attention to this field
+        },
+        {
+            'http://schema.org/Place1': 'Single1162'
+        },
+        {
+            'http://schema.org/Offer2': '0082' // Pay attention to this field
+        }
+    ],
+    'floridaguntrader.json': [{
+            'http://schema.dig.isi.edu/ontology/Firearm1': 'Guns0565'
+        },
+        {
+            'http://schema.dig.isi.edu/ontology/PersonOrOrganization1': 'Seller0716'
+        },
+        {
+            'http://schema.org/CreativeWork1': 'file_name'
+        },
+        {
+            'http://schema.org/Offer1': 'Rifles0572'
+        },
+        {
+            'http://schema.org/Place1': 'Location0800'
+        }
+    ],
+    'gunsinternational.json': [{
+            'http://schema.dig.isi.edu/ontology/Firearm1': 'Accessories4054'
+        },
+        {
+            'http://schema.dig.isi.edu/ontology/PersonOrOrganization1': 'Seller4193'
+        },
+        {
+            'http://schema.org/PostalAddress1': 'Zip4218'
+        },
+        {
+            'http://schema.org/CreativeWork1': 'file_name'
+        },
+        {
+            'http://schema.org/Offer1': '0077'
+        }
+    ],
+    'hawaiiguntrader.json': [{
+            'http://schema.dig.isi.edu/ontology/Firearm1': 'Home0832'
+        },
+        {
+            'http://schema.dig.isi.edu/ontology/PersonOrOrganization1': 'Listed1222'
+        },
+        {
+            'http://schema.org/CreativeWork1': 'file_name'
+        },
+        {
+            'http://schema.org/Offer1': '0036'
+        }
+    ],
+    'kyclassifieds.json': [{
+            'http://schema.dig.isi.edu/ontology/PersonOrOrganization1': 'Listed1592'
+        },
+        {
+            'http://schema.org/CreativeWork1': 'file_name'
+        },
+        {
+            'http://schema.org/Offer1': 'ID1293'
+        },
+        {
+            'http://schema.org/Offer2': 'malcome831610'
+        }
+    ],
+    'montanagunclassifieds.json': [{
+            'http://schema.dig.isi.edu/ontology/Firearm1': 'Shop0265'
+        },
+        {
+            'http://schema.org/CreativeWork1': 'file_name'
+        },
+        {
+            'http://schema.org/Offer1': 'Post0326'
+        },
+        {
+            'http://schema.org/Place1': 'BLK0354'
+        },
+        {
+            'http://schema.org/Offer2': 'BLK0354'
+        }
+    ],
+    'msguntrader.json': [{
+            'http://schema.dig.isi.edu/ontology/PersonOrOrganization1': 'Listed1334'
+        },
+        {
+            'http://schema.org/CreativeWork1': 'file_name'
+        },
+        {
+            'http://schema.org/Offer1': 'ID1019'
+        },
+        {
+            'http://schema.org/Place1': 'Street0950'
+        },
+        {
+            'http://schema.org/PostalAddress1': 'Code0964'
+        }
+    ],
+    'nextechclassifieds.json': [{
+            'http://schema.dig.isi.edu/ontology/PersonOrOrganization1': 'Send0933'
+        },
+        {
+            'http://schema.org/CreativeWork1': 'file_name'
+        },
+        {
+            'http://schema.org/Offer1': 'Description1191'
+        },
+        {
+            'http://schema.org/Place1': '001068'
+        },
+        {
+            'http://schema.org/Offer2': '001236'
+        },
+        {
+            'http://schema.org/Offer3': '001267'
+        },
+        {
+            'http://schema.org/Offer4': '001298'
+        },
+        {
+            'http://schema.org/Offer5': 'set1328'
+        },
+        {
+            'http://schema.org/Place2': 'Citori1239'
+        },
+        {
+            'http://schema.org/Place3': '2701270'
+        },
+        {
+            'http://schema.org/Place4': 'Reduced1301'
+        },
+        {
+            'http://schema.org/Place5': 'Boots1331'
+        }
+    ],
+    'shooterswap.json': [{
+            'http://schema.dig.isi.edu/ontology/Firearm1': 'onto0834'
+        },
+        {
+            'http://schema.dig.isi.edu/ontology/PersonOrOrganization1': '28in0804'
+        },
+        {
+            'http://schema.org/CreativeWork1': 'file_name'
+        },
+        {
+            'http://schema.org/Offer1': 'ID1174'
+        }
+    ],
+    'tennesseegunexchange.json': [{
+            'http://schema.dig.isi.edu/ontology/Firearm1': 'Pistols1112'
+        },
+        {
+            'http://schema.dig.isi.edu/ontology/PersonOrOrganization1': 'Listed1964'
+        },
+        {
+            'http://schema.org/CreativeWork1': 'file_name'
+        },
+        {
+            'http://schema.org/Offer1': 'ID1421'
+        },
+        {
+            'http://schema.org/Place1': 'Phone1340'
+        },
+        {
+            'http://schema.org/Offer2': 'Today2013'
+        },
+        {
+            'http://schema.org/PostalAddress1': 'Code1354'
+        }
+    ],
+    'theoutdoorstrader.json': [{
+            'http://schema.dig.isi.edu/ontology/Firearm1': 'Accessories0378'
+        },
+        {
+            'http://schema.dig.isi.edu/ontology/PersonOrOrganization1': 'started0628'
+        },
+        {
+            'http://schema.org/CreativeWork1': 'file_name'
+        },
+        {
+            'http://schema.org/Offer1': 'FT0613'
+        },
+        {
+            'http://schema.org/Place1': 'Location0814'
+        },
+        {
+            'http://schema.org/PostalAddress1': 'For0031'
         }
     ]
 }

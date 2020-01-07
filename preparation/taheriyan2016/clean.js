@@ -260,6 +260,20 @@ var clean_task_three = (source_name, st) => {
     });
 }
 
+var clean_task_four = (source_name, st) => {
+    // Change uris from false to true
+    var attrs = st[0]['attributes'];
+    attrs.forEach((a, index) => {
+        utils.TASK_04_URIS[source_name].forEach(f => {
+            if (a.indexOf(Object.values(f)[0]) !== -1) {
+                st[0]['uris'][index] = true;
+            } else if (Object.values(f)[0] === 'TODO') {
+                console.log('\n    *** WARNING: there is still a TODO');
+            }
+        });
+    });
+}
+
 sources.forEach((source_name, index) => {
     var source_path = source_folder + source_name;
     var output_path = output_folder + source_name;
@@ -335,7 +349,13 @@ sources.forEach((source_name, index) => {
     });
 
     // Special cleaning on task_03 data
-    clean_task_three(source_name, st);
+    if (task === 'task_03') {
+        clean_task_three(source_name, st);
+    }
+    // Special cleaning on task_04 data
+    if (task === 'task_04') {
+        clean_task_four(source_name, st);
+    }
 
     // Special updates on semantic types
     special_semantic_types_update(sts[index], st);
