@@ -51,7 +51,8 @@ var add_edges = (graph, subject, property, object, type, weight) => {
                 if (object_label_node === object) {
                     graph.setEdge(nodes[s], nodes[o], {
                         label: property,
-                        type: type
+                        type: type,
+                        weight: weight
                     }, nodes[s] + '***' + nodes[o], weight);
                 }
             }
