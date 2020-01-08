@@ -1,0 +1,273 @@
+{
+    "options": {
+        "directed": true,
+        "multigraph": true,
+        "compound": false
+    },
+    "nodes": [
+        {
+            "v": "20150823",
+            "value": {
+                "type": "attribute_name",
+                "label": "20150823"
+            }
+        },
+        {
+            "v": "Guns0565",
+            "value": {
+                "type": "attribute_name",
+                "label": "Guns0565"
+            }
+        },
+        {
+            "v": "schema-dig:Firearm1",
+            "value": {
+                "type": "class_uri",
+                "label": "schema-dig:Firearm"
+            }
+        },
+        {
+            "v": "Seller0716",
+            "value": {
+                "type": "attribute_name",
+                "label": "Seller0716"
+            }
+        },
+        {
+            "v": "schema-dig:PersonOrOrganization1",
+            "value": {
+                "type": "class_uri",
+                "label": "schema-dig:PersonOrOrganization"
+            }
+        },
+        {
+            "v": "Copyright0951",
+            "value": {
+                "type": "attribute_name",
+                "label": "Copyright0951"
+            }
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "value": {
+                "type": "class_uri",
+                "label": "schema:CreativeWork"
+            }
+        },
+        {
+            "v": "file_name",
+            "value": {
+                "type": "attribute_name",
+                "label": "file_name"
+            }
+        },
+        {
+            "v": "Rifles0572",
+            "value": {
+                "type": "attribute_name",
+                "label": "Rifles0572"
+            }
+        },
+        {
+            "v": "schema:Offer1",
+            "value": {
+                "type": "class_uri",
+                "label": "schema:Offer"
+            }
+        },
+        {
+            "v": "Start0821",
+            "value": {
+                "type": "attribute_name",
+                "label": "Start0821"
+            }
+        },
+        {
+            "v": "0021",
+            "value": {
+                "type": "attribute_name",
+                "label": "0021"
+            }
+        },
+        {
+            "v": "Price0797",
+            "value": {
+                "type": "attribute_name",
+                "label": "Price0797"
+            }
+        },
+        {
+            "v": "Location0800",
+            "value": {
+                "type": "attribute_name",
+                "label": "Location0800"
+            }
+        },
+        {
+            "v": "schema:Place1",
+            "value": {
+                "type": "class_uri",
+                "label": "schema:Place"
+            }
+        },
+        {
+            "v": "owl:Thing",
+            "value": {
+                "type": "special",
+                "label": "owl:Thing"
+            }
+        }
+    ],
+    "edges": [
+        {
+            "v": "schema-dig:Firearm1",
+            "w": "Guns0565",
+            "name": "schema-dig:Firearm1***Guns0565",
+            "value": {
+                "label": "schema:category",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "schema-dig:PersonOrOrganization1",
+            "w": "Seller0716",
+            "name": "schema-dig:PersonOrOrganization1***Seller0716",
+            "value": {
+                "label": "schema-dig:identifier",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "Copyright0951",
+            "name": "schema:CreativeWork1***Copyright0951",
+            "value": {
+                "label": "schema:copyrightYear",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "file_name",
+            "name": "schema:CreativeWork1***file_name",
+            "value": {
+                "label": "schema:name",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "schema:Offer1",
+            "w": "Rifles0572",
+            "name": "schema:Offer1***Rifles0572",
+            "value": {
+                "label": "schema-dig:identifier",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "schema:Offer1",
+            "w": "Start0821",
+            "name": "schema:Offer1***Start0821",
+            "value": {
+                "label": "schema:datePosted",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "schema:Offer1",
+            "w": "20150823",
+            "name": "schema:Offer1***20150823",
+            "value": {
+                "label": "schema:description",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "schema:Offer1",
+            "w": "0021",
+            "name": "schema:Offer1***0021",
+            "value": {
+                "label": "schema:name",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "schema:Offer1",
+            "w": "Price0797",
+            "name": "schema:Offer1***Price0797",
+            "value": {
+                "label": "schema:price",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "schema:Place1",
+            "w": "Location0800",
+            "name": "schema:Place1***Location0800",
+            "value": {
+                "label": "schema:name",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "Price0797",
+            "w": "owl:Thing",
+            "name": "Price0797***owl:Thing",
+            "value": {
+                "label": "rdfs:subClassOf",
+                "type": "inherited"
+            },
+            "weight": 0.3333333333333333
+        },
+        {
+            "v": "schema-dig:Firearm1",
+            "w": "owl:Thing",
+            "name": "schema-dig:Firearm1***owl:Thing",
+            "value": {
+                "label": "rdfs:subClassOf",
+                "type": "inherited"
+            },
+            "weight": 0.3333333333333333
+        },
+        {
+            "v": "schema-dig:PersonOrOrganization1",
+            "w": "owl:Thing",
+            "name": "schema-dig:PersonOrOrganization1***owl:Thing",
+            "value": {
+                "label": "rdfs:subClassOf",
+                "type": "inherited"
+            },
+            "weight": 0.3333333333333333
+        },
+        {
+            "v": "file_name",
+            "w": "owl:Thing",
+            "name": "file_name***owl:Thing",
+            "value": {
+                "label": "rdfs:subClassOf",
+                "type": "inherited"
+            },
+            "weight": 0.3333333333333333
+        },
+        {
+            "v": "schema:Place1",
+            "w": "owl:Thing",
+            "name": "schema:Place1***owl:Thing",
+            "value": {
+                "label": "rdfs:subClassOf",
+                "type": "inherited"
+            },
+            "weight": 0.3333333333333333
+        }
+    ]
+}
