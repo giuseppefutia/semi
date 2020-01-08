@@ -1,0 +1,136 @@
+PREFIX schema:    <http://schema.org/>
+PREFIX rdfs:      <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX pc:        <http://purl.org/procurement/public-contracts#>
+PREFIX gr:        <http://purl.org/goodrelations/v1#>
+PREFIX owl:       <http://www.w3.org/2002/07/owl#>
+PREFIX adms:      <http://www.w3.org/ns/adms#>
+PREFIX c4n:       <http://vocab.deri.ie/c4n#>
+PREFIX dcterms:   <http://purl.org/dc/terms/>
+PREFIX foaf:      <http://xmlns.com/foaf/0.1/>
+PREFIX loted:     <http://www.loted.eu/ontology#>
+PREFIX payment:   <http://reference.data.gov.uk/def/payment#>
+PREFIX qb:        <http://purl.org/linked-data/cube#>
+PREFIX rdf:       <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX skos:      <http://www.w3.org/2004/02/skos/core#>
+PREFIX vann:      <http://purl.org/vocab/vann/>
+PREFIX xsd:       <http://www.w3.org/2001/XMLSchema#>
+PREFIX conference: <http://conference#>
+PREFIX cmt:       <http://cmt#>
+PREFIX sigkdd:    <http://sigkdd#>
+PREFIX crm:       <http://erlangen-crm.org/current/>
+PREFIX id:        <http://collection.britishmuseum.org/id/>
+PREFIX idThes:    <http://collection.britishmuseum.org/id/thesauri/>
+PREFIX prov:      <http://www.w3.org/ns/prov#>
+PREFIX bmo:       <http://collection.britishmuseum.org/id/ontology/>
+PREFIX aac-ont:   <http://www.americanartcollaborative.org/ontology/>
+PREFIX skos2:     <http://www.w3.org/2008/05/skos#>
+PREFIX ElementsGr2: <http://rdvocab.info/ElementsGr2/>
+PREFIX rdvocab-schema: <http://rdvocab.info/uri/schema/>
+PREFIX edm:       <http://www.europeana.eu/schemas/edm/>
+PREFIX schema-dig: <http://schema.dig.isi.edu/ontology/>
+PREFIX jarql:     <http://jarql.com/>
+
+CONSTRUCT {
+    ?E22_Man-Made_Object1 rdfs:label ?Object_URI.
+    ?E22_Man-Made_Object1 rdf:type crm:E22_Man-Made_Object.
+    ?E21_Person1 rdfs:label ?Artist_URI.
+    ?E21_Person1 rdf:type crm:E21_Person.
+    ?E69_Death1 rdfs:label ?Death_URI.
+    ?E69_Death1 rdf:type crm:E69_Death.
+    ?E55_Type1 rdfs:label ?Classification_URI.
+    ?E55_Type1 rdf:type crm:E55_Type.
+    ?E55_Type3 rdfs:label ?Subclassification.
+    ?E55_Type3 rdf:type crm:E55_Type.
+    ?E82_Actor_Appellation2 rdfs:label ?Sitter.
+    ?E82_Actor_Appellation2 rdf:type crm:E82_Actor_Appellation.
+    ?E82_Actor_Appellation1 rdfs:label ?Artist_Appellation_URI.
+    ?E82_Actor_Appellation1 rdf:type crm:E82_Actor_Appellation.
+    ?E67_Birth1 rdfs:label ?Birth_URI.
+    ?E67_Birth1 rdf:type crm:E67_Birth.
+    ?E55_Type2 rdfs:label ?Medium.
+    ?E55_Type2 rdf:type crm:E55_Type.
+    ?E52_Time-Span3 crm:P82_at_some_time_within ?DateOfWork.
+    ?E52_Time-Span3 rdf:type crm:E52_Time-Span.
+    ?E8_Acquisition1 crm:P3_has_note ?CreditLine.
+    ?E8_Acquisition1 rdf:type crm:E8_Acquisition.
+    ?E40_Legal_Body1 rdfs:label ?Owner.
+    ?E40_Legal_Body1 rdf:type crm:E40_Legal_Body.
+    ?E54_Dimension1 crm:P3_has_note ?Dimension.
+    ?E54_Dimension1 rdf:type crm:E54_Dimension.
+    ?E52_Time-Span1 crm:P82_at_some_time_within ?BornDate.
+    ?E52_Time-Span1 rdf:type crm:E52_Time-Span.
+    ?E82_Actor_Appellation1 rdfs:label ?Artist.
+    ?E82_Actor_Appellation1 rdf:type crm:E82_Actor_Appellation.
+    ?E21_Person2 crm:P3_has_note ?Description.
+    ?E21_Person2 rdf:type crm:E21_Person.
+    ?E55_Type2 rdfs:label ?Medium_URI.
+    ?E55_Type2 rdf:type crm:E55_Type.
+    ?E38_Image1 rdfs:label ?Image.
+    ?E38_Image1 rdf:type crm:E38_Image.
+    ?E52_Time-Span4 crm:P82_at_some_time_within ?AquisitionDate.
+    ?E52_Time-Span4 rdf:type crm:E52_Time-Span.
+    ?E55_Type3 rdfs:label ?Subclassification_URI.
+    ?E55_Type3 rdf:type crm:E55_Type.
+    ?E52_Time-Span2 crm:P82_at_some_time_within ?deathDate.
+    ?E52_Time-Span2 rdf:type crm:E52_Time-Span.
+    ?E55_Type1 rdfs:label ?Classification.
+    ?E55_Type1 rdf:type crm:E55_Type.
+    ?E39_Actorundefined crm:P51i_is_former_or_current_owner_of ?E18_Physical_Thing.
+    ?E67_Birth1 crm:P8_took_place_on_or_within ?E21_Person1.
+    ?E55_Type1 crm:P130i_features_are_also_found_on ?E21_Person2.
+    ?E55_Type1 crm:P62i_is_depicted_by ?E22_Man-Made_Object1.
+    ?E55_Type1 crm:P67i_is_referred_to_by ?E38_Image1.
+    ?E21_Person2 id:ontology/PX_pupil_of ?E39_Actor2.
+    ?E38_Image1 crm:P105_right_held_by ?E40_Legal_Body1.
+    ?E52_Time-Span2 crm:P86i_contains ?E52_Time-Span1.
+    ?E52_Time-Span2 crm:P86i_contains ?E52_Time-Span3.
+    ?E52_Time-Span2 crm:P86i_contains ?E52_Time-Span4.
+    ?E52_Time-Span2 crm:P84_had_at_most_duration ?E54_Dimension1.
+    ?E70_Thing1 crm:P43_has_dimension ?E54_Dimension1.
+    ?E55_Type1 crm:P127i_has_narrower_term ?E55_Type2.
+    ?E55_Type1 crm:P127i_has_narrower_term ?E55_Type3.
+    ?E21_Person2 crm:P8i_witnessed ?E67_Birth1.
+    ?E21_Person2 crm:P8i_witnessed ?E69_Death1.
+    ?E55_Type1 crm:P101i_was_use_of ?E70_Thing1.
+    ?E39_Actor1 crm:P1_is_identified_by ?E82_Actor_Appellation1.
+    ?E39_Actor2 crm:P1_is_identified_by ?E82_Actor_Appellation2.
+    ?E18_Physical_Thing1 crm:P24i_changed_ownership_through ?E8_Acquisition1.
+}
+WHERE {
+    ?root a jarql:Root.
+    OPTIONAL { ?root jarql:Object_URI ?Object_URI. }
+    OPTIONAL { ?root jarql:Artist_URI ?Artist_URI. }
+    OPTIONAL { ?root jarql:Death_URI ?Death_URI. }
+    OPTIONAL { ?root jarql:Classification_URI ?Classification_URI. }
+    OPTIONAL { ?root jarql:Subclassification ?Subclassification. }
+    OPTIONAL { ?root jarql:Sitter ?Sitter. }
+    OPTIONAL { ?root jarql:Artist_Appellation_URI ?Artist_Appellation_URI. }
+    OPTIONAL { ?root jarql:Birth_URI ?Birth_URI. }
+    OPTIONAL { ?root jarql:Medium ?Medium. }
+    OPTIONAL { ?root jarql:DateOfWork ?DateOfWork. }
+    OPTIONAL { ?root jarql:CreditLine ?CreditLine. }
+    OPTIONAL { ?root jarql:Owner ?Owner. }
+    OPTIONAL { ?root jarql:Dimension ?Dimension. }
+    OPTIONAL { ?root jarql:BornDate ?BornDate. }
+    OPTIONAL { ?root jarql:Artist ?Artist. }
+    OPTIONAL { ?root jarql:Description ?Description. }
+    OPTIONAL { ?root jarql:Medium_URI ?Medium_URI. }
+    OPTIONAL { ?root jarql:Image ?Image. }
+    OPTIONAL { ?root jarql:AquisitionDate ?AquisitionDate. }
+    OPTIONAL { ?root jarql:Subclassification_URI ?Subclassification_URI. }
+    OPTIONAL { ?root jarql:deathDate ?deathDate. }
+    OPTIONAL { ?root jarql:Classification ?Classification. }
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e22_man-made_object/',?Object_URI)) as ?E22_Man-Made_Object1)
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e21_person/',?Artist_URI)) as ?E21_Person1)
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e69_death/',?Death_URI)) as ?E69_Death1)
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e55_type/',?Classification_URI)) as ?E55_Type1)
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e82_actor_appellation/',?Artist_Appellation_URI)) as ?E82_Actor_Appellation1)
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e67_birth/',?Birth_URI)) as ?E67_Birth1)
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e55_type/',?Medium_URI)) as ?E55_Type2)
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e38_image/',?Image)) as ?E38_Image1)
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e55_type/',?Subclassification_URI)) as ?E55_Type3)
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e39_actor/',?Description)) as ?E39_Actor2)
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e70_thing/',?Dimension)) as ?E70_Thing1)
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e39_actor/',?Artist_Appellation_URI)) as ?E39_Actor1)
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e18_physical_thing/',?CreditLine)) as ?E18_Physical_Thing1)
+}

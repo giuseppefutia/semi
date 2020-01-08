@@ -1,0 +1,545 @@
+{
+    "options": {
+        "directed": true,
+        "multigraph": true,
+        "compound": false
+    },
+    "nodes": [
+        {
+            "v": "Artist_Name",
+            "value": {
+                "type": "attribute_name",
+                "label": "Artist_Name"
+            }
+        },
+        {
+            "v": "crm:E82_Actor_Appellation1",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E82_Actor_Appellation"
+            }
+        },
+        {
+            "v": "Artwork_Details",
+            "value": {
+                "type": "attribute_name",
+                "label": "Artwork_Details"
+            }
+        },
+        {
+            "v": "crm:E22_Man-Made_Object1",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E22_Man-Made_Object"
+            }
+        },
+        {
+            "v": "Artwork_in_Focus",
+            "value": {
+                "type": "attribute_name",
+                "label": "Artwork_in_Focus"
+            }
+        },
+        {
+            "v": "crm:E21_Person1",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E21_Person"
+            }
+        },
+        {
+            "v": "Birth_URI",
+            "value": {
+                "type": "attribute_name",
+                "label": "Birth_URI"
+            }
+        },
+        {
+            "v": "crm:E67_Birth1",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E67_Birth"
+            }
+        },
+        {
+            "v": "Classification_URI",
+            "value": {
+                "type": "attribute_name",
+                "label": "Classification_URI"
+            }
+        },
+        {
+            "v": "crm:E55_Type1",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E55_Type"
+            }
+        },
+        {
+            "v": "Death_URI",
+            "value": {
+                "type": "attribute_name",
+                "label": "Death_URI"
+            }
+        },
+        {
+            "v": "crm:E69_Death1",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E69_Death"
+            }
+        },
+        {
+            "v": "Image_URL",
+            "value": {
+                "type": "attribute_name",
+                "label": "Image_URL"
+            }
+        },
+        {
+            "v": "crm:E38_Image1",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E38_Image"
+            }
+        },
+        {
+            "v": "Object_URI",
+            "value": {
+                "type": "attribute_name",
+                "label": "Object_URI"
+            }
+        },
+        {
+            "v": "Production_Year",
+            "value": {
+                "type": "attribute_name",
+                "label": "Production_Year"
+            }
+        },
+        {
+            "v": "crm:E52_Time-Span1",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E52_Time-Span"
+            }
+        },
+        {
+            "v": "Residence",
+            "value": {
+                "type": "attribute_name",
+                "label": "Residence"
+            }
+        },
+        {
+            "v": "crm:E48_Place_Name1",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E48_Place_Name"
+            }
+        },
+        {
+            "v": "birth_date",
+            "value": {
+                "type": "attribute_name",
+                "label": "birth_date"
+            }
+        },
+        {
+            "v": "crm:E52_Time-Span2",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E52_Time-Span"
+            }
+        },
+        {
+            "v": "Artist_URI",
+            "value": {
+                "type": "attribute_name",
+                "label": "Artist_URI"
+            }
+        },
+        {
+            "v": "crm:E35_Title1",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E35_Title"
+            }
+        },
+        {
+            "v": "Title",
+            "value": {
+                "type": "attribute_name",
+                "label": "Title"
+            }
+        },
+        {
+            "v": "crm:E39_Actor",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E39_Actor"
+            }
+        },
+        {
+            "v": "crm:E52_Time-Span3",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E52_Time-Span"
+            }
+        },
+        {
+            "v": "crm:E54_Dimension",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E54_Dimension"
+            }
+        },
+        {
+            "v": "Classification",
+            "value": {
+                "type": "attribute_name",
+                "label": "Classification"
+            }
+        },
+        {
+            "v": "crm:E70_Thing",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E70_Thing"
+            }
+        },
+        {
+            "v": "crm:E71_Man-Made_Thing",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E71_Man-Made_Thing"
+            }
+        },
+        {
+            "v": "Artist_Appellation_URI",
+            "value": {
+                "type": "attribute_name",
+                "label": "Artist_Appellation_URI"
+            }
+        },
+        {
+            "v": "death_date",
+            "value": {
+                "type": "attribute_name",
+                "label": "death_date"
+            }
+        }
+    ],
+    "edges": [
+        {
+            "v": "Artist_Name",
+            "w": "crm:E82_Actor_Appellation1",
+            "name": "Artist_Name***crm:E82_Actor_Appellation1",
+            "value": {
+                "type": "st_property_uri",
+                "label": "rdfs:label***inverted"
+            },
+            "weight": 1
+        },
+        {
+            "v": "Artwork_Details",
+            "w": "crm:E22_Man-Made_Object1",
+            "name": "Artwork_Details***crm:E22_Man-Made_Object1",
+            "value": {
+                "type": "st_property_uri",
+                "label": "crm:P3_has_note***inverted"
+            },
+            "weight": 1
+        },
+        {
+            "v": "Artwork_in_Focus",
+            "w": "crm:E21_Person1",
+            "name": "Artwork_in_Focus***crm:E21_Person1",
+            "value": {
+                "type": "st_property_uri",
+                "label": "crm:P3_has_note***inverted"
+            },
+            "weight": 1
+        },
+        {
+            "v": "Birth_URI",
+            "w": "crm:E67_Birth1",
+            "name": "Birth_URI***crm:E67_Birth1",
+            "value": {
+                "type": "st_property_uri",
+                "label": "rdfs:label***inverted"
+            },
+            "weight": 1
+        },
+        {
+            "v": "Classification_URI",
+            "w": "crm:E55_Type1",
+            "name": "Classification_URI***crm:E55_Type1",
+            "value": {
+                "type": "st_property_uri",
+                "label": "rdfs:label***inverted"
+            },
+            "weight": 1
+        },
+        {
+            "v": "Death_URI",
+            "w": "crm:E69_Death1",
+            "name": "Death_URI***crm:E69_Death1",
+            "value": {
+                "type": "st_property_uri",
+                "label": "rdfs:label***inverted"
+            },
+            "weight": 1
+        },
+        {
+            "v": "Image_URL",
+            "w": "crm:E38_Image1",
+            "name": "Image_URL***crm:E38_Image1",
+            "value": {
+                "type": "st_property_uri",
+                "label": "rdfs:label***inverted"
+            },
+            "weight": 1
+        },
+        {
+            "v": "Object_URI",
+            "w": "crm:E22_Man-Made_Object1",
+            "name": "Object_URI***crm:E22_Man-Made_Object1",
+            "value": {
+                "type": "st_property_uri",
+                "label": "rdfs:label***inverted"
+            },
+            "weight": 1
+        },
+        {
+            "v": "Production_Year",
+            "w": "crm:E52_Time-Span1",
+            "name": "Production_Year***crm:E52_Time-Span1",
+            "value": {
+                "type": "st_property_uri",
+                "label": "crm:P82_at_some_time_within***inverted"
+            },
+            "weight": 1
+        },
+        {
+            "v": "Residence",
+            "w": "crm:E48_Place_Name1",
+            "name": "Residence***crm:E48_Place_Name1",
+            "value": {
+                "type": "st_property_uri",
+                "label": "rdfs:label***inverted"
+            },
+            "weight": 1
+        },
+        {
+            "v": "birth_date",
+            "w": "crm:E52_Time-Span2",
+            "name": "birth_date***crm:E52_Time-Span2",
+            "value": {
+                "type": "st_property_uri",
+                "label": "crm:P82_at_some_time_within***inverted"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E21_Person1",
+            "w": "Artist_URI",
+            "name": "crm:E21_Person1***Artist_URI",
+            "value": {
+                "label": "rdfs:label",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E22_Man-Made_Object1",
+            "w": "crm:E21_Person1",
+            "name": "crm:E22_Man-Made_Object1***crm:E21_Person1",
+            "value": {
+                "type": "inherited",
+                "label": "crm:P130i_features_are_also_found_on***inverted"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E35_Title1",
+            "w": "Title",
+            "name": "crm:E35_Title1***Title",
+            "value": {
+                "label": "rdfs:label",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E38_Image1",
+            "w": "crm:E21_Person1",
+            "name": "crm:E38_Image1***crm:E21_Person1",
+            "value": {
+                "type": "inherited",
+                "label": "crm:P130i_features_are_also_found_on***inverted"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E39_Actor",
+            "w": "crm:E21_Person1",
+            "name": "crm:E39_Actor***crm:E21_Person1",
+            "value": {
+                "type": "direct_property_uri",
+                "label": "id:ontology/PX_pupil_of***inverted"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E48_Place_Name1",
+            "w": "crm:E21_Person1",
+            "name": "crm:E48_Place_Name1***crm:E21_Person1",
+            "value": {
+                "type": "inherited",
+                "label": "crm:P130i_features_are_also_found_on***inverted"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E52_Time-Span1",
+            "w": "crm:E22_Man-Made_Object1",
+            "name": "crm:E52_Time-Span1***crm:E22_Man-Made_Object1",
+            "value": {
+                "type": "inherited",
+                "label": "crm:P62_depicts***inverted"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E52_Time-Span2",
+            "w": "crm:E52_Time-Span1",
+            "name": "crm:E52_Time-Span2***crm:E52_Time-Span1",
+            "value": {
+                "type": "direct_property_uri",
+                "label": "crm:P86i_contains***inverted"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E52_Time-Span3",
+            "w": "crm:E52_Time-Span1",
+            "name": "crm:E52_Time-Span3***crm:E52_Time-Span1",
+            "value": {
+                "type": "direct_property_uri",
+                "label": "crm:P86i_contains***inverted"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E54_Dimension",
+            "w": "crm:E52_Time-Span1",
+            "name": "crm:E54_Dimension***crm:E52_Time-Span1",
+            "value": {
+                "type": "direct_property_uri",
+                "label": "crm:P84_had_at_most_duration***inverted"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E55_Type1",
+            "w": "Classification",
+            "name": "crm:E55_Type1***Classification",
+            "value": {
+                "label": "rdfs:label",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E55_Type1",
+            "w": "crm:E70_Thing",
+            "name": "crm:E55_Type1***crm:E70_Thing",
+            "value": {
+                "type": "direct_property_uri",
+                "label": "crm:P101_had_as_general_use***inverted"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E55_Type1",
+            "w": "crm:E71_Man-Made_Thing",
+            "name": "crm:E55_Type1***crm:E71_Man-Made_Thing",
+            "value": {
+                "type": "inherited",
+                "label": "crm:P130i_features_are_also_found_on***inverted"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E67_Birth1",
+            "w": "crm:E21_Person1",
+            "name": "crm:E67_Birth1***crm:E21_Person1",
+            "value": {
+                "type": "inherited",
+                "label": "crm:P8i_witnessed***inverted"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E69_Death1",
+            "w": "crm:E21_Person1",
+            "name": "crm:E69_Death1***crm:E21_Person1",
+            "value": {
+                "type": "inherited",
+                "label": "crm:P8i_witnessed***inverted"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E70_Thing",
+            "w": "crm:E54_Dimension",
+            "name": "crm:E70_Thing***crm:E54_Dimension",
+            "value": {
+                "type": "direct_property_uri",
+                "label": "crm:P43i_is_dimension_of***inverted"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E71_Man-Made_Thing",
+            "w": "crm:E35_Title1",
+            "name": "crm:E71_Man-Made_Thing***crm:E35_Title1",
+            "value": {
+                "type": "inherited",
+                "label": "crm:P67_refers_to***inverted"
+            },
+            "weight": 4
+        },
+        {
+            "v": "crm:E82_Actor_Appellation1",
+            "w": "Artist_Appellation_URI",
+            "name": "crm:E82_Actor_Appellation1***Artist_Appellation_URI",
+            "value": {
+                "label": "rdfs:label",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E82_Actor_Appellation1",
+            "w": "crm:E39_Actor",
+            "name": "crm:E82_Actor_Appellation1***crm:E39_Actor",
+            "value": {
+                "type": "inherited",
+                "label": "crm:P1_is_identified_by***inverted"
+            },
+            "weight": 4
+        },
+        {
+            "v": "death_date",
+            "w": "crm:E52_Time-Span3",
+            "name": "death_date***crm:E52_Time-Span3",
+            "value": {
+                "type": "st_property_uri",
+                "label": "crm:P82_at_some_time_within***inverted"
+            },
+            "weight": 1
+        }
+    ]
+}
