@@ -106,8 +106,23 @@ var PREFIX = {
     'http://www.americanartcollaborative.org/ontology/': 'aac-ont:',
     'http://www.w3.org/2008/05/skos#': 'skos2:',
     'http://rdvocab.info/ElementsGr2/': 'ElementsGr2:',
+    'http://rdvocab.info/uri/schema/FRBRentitiesRDA/': 'rdvocab-schema:',
     'http://www.europeana.eu/schemas/edm/': 'edm:',
-    'http://schema.dig.isi.edu/ontology/': 'schema-dig:'
+    'http://schema.dig.isi.edu/ontology/': 'schema-dig:',
+    'http://www.w3.org/2003/01/geo/wgs84_pos#': 'geo:',
+    'http://purl.org/vocab/frbr/core#': 'frbr:',
+    'http://www.w3.org/2000/10/swap/pim/contact#': 'swap:',
+    'http://www.cidoc-crm.org/rdfs/cidoc-crm#': 'cidoc-crm:',
+    'http://metadata.net/harmony/abc#': 'abc:',
+    'http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#': 'DOLCE-Lite:',
+    'http://purl.org/dc/dcmitype/': 'dcmitype:',
+    'http://web.resource.org/cc/': 'msg0:',
+    'http://www.isi.edu/~pan/damltime/time-entry.owl#': 'time-entry:',
+    'http://xmlns.com/wordnet/1.6/Work~2': 'wordnet:',
+    'http://americanart.si.edu/ontology/': 'saam-ont:',
+    'http://www.openarchives.org/ore/terms/': 'ore:',
+    'http://scharp.usc.isi.edu/ontology/': 'scharp:',
+    'http://dig.isi.edu/ontology/memex/': 'memex:',
 }
 
 var PREFIX_STRINGS = generate_prefix_string();
