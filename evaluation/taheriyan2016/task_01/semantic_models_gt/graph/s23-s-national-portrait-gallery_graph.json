@@ -167,13 +167,6 @@
             }
         },
         {
-            "v": "crm:E55_Type2",
-            "value": {
-                "type": "class_uri",
-                "label": "crm:E55_Type"
-            }
-        },
-        {
             "v": "Medium_URI",
             "value": {
                 "type": "attribute_name",
@@ -181,7 +174,7 @@
             }
         },
         {
-            "v": "crm:E55_Type3",
+            "v": "crm:E55_Type2",
             "value": {
                 "type": "class_uri",
                 "label": "crm:E55_Type"
@@ -195,13 +188,6 @@
             }
         },
         {
-            "v": "crm:E55_Type4",
-            "value": {
-                "type": "class_uri",
-                "label": "crm:E55_Type"
-            }
-        },
-        {
             "v": "Subclassification_URI",
             "value": {
                 "type": "attribute_name",
@@ -209,7 +195,7 @@
             }
         },
         {
-            "v": "crm:E55_Type5",
+            "v": "crm:E55_Type3",
             "value": {
                 "type": "class_uri",
                 "label": "crm:E55_Type"
@@ -220,13 +206,6 @@
             "value": {
                 "type": "attribute_name",
                 "label": "Subclassification"
-            }
-        },
-        {
-            "v": "crm:E55_Type6",
-            "value": {
-                "type": "class_uri",
-                "label": "crm:E55_Type"
             }
         },
         {
@@ -251,21 +230,14 @@
             }
         },
         {
-            "v": "crm:E82_Actor_Appellation2",
-            "value": {
-                "type": "class_uri",
-                "label": "crm:E82_Actor_Appellation"
-            }
-        },
-        {
-            "v": "values",
+            "v": "Sitter",
             "value": {
                 "type": "attribute_name",
-                "label": "values"
+                "label": "Sitter"
             }
         },
         {
-            "v": "crm:E82_Actor_Appellation3",
+            "v": "crm:E82_Actor_Appellation2",
             "value": {
                 "type": "class_uri",
                 "label": "crm:E82_Actor_Appellation"
@@ -419,9 +391,29 @@
             "weight": 1
         },
         {
-            "v": "crm:E55_Type2",
+            "v": "crm:E55_Type1",
             "w": "Classification",
-            "name": "crm:E55_Type2***Classification",
+            "name": "crm:E55_Type1***Classification",
+            "value": {
+                "label": "rdfs:label",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E55_Type2",
+            "w": "Medium_URI",
+            "name": "crm:E55_Type2***Medium_URI",
+            "value": {
+                "label": "rdfs:label",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E55_Type2",
+            "w": "Medium",
+            "name": "crm:E55_Type2***Medium",
             "value": {
                 "label": "rdfs:label",
                 "type": "st_property_uri"
@@ -430,28 +422,8 @@
         },
         {
             "v": "crm:E55_Type3",
-            "w": "Medium_URI",
-            "name": "crm:E55_Type3***Medium_URI",
-            "value": {
-                "label": "rdfs:label",
-                "type": "st_property_uri"
-            },
-            "weight": 1
-        },
-        {
-            "v": "crm:E55_Type4",
-            "w": "Medium",
-            "name": "crm:E55_Type4***Medium",
-            "value": {
-                "label": "rdfs:label",
-                "type": "st_property_uri"
-            },
-            "weight": 1
-        },
-        {
-            "v": "crm:E55_Type5",
             "w": "Subclassification_URI",
-            "name": "crm:E55_Type5***Subclassification_URI",
+            "name": "crm:E55_Type3***Subclassification_URI",
             "value": {
                 "label": "rdfs:label",
                 "type": "st_property_uri"
@@ -459,9 +431,9 @@
             "weight": 1
         },
         {
-            "v": "crm:E55_Type6",
+            "v": "crm:E55_Type3",
             "w": "Subclassification",
-            "name": "crm:E55_Type6***Subclassification",
+            "name": "crm:E55_Type3***Subclassification",
             "value": {
                 "label": "rdfs:label",
                 "type": "st_property_uri"
@@ -479,9 +451,9 @@
             "weight": 1
         },
         {
-            "v": "crm:E82_Actor_Appellation2",
+            "v": "crm:E82_Actor_Appellation1",
             "w": "Artist",
-            "name": "crm:E82_Actor_Appellation2***Artist",
+            "name": "crm:E82_Actor_Appellation1***Artist",
             "value": {
                 "label": "rdfs:label",
                 "type": "st_property_uri"
@@ -489,9 +461,9 @@
             "weight": 1
         },
         {
-            "v": "crm:E82_Actor_Appellation3",
-            "w": "values",
-            "name": "crm:E82_Actor_Appellation3***values",
+            "v": "crm:E82_Actor_Appellation2",
+            "w": "Sitter",
+            "name": "crm:E82_Actor_Appellation2***Sitter",
             "value": {
                 "label": "rdfs:label",
                 "type": "st_property_uri"

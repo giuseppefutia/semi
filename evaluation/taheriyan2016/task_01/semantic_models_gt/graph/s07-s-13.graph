@@ -95,15 +95,11 @@
             "type": "attribute_name",
             "label": "technique"
         },
-        "crm:E55_Type2": {
-            "type": "class_uri",
-            "label": "crm:E55_Type"
-        },
         "label_type_uri": {
             "type": "attribute_name",
             "label": "label_type_uri"
         },
-        "crm:E55_Type3": {
+        "crm:E55_Type2": {
             "type": "class_uri",
             "label": "crm:E55_Type"
         },
@@ -111,7 +107,7 @@
             "type": "attribute_name",
             "label": "origin_type_uri"
         },
-        "crm:E55_Type4": {
+        "crm:E55_Type3": {
             "type": "class_uri",
             "label": "crm:E55_Type"
         },
@@ -127,10 +123,6 @@
             "type": "attribute_name",
             "label": "nationality"
         },
-        "crm:E74_Group2": {
-            "type": "class_uri",
-            "label": "crm:E74_Group"
-        },
         "Artist_appellation_uri": {
             "type": "attribute_name",
             "label": "Artist_appellation_uri"
@@ -142,10 +134,6 @@
         "name": {
             "type": "attribute_name",
             "label": "name"
-        },
-        "crm:E82_Actor_Appellation2": {
-            "type": "class_uri",
-            "label": "crm:E82_Actor_Appellation"
         },
         "credit_line": {
             "type": "attribute_name",
@@ -421,10 +409,22 @@
             }
         },
         "technique": {
-            "crm:E55_Type2\u0001technique\u0001crm:E55_Type2***technique\u0001st_property_urirdfs:label\u00011": {
-                "v": "crm:E55_Type2",
+            "crm:E55_Type1\u0001technique\u0001crm:E55_Type1***technique\u0001st_property_urirdfs:label\u00011": {
+                "v": "crm:E55_Type1",
                 "w": "technique",
-                "name": "crm:E55_Type2***technique",
+                "name": "crm:E55_Type1***technique",
+                "value": {
+                    "label": "rdfs:label",
+                    "type": "st_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "label_type_uri": {
+            "crm:E55_Type2\u0001label_type_uri\u0001crm:E55_Type2***label_type_uri\u0001st_property_urirdfs:label\u00011": {
+                "v": "crm:E55_Type2",
+                "w": "label_type_uri",
+                "name": "crm:E55_Type2***label_type_uri",
                 "value": {
                     "label": "rdfs:label",
                     "type": "st_property_uri"
@@ -444,11 +444,11 @@
                 "weight": 1
             }
         },
-        "label_type_uri": {
-            "crm:E55_Type3\u0001label_type_uri\u0001crm:E55_Type3***label_type_uri\u0001st_property_urirdfs:label\u00011": {
+        "origin_type_uri": {
+            "crm:E55_Type3\u0001origin_type_uri\u0001crm:E55_Type3***origin_type_uri\u0001st_property_urirdfs:label\u00011": {
                 "v": "crm:E55_Type3",
-                "w": "label_type_uri",
-                "name": "crm:E55_Type3***label_type_uri",
+                "w": "origin_type_uri",
+                "name": "crm:E55_Type3***origin_type_uri",
                 "value": {
                     "label": "rdfs:label",
                     "type": "st_property_uri"
@@ -468,19 +468,6 @@
                 "weight": 1
             }
         },
-        "origin_type_uri": {
-            "crm:E55_Type4\u0001origin_type_uri\u0001crm:E55_Type4***origin_type_uri\u0001st_property_urirdfs:label\u00011": {
-                "v": "crm:E55_Type4",
-                "w": "origin_type_uri",
-                "name": "crm:E55_Type4***origin_type_uri",
-                "value": {
-                    "label": "rdfs:label",
-                    "type": "st_property_uri"
-                },
-                "weight": 1
-            }
-        },
-        "crm:E55_Type4": {},
         "nationality_uri": {
             "crm:E74_Group1\u0001nationality_uri\u0001crm:E74_Group1***nationality_uri\u0001st_property_urirdfs:label\u00011": {
                 "v": "crm:E74_Group1",
@@ -506,10 +493,10 @@
             }
         },
         "nationality": {
-            "crm:E74_Group2\u0001nationality\u0001crm:E74_Group2***nationality\u0001st_property_urirdfs:label\u00011": {
-                "v": "crm:E74_Group2",
+            "crm:E74_Group1\u0001nationality\u0001crm:E74_Group1***nationality\u0001st_property_urirdfs:label\u00011": {
+                "v": "crm:E74_Group1",
                 "w": "nationality",
-                "name": "crm:E74_Group2***nationality",
+                "name": "crm:E74_Group1***nationality",
                 "value": {
                     "label": "rdfs:label",
                     "type": "st_property_uri"
@@ -517,7 +504,6 @@
                 "weight": 1
             }
         },
-        "crm:E74_Group2": {},
         "Artist_appellation_uri": {
             "crm:E82_Actor_Appellation1\u0001Artist_appellation_uri\u0001crm:E82_Actor_Appellation1***Artist_appellation_uri\u0001st_property_urirdfs:label\u00011": {
                 "v": "crm:E82_Actor_Appellation1",
@@ -543,10 +529,10 @@
             }
         },
         "name": {
-            "crm:E82_Actor_Appellation2\u0001name\u0001crm:E82_Actor_Appellation2***name\u0001st_property_urirdfs:label\u00011": {
-                "v": "crm:E82_Actor_Appellation2",
+            "crm:E82_Actor_Appellation1\u0001name\u0001crm:E82_Actor_Appellation1***name\u0001st_property_urirdfs:label\u00011": {
+                "v": "crm:E82_Actor_Appellation1",
                 "w": "name",
-                "name": "crm:E82_Actor_Appellation2***name",
+                "name": "crm:E82_Actor_Appellation1***name",
                 "value": {
                     "label": "rdfs:label",
                     "type": "st_property_uri"
@@ -554,7 +540,6 @@
                 "weight": 1
             }
         },
-        "crm:E82_Actor_Appellation2": {},
         "credit_line": {
             "crm:E8_Acquisition1\u0001credit_line\u0001crm:E8_Acquisition1***credit_line\u0001st_property_uricrm:P3_has_note\u00011": {
                 "v": "crm:E8_Acquisition1",
@@ -680,21 +665,20 @@
             "crm:E12_Production1": 1
         },
         "technique": {
+            "crm:E55_Type1": 1
+        },
+        "label_type_uri": {
             "crm:E55_Type2": 1
         },
         "crm:E55_Type2": {
             "crm:E33_Linguistic_Object1": 1
         },
-        "label_type_uri": {
+        "origin_type_uri": {
             "crm:E55_Type3": 1
         },
         "crm:E55_Type3": {
             "crm:E33_Linguistic_Object2": 1
         },
-        "origin_type_uri": {
-            "crm:E55_Type4": 1
-        },
-        "crm:E55_Type4": {},
         "nationality_uri": {
             "crm:E74_Group1": 1
         },
@@ -702,9 +686,8 @@
             "crm:E21_Person1": 1
         },
         "nationality": {
-            "crm:E74_Group2": 1
+            "crm:E74_Group1": 1
         },
-        "crm:E74_Group2": {},
         "Artist_appellation_uri": {
             "crm:E82_Actor_Appellation1": 1
         },
@@ -712,9 +695,8 @@
             "crm:E21_Person1": 1
         },
         "name": {
-            "crm:E82_Actor_Appellation2": 1
+            "crm:E82_Actor_Appellation1": 1
         },
-        "crm:E82_Actor_Appellation2": {},
         "credit_line": {
             "crm:E8_Acquisition1": 1
         },
@@ -1003,14 +985,11 @@
                     "type": "st_property_uri"
                 },
                 "weight": 1
-            }
-        },
-        "technique": {},
-        "crm:E55_Type2": {
-            "crm:E55_Type2\u0001technique\u0001crm:E55_Type2***technique\u0001st_property_urirdfs:label\u00011": {
-                "v": "crm:E55_Type2",
+            },
+            "crm:E55_Type1\u0001technique\u0001crm:E55_Type1***technique\u0001st_property_urirdfs:label\u00011": {
+                "v": "crm:E55_Type1",
                 "w": "technique",
-                "name": "crm:E55_Type2***technique",
+                "name": "crm:E55_Type1***technique",
                 "value": {
                     "label": "rdfs:label",
                     "type": "st_property_uri"
@@ -1018,12 +997,13 @@
                 "weight": 1
             }
         },
+        "technique": {},
         "label_type_uri": {},
-        "crm:E55_Type3": {
-            "crm:E55_Type3\u0001label_type_uri\u0001crm:E55_Type3***label_type_uri\u0001st_property_urirdfs:label\u00011": {
-                "v": "crm:E55_Type3",
+        "crm:E55_Type2": {
+            "crm:E55_Type2\u0001label_type_uri\u0001crm:E55_Type2***label_type_uri\u0001st_property_urirdfs:label\u00011": {
+                "v": "crm:E55_Type2",
                 "w": "label_type_uri",
-                "name": "crm:E55_Type3***label_type_uri",
+                "name": "crm:E55_Type2***label_type_uri",
                 "value": {
                     "label": "rdfs:label",
                     "type": "st_property_uri"
@@ -1032,11 +1012,11 @@
             }
         },
         "origin_type_uri": {},
-        "crm:E55_Type4": {
-            "crm:E55_Type4\u0001origin_type_uri\u0001crm:E55_Type4***origin_type_uri\u0001st_property_urirdfs:label\u00011": {
-                "v": "crm:E55_Type4",
+        "crm:E55_Type3": {
+            "crm:E55_Type3\u0001origin_type_uri\u0001crm:E55_Type3***origin_type_uri\u0001st_property_urirdfs:label\u00011": {
+                "v": "crm:E55_Type3",
                 "w": "origin_type_uri",
-                "name": "crm:E55_Type4***origin_type_uri",
+                "name": "crm:E55_Type3***origin_type_uri",
                 "value": {
                     "label": "rdfs:label",
                     "type": "st_property_uri"
@@ -1055,14 +1035,11 @@
                     "type": "st_property_uri"
                 },
                 "weight": 1
-            }
-        },
-        "nationality": {},
-        "crm:E74_Group2": {
-            "crm:E74_Group2\u0001nationality\u0001crm:E74_Group2***nationality\u0001st_property_urirdfs:label\u00011": {
-                "v": "crm:E74_Group2",
+            },
+            "crm:E74_Group1\u0001nationality\u0001crm:E74_Group1***nationality\u0001st_property_urirdfs:label\u00011": {
+                "v": "crm:E74_Group1",
                 "w": "nationality",
-                "name": "crm:E74_Group2***nationality",
+                "name": "crm:E74_Group1***nationality",
                 "value": {
                     "label": "rdfs:label",
                     "type": "st_property_uri"
@@ -1070,6 +1047,7 @@
                 "weight": 1
             }
         },
+        "nationality": {},
         "Artist_appellation_uri": {},
         "crm:E82_Actor_Appellation1": {
             "crm:E82_Actor_Appellation1\u0001Artist_appellation_uri\u0001crm:E82_Actor_Appellation1***Artist_appellation_uri\u0001st_property_urirdfs:label\u00011": {
@@ -1081,14 +1059,11 @@
                     "type": "st_property_uri"
                 },
                 "weight": 1
-            }
-        },
-        "name": {},
-        "crm:E82_Actor_Appellation2": {
-            "crm:E82_Actor_Appellation2\u0001name\u0001crm:E82_Actor_Appellation2***name\u0001st_property_urirdfs:label\u00011": {
-                "v": "crm:E82_Actor_Appellation2",
+            },
+            "crm:E82_Actor_Appellation1\u0001name\u0001crm:E82_Actor_Appellation1***name\u0001st_property_urirdfs:label\u00011": {
+                "v": "crm:E82_Actor_Appellation1",
                 "w": "name",
-                "name": "crm:E82_Actor_Appellation2***name",
+                "name": "crm:E82_Actor_Appellation1***name",
                 "value": {
                     "label": "rdfs:label",
                     "type": "st_property_uri"
@@ -1096,6 +1071,7 @@
                 "weight": 1
             }
         },
+        "name": {},
         "credit_line": {},
         "crm:E8_Acquisition1": {
             "crm:E8_Acquisition1\u0001credit_line\u0001crm:E8_Acquisition1***credit_line\u0001st_property_uricrm:P3_has_note\u00011": {
@@ -1222,36 +1198,30 @@
         },
         "technique_uri": {},
         "crm:E55_Type1": {
-            "technique_uri": 1
-        },
-        "technique": {},
-        "crm:E55_Type2": {
+            "technique_uri": 1,
             "technique": 1
         },
+        "technique": {},
         "label_type_uri": {},
-        "crm:E55_Type3": {
+        "crm:E55_Type2": {
             "label_type_uri": 1
         },
         "origin_type_uri": {},
-        "crm:E55_Type4": {
+        "crm:E55_Type3": {
             "origin_type_uri": 1
         },
         "nationality_uri": {},
         "crm:E74_Group1": {
-            "nationality_uri": 1
-        },
-        "nationality": {},
-        "crm:E74_Group2": {
+            "nationality_uri": 1,
             "nationality": 1
         },
+        "nationality": {},
         "Artist_appellation_uri": {},
         "crm:E82_Actor_Appellation1": {
-            "Artist_appellation_uri": 1
-        },
-        "name": {},
-        "crm:E82_Actor_Appellation2": {
+            "Artist_appellation_uri": 1,
             "name": 1
         },
+        "name": {},
         "credit_line": {},
         "crm:E8_Acquisition1": {
             "credit_line": 1
@@ -1379,30 +1349,30 @@
             },
             "weight": 1
         },
-        "crm:E55_Type2\u0001technique\u0001crm:E55_Type2***technique\u0001st_property_urirdfs:label\u00011": {
-            "v": "crm:E55_Type2",
+        "crm:E55_Type1\u0001technique\u0001crm:E55_Type1***technique\u0001st_property_urirdfs:label\u00011": {
+            "v": "crm:E55_Type1",
             "w": "technique",
-            "name": "crm:E55_Type2***technique",
+            "name": "crm:E55_Type1***technique",
             "value": {
                 "label": "rdfs:label",
                 "type": "st_property_uri"
             },
             "weight": 1
         },
-        "crm:E55_Type3\u0001label_type_uri\u0001crm:E55_Type3***label_type_uri\u0001st_property_urirdfs:label\u00011": {
-            "v": "crm:E55_Type3",
+        "crm:E55_Type2\u0001label_type_uri\u0001crm:E55_Type2***label_type_uri\u0001st_property_urirdfs:label\u00011": {
+            "v": "crm:E55_Type2",
             "w": "label_type_uri",
-            "name": "crm:E55_Type3***label_type_uri",
+            "name": "crm:E55_Type2***label_type_uri",
             "value": {
                 "label": "rdfs:label",
                 "type": "st_property_uri"
             },
             "weight": 1
         },
-        "crm:E55_Type4\u0001origin_type_uri\u0001crm:E55_Type4***origin_type_uri\u0001st_property_urirdfs:label\u00011": {
-            "v": "crm:E55_Type4",
+        "crm:E55_Type3\u0001origin_type_uri\u0001crm:E55_Type3***origin_type_uri\u0001st_property_urirdfs:label\u00011": {
+            "v": "crm:E55_Type3",
             "w": "origin_type_uri",
-            "name": "crm:E55_Type4***origin_type_uri",
+            "name": "crm:E55_Type3***origin_type_uri",
             "value": {
                 "label": "rdfs:label",
                 "type": "st_property_uri"
@@ -1419,10 +1389,10 @@
             },
             "weight": 1
         },
-        "crm:E74_Group2\u0001nationality\u0001crm:E74_Group2***nationality\u0001st_property_urirdfs:label\u00011": {
-            "v": "crm:E74_Group2",
+        "crm:E74_Group1\u0001nationality\u0001crm:E74_Group1***nationality\u0001st_property_urirdfs:label\u00011": {
+            "v": "crm:E74_Group1",
             "w": "nationality",
-            "name": "crm:E74_Group2***nationality",
+            "name": "crm:E74_Group1***nationality",
             "value": {
                 "label": "rdfs:label",
                 "type": "st_property_uri"
@@ -1439,10 +1409,10 @@
             },
             "weight": 1
         },
-        "crm:E82_Actor_Appellation2\u0001name\u0001crm:E82_Actor_Appellation2***name\u0001st_property_urirdfs:label\u00011": {
-            "v": "crm:E82_Actor_Appellation2",
+        "crm:E82_Actor_Appellation1\u0001name\u0001crm:E82_Actor_Appellation1***name\u0001st_property_urirdfs:label\u00011": {
+            "v": "crm:E82_Actor_Appellation1",
             "w": "name",
-            "name": "crm:E82_Actor_Appellation2***name",
+            "name": "crm:E82_Actor_Appellation1***name",
             "value": {
                 "label": "rdfs:label",
                 "type": "st_property_uri"
@@ -1685,15 +1655,15 @@
             "label": "rdfs:label",
             "type": "st_property_uri"
         },
-        "crm:E55_Type2\u0001technique\u0001crm:E55_Type2***technique\u0001st_property_urirdfs:label\u00011": {
+        "crm:E55_Type1\u0001technique\u0001crm:E55_Type1***technique\u0001st_property_urirdfs:label\u00011": {
             "label": "rdfs:label",
             "type": "st_property_uri"
         },
-        "crm:E55_Type3\u0001label_type_uri\u0001crm:E55_Type3***label_type_uri\u0001st_property_urirdfs:label\u00011": {
+        "crm:E55_Type2\u0001label_type_uri\u0001crm:E55_Type2***label_type_uri\u0001st_property_urirdfs:label\u00011": {
             "label": "rdfs:label",
             "type": "st_property_uri"
         },
-        "crm:E55_Type4\u0001origin_type_uri\u0001crm:E55_Type4***origin_type_uri\u0001st_property_urirdfs:label\u00011": {
+        "crm:E55_Type3\u0001origin_type_uri\u0001crm:E55_Type3***origin_type_uri\u0001st_property_urirdfs:label\u00011": {
             "label": "rdfs:label",
             "type": "st_property_uri"
         },
@@ -1701,7 +1671,7 @@
             "label": "rdfs:label",
             "type": "st_property_uri"
         },
-        "crm:E74_Group2\u0001nationality\u0001crm:E74_Group2***nationality\u0001st_property_urirdfs:label\u00011": {
+        "crm:E74_Group1\u0001nationality\u0001crm:E74_Group1***nationality\u0001st_property_urirdfs:label\u00011": {
             "label": "rdfs:label",
             "type": "st_property_uri"
         },
@@ -1709,7 +1679,7 @@
             "label": "rdfs:label",
             "type": "st_property_uri"
         },
-        "crm:E82_Actor_Appellation2\u0001name\u0001crm:E82_Actor_Appellation2***name\u0001st_property_urirdfs:label\u00011": {
+        "crm:E82_Actor_Appellation1\u0001name\u0001crm:E82_Actor_Appellation1***name\u0001st_property_urirdfs:label\u00011": {
             "label": "rdfs:label",
             "type": "st_property_uri"
         },
@@ -1790,6 +1760,6 @@
             "type": "property"
         }
     },
-    "_nodeCount": 41,
+    "_nodeCount": 38,
     "_edgeCount": 37
 }

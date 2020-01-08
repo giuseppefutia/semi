@@ -1,0 +1,283 @@
+{
+    "options": {
+        "directed": true,
+        "multigraph": true,
+        "compound": false
+    },
+    "nodes": [
+        {
+            "v": "title",
+            "value": {
+                "type": "attribute_name",
+                "label": "title"
+            }
+        },
+        {
+            "v": "aac-ont:CulturalHeritageObject1",
+            "value": {
+                "type": "class_uri",
+                "label": "aac-ont:CulturalHeritageObject"
+            }
+        },
+        {
+            "v": "collection_name",
+            "value": {
+                "type": "attribute_name",
+                "label": "collection_name"
+            }
+        },
+        {
+            "v": "subject_tags",
+            "value": {
+                "type": "attribute_name",
+                "label": "subject_tags"
+            }
+        },
+        {
+            "v": "skos2:Concept2",
+            "value": {
+                "type": "class_uri",
+                "label": "skos2:Concept"
+            }
+        },
+        {
+            "v": "image_URL",
+            "value": {
+                "type": "attribute_name",
+                "label": "image_URL"
+            }
+        },
+        {
+            "v": "edm:WebResource1",
+            "value": {
+                "type": "class_uri",
+                "label": "edm:WebResource"
+            }
+        },
+        {
+            "v": "technique_type",
+            "value": {
+                "type": "attribute_name",
+                "label": "technique_type"
+            }
+        },
+        {
+            "v": "skos2:Concept1",
+            "value": {
+                "type": "class_uri",
+                "label": "skos2:Concept"
+            }
+        },
+        {
+            "v": "dateCreated",
+            "value": {
+                "type": "attribute_name",
+                "label": "dateCreated"
+            }
+        },
+        {
+            "v": "accession_id",
+            "value": {
+                "type": "attribute_name",
+                "label": "accession_id"
+            }
+        },
+        {
+            "v": "materials",
+            "value": {
+                "type": "attribute_name",
+                "label": "materials"
+            }
+        },
+        {
+            "v": "dimensions",
+            "value": {
+                "type": "attribute_name",
+                "label": "dimensions"
+            }
+        },
+        {
+            "v": "artist",
+            "value": {
+                "type": "attribute_name",
+                "label": "artist"
+            }
+        },
+        {
+            "v": "aac-ont:Person1",
+            "value": {
+                "type": "class_uri",
+                "label": "aac-ont:Person"
+            }
+        },
+        {
+            "v": "edm:EuropeanaAggregation1",
+            "value": {
+                "type": "class_uri",
+                "label": "edm:EuropeanaAggregation"
+            }
+        }
+    ],
+    "edges": [
+        {
+            "v": "aac-ont:CulturalHeritageObject1",
+            "w": "title",
+            "name": "aac-ont:CulturalHeritageObject1***title",
+            "value": {
+                "label": "dcterms:title",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "aac-ont:CulturalHeritageObject1",
+            "w": "collection_name",
+            "name": "aac-ont:CulturalHeritageObject1***collection_name",
+            "value": {
+                "label": "dcterms:provenance",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "skos2:Concept2",
+            "w": "subject_tags",
+            "name": "skos2:Concept2***subject_tags",
+            "value": {
+                "label": "skos2:prefLabel",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "aac-ont:CulturalHeritageObject1",
+            "w": "title",
+            "name": "aac-ont:CulturalHeritageObject1***title",
+            "value": {
+                "label": "dcterms:description",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "edm:WebResource1",
+            "w": "image_URL",
+            "name": "edm:WebResource1***image_URL",
+            "value": {
+                "label": "rdfs:label",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "skos2:Concept1",
+            "w": "technique_type",
+            "name": "skos2:Concept1***technique_type",
+            "value": {
+                "label": "skos2:prefLabel",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "aac-ont:CulturalHeritageObject1",
+            "w": "dateCreated",
+            "name": "aac-ont:CulturalHeritageObject1***dateCreated",
+            "value": {
+                "label": "dcterms:created",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "aac-ont:CulturalHeritageObject1",
+            "w": "accession_id",
+            "name": "aac-ont:CulturalHeritageObject1***accession_id",
+            "value": {
+                "label": "aac-ont:accessionNumber",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "aac-ont:CulturalHeritageObject1",
+            "w": "materials",
+            "name": "aac-ont:CulturalHeritageObject1***materials",
+            "value": {
+                "label": "dcterms:medium",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "aac-ont:CulturalHeritageObject1",
+            "w": "dimensions",
+            "name": "aac-ont:CulturalHeritageObject1***dimensions",
+            "value": {
+                "label": "dcterms:extent",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "aac-ont:Person1",
+            "w": "artist",
+            "name": "aac-ont:Person1***artist",
+            "value": {
+                "label": "ElementsGr2:nameOfThePerson",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "aac-ont:CulturalHeritageObject1",
+            "w": "aac-ont:Person1",
+            "name": "aac-ont:CulturalHeritageObject1***dcterms:creator",
+            "value": {
+                "label": "dcterms:creator",
+                "type": "property"
+            },
+            "weight": 1
+        },
+        {
+            "v": "aac-ont:CulturalHeritageObject1",
+            "w": "skos2:Concept1",
+            "name": "aac-ont:CulturalHeritageObject1***dcterms:subject",
+            "value": {
+                "label": "dcterms:subject",
+                "type": "property"
+            },
+            "weight": 1
+        },
+        {
+            "v": "aac-ont:CulturalHeritageObject1",
+            "w": "skos2:Concept2",
+            "name": "aac-ont:CulturalHeritageObject1***edm:hasType",
+            "value": {
+                "label": "edm:hasType",
+                "type": "property"
+            },
+            "weight": 1
+        },
+        {
+            "v": "edm:EuropeanaAggregation1",
+            "w": "aac-ont:CulturalHeritageObject1",
+            "name": "edm:EuropeanaAggregation1***edm:aggregatedCHO",
+            "value": {
+                "label": "edm:aggregatedCHO",
+                "type": "property"
+            },
+            "weight": 1
+        },
+        {
+            "v": "edm:EuropeanaAggregation1",
+            "w": "edm:WebResource1",
+            "name": "edm:EuropeanaAggregation1***edm:hasView",
+            "value": {
+                "label": "edm:hasView",
+                "type": "property"
+            },
+            "weight": 1
+        }
+    ]
+}

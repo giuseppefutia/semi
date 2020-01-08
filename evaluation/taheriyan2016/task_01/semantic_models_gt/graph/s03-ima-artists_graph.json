@@ -6,6 +6,20 @@
     },
     "nodes": [
         {
+            "v": "Artist URI",
+            "value": {
+                "type": "attribute_name",
+                "label": "Artist URI"
+            }
+        },
+        {
+            "v": "crm:E21_Person1",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E21_Person"
+            }
+        },
+        {
             "v": "title",
             "value": {
                 "type": "attribute_name",
@@ -48,10 +62,10 @@
             }
         },
         {
-            "v": "nationality",
+            "v": "nationality uri",
             "value": {
                 "type": "attribute_name",
-                "label": "nationality"
+                "label": "nationality uri"
             }
         },
         {
@@ -62,24 +76,17 @@
             }
         },
         {
-            "v": "appellation",
+            "v": "nationality",
             "value": {
                 "type": "attribute_name",
-                "label": "appellation"
+                "label": "nationality"
             }
         },
         {
-            "v": "crm:E21_Person1",
-            "value": {
-                "type": "class_uri",
-                "label": "crm:E21_Person"
-            }
-        },
-        {
-            "v": "name",
+            "v": "artist appellation uri",
             "value": {
                 "type": "attribute_name",
-                "label": "name"
+                "label": "artist appellation uri"
             }
         },
         {
@@ -87,6 +94,13 @@
             "value": {
                 "type": "class_uri",
                 "label": "crm:E82_Actor_Appellation"
+            }
+        },
+        {
+            "v": "name first last",
+            "value": {
+                "type": "attribute_name",
+                "label": "name first last"
             }
         },
         {
@@ -120,6 +134,16 @@
     ],
     "edges": [
         {
+            "v": "crm:E21_Person1",
+            "w": "Artist URI",
+            "name": "crm:E21_Person1***Artist URI",
+            "value": {
+                "label": "rdfs:label",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
             "v": "crm:E35_Title1",
             "w": "title",
             "name": "crm:E35_Title1***title",
@@ -151,6 +175,16 @@
         },
         {
             "v": "crm:E74_Group1",
+            "w": "nationality uri",
+            "name": "crm:E74_Group1***nationality uri",
+            "value": {
+                "label": "rdfs:label",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E74_Group1",
             "w": "nationality",
             "name": "crm:E74_Group1***nationality",
             "value": {
@@ -160,9 +194,9 @@
             "weight": 1
         },
         {
-            "v": "crm:E21_Person1",
-            "w": "appellation",
-            "name": "crm:E21_Person1***appellation",
+            "v": "crm:E82_Actor_Appellation1",
+            "w": "artist appellation uri",
+            "name": "crm:E82_Actor_Appellation1***artist appellation uri",
             "value": {
                 "label": "rdfs:label",
                 "type": "st_property_uri"
@@ -171,8 +205,8 @@
         },
         {
             "v": "crm:E82_Actor_Appellation1",
-            "w": "name",
-            "name": "crm:E82_Actor_Appellation1***name",
+            "w": "name first last",
+            "name": "crm:E82_Actor_Appellation1***name first last",
             "value": {
                 "label": "rdfs:label",
                 "type": "st_property_uri"

@@ -6,10 +6,10 @@
     },
     "nodes": [
         {
-            "v": "artist.artist_URI",
+            "v": "artist_URI",
             "value": {
                 "type": "attribute_name",
-                "label": "artist.artist_URI"
+                "label": "artist_URI"
             }
         },
         {
@@ -38,13 +38,6 @@
             "value": {
                 "type": "attribute_name",
                 "label": "object_uri"
-            }
-        },
-        {
-            "v": "crm:E22_Man-Made_Object2",
-            "value": {
-                "type": "class_uri",
-                "label": "crm:E22_Man-Made_Object"
             }
         },
         {
@@ -153,13 +146,6 @@
             }
         },
         {
-            "v": "crm:E55_Type2",
-            "value": {
-                "type": "class_uri",
-                "label": "crm:E55_Type"
-            }
-        },
-        {
             "v": "Nationality_URI",
             "value": {
                 "type": "attribute_name",
@@ -174,17 +160,10 @@
             }
         },
         {
-            "v": "nationality",
+            "v": "artist.nationality",
             "value": {
                 "type": "attribute_name",
-                "label": "nationality"
-            }
-        },
-        {
-            "v": "crm:E74_Group2",
-            "value": {
-                "type": "class_uri",
-                "label": "crm:E74_Group"
+                "label": "artist.nationality"
             }
         },
         {
@@ -202,17 +181,10 @@
             }
         },
         {
-            "v": "name",
+            "v": "artist.name",
             "value": {
                 "type": "attribute_name",
-                "label": "name"
-            }
-        },
-        {
-            "v": "crm:E82_Actor_Appellation2",
-            "value": {
-                "type": "class_uri",
-                "label": "crm:E82_Actor_Appellation"
+                "label": "artist.name"
             }
         },
         {
@@ -254,8 +226,8 @@
     "edges": [
         {
             "v": "crm:E21_Person1",
-            "w": "artist.artist_URI",
-            "name": "crm:E21_Person1***artist.artist_URI",
+            "w": "artist_URI",
+            "name": "crm:E21_Person1***artist_URI",
             "value": {
                 "label": "rdfs:label",
                 "type": "st_property_uri"
@@ -273,9 +245,9 @@
             "weight": 1
         },
         {
-            "v": "crm:E22_Man-Made_Object2",
+            "v": "crm:E22_Man-Made_Object1",
             "w": "object_uri",
-            "name": "crm:E22_Man-Made_Object2***object_uri",
+            "name": "crm:E22_Man-Made_Object1***object_uri",
             "value": {
                 "label": "rdfs:label",
                 "type": "st_property_uri"
@@ -353,9 +325,9 @@
             "weight": 1
         },
         {
-            "v": "crm:E55_Type2",
+            "v": "crm:E55_Type1",
             "w": "medium",
-            "name": "crm:E55_Type2***medium",
+            "name": "crm:E55_Type1***medium",
             "value": {
                 "label": "rdfs:label",
                 "type": "st_property_uri"
@@ -373,9 +345,9 @@
             "weight": 1
         },
         {
-            "v": "crm:E74_Group2",
-            "w": "nationality",
-            "name": "crm:E74_Group2***nationality",
+            "v": "crm:E74_Group1",
+            "w": "artist.nationality",
+            "name": "crm:E74_Group1***artist.nationality",
             "value": {
                 "label": "rdfs:label",
                 "type": "st_property_uri"
@@ -393,9 +365,9 @@
             "weight": 1
         },
         {
-            "v": "crm:E82_Actor_Appellation2",
-            "w": "name",
-            "name": "crm:E82_Actor_Appellation2***name",
+            "v": "crm:E82_Actor_Appellation1",
+            "w": "artist.name",
+            "name": "crm:E82_Actor_Appellation1***artist.name",
             "value": {
                 "label": "rdfs:label",
                 "type": "st_property_uri"

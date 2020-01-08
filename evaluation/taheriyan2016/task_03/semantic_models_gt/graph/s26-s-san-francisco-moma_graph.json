@@ -1,0 +1,375 @@
+{
+    "options": {
+        "directed": true,
+        "multigraph": true,
+        "compound": false
+    },
+    "nodes": [
+        {
+            "v": "art-work.deathPlaceLabel",
+            "value": {
+                "type": "attribute_name",
+                "label": "art-work.deathPlaceLabel"
+            }
+        },
+        {
+            "v": "aac-ont:Place2",
+            "value": {
+                "type": "class_uri",
+                "label": "aac-ont:Place"
+            }
+        },
+        {
+            "v": "art-work.nationality",
+            "value": {
+                "type": "attribute_name",
+                "label": "art-work.nationality"
+            }
+        },
+        {
+            "v": "aac-ont:Person1",
+            "value": {
+                "type": "class_uri",
+                "label": "aac-ont:Person"
+            }
+        },
+        {
+            "v": "art-work.image-URL",
+            "value": {
+                "type": "attribute_name",
+                "label": "art-work.image-URL"
+            }
+        },
+        {
+            "v": "edm:WebResource1",
+            "value": {
+                "type": "class_uri",
+                "label": "edm:WebResource"
+            }
+        },
+        {
+            "v": "art-work.credit",
+            "value": {
+                "type": "attribute_name",
+                "label": "art-work.credit"
+            }
+        },
+        {
+            "v": "aac-ont:CulturalHeritageObject1",
+            "value": {
+                "type": "class_uri",
+                "label": "aac-ont:CulturalHeritageObject"
+            }
+        },
+        {
+            "v": "art-work.accession-id",
+            "value": {
+                "type": "attribute_name",
+                "label": "art-work.accession-id"
+            }
+        },
+        {
+            "v": "art-work.copyright",
+            "value": {
+                "type": "attribute_name",
+                "label": "art-work.copyright"
+            }
+        },
+        {
+            "v": "art-work.dimensions",
+            "value": {
+                "type": "attribute_name",
+                "label": "art-work.dimensions"
+            }
+        },
+        {
+            "v": "art-work.type",
+            "value": {
+                "type": "attribute_name",
+                "label": "art-work.type"
+            }
+        },
+        {
+            "v": "skos2:Concept1",
+            "value": {
+                "type": "class_uri",
+                "label": "skos2:Concept"
+            }
+        },
+        {
+            "v": "art-work.birthYear",
+            "value": {
+                "type": "attribute_name",
+                "label": "art-work.birthYear"
+            }
+        },
+        {
+            "v": "art-work.deathYear",
+            "value": {
+                "type": "attribute_name",
+                "label": "art-work.deathYear"
+            }
+        },
+        {
+            "v": "art-work.url",
+            "value": {
+                "type": "attribute_name",
+                "label": "art-work.url"
+            }
+        },
+        {
+            "v": "foaf:Document1",
+            "value": {
+                "type": "class_uri",
+                "label": "foaf:Document"
+            }
+        },
+        {
+            "v": "art-work.artistName",
+            "value": {
+                "type": "attribute_name",
+                "label": "art-work.artistName"
+            }
+        },
+        {
+            "v": "art-work.title",
+            "value": {
+                "type": "attribute_name",
+                "label": "art-work.title"
+            }
+        },
+        {
+            "v": "art-work.birthPlaceLabel",
+            "value": {
+                "type": "attribute_name",
+                "label": "art-work.birthPlaceLabel"
+            }
+        },
+        {
+            "v": "aac-ont:Place1",
+            "value": {
+                "type": "class_uri",
+                "label": "aac-ont:Place"
+            }
+        },
+        {
+            "v": "edm:EuropeanaAggregation1",
+            "value": {
+                "type": "class_uri",
+                "label": "edm:EuropeanaAggregation"
+            }
+        }
+    ],
+    "edges": [
+        {
+            "v": "aac-ont:Place2",
+            "w": "art-work.deathPlaceLabel",
+            "name": "aac-ont:Place2***art-work.deathPlaceLabel",
+            "value": {
+                "label": "rdfs:label",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "aac-ont:Person1",
+            "w": "art-work.nationality",
+            "name": "aac-ont:Person1***art-work.nationality",
+            "value": {
+                "label": "ElementsGr2:countryAssociatedWithThePerson",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "edm:WebResource1",
+            "w": "art-work.image-URL",
+            "name": "edm:WebResource1***art-work.image-URL",
+            "value": {
+                "label": "rdfs:label",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "aac-ont:CulturalHeritageObject1",
+            "w": "art-work.credit",
+            "name": "aac-ont:CulturalHeritageObject1***art-work.credit",
+            "value": {
+                "label": "dcterms:provenance",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "aac-ont:CulturalHeritageObject1",
+            "w": "art-work.accession-id",
+            "name": "aac-ont:CulturalHeritageObject1***art-work.accession-id",
+            "value": {
+                "label": "aac-ont:accessionNumber",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "aac-ont:CulturalHeritageObject1",
+            "w": "art-work.copyright",
+            "name": "aac-ont:CulturalHeritageObject1***art-work.copyright",
+            "value": {
+                "label": "dcterms:rightsHolder",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "aac-ont:CulturalHeritageObject1",
+            "w": "art-work.dimensions",
+            "name": "aac-ont:CulturalHeritageObject1***art-work.dimensions",
+            "value": {
+                "label": "dcterms:extent",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "skos2:Concept1",
+            "w": "art-work.type",
+            "name": "skos2:Concept1***art-work.type",
+            "value": {
+                "label": "skos2:prefLabel",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "aac-ont:Person1",
+            "w": "art-work.birthYear",
+            "name": "aac-ont:Person1***art-work.birthYear",
+            "value": {
+                "label": "ElementsGr2:dateOfBirth",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "aac-ont:Person1",
+            "w": "art-work.deathYear",
+            "name": "aac-ont:Person1***art-work.deathYear",
+            "value": {
+                "label": "ElementsGr2:dateOfDeath",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "foaf:Document1",
+            "w": "art-work.url",
+            "name": "foaf:Document1***art-work.url",
+            "value": {
+                "label": "rdfs:label",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "aac-ont:Person1",
+            "w": "art-work.artistName",
+            "name": "aac-ont:Person1***art-work.artistName",
+            "value": {
+                "label": "ElementsGr2:nameOfThePerson",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "aac-ont:CulturalHeritageObject1",
+            "w": "art-work.title",
+            "name": "aac-ont:CulturalHeritageObject1***art-work.title",
+            "value": {
+                "label": "dcterms:title",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "aac-ont:Place1",
+            "w": "art-work.birthPlaceLabel",
+            "name": "aac-ont:Place1***art-work.birthPlaceLabel",
+            "value": {
+                "label": "rdfs:label",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "aac-ont:CulturalHeritageObject1",
+            "w": "aac-ont:Person1",
+            "name": "aac-ont:CulturalHeritageObject1***dcterms:creator",
+            "value": {
+                "label": "dcterms:creator",
+                "type": "property"
+            },
+            "weight": 1
+        },
+        {
+            "v": "aac-ont:CulturalHeritageObject1",
+            "w": "skos2:Concept1",
+            "name": "aac-ont:CulturalHeritageObject1***edm:hasType",
+            "value": {
+                "label": "edm:hasType",
+                "type": "property"
+            },
+            "weight": 1
+        },
+        {
+            "v": "aac-ont:CulturalHeritageObject1",
+            "w": "foaf:Document1",
+            "name": "aac-ont:CulturalHeritageObject1***foaf:page",
+            "value": {
+                "label": "foaf:page",
+                "type": "property"
+            },
+            "weight": 1
+        },
+        {
+            "v": "aac-ont:Person1",
+            "w": "aac-ont:Place1",
+            "name": "aac-ont:Person1***ElementsGr2:placeOfBirth",
+            "value": {
+                "label": "ElementsGr2:placeOfBirth",
+                "type": "property"
+            },
+            "weight": 1
+        },
+        {
+            "v": "aac-ont:Person1",
+            "w": "aac-ont:Place2",
+            "name": "aac-ont:Person1***ElementsGr2:placeOfDeath",
+            "value": {
+                "label": "ElementsGr2:placeOfDeath",
+                "type": "property"
+            },
+            "weight": 1
+        },
+        {
+            "v": "edm:EuropeanaAggregation1",
+            "w": "aac-ont:CulturalHeritageObject1",
+            "name": "edm:EuropeanaAggregation1***edm:aggregatedCHO",
+            "value": {
+                "label": "edm:aggregatedCHO",
+                "type": "property"
+            },
+            "weight": 1
+        },
+        {
+            "v": "edm:EuropeanaAggregation1",
+            "w": "edm:WebResource1",
+            "name": "edm:EuropeanaAggregation1***edm:hasView",
+            "value": {
+                "label": "edm:hasView",
+                "type": "property"
+            },
+            "weight": 1
+        }
+    ]
+}
