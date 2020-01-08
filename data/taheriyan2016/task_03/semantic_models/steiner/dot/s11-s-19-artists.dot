@@ -1,0 +1,15 @@
+digraph {
+  "aac-ont:Person1" [type=class_uri,label="aac-ont:Person"]
+  nationality [type=attribute_name,label=nationality]
+  artist_name [type=attribute_name,label=artist_name]
+  birthDate [type=attribute_name,label=birthDate]
+  deathDate [type=attribute_name,label=deathDate]
+  long_biography [type=attribute_name,label=long_biography]
+  occupation [type=attribute_name,label=occupation]
+  "aac-ont:Person1" -> nationality [label="ElementsGr2:countryAssociatedWithThePerson",type=st_property_uri]
+  artist_name -> "aac-ont:Person1" [type=st_property_uri,label="ElementsGr2:nameOfThePerson***inverted"]
+  birthDate -> "aac-ont:Person1" [type=st_property_uri,label="ElementsGr2:dateOfBirth***inverted"]
+  deathDate -> "aac-ont:Person1" [type=st_property_uri,label="ElementsGr2:dateOfDeath***inverted"]
+  long_biography -> "aac-ont:Person1" [type=st_property_uri,label="ElementsGr2:biographicalInformation***inverted"]
+  occupation -> "aac-ont:Person1" [type=st_property_uri,label="ElementsGr2:professionOrOccupation***inverted"]
+}

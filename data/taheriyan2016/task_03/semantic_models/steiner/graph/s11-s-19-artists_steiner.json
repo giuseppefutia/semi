@@ -1,0 +1,120 @@
+{
+    "options": {
+        "directed": true,
+        "multigraph": true,
+        "compound": false
+    },
+    "nodes": [
+        {
+            "v": "aac-ont:Person1",
+            "value": {
+                "type": "class_uri",
+                "label": "aac-ont:Person"
+            }
+        },
+        {
+            "v": "nationality",
+            "value": {
+                "type": "attribute_name",
+                "label": "nationality"
+            }
+        },
+        {
+            "v": "artist_name",
+            "value": {
+                "type": "attribute_name",
+                "label": "artist_name"
+            }
+        },
+        {
+            "v": "birthDate",
+            "value": {
+                "type": "attribute_name",
+                "label": "birthDate"
+            }
+        },
+        {
+            "v": "deathDate",
+            "value": {
+                "type": "attribute_name",
+                "label": "deathDate"
+            }
+        },
+        {
+            "v": "long_biography",
+            "value": {
+                "type": "attribute_name",
+                "label": "long_biography"
+            }
+        },
+        {
+            "v": "occupation",
+            "value": {
+                "type": "attribute_name",
+                "label": "occupation"
+            }
+        }
+    ],
+    "edges": [
+        {
+            "v": "aac-ont:Person1",
+            "w": "nationality",
+            "name": "aac-ont:Person1***nationality",
+            "value": {
+                "label": "ElementsGr2:countryAssociatedWithThePerson",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "artist_name",
+            "w": "aac-ont:Person1",
+            "name": "artist_name***aac-ont:Person1",
+            "value": {
+                "type": "st_property_uri",
+                "label": "ElementsGr2:nameOfThePerson***inverted"
+            },
+            "weight": 1
+        },
+        {
+            "v": "birthDate",
+            "w": "aac-ont:Person1",
+            "name": "birthDate***aac-ont:Person1",
+            "value": {
+                "type": "st_property_uri",
+                "label": "ElementsGr2:dateOfBirth***inverted"
+            },
+            "weight": 1
+        },
+        {
+            "v": "deathDate",
+            "w": "aac-ont:Person1",
+            "name": "deathDate***aac-ont:Person1",
+            "value": {
+                "type": "st_property_uri",
+                "label": "ElementsGr2:dateOfDeath***inverted"
+            },
+            "weight": 1
+        },
+        {
+            "v": "long_biography",
+            "w": "aac-ont:Person1",
+            "name": "long_biography***aac-ont:Person1",
+            "value": {
+                "type": "st_property_uri",
+                "label": "ElementsGr2:biographicalInformation***inverted"
+            },
+            "weight": 1
+        },
+        {
+            "v": "occupation",
+            "w": "aac-ont:Person1",
+            "name": "occupation***aac-ont:Person1",
+            "value": {
+                "type": "st_property_uri",
+                "label": "ElementsGr2:professionOrOccupation***inverted"
+            },
+            "weight": 1
+        }
+    ]
+}

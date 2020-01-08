@@ -1,0 +1,171 @@
+{
+    "_isDirected": true,
+    "_isMultigraph": true,
+    "_isCompound": false,
+    "_nodes": {
+        "aac-ont:Person1": {
+            "type": "class_uri",
+            "label": "aac-ont:Person"
+        },
+        "deathDate": {
+            "type": "attribute_name",
+            "label": "deathDate"
+        },
+        "birthDate": {
+            "type": "attribute_name",
+            "label": "birthDate"
+        },
+        "name": {
+            "type": "attribute_name",
+            "label": "name"
+        }
+    },
+    "_in": {
+        "aac-ont:Person1": {
+            "birthDate\u0001aac-ont:Person1\u0001birthDate***aac-ont:Person1\u0001st_property_uriElementsGr2:dateOfBirth***inverted\u00011": {
+                "v": "birthDate",
+                "w": "aac-ont:Person1",
+                "name": "birthDate***aac-ont:Person1",
+                "value": {
+                    "type": "st_property_uri",
+                    "label": "ElementsGr2:dateOfBirth***inverted"
+                },
+                "weight": 1
+            },
+            "name\u0001aac-ont:Person1\u0001name***aac-ont:Person1\u0001st_property_uriElementsGr2:biographicalInformation***inverted\u00011": {
+                "v": "name",
+                "w": "aac-ont:Person1",
+                "name": "name***aac-ont:Person1",
+                "value": {
+                    "type": "st_property_uri",
+                    "label": "ElementsGr2:biographicalInformation***inverted"
+                },
+                "weight": 1
+            }
+        },
+        "deathDate": {
+            "aac-ont:Person1\u0001deathDate\u0001aac-ont:Person1***deathDate\u0001st_property_uriElementsGr2:dateOfDeath\u00011": {
+                "v": "aac-ont:Person1",
+                "w": "deathDate",
+                "name": "aac-ont:Person1***deathDate",
+                "value": {
+                    "label": "ElementsGr2:dateOfDeath",
+                    "type": "st_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "birthDate": {},
+        "name": {}
+    },
+    "_preds": {
+        "aac-ont:Person1": {
+            "birthDate": 1,
+            "name": 1
+        },
+        "deathDate": {
+            "aac-ont:Person1": 1
+        },
+        "birthDate": {},
+        "name": {}
+    },
+    "_out": {
+        "aac-ont:Person1": {
+            "aac-ont:Person1\u0001deathDate\u0001aac-ont:Person1***deathDate\u0001st_property_uriElementsGr2:dateOfDeath\u00011": {
+                "v": "aac-ont:Person1",
+                "w": "deathDate",
+                "name": "aac-ont:Person1***deathDate",
+                "value": {
+                    "label": "ElementsGr2:dateOfDeath",
+                    "type": "st_property_uri"
+                },
+                "weight": 1
+            }
+        },
+        "deathDate": {},
+        "birthDate": {
+            "birthDate\u0001aac-ont:Person1\u0001birthDate***aac-ont:Person1\u0001st_property_uriElementsGr2:dateOfBirth***inverted\u00011": {
+                "v": "birthDate",
+                "w": "aac-ont:Person1",
+                "name": "birthDate***aac-ont:Person1",
+                "value": {
+                    "type": "st_property_uri",
+                    "label": "ElementsGr2:dateOfBirth***inverted"
+                },
+                "weight": 1
+            }
+        },
+        "name": {
+            "name\u0001aac-ont:Person1\u0001name***aac-ont:Person1\u0001st_property_uriElementsGr2:biographicalInformation***inverted\u00011": {
+                "v": "name",
+                "w": "aac-ont:Person1",
+                "name": "name***aac-ont:Person1",
+                "value": {
+                    "type": "st_property_uri",
+                    "label": "ElementsGr2:biographicalInformation***inverted"
+                },
+                "weight": 1
+            }
+        }
+    },
+    "_sucs": {
+        "aac-ont:Person1": {
+            "deathDate": 1
+        },
+        "deathDate": {},
+        "birthDate": {
+            "aac-ont:Person1": 1
+        },
+        "name": {
+            "aac-ont:Person1": 1
+        }
+    },
+    "_edgeObjs": {
+        "aac-ont:Person1\u0001deathDate\u0001aac-ont:Person1***deathDate\u0001st_property_uriElementsGr2:dateOfDeath\u00011": {
+            "v": "aac-ont:Person1",
+            "w": "deathDate",
+            "name": "aac-ont:Person1***deathDate",
+            "value": {
+                "label": "ElementsGr2:dateOfDeath",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        "birthDate\u0001aac-ont:Person1\u0001birthDate***aac-ont:Person1\u0001st_property_uriElementsGr2:dateOfBirth***inverted\u00011": {
+            "v": "birthDate",
+            "w": "aac-ont:Person1",
+            "name": "birthDate***aac-ont:Person1",
+            "value": {
+                "type": "st_property_uri",
+                "label": "ElementsGr2:dateOfBirth***inverted"
+            },
+            "weight": 1
+        },
+        "name\u0001aac-ont:Person1\u0001name***aac-ont:Person1\u0001st_property_uriElementsGr2:biographicalInformation***inverted\u00011": {
+            "v": "name",
+            "w": "aac-ont:Person1",
+            "name": "name***aac-ont:Person1",
+            "value": {
+                "type": "st_property_uri",
+                "label": "ElementsGr2:biographicalInformation***inverted"
+            },
+            "weight": 1
+        }
+    },
+    "_edgeLabels": {
+        "aac-ont:Person1\u0001deathDate\u0001aac-ont:Person1***deathDate\u0001st_property_uriElementsGr2:dateOfDeath\u00011": {
+            "label": "ElementsGr2:dateOfDeath",
+            "type": "st_property_uri"
+        },
+        "birthDate\u0001aac-ont:Person1\u0001birthDate***aac-ont:Person1\u0001st_property_uriElementsGr2:dateOfBirth***inverted\u00011": {
+            "type": "st_property_uri",
+            "label": "ElementsGr2:dateOfBirth***inverted"
+        },
+        "name\u0001aac-ont:Person1\u0001name***aac-ont:Person1\u0001st_property_uriElementsGr2:biographicalInformation***inverted\u00011": {
+            "type": "st_property_uri",
+            "label": "ElementsGr2:biographicalInformation***inverted"
+        }
+    },
+    "_nodeCount": 4,
+    "_edgeCount": 3
+}
