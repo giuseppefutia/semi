@@ -56,7 +56,11 @@ var build_construct = (st, steiner, classes, closure_entities, closure_reference
 }
 
 var create_semantic_relations = (steiner, st_classes, classes, closure_entities, closure_references) => {
-    var semantic_relations = {};
+
+    // The following variable is useful to manage closure statements
+    // In particular it is useful to increment the indexes of the entities
+    var closure_statements = [];
+
     var body = '';
     var nodes = steiner.nodes;
     var edges = steiner.edges;
@@ -65,11 +69,11 @@ var create_semantic_relations = (steiner, st_classes, classes, closure_entities,
         if (edges[i].value.type !== 'st_property_uri') { // Semantic types are already managed in build_construct
             var label = edges[i].value.label;
             if (label.indexOf('inverted') === -1) {
-                var triple = process_edge_values(edges[i].v, label, edges[i].w, st_classes, classes, closure_entities, closure_references);
+                var triple = process_edge_values(edges[i].v, label, edges[i].w, st_classes, classes, closure_entities, closure_references, closure_statements);
                 body += write_triple(triple['subject'], triple['property'], triple['object']);
             } else {
                 var subject = '?' + edges[i].w.split(':')[1];
-                var triple = process_edge_values(edges[i].w, label.split('***')[0], edges[i].v, st_classes, classes, closure_entities, closure_references);
+                var triple = process_edge_values(edges[i].w, label.split('***')[0], edges[i].v, st_classes, classes, closure_entities, closure_references, closure_statements);
                 body += write_triple(triple['subject'], triple['property'], triple['object']);
             }
         }
@@ -85,13 +89,19 @@ var create_semantic_relations = (steiner, st_classes, classes, closure_entities,
  * entities [0,1,0] field define in the semantic type file.
  * For the closure classes the algorithm creates the entities in an automatic way!
  */
-var process_edge_values = (edge_subject, edge_property, edge_object, st_classes, classes, closure_entities, closure_references) => {
+var process_edge_values = (edge_subject, edge_property, edge_object, st_classes, classes, closure_entities, closure_references, closure_statements) => {
     var triple = {};
     var instances_uris = utils.generate_instance_uris(classes);
 
     // Check if the subject or the object of the edges are included within
     // semantic types class
     var subject = '?' + edge_subject.split(':')[1];
+
+    if (subject === '?undefined') {
+        subject = '?' + edge_subject;
+        console.log('\n *** WARNING: the subject is not an ontology class: ' + subject + '***\n');
+    }
+
     var property = edge_property
     var object = '?' + edge_object.split(':')[1];
     var is_subject_st_class = st_classes.indexOf(subject);
@@ -109,7 +119,7 @@ var process_edge_values = (edge_subject, edge_property, edge_object, st_classes,
         if (object === '?Thing') object = 'owl:Thing';
         else {
             // Get last element of the subject (in other words its index)
-            var st_index = subject.slice(-1)
+            var st_index = subject.slice(-1);
 
             // Check if the object has already an index
             var object_last_char = object.charAt(object.length - 1);
@@ -117,8 +127,11 @@ var process_edge_values = (edge_subject, edge_property, edge_object, st_classes,
                 object = object + st_index;
             }
 
-            closure_entities.push(object);
-            closure_references.push(subject);
+            // Check if the object is included among closure entities
+            if (!closure_entities.includes(object)) {
+                closure_entities.push(object);
+                closure_references.push(subject);
+            }
         }
     } else if (is_subject_st_class === -1 && is_object_st_class !== -1) {
         // The object is a semantic type and the subject is not
@@ -131,39 +144,128 @@ var process_edge_values = (edge_subject, edge_property, edge_object, st_classes,
             subject = subject + st_index;
         }
 
-        closure_entities.push(subject);
-        closure_references.push(object);
+        // Check if the subject is included among closure entities
+        if (!closure_entities.includes(subject)) {
+            closure_entities.push(subject);
+            closure_references.push(object);
+        }
+
         if (object === '?Thing') object = 'owl:Thing';
     } else {
-        // Both entities are not semantic types
-        var subject_matches = closure_entities.filter(s => s.includes(subject))
-        var subject_index = 0;
-        for (s in subject_matches) {
-            var index = closure_entities.indexOf(subject_matches[s]);
-            if (index > subject_index) subject_index = index;
-        }
+        // *** VERY COMPLEX CASE Both entities are not semantic types *** //
 
-        // Check if the subject has already an index
-        var subject_last_char = subject.charAt(subject.length - 1);
-        if (isNaN(parseInt(subject_last_char))) {
-            subject = subject + st_index;
-        }
+        // Check if the subject matches some of the closure entities identified in relations including semantic types
+        var subject_matches = closure_entities.filter(s => s.includes(subject));
 
-        if (object === '?Thing') object = 'owl:Thing';
-        else {
-            var object_matches = closure_entities.filter(s => s.includes(object))
-            var object_index = 0;
-            for (o in object_matches) {
-                var index = closure_entities.indexOf(object_matches[o]);
-                if (index > object_index) object_index = index;
+        // Check if the object matches some of the closure entities identified in relations including semantic types
+        var object_matches = closure_entities.filter(s => s.includes(object));
 
-                // Check if the object has already an index
-                var object_last_char = object.charAt(object.length - 1);
-                if (isNaN(parseInt(object_last_char))) {
-                    object = object + st_index;
+        // Manage the case in which the both subject and object closures are already seen in relations including semantic types
+        if (subject_matches.length > 0 && object_matches.length > 0) {
+
+            // XXX For now I consider one to one relationships between closures
+
+            var closure_subject_index = 0; // This index is useful to process matched entities in closures
+            var closure_object_index = 0;
+            var subject = subject_matches[closure_subject_index];
+            var object = object_matches[closure_object_index];
+            var statement = subject + ' ' + property + ' ' + object;
+
+            // Check if the closure exist among the already detected closure statements
+            // TODO: need to improve this closure management
+            while (closure_statements.includes(statement)) {
+
+                // Check the following closure subject
+                if (subject_matches[closure_subject_index + 1] !== undefined) {
+                    closure_subject_index++;
+                    subject = subject_matches[closure_subject_index];
                 }
 
+                // Check the following closure object
+                if (object_matches[closure_object_index + 1] !== undefined) {
+                    closure_object_index++;
+                    object = object_matches[closure_object_index];
+                }
+
+                statement = subject + ' ' + property + ' ' + object;
             }
+            closure_statements.push(statement);
+            subject = subject;
+            object = object;
+        }
+
+        // Manage the case in which:
+        // (i) the closure subject is seen among the relations including semantic types
+        // (ii) the closure object is NOT seen
+        else if (subject_matches.length > 0 && object_matches.length === 0) {
+
+            // Case in which object === ?Thing
+            if (object === '?Thing') {
+                var closure_subject_index = 0; // This index is useful to process matched entities in closures
+                var subject = subject_matches[closure_subject_index];
+                var object = 'owl:Thing';
+                var statement = subject + ' ' + property + ' ' + object;
+
+                // Check if the closure exist among the already detected closure statements
+                // TODO: need to improve this closure management
+                while (closure_statements.includes(statement)) {
+
+                    // Check the following closure subject
+                    if (subject_matches[closure_subject_index + 1] !== undefined) {
+                        closure_subject_index++;
+                        subject = subject_matches[closure_subject_index];
+                    }
+
+                    statement = subject + ' ' + property + ' ' + object;
+                }
+                closure_statements.push(statement);
+                subject = subject;
+                object = object;
+            }
+            // Case in which the object !== Thing
+            else {
+                console.log('\n*** WARNING: This case is no yet managed ***');
+                console.error('\n*** WARNING: This case is no yet managed ***');
+                console.log('The subject is included among the closures, while object is not and it is different from ?Thing');
+                console.error('The subject is included among the closures, while object is not and it is different from ?Thing');
+            }
+        }
+
+        // Manage the case in which:
+        // (i) the closure subject is NOT seen among the relations including semantic types
+        // (ii) the closure object is seen among the relations including semantic types
+        else if (subject_matches.length === 0 && object_matches.length > 0) {
+            console.log('\n*** WARNING: This case is no yet managed ***');
+            console.error('\n***WARNING: This case is no yet managed ***');
+            console.log('The subject is included among the closures, while object is not and it is different from ?Thing');
+            console.error('The subject is included among the closures, while object is not and it is different from ?Thing');
+        }
+
+        // Manage the case in which both closure subjects and objects are not seen among relations including semantic types
+        else if (subject_matches.length === 0 && object_matches.length === 0) {
+
+            // Case in which object === ?Thing
+            if (object === '?Thing') {
+                var subject = subject;
+                var object = 'owl:Thing';
+                var statement = subject + ' ' + property + ' ' + object;
+
+                // Check if the closure exist among the already detected closure statements
+                // TODO: need to improve this closure management
+                while (closure_statements.includes(statement)) {
+                    statement = subject + ' ' + property + ' ' + object;
+                }
+                closure_statements.push(statement);
+                subject = subject;
+                object = object;
+            }
+            // Case in which object !== ?Thing
+            else {
+                console.log('\n*** WARNING: This case is no yet managed ***');
+                console.error('\n***WARNING: This case is no yet managed ***');
+                console.log('The subject and the object are NOT included within closures, and object is different from ?Thing');
+            }
+
         }
     }
     triple['subject'] = subject;
@@ -225,6 +327,12 @@ var build_where_bindings = (st, classes, closure_entities, closure_references) =
             binded[reference_entity] = 1;
             var base_uri = instances_uris[semantic_types[i][0].split('***')[0].split(':')[1]]; // Check if this splitter is ok
             var attribute_value = '?' + attributes[i];
+
+            // XXX Special case in which attribute values are linked to thi Thing
+            if (base_uri === undefined) {
+                base_uri = 'http://subclass_of_thing/';
+            }
+
             // Reference entity should be equal to the subject defined in the construct section
             var bind = write_bind(base_uri, attribute_value, reference_entity);
             body += bind;
