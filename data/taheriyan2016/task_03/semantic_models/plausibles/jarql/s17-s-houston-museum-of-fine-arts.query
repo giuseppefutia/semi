@@ -40,6 +40,8 @@ PREFIX time-entry: <http://www.isi.edu/~pan/damltime/time-entry.owl#>
 PREFIX wordnet:   <http://xmlns.com/wordnet/1.6/Work~2>
 PREFIX saam-ont:  <http://americanart.si.edu/ontology/>
 PREFIX ore:       <http://www.openarchives.org/ore/terms/>
+PREFIX scharp:    <http://scharp.usc.isi.edu/ontology/>
+PREFIX memex:     <http://dig.isi.edu/ontology/memex/>
 PREFIX jarql:     <http://jarql.com/>
 
 CONSTRUCT {
@@ -81,10 +83,10 @@ CONSTRUCT {
     ?Agent1 foaf:tipjar ?Document1.
     ?Agent1 foaf:interest ?Document1.
     ?OnlineAccount1 foaf:accountServiceHomepage ?Document1.
-    ?Aggregationundefined edm:aggregatedCHO ?ProvidedCHOundefined.
-    ?Personundefined foaf:knows ?Personundefinedundefinedundefinedundefined.
-    ?Agentundefined foaf:account ?OnlineAccountundefined.
-    ?Agentundefined foaf:holdsAccount ?OnlineAccountundefined.
+    ?Aggregation1 edm:aggregatedCHO ?ProvidedCHO1.
+    ?Person1 foaf:knows ?Person1.
+    ?Agent1 foaf:account ?OnlineAccount1.
+    ?Agent1 foaf:holdsAccount ?OnlineAccount1.
     ?CulturalHeritageObject1 skos2:mappingRelation ?Person1.
     ?CulturalHeritageObject1 skos2:semanticRelation ?Person1.
     ?CulturalHeritageObject1 skos2:mappingRelation ?Place1.
@@ -104,11 +106,11 @@ CONSTRUCT {
     ?Place1 skos2:mappingRelation ?Person1.
     ?Place1 skos2:semanticRelation ?Person1.
     ?Person1 foaf:based_near ?Person1.
-    ?Personundefined foaf:mbox ?OnlineAccountundefinedundefinedundefinedundefinedundefinedundefined.
-    ?Personundefined foaf:made ?OnlineAccountundefinedundefinedundefinedundefinedundefinedundefined.
-    ?Personundefined foaf:topic_interest ?OnlineAccountundefinedundefinedundefinedundefinedundefinedundefined.
+    ?Person1 foaf:mbox ?OnlineAccount1.
+    ?Person1 foaf:made ?OnlineAccount1.
+    ?Person1 foaf:topic_interest ?OnlineAccount1.
     ?OnlineAccount1 foaf:maker ?Person1.
-    ?OnlineAccountundefined foaf:maker ?Personundefinedundefinedundefinedundefinedundefinedundefined.
+    ?OnlineAccount1 foaf:maker ?Person1.
 }
 WHERE {
     ?root a jarql:Root.

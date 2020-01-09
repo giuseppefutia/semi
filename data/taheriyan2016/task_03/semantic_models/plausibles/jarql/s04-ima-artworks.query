@@ -40,6 +40,8 @@ PREFIX time-entry: <http://www.isi.edu/~pan/damltime/time-entry.owl#>
 PREFIX wordnet:   <http://xmlns.com/wordnet/1.6/Work~2>
 PREFIX saam-ont:  <http://americanart.si.edu/ontology/>
 PREFIX ore:       <http://www.openarchives.org/ore/terms/>
+PREFIX scharp:    <http://scharp.usc.isi.edu/ontology/>
+PREFIX memex:     <http://dig.isi.edu/ontology/memex/>
 PREFIX jarql:     <http://jarql.com/>
 
 CONSTRUCT {
@@ -105,10 +107,10 @@ CONSTRUCT {
     ?Concept1 skos2:semanticRelation ?Concept1.
     ?Concept1 skos2:topConceptOf ?ConceptScheme1.
     ?ConceptScheme1 skos2:hasTopConcept ?Concept1.
-    ?Aggregationundefined edm:aggregatedCHO ?ProvidedCHOundefined.
-    ?Personundefined foaf:knows ?Personundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?Agentundefined foaf:account ?OnlineAccountundefinedundefined.
-    ?Agentundefined foaf:holdsAccount ?OnlineAccountundefinedundefined.
+    ?Aggregation1 edm:aggregatedCHO ?ProvidedCHO1.
+    ?Person1 foaf:knows ?Person1.
+    ?Agent1 foaf:account ?OnlineAccount1.
+    ?Agent1 foaf:holdsAccount ?OnlineAccount1.
     ?CulturalHeritageObject1 skos2:mappingRelation ?Person1.
     ?CulturalHeritageObject2 skos2:mappingRelation ?Person1.
     ?CulturalHeritageObject1 skos2:semanticRelation ?Person1.
@@ -130,19 +132,19 @@ CONSTRUCT {
     ?Person1 skos2:mappingRelation ?Place1.
     ?Person1 skos2:semanticRelation ?Place1.
     ?Person1 foaf:based_near ?Person1.
-    ?Personundefined foaf:mbox ?OnlineAccountundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?Personundefined foaf:made ?OnlineAccountundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?Personundefined foaf:topic_interest ?OnlineAccountundefinedundefinedundefinedundefinedundefinedundefinedundefined.
+    ?Person1 foaf:mbox ?OnlineAccount1.
+    ?Person1 foaf:made ?OnlineAccount1.
+    ?Person1 foaf:topic_interest ?OnlineAccount1.
     ?OnlineAccount1 foaf:maker ?Person1.
-    ?OnlineAccountundefined foaf:maker ?Personundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
+    ?OnlineAccount1 foaf:maker ?Person1.
     ?Place1 skos2:mappingRelation ?CulturalHeritageObject1.
     ?Place2 skos2:mappingRelation ?CulturalHeritageObject2.
     ?Place1 skos2:semanticRelation ?CulturalHeritageObject1.
     ?Place2 skos2:semanticRelation ?CulturalHeritageObject2.
     ?Place1 skos2:mappingRelation ?Person1.
     ?Place1 skos2:semanticRelation ?Person1.
-    ?undefinedundefined rdfs:subClassOf owl:Thing.
-    ?ConceptSchemeundefined rdfs:subClassOf owl:Thing.
+    ?imageURL rdfs:subClassOf owl:Thing.
+    ?ConceptScheme1 rdfs:subClassOf owl:Thing.
 }
 WHERE {
     ?root a jarql:Root.

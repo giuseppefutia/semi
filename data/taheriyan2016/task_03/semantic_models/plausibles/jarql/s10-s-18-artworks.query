@@ -40,6 +40,8 @@ PREFIX time-entry: <http://www.isi.edu/~pan/damltime/time-entry.owl#>
 PREFIX wordnet:   <http://xmlns.com/wordnet/1.6/Work~2>
 PREFIX saam-ont:  <http://americanart.si.edu/ontology/>
 PREFIX ore:       <http://www.openarchives.org/ore/terms/>
+PREFIX scharp:    <http://scharp.usc.isi.edu/ontology/>
+PREFIX memex:     <http://dig.isi.edu/ontology/memex/>
 PREFIX jarql:     <http://jarql.com/>
 
 CONSTRUCT {
@@ -82,7 +84,7 @@ CONSTRUCT {
     ?Person1 ElementsGr2:placeOfBirth ?Place1.
     ?Person1 ElementsGr2:placeOfDeath ?Place1.
     ?ProvidedCHO1 aac-ont:sitter ?Person1.
-    ?Aggregationundefined edm:aggregatedCHO ?ProvidedCHOundefined.
+    ?Aggregation1 edm:aggregatedCHO ?ProvidedCHO1.
     ?CulturalHeritageObject1 skos2:mappingRelation ?Person1.
     ?CulturalHeritageObject1 skos2:semanticRelation ?Person1.
     ?CulturalHeritageObject1 skos2:mappingRelation ?Place1.
@@ -95,8 +97,8 @@ CONSTRUCT {
     ?Place1 skos2:semanticRelation ?CulturalHeritageObject1.
     ?Place1 skos2:mappingRelation ?Person1.
     ?Place1 skos2:semanticRelation ?Person1.
-    ?undefinedundefined rdfs:subClassOf owl:Thing.
-    ?ConceptSchemeundefined rdfs:subClassOf owl:Thing.
+    ?image_URL rdfs:subClassOf owl:Thing.
+    ?ConceptScheme2 rdfs:subClassOf owl:Thing.
 }
 WHERE {
     ?root a jarql:Root.

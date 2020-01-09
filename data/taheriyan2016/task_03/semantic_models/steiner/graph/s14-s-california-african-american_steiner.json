@@ -156,7 +156,8 @@
             "name": "aac-ont:Person1***aac-ont:CulturalHeritageObject1",
             "value": {
                 "type": "inherited",
-                "label": "skos2:semanticRelation***inverted"
+                "label": "skos2:semanticRelation***inverted",
+                "weight": 4
             },
             "weight": 4
         },
@@ -176,7 +177,8 @@
             "name": "aac-ont:Person1***foaf:Person",
             "value": {
                 "type": "inherited",
-                "label": "foaf:based_near***inverted"
+                "label": "foaf:based_near***inverted",
+                "weight": 4
             },
             "weight": 4
         },
@@ -186,7 +188,8 @@
             "name": "accessionId***aac-ont:CulturalHeritageObject1",
             "value": {
                 "type": "st_property_uri",
-                "label": "aac-ont:accessionNumber***inverted"
+                "label": "aac-ont:accessionNumber***inverted",
+                "weight": 1
             },
             "weight": 1
         },
@@ -196,7 +199,8 @@
             "name": "dimensions***aac-ont:CulturalHeritageObject1",
             "value": {
                 "type": "st_property_uri",
-                "label": "dcterms:extent***inverted"
+                "label": "dcterms:extent***inverted",
+                "weight": 1
             },
             "weight": 1
         },
@@ -206,7 +210,8 @@
             "name": "edm:ProvidedCHO***aac-ont:Person1",
             "value": {
                 "label": "aac-ont:sitter",
-                "type": "direct_property_uri"
+                "type": "direct_property_uri",
+                "weight": 1
             },
             "weight": 1
         },
@@ -216,7 +221,8 @@
             "name": "edm:WebResource1***ore:Aggregation",
             "value": {
                 "type": "direct_property_uri",
-                "label": "edm:hasView***inverted"
+                "label": "edm:hasView***inverted",
+                "weight": 1
             },
             "weight": 1
         },
@@ -236,7 +242,8 @@
             "name": "foaf:Person***foaf:Document1",
             "value": {
                 "label": "foaf:publications",
-                "type": "direct_property_uri"
+                "type": "direct_property_uri",
+                "weight": 1
             },
             "weight": 1
         },
@@ -246,7 +253,8 @@
             "name": "imageUrl***edm:WebResource1",
             "value": {
                 "type": "st_property_uri",
-                "label": "rdfs:label***inverted"
+                "label": "rdfs:label***inverted",
+                "weight": 1
             },
             "weight": 1
         },
@@ -256,7 +264,8 @@
             "name": "ore:Aggregation***edm:ProvidedCHO",
             "value": {
                 "label": "edm:aggregatedCHO",
-                "type": "direct_property_uri"
+                "type": "direct_property_uri",
+                "weight": 1
             },
             "weight": 1
         },
@@ -266,7 +275,8 @@
             "name": "owl:Thing***imageUrl",
             "value": {
                 "type": "inherited",
-                "label": "rdfs:subClassOf***inverted"
+                "label": "rdfs:subClassOf***inverted",
+                "weight": 0.3333333333333333
             },
             "weight": 0.3333333333333333
         },
@@ -276,7 +286,8 @@
             "name": "provenance***aac-ont:CulturalHeritageObject1",
             "value": {
                 "type": "st_property_uri",
-                "label": "dcterms:provenance***inverted"
+                "label": "dcterms:provenance***inverted",
+                "weight": 1
             },
             "weight": 1
         },
@@ -286,7 +297,8 @@
             "name": "skos2:Concept1***skos2:ConceptScheme",
             "value": {
                 "type": "direct_property_uri",
-                "label": "skos2:hasTopConcept***inverted"
+                "label": "skos2:hasTopConcept***inverted",
+                "weight": 1
             },
             "weight": 1
         },
@@ -296,7 +308,8 @@
             "name": "skos2:ConceptScheme***owl:Thing",
             "value": {
                 "label": "rdfs:subClassOf",
-                "type": "inherited"
+                "type": "inherited",
+                "weight": 0.3333333333333333
             },
             "weight": 0.3333333333333333
         },
@@ -306,7 +319,8 @@
             "name": "technique***aac-ont:CulturalHeritageObject1",
             "value": {
                 "type": "st_property_uri",
-                "label": "dcterms:medium***inverted"
+                "label": "dcterms:medium***inverted",
+                "weight": 1
             },
             "weight": 1
         },
@@ -316,7 +330,8 @@
             "name": "type***skos2:Concept1",
             "value": {
                 "type": "st_property_uri",
-                "label": "skos2:prefLabel***inverted"
+                "label": "skos2:prefLabel***inverted",
+                "weight": 1
             },
             "weight": 1
         }

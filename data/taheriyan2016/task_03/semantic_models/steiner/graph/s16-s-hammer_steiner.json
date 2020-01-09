@@ -93,7 +93,8 @@
             "name": "aac-ont:Person1***aac-ont:CulturalHeritageObject1",
             "value": {
                 "type": "inherited",
-                "label": "skos2:semanticRelation***inverted"
+                "label": "skos2:semanticRelation***inverted",
+                "weight": 4
             },
             "weight": 4
         },
@@ -113,7 +114,8 @@
             "name": "edm:ProvidedCHO***aac-ont:Person1",
             "value": {
                 "label": "aac-ont:sitter",
-                "type": "direct_property_uri"
+                "type": "direct_property_uri",
+                "weight": 1
             },
             "weight": 1
         },
@@ -123,7 +125,8 @@
             "name": "edm:WebResource1***ore:Aggregation",
             "value": {
                 "type": "direct_property_uri",
-                "label": "edm:hasView***inverted"
+                "label": "edm:hasView***inverted",
+                "weight": 1
             },
             "weight": 1
         },
@@ -133,7 +136,8 @@
             "name": "item.description***aac-ont:CulturalHeritageObject1",
             "value": {
                 "type": "st_property_uri",
-                "label": "dcterms:description***inverted"
+                "label": "dcterms:description***inverted",
+                "weight": 1
             },
             "weight": 1
         },
@@ -143,7 +147,8 @@
             "name": "item.image***edm:WebResource1",
             "value": {
                 "type": "st_property_uri",
-                "label": "rdfs:label***inverted"
+                "label": "rdfs:label***inverted",
+                "weight": 1
             },
             "weight": 1
         },
@@ -153,7 +158,8 @@
             "name": "item.title***aac-ont:CulturalHeritageObject1",
             "value": {
                 "type": "st_property_uri",
-                "label": "dcterms:title***inverted"
+                "label": "dcterms:title***inverted",
+                "weight": 1
             },
             "weight": 1
         },
@@ -163,7 +169,8 @@
             "name": "ore:Aggregation***edm:ProvidedCHO",
             "value": {
                 "label": "edm:aggregatedCHO",
-                "type": "direct_property_uri"
+                "type": "direct_property_uri",
+                "weight": 1
             },
             "weight": 1
         }
