@@ -86,8 +86,8 @@ WHERE {
     OPTIONAL { ?root jarql:Code0964 ?Code0964. }
     OPTIONAL { ?root jarql:Street0950 ?Street0950. }
     BIND (URI(CONCAT('http://schema.dig.isi.edu/ontology//personororganization/',?Listed1334)) as ?PersonOrOrganization1)
-    BIND (URI(CONCAT('undefined',?file_name)) as ?CreativeWork1)
-    BIND (URI(CONCAT('undefined',?ID1019)) as ?Offer1)
-    BIND (URI(CONCAT('undefined',?Code0964)) as ?PostalAddress1)
+    BIND (URI(CONCAT('http://subclass_of_thing/',?file_name)) as ?CreativeWork1)
+    BIND (URI(CONCAT('http://subclass_of_thing/',?ID1019)) as ?Offer1)
+    BIND (URI(CONCAT('http://subclass_of_thing/',?Code0964)) as ?PostalAddress1)
     BIND (URI(CONCAT('http://dig.isi.edu/ontology/memex//place/',?ID1019)) as ?Place1)
 }

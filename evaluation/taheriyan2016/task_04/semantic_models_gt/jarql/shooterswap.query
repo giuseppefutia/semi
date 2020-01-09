@@ -86,6 +86,6 @@ WHERE {
     OPTIONAL { ?root jarql:Tweet0990 ?Tweet0990. }
     BIND (URI(CONCAT('http://schema.dig.isi.edu/ontology//firearm/',?onto0834)) as ?Firearm1)
     BIND (URI(CONCAT('http://schema.dig.isi.edu/ontology//personororganization/',?28in0804)) as ?PersonOrOrganization1)
-    BIND (URI(CONCAT('undefined',?file_name)) as ?CreativeWork1)
-    BIND (URI(CONCAT('undefined',?ID1174)) as ?Offer1)
+    BIND (URI(CONCAT('http://subclass_of_thing/',?file_name)) as ?CreativeWork1)
+    BIND (URI(CONCAT('http://subclass_of_thing/',?ID1174)) as ?Offer1)
 }

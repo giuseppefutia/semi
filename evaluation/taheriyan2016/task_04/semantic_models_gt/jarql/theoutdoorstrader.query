@@ -91,8 +91,8 @@ WHERE {
     OPTIONAL { ?root jarql:For0031 ?For0031. }
     BIND (URI(CONCAT('http://schema.dig.isi.edu/ontology//firearm/',?Accessories0378)) as ?Firearm1)
     BIND (URI(CONCAT('http://schema.dig.isi.edu/ontology//personororganization/',?started0628)) as ?PersonOrOrganization1)
-    BIND (URI(CONCAT('undefined',?file_name)) as ?CreativeWork1)
-    BIND (URI(CONCAT('undefined',?FT0613)) as ?Offer1)
+    BIND (URI(CONCAT('http://subclass_of_thing/',?file_name)) as ?CreativeWork1)
+    BIND (URI(CONCAT('http://subclass_of_thing/',?FT0613)) as ?Offer1)
     BIND (URI(CONCAT('http://dig.isi.edu/ontology/memex//place/',?Location0814)) as ?Place1)
-    BIND (URI(CONCAT('undefined',?For0031)) as ?PostalAddress1)
+    BIND (URI(CONCAT('http://subclass_of_thing/',?For0031)) as ?PostalAddress1)
 }

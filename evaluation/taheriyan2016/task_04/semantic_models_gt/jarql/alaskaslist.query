@@ -76,7 +76,7 @@ WHERE {
     OPTIONAL { ?root jarql:Price1219 ?Price1219. }
     OPTIONAL { ?root jarql:Location1192 ?Location1192. }
     BIND (URI(CONCAT('http://schema.dig.isi.edu/ontology//personororganization/',?Telephone1241)) as ?PersonOrOrganization1)
-    BIND (URI(CONCAT('undefined',?file_name)) as ?CreativeWork1)
-    BIND (URI(CONCAT('undefined',?Ad1096)) as ?Offer1)
+    BIND (URI(CONCAT('http://subclass_of_thing/',?file_name)) as ?CreativeWork1)
+    BIND (URI(CONCAT('http://subclass_of_thing/',?Ad1096)) as ?Offer1)
     BIND (URI(CONCAT('http://dig.isi.edu/ontology/memex//place/',?Location1192)) as ?Place1)
 }

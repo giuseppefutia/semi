@@ -84,7 +84,7 @@ WHERE {
     OPTIONAL { ?root jarql:Location0800 ?Location0800. }
     BIND (URI(CONCAT('http://schema.dig.isi.edu/ontology//firearm/',?Guns0565)) as ?Firearm1)
     BIND (URI(CONCAT('http://schema.dig.isi.edu/ontology//personororganization/',?Seller0716)) as ?PersonOrOrganization1)
-    BIND (URI(CONCAT('undefined',?file_name)) as ?CreativeWork1)
-    BIND (URI(CONCAT('undefined',?Rifles0572)) as ?Offer1)
+    BIND (URI(CONCAT('http://subclass_of_thing/',?file_name)) as ?CreativeWork1)
+    BIND (URI(CONCAT('http://subclass_of_thing/',?Rifles0572)) as ?Offer1)
     BIND (URI(CONCAT('http://dig.isi.edu/ontology/memex//place/',?Location0800)) as ?Place1)
 }

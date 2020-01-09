@@ -82,7 +82,7 @@ WHERE {
     OPTIONAL { ?root jarql:Post1163 ?Post1163. }
     OPTIONAL { ?root jarql:malcome831610 ?malcome831610. }
     BIND (URI(CONCAT('http://schema.dig.isi.edu/ontology//personororganization/',?Listed1592)) as ?PersonOrOrganization1)
-    BIND (URI(CONCAT('undefined',?file_name)) as ?CreativeWork1)
-    BIND (URI(CONCAT('undefined',?ID1293)) as ?Offer1)
-    BIND (URI(CONCAT('undefined',?malcome831610)) as ?Offer2)
+    BIND (URI(CONCAT('http://subclass_of_thing/',?file_name)) as ?CreativeWork1)
+    BIND (URI(CONCAT('http://subclass_of_thing/',?ID1293)) as ?Offer1)
+    BIND (URI(CONCAT('http://subclass_of_thing/',?malcome831610)) as ?Offer2)
 }
