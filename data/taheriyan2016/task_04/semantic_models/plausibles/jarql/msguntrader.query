@@ -68,9 +68,9 @@ CONSTRUCT {
     ?PostalAddress1 schema:streetAddress ?Street0950.
     ?PostalAddress1 rdf:type schema:PostalAddress.
     ?PersonOrOrganization1 rdfs:subClassOf owl:Thing.
-    ?undefinedundefined rdfs:subClassOf owl:Thing.
-    ?undefinedundefined rdfs:subClassOf owl:Thing.
-    ?undefinedundefined rdfs:subClassOf owl:Thing.
+    ?file_name rdfs:subClassOf owl:Thing.
+    ?Post0929 rdfs:subClassOf owl:Thing.
+    ?Street0950 rdfs:subClassOf owl:Thing.
 }
 WHERE {
     ?root a jarql:Root.
@@ -86,7 +86,7 @@ WHERE {
     OPTIONAL { ?root jarql:Code0964 ?Code0964. }
     OPTIONAL { ?root jarql:Street0950 ?Street0950. }
     BIND (URI(CONCAT('http://schema.dig.isi.edu/ontology//personororganization/',?Listed1334)) as ?PersonOrOrganization1)
-    BIND (URI(CONCAT('undefined',?file_name)) as ?CreativeWork1)
-    BIND (URI(CONCAT('undefined',?ID1019)) as ?Offer1)
-    BIND (URI(CONCAT('undefined',?Code0964)) as ?PostalAddress1)
+    BIND (URI(CONCAT('http://subclass_of_thing/',?file_name)) as ?CreativeWork1)
+    BIND (URI(CONCAT('http://subclass_of_thing/',?ID1019)) as ?Offer1)
+    BIND (URI(CONCAT('http://subclass_of_thing/',?Code0964)) as ?PostalAddress1)
 }

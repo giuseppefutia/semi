@@ -85,12 +85,12 @@ CONSTRUCT {
     ?Place4 rdf:type schema:Place.
     ?Place5 schema:name ?Boots1331.
     ?Place5 rdf:type schema:Place.
-    ?undefinedundefined rdfs:subClassOf owl:Thing.
-    ?undefinedundefined rdfs:subClassOf owl:Thing.
-    ?undefinedundefined rdfs:subClassOf owl:Thing.
-    ?undefinedundefined rdfs:subClassOf owl:Thing.
-    ?undefinedundefined rdfs:subClassOf owl:Thing.
-    ?undefinedundefined rdfs:subClassOf owl:Thing.
+    ?0003 rdfs:subClassOf owl:Thing.
+    ?Kansas1264 rdfs:subClassOf owl:Thing.
+    ?Kansas1294 rdfs:subClassOf owl:Thing.
+    ?Kansas1324 rdfs:subClassOf owl:Thing.
+    ?Listings1232 rdfs:subClassOf owl:Thing.
+    ?file_name rdfs:subClassOf owl:Thing.
     ?Place1 rdfs:subClassOf owl:Thing.
     ?Place2 rdfs:subClassOf owl:Thing.
     ?Place3 rdfs:subClassOf owl:Thing.
@@ -121,12 +121,12 @@ WHERE {
     OPTIONAL { ?root jarql:Reduced1301 ?Reduced1301. }
     OPTIONAL { ?root jarql:Boots1331 ?Boots1331. }
     BIND (URI(CONCAT('http://schema.dig.isi.edu/ontology//personororganization/',?Send0933)) as ?PersonOrOrganization1)
-    BIND (URI(CONCAT('undefined',?file_name)) as ?CreativeWork1)
-    BIND (URI(CONCAT('undefined',?Description1191)) as ?Offer1)
-    BIND (URI(CONCAT('undefined',?001236)) as ?Offer2)
-    BIND (URI(CONCAT('undefined',?001267)) as ?Offer3)
-    BIND (URI(CONCAT('undefined',?001298)) as ?Offer4)
-    BIND (URI(CONCAT('undefined',?set1328)) as ?Offer5)
+    BIND (URI(CONCAT('http://subclass_of_thing/',?file_name)) as ?CreativeWork1)
+    BIND (URI(CONCAT('http://subclass_of_thing/',?Description1191)) as ?Offer1)
+    BIND (URI(CONCAT('http://subclass_of_thing/',?001236)) as ?Offer2)
+    BIND (URI(CONCAT('http://subclass_of_thing/',?001267)) as ?Offer3)
+    BIND (URI(CONCAT('http://subclass_of_thing/',?001298)) as ?Offer4)
+    BIND (URI(CONCAT('http://subclass_of_thing/',?set1328)) as ?Offer5)
     BIND (URI(CONCAT('http://dig.isi.edu/ontology/memex//place/',?001068)) as ?Place1)
     BIND (URI(CONCAT('http://dig.isi.edu/ontology/memex//place/',?Citori1239)) as ?Place2)
     BIND (URI(CONCAT('http://dig.isi.edu/ontology/memex//place/',?2701270)) as ?Place3)

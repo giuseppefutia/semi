@@ -77,12 +77,12 @@ CONSTRUCT {
     ?Offer2 rdf:type schema:Offer.
     ?Place1 schema:name ?Single1162.
     ?Place1 rdf:type schema:Place.
-    ?undefinedundefined rdfs:subClassOf owl:Thing.
-    ?undefinedundefined rdfs:subClassOf owl:Thing.
-    ?undefinedundefined rdfs:subClassOf owl:Thing.
+    ?file_name rdfs:subClassOf owl:Thing.
+    ?Type1157 rdfs:subClassOf owl:Thing.
+    ?Number1168 rdfs:subClassOf owl:Thing.
     ?PersonOrOrganization1 rdfs:subClassOf owl:Thing.
     ?PersonOrOrganization2 rdfs:subClassOf owl:Thing.
-    ?undefinedundefined rdfs:subClassOf owl:Thing.
+    ?Go1129 rdfs:subClassOf owl:Thing.
     ?Offer1 rdfs:subClassOf owl:Thing.
     ?Offer2 rdfs:subClassOf owl:Thing.
     ?Place1 rdfs:subClassOf owl:Thing.
@@ -108,8 +108,8 @@ WHERE {
     BIND (URI(CONCAT('http://schema.dig.isi.edu/ontology//firearm/',?Florida1109)) as ?Firearm1)
     BIND (URI(CONCAT('http://schema.dig.isi.edu/ontology//personororganization/',?Listed1744)) as ?PersonOrOrganization1)
     BIND (URI(CONCAT('http://schema.dig.isi.edu/ontology//personororganization/',?Manufacturer1151)) as ?PersonOrOrganization2)
-    BIND (URI(CONCAT('undefined',?file_name)) as ?CreativeWork1)
-    BIND (URI(CONCAT('undefined',?0082)) as ?Offer1)
-    BIND (URI(CONCAT('undefined',?Nabors1763)) as ?Offer2)
+    BIND (URI(CONCAT('http://subclass_of_thing/',?file_name)) as ?CreativeWork1)
+    BIND (URI(CONCAT('http://subclass_of_thing/',?0082)) as ?Offer1)
+    BIND (URI(CONCAT('http://subclass_of_thing/',?Nabors1763)) as ?Offer2)
     BIND (URI(CONCAT('http://dig.isi.edu/ontology/memex//place/',?Single1162)) as ?Place1)
 }

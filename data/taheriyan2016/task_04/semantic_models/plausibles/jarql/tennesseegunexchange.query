@@ -74,9 +74,9 @@ CONSTRUCT {
     ?PostalAddress1 schema:postalCode ?Code1354.
     ?PostalAddress1 rdf:type schema:PostalAddress.
     ?Firearm1 rdfs:subClassOf owl:Thing.
-    ?undefinedundefined rdfs:subClassOf owl:Thing.
-    ?undefinedundefined rdfs:subClassOf owl:Thing.
-    ?undefinedundefined rdfs:subClassOf owl:Thing.
+    ?Phone1330 rdfs:subClassOf owl:Thing.
+    ?file_name rdfs:subClassOf owl:Thing.
+    ?Post1309 rdfs:subClassOf owl:Thing.
     ?Offer1 rdfs:subClassOf owl:Thing.
     ?Offer2 rdfs:subClassOf owl:Thing.
     ?Place1 rdfs:subClassOf owl:Thing.
@@ -100,9 +100,9 @@ WHERE {
     OPTIONAL { ?root jarql:Code1354 ?Code1354. }
     BIND (URI(CONCAT('http://schema.dig.isi.edu/ontology//firearm/',?Pistols1112)) as ?Firearm1)
     BIND (URI(CONCAT('http://schema.dig.isi.edu/ontology//personororganization/',?Listed1964)) as ?PersonOrOrganization1)
-    BIND (URI(CONCAT('undefined',?file_name)) as ?CreativeWork1)
-    BIND (URI(CONCAT('undefined',?ID1421)) as ?Offer1)
-    BIND (URI(CONCAT('undefined',?Today2013)) as ?Offer2)
+    BIND (URI(CONCAT('http://subclass_of_thing/',?file_name)) as ?CreativeWork1)
+    BIND (URI(CONCAT('http://subclass_of_thing/',?ID1421)) as ?Offer1)
+    BIND (URI(CONCAT('http://subclass_of_thing/',?Today2013)) as ?Offer2)
     BIND (URI(CONCAT('http://dig.isi.edu/ontology/memex//place/',?Phone1340)) as ?Place1)
-    BIND (URI(CONCAT('undefined',?Code1354)) as ?PostalAddress1)
+    BIND (URI(CONCAT('http://subclass_of_thing/',?Code1354)) as ?PostalAddress1)
 }

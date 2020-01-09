@@ -67,9 +67,9 @@ CONSTRUCT {
     ?Offer1 rdf:type schema:Offer.
     ?Offer1 schema:price ?Tweet0990.
     ?Offer1 rdf:type schema:Offer.
-    ?undefinedundefined rdfs:subClassOf owl:Thing.
-    ?undefinedundefined rdfs:subClassOf owl:Thing.
-    ?undefinedundefined rdfs:subClassOf owl:Thing.
+    ?0040 rdfs:subClassOf owl:Thing.
+    ?file_name rdfs:subClassOf owl:Thing.
+    ?Tweet0990 rdfs:subClassOf owl:Thing.
     ?PersonOrOrganization1 rdfs:subClassOf owl:Thing.
 }
 WHERE {
@@ -87,6 +87,6 @@ WHERE {
     OPTIONAL { ?root jarql:Tweet0990 ?Tweet0990. }
     BIND (URI(CONCAT('http://schema.dig.isi.edu/ontology//firearm/',?onto0834)) as ?Firearm1)
     BIND (URI(CONCAT('http://schema.dig.isi.edu/ontology//personororganization/',?28in0804)) as ?PersonOrOrganization1)
-    BIND (URI(CONCAT('undefined',?file_name)) as ?CreativeWork1)
-    BIND (URI(CONCAT('undefined',?ID1174)) as ?Offer1)
+    BIND (URI(CONCAT('http://subclass_of_thing/',?file_name)) as ?CreativeWork1)
+    BIND (URI(CONCAT('http://subclass_of_thing/',?ID1174)) as ?Offer1)
 }

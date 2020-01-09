@@ -65,10 +65,10 @@ CONSTRUCT {
     ?Offer1 rdf:type schema:Offer.
     ?Place1 schema:name ?Location0800.
     ?Place1 rdf:type schema:Place.
-    ?undefinedundefined rdfs:subClassOf owl:Thing.
+    ?Price0797 rdfs:subClassOf owl:Thing.
     ?Firearm1 rdfs:subClassOf owl:Thing.
     ?PersonOrOrganization1 rdfs:subClassOf owl:Thing.
-    ?undefinedundefined rdfs:subClassOf owl:Thing.
+    ?file_name rdfs:subClassOf owl:Thing.
     ?Place1 rdfs:subClassOf owl:Thing.
 }
 WHERE {
@@ -85,7 +85,7 @@ WHERE {
     OPTIONAL { ?root jarql:Location0800 ?Location0800. }
     BIND (URI(CONCAT('http://schema.dig.isi.edu/ontology//firearm/',?Guns0565)) as ?Firearm1)
     BIND (URI(CONCAT('http://schema.dig.isi.edu/ontology//personororganization/',?Seller0716)) as ?PersonOrOrganization1)
-    BIND (URI(CONCAT('undefined',?file_name)) as ?CreativeWork1)
-    BIND (URI(CONCAT('undefined',?Rifles0572)) as ?Offer1)
+    BIND (URI(CONCAT('http://subclass_of_thing/',?file_name)) as ?CreativeWork1)
+    BIND (URI(CONCAT('http://subclass_of_thing/',?Rifles0572)) as ?Offer1)
     BIND (URI(CONCAT('http://dig.isi.edu/ontology/memex//place/',?Location0800)) as ?Place1)
 }

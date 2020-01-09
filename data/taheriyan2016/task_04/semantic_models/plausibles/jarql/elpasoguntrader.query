@@ -61,9 +61,9 @@ CONSTRUCT {
     ?Offer2 rdf:type schema:Offer.
     ?Offer3 schema:name ?bottom1530.
     ?Offer3 rdf:type schema:Offer.
-    ?undefinedundefined rdfs:subClassOf owl:Thing.
+    ?Contact0703 rdfs:subClassOf owl:Thing.
     ?CreativeWork1 rdfs:subClassOf owl:Thing.
-    ?undefinedundefined rdfs:subClassOf owl:Thing.
+    ?Price0694 rdfs:subClassOf owl:Thing.
     ?Offer1 rdfs:subClassOf owl:Thing.
     ?Offer2 rdfs:subClassOf owl:Thing.
     ?Offer3 rdfs:subClassOf owl:Thing.
@@ -79,8 +79,8 @@ WHERE {
     OPTIONAL { ?root jarql:bottom1509 ?bottom1509. }
     OPTIONAL { ?root jarql:bottom1530 ?bottom1530. }
     BIND (URI(CONCAT('http://schema.dig.isi.edu/ontology//personororganization/',?Created0714)) as ?PersonOrOrganization1)
-    BIND (URI(CONCAT('undefined',?file_name)) as ?CreativeWork1)
-    BIND (URI(CONCAT('undefined',?Trader0615)) as ?Offer1)
-    BIND (URI(CONCAT('undefined',?bottom1509)) as ?Offer2)
-    BIND (URI(CONCAT('undefined',?bottom1530)) as ?Offer3)
+    BIND (URI(CONCAT('http://subclass_of_thing/',?file_name)) as ?CreativeWork1)
+    BIND (URI(CONCAT('http://subclass_of_thing/',?Trader0615)) as ?Offer1)
+    BIND (URI(CONCAT('http://subclass_of_thing/',?bottom1509)) as ?Offer2)
+    BIND (URI(CONCAT('http://subclass_of_thing/',?bottom1530)) as ?Offer3)
 }

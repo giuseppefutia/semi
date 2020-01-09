@@ -61,8 +61,8 @@ CONSTRUCT {
     ?Offer1 rdf:type schema:Offer.
     ?Firearm1 rdfs:subClassOf owl:Thing.
     ?PersonOrOrganization1 rdfs:subClassOf owl:Thing.
-    ?undefinedundefined rdfs:subClassOf owl:Thing.
-    ?undefinedundefined rdfs:subClassOf owl:Thing.
+    ?file_name rdfs:subClassOf owl:Thing.
+    ?0036 rdfs:subClassOf owl:Thing.
 }
 WHERE {
     ?root a jarql:Root.
@@ -75,6 +75,6 @@ WHERE {
     OPTIONAL { ?root jarql:0036 ?0036. }
     BIND (URI(CONCAT('http://schema.dig.isi.edu/ontology//firearm/',?Home0832)) as ?Firearm1)
     BIND (URI(CONCAT('http://schema.dig.isi.edu/ontology//personororganization/',?Listed1222)) as ?PersonOrOrganization1)
-    BIND (URI(CONCAT('undefined',?file_name)) as ?CreativeWork1)
-    BIND (URI(CONCAT('undefined',?0036)) as ?Offer1)
+    BIND (URI(CONCAT('http://subclass_of_thing/',?file_name)) as ?CreativeWork1)
+    BIND (URI(CONCAT('http://subclass_of_thing/',?0036)) as ?Offer1)
 }
