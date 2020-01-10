@@ -103,4 +103,4 @@ if (input_file === undefined) {
 }
 
 var end = new Date() - start;
-console.log('Execution time: %dminutes', end / 1000 / 60)
+console.log('Execution time: %d minutes', end / 1000 / 60)

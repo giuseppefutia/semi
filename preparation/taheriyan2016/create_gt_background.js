@@ -7,6 +7,9 @@ var fs = require('fs');
  * training, validation, and test datasets for the deep learning model.
  * This processing require some cleaning operations.
  *
+ * For task_01, task_02, and task_04 it creates a background considering
+ * the leave-one-out setting. 
+ *
  */
 
 var start = new Date();
@@ -47,4 +50,4 @@ sources.forEach(source_name => {
 });
 
 var end = new Date() - start;
-console.log('Execution time: %dms', end)
+console.log('Execution time: %d ms', end)
