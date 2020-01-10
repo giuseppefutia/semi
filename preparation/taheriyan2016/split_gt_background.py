@@ -76,8 +76,8 @@ for rdf_file in rdf_files:
     test = rdflib.Graph()
 
     # Simple algorithm to produce train, validation, and test
-    print('\nBackground file: ' + rdf_file
-          + '. Number of total triples: ' + str(len(complete)))
+    print('\nBackground file: ' + rdf_file +
+          '. Number of total triples: ' + str(len(complete)))
 
     # Define 5% of the complete dataset for test and validation
     validation_limit = len(complete) // 100 * 5
@@ -128,5 +128,5 @@ for rdf_file in rdf_files:
     test_file = os.path.join(learning_folder, 'test.nt')
     test.serialize(destination=test_file, format='nt')
 
-print("\n--- Total processing time %s seconds ---" %
-      (time.time() - start_time))
+    print("\n--- Total processing time %s seconds ---" %
+          (time.time() - start_time))
