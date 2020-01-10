@@ -60,8 +60,9 @@ class RGCNDataSet(object):
         self.num_nodes = len(self.entity_dict)
         self.num_rels = len(self.relation_dict)
 
-        print("# entities: {}".format(self.num_nodes))
-        print("# relations: {}".format(self.num_rels))
+        print('\nGraph details: ')
+        print('# entities: {}'.format(self.num_nodes))
+        print('# relations: {}'.format(self.num_rels))
 
     def _set_up_model_datasets(self):
         # Prepare placeholders for train, test, and valid
@@ -87,6 +88,8 @@ class RGCNDataSet(object):
     def _prepare_dicts(self, file_path_for_dict):
         entities = []
         relations = []
+
+        print(file_path_for_dict)
 
         # Process the Knowledge Graph
         g = rdflib.Graph()
