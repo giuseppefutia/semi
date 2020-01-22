@@ -22,6 +22,26 @@ PREFIX id:        <http://collection.britishmuseum.org/id/>
 PREFIX idThes:    <http://collection.britishmuseum.org/id/thesauri/>
 PREFIX prov:      <http://www.w3.org/ns/prov#>
 PREFIX bmo:       <http://collection.britishmuseum.org/id/ontology/>
+PREFIX aac-ont:   <http://www.americanartcollaborative.org/ontology/>
+PREFIX skos2:     <http://www.w3.org/2008/05/skos#>
+PREFIX ElementsGr2: <http://rdvocab.info/ElementsGr2/>
+PREFIX rdvocab-schema: <http://rdvocab.info/uri/schema/FRBRentitiesRDA/>
+PREFIX edm:       <http://www.europeana.eu/schemas/edm/>
+PREFIX schema-dig: <http://schema.dig.isi.edu/ontology/>
+PREFIX geo:       <http://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX frbr:      <http://purl.org/vocab/frbr/core#>
+PREFIX swap:      <http://www.w3.org/2000/10/swap/pim/contact#>
+PREFIX cidoc-crm: <http://www.cidoc-crm.org/rdfs/cidoc-crm#>
+PREFIX abc:       <http://metadata.net/harmony/abc#>
+PREFIX DOLCE-Lite: <http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#>
+PREFIX dcmitype:  <http://purl.org/dc/dcmitype/>
+PREFIX msg0:      <http://web.resource.org/cc/>
+PREFIX time-entry: <http://www.isi.edu/~pan/damltime/time-entry.owl#>
+PREFIX wordnet:   <http://xmlns.com/wordnet/1.6/Work~2>
+PREFIX saam-ont:  <http://americanart.si.edu/ontology/>
+PREFIX ore:       <http://www.openarchives.org/ore/terms/>
+PREFIX scharp:    <http://scharp.usc.isi.edu/ontology/>
+PREFIX memex:     <http://dig.isi.edu/ontology/memex/>
 PREFIX jarql:     <http://jarql.com/>
 
 CONSTRUCT {
@@ -41,8 +61,8 @@ CONSTRUCT {
     ?E54_Dimension1 rdf:type crm:E54_Dimension.
     ?E82_Actor_Appellation1 rdfs:label ?person_appellation_uri.
     ?E82_Actor_Appellation1 rdf:type crm:E82_Actor_Appellation.
-    ?E82_Actor_Appellation2 rdfs:label ?name.
-    ?E82_Actor_Appellation2 rdf:type crm:E82_Actor_Appellation.
+    ?E82_Actor_Appellation1 rdfs:label ?name.
+    ?E82_Actor_Appellation1 rdf:type crm:E82_Actor_Appellation.
     ?E8_Acquisition1 crm:P3_has_note ?Provenance.
     ?E8_Acquisition1 rdf:type crm:E8_Acquisition.
     ?E12_Production1 crm:P108_has_produced ?E24_Physical_Man-Made_Thing1.
@@ -75,32 +95,30 @@ CONSTRUCT {
     ?E54_Dimension1 crm:P91_has_unit ?E58_Measurement_Unit1.
     ?E58_Measurement_Unit1 crm:P91i_is_unit_of ?E54_Dimension1.
     ?E82_Actor_Appellation1 crm:P131i_identifies ?E39_Actor1.
-    ?E82_Actor_Appellation2 crm:P131i_identifies ?E39_Actor2.
     ?E39_Actor1 crm:P131_is_identified_by ?E82_Actor_Appellation1.
-    ?E39_Actor2 crm:P131_is_identified_by ?E82_Actor_Appellation2.
     ?E8_Acquisition1 crm:P24_transferred_title_of ?E18_Physical_Thing1.
     ?E18_Physical_Thing1 crm:P24i_changed_ownership_through ?E8_Acquisition1.
-    ?E39_Actorundefined crm:P49i_is_former_or_current_keeper_of ?E18_Physical_Thingundefinedundefined.
-    ?E39_Actorundefined crm:P51i_is_former_or_current_owner_of ?E18_Physical_Thingundefinedundefined.
-    ?E18_Physical_Thingundefined crm:P49_has_former_or_current_keeper ?E39_Actorundefinedundefinedundefinedundefinedundefined.
-    ?E18_Physical_Thingundefined crm:P51_has_former_or_current_owner ?E39_Actorundefinedundefinedundefinedundefinedundefined.
-    ?E2_Temporal_Entityundefined crm:P115i_is_finished_by ?E2_Temporal_Entityundefinedundefined.
-    ?E2_Temporal_Entityundefined crm:P114_is_equal_in_time_to ?E2_Temporal_Entityundefinedundefined.
-    ?E2_Temporal_Entityundefined crm:P115_finishes ?E2_Temporal_Entityundefinedundefined.
-    ?E2_Temporal_Entityundefined crm:P116_starts ?E2_Temporal_Entityundefinedundefined.
-    ?E2_Temporal_Entityundefined crm:P116i_is_started_by ?E2_Temporal_Entityundefinedundefined.
-    ?E2_Temporal_Entityundefined crm:P117_occurs_during ?E2_Temporal_Entityundefinedundefined.
-    ?E2_Temporal_Entityundefined crm:P117i_includes ?E2_Temporal_Entityundefinedundefined.
-    ?E2_Temporal_Entityundefined crm:P118_overlaps_in_time_with ?E2_Temporal_Entityundefinedundefined.
-    ?E2_Temporal_Entityundefined crm:P118i_is_overlapped_in_time_by ?E2_Temporal_Entityundefinedundefined.
-    ?E2_Temporal_Entityundefined crm:P119_meets_in_time_with ?E2_Temporal_Entityundefinedundefined.
-    ?E2_Temporal_Entityundefined crm:P119i_is_met_in_time_by ?E2_Temporal_Entityundefinedundefined.
-    ?E2_Temporal_Entityundefined crm:P120_occurs_before ?E2_Temporal_Entityundefinedundefined.
-    ?E2_Temporal_Entityundefined crm:P120i_occurs_after ?E2_Temporal_Entityundefinedundefined.
-    ?E70_Thingundefined crm:P130_shows_features_of ?E70_Thingundefinedundefined.
-    ?E70_Thingundefined crm:P130i_features_are_also_found_on ?E70_Thingundefinedundefined.
-    ?E18_Physical_Thingundefined crm:P46_is_composed_of ?E18_Physical_Thingundefinedundefined.
-    ?E18_Physical_Thingundefined crm:P46i_forms_part_of ?E18_Physical_Thingundefinedundefined.
+    ?E39_Actor1 crm:P49i_is_former_or_current_keeper_of ?E18_Physical_Thing1.
+    ?E39_Actor1 crm:P51i_is_former_or_current_owner_of ?E18_Physical_Thing1.
+    ?E18_Physical_Thing1 crm:P49_has_former_or_current_keeper ?E39_Actor1.
+    ?E18_Physical_Thing1 crm:P51_has_former_or_current_owner ?E39_Actor1.
+    ?E2_Temporal_Entity1 crm:P115i_is_finished_by ?E2_Temporal_Entity1.
+    ?E2_Temporal_Entity1 crm:P114_is_equal_in_time_to ?E2_Temporal_Entity1.
+    ?E2_Temporal_Entity1 crm:P115_finishes ?E2_Temporal_Entity1.
+    ?E2_Temporal_Entity1 crm:P116_starts ?E2_Temporal_Entity1.
+    ?E2_Temporal_Entity1 crm:P116i_is_started_by ?E2_Temporal_Entity1.
+    ?E2_Temporal_Entity1 crm:P117_occurs_during ?E2_Temporal_Entity1.
+    ?E2_Temporal_Entity1 crm:P117i_includes ?E2_Temporal_Entity1.
+    ?E2_Temporal_Entity1 crm:P118_overlaps_in_time_with ?E2_Temporal_Entity1.
+    ?E2_Temporal_Entity1 crm:P118i_is_overlapped_in_time_by ?E2_Temporal_Entity1.
+    ?E2_Temporal_Entity1 crm:P119_meets_in_time_with ?E2_Temporal_Entity1.
+    ?E2_Temporal_Entity1 crm:P119i_is_met_in_time_by ?E2_Temporal_Entity1.
+    ?E2_Temporal_Entity1 crm:P120_occurs_before ?E2_Temporal_Entity1.
+    ?E2_Temporal_Entity1 crm:P120i_occurs_after ?E2_Temporal_Entity1.
+    ?E70_Thing1 crm:P130_shows_features_of ?E70_Thing1.
+    ?E70_Thing1 crm:P130i_features_are_also_found_on ?E70_Thing1.
+    ?E18_Physical_Thing1 crm:P46_is_composed_of ?E18_Physical_Thing1.
+    ?E18_Physical_Thing1 crm:P46i_forms_part_of ?E18_Physical_Thing1.
     ?E12_Production1 crm:P11_had_participant ?E21_Person1.
     ?E12_Production1 crm:P8_took_place_on_or_within ?E21_Person1.
     ?E12_Production1 crm:P31_has_modified ?E22_Man-Made_Object1.
@@ -117,7 +135,6 @@ CONSTRUCT {
     ?E12_Production1 crm:P15_was_influenced_by ?E54_Dimension1.
     ?E12_Production1 crm:P17_was_motivated_by ?E54_Dimension1.
     ?E12_Production1 crm:P1_is_identified_by ?E82_Actor_Appellation1.
-    ?E12_Production1 crm:P1_is_identified_by ?E82_Actor_Appellation2.
     ?E12_Production1 crm:P134_continued ?E8_Acquisition1.
     ?E12_Production1 crm:P134i_was_continued_by ?E8_Acquisition1.
     ?E12_Production1 crm:P20_had_specific_purpose ?E8_Acquisition1.
@@ -129,20 +146,20 @@ CONSTRUCT {
     ?E12_Production1 crm:P20_had_specific_purpose ?E69_Death1.
     ?E12_Production1 crm:P15_was_influenced_by ?E39_Actor1.
     ?E12_Production1 crm:P17_was_motivated_by ?E39_Actor1.
-    ?E12_Production1 crm:P92_brought_into_existence ?E39_Actor1.
     ?E12_Production1 crm:P12_occurred_in_the_presence_of ?E39_Actor1.
+    ?E12_Production1 crm:P92_brought_into_existence ?E39_Actor1.
     ?E12_Production1 crm:P16_used_specific_object ?E71_Man-Made_Thing1.
     ?E12_Production1 crm:P15_was_influenced_by ?E71_Man-Made_Thing1.
     ?E12_Production1 crm:P17_was_motivated_by ?E71_Man-Made_Thing1.
-    ?E12_Production1 crm:P92_brought_into_existence ?E71_Man-Made_Thing1.
     ?E12_Production1 crm:P12_occurred_in_the_presence_of ?E71_Man-Made_Thing1.
+    ?E12_Production1 crm:P92_brought_into_existence ?E71_Man-Made_Thing1.
     ?E12_Production1 crm:P15_was_influenced_by ?E2_Temporal_Entity1.
     ?E12_Production1 crm:P17_was_motivated_by ?E2_Temporal_Entity1.
     ?E12_Production1 crm:P1_is_identified_by ?E49_Time_Appellation1.
     ?E12_Production1 crm:P15_was_influenced_by ?E70_Thing1.
     ?E12_Production1 crm:P17_was_motivated_by ?E70_Thing1.
-    ?E12_Production1 crm:P92_brought_into_existence ?E70_Thing1.
     ?E12_Production1 crm:P12_occurred_in_the_presence_of ?E70_Thing1.
+    ?E12_Production1 crm:P92_brought_into_existence ?E70_Thing1.
     ?E12_Production1 crm:P140i_was_attributed_by ?E16_Measurement1.
     ?E12_Production1 crm:P141i_was_assigned_by ?E16_Measurement1.
     ?E12_Production1 crm:P125_used_object_of_type ?E58_Measurement_Unit1.
@@ -189,11 +206,8 @@ CONSTRUCT {
     ?E35_Title1 crm:P1i_identifies ?E52_Time-Span1.
     ?E35_Title1 crm:P1i_identifies ?E54_Dimension1.
     ?E35_Title1 crm:P139_has_alternative_form ?E82_Actor_Appellation1.
-    ?E35_Title1 crm:P139_has_alternative_form ?E82_Actor_Appellation2.
     ?E35_Title1 crm:P106_is_composed_of ?E82_Actor_Appellation1.
-    ?E35_Title1 crm:P106_is_composed_of ?E82_Actor_Appellation2.
     ?E35_Title1 crm:P106i_forms_part_of ?E82_Actor_Appellation1.
-    ?E35_Title1 crm:P106i_forms_part_of ?E82_Actor_Appellation2.
     ?E35_Title1 crm:P1i_identifies ?E39_Actor1.
     ?E35_Title1 crm:P1i_identifies ?E71_Man-Made_Thing1.
     ?E35_Title1 crm:P1i_identifies ?E2_Temporal_Entity1.
@@ -217,9 +231,7 @@ CONSTRUCT {
     ?E38_Image1 crm:P129_is_about ?E54_Dimension1.
     ?E38_Image1 crm:P67_refers_to ?E54_Dimension1.
     ?E38_Image1 crm:P106_is_composed_of ?E82_Actor_Appellation1.
-    ?E38_Image1 crm:P106_is_composed_of ?E82_Actor_Appellation2.
     ?E38_Image1 crm:P106i_forms_part_of ?E82_Actor_Appellation1.
-    ?E38_Image1 crm:P106i_forms_part_of ?E82_Actor_Appellation2.
     ?E38_Image1 crm:P16i_was_used_for ?E8_Acquisition1.
     ?E38_Image1 crm:P130_shows_features_of ?E24_Physical_Man-Made_Thing1.
     ?E38_Image1 crm:P130i_features_are_also_found_on ?E24_Physical_Man-Made_Thing1.
@@ -248,7 +260,6 @@ CONSTRUCT {
     ?E52_Time-Span1 crm:P129i_is_subject_of ?E38_Image1.
     ?E52_Time-Span1 crm:P67i_is_referred_to_by ?E38_Image1.
     ?E52_Time-Span1 crm:P1_is_identified_by ?E82_Actor_Appellation1.
-    ?E52_Time-Span1 crm:P1_is_identified_by ?E82_Actor_Appellation2.
     ?E52_Time-Span1 crm:P15i_influenced ?E8_Acquisition1.
     ?E52_Time-Span1 crm:P17i_motivated ?E8_Acquisition1.
     ?E52_Time-Span1 crm:P1_is_identified_by ?E49_Time_Appellation1.
@@ -264,7 +275,6 @@ CONSTRUCT {
     ?E54_Dimension1 crm:P129i_is_subject_of ?E38_Image1.
     ?E54_Dimension1 crm:P67i_is_referred_to_by ?E38_Image1.
     ?E54_Dimension1 crm:P1_is_identified_by ?E82_Actor_Appellation1.
-    ?E54_Dimension1 crm:P1_is_identified_by ?E82_Actor_Appellation2.
     ?E54_Dimension1 crm:P15i_influenced ?E8_Acquisition1.
     ?E54_Dimension1 crm:P17i_motivated ?E8_Acquisition1.
     ?E54_Dimension1 crm:P1_is_identified_by ?E49_Time_Appellation1.
@@ -273,35 +283,20 @@ CONSTRUCT {
     ?E54_Dimension1 crm:P137_exemplifies ?E58_Measurement_Unit1.
     ?E54_Dimension1 crm:P2_has_type ?E58_Measurement_Unit1.
     ?E82_Actor_Appellation1 crm:P1i_identifies ?E12_Production1.
-    ?E82_Actor_Appellation2 crm:P1i_identifies ?E12_Production1.
     ?E82_Actor_Appellation1 crm:P139_has_alternative_form ?E35_Title1.
-    ?E82_Actor_Appellation2 crm:P139_has_alternative_form ?E35_Title1.
     ?E82_Actor_Appellation1 crm:P106_is_composed_of ?E35_Title1.
-    ?E82_Actor_Appellation2 crm:P106_is_composed_of ?E35_Title1.
     ?E82_Actor_Appellation1 crm:P106i_forms_part_of ?E35_Title1.
-    ?E82_Actor_Appellation2 crm:P106i_forms_part_of ?E35_Title1.
     ?E82_Actor_Appellation1 crm:P106_is_composed_of ?E38_Image1.
-    ?E82_Actor_Appellation2 crm:P106_is_composed_of ?E38_Image1.
     ?E82_Actor_Appellation1 crm:P106i_forms_part_of ?E38_Image1.
-    ?E82_Actor_Appellation2 crm:P106i_forms_part_of ?E38_Image1.
     ?E82_Actor_Appellation1 crm:P1i_identifies ?E52_Time-Span1.
-    ?E82_Actor_Appellation2 crm:P1i_identifies ?E52_Time-Span1.
     ?E82_Actor_Appellation1 crm:P1i_identifies ?E54_Dimension1.
-    ?E82_Actor_Appellation2 crm:P1i_identifies ?E54_Dimension1.
     ?E82_Actor_Appellation1 crm:P1i_identifies ?E39_Actor1.
-    ?E82_Actor_Appellation2 crm:P1i_identifies ?E39_Actor2.
     ?E82_Actor_Appellation1 crm:P1i_identifies ?E71_Man-Made_Thing1.
-    ?E82_Actor_Appellation2 crm:P1i_identifies ?E71_Man-Made_Thing2.
     ?E82_Actor_Appellation1 crm:P1i_identifies ?E2_Temporal_Entity1.
-    ?E82_Actor_Appellation2 crm:P1i_identifies ?E2_Temporal_Entity2.
     ?E82_Actor_Appellation1 crm:P139_has_alternative_form ?E49_Time_Appellation1.
-    ?E82_Actor_Appellation2 crm:P139_has_alternative_form ?E49_Time_Appellation2.
     ?E82_Actor_Appellation1 crm:P106_is_composed_of ?E49_Time_Appellation1.
-    ?E82_Actor_Appellation2 crm:P106_is_composed_of ?E49_Time_Appellation2.
     ?E82_Actor_Appellation1 crm:P106i_forms_part_of ?E49_Time_Appellation1.
-    ?E82_Actor_Appellation2 crm:P106i_forms_part_of ?E49_Time_Appellation2.
     ?E82_Actor_Appellation1 crm:P1i_identifies ?E70_Thing1.
-    ?E82_Actor_Appellation2 crm:P1i_identifies ?E70_Thing2.
     ?E8_Acquisition1 crm:P134_continued ?E12_Production1.
     ?E8_Acquisition1 crm:P134i_was_continued_by ?E12_Production1.
     ?E8_Acquisition1 crm:P20_had_specific_purpose ?E12_Production1.
@@ -344,21 +339,21 @@ CONSTRUCT {
     ?E24_Physical_Man-Made_Thing1 crm:P130i_features_are_also_found_on ?E38_Image1.
     ?E24_Physical_Man-Made_Thing1 crm:P19i_was_made_for ?E8_Acquisition1.
     ?E24_Physical_Man-Made_Thing1 crm:P16i_was_used_for ?E8_Acquisition1.
-    ?E24_Physical_Man-Made_Thingundefined crm:P130_shows_features_of ?E71_Man-Made_Thingundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E24_Physical_Man-Made_Thingundefined crm:P130i_features_are_also_found_on ?E71_Man-Made_Thingundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E24_Physical_Man-Made_Thingundefined crm:P103_was_intended_for ?E58_Measurement_Unitundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E24_Physical_Man-Made_Thingundefined crm:P101_had_as_general_use ?E58_Measurement_Unitundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
+    ?E24_Physical_Man-Made_Thing1 crm:P130_shows_features_of ?E71_Man-Made_Thing1.
+    ?E24_Physical_Man-Made_Thing1 crm:P130i_features_are_also_found_on ?E71_Man-Made_Thing1.
+    ?E24_Physical_Man-Made_Thing1 crm:P103_was_intended_for ?E58_Measurement_Unit1.
+    ?E24_Physical_Man-Made_Thing1 crm:P101_had_as_general_use ?E58_Measurement_Unit1.
     ?E69_Death1 crm:P20i_was_purpose_of ?E12_Production1.
     ?E69_Death1 crm:P11_had_participant ?E21_Person1.
     ?E69_Death1 crm:P20i_was_purpose_of ?E8_Acquisition1.
-    ?E69_Deathundefined crm:P93_took_out_of_existence ?E39_Actorundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E69_Deathundefined crm:P12_occurred_in_the_presence_of ?E39_Actorundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E69_Deathundefined crm:P93_took_out_of_existence ?E71_Man-Made_Thingundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E69_Deathundefined crm:P12_occurred_in_the_presence_of ?E71_Man-Made_Thingundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E69_Deathundefined crm:P93_took_out_of_existence ?E70_Thingundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E69_Deathundefined crm:P12_occurred_in_the_presence_of ?E70_Thingundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E39_Actor1 crm:P92i_was_brought_into_existence_by ?E12_Production1.
+    ?E69_Death1 crm:P93_took_out_of_existence ?E39_Actor1.
+    ?E69_Death1 crm:P12_occurred_in_the_presence_of ?E39_Actor1.
+    ?E69_Death1 crm:P93_took_out_of_existence ?E71_Man-Made_Thing1.
+    ?E69_Death1 crm:P12_occurred_in_the_presence_of ?E71_Man-Made_Thing1.
+    ?E69_Death1 crm:P93_took_out_of_existence ?E70_Thing1.
+    ?E69_Death1 crm:P12_occurred_in_the_presence_of ?E70_Thing1.
     ?E39_Actor1 crm:P12i_was_present_at ?E12_Production1.
+    ?E39_Actor1 crm:P92i_was_brought_into_existence_by ?E12_Production1.
     ?E39_Actor1 crm:P15i_influenced ?E12_Production1.
     ?E39_Actor1 crm:P17i_motivated ?E12_Production1.
     ?E39_Actor1 crm:P62i_is_depicted_by ?E22_Man-Made_Object1.
@@ -367,24 +362,23 @@ CONSTRUCT {
     ?E39_Actor1 crm:P129i_is_subject_of ?E38_Image1.
     ?E39_Actor1 crm:P67i_is_referred_to_by ?E38_Image1.
     ?E39_Actor1 crm:P1_is_identified_by ?E82_Actor_Appellation1.
-    ?E39_Actor2 crm:P1_is_identified_by ?E82_Actor_Appellation2.
     ?E39_Actor1 crm:P12i_was_present_at ?E8_Acquisition1.
     ?E39_Actor1 crm:P15i_influenced ?E8_Acquisition1.
     ?E39_Actor1 crm:P17i_motivated ?E8_Acquisition1.
-    ?E39_Actorundefined crm:P93i_was_taken_out_of_existence_by ?E69_Deathundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E39_Actorundefined crm:P12i_was_present_at ?E69_Deathundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E39_Actorundefined crm:P92i_was_brought_into_existence_by ?E67_Birthundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E39_Actorundefined crm:P1_is_identified_by ?E49_Time_Appellationundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E39_Actorundefined crm:P140i_was_attributed_by ?E16_Measurementundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E39_Actorundefined crm:P141i_was_assigned_by ?E16_Measurementundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E39_Actorundefined crm:P137_exemplifies ?E58_Measurement_Unitundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E39_Actorundefined crm:P2_has_type ?E58_Measurement_Unitundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E67_Birthundefined crm:P92_brought_into_existence ?E39_Actorundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E67_Birthundefined crm:P92_brought_into_existence ?E71_Man-Made_Thingundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E67_Birthundefined crm:P92_brought_into_existence ?E70_Thingundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
+    ?E39_Actor1 crm:P93i_was_taken_out_of_existence_by ?E69_Death1.
+    ?E39_Actor1 crm:P12i_was_present_at ?E69_Death1.
+    ?E39_Actor1 crm:P92i_was_brought_into_existence_by ?E67_Birth1.
+    ?E39_Actor1 crm:P1_is_identified_by ?E49_Time_Appellation1.
+    ?E39_Actor1 crm:P140i_was_attributed_by ?E16_Measurement1.
+    ?E39_Actor1 crm:P141i_was_assigned_by ?E16_Measurement1.
+    ?E39_Actor1 crm:P137_exemplifies ?E58_Measurement_Unit1.
+    ?E39_Actor1 crm:P2_has_type ?E58_Measurement_Unit1.
+    ?E67_Birth1 crm:P92_brought_into_existence ?E39_Actor1.
+    ?E67_Birth1 crm:P92_brought_into_existence ?E71_Man-Made_Thing1.
+    ?E67_Birth1 crm:P92_brought_into_existence ?E70_Thing1.
     ?E71_Man-Made_Thing1 crm:P16i_was_used_for ?E12_Production1.
-    ?E71_Man-Made_Thing1 crm:P92i_was_brought_into_existence_by ?E12_Production1.
     ?E71_Man-Made_Thing1 crm:P12i_was_present_at ?E12_Production1.
+    ?E71_Man-Made_Thing1 crm:P92i_was_brought_into_existence_by ?E12_Production1.
     ?E71_Man-Made_Thing1 crm:P15i_influenced ?E12_Production1.
     ?E71_Man-Made_Thing1 crm:P17i_motivated ?E12_Production1.
     ?E71_Man-Made_Thing1 crm:P62i_is_depicted_by ?E22_Man-Made_Object1.
@@ -395,22 +389,21 @@ CONSTRUCT {
     ?E71_Man-Made_Thing1 crm:P129i_is_subject_of ?E38_Image1.
     ?E71_Man-Made_Thing1 crm:P67i_is_referred_to_by ?E38_Image1.
     ?E71_Man-Made_Thing1 crm:P1_is_identified_by ?E82_Actor_Appellation1.
-    ?E71_Man-Made_Thing2 crm:P1_is_identified_by ?E82_Actor_Appellation2.
     ?E71_Man-Made_Thing1 crm:P16i_was_used_for ?E8_Acquisition1.
     ?E71_Man-Made_Thing1 crm:P12i_was_present_at ?E8_Acquisition1.
     ?E71_Man-Made_Thing1 crm:P15i_influenced ?E8_Acquisition1.
     ?E71_Man-Made_Thing1 crm:P17i_motivated ?E8_Acquisition1.
-    ?E71_Man-Made_Thingundefined crm:P130_shows_features_of ?E24_Physical_Man-Made_Thingundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E71_Man-Made_Thingundefined crm:P130i_features_are_also_found_on ?E24_Physical_Man-Made_Thingundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E71_Man-Made_Thingundefined crm:P93i_was_taken_out_of_existence_by ?E69_Deathundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E71_Man-Made_Thingundefined crm:P12i_was_present_at ?E69_Deathundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E71_Man-Made_Thingundefined crm:P92i_was_brought_into_existence_by ?E67_Birthundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E71_Man-Made_Thingundefined crm:P1_is_identified_by ?E49_Time_Appellationundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E71_Man-Made_Thingundefined crm:P140i_was_attributed_by ?E16_Measurementundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E71_Man-Made_Thingundefined crm:P141i_was_assigned_by ?E16_Measurementundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E71_Man-Made_Thingundefined crm:P101_had_as_general_use ?E58_Measurement_Unitundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E71_Man-Made_Thingundefined crm:P137_exemplifies ?E58_Measurement_Unitundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E71_Man-Made_Thingundefined crm:P2_has_type ?E58_Measurement_Unitundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
+    ?E71_Man-Made_Thing1 crm:P130_shows_features_of ?E24_Physical_Man-Made_Thing1.
+    ?E71_Man-Made_Thing1 crm:P130i_features_are_also_found_on ?E24_Physical_Man-Made_Thing1.
+    ?E71_Man-Made_Thing1 crm:P93i_was_taken_out_of_existence_by ?E69_Death1.
+    ?E71_Man-Made_Thing1 crm:P12i_was_present_at ?E69_Death1.
+    ?E71_Man-Made_Thing1 crm:P92i_was_brought_into_existence_by ?E67_Birth1.
+    ?E71_Man-Made_Thing1 crm:P1_is_identified_by ?E49_Time_Appellation1.
+    ?E71_Man-Made_Thing1 crm:P140i_was_attributed_by ?E16_Measurement1.
+    ?E71_Man-Made_Thing1 crm:P141i_was_assigned_by ?E16_Measurement1.
+    ?E71_Man-Made_Thing1 crm:P101_had_as_general_use ?E58_Measurement_Unit1.
+    ?E71_Man-Made_Thing1 crm:P137_exemplifies ?E58_Measurement_Unit1.
+    ?E71_Man-Made_Thing1 crm:P2_has_type ?E58_Measurement_Unit1.
     ?E2_Temporal_Entity1 crm:P15i_influenced ?E12_Production1.
     ?E2_Temporal_Entity1 crm:P17i_motivated ?E12_Production1.
     ?E2_Temporal_Entity1 crm:P62i_is_depicted_by ?E22_Man-Made_Object1.
@@ -419,14 +412,13 @@ CONSTRUCT {
     ?E2_Temporal_Entity1 crm:P129i_is_subject_of ?E38_Image1.
     ?E2_Temporal_Entity1 crm:P67i_is_referred_to_by ?E38_Image1.
     ?E2_Temporal_Entity1 crm:P1_is_identified_by ?E82_Actor_Appellation1.
-    ?E2_Temporal_Entity2 crm:P1_is_identified_by ?E82_Actor_Appellation2.
     ?E2_Temporal_Entity1 crm:P15i_influenced ?E8_Acquisition1.
     ?E2_Temporal_Entity1 crm:P17i_motivated ?E8_Acquisition1.
-    ?E2_Temporal_Entityundefined crm:P1_is_identified_by ?E49_Time_Appellationundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E2_Temporal_Entityundefined crm:P140i_was_attributed_by ?E16_Measurementundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E2_Temporal_Entityundefined crm:P141i_was_assigned_by ?E16_Measurementundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E2_Temporal_Entityundefined crm:P137_exemplifies ?E58_Measurement_Unitundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E2_Temporal_Entityundefined crm:P2_has_type ?E58_Measurement_Unitundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
+    ?E2_Temporal_Entity1 crm:P1_is_identified_by ?E49_Time_Appellation1.
+    ?E2_Temporal_Entity1 crm:P140i_was_attributed_by ?E16_Measurement1.
+    ?E2_Temporal_Entity1 crm:P141i_was_assigned_by ?E16_Measurement1.
+    ?E2_Temporal_Entity1 crm:P137_exemplifies ?E58_Measurement_Unit1.
+    ?E2_Temporal_Entity1 crm:P2_has_type ?E58_Measurement_Unit1.
     ?E49_Time_Appellation1 crm:P1i_identifies ?E12_Production1.
     ?E49_Time_Appellation1 crm:P139_has_alternative_form ?E35_Title1.
     ?E49_Time_Appellation1 crm:P106_is_composed_of ?E35_Title1.
@@ -436,17 +428,14 @@ CONSTRUCT {
     ?E49_Time_Appellation1 crm:P1i_identifies ?E52_Time-Span1.
     ?E49_Time_Appellation1 crm:P1i_identifies ?E54_Dimension1.
     ?E49_Time_Appellation1 crm:P139_has_alternative_form ?E82_Actor_Appellation1.
-    ?E49_Time_Appellation2 crm:P139_has_alternative_form ?E82_Actor_Appellation2.
     ?E49_Time_Appellation1 crm:P106_is_composed_of ?E82_Actor_Appellation1.
-    ?E49_Time_Appellation2 crm:P106_is_composed_of ?E82_Actor_Appellation2.
     ?E49_Time_Appellation1 crm:P106i_forms_part_of ?E82_Actor_Appellation1.
-    ?E49_Time_Appellation2 crm:P106i_forms_part_of ?E82_Actor_Appellation2.
-    ?E49_Time_Appellationundefined crm:P1i_identifies ?E39_Actorundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E49_Time_Appellationundefined crm:P1i_identifies ?E71_Man-Made_Thingundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E49_Time_Appellationundefined crm:P1i_identifies ?E2_Temporal_Entityundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E49_Time_Appellationundefined crm:P1i_identifies ?E70_Thingundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E70_Thing1 crm:P92i_was_brought_into_existence_by ?E12_Production1.
+    ?E49_Time_Appellation1 crm:P1i_identifies ?E39_Actor1.
+    ?E49_Time_Appellation1 crm:P1i_identifies ?E71_Man-Made_Thing1.
+    ?E49_Time_Appellation1 crm:P1i_identifies ?E2_Temporal_Entity1.
+    ?E49_Time_Appellation1 crm:P1i_identifies ?E70_Thing1.
     ?E70_Thing1 crm:P12i_was_present_at ?E12_Production1.
+    ?E70_Thing1 crm:P92i_was_brought_into_existence_by ?E12_Production1.
     ?E70_Thing1 crm:P15i_influenced ?E12_Production1.
     ?E70_Thing1 crm:P17i_motivated ?E12_Production1.
     ?E70_Thing1 crm:P62i_is_depicted_by ?E22_Man-Made_Object1.
@@ -455,32 +444,31 @@ CONSTRUCT {
     ?E70_Thing1 crm:P129i_is_subject_of ?E38_Image1.
     ?E70_Thing1 crm:P67i_is_referred_to_by ?E38_Image1.
     ?E70_Thing1 crm:P1_is_identified_by ?E82_Actor_Appellation1.
-    ?E70_Thing2 crm:P1_is_identified_by ?E82_Actor_Appellation2.
     ?E70_Thing1 crm:P12i_was_present_at ?E8_Acquisition1.
     ?E70_Thing1 crm:P15i_influenced ?E8_Acquisition1.
     ?E70_Thing1 crm:P17i_motivated ?E8_Acquisition1.
-    ?E70_Thingundefined crm:P93i_was_taken_out_of_existence_by ?E69_Deathundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E70_Thingundefined crm:P12i_was_present_at ?E69_Deathundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E70_Thingundefined crm:P92i_was_brought_into_existence_by ?E67_Birthundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E70_Thingundefined crm:P1_is_identified_by ?E49_Time_Appellationundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E70_Thingundefined crm:P140i_was_attributed_by ?E16_Measurementundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E70_Thingundefined crm:P141i_was_assigned_by ?E16_Measurementundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E70_Thingundefined crm:P137_exemplifies ?E58_Measurement_Unitundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E70_Thingundefined crm:P2_has_type ?E58_Measurement_Unitundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
+    ?E70_Thing1 crm:P93i_was_taken_out_of_existence_by ?E69_Death1.
+    ?E70_Thing1 crm:P12i_was_present_at ?E69_Death1.
+    ?E70_Thing1 crm:P92i_was_brought_into_existence_by ?E67_Birth1.
+    ?E70_Thing1 crm:P1_is_identified_by ?E49_Time_Appellation1.
+    ?E70_Thing1 crm:P140i_was_attributed_by ?E16_Measurement1.
+    ?E70_Thing1 crm:P141i_was_assigned_by ?E16_Measurement1.
+    ?E70_Thing1 crm:P137_exemplifies ?E58_Measurement_Unit1.
+    ?E70_Thing1 crm:P2_has_type ?E58_Measurement_Unit1.
     ?E16_Measurement1 crm:P140_assigned_attribute_to ?E12_Production1.
     ?E16_Measurement1 crm:P141_assigned ?E12_Production1.
     ?E16_Measurement1 crm:P140_assigned_attribute_to ?E52_Time-Span1.
     ?E16_Measurement1 crm:P141_assigned ?E52_Time-Span1.
     ?E16_Measurement1 crm:P140_assigned_attribute_to ?E54_Dimension1.
     ?E16_Measurement1 crm:P141_assigned ?E54_Dimension1.
-    ?E16_Measurementundefined crm:P140_assigned_attribute_to ?E39_Actorundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E16_Measurementundefined crm:P141_assigned ?E39_Actorundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E16_Measurementundefined crm:P140_assigned_attribute_to ?E71_Man-Made_Thingundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E16_Measurementundefined crm:P141_assigned ?E71_Man-Made_Thingundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E16_Measurementundefined crm:P140_assigned_attribute_to ?E2_Temporal_Entityundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E16_Measurementundefined crm:P141_assigned ?E2_Temporal_Entityundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E16_Measurementundefined crm:P140_assigned_attribute_to ?E70_Thingundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E16_Measurementundefined crm:P141_assigned ?E70_Thingundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
+    ?E16_Measurement1 crm:P140_assigned_attribute_to ?E39_Actor1.
+    ?E16_Measurement1 crm:P141_assigned ?E39_Actor1.
+    ?E16_Measurement1 crm:P140_assigned_attribute_to ?E71_Man-Made_Thing1.
+    ?E16_Measurement1 crm:P141_assigned ?E71_Man-Made_Thing1.
+    ?E16_Measurement1 crm:P140_assigned_attribute_to ?E2_Temporal_Entity1.
+    ?E16_Measurement1 crm:P141_assigned ?E2_Temporal_Entity1.
+    ?E16_Measurement1 crm:P140_assigned_attribute_to ?E70_Thing1.
+    ?E16_Measurement1 crm:P141_assigned ?E70_Thing1.
     ?E58_Measurement_Unit1 crm:P125i_was_type_of_object_used_in ?E12_Production1.
     ?E58_Measurement_Unit1 crm:P21i_was_purpose_of ?E12_Production1.
     ?E58_Measurement_Unit1 crm:P32i_was_technique_of ?E12_Production1.
@@ -495,17 +483,17 @@ CONSTRUCT {
     ?E58_Measurement_Unit1 crm:P125i_was_type_of_object_used_in ?E8_Acquisition1.
     ?E58_Measurement_Unit1 crm:P21i_was_purpose_of ?E8_Acquisition1.
     ?E58_Measurement_Unit1 crm:P32i_was_technique_of ?E8_Acquisition1.
-    ?E58_Measurement_Unitundefined crm:P103i_was_intention_of ?E24_Physical_Man-Made_Thingundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E58_Measurement_Unitundefined crm:P101i_was_use_of ?E24_Physical_Man-Made_Thingundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E58_Measurement_Unitundefined crm:P137i_is_exemplified_by ?E39_Actorundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E58_Measurement_Unitundefined crm:P2i_is_type_of ?E39_Actorundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E58_Measurement_Unitundefined crm:P101i_was_use_of ?E71_Man-Made_Thingundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E58_Measurement_Unitundefined crm:P137i_is_exemplified_by ?E71_Man-Made_Thingundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E58_Measurement_Unitundefined crm:P2i_is_type_of ?E71_Man-Made_Thingundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E58_Measurement_Unitundefined crm:P137i_is_exemplified_by ?E2_Temporal_Entityundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E58_Measurement_Unitundefined crm:P2i_is_type_of ?E2_Temporal_Entityundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E58_Measurement_Unitundefined crm:P137i_is_exemplified_by ?E70_Thingundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E58_Measurement_Unitundefined crm:P2i_is_type_of ?E70_Thingundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
+    ?E58_Measurement_Unit1 crm:P103i_was_intention_of ?E24_Physical_Man-Made_Thing1.
+    ?E58_Measurement_Unit1 crm:P101i_was_use_of ?E24_Physical_Man-Made_Thing1.
+    ?E58_Measurement_Unit1 crm:P137i_is_exemplified_by ?E39_Actor1.
+    ?E58_Measurement_Unit1 crm:P2i_is_type_of ?E39_Actor1.
+    ?E58_Measurement_Unit1 crm:P101i_was_use_of ?E71_Man-Made_Thing1.
+    ?E58_Measurement_Unit1 crm:P137i_is_exemplified_by ?E71_Man-Made_Thing1.
+    ?E58_Measurement_Unit1 crm:P2i_is_type_of ?E71_Man-Made_Thing1.
+    ?E58_Measurement_Unit1 crm:P137i_is_exemplified_by ?E2_Temporal_Entity1.
+    ?E58_Measurement_Unit1 crm:P2i_is_type_of ?E2_Temporal_Entity1.
+    ?E58_Measurement_Unit1 crm:P137i_is_exemplified_by ?E70_Thing1.
+    ?E58_Measurement_Unit1 crm:P2i_is_type_of ?E70_Thing1.
     ?E18_Physical_Thing1 crm:P105_right_held_by ?E21_Person1.
 }
 WHERE {
@@ -534,10 +522,5 @@ WHERE {
     BIND (URI(CONCAT('http://erlangen-crm.org/current//e70_thing/',?Dimensions)) as ?E70_Thing1)
     BIND (URI(CONCAT('http://erlangen-crm.org/current//e16_measurement/',?Dimensions)) as ?E16_Measurement1)
     BIND (URI(CONCAT('http://erlangen-crm.org/current//e58_measurement_unit/',?Dimensions)) as ?E58_Measurement_Unit1)
-    BIND (URI(CONCAT('http://erlangen-crm.org/current//e39_actor/',?name)) as ?E39_Actor2)
     BIND (URI(CONCAT('http://erlangen-crm.org/current//e18_physical_thing/',?Provenance)) as ?E18_Physical_Thing1)
-    BIND (URI(CONCAT('http://erlangen-crm.org/current//e71_man-made_thing/',?name)) as ?E71_Man-Made_Thing2)
-    BIND (URI(CONCAT('http://erlangen-crm.org/current//e2_temporal_entity/',?name)) as ?E2_Temporal_Entity2)
-    BIND (URI(CONCAT('http://erlangen-crm.org/current//e49_time_appellation/',?name)) as ?E49_Time_Appellation2)
-    BIND (URI(CONCAT('http://erlangen-crm.org/current//e70_thing/',?name)) as ?E70_Thing2)
 }

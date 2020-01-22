@@ -6,10 +6,31 @@
     },
     "nodes": [
         {
-            "v": "artist",
+            "v": "artistAppellationURI",
             "value": {
                 "type": "attribute_name",
-                "label": "artist"
+                "label": "artistAppellationURI"
+            }
+        },
+        {
+            "v": "crm:E82_Actor_Appellation1",
+            "value": {
+                "type": "class_uri",
+                "label": "crm:E82_Actor_Appellation"
+            }
+        },
+        {
+            "v": "artistFirstLast",
+            "value": {
+                "type": "attribute_name",
+                "label": "artistFirstLast"
+            }
+        },
+        {
+            "v": "artistURI",
+            "value": {
+                "type": "attribute_name",
+                "label": "artistURI"
             }
         },
         {
@@ -118,13 +139,6 @@
             }
         },
         {
-            "v": "crm:E82_Actor_Appellation1",
-            "value": {
-                "type": "class_uri",
-                "label": "crm:E82_Actor_Appellation"
-            }
-        },
-        {
             "v": "crm:E54_Dimension1",
             "value": {
                 "type": "class_uri",
@@ -153,21 +167,21 @@
             }
         },
         {
-            "v": "crm:E55_Type4",
+            "v": "crm:E55_Type3",
             "value": {
                 "type": "class_uri",
                 "label": "crm:E55_Type"
+            }
+        },
+        {
+            "v": "materials",
+            "value": {
+                "type": "attribute_name",
+                "label": "materials"
             }
         },
         {
             "v": "crm:E55_Type2",
-            "value": {
-                "type": "class_uri",
-                "label": "crm:E55_Type"
-            }
-        },
-        {
-            "v": "crm:E55_Type3",
             "value": {
                 "type": "class_uri",
                 "label": "crm:E55_Type"
@@ -181,10 +195,10 @@
             }
         },
         {
-            "v": "appellation",
+            "v": "nationality",
             "value": {
                 "type": "attribute_name",
-                "label": "appellation"
+                "label": "nationality"
             }
         },
         {
@@ -223,13 +237,6 @@
             }
         },
         {
-            "v": "materials",
-            "value": {
-                "type": "attribute_name",
-                "label": "materials"
-            }
-        },
-        {
             "v": "materialsURI",
             "value": {
                 "type": "attribute_name",
@@ -237,10 +244,10 @@
             }
         },
         {
-            "v": "nationality",
+            "v": "nationalityURI",
             "value": {
                 "type": "attribute_name",
-                "label": "nationality"
+                "label": "nationalityURI"
             }
         },
         {
@@ -274,12 +281,35 @@
     ],
     "edges": [
         {
-            "v": "artist",
-            "w": "crm:E21_Person1",
-            "name": "artist***crm:E21_Person1",
+            "v": "artistAppellationURI",
+            "w": "crm:E82_Actor_Appellation1",
+            "name": "artistAppellationURI***crm:E82_Actor_Appellation1",
             "value": {
                 "type": "st_property_uri",
-                "label": "rdfs:label***inverted"
+                "label": "rdfs:label***inverted",
+                "weight": 1
+            },
+            "weight": 1
+        },
+        {
+            "v": "artistFirstLast",
+            "w": "crm:E82_Actor_Appellation1",
+            "name": "artistFirstLast***crm:E82_Actor_Appellation1",
+            "value": {
+                "type": "st_property_uri",
+                "label": "rdfs:label***inverted",
+                "weight": 1
+            },
+            "weight": 1
+        },
+        {
+            "v": "artistURI",
+            "w": "crm:E21_Person1",
+            "name": "artistURI***crm:E21_Person1",
+            "value": {
+                "type": "st_property_uri",
+                "label": "rdfs:label***inverted",
+                "weight": 1
             },
             "weight": 1
         },
@@ -289,7 +319,8 @@
             "name": "birthDate***crm:E52_Time-Span1",
             "value": {
                 "type": "st_property_uri",
-                "label": "crm:P82_at_some_time_within***inverted"
+                "label": "crm:P82_at_some_time_within***inverted",
+                "weight": 1
             },
             "weight": 1
         },
@@ -299,7 +330,8 @@
             "name": "creationDate***crm:E52_Time-Span3",
             "value": {
                 "type": "st_property_uri",
-                "label": "crm:P82_at_some_time_within***inverted"
+                "label": "crm:P82_at_some_time_within***inverted",
+                "weight": 1
             },
             "weight": 1
         },
@@ -309,7 +341,8 @@
             "name": "crm:E18_Physical_Thing***crm:E8_Acquisition1",
             "value": {
                 "type": "direct_property_uri",
-                "label": "crm:P24_transferred_title_of***inverted"
+                "label": "crm:P24_transferred_title_of***inverted",
+                "weight": 1
             },
             "weight": 1
         },
@@ -319,7 +352,8 @@
             "name": "crm:E21_Person1***crm:E39_Actor",
             "value": {
                 "label": "id:ontology/PX_pupil_of",
-                "type": "direct_property_uri"
+                "type": "direct_property_uri",
+                "weight": 1
             },
             "weight": 1
         },
@@ -329,7 +363,8 @@
             "name": "crm:E22_Man-Made_Object1***crm:E8_Acquisition1",
             "value": {
                 "type": "inherited",
-                "label": "crm:P62i_is_depicted_by***inverted"
+                "label": "crm:P62i_is_depicted_by***inverted",
+                "weight": 4
             },
             "weight": 4
         },
@@ -339,7 +374,8 @@
             "name": "crm:E33_Linguistic_Object1***crm:E33_Linguistic_Object2",
             "value": {
                 "type": "direct_property_uri",
-                "label": "crm:P73i_is_translation_of***inverted"
+                "label": "crm:P73i_is_translation_of***inverted",
+                "weight": 1
             },
             "weight": 1
         },
@@ -349,7 +385,8 @@
             "name": "crm:E33_Linguistic_Object2***crm:E8_Acquisition1",
             "value": {
                 "type": "inherited",
-                "label": "crm:P67i_is_referred_to_by***inverted"
+                "label": "crm:P67i_is_referred_to_by***inverted",
+                "weight": 4
             },
             "weight": 4
         },
@@ -369,7 +406,8 @@
             "name": "crm:E35_Title1***crm:E71_Man-Made_Thing",
             "value": {
                 "type": "inherited",
-                "label": "crm:P67i_is_referred_to_by***inverted"
+                "label": "crm:P67i_is_referred_to_by***inverted",
+                "weight": 4
             },
             "weight": 4
         },
@@ -379,7 +417,8 @@
             "name": "crm:E38_Image1***crm:E8_Acquisition1",
             "value": {
                 "type": "inherited",
-                "label": "crm:P67i_is_referred_to_by***inverted"
+                "label": "crm:P67i_is_referred_to_by***inverted",
+                "weight": 4
             },
             "weight": 4
         },
@@ -389,7 +428,8 @@
             "name": "crm:E39_Actor***crm:E18_Physical_Thing",
             "value": {
                 "type": "direct_property_uri",
-                "label": "crm:P51_has_former_or_current_owner***inverted"
+                "label": "crm:P51_has_former_or_current_owner***inverted",
+                "weight": 1
             },
             "weight": 1
         },
@@ -399,7 +439,8 @@
             "name": "crm:E39_Actor***crm:E82_Actor_Appellation1",
             "value": {
                 "type": "inherited",
-                "label": "crm:P1i_identifies***inverted"
+                "label": "crm:P1i_identifies***inverted",
+                "weight": 4
             },
             "weight": 4
         },
@@ -409,7 +450,8 @@
             "name": "crm:E52_Time-Span1***crm:E54_Dimension1",
             "value": {
                 "type": "direct_property_uri",
-                "label": "crm:P84i_was_maximum_duration_of***inverted"
+                "label": "crm:P84i_was_maximum_duration_of***inverted",
+                "weight": 1
             },
             "weight": 1
         },
@@ -419,7 +461,8 @@
             "name": "crm:E52_Time-Span2***crm:E54_Dimension1",
             "value": {
                 "type": "direct_property_uri",
-                "label": "crm:P84i_was_maximum_duration_of***inverted"
+                "label": "crm:P84i_was_maximum_duration_of***inverted",
+                "weight": 1
             },
             "weight": 1
         },
@@ -429,7 +472,8 @@
             "name": "crm:E52_Time-Span3***crm:E54_Dimension1",
             "value": {
                 "type": "direct_property_uri",
-                "label": "crm:P84i_was_maximum_duration_of***inverted"
+                "label": "crm:P84i_was_maximum_duration_of***inverted",
+                "weight": 1
             },
             "weight": 1
         },
@@ -439,67 +483,73 @@
             "name": "crm:E54_Dimension1***crm:E70_Thing",
             "value": {
                 "type": "direct_property_uri",
-                "label": "crm:P43_has_dimension***inverted"
+                "label": "crm:P43_has_dimension***inverted",
+                "weight": 1
             },
             "weight": 1
         },
         {
             "v": "crm:E55_Type1",
-            "w": "crm:E55_Type4",
-            "name": "crm:E55_Type1***crm:E55_Type4",
+            "w": "crm:E55_Type3",
+            "name": "crm:E55_Type1***crm:E55_Type3",
             "value": {
                 "type": "direct_property_uri",
-                "label": "crm:P127i_has_narrower_term***inverted"
+                "label": "crm:P127i_has_narrower_term***inverted",
+                "weight": 1
+            },
+            "weight": 1
+        },
+        {
+            "v": "crm:E55_Type1",
+            "w": "materials",
+            "name": "crm:E55_Type1***materials",
+            "value": {
+                "label": "rdfs:label",
+                "type": "st_property_uri"
             },
             "weight": 1
         },
         {
             "v": "crm:E55_Type2",
-            "w": "crm:E55_Type4",
-            "name": "crm:E55_Type2***crm:E55_Type4",
+            "w": "crm:E55_Type3",
+            "name": "crm:E55_Type2***crm:E55_Type3",
             "value": {
                 "type": "direct_property_uri",
-                "label": "crm:P127i_has_narrower_term***inverted"
+                "label": "crm:P127i_has_narrower_term***inverted",
+                "weight": 1
             },
             "weight": 1
         },
         {
             "v": "crm:E55_Type3",
-            "w": "crm:E55_Type4",
-            "name": "crm:E55_Type3***crm:E55_Type4",
-            "value": {
-                "type": "direct_property_uri",
-                "label": "crm:P127i_has_narrower_term***inverted"
-            },
-            "weight": 1
-        },
-        {
-            "v": "crm:E55_Type4",
             "w": "crm:E8_Acquisition1",
-            "name": "crm:E55_Type4***crm:E8_Acquisition1",
+            "name": "crm:E55_Type3***crm:E8_Acquisition1",
             "value": {
                 "type": "inherited",
-                "label": "crm:P12_occurred_in_the_presence_of***inverted"
+                "label": "crm:P12_occurred_in_the_presence_of***inverted",
+                "weight": 4
             },
             "weight": 4
         },
         {
             "v": "crm:E70_Thing",
-            "w": "crm:E55_Type4",
-            "name": "crm:E70_Thing***crm:E55_Type4",
+            "w": "crm:E55_Type3",
+            "name": "crm:E70_Thing***crm:E55_Type3",
             "value": {
                 "type": "direct_property_uri",
-                "label": "crm:P101i_was_use_of***inverted"
+                "label": "crm:P101i_was_use_of***inverted",
+                "weight": 1
             },
             "weight": 1
         },
         {
             "v": "crm:E71_Man-Made_Thing",
-            "w": "crm:E55_Type4",
-            "name": "crm:E71_Man-Made_Thing***crm:E55_Type4",
+            "w": "crm:E55_Type3",
+            "name": "crm:E71_Man-Made_Thing***crm:E55_Type3",
             "value": {
                 "type": "inherited",
-                "label": "crm:P130i_features_are_also_found_on***inverted"
+                "label": "crm:P130i_features_are_also_found_on***inverted",
+                "weight": 4
             },
             "weight": 4
         },
@@ -509,14 +559,15 @@
             "name": "crm:E74_Group1***crm:E39_Actor",
             "value": {
                 "type": "direct_property_uri",
-                "label": "id:ontology/PX_profession***inverted"
+                "label": "id:ontology/PX_profession***inverted",
+                "weight": 1
             },
             "weight": 1
         },
         {
-            "v": "crm:E82_Actor_Appellation1",
-            "w": "appellation",
-            "name": "crm:E82_Actor_Appellation1***appellation",
+            "v": "crm:E74_Group1",
+            "w": "nationality",
+            "name": "crm:E74_Group1***nationality",
             "value": {
                 "label": "rdfs:label",
                 "type": "st_property_uri"
@@ -539,7 +590,8 @@
             "name": "deathDate***crm:E52_Time-Span2",
             "value": {
                 "type": "st_property_uri",
-                "label": "crm:P82_at_some_time_within***inverted"
+                "label": "crm:P82_at_some_time_within***inverted",
+                "weight": 1
             },
             "weight": 1
         },
@@ -549,17 +601,19 @@
             "name": "dimensions***crm:E54_Dimension1",
             "value": {
                 "type": "st_property_uri",
-                "label": "crm:P3_has_note***inverted"
+                "label": "crm:P3_has_note***inverted",
+                "weight": 1
             },
             "weight": 1
         },
         {
             "v": "galleryLabelTypeURI",
-            "w": "crm:E55_Type4",
-            "name": "galleryLabelTypeURI***crm:E55_Type4",
+            "w": "crm:E55_Type3",
+            "name": "galleryLabelTypeURI***crm:E55_Type3",
             "value": {
                 "type": "st_property_uri",
-                "label": "rdfs:label***inverted"
+                "label": "rdfs:label***inverted",
+                "weight": 1
             },
             "weight": 1
         },
@@ -569,17 +623,8 @@
             "name": "imageURL***crm:E38_Image1",
             "value": {
                 "type": "st_property_uri",
-                "label": "rdfs:label***inverted"
-            },
-            "weight": 1
-        },
-        {
-            "v": "materials",
-            "w": "crm:E55_Type2",
-            "name": "materials***crm:E55_Type2",
-            "value": {
-                "type": "st_property_uri",
-                "label": "rdfs:label***inverted"
+                "label": "rdfs:label***inverted",
+                "weight": 1
             },
             "weight": 1
         },
@@ -589,17 +634,19 @@
             "name": "materialsURI***crm:E55_Type1",
             "value": {
                 "type": "st_property_uri",
-                "label": "rdfs:label***inverted"
+                "label": "rdfs:label***inverted",
+                "weight": 1
             },
             "weight": 1
         },
         {
-            "v": "nationality",
+            "v": "nationalityURI",
             "w": "crm:E74_Group1",
-            "name": "nationality***crm:E74_Group1",
+            "name": "nationalityURI***crm:E74_Group1",
             "value": {
                 "type": "st_property_uri",
-                "label": "rdfs:label***inverted"
+                "label": "rdfs:label***inverted",
+                "weight": 1
             },
             "weight": 1
         },
@@ -609,17 +656,19 @@
             "name": "provenance***crm:E33_Linguistic_Object1",
             "value": {
                 "type": "st_property_uri",
-                "label": "crm:P3_has_note***inverted"
+                "label": "crm:P3_has_note***inverted",
+                "weight": 1
             },
             "weight": 1
         },
         {
             "v": "provenanceTypeURI",
-            "w": "crm:E55_Type3",
-            "name": "provenanceTypeURI***crm:E55_Type3",
+            "w": "crm:E55_Type2",
+            "name": "provenanceTypeURI***crm:E55_Type2",
             "value": {
                 "type": "st_property_uri",
-                "label": "rdfs:label***inverted"
+                "label": "rdfs:label***inverted",
+                "weight": 1
             },
             "weight": 1
         },
@@ -629,7 +678,8 @@
             "name": "sourceURL***crm:E22_Man-Made_Object1",
             "value": {
                 "type": "st_property_uri",
-                "label": "rdfs:label***inverted"
+                "label": "rdfs:label***inverted",
+                "weight": 1
             },
             "weight": 1
         },
@@ -639,7 +689,8 @@
             "name": "title***crm:E35_Title1",
             "value": {
                 "type": "st_property_uri",
-                "label": "rdfs:label***inverted"
+                "label": "rdfs:label***inverted",
+                "weight": 1
             },
             "weight": 1
         }

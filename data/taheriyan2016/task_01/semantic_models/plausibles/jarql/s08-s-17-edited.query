@@ -22,6 +22,26 @@ PREFIX id:        <http://collection.britishmuseum.org/id/>
 PREFIX idThes:    <http://collection.britishmuseum.org/id/thesauri/>
 PREFIX prov:      <http://www.w3.org/ns/prov#>
 PREFIX bmo:       <http://collection.britishmuseum.org/id/ontology/>
+PREFIX aac-ont:   <http://www.americanartcollaborative.org/ontology/>
+PREFIX skos2:     <http://www.w3.org/2008/05/skos#>
+PREFIX ElementsGr2: <http://rdvocab.info/ElementsGr2/>
+PREFIX rdvocab-schema: <http://rdvocab.info/uri/schema/FRBRentitiesRDA/>
+PREFIX edm:       <http://www.europeana.eu/schemas/edm/>
+PREFIX schema-dig: <http://schema.dig.isi.edu/ontology/>
+PREFIX geo:       <http://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX frbr:      <http://purl.org/vocab/frbr/core#>
+PREFIX swap:      <http://www.w3.org/2000/10/swap/pim/contact#>
+PREFIX cidoc-crm: <http://www.cidoc-crm.org/rdfs/cidoc-crm#>
+PREFIX abc:       <http://metadata.net/harmony/abc#>
+PREFIX DOLCE-Lite: <http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#>
+PREFIX dcmitype:  <http://purl.org/dc/dcmitype/>
+PREFIX msg0:      <http://web.resource.org/cc/>
+PREFIX time-entry: <http://www.isi.edu/~pan/damltime/time-entry.owl#>
+PREFIX wordnet:   <http://xmlns.com/wordnet/1.6/Work~2>
+PREFIX saam-ont:  <http://americanart.si.edu/ontology/>
+PREFIX ore:       <http://www.openarchives.org/ore/terms/>
+PREFIX scharp:    <http://scharp.usc.isi.edu/ontology/>
+PREFIX memex:     <http://dig.isi.edu/ontology/memex/>
 PREFIX jarql:     <http://jarql.com/>
 
 CONSTRUCT {
@@ -33,14 +53,14 @@ CONSTRUCT {
     ?E31_Document1 rdf:type crm:E31_Document.
     ?E35_Title1 rdfs:label ?TITLE NO AUTHOR.
     ?E35_Title1 rdf:type crm:E35_Title.
-    ?E38_Image1 rdfs:label ?IMAGE__IMAGESRC.
+    ?E38_Image1 rdfs:label ?IMAGESRC.
     ?E38_Image1 rdf:type crm:E38_Image.
     ?E55_Type1 rdfs:label ?VIDEO_TYPE_URI.
     ?E55_Type1 rdf:type crm:E55_Type.
     ?E82_Actor_Appellation1 rdfs:label ?AUTHOR_APPELLATION_URI.
     ?E82_Actor_Appellation1 rdf:type crm:E82_Actor_Appellation.
-    ?E82_Actor_Appellation2 rdfs:label ?AUTHOR.
-    ?E82_Actor_Appellation2 rdf:type crm:E82_Actor_Appellation.
+    ?E82_Actor_Appellation1 rdfs:label ?AUTHOR.
+    ?E82_Actor_Appellation1 rdf:type crm:E82_Actor_Appellation.
     ?E21_Person1 crm:P100i_died_in ?E69_Death1.
     ?E69_Death1 crm:P100_was_death_of ?E21_Person1.
     ?E21_Person1 id:ontology/PX_pupil_of ?E39_Actor1.
@@ -77,30 +97,31 @@ CONSTRUCT {
     ?E55_Type1 crm:P71i_is_listed_in ?E32_Authority_Document1.
     ?E32_Authority_Document1 crm:P71_lists ?E55_Type1.
     ?E82_Actor_Appellation1 crm:P131i_identifies ?E39_Actor1.
-    ?E82_Actor_Appellation2 crm:P131i_identifies ?E39_Actor2.
     ?E39_Actor1 crm:P131_is_identified_by ?E82_Actor_Appellation1.
-    ?E39_Actor2 crm:P131_is_identified_by ?E82_Actor_Appellation2.
-    ?E1_CRM_Entityundefined crm:P15i_influenced ?E7_Activityundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E1_CRM_Entityundefined crm:P17i_motivated ?E7_Activityundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E7_Activityundefined crm:P15_was_influenced_by ?E1_CRM_Entityundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E7_Activityundefined crm:P17_was_motivated_by ?E1_CRM_Entityundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E1_CRM_Entityundefined crm:P136i_supported_type_creation ?E83_Type_Creationundefinedundefined.
-    ?E83_Type_Creationundefined crm:P136_was_based_on ?E1_CRM_Entityundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E1_CRM_Entityundefined crm:P41i_was_classified_by ?E17_Type_Assignmentundefinedundefined.
-    ?E17_Type_Assignmentundefined crm:P41_classified ?E1_CRM_Entityundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E71_Man-Made_Thingundefined crm:P19i_was_made_for ?E7_Activityundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E7_Activityundefined crm:P19_was_intended_use_of ?E71_Man-Made_Thingundefinedundefinedundefinedundefined.
-    ?E70_Thingundefined crm:P130_shows_features_of ?E70_Thingundefinedundefined.
-    ?E70_Thingundefined crm:P130i_features_are_also_found_on ?E70_Thingundefinedundefined.
-    ?E70_Thingundefined crm:P16i_was_used_for ?E7_Activityundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E7_Activityundefined crm:P16_used_specific_object ?E70_Thingundefinedundefined.
-    ?E7_Activityundefined crm:P134_continued ?E7_Activityundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E7_Activityundefined crm:P134i_was_continued_by ?E7_Activityundefinedundefinedundefinedundefinedundefinedundefined.
+    ?E1_CRM_Entity1 crm:P15i_influenced ?E7_Activity1.
+    ?E1_CRM_Entity1 crm:P17i_motivated ?E7_Activity1.
+    ?E7_Activity1 crm:P15_was_influenced_by ?E1_CRM_Entity1.
+    ?E7_Activity1 crm:P17_was_motivated_by ?E1_CRM_Entity1.
+    ?E1_CRM_Entity1 crm:P136i_supported_type_creation ?E83_Type_Creation1.
+    ?E83_Type_Creation1 crm:P136_was_based_on ?E1_CRM_Entity1.
+    ?E1_CRM_Entity1 crm:P41i_was_classified_by ?E17_Type_Assignment1.
+    ?E17_Type_Assignment1 crm:P41_classified ?E1_CRM_Entity1.
+    ?E71_Man-Made_Thing1 crm:P19i_was_made_for ?E7_Activity1.
+    ?E7_Activity1 crm:P19_was_intended_use_of ?E71_Man-Made_Thing1.
+    ?E70_Thing1 crm:P130_shows_features_of ?E70_Thing1.
+    ?E70_Thing1 crm:P130i_features_are_also_found_on ?E70_Thing1.
+    ?E70_Thing1 crm:P16i_was_used_for ?E7_Activity1.
+    ?E7_Activity1 crm:P16_used_specific_object ?E70_Thing1.
+    ?E7_Activity1 crm:P134_continued ?E7_Activity1.
+    ?E7_Activity1 crm:P134i_was_continued_by ?E7_Activity1.
     ?E21_Person1 crm:P49i_is_former_or_current_keeper_of ?E22_Man-Made_Object1.
     ?E21_Person1 crm:P51i_is_former_or_current_owner_of ?E22_Man-Made_Object1.
+    ?E21_Person1 crm:P105i_has_right_on ?E22_Man-Made_Object1.
     ?E21_Person1 crm:P62i_is_depicted_by ?E22_Man-Made_Object1.
     ?E21_Person1 crm:P46_is_composed_of ?E22_Man-Made_Object1.
     ?E21_Person1 crm:P46i_forms_part_of ?E22_Man-Made_Object1.
+    ?E21_Person1 crm:P130_shows_features_of ?E22_Man-Made_Object1.
+    ?E21_Person1 crm:P130i_features_are_also_found_on ?E22_Man-Made_Object1.
     ?E21_Person1 crm:P105i_has_right_on ?E31_Document1.
     ?E21_Person1 crm:P129i_is_subject_of ?E31_Document1.
     ?E21_Person1 crm:P67i_is_referred_to_by ?E31_Document1.
@@ -114,7 +135,6 @@ CONSTRUCT {
     ?E21_Person1 crm:P130_shows_features_of ?E38_Image1.
     ?E21_Person1 crm:P130i_features_are_also_found_on ?E38_Image1.
     ?E21_Person1 crm:P1_is_identified_by ?E82_Actor_Appellation1.
-    ?E21_Person1 crm:P1_is_identified_by ?E82_Actor_Appellation2.
     ?E21_Person1 crm:P11i_participated_in ?E69_Death1.
     ?E21_Person1 crm:P93i_was_taken_out_of_existence_by ?E69_Death1.
     ?E21_Person1 crm:P12i_was_present_at ?E69_Death1.
@@ -128,55 +148,93 @@ CONSTRUCT {
     ?E21_Person1 crm:P141i_was_assigned_by ?E17_Type_Assignment1.
     ?E21_Person1 crm:P70i_is_documented_in ?E32_Authority_Document1.
     ?E22_Man-Made_Object1 crm:P62_depicts ?E21_Person1.
+    ?E22_Man-Made_Object1 crm:P130_shows_features_of ?E21_Person1.
+    ?E22_Man-Made_Object1 crm:P130i_features_are_also_found_on ?E21_Person1.
     ?E22_Man-Made_Object1 crm:P49_has_former_or_current_keeper ?E21_Person1.
     ?E22_Man-Made_Object1 crm:P51_has_former_or_current_owner ?E21_Person1.
     ?E22_Man-Made_Object1 crm:P46_is_composed_of ?E21_Person1.
     ?E22_Man-Made_Object1 crm:P46i_forms_part_of ?E21_Person1.
+    ?E22_Man-Made_Object1 crm:P105_right_held_by ?E21_Person1.
     ?E22_Man-Made_Object1 crm:P128_carries ?E31_Document1.
+    ?E22_Man-Made_Object1 crm:P62_depicts ?E31_Document1.
+    ?E22_Man-Made_Object1 crm:P130_shows_features_of ?E31_Document1.
+    ?E22_Man-Made_Object1 crm:P130i_features_are_also_found_on ?E31_Document1.
+    ?E22_Man-Made_Object1 crm:P129i_is_subject_of ?E31_Document1.
+    ?E22_Man-Made_Object1 crm:P67i_is_referred_to_by ?E31_Document1.
     ?E22_Man-Made_Object1 crm:P128_carries ?E35_Title1.
+    ?E22_Man-Made_Object1 crm:P1_is_identified_by ?E35_Title1.
     ?E22_Man-Made_Object1 crm:P65_shows_visual_item ?E38_Image1.
     ?E22_Man-Made_Object1 crm:P128_carries ?E38_Image1.
+    ?E22_Man-Made_Object1 crm:P130_shows_features_of ?E38_Image1.
+    ?E22_Man-Made_Object1 crm:P130i_features_are_also_found_on ?E38_Image1.
+    ?E22_Man-Made_Object1 crm:P138i_has_representation ?E38_Image1.
+    ?E22_Man-Made_Object1 crm:P129i_is_subject_of ?E38_Image1.
+    ?E22_Man-Made_Object1 crm:P67i_is_referred_to_by ?E38_Image1.
+    ?E22_Man-Made_Object1 crm:P1_is_identified_by ?E82_Actor_Appellation1.
+    ?E22_Man-Made_Object1 crm:P93i_was_taken_out_of_existence_by ?E69_Death1.
+    ?E22_Man-Made_Object1 crm:P12i_was_present_at ?E69_Death1.
     ?E22_Man-Made_Object1 crm:P62_depicts ?E39_Actor1.
+    ?E22_Man-Made_Object1 crm:P92i_was_brought_into_existence_by ?E67_Birth1.
+    ?E22_Man-Made_Object1 crm:P130_shows_features_of ?E71_Man-Made_Thing1.
+    ?E22_Man-Made_Object1 crm:P130i_features_are_also_found_on ?E71_Man-Made_Thing1.
     ?E22_Man-Made_Object1 crm:P62_depicts ?E70_Thing1.
     ?E22_Man-Made_Object1 crm:P8i_witnessed ?E7_Activity1.
+    ?E22_Man-Made_Object1 crm:P12i_was_present_at ?E7_Activity1.
+    ?E22_Man-Made_Object1 crm:P140i_was_attributed_by ?E17_Type_Assignment1.
+    ?E22_Man-Made_Object1 crm:P141i_was_assigned_by ?E17_Type_Assignment1.
     ?E22_Man-Made_Object1 crm:P128_carries ?E32_Authority_Document1.
+    ?E22_Man-Made_Object1 crm:P70i_is_documented_in ?E32_Authority_Document1.
     ?E31_Document1 crm:P129_is_about ?E21_Person1.
     ?E31_Document1 crm:P67_refers_to ?E21_Person1.
     ?E31_Document1 crm:P105_right_held_by ?E21_Person1.
     ?E31_Document1 crm:P130_shows_features_of ?E21_Person1.
     ?E31_Document1 crm:P130i_features_are_also_found_on ?E21_Person1.
     ?E31_Document1 crm:P128i_is_carried_by ?E22_Man-Made_Object1.
+    ?E31_Document1 crm:P129_is_about ?E22_Man-Made_Object1.
+    ?E31_Document1 crm:P67_refers_to ?E22_Man-Made_Object1.
+    ?E31_Document1 crm:P130_shows_features_of ?E22_Man-Made_Object1.
+    ?E31_Document1 crm:P130i_features_are_also_found_on ?E22_Man-Made_Object1.
+    ?E31_Document1 crm:P62i_is_depicted_by ?E22_Man-Made_Object1.
     ?E31_Document1 crm:P106_is_composed_of ?E35_Title1.
     ?E31_Document1 crm:P106i_forms_part_of ?E35_Title1.
+    ?E31_Document1 crm:P1_is_identified_by ?E35_Title1.
     ?E31_Document1 crm:P148_has_component ?E38_Image1.
     ?E31_Document1 crm:P148i_is_component_of ?E38_Image1.
     ?E31_Document1 crm:P106_is_composed_of ?E38_Image1.
     ?E31_Document1 crm:P106i_forms_part_of ?E38_Image1.
     ?E31_Document1 crm:P130_shows_features_of ?E38_Image1.
     ?E31_Document1 crm:P130i_features_are_also_found_on ?E38_Image1.
+    ?E31_Document1 crm:P138i_has_representation ?E38_Image1.
+    ?E31_Document1 crm:P129i_is_subject_of ?E38_Image1.
+    ?E31_Document1 crm:P67i_is_referred_to_by ?E38_Image1.
     ?E31_Document1 crm:P106_is_composed_of ?E82_Actor_Appellation1.
-    ?E31_Document1 crm:P106_is_composed_of ?E82_Actor_Appellation2.
     ?E31_Document1 crm:P106i_forms_part_of ?E82_Actor_Appellation1.
-    ?E31_Document1 crm:P106i_forms_part_of ?E82_Actor_Appellation2.
+    ?E31_Document1 crm:P1_is_identified_by ?E82_Actor_Appellation1.
+    ?E31_Document1 crm:P93i_was_taken_out_of_existence_by ?E69_Death1.
+    ?E31_Document1 crm:P12i_was_present_at ?E69_Death1.
     ?E31_Document1 crm:P129_is_about ?E39_Actor1.
     ?E31_Document1 crm:P67_refers_to ?E39_Actor1.
+    ?E31_Document1 crm:P92i_was_brought_into_existence_by ?E67_Birth1.
     ?E31_Document1 crm:P130_shows_features_of ?E71_Man-Made_Thing1.
     ?E31_Document1 crm:P130i_features_are_also_found_on ?E71_Man-Made_Thing1.
     ?E31_Document1 crm:P129_is_about ?E70_Thing1.
     ?E31_Document1 crm:P67_refers_to ?E70_Thing1.
+    ?E31_Document1 crm:P12i_was_present_at ?E7_Activity1.
     ?E31_Document1 crm:P94i_was_created_by ?E83_Type_Creation1.
+    ?E31_Document1 crm:P140i_was_attributed_by ?E17_Type_Assignment1.
+    ?E31_Document1 crm:P141i_was_assigned_by ?E17_Type_Assignment1.
+    ?E31_Document1 crm:P70i_is_documented_in ?E32_Authority_Document1.
     ?E35_Title1 crm:P1i_identifies ?E21_Person1.
+    ?E35_Title1 crm:P1i_identifies ?E22_Man-Made_Object1.
     ?E35_Title1 crm:P128i_is_carried_by ?E22_Man-Made_Object1.
+    ?E35_Title1 crm:P1i_identifies ?E31_Document1.
     ?E35_Title1 crm:P106_is_composed_of ?E31_Document1.
     ?E35_Title1 crm:P106i_forms_part_of ?E31_Document1.
     ?E35_Title1 crm:P106_is_composed_of ?E38_Image1.
     ?E35_Title1 crm:P106i_forms_part_of ?E38_Image1.
     ?E35_Title1 crm:P139_has_alternative_form ?E82_Actor_Appellation1.
-    ?E35_Title1 crm:P139_has_alternative_form ?E82_Actor_Appellation2.
     ?E35_Title1 crm:P106_is_composed_of ?E82_Actor_Appellation1.
-    ?E35_Title1 crm:P106_is_composed_of ?E82_Actor_Appellation2.
     ?E35_Title1 crm:P106i_forms_part_of ?E82_Actor_Appellation1.
-    ?E35_Title1 crm:P106i_forms_part_of ?E82_Actor_Appellation2.
     ?E35_Title1 crm:P1i_identifies ?E39_Actor1.
     ?E35_Title1 crm:P1i_identifies ?E70_Thing1.
     ?E38_Image1 crm:P138_represents ?E21_Person1.
@@ -186,9 +244,17 @@ CONSTRUCT {
     ?E38_Image1 crm:P130_shows_features_of ?E21_Person1.
     ?E38_Image1 crm:P130i_features_are_also_found_on ?E21_Person1.
     ?E38_Image1 crm:P65i_is_shown_by ?E22_Man-Made_Object1.
+    ?E38_Image1 crm:P138_represents ?E22_Man-Made_Object1.
     ?E38_Image1 crm:P128i_is_carried_by ?E22_Man-Made_Object1.
+    ?E38_Image1 crm:P129_is_about ?E22_Man-Made_Object1.
+    ?E38_Image1 crm:P67_refers_to ?E22_Man-Made_Object1.
+    ?E38_Image1 crm:P130_shows_features_of ?E22_Man-Made_Object1.
+    ?E38_Image1 crm:P130i_features_are_also_found_on ?E22_Man-Made_Object1.
+    ?E38_Image1 crm:P138_represents ?E31_Document1.
     ?E38_Image1 crm:P148_has_component ?E31_Document1.
     ?E38_Image1 crm:P148i_is_component_of ?E31_Document1.
+    ?E38_Image1 crm:P129_is_about ?E31_Document1.
+    ?E38_Image1 crm:P67_refers_to ?E31_Document1.
     ?E38_Image1 crm:P106_is_composed_of ?E31_Document1.
     ?E38_Image1 crm:P106i_forms_part_of ?E31_Document1.
     ?E38_Image1 crm:P130_shows_features_of ?E31_Document1.
@@ -196,9 +262,7 @@ CONSTRUCT {
     ?E38_Image1 crm:P106_is_composed_of ?E35_Title1.
     ?E38_Image1 crm:P106i_forms_part_of ?E35_Title1.
     ?E38_Image1 crm:P106_is_composed_of ?E82_Actor_Appellation1.
-    ?E38_Image1 crm:P106_is_composed_of ?E82_Actor_Appellation2.
     ?E38_Image1 crm:P106i_forms_part_of ?E82_Actor_Appellation1.
-    ?E38_Image1 crm:P106i_forms_part_of ?E82_Actor_Appellation2.
     ?E38_Image1 crm:P138_represents ?E39_Actor1.
     ?E38_Image1 crm:P129_is_about ?E39_Actor1.
     ?E38_Image1 crm:P67_refers_to ?E39_Actor1.
@@ -210,32 +274,28 @@ CONSTRUCT {
     ?E38_Image1 crm:P94i_was_created_by ?E83_Type_Creation1.
     ?E55_Type1 crm:P94i_was_created_by ?E83_Type_Creation1.
     ?E82_Actor_Appellation1 crm:P1i_identifies ?E21_Person1.
-    ?E82_Actor_Appellation2 crm:P1i_identifies ?E21_Person1.
+    ?E82_Actor_Appellation1 crm:P1i_identifies ?E22_Man-Made_Object1.
+    ?E82_Actor_Appellation1 crm:P1i_identifies ?E31_Document1.
     ?E82_Actor_Appellation1 crm:P106_is_composed_of ?E31_Document1.
-    ?E82_Actor_Appellation2 crm:P106_is_composed_of ?E31_Document1.
     ?E82_Actor_Appellation1 crm:P106i_forms_part_of ?E31_Document1.
-    ?E82_Actor_Appellation2 crm:P106i_forms_part_of ?E31_Document1.
     ?E82_Actor_Appellation1 crm:P139_has_alternative_form ?E35_Title1.
-    ?E82_Actor_Appellation2 crm:P139_has_alternative_form ?E35_Title1.
     ?E82_Actor_Appellation1 crm:P106_is_composed_of ?E35_Title1.
-    ?E82_Actor_Appellation2 crm:P106_is_composed_of ?E35_Title1.
     ?E82_Actor_Appellation1 crm:P106i_forms_part_of ?E35_Title1.
-    ?E82_Actor_Appellation2 crm:P106i_forms_part_of ?E35_Title1.
     ?E82_Actor_Appellation1 crm:P106_is_composed_of ?E38_Image1.
-    ?E82_Actor_Appellation2 crm:P106_is_composed_of ?E38_Image1.
     ?E82_Actor_Appellation1 crm:P106i_forms_part_of ?E38_Image1.
-    ?E82_Actor_Appellation2 crm:P106i_forms_part_of ?E38_Image1.
     ?E82_Actor_Appellation1 crm:P1i_identifies ?E39_Actor1.
-    ?E82_Actor_Appellation2 crm:P1i_identifies ?E39_Actor2.
     ?E82_Actor_Appellation1 crm:P1i_identifies ?E70_Thing1.
-    ?E82_Actor_Appellation2 crm:P1i_identifies ?E70_Thing2.
     ?E69_Death1 crm:P93_took_out_of_existence ?E21_Person1.
     ?E69_Death1 crm:P11_had_participant ?E21_Person1.
     ?E69_Death1 crm:P12_occurred_in_the_presence_of ?E21_Person1.
-    ?E69_Deathundefined crm:P93_took_out_of_existence ?E39_Actorundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E69_Deathundefined crm:P12_occurred_in_the_presence_of ?E39_Actorundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E69_Deathundefined crm:P93_took_out_of_existence ?E70_Thingundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E69_Deathundefined crm:P12_occurred_in_the_presence_of ?E70_Thingundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
+    ?E69_Death1 crm:P93_took_out_of_existence ?E22_Man-Made_Object1.
+    ?E69_Death1 crm:P12_occurred_in_the_presence_of ?E22_Man-Made_Object1.
+    ?E69_Death1 crm:P93_took_out_of_existence ?E31_Document1.
+    ?E69_Death1 crm:P12_occurred_in_the_presence_of ?E31_Document1.
+    ?E69_Death1 crm:P93_took_out_of_existence ?E39_Actor1.
+    ?E69_Death1 crm:P12_occurred_in_the_presence_of ?E39_Actor1.
+    ?E69_Death1 crm:P93_took_out_of_existence ?E70_Thing1.
+    ?E69_Death1 crm:P12_occurred_in_the_presence_of ?E70_Thing1.
     ?E39_Actor1 crm:P62i_is_depicted_by ?E22_Man-Made_Object1.
     ?E39_Actor1 crm:P129i_is_subject_of ?E31_Document1.
     ?E39_Actor1 crm:P67i_is_referred_to_by ?E31_Document1.
@@ -244,19 +304,22 @@ CONSTRUCT {
     ?E39_Actor1 crm:P129i_is_subject_of ?E38_Image1.
     ?E39_Actor1 crm:P67i_is_referred_to_by ?E38_Image1.
     ?E39_Actor1 crm:P1_is_identified_by ?E82_Actor_Appellation1.
-    ?E39_Actor2 crm:P1_is_identified_by ?E82_Actor_Appellation2.
-    ?E39_Actorundefined crm:P93i_was_taken_out_of_existence_by ?E69_Deathundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E39_Actorundefined crm:P12i_was_present_at ?E69_Deathundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E39_Actorundefined crm:P92i_was_brought_into_existence_by ?E67_Birthundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E39_Actorundefined crm:P12i_was_present_at ?E7_Activityundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E39_Actorundefined crm:P140i_was_attributed_by ?E17_Type_Assignmentundefinedundefinedundefinedundefined.
-    ?E39_Actorundefined crm:P141i_was_assigned_by ?E17_Type_Assignmentundefinedundefinedundefinedundefined.
-    ?E39_Actorundefined crm:P70i_is_documented_in ?E32_Authority_Documentundefinedundefinedundefinedundefined.
+    ?E39_Actor1 crm:P93i_was_taken_out_of_existence_by ?E69_Death1.
+    ?E39_Actor1 crm:P12i_was_present_at ?E69_Death1.
+    ?E39_Actor1 crm:P92i_was_brought_into_existence_by ?E67_Birth1.
+    ?E39_Actor1 crm:P12i_was_present_at ?E7_Activity1.
+    ?E39_Actor1 crm:P140i_was_attributed_by ?E17_Type_Assignment1.
+    ?E39_Actor1 crm:P141i_was_assigned_by ?E17_Type_Assignment1.
+    ?E39_Actor1 crm:P70i_is_documented_in ?E32_Authority_Document1.
     ?E67_Birth1 crm:P92_brought_into_existence ?E21_Person1.
-    ?E67_Birthundefined crm:P92_brought_into_existence ?E39_Actorundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E67_Birthundefined crm:P92_brought_into_existence ?E70_Thingundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
+    ?E67_Birth1 crm:P92_brought_into_existence ?E22_Man-Made_Object1.
+    ?E67_Birth1 crm:P92_brought_into_existence ?E31_Document1.
+    ?E67_Birth1 crm:P92_brought_into_existence ?E39_Actor1.
+    ?E67_Birth1 crm:P92_brought_into_existence ?E70_Thing1.
     ?E71_Man-Made_Thing1 crm:P130_shows_features_of ?E21_Person1.
     ?E71_Man-Made_Thing1 crm:P130i_features_are_also_found_on ?E21_Person1.
+    ?E71_Man-Made_Thing1 crm:P130_shows_features_of ?E22_Man-Made_Object1.
+    ?E71_Man-Made_Thing1 crm:P130i_features_are_also_found_on ?E22_Man-Made_Object1.
     ?E71_Man-Made_Thing1 crm:P130_shows_features_of ?E31_Document1.
     ?E71_Man-Made_Thing1 crm:P130i_features_are_also_found_on ?E31_Document1.
     ?E71_Man-Made_Thing1 crm:P130_shows_features_of ?E38_Image1.
@@ -269,33 +332,40 @@ CONSTRUCT {
     ?E70_Thing1 crm:P129i_is_subject_of ?E38_Image1.
     ?E70_Thing1 crm:P67i_is_referred_to_by ?E38_Image1.
     ?E70_Thing1 crm:P1_is_identified_by ?E82_Actor_Appellation1.
-    ?E70_Thing2 crm:P1_is_identified_by ?E82_Actor_Appellation2.
-    ?E70_Thingundefined crm:P93i_was_taken_out_of_existence_by ?E69_Deathundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E70_Thingundefined crm:P12i_was_present_at ?E69_Deathundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E70_Thingundefined crm:P92i_was_brought_into_existence_by ?E67_Birthundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E70_Thingundefined crm:P12i_was_present_at ?E7_Activityundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E70_Thingundefined crm:P140i_was_attributed_by ?E17_Type_Assignmentundefinedundefinedundefinedundefined.
-    ?E70_Thingundefined crm:P141i_was_assigned_by ?E17_Type_Assignmentundefinedundefinedundefinedundefined.
-    ?E70_Thingundefined crm:P70i_is_documented_in ?E32_Authority_Documentundefinedundefinedundefinedundefined.
+    ?E70_Thing1 crm:P93i_was_taken_out_of_existence_by ?E69_Death1.
+    ?E70_Thing1 crm:P12i_was_present_at ?E69_Death1.
+    ?E70_Thing1 crm:P92i_was_brought_into_existence_by ?E67_Birth1.
+    ?E70_Thing1 crm:P12i_was_present_at ?E7_Activity1.
+    ?E70_Thing1 crm:P140i_was_attributed_by ?E17_Type_Assignment1.
+    ?E70_Thing1 crm:P141i_was_assigned_by ?E17_Type_Assignment1.
+    ?E70_Thing1 crm:P70i_is_documented_in ?E32_Authority_Document1.
     ?E7_Activity1 crm:P11_had_participant ?E21_Person1.
     ?E7_Activity1 crm:P12_occurred_in_the_presence_of ?E21_Person1.
     ?E7_Activity1 crm:P8_took_place_on_or_within ?E21_Person1.
+    ?E7_Activity1 crm:P12_occurred_in_the_presence_of ?E22_Man-Made_Object1.
     ?E7_Activity1 crm:P8_took_place_on_or_within ?E22_Man-Made_Object1.
-    ?E7_Activityundefined crm:P12_occurred_in_the_presence_of ?E39_Actorundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E7_Activityundefined crm:P12_occurred_in_the_presence_of ?E70_Thingundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
+    ?E7_Activity1 crm:P12_occurred_in_the_presence_of ?E31_Document1.
+    ?E7_Activity1 crm:P12_occurred_in_the_presence_of ?E39_Actor1.
+    ?E7_Activity1 crm:P12_occurred_in_the_presence_of ?E70_Thing1.
     ?E83_Type_Creation1 crm:P94_has_created ?E31_Document1.
     ?E83_Type_Creation1 crm:P94_has_created ?E38_Image1.
     ?E83_Type_Creation1 crm:P94_has_created ?E55_Type1.
     ?E17_Type_Assignment1 crm:P140_assigned_attribute_to ?E21_Person1.
     ?E17_Type_Assignment1 crm:P141_assigned ?E21_Person1.
-    ?E17_Type_Assignmentundefined crm:P140_assigned_attribute_to ?E39_Actorundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E17_Type_Assignmentundefined crm:P141_assigned ?E39_Actorundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E17_Type_Assignmentundefined crm:P140_assigned_attribute_to ?E70_Thingundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E17_Type_Assignmentundefined crm:P141_assigned ?E70_Thingundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
+    ?E17_Type_Assignment1 crm:P140_assigned_attribute_to ?E22_Man-Made_Object1.
+    ?E17_Type_Assignment1 crm:P141_assigned ?E22_Man-Made_Object1.
+    ?E17_Type_Assignment1 crm:P140_assigned_attribute_to ?E31_Document1.
+    ?E17_Type_Assignment1 crm:P141_assigned ?E31_Document1.
+    ?E17_Type_Assignment1 crm:P140_assigned_attribute_to ?E39_Actor1.
+    ?E17_Type_Assignment1 crm:P141_assigned ?E39_Actor1.
+    ?E17_Type_Assignment1 crm:P140_assigned_attribute_to ?E70_Thing1.
+    ?E17_Type_Assignment1 crm:P141_assigned ?E70_Thing1.
     ?E32_Authority_Document1 crm:P70_documents ?E21_Person1.
+    ?E32_Authority_Document1 crm:P70_documents ?E22_Man-Made_Object1.
     ?E32_Authority_Document1 crm:P128i_is_carried_by ?E22_Man-Made_Object1.
-    ?E32_Authority_Documentundefined crm:P70_documents ?E39_Actorundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
-    ?E32_Authority_Documentundefined crm:P70_documents ?E70_Thingundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined.
+    ?E32_Authority_Document1 crm:P70_documents ?E31_Document1.
+    ?E32_Authority_Document1 crm:P70_documents ?E39_Actor1.
+    ?E32_Authority_Document1 crm:P70_documents ?E70_Thing1.
 }
 WHERE {
     ?root a jarql:Root.
@@ -303,14 +373,13 @@ WHERE {
     OPTIONAL { ?root jarql:DESCRIPTION ?DESCRIPTION. }
     OPTIONAL { ?root jarql:VIDEO ?VIDEO. }
     OPTIONAL { ?root jarql:TITLE NO AUTHOR ?TITLE NO AUTHOR. }
-    OPTIONAL { ?root jarql:IMAGE ?IMAGE. }
-    OPTIONAL { ?IMAGE jarql:IMAGESRC ?IMAGE__IMAGESRC. }
+    OPTIONAL { ?root jarql:IMAGESRC ?IMAGESRC. }
     OPTIONAL { ?root jarql:VIDEO_TYPE_URI ?VIDEO_TYPE_URI. }
     OPTIONAL { ?root jarql:AUTHOR_APPELLATION_URI ?AUTHOR_APPELLATION_URI. }
     OPTIONAL { ?root jarql:AUTHOR ?AUTHOR. }
     BIND (URI(CONCAT('http://erlangen-crm.org/current//e21_person/',?AUTHOR_URI)) as ?E21_Person1)
     BIND (URI(CONCAT('http://erlangen-crm.org/current//e31_document/',?VIDEO)) as ?E31_Document1)
-    BIND (URI(CONCAT('http://erlangen-crm.org/current//e38_image/',?IMAGE__IMAGESRC)) as ?E38_Image1)
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e38_image/',?IMAGESRC)) as ?E38_Image1)
     BIND (URI(CONCAT('http://erlangen-crm.org/current//e55_type/',?VIDEO_TYPE_URI)) as ?E55_Type1)
     BIND (URI(CONCAT('http://erlangen-crm.org/current//e82_actor_appellation/',?AUTHOR_APPELLATION_URI)) as ?E82_Actor_Appellation1)
     BIND (URI(CONCAT('http://erlangen-crm.org/current//e69_death/',?AUTHOR_URI)) as ?E69_Death1)
@@ -323,6 +392,4 @@ WHERE {
     BIND (URI(CONCAT('http://erlangen-crm.org/current//e83_type_creation/',?VIDEO_TYPE_URI)) as ?E83_Type_Creation1)
     BIND (URI(CONCAT('http://erlangen-crm.org/current//e17_type_assignment/',?VIDEO_TYPE_URI)) as ?E17_Type_Assignment1)
     BIND (URI(CONCAT('http://erlangen-crm.org/current//e32_authority_document/',?VIDEO_TYPE_URI)) as ?E32_Authority_Document1)
-    BIND (URI(CONCAT('http://erlangen-crm.org/current//e39_actor/',?AUTHOR)) as ?E39_Actor2)
-    BIND (URI(CONCAT('http://erlangen-crm.org/current//e70_thing/',?AUTHOR)) as ?E70_Thing2)
 }
