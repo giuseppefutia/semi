@@ -25,9 +25,23 @@ PREFIX bmo:       <http://collection.britishmuseum.org/id/ontology/>
 PREFIX aac-ont:   <http://www.americanartcollaborative.org/ontology/>
 PREFIX skos2:     <http://www.w3.org/2008/05/skos#>
 PREFIX ElementsGr2: <http://rdvocab.info/ElementsGr2/>
-PREFIX rdvocab-schema: <http://rdvocab.info/uri/schema/>
+PREFIX rdvocab-schema: <http://rdvocab.info/uri/schema/FRBRentitiesRDA/>
 PREFIX edm:       <http://www.europeana.eu/schemas/edm/>
 PREFIX schema-dig: <http://schema.dig.isi.edu/ontology/>
+PREFIX geo:       <http://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX frbr:      <http://purl.org/vocab/frbr/core#>
+PREFIX swap:      <http://www.w3.org/2000/10/swap/pim/contact#>
+PREFIX cidoc-crm: <http://www.cidoc-crm.org/rdfs/cidoc-crm#>
+PREFIX abc:       <http://metadata.net/harmony/abc#>
+PREFIX DOLCE-Lite: <http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#>
+PREFIX dcmitype:  <http://purl.org/dc/dcmitype/>
+PREFIX msg0:      <http://web.resource.org/cc/>
+PREFIX time-entry: <http://www.isi.edu/~pan/damltime/time-entry.owl#>
+PREFIX wordnet:   <http://xmlns.com/wordnet/1.6/Work~2>
+PREFIX saam-ont:  <http://americanart.si.edu/ontology/>
+PREFIX ore:       <http://www.openarchives.org/ore/terms/>
+PREFIX scharp:    <http://scharp.usc.isi.edu/ontology/>
+PREFIX memex:     <http://dig.isi.edu/ontology/memex/>
 PREFIX jarql:     <http://jarql.com/>
 
 CONSTRUCT {
@@ -67,7 +81,7 @@ CONSTRUCT {
     ?E52_Time-Span1 rdf:type crm:E52_Time-Span.
     ?E55_Type1 rdfs:label ?medium_uri.
     ?E55_Type1 rdf:type crm:E55_Type.
-    ?E39_Actorundefined crm:P51i_is_former_or_current_owner_of ?E18_Physical_Thing.
+    ?E39_Actor crm:P51i_is_former_or_current_owner_of ?E18_Physical_Thing.
     ?E21_Person1 id:ontology/PX_pupil_of ?E39_Actor1.
     ?E67_Birth1 crm:P8_took_place_on_or_within ?E21_Person1.
     ?E55_Type1 crm:P62i_is_depicted_by ?E22_Man-Made_Object1.

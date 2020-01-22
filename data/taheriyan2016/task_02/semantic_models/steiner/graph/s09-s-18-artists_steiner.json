@@ -111,7 +111,8 @@
             "name": "Birth_URI***crm:E67_Birth1",
             "value": {
                 "type": "st_property_uri",
-                "label": "rdfs:label***inverted"
+                "label": "rdfs:label***inverted",
+                "weight": 1
             },
             "weight": 1
         },
@@ -121,7 +122,8 @@
             "name": "Death_URI***crm:E69_Death1",
             "value": {
                 "type": "st_property_uri",
-                "label": "rdfs:label***inverted"
+                "label": "rdfs:label***inverted",
+                "weight": 1
             },
             "weight": 1
         },
@@ -131,7 +133,8 @@
             "name": "artist_appellation_uri***crm:E82_Actor_Appellation1",
             "value": {
                 "type": "st_property_uri",
-                "label": "rdfs:label***inverted"
+                "label": "rdfs:label***inverted",
+                "weight": 1
             },
             "weight": 1
         },
@@ -141,7 +144,8 @@
             "name": "crm:E21_Person***crm:E39_Actor1",
             "value": {
                 "label": "id:ontology/PX_pupil_of",
-                "type": "direct_property_uri"
+                "type": "direct_property_uri",
+                "weight": 1
             },
             "weight": 1
         },
@@ -171,7 +175,8 @@
             "name": "crm:E52_Time-Span1***crm:E82_Actor_Appellation1",
             "value": {
                 "type": "inherited",
-                "label": "crm:P1i_identifies***inverted"
+                "label": "crm:P1i_identifies***inverted",
+                "weight": 4
             },
             "weight": 4
         },
@@ -181,7 +186,8 @@
             "name": "crm:E52_Time-Span2***crm:E52_Time-Span1",
             "value": {
                 "type": "direct_property_uri",
-                "label": "crm:P86i_contains***inverted"
+                "label": "crm:P86i_contains***inverted",
+                "weight": 1
             },
             "weight": 1
         },
@@ -191,7 +197,8 @@
             "name": "crm:E67_Birth1***crm:E21_Person",
             "value": {
                 "type": "inherited",
-                "label": "crm:P8i_witnessed***inverted"
+                "label": "crm:P8i_witnessed***inverted",
+                "weight": 4
             },
             "weight": 4
         },
@@ -201,7 +208,8 @@
             "name": "crm:E69_Death1***crm:E21_Person",
             "value": {
                 "type": "inherited",
-                "label": "crm:P8i_witnessed***inverted"
+                "label": "crm:P8i_witnessed***inverted",
+                "weight": 4
             },
             "weight": 4
         },
@@ -221,7 +229,8 @@
             "name": "deathValue***crm:E52_Time-Span2",
             "value": {
                 "type": "st_property_uri",
-                "label": "crm:P82_at_some_time_within***inverted"
+                "label": "crm:P82_at_some_time_within***inverted",
+                "weight": 1
             },
             "weight": 1
         },
@@ -231,7 +240,8 @@
             "name": "name***crm:E39_Actor1",
             "value": {
                 "type": "st_property_uri",
-                "label": "crm:P3_has_note***inverted"
+                "label": "crm:P3_has_note***inverted",
+                "weight": 1
             },
             "weight": 1
         }
