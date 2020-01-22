@@ -1,6 +1,6 @@
 # SeMi - SEmantic Modeling machIne
 
-SeMi (SEmantic Modeling machIne) is a tool to semi-automatically build large-scale [Knowledge Graphs](https://en.wikipedia.org/wiki/Knowledge_base) from structured sources. To achieve such a goal, it combines [steiner trees detection](https://github.com/giuseppefutia/semi#steiner-tree) with [deep learning applied on graphs](https://github.com/giuseppefutia/semi#r-gcn-model-generation-and-testing), and builds semantic models of the data sources, in terms of classes and relationships within a domain ontology.
+SeMi (SEmantic Modeling machIne) is a tool to semi-automatically build large-scale [Knowledge Graphs](https://en.wikipedia.org/wiki/Knowledge_base) from structured sources. To achieve such a goal, it combines [steiner trees detection](https://github.com/giuseppefutia/semi#steiner-tree) with [deep learning applied on graphs](https://github.com/giuseppefutia/semi#r-gcn-model-generation-and-testing), building semantic models of the data sources, in terms of classes and relationships within a domain ontology.
 
 Semantic models can be formalized as graphs, where leaf nodes represent the attributes of the data source and the other nodes and relationships are defined by the ontology.
 
@@ -151,18 +151,19 @@ CONSTRUCT {
     ?Contract0 pc:contractingAuthority ?BusinessEntity1.
 }
 WHERE {
-    jarql:root jarql:cig ?cig.
-    jarql:root jarql:oggetto ?oggetto.
-    jarql:root jarql:strutturaProponente ?strutturaProponente.
-    ?strutturaProponente jarql:codiceFiscaleProp ?strutturaProponente__codiceFiscaleProp.
-    jarql:root jarql:partecipanti ?partecipanti.
-    ?partecipanti jarql:identificativo ?partecipanti__identificativo.
-    jarql:root jarql:partecipanti ?partecipanti.
-    ?partecipanti jarql:ragioneSociale ?partecipanti__ragioneSociale.
-    jarql:root jarql:aggiudicatari ?aggiudicatari.
-    ?aggiudicatari jarql:identificativo ?aggiudicatari__identificativo.
-    jarql:root jarql:aggiudicatari ?aggiudicatari.
-    ?aggiudicatari jarql:ragioneSociale ?aggiudicatari__ragioneSociale.
+    ?root a jarql:Root.
+    OPTIONAL { ?root jarql:cig ?cig. }
+    OPTIONAL { ?root jarql:oggetto ?oggetto. }
+    OPTIONAL { ?root jarql:strutturaProponente ?strutturaProponente. }
+    OPTIONAL { ?strutturaProponente jarql:codiceFiscaleProp ?strutturaProponente__codiceFiscaleProp. }
+    OPTIONAL { ?root jarql:partecipanti ?partecipanti. }
+    OPTIONAL { ?partecipanti jarql:identificativo ?partecipanti__identificativo. }
+    OPTIONAL { ?root jarql:partecipanti ?partecipanti. }
+    OPTIONAL { ?partecipanti jarql:ragioneSociale ?partecipanti__ragioneSociale. }
+    OPTIONAL { ?root jarql:aggiudicatari ?aggiudicatari. }
+    OPTIONAL { ?aggiudicatari jarql:identificativo ?aggiudicatari__identificativo. }
+    OPTIONAL { ?root jarql:aggiudicatari ?aggiudicatari. }
+    OPTIONAL { ?aggiudicatari jarql:ragioneSociale ?aggiudicatari__ragioneSociale. }
     BIND (URI(CONCAT('http://purl.org/procurement/public-contracts/contract/',?cig)) as ?Contract0)
     BIND (URI(CONCAT('http://purl.org/goodrelations/v1/businessentity/',?strutturaProponente__codiceFiscaleProp)) as ?BusinessEntity0)
     BIND (URI(CONCAT('http://purl.org/goodrelations/v1/businessentity/',?partecipanti__identificativo)) as ?BusinessEntity1)
@@ -173,7 +174,7 @@ WHERE {
 In order to create the KG resulting from the initial semantic model, you have to run the JARQL tool with the following command:
 
 ```bash
-$ java -jar jarql-1.0.1-SNAPSHOT.jar data/pc/input/Z4ADEA9DE4.json data/pc/semantic_models/Z4ADEA9DE4.query > data/pc/output/Z4ADEA9DE4.ttl
+$ ./jarql.sh data/pc/input/Z4ADEA9DE4.json data/pc/semantic_models/Z4ADEA9DE4.query > data/pc/output/Z4ADEA9DE4.ttl
 ```
 
 * `data/pc/input/Z4ADEA9DE4.json` is the [input file](https://raw.githubusercontent.com/giuseppefutia/semi/master/data/pc/input/Z4ADEA9DE4.json).
@@ -184,25 +185,29 @@ Below an example of the generated RDF file:
 
 ```
 <http://purl.org/procurement/public-contracts/contract/Z4ADEA9DE4>
-        a       <http://purl.org/procurement/public-contracts#Contract> ;
-        <http://www.w3.org/2000/01/rdf-schema#description>
-                "C.E. 23 Targa E9688 ( RIP.OFF.PRIVATE ) MANUTENZIONE ORDINARIA MEZZI DI TRASPORTO"^^<http://www.w3.org/2001/XMLSchema#string> ;
         <http://purl.org/dc/terms/identifier>
                 "Z4ADEA9DE4"^^<http://www.w3.org/2001/XMLSchema#string> ;
         <http://purl.org/procurement/public-contracts#contractingAuthority>
-                <http://purl.org/goodrelations/v1/businessentity/03382820920> , <http://purl.org/goodrelations/v1/businessentity/80004990927> .
+                <http://purl.org/goodrelations/v1/businessentity/03382820920> , <http://purl.org/goodrelations/v1/businessentity/80004990927> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+                <http://purl.org/procurement/public-contracts#Contract> ;
+        <http://www.w3.org/2000/01/rdf-schema#description>
+                "C.E. 23 Targa E9688 ( RIP.OFF.PRIVATE ) MANUTENZIONE ORDINARIA MEZZI DI TRASPORTO"^^<http://www.w3.org/2001/XMLSchema#string> .
 
 <http://purl.org/goodrelations/v1/businessentity/03382820920>
-        a       <http://purl.org/goodrelations/v1#BusinessEntity> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "CAR WASH CARALIS DI PUSCEDDU GRAZIANO   C  S N C"^^<http://www.w3.org/2001/XMLSchema#string> ;
         <http://purl.org/dc/terms/identifier>
-                "03382820920"^^<http://www.w3.org/2001/XMLSchema#string> .
+                "03382820920"^^<http://www.w3.org/2001/XMLSchema#string> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+                <http://purl.org/goodrelations/v1#BusinessEntity> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "CAR WASH CARALIS DI PUSCEDDU GRAZIANO   C  S N C"^^<http://www.w3.org/2001/XMLSchema#string> .
 
 <http://purl.org/goodrelations/v1/businessentity/80004990927>
-        a       <http://purl.org/goodrelations/v1#BusinessEntity> ;
         <http://purl.org/dc/terms/identifier>
-                "80004990927"^^<http://www.w3.org/2001/XMLSchema#string> .
+                "80004990927"^^<http://www.w3.org/2001/XMLSchema#string> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+                <http://purl.org/goodrelations/v1#BusinessEntity> .
+
 ```
 
 ## Issues Related to the Initial Semantic Model
@@ -231,7 +236,7 @@ $ node run/jarql.js data/pc/semantic_types/Z4ADEA9DE4_st.json data/pc/semantic_m
 The second step to create the validation dataset is the generation of the KG running the JARQL tool.
 
 ```bash
-$ java -jar jarql-1.0.1-SNAPSHOT.jar data/pc/input/Z4ADEA9DE4.json data/pc/semantic_models/Z4ADEA9DE4_plausible.query > data/pc/output/Z4ADEA9DE4_plausible.ttl
+$ ./jarql.sh data/pc/input/Z4ADEA9DE4.json data/pc/semantic_models/Z4ADEA9DE4_plausible.query > data/pc/output/Z4ADEA9DE4_plausible.ttl
 ```
 
 * `data/pc/input/Z4ADEA9DE4.json` is the [input file](https://raw.githubusercontent.com/giuseppefutia/semi/master/data/pc/input/Z4ADEA9DE4.json).
@@ -276,7 +281,7 @@ The output of the training stage is a [JSON file](https://raw.githubusercontent.
 Scores generated during the training stage enable to create a refined semantic model, driven by the importance of the relationships reconstructed using the training KG. You need to run the following command:
 
 ```bash
-node run/refinement.js data/pc/semantic_types/Z4ADEA9DE4_st.json data/pc/model_datasets/scores/pc/6000/score.json data/pc/semantic_models/Z4ADEA9DE4_steiner.json data/pc/semantic_models/Z4ADEA9DE4_graph.json data/pc/semantic_models/Z4ADEA9DE4_refined
+node run/refinement.js data/pc/semantic_types/Z4ADEA9DE4_st.json data/pc/model_datasets/scores/pc/6000/score.json data/pc/semantic_models/Z4ADEA9DE4_steiner.json data/pc/semantic_models/Z4ADEA9DE4_graph.json data/pc/semantic_models/Z4ADEA9DE4
 ```
 
 * `data/pc/semantic_types/Z4ADEA9DE4_st.json` is the [semantic type file](https://raw.githubusercontent.com/giuseppefutia/semi/master/data/pc/semantic_types/Z4ADEA9DE4_st.json).
@@ -358,7 +363,7 @@ WHERE {
 In order to create the KG resulting from the refined semantic model, you have to run the JARQL tool with the following command:
 
 ```bash
-$ java -jar jarql-1.0.1-SNAPSHOT.jar data/pc/input/Z4ADEA9DE4.json data/pc/semantic_models/Z4ADEA9DE4_refined.query > data/pc/output/Z4ADEA9DE4_refined.ttl
+$ ./jarql.sh data/pc/input/Z4ADEA9DE4.json data/pc/semantic_models/Z4ADEA9DE4_refined.query > data/pc/output/Z4ADEA9DE4_refined.ttl
 ```
 
 * `data/pc/input/Z4ADEA9DE4.json` is the [input file](https://raw.githubusercontent.com/giuseppefutia/semi/master/data/pc/input/Z4ADEA9DE4.json).

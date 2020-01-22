@@ -47,7 +47,8 @@ var create_inverse_edges = (g) => {
     for (var e in edges) {
         var value = {
             type: edges[e]['value']['type'],
-            label: edges[e]['value']['label'] + '***' + 'inverted'
+            label: edges[e]['value']['label'] + '***' + 'inverted',
+            weight: edges[e]['weight']
         }
         g.setEdge(edges[e]['w'], edges[e]['v'], value, edges[e]['w'] + '***' + edges[e]['v'], edges[e]['weight']);
     }

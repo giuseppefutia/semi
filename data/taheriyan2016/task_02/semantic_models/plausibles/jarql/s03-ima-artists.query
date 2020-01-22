@@ -1,0 +1,413 @@
+PREFIX schema:    <http://schema.org/>
+PREFIX rdfs:      <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX pc:        <http://purl.org/procurement/public-contracts#>
+PREFIX gr:        <http://purl.org/goodrelations/v1#>
+PREFIX owl:       <http://www.w3.org/2002/07/owl#>
+PREFIX adms:      <http://www.w3.org/ns/adms#>
+PREFIX c4n:       <http://vocab.deri.ie/c4n#>
+PREFIX dcterms:   <http://purl.org/dc/terms/>
+PREFIX foaf:      <http://xmlns.com/foaf/0.1/>
+PREFIX loted:     <http://www.loted.eu/ontology#>
+PREFIX payment:   <http://reference.data.gov.uk/def/payment#>
+PREFIX qb:        <http://purl.org/linked-data/cube#>
+PREFIX rdf:       <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX skos:      <http://www.w3.org/2004/02/skos/core#>
+PREFIX vann:      <http://purl.org/vocab/vann/>
+PREFIX xsd:       <http://www.w3.org/2001/XMLSchema#>
+PREFIX conference: <http://conference#>
+PREFIX cmt:       <http://cmt#>
+PREFIX sigkdd:    <http://sigkdd#>
+PREFIX crm:       <http://erlangen-crm.org/current/>
+PREFIX id:        <http://collection.britishmuseum.org/id/>
+PREFIX idThes:    <http://collection.britishmuseum.org/id/thesauri/>
+PREFIX prov:      <http://www.w3.org/ns/prov#>
+PREFIX bmo:       <http://collection.britishmuseum.org/id/ontology/>
+PREFIX aac-ont:   <http://www.americanartcollaborative.org/ontology/>
+PREFIX skos2:     <http://www.w3.org/2008/05/skos#>
+PREFIX ElementsGr2: <http://rdvocab.info/ElementsGr2/>
+PREFIX rdvocab-schema: <http://rdvocab.info/uri/schema/FRBRentitiesRDA/>
+PREFIX edm:       <http://www.europeana.eu/schemas/edm/>
+PREFIX schema-dig: <http://schema.dig.isi.edu/ontology/>
+PREFIX geo:       <http://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX frbr:      <http://purl.org/vocab/frbr/core#>
+PREFIX swap:      <http://www.w3.org/2000/10/swap/pim/contact#>
+PREFIX cidoc-crm: <http://www.cidoc-crm.org/rdfs/cidoc-crm#>
+PREFIX abc:       <http://metadata.net/harmony/abc#>
+PREFIX DOLCE-Lite: <http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#>
+PREFIX dcmitype:  <http://purl.org/dc/dcmitype/>
+PREFIX msg0:      <http://web.resource.org/cc/>
+PREFIX time-entry: <http://www.isi.edu/~pan/damltime/time-entry.owl#>
+PREFIX wordnet:   <http://xmlns.com/wordnet/1.6/Work~2>
+PREFIX saam-ont:  <http://americanart.si.edu/ontology/>
+PREFIX ore:       <http://www.openarchives.org/ore/terms/>
+PREFIX scharp:    <http://scharp.usc.isi.edu/ontology/>
+PREFIX memex:     <http://dig.isi.edu/ontology/memex/>
+PREFIX jarql:     <http://jarql.com/>
+
+CONSTRUCT {
+    ?E74_Group1 rdfs:label ?nationality uri.
+    ?E74_Group1 rdf:type crm:E74_Group.
+    ?E74_Group1 rdfs:label ?nationality.
+    ?E74_Group1 rdf:type crm:E74_Group.
+    ?E67_Birth1 rdfs:label ?Birth_URI.
+    ?E67_Birth1 rdf:type crm:E67_Birth.
+    ?E35_Title1 rdfs:label ?title.
+    ?E35_Title1 rdf:type crm:E35_Title.
+    ?E52_Time-Span1 crm:P82_at_some_time_within ?birthDate.
+    ?E52_Time-Span1 rdf:type crm:E52_Time-Span.
+    ?E21_Person1 rdfs:label ?Artist URI.
+    ?E21_Person1 rdf:type crm:E21_Person.
+    ?E69_Death1 rdfs:label ?Death_URI.
+    ?E69_Death1 rdf:type crm:E69_Death.
+    ?E82_Actor_Appellation1 rdfs:label ?artist appellation uri.
+    ?E82_Actor_Appellation1 rdf:type crm:E82_Actor_Appellation.
+    ?E82_Actor_Appellation1 rdfs:label ?name first last.
+    ?E82_Actor_Appellation1 rdf:type crm:E82_Actor_Appellation.
+    ?E52_Time-Span2 crm:P82_at_some_time_within ?deathDate.
+    ?E52_Time-Span2 rdf:type crm:E52_Time-Span.
+    ?E74_Group1 crm:P107_has_current_or_former_member ?E39_Actor1.
+    ?E39_Actor1 crm:P107i_is_current_or_former_member_of ?E74_Group1.
+    ?E39_Actor1 id:ontology/PX_nationality ?E74_Group1.
+    ?E39_Actor1 id:ontology/PX_profession ?E74_Group1.
+    ?E74_Group1 crm:P144i_gained_member_by ?E85_Joining1.
+    ?E85_Joining1 crm:P144_joined_with ?E74_Group1.
+    ?E74_Group1 crm:P146i_lost_member_by ?E86_Leaving1.
+    ?E86_Leaving1 crm:P146_separated_from ?E74_Group1.
+    ?E74_Group1 crm:P95i_was_formed_by ?E66_Formation1.
+    ?E66_Formation1 crm:P95_has_formed ?E74_Group1.
+    ?E74_Group1 crm:P99i_was_dissolved_by ?E68_Dissolution1.
+    ?E68_Dissolution1 crm:P99_dissolved ?E74_Group1.
+    ?E67_Birth1 crm:P96_by_mother ?E21_Person1.
+    ?E67_Birth1 crm:P97_from_father ?E21_Person1.
+    ?E67_Birth1 crm:P98_brought_into_life ?E21_Person1.
+    ?E21_Person1 crm:P96i_gave_birth ?E67_Birth1.
+    ?E21_Person1 crm:P97i_was_father_for ?E67_Birth1.
+    ?E21_Person1 crm:P98i_was_born ?E67_Birth1.
+    ?E35_Title1 crm:P102i_is_title_of ?E71_Man-Made_Thing1.
+    ?E71_Man-Made_Thing1 crm:P102_has_title ?E35_Title1.
+    ?E52_Time-Span1 crm:P86_falls_within ?E52_Time-Span1.
+    ?E52_Time-Span1 crm:P86_falls_within ?E52_Time-Span2.
+    ?E52_Time-Span2 crm:P86_falls_within ?E52_Time-Span1.
+    ?E52_Time-Span2 crm:P86_falls_within ?E52_Time-Span2.
+    ?E52_Time-Span1 crm:P86i_contains ?E52_Time-Span1.
+    ?E52_Time-Span1 crm:P86i_contains ?E52_Time-Span2.
+    ?E52_Time-Span2 crm:P86i_contains ?E52_Time-Span1.
+    ?E52_Time-Span2 crm:P86i_contains ?E52_Time-Span2.
+    ?E52_Time-Span1 crm:P4i_is_time-span_of ?E2_Temporal_Entity1.
+    ?E52_Time-Span2 crm:P4i_is_time-span_of ?E2_Temporal_Entity2.
+    ?E2_Temporal_Entity1 crm:P4_has_time-span ?E52_Time-Span1.
+    ?E2_Temporal_Entity2 crm:P4_has_time-span ?E52_Time-Span2.
+    ?E52_Time-Span1 crm:P83_had_at_least_duration ?E54_Dimension1.
+    ?E52_Time-Span2 crm:P83_had_at_least_duration ?E54_Dimension2.
+    ?E52_Time-Span1 crm:P84_had_at_most_duration ?E54_Dimension1.
+    ?E52_Time-Span2 crm:P84_had_at_most_duration ?E54_Dimension2.
+    ?E54_Dimension1 crm:P83i_was_minimum_duration_of ?E52_Time-Span1.
+    ?E54_Dimension2 crm:P83i_was_minimum_duration_of ?E52_Time-Span2.
+    ?E54_Dimension1 crm:P84i_was_maximum_duration_of ?E52_Time-Span1.
+    ?E54_Dimension2 crm:P84i_was_maximum_duration_of ?E52_Time-Span2.
+    ?E52_Time-Span1 crm:P78_is_identified_by ?E49_Time_Appellation1.
+    ?E52_Time-Span2 crm:P78_is_identified_by ?E49_Time_Appellation2.
+    ?E49_Time_Appellation1 crm:P78i_identifies ?E52_Time-Span1.
+    ?E49_Time_Appellation2 crm:P78i_identifies ?E52_Time-Span2.
+    ?E21_Person1 crm:P100i_died_in ?E69_Death1.
+    ?E69_Death1 crm:P100_was_death_of ?E21_Person1.
+    ?E21_Person1 id:ontology/PX_pupil_of ?E39_Actor1.
+    ?E82_Actor_Appellation1 crm:P131i_identifies ?E39_Actor1.
+    ?E39_Actor1 crm:P131_is_identified_by ?E82_Actor_Appellation1.
+    ?E39_Actor1 crm:P143i_was_joined_by ?E85_Joining1.
+    ?E39_Actor1 crm:P145i_left_by ?E86_Leaving1.
+    ?E2_Temporal_Entity1 crm:P115i_is_finished_by ?E2_Temporal_Entity1.
+    ?E2_Temporal_Entity1 crm:P114_is_equal_in_time_to ?E2_Temporal_Entity1.
+    ?E2_Temporal_Entity1 crm:P115_finishes ?E2_Temporal_Entity1.
+    ?E2_Temporal_Entity1 crm:P116_starts ?E2_Temporal_Entity1.
+    ?E2_Temporal_Entity1 crm:P116i_is_started_by ?E2_Temporal_Entity1.
+    ?E2_Temporal_Entity1 crm:P117_occurs_during ?E2_Temporal_Entity1.
+    ?E2_Temporal_Entity1 crm:P117i_includes ?E2_Temporal_Entity1.
+    ?E2_Temporal_Entity1 crm:P118_overlaps_in_time_with ?E2_Temporal_Entity1.
+    ?E2_Temporal_Entity1 crm:P118i_is_overlapped_in_time_by ?E2_Temporal_Entity1.
+    ?E2_Temporal_Entity1 crm:P119_meets_in_time_with ?E2_Temporal_Entity1.
+    ?E2_Temporal_Entity1 crm:P119i_is_met_in_time_by ?E2_Temporal_Entity1.
+    ?E2_Temporal_Entity1 crm:P120_occurs_before ?E2_Temporal_Entity1.
+    ?E2_Temporal_Entity1 crm:P120i_occurs_after ?E2_Temporal_Entity1.
+    ?E74_Group1 crm:P92i_was_brought_into_existence_by ?E67_Birth1.
+    ?E74_Group1 crm:P1_is_identified_by ?E35_Title1.
+    ?E74_Group1 crm:P11i_participated_in ?E69_Death1.
+    ?E74_Group1 crm:P93i_was_taken_out_of_existence_by ?E69_Death1.
+    ?E74_Group1 crm:P12i_was_present_at ?E69_Death1.
+    ?E74_Group1 crm:P1_is_identified_by ?E82_Actor_Appellation1.
+    ?E74_Group1 crm:P15i_influenced ?E85_Joining1.
+    ?E74_Group1 crm:P17i_motivated ?E85_Joining1.
+    ?E74_Group1 crm:P15i_influenced ?E86_Leaving1.
+    ?E74_Group1 crm:P17i_motivated ?E86_Leaving1.
+    ?E74_Group1 crm:P11i_participated_in ?E66_Formation1.
+    ?E74_Group1 crm:P92i_was_brought_into_existence_by ?E66_Formation1.
+    ?E74_Group1 crm:P12i_was_present_at ?E66_Formation1.
+    ?E74_Group1 crm:P15i_influenced ?E66_Formation1.
+    ?E74_Group1 crm:P17i_motivated ?E66_Formation1.
+    ?E74_Group1 crm:P11i_participated_in ?E68_Dissolution1.
+    ?E74_Group1 crm:P93i_was_taken_out_of_existence_by ?E68_Dissolution1.
+    ?E74_Group1 crm:P12i_was_present_at ?E68_Dissolution1.
+    ?E74_Group1 crm:P1_is_identified_by ?E49_Time_Appellation1.
+    ?E67_Birth1 crm:P92_brought_into_existence ?E74_Group1.
+    ?E67_Birth1 crm:P92_brought_into_existence ?E21_Person1.
+    ?E67_Birth1 crm:P92_brought_into_existence ?E39_Actor1.
+    ?E67_Birth1 crm:P92_brought_into_existence ?E71_Man-Made_Thing1.
+    ?E35_Title1 crm:P1i_identifies ?E74_Group1.
+    ?E35_Title1 crm:P1i_identifies ?E52_Time-Span1.
+    ?E35_Title1 crm:P1i_identifies ?E52_Time-Span2.
+    ?E35_Title1 crm:P139_has_alternative_form ?E82_Actor_Appellation1.
+    ?E35_Title1 crm:P106_is_composed_of ?E82_Actor_Appellation1.
+    ?E35_Title1 crm:P106i_forms_part_of ?E82_Actor_Appellation1.
+    ?E35_Title1 crm:P1i_identifies ?E39_Actor1.
+    ?E35_Title1 crm:P1i_identifies ?E71_Man-Made_Thing1.
+    ?E35_Title1 crm:P1i_identifies ?E2_Temporal_Entity1.
+    ?E35_Title1 crm:P1i_identifies ?E54_Dimension1.
+    ?E35_Title1 crm:P139_has_alternative_form ?E49_Time_Appellation1.
+    ?E35_Title1 crm:P106_is_composed_of ?E49_Time_Appellation1.
+    ?E35_Title1 crm:P106i_forms_part_of ?E49_Time_Appellation1.
+    ?E52_Time-Span1 crm:P1_is_identified_by ?E35_Title1.
+    ?E52_Time-Span2 crm:P1_is_identified_by ?E35_Title1.
+    ?E52_Time-Span1 crm:P1_is_identified_by ?E82_Actor_Appellation1.
+    ?E52_Time-Span2 crm:P1_is_identified_by ?E82_Actor_Appellation1.
+    ?E52_Time-Span1 crm:P15i_influenced ?E85_Joining1.
+    ?E52_Time-Span2 crm:P15i_influenced ?E85_Joining2.
+    ?E52_Time-Span1 crm:P17i_motivated ?E85_Joining1.
+    ?E52_Time-Span2 crm:P17i_motivated ?E85_Joining2.
+    ?E52_Time-Span1 crm:P15i_influenced ?E86_Leaving1.
+    ?E52_Time-Span2 crm:P15i_influenced ?E86_Leaving2.
+    ?E52_Time-Span1 crm:P17i_motivated ?E86_Leaving1.
+    ?E52_Time-Span2 crm:P17i_motivated ?E86_Leaving2.
+    ?E52_Time-Span1 crm:P15i_influenced ?E66_Formation1.
+    ?E52_Time-Span2 crm:P15i_influenced ?E66_Formation2.
+    ?E52_Time-Span1 crm:P17i_motivated ?E66_Formation1.
+    ?E52_Time-Span2 crm:P17i_motivated ?E66_Formation2.
+    ?E52_Time-Span1 crm:P1_is_identified_by ?E49_Time_Appellation1.
+    ?E52_Time-Span2 crm:P1_is_identified_by ?E49_Time_Appellation2.
+    ?E21_Person1 crm:P92i_was_brought_into_existence_by ?E67_Birth1.
+    ?E21_Person1 crm:P11i_participated_in ?E69_Death1.
+    ?E21_Person1 crm:P93i_was_taken_out_of_existence_by ?E69_Death1.
+    ?E21_Person1 crm:P12i_was_present_at ?E69_Death1.
+    ?E21_Person1 crm:P11i_participated_in ?E66_Formation1.
+    ?E21_Person1 crm:P92i_was_brought_into_existence_by ?E66_Formation1.
+    ?E21_Person1 crm:P12i_was_present_at ?E66_Formation1.
+    ?E21_Person1 crm:P8i_witnessed ?E66_Formation1.
+    ?E21_Person1 crm:P11i_participated_in ?E68_Dissolution1.
+    ?E21_Person1 crm:P93i_was_taken_out_of_existence_by ?E68_Dissolution1.
+    ?E21_Person1 crm:P12i_was_present_at ?E68_Dissolution1.
+    ?E69_Death1 crm:P93_took_out_of_existence ?E74_Group1.
+    ?E69_Death1 crm:P11_had_participant ?E74_Group1.
+    ?E69_Death1 crm:P12_occurred_in_the_presence_of ?E74_Group1.
+    ?E69_Death1 crm:P93_took_out_of_existence ?E21_Person1.
+    ?E69_Death1 crm:P11_had_participant ?E21_Person1.
+    ?E69_Death1 crm:P12_occurred_in_the_presence_of ?E21_Person1.
+    ?E69_Death1 crm:P93_took_out_of_existence ?E39_Actor1.
+    ?E69_Death1 crm:P12_occurred_in_the_presence_of ?E39_Actor1.
+    ?E69_Death1 crm:P20i_was_purpose_of ?E85_Joining1.
+    ?E69_Death1 crm:P20i_was_purpose_of ?E86_Leaving1.
+    ?E69_Death1 crm:P20i_was_purpose_of ?E66_Formation1.
+    ?E69_Death1 crm:P93_took_out_of_existence ?E71_Man-Made_Thing1.
+    ?E69_Death1 crm:P12_occurred_in_the_presence_of ?E71_Man-Made_Thing1.
+    ?E82_Actor_Appellation1 crm:P1i_identifies ?E74_Group1.
+    ?E82_Actor_Appellation1 crm:P139_has_alternative_form ?E35_Title1.
+    ?E82_Actor_Appellation1 crm:P106_is_composed_of ?E35_Title1.
+    ?E82_Actor_Appellation1 crm:P106i_forms_part_of ?E35_Title1.
+    ?E82_Actor_Appellation1 crm:P1i_identifies ?E52_Time-Span1.
+    ?E82_Actor_Appellation1 crm:P1i_identifies ?E52_Time-Span2.
+    ?E82_Actor_Appellation1 crm:P1i_identifies ?E39_Actor1.
+    ?E82_Actor_Appellation1 crm:P1i_identifies ?E71_Man-Made_Thing1.
+    ?E82_Actor_Appellation1 crm:P1i_identifies ?E2_Temporal_Entity1.
+    ?E82_Actor_Appellation1 crm:P1i_identifies ?E54_Dimension1.
+    ?E82_Actor_Appellation1 crm:P139_has_alternative_form ?E49_Time_Appellation1.
+    ?E82_Actor_Appellation1 crm:P106_is_composed_of ?E49_Time_Appellation1.
+    ?E82_Actor_Appellation1 crm:P106i_forms_part_of ?E49_Time_Appellation1.
+    ?E39_Actor1 crm:P92i_was_brought_into_existence_by ?E67_Birth1.
+    ?E39_Actor1 crm:P1_is_identified_by ?E35_Title1.
+    ?E39_Actor1 crm:P93i_was_taken_out_of_existence_by ?E69_Death1.
+    ?E39_Actor1 crm:P12i_was_present_at ?E69_Death1.
+    ?E39_Actor1 crm:P1_is_identified_by ?E82_Actor_Appellation1.
+    ?E39_Actor1 crm:P15i_influenced ?E85_Joining1.
+    ?E39_Actor1 crm:P17i_motivated ?E85_Joining1.
+    ?E39_Actor1 crm:P15i_influenced ?E86_Leaving1.
+    ?E39_Actor1 crm:P17i_motivated ?E86_Leaving1.
+    ?E39_Actor1 crm:P92i_was_brought_into_existence_by ?E66_Formation1.
+    ?E39_Actor1 crm:P12i_was_present_at ?E66_Formation1.
+    ?E39_Actor1 crm:P15i_influenced ?E66_Formation1.
+    ?E39_Actor1 crm:P17i_motivated ?E66_Formation1.
+    ?E39_Actor1 crm:P93i_was_taken_out_of_existence_by ?E68_Dissolution1.
+    ?E39_Actor1 crm:P12i_was_present_at ?E68_Dissolution1.
+    ?E39_Actor1 crm:P1_is_identified_by ?E49_Time_Appellation1.
+    ?E85_Joining1 crm:P15_was_influenced_by ?E74_Group1.
+    ?E85_Joining1 crm:P17_was_motivated_by ?E74_Group1.
+    ?E85_Joining1 crm:P15_was_influenced_by ?E52_Time-Span1.
+    ?E85_Joining2 crm:P15_was_influenced_by ?E52_Time-Span2.
+    ?E85_Joining1 crm:P17_was_motivated_by ?E52_Time-Span1.
+    ?E85_Joining2 crm:P17_was_motivated_by ?E52_Time-Span2.
+    ?E85_Joining1 crm:P20_had_specific_purpose ?E69_Death1.
+    ?E85_Joining1 crm:P15_was_influenced_by ?E39_Actor1.
+    ?E85_Joining1 crm:P17_was_motivated_by ?E39_Actor1.
+    ?E85_Joining1 crm:P134_continued ?E86_Leaving1.
+    ?E85_Joining1 crm:P134i_was_continued_by ?E86_Leaving1.
+    ?E85_Joining1 crm:P134_continued ?E66_Formation1.
+    ?E85_Joining1 crm:P134i_was_continued_by ?E66_Formation1.
+    ?E85_Joining1 crm:P20_had_specific_purpose ?E66_Formation1.
+    ?E85_Joining1 crm:P20_had_specific_purpose ?E68_Dissolution1.
+    ?E85_Joining1 crm:P16_used_specific_object ?E71_Man-Made_Thing1.
+    ?E85_Joining1 crm:P15_was_influenced_by ?E71_Man-Made_Thing1.
+    ?E85_Joining1 crm:P17_was_motivated_by ?E71_Man-Made_Thing1.
+    ?E85_Joining1 crm:P15_was_influenced_by ?E2_Temporal_Entity1.
+    ?E85_Joining1 crm:P17_was_motivated_by ?E2_Temporal_Entity1.
+    ?E85_Joining1 crm:P15_was_influenced_by ?E54_Dimension1.
+    ?E85_Joining1 crm:P17_was_motivated_by ?E54_Dimension1.
+    ?E86_Leaving1 crm:P15_was_influenced_by ?E74_Group1.
+    ?E86_Leaving1 crm:P17_was_motivated_by ?E74_Group1.
+    ?E86_Leaving1 crm:P15_was_influenced_by ?E52_Time-Span1.
+    ?E86_Leaving2 crm:P15_was_influenced_by ?E52_Time-Span2.
+    ?E86_Leaving1 crm:P17_was_motivated_by ?E52_Time-Span1.
+    ?E86_Leaving2 crm:P17_was_motivated_by ?E52_Time-Span2.
+    ?E86_Leaving1 crm:P20_had_specific_purpose ?E69_Death1.
+    ?E86_Leaving1 crm:P15_was_influenced_by ?E39_Actor1.
+    ?E86_Leaving1 crm:P17_was_motivated_by ?E39_Actor1.
+    ?E86_Leaving1 crm:P134_continued ?E85_Joining1.
+    ?E86_Leaving1 crm:P134i_was_continued_by ?E85_Joining1.
+    ?E86_Leaving1 crm:P134_continued ?E66_Formation1.
+    ?E86_Leaving1 crm:P134i_was_continued_by ?E66_Formation1.
+    ?E86_Leaving1 crm:P20_had_specific_purpose ?E66_Formation1.
+    ?E86_Leaving1 crm:P20_had_specific_purpose ?E68_Dissolution1.
+    ?E86_Leaving1 crm:P16_used_specific_object ?E71_Man-Made_Thing1.
+    ?E86_Leaving1 crm:P15_was_influenced_by ?E71_Man-Made_Thing1.
+    ?E86_Leaving1 crm:P17_was_motivated_by ?E71_Man-Made_Thing1.
+    ?E86_Leaving1 crm:P15_was_influenced_by ?E2_Temporal_Entity1.
+    ?E86_Leaving1 crm:P17_was_motivated_by ?E2_Temporal_Entity1.
+    ?E86_Leaving1 crm:P15_was_influenced_by ?E54_Dimension1.
+    ?E86_Leaving1 crm:P17_was_motivated_by ?E54_Dimension1.
+    ?E66_Formation1 crm:P15_was_influenced_by ?E74_Group1.
+    ?E66_Formation1 crm:P17_was_motivated_by ?E74_Group1.
+    ?E66_Formation1 crm:P92_brought_into_existence ?E74_Group1.
+    ?E66_Formation1 crm:P11_had_participant ?E74_Group1.
+    ?E66_Formation1 crm:P12_occurred_in_the_presence_of ?E74_Group1.
+    ?E66_Formation1 crm:P15_was_influenced_by ?E52_Time-Span1.
+    ?E66_Formation2 crm:P15_was_influenced_by ?E52_Time-Span2.
+    ?E66_Formation1 crm:P17_was_motivated_by ?E52_Time-Span1.
+    ?E66_Formation2 crm:P17_was_motivated_by ?E52_Time-Span2.
+    ?E66_Formation1 crm:P92_brought_into_existence ?E21_Person1.
+    ?E66_Formation1 crm:P11_had_participant ?E21_Person1.
+    ?E66_Formation1 crm:P12_occurred_in_the_presence_of ?E21_Person1.
+    ?E66_Formation1 crm:P8_took_place_on_or_within ?E21_Person1.
+    ?E66_Formation1 crm:P20_had_specific_purpose ?E69_Death1.
+    ?E66_Formation1 crm:P15_was_influenced_by ?E39_Actor1.
+    ?E66_Formation1 crm:P17_was_motivated_by ?E39_Actor1.
+    ?E66_Formation1 crm:P92_brought_into_existence ?E39_Actor1.
+    ?E66_Formation1 crm:P12_occurred_in_the_presence_of ?E39_Actor1.
+    ?E66_Formation1 crm:P134_continued ?E85_Joining1.
+    ?E66_Formation1 crm:P134i_was_continued_by ?E85_Joining1.
+    ?E66_Formation1 crm:P20i_was_purpose_of ?E85_Joining1.
+    ?E66_Formation1 crm:P134_continued ?E86_Leaving1.
+    ?E66_Formation1 crm:P134i_was_continued_by ?E86_Leaving1.
+    ?E66_Formation1 crm:P20i_was_purpose_of ?E86_Leaving1.
+    ?E66_Formation1 crm:P20_had_specific_purpose ?E68_Dissolution1.
+    ?E66_Formation1 crm:P16_used_specific_object ?E71_Man-Made_Thing1.
+    ?E66_Formation1 crm:P15_was_influenced_by ?E71_Man-Made_Thing1.
+    ?E66_Formation1 crm:P17_was_motivated_by ?E71_Man-Made_Thing1.
+    ?E66_Formation1 crm:P92_brought_into_existence ?E71_Man-Made_Thing1.
+    ?E66_Formation1 crm:P12_occurred_in_the_presence_of ?E71_Man-Made_Thing1.
+    ?E66_Formation1 crm:P15_was_influenced_by ?E2_Temporal_Entity1.
+    ?E66_Formation1 crm:P17_was_motivated_by ?E2_Temporal_Entity1.
+    ?E66_Formation1 crm:P15_was_influenced_by ?E54_Dimension1.
+    ?E66_Formation1 crm:P17_was_motivated_by ?E54_Dimension1.
+    ?E68_Dissolution1 crm:P93_took_out_of_existence ?E74_Group1.
+    ?E68_Dissolution1 crm:P11_had_participant ?E74_Group1.
+    ?E68_Dissolution1 crm:P12_occurred_in_the_presence_of ?E74_Group1.
+    ?E68_Dissolution1 crm:P93_took_out_of_existence ?E21_Person1.
+    ?E68_Dissolution1 crm:P11_had_participant ?E21_Person1.
+    ?E68_Dissolution1 crm:P12_occurred_in_the_presence_of ?E21_Person1.
+    ?E68_Dissolution1 crm:P93_took_out_of_existence ?E39_Actor1.
+    ?E68_Dissolution1 crm:P12_occurred_in_the_presence_of ?E39_Actor1.
+    ?E68_Dissolution1 crm:P20i_was_purpose_of ?E85_Joining1.
+    ?E68_Dissolution1 crm:P20i_was_purpose_of ?E86_Leaving1.
+    ?E68_Dissolution1 crm:P20i_was_purpose_of ?E66_Formation1.
+    ?E68_Dissolution1 crm:P93_took_out_of_existence ?E71_Man-Made_Thing1.
+    ?E68_Dissolution1 crm:P12_occurred_in_the_presence_of ?E71_Man-Made_Thing1.
+    ?E71_Man-Made_Thing1 crm:P92i_was_brought_into_existence_by ?E67_Birth1.
+    ?E71_Man-Made_Thing1 crm:P1_is_identified_by ?E35_Title1.
+    ?E71_Man-Made_Thing1 crm:P93i_was_taken_out_of_existence_by ?E69_Death1.
+    ?E71_Man-Made_Thing1 crm:P12i_was_present_at ?E69_Death1.
+    ?E71_Man-Made_Thing1 crm:P1_is_identified_by ?E82_Actor_Appellation1.
+    ?E71_Man-Made_Thing1 crm:P16i_was_used_for ?E85_Joining1.
+    ?E71_Man-Made_Thing1 crm:P15i_influenced ?E85_Joining1.
+    ?E71_Man-Made_Thing1 crm:P17i_motivated ?E85_Joining1.
+    ?E71_Man-Made_Thing1 crm:P16i_was_used_for ?E86_Leaving1.
+    ?E71_Man-Made_Thing1 crm:P15i_influenced ?E86_Leaving1.
+    ?E71_Man-Made_Thing1 crm:P17i_motivated ?E86_Leaving1.
+    ?E71_Man-Made_Thing1 crm:P16i_was_used_for ?E66_Formation1.
+    ?E71_Man-Made_Thing1 crm:P92i_was_brought_into_existence_by ?E66_Formation1.
+    ?E71_Man-Made_Thing1 crm:P12i_was_present_at ?E66_Formation1.
+    ?E71_Man-Made_Thing1 crm:P15i_influenced ?E66_Formation1.
+    ?E71_Man-Made_Thing1 crm:P17i_motivated ?E66_Formation1.
+    ?E71_Man-Made_Thing1 crm:P93i_was_taken_out_of_existence_by ?E68_Dissolution1.
+    ?E71_Man-Made_Thing1 crm:P12i_was_present_at ?E68_Dissolution1.
+    ?E71_Man-Made_Thing1 crm:P1_is_identified_by ?E49_Time_Appellation1.
+    ?E2_Temporal_Entity1 crm:P1_is_identified_by ?E35_Title1.
+    ?E2_Temporal_Entity1 crm:P1_is_identified_by ?E82_Actor_Appellation1.
+    ?E2_Temporal_Entity1 crm:P15i_influenced ?E85_Joining1.
+    ?E2_Temporal_Entity1 crm:P17i_motivated ?E85_Joining1.
+    ?E2_Temporal_Entity1 crm:P15i_influenced ?E86_Leaving1.
+    ?E2_Temporal_Entity1 crm:P17i_motivated ?E86_Leaving1.
+    ?E2_Temporal_Entity1 crm:P15i_influenced ?E66_Formation1.
+    ?E2_Temporal_Entity1 crm:P17i_motivated ?E66_Formation1.
+    ?E2_Temporal_Entity1 crm:P1_is_identified_by ?E49_Time_Appellation1.
+    ?E54_Dimension1 crm:P1_is_identified_by ?E35_Title1.
+    ?E54_Dimension1 crm:P1_is_identified_by ?E82_Actor_Appellation1.
+    ?E54_Dimension1 crm:P15i_influenced ?E85_Joining1.
+    ?E54_Dimension1 crm:P17i_motivated ?E85_Joining1.
+    ?E54_Dimension1 crm:P15i_influenced ?E86_Leaving1.
+    ?E54_Dimension1 crm:P17i_motivated ?E86_Leaving1.
+    ?E54_Dimension1 crm:P15i_influenced ?E66_Formation1.
+    ?E54_Dimension1 crm:P17i_motivated ?E66_Formation1.
+    ?E54_Dimension1 crm:P1_is_identified_by ?E49_Time_Appellation1.
+    ?E49_Time_Appellation1 crm:P1i_identifies ?E74_Group1.
+    ?E49_Time_Appellation1 crm:P139_has_alternative_form ?E35_Title1.
+    ?E49_Time_Appellation1 crm:P106_is_composed_of ?E35_Title1.
+    ?E49_Time_Appellation1 crm:P106i_forms_part_of ?E35_Title1.
+    ?E49_Time_Appellation1 crm:P1i_identifies ?E52_Time-Span1.
+    ?E49_Time_Appellation2 crm:P1i_identifies ?E52_Time-Span2.
+    ?E49_Time_Appellation1 crm:P139_has_alternative_form ?E82_Actor_Appellation1.
+    ?E49_Time_Appellation1 crm:P106_is_composed_of ?E82_Actor_Appellation1.
+    ?E49_Time_Appellation1 crm:P106i_forms_part_of ?E82_Actor_Appellation1.
+    ?E49_Time_Appellation1 crm:P1i_identifies ?E39_Actor1.
+    ?E49_Time_Appellation1 crm:P1i_identifies ?E71_Man-Made_Thing1.
+    ?E49_Time_Appellation1 crm:P1i_identifies ?E2_Temporal_Entity1.
+    ?E49_Time_Appellation1 crm:P1i_identifies ?E54_Dimension1.
+}
+WHERE {
+    ?root a jarql:Root.
+    OPTIONAL { ?root jarql:nationality uri ?nationality uri. }
+    OPTIONAL { ?root jarql:nationality ?nationality. }
+    OPTIONAL { ?root jarql:Birth_URI ?Birth_URI. }
+    OPTIONAL { ?root jarql:title ?title. }
+    OPTIONAL { ?root jarql:birthDate ?birthDate. }
+    OPTIONAL { ?root jarql:Artist URI ?Artist URI. }
+    OPTIONAL { ?root jarql:Death_URI ?Death_URI. }
+    OPTIONAL { ?root jarql:artist appellation uri ?artist appellation uri. }
+    OPTIONAL { ?root jarql:name first last ?name first last. }
+    OPTIONAL { ?root jarql:deathDate ?deathDate. }
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e74_group/',?nationality uri)) as ?E74_Group1)
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e67_birth/',?Birth_URI)) as ?E67_Birth1)
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e21_person/',?Artist URI)) as ?E21_Person1)
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e69_death/',?Death_URI)) as ?E69_Death1)
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e82_actor_appellation/',?artist appellation uri)) as ?E82_Actor_Appellation1)
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e39_actor/',?nationality uri)) as ?E39_Actor1)
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e85_joining/',?nationality uri)) as ?E85_Joining1)
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e86_leaving/',?nationality uri)) as ?E86_Leaving1)
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e66_formation/',?nationality uri)) as ?E66_Formation1)
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e68_dissolution/',?nationality uri)) as ?E68_Dissolution1)
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e71_man-made_thing/',?title)) as ?E71_Man-Made_Thing1)
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e2_temporal_entity/',?birthDate)) as ?E2_Temporal_Entity1)
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e2_temporal_entity/',?deathDate)) as ?E2_Temporal_Entity2)
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e54_dimension/',?birthDate)) as ?E54_Dimension1)
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e54_dimension/',?deathDate)) as ?E54_Dimension2)
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e49_time_appellation/',?birthDate)) as ?E49_Time_Appellation1)
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e49_time_appellation/',?deathDate)) as ?E49_Time_Appellation2)
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e85_joining/',?deathDate)) as ?E85_Joining2)
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e86_leaving/',?deathDate)) as ?E86_Leaving2)
+    BIND (URI(CONCAT('http://erlangen-crm.org/current//e66_formation/',?deathDate)) as ?E66_Formation2)
+}

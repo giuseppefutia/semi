@@ -1,0 +1,226 @@
+{
+    "options": {
+        "directed": true,
+        "multigraph": true,
+        "compound": false
+    },
+    "nodes": [
+        {
+            "v": "Telephone1241",
+            "value": {
+                "type": "attribute_name",
+                "label": "Telephone1241"
+            }
+        },
+        {
+            "v": "schema-dig:PersonOrOrganization1",
+            "value": {
+                "type": "class_uri",
+                "label": "schema-dig:PersonOrOrganization"
+            }
+        },
+        {
+            "v": "Copyright1795",
+            "value": {
+                "type": "attribute_name",
+                "label": "Copyright1795"
+            }
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "value": {
+                "type": "class_uri",
+                "label": "schema:CreativeWork"
+            }
+        },
+        {
+            "v": "file_name",
+            "value": {
+                "type": "attribute_name",
+                "label": "file_name"
+            }
+        },
+        {
+            "v": "Ad1096",
+            "value": {
+                "type": "attribute_name",
+                "label": "Ad1096"
+            }
+        },
+        {
+            "v": "schema:Offer1",
+            "value": {
+                "type": "class_uri",
+                "label": "schema:Offer"
+            }
+        },
+        {
+            "v": "Updated1527",
+            "value": {
+                "type": "attribute_name",
+                "label": "Updated1527"
+            }
+        },
+        {
+            "v": "Alaska0011",
+            "value": {
+                "type": "attribute_name",
+                "label": "Alaska0011"
+            }
+        },
+        {
+            "v": "Price1219",
+            "value": {
+                "type": "attribute_name",
+                "label": "Price1219"
+            }
+        },
+        {
+            "v": "Location1192",
+            "value": {
+                "type": "attribute_name",
+                "label": "Location1192"
+            }
+        },
+        {
+            "v": "schema:Place1",
+            "value": {
+                "type": "class_uri",
+                "label": "schema:Place"
+            }
+        },
+        {
+            "v": "owl:Thing",
+            "value": {
+                "type": "special",
+                "label": "owl:Thing"
+            }
+        }
+    ],
+    "edges": [
+        {
+            "v": "schema-dig:PersonOrOrganization1",
+            "w": "Telephone1241",
+            "name": "schema-dig:PersonOrOrganization1***Telephone1241",
+            "value": {
+                "label": "schema:telephone",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "Copyright1795",
+            "name": "schema:CreativeWork1***Copyright1795",
+            "value": {
+                "label": "schema:copyrightYear",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "file_name",
+            "name": "schema:CreativeWork1***file_name",
+            "value": {
+                "label": "schema:name",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "schema:Offer1",
+            "w": "Ad1096",
+            "name": "schema:Offer1***Ad1096",
+            "value": {
+                "label": "schema-dig:identifier",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "schema:Offer1",
+            "w": "Updated1527",
+            "name": "schema:Offer1***Updated1527",
+            "value": {
+                "label": "schema:dateModified",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "schema:Offer1",
+            "w": "Alaska0011",
+            "name": "schema:Offer1***Alaska0011",
+            "value": {
+                "label": "schema:name",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "schema:Offer1",
+            "w": "Price1219",
+            "name": "schema:Offer1***Price1219",
+            "value": {
+                "label": "schema:price",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "schema:Place1",
+            "w": "Location1192",
+            "name": "schema:Place1***Location1192",
+            "value": {
+                "label": "schema:name",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "schema-dig:PersonOrOrganization1",
+            "w": "owl:Thing",
+            "name": "schema-dig:PersonOrOrganization1***owl:Thing",
+            "value": {
+                "label": "rdfs:subClassOf",
+                "type": "inherited",
+                "weight": 0.3333333333333333
+            },
+            "weight": 0.3333333333333333
+        },
+        {
+            "v": "file_name",
+            "w": "owl:Thing",
+            "name": "file_name***owl:Thing",
+            "value": {
+                "label": "rdfs:subClassOf",
+                "type": "inherited",
+                "weight": 0.3333333333333333
+            },
+            "weight": 0.3333333333333333
+        },
+        {
+            "v": "Price1219",
+            "w": "owl:Thing",
+            "name": "Price1219***owl:Thing",
+            "value": {
+                "label": "rdfs:subClassOf",
+                "type": "inherited",
+                "weight": 0.3333333333333333
+            },
+            "weight": 0.3333333333333333
+        },
+        {
+            "v": "schema:Place1",
+            "w": "owl:Thing",
+            "name": "schema:Place1***owl:Thing",
+            "value": {
+                "label": "rdfs:subClassOf",
+                "type": "inherited",
+                "weight": 0.3333333333333333
+            },
+            "weight": 0.3333333333333333
+        }
+    ]
+}

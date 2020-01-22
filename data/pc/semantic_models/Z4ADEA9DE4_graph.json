@@ -97,6 +97,20 @@
             }
         },
         {
+            "v": "schema:Place",
+            "value": {
+                "type": "class_uri",
+                "label": "schema:Place"
+            }
+        },
+        {
+            "v": "gr:PriceSpecification",
+            "value": {
+                "type": "class_uri",
+                "label": "gr:PriceSpecification"
+            }
+        },
+        {
             "v": "pc:TendersOpening",
             "value": {
                 "type": "class_uri",
@@ -236,6 +250,36 @@
             "weight": 1
         },
         {
+            "v": "pc:Contract0",
+            "w": "schema:Place",
+            "name": "pc:Contract0***schema:Place",
+            "value": {
+                "label": "pc:location",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "pc:Contract0",
+            "w": "gr:PriceSpecification",
+            "name": "pc:Contract0***gr:PriceSpecification",
+            "value": {
+                "label": "pc:contractPrice",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "pc:Contract0",
+            "w": "gr:PriceSpecification",
+            "name": "pc:Contract0***gr:PriceSpecification",
+            "value": {
+                "label": "pc:documentationPrice",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
             "v": "pc:TendersOpening",
             "w": "pc:Contract0",
             "name": "pc:TendersOpening***pc:Contract0",
@@ -261,6 +305,16 @@
             "name": "pc:Tender***gr:BusinessEntity1",
             "value": {
                 "label": "pc:bidder",
+                "type": "direct_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "pc:Tender",
+            "w": "gr:PriceSpecification",
+            "name": "pc:Tender***gr:PriceSpecification",
+            "value": {
+                "label": "pc:offeredPrice",
                 "type": "direct_property_uri"
             },
             "weight": 1

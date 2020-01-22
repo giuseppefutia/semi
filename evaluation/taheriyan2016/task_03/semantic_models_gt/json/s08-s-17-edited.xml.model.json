@@ -1,0 +1,643 @@
+{
+    "id": "s08-s-17-edited.xml",
+    "name": "s08-s-17-edited.xml",
+    "description": null,
+    "sourceColumns": [
+        {
+            "id": "HN32618",
+            "hNodeId": "HN32618",
+            "columnName": "IMAGESRC"
+        },
+        {
+            "id": "HN32726",
+            "hNodeId": "HN32726",
+            "columnName": "VIDEO"
+        },
+        {
+            "id": "HN32607",
+            "hNodeId": "HN32607",
+            "columnName": "AUTHOR"
+        },
+        {
+            "id": "HN32609",
+            "hNodeId": "HN32609",
+            "columnName": "DESCRIPTION"
+        },
+        {
+            "id": "HN32640",
+            "hNodeId": "HN32640",
+            "columnName": "TITLE"
+        },
+        {
+            "id": "HN32616",
+            "hNodeId": "HN32616",
+            "columnName": "CAPTION"
+        }
+    ],
+    "mappingToSourceColumns": [
+        {
+            "id": "HN32726",
+            "sourceColumnId": "HN32726"
+        },
+        {
+            "id": "HN32618",
+            "sourceColumnId": "HN32618"
+        },
+        {
+            "id": "HN32607",
+            "sourceColumnId": "HN32607"
+        },
+        {
+            "id": "HN32609",
+            "sourceColumnId": "HN32609"
+        },
+        {
+            "id": "HN32640",
+            "sourceColumnId": "HN32640"
+        },
+        {
+            "id": "HN32616",
+            "sourceColumnId": "HN32616"
+        }
+    ],
+    "graph": {
+        "nodes": [
+            {
+                "id": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1",
+                "label": {
+                    "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
+                },
+                "type": "InternalNode",
+                "modelIds": null
+            },
+            {
+                "id": "http://www.americanartcollaborative.org/ontology/Person1",
+                "label": {
+                    "uri": "http://www.americanartcollaborative.org/ontology/Person"
+                },
+                "type": "InternalNode",
+                "modelIds": null
+            },
+            {
+                "id": "http://www.europeana.eu/schemas/edm/EuropeanaAggregation1",
+                "label": {
+                    "uri": "http://www.europeana.eu/schemas/edm/EuropeanaAggregation"
+                },
+                "type": "InternalNode",
+                "modelIds": null
+            },
+            {
+                "id": "http://www.europeana.eu/schemas/edm/WebResource1",
+                "label": {
+                    "uri": "http://www.europeana.eu/schemas/edm/WebResource"
+                },
+                "type": "InternalNode",
+                "modelIds": null
+            },
+            {
+                "id": "http://www.europeana.eu/schemas/edm/WebResource2",
+                "label": {
+                    "uri": "http://www.europeana.eu/schemas/edm/WebResource"
+                },
+                "type": "InternalNode",
+                "modelIds": null
+            },
+            {
+                "id": "HN32618",
+                "label": {
+                    "uri": "HN32618"
+                },
+                "type": "ColumnNode",
+                "hNodeId": "HN32618",
+                "columnName": "IMAGESRC",
+                "rdfLiteralType": null,
+                "userSemanticTypes": [
+                    {
+                        "hNodeId": "HN32618",
+                        "domain": {
+                            "uri": "http://www.europeana.eu/schemas/edm/WebResource"
+                        },
+                        "type": {
+                            "uri": "http://isi.edu/integration/karma/dev#classLink"
+                        },
+                        "origin": "User",
+                        "confidenceScore": 1.0
+                    }
+                ],
+                "learnedSemanticTypes": [
+                    {
+                        "hNodeId": "HN32618",
+                        "domain": {
+                            "uri": "http://www.europeana.eu/schemas/edm/WebResource"
+                        },
+                        "type": {
+                            "uri": "http://isi.edu/integration/karma/dev#classLink"
+                        },
+                        "origin": "TfIdfModel",
+                        "confidenceScore": 0.8986296884635534
+                    },
+                    {
+                        "hNodeId": "HN32618",
+                        "domain": {
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
+                        },
+                        "type": {
+                            "uri": "http://purl.org/dc/terms/description"
+                        },
+                        "origin": "TfIdfModel",
+                        "confidenceScore": 0.07978464070147484
+                    },
+                    {
+                        "hNodeId": "HN32618",
+                        "domain": {
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
+                        },
+                        "type": {
+                            "uri": "http://www.americanartcollaborative.org/ontology/accessionNumber"
+                        },
+                        "origin": "TfIdfModel",
+                        "confidenceScore": 0.011872925478260158
+                    },
+                    {
+                        "hNodeId": "HN32618",
+                        "domain": {
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
+                        },
+                        "type": {
+                            "uri": "http://purl.org/dc/terms/provenance"
+                        },
+                        "origin": "TfIdfModel",
+                        "confidenceScore": 0.009712745356711613
+                    }
+                ],
+                "modelIds": null
+            },
+            {
+                "id": "HN32726",
+                "label": {
+                    "uri": "HN32726"
+                },
+                "type": "ColumnNode",
+                "hNodeId": "HN32726",
+                "columnName": "VIDEO",
+                "rdfLiteralType": null,
+                "userSemanticTypes": [
+                    {
+                        "hNodeId": "HN32726",
+                        "domain": {
+                            "uri": "http://www.europeana.eu/schemas/edm/WebResource"
+                        },
+                        "type": {
+                            "uri": "http://isi.edu/integration/karma/dev#classLink"
+                        },
+                        "origin": "User",
+                        "confidenceScore": 1.0
+                    }
+                ],
+                "learnedSemanticTypes": [
+                    {
+                        "hNodeId": "HN32726",
+                        "domain": {
+                            "uri": "http://www.europeana.eu/schemas/edm/WebResource"
+                        },
+                        "type": {
+                            "uri": "http://isi.edu/integration/karma/dev#classLink"
+                        },
+                        "origin": "TfIdfModel",
+                        "confidenceScore": 0.8812824322626478
+                    },
+                    {
+                        "hNodeId": "HN32726",
+                        "domain": {
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
+                        },
+                        "type": {
+                            "uri": "http://purl.org/dc/terms/description"
+                        },
+                        "origin": "TfIdfModel",
+                        "confidenceScore": 0.08348228648437903
+                    },
+                    {
+                        "hNodeId": "HN32726",
+                        "domain": {
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
+                        },
+                        "type": {
+                            "uri": "http://www.americanartcollaborative.org/ontology/accessionNumber"
+                        },
+                        "origin": "TfIdfModel",
+                        "confidenceScore": 0.017638211837555314
+                    },
+                    {
+                        "hNodeId": "HN32726",
+                        "domain": {
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
+                        },
+                        "type": {
+                            "uri": "http://purl.org/dc/terms/provenance"
+                        },
+                        "origin": "TfIdfModel",
+                        "confidenceScore": 0.017597069415417863
+                    }
+                ],
+                "modelIds": null
+            },
+            {
+                "id": "HN32607",
+                "label": {
+                    "uri": "HN32607"
+                },
+                "type": "ColumnNode",
+                "hNodeId": "HN32607",
+                "columnName": "AUTHOR",
+                "rdfLiteralType": null,
+                "userSemanticTypes": [
+                    {
+                        "hNodeId": "HN32607",
+                        "domain": {
+                            "uri": "http://www.americanartcollaborative.org/ontology/Person"
+                        },
+                        "type": {
+                            "uri": "http://rdvocab.info/ElementsGr2/nameOfThePerson"
+                        },
+                        "origin": "User",
+                        "confidenceScore": 1.0
+                    }
+                ],
+                "learnedSemanticTypes": [
+                    {
+                        "hNodeId": "HN32607",
+                        "domain": {
+                            "uri": "http://www.americanartcollaborative.org/ontology/Person"
+                        },
+                        "type": {
+                            "uri": "http://rdvocab.info/ElementsGr2/nameOfThePerson"
+                        },
+                        "origin": "TfIdfModel",
+                        "confidenceScore": 0.407203807614744
+                    },
+                    {
+                        "hNodeId": "HN32607",
+                        "domain": {
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
+                        },
+                        "type": {
+                            "uri": "http://purl.org/dc/terms/description"
+                        },
+                        "origin": "TfIdfModel",
+                        "confidenceScore": 0.238331343151211
+                    },
+                    {
+                        "hNodeId": "HN32607",
+                        "domain": {
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
+                        },
+                        "type": {
+                            "uri": "http://purl.org/dc/terms/title"
+                        },
+                        "origin": "TfIdfModel",
+                        "confidenceScore": 0.19225939450493293
+                    },
+                    {
+                        "hNodeId": "HN32607",
+                        "domain": {
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
+                        },
+                        "type": {
+                            "uri": "http://purl.org/dc/terms/provenance"
+                        },
+                        "origin": "TfIdfModel",
+                        "confidenceScore": 0.1622054547291121
+                    }
+                ],
+                "modelIds": null
+            },
+            {
+                "id": "HN32609",
+                "label": {
+                    "uri": "HN32609"
+                },
+                "type": "ColumnNode",
+                "hNodeId": "HN32609",
+                "columnName": "DESCRIPTION",
+                "rdfLiteralType": null,
+                "userSemanticTypes": [
+                    {
+                        "hNodeId": "HN32609",
+                        "domain": {
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
+                        },
+                        "type": {
+                            "uri": "http://purl.org/dc/terms/description"
+                        },
+                        "origin": "User",
+                        "confidenceScore": 1.0
+                    }
+                ],
+                "learnedSemanticTypes": [
+                    {
+                        "hNodeId": "HN32609",
+                        "domain": {
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
+                        },
+                        "type": {
+                            "uri": "http://purl.org/dc/terms/description"
+                        },
+                        "origin": "TfIdfModel",
+                        "confidenceScore": 0.5446521214991954
+                    },
+                    {
+                        "hNodeId": "HN32609",
+                        "domain": {
+                            "uri": "http://www.americanartcollaborative.org/ontology/Person"
+                        },
+                        "type": {
+                            "uri": "http://rdvocab.info/ElementsGr2/biographicalInformation"
+                        },
+                        "origin": "TfIdfModel",
+                        "confidenceScore": 0.18210607933775627
+                    },
+                    {
+                        "hNodeId": "HN32609",
+                        "domain": {
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
+                        },
+                        "type": {
+                            "uri": "http://purl.org/dc/terms/provenance"
+                        },
+                        "origin": "TfIdfModel",
+                        "confidenceScore": 0.15492071469454885
+                    },
+                    {
+                        "hNodeId": "HN32609",
+                        "domain": {
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
+                        },
+                        "type": {
+                            "uri": "http://purl.org/dc/terms/title"
+                        },
+                        "origin": "TfIdfModel",
+                        "confidenceScore": 0.11832108446849947
+                    }
+                ],
+                "modelIds": null
+            },
+            {
+                "id": "HN32640",
+                "label": {
+                    "uri": "HN32640"
+                },
+                "type": "ColumnNode",
+                "hNodeId": "HN32640",
+                "columnName": "TITLE",
+                "rdfLiteralType": null,
+                "userSemanticTypes": [
+                    {
+                        "hNodeId": "HN32640",
+                        "domain": {
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
+                        },
+                        "type": {
+                            "uri": "http://purl.org/dc/terms/title"
+                        },
+                        "origin": "User",
+                        "confidenceScore": 1.0
+                    }
+                ],
+                "learnedSemanticTypes": [
+                    {
+                        "hNodeId": "HN32640",
+                        "domain": {
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
+                        },
+                        "type": {
+                            "uri": "http://purl.org/dc/terms/description"
+                        },
+                        "origin": "TfIdfModel",
+                        "confidenceScore": 0.3775347141637281
+                    },
+                    {
+                        "hNodeId": "HN32640",
+                        "domain": {
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
+                        },
+                        "type": {
+                            "uri": "http://purl.org/dc/terms/title"
+                        },
+                        "origin": "TfIdfModel",
+                        "confidenceScore": 0.31969986068650835
+                    },
+                    {
+                        "hNodeId": "HN32640",
+                        "domain": {
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
+                        },
+                        "type": {
+                            "uri": "http://purl.org/dc/terms/provenance"
+                        },
+                        "origin": "TfIdfModel",
+                        "confidenceScore": 0.19124257272495676
+                    },
+                    {
+                        "hNodeId": "HN32640",
+                        "domain": {
+                            "uri": "http://www.americanartcollaborative.org/ontology/Person"
+                        },
+                        "type": {
+                            "uri": "http://rdvocab.info/ElementsGr2/biographicalInformation"
+                        },
+                        "origin": "TfIdfModel",
+                        "confidenceScore": 0.11152285242480682
+                    }
+                ],
+                "modelIds": null
+            },
+            {
+                "id": "HN32616",
+                "label": {
+                    "uri": "HN32616"
+                },
+                "type": "ColumnNode",
+                "hNodeId": "HN32616",
+                "columnName": "CAPTION",
+                "rdfLiteralType": null,
+                "userSemanticTypes": [
+                    {
+                        "hNodeId": "HN32616",
+                        "domain": {
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
+                        },
+                        "type": {
+                            "uri": "http://purl.org/dc/terms/provenance"
+                        },
+                        "origin": "User",
+                        "confidenceScore": 1.0
+                    }
+                ],
+                "learnedSemanticTypes": [
+                    {
+                        "hNodeId": "HN32616",
+                        "domain": {
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
+                        },
+                        "type": {
+                            "uri": "http://purl.org/dc/terms/provenance"
+                        },
+                        "origin": "TfIdfModel",
+                        "confidenceScore": 0.5367035783363828
+                    },
+                    {
+                        "hNodeId": "HN32616",
+                        "domain": {
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
+                        },
+                        "type": {
+                            "uri": "http://purl.org/dc/terms/description"
+                        },
+                        "origin": "TfIdfModel",
+                        "confidenceScore": 0.26724480443518434
+                    },
+                    {
+                        "hNodeId": "HN32616",
+                        "domain": {
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
+                        },
+                        "type": {
+                            "uri": "http://purl.org/dc/terms/title"
+                        },
+                        "origin": "TfIdfModel",
+                        "confidenceScore": 0.1408913686838074
+                    },
+                    {
+                        "hNodeId": "HN32616",
+                        "domain": {
+                            "uri": "http://www.americanartcollaborative.org/ontology/Person"
+                        },
+                        "type": {
+                            "uri": "http://rdvocab.info/ElementsGr2/biographicalInformation"
+                        },
+                        "origin": "TfIdfModel",
+                        "confidenceScore": 0.055160248544625375
+                    }
+                ],
+                "modelIds": null
+            }
+        ],
+        "links": [
+            {
+                "id": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1---http://purl.org/dc/terms/creator---http://www.americanartcollaborative.org/ontology/Person1",
+                "weight": 0.009999999776482582,
+                "type": "ObjectPropertyLink",
+                "label": {
+                    "uri": "http://purl.org/dc/terms/creator"
+                },
+                "objectPropertyType": "None",
+                "status": "ForcedByUser",
+                "keyInfo": "None",
+                "modelIds": null
+            },
+            {
+                "id": "http://www.europeana.eu/schemas/edm/EuropeanaAggregation1---http://www.europeana.eu/schemas/edm/aggregatedCHO---http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1",
+                "weight": 0.009999999776482582,
+                "type": "ObjectPropertyLink",
+                "label": {
+                    "uri": "http://www.europeana.eu/schemas/edm/aggregatedCHO"
+                },
+                "objectPropertyType": "None",
+                "status": "ForcedByUser",
+                "keyInfo": "None",
+                "modelIds": null
+            },
+            {
+                "id": "http://www.europeana.eu/schemas/edm/EuropeanaAggregation1---http://www.europeana.eu/schemas/edm/hasView---http://www.europeana.eu/schemas/edm/WebResource1",
+                "weight": 0.009999999776482582,
+                "type": "ObjectPropertyLink",
+                "label": {
+                    "uri": "http://www.europeana.eu/schemas/edm/hasView"
+                },
+                "objectPropertyType": "None",
+                "status": "ForcedByUser",
+                "keyInfo": "None",
+                "modelIds": null
+            },
+            {
+                "id": "http://www.europeana.eu/schemas/edm/EuropeanaAggregation1---http://www.europeana.eu/schemas/edm/hasView---http://www.europeana.eu/schemas/edm/WebResource2",
+                "weight": 0.009999999776482582,
+                "type": "ObjectPropertyLink",
+                "label": {
+                    "uri": "http://www.europeana.eu/schemas/edm/hasView"
+                },
+                "objectPropertyType": "None",
+                "status": "ForcedByUser",
+                "keyInfo": "None",
+                "modelIds": null
+            },
+            {
+                "id": "http://www.europeana.eu/schemas/edm/WebResource1---http://isi.edu/integration/karma/dev#classLink---HN32618",
+                "weight": 0.01,
+                "type": "ClassInstanceLink",
+                "label": {
+                    "uri": "http://isi.edu/integration/karma/dev#classLink"
+                },
+                "status": "ForcedByUser",
+                "keyInfo": "UriOfInstance",
+                "modelIds": null
+            },
+            {
+                "id": "http://www.europeana.eu/schemas/edm/WebResource2---http://isi.edu/integration/karma/dev#classLink---HN32726",
+                "weight": 0.01,
+                "type": "ClassInstanceLink",
+                "label": {
+                    "uri": "http://isi.edu/integration/karma/dev#classLink"
+                },
+                "status": "ForcedByUser",
+                "keyInfo": "UriOfInstance",
+                "modelIds": null
+            },
+            {
+                "id": "http://www.americanartcollaborative.org/ontology/Person1---http://rdvocab.info/ElementsGr2/nameOfThePerson---HN32607",
+                "weight": 0.01,
+                "type": "DataPropertyLink",
+                "label": {
+                    "uri": "http://rdvocab.info/ElementsGr2/nameOfThePerson"
+                },
+                "status": "ForcedByUser",
+                "keyInfo": "None",
+                "modelIds": null
+            },
+            {
+                "id": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1---http://purl.org/dc/terms/description---HN32609",
+                "weight": 0.01,
+                "type": "DataPropertyLink",
+                "label": {
+                    "uri": "http://purl.org/dc/terms/description"
+                },
+                "status": "ForcedByUser",
+                "keyInfo": "None",
+                "modelIds": null
+            },
+            {
+                "id": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1---http://purl.org/dc/terms/title---HN32640",
+                "weight": 0.01,
+                "type": "DataPropertyLink",
+                "label": {
+                    "uri": "http://purl.org/dc/terms/title"
+                },
+                "status": "ForcedByUser",
+                "keyInfo": "None",
+                "modelIds": null
+            },
+            {
+                "id": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1---http://purl.org/dc/terms/provenance---HN32616",
+                "weight": 0.01,
+                "type": "DataPropertyLink",
+                "label": {
+                    "uri": "http://purl.org/dc/terms/provenance"
+                },
+                "status": "ForcedByUser",
+                "keyInfo": "None",
+                "modelIds": null
+            }
+        ]
+    }
+}

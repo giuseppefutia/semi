@@ -1,0 +1,232 @@
+{
+    "options": {
+        "directed": true,
+        "multigraph": true,
+        "compound": false
+    },
+    "nodes": [
+        {
+            "v": "Assension_Number",
+            "value": {
+                "type": "attribute_name",
+                "label": "Assension_Number"
+            }
+        },
+        {
+            "v": "aac-ont:CulturalHeritageObject1",
+            "value": {
+                "type": "class_uri",
+                "label": "aac-ont:CulturalHeritageObject"
+            }
+        },
+        {
+            "v": "Dimensions",
+            "value": {
+                "type": "attribute_name",
+                "label": "Dimensions"
+            }
+        },
+        {
+            "v": "Process",
+            "value": {
+                "type": "attribute_name",
+                "label": "Process"
+            }
+        },
+        {
+            "v": "Provenance",
+            "value": {
+                "type": "attribute_name",
+                "label": "Provenance"
+            }
+        },
+        {
+            "v": "aac-ont:Person1",
+            "value": {
+                "type": "class_uri",
+                "label": "aac-ont:Person"
+            }
+        },
+        {
+            "v": "Artist_Name",
+            "value": {
+                "type": "attribute_name",
+                "label": "Artist_Name"
+            }
+        },
+        {
+            "v": "creationDate",
+            "value": {
+                "type": "attribute_name",
+                "label": "creationDate"
+            }
+        },
+        {
+            "v": "edm:ProvidedCHO",
+            "value": {
+                "type": "class_uri",
+                "label": "edm:ProvidedCHO"
+            }
+        },
+        {
+            "v": "edm:WebResource1",
+            "value": {
+                "type": "class_uri",
+                "label": "edm:WebResource"
+            }
+        },
+        {
+            "v": "ore:Aggregation",
+            "value": {
+                "type": "class_uri",
+                "label": "ore:Aggregation"
+            }
+        },
+        {
+            "v": "image",
+            "value": {
+                "type": "attribute_name",
+                "label": "image"
+            }
+        },
+        {
+            "v": "title",
+            "value": {
+                "type": "attribute_name",
+                "label": "title"
+            }
+        }
+    ],
+    "edges": [
+        {
+            "v": "Assension_Number",
+            "w": "aac-ont:CulturalHeritageObject1",
+            "name": "Assension_Number***aac-ont:CulturalHeritageObject1",
+            "value": {
+                "type": "st_property_uri",
+                "label": "aac-ont:accessionNumber***inverted",
+                "weight": 1
+            },
+            "weight": 1
+        },
+        {
+            "v": "Dimensions",
+            "w": "aac-ont:CulturalHeritageObject1",
+            "name": "Dimensions***aac-ont:CulturalHeritageObject1",
+            "value": {
+                "type": "st_property_uri",
+                "label": "dcterms:extent***inverted",
+                "weight": 1
+            },
+            "weight": 1
+        },
+        {
+            "v": "Process",
+            "w": "aac-ont:CulturalHeritageObject1",
+            "name": "Process***aac-ont:CulturalHeritageObject1",
+            "value": {
+                "type": "st_property_uri",
+                "label": "dcterms:medium***inverted",
+                "weight": 1
+            },
+            "weight": 1
+        },
+        {
+            "v": "aac-ont:CulturalHeritageObject1",
+            "w": "Provenance",
+            "name": "aac-ont:CulturalHeritageObject1***Provenance",
+            "value": {
+                "label": "dcterms:provenance",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "aac-ont:Person1",
+            "w": "Artist_Name",
+            "name": "aac-ont:Person1***Artist_Name",
+            "value": {
+                "label": "ElementsGr2:nameOfThePerson",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "aac-ont:Person1",
+            "w": "aac-ont:CulturalHeritageObject1",
+            "name": "aac-ont:Person1***aac-ont:CulturalHeritageObject1",
+            "value": {
+                "type": "inherited",
+                "label": "skos2:semanticRelation***inverted",
+                "weight": 4
+            },
+            "weight": 4
+        },
+        {
+            "v": "creationDate",
+            "w": "aac-ont:CulturalHeritageObject1",
+            "name": "creationDate***aac-ont:CulturalHeritageObject1",
+            "value": {
+                "type": "st_property_uri",
+                "label": "dcterms:created***inverted",
+                "weight": 1
+            },
+            "weight": 1
+        },
+        {
+            "v": "edm:ProvidedCHO",
+            "w": "aac-ont:Person1",
+            "name": "edm:ProvidedCHO***aac-ont:Person1",
+            "value": {
+                "label": "aac-ont:sitter",
+                "type": "direct_property_uri",
+                "weight": 1
+            },
+            "weight": 1
+        },
+        {
+            "v": "edm:WebResource1",
+            "w": "ore:Aggregation",
+            "name": "edm:WebResource1***ore:Aggregation",
+            "value": {
+                "type": "direct_property_uri",
+                "label": "edm:hasView***inverted",
+                "weight": 1
+            },
+            "weight": 1
+        },
+        {
+            "v": "image",
+            "w": "edm:WebResource1",
+            "name": "image***edm:WebResource1",
+            "value": {
+                "type": "st_property_uri",
+                "label": "rdfs:label***inverted",
+                "weight": 1
+            },
+            "weight": 1
+        },
+        {
+            "v": "ore:Aggregation",
+            "w": "edm:ProvidedCHO",
+            "name": "ore:Aggregation***edm:ProvidedCHO",
+            "value": {
+                "label": "edm:aggregatedCHO",
+                "type": "direct_property_uri",
+                "weight": 1
+            },
+            "weight": 1
+        },
+        {
+            "v": "title",
+            "w": "aac-ont:CulturalHeritageObject1",
+            "name": "title***aac-ont:CulturalHeritageObject1",
+            "value": {
+                "type": "st_property_uri",
+                "label": "dcterms:title***inverted",
+                "weight": 1
+            },
+            "weight": 1
+        }
+    ]
+}

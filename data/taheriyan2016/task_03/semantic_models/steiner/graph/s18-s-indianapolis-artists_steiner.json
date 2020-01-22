@@ -1,0 +1,125 @@
+{
+    "options": {
+        "directed": true,
+        "multigraph": true,
+        "compound": false
+    },
+    "nodes": [
+        {
+            "v": "aac-ont:CulturalHeritageObject1",
+            "value": {
+                "type": "class_uri",
+                "label": "aac-ont:CulturalHeritageObject"
+            }
+        },
+        {
+            "v": "aac-ont:Person1",
+            "value": {
+                "type": "class_uri",
+                "label": "aac-ont:Person"
+            }
+        },
+        {
+            "v": "name",
+            "value": {
+                "type": "attribute_name",
+                "label": "name"
+            }
+        },
+        {
+            "v": "birthDate",
+            "value": {
+                "type": "attribute_name",
+                "label": "birthDate"
+            }
+        },
+        {
+            "v": "deathDate",
+            "value": {
+                "type": "attribute_name",
+                "label": "deathDate"
+            }
+        },
+        {
+            "v": "nationality",
+            "value": {
+                "type": "attribute_name",
+                "label": "nationality"
+            }
+        },
+        {
+            "v": "title",
+            "value": {
+                "type": "attribute_name",
+                "label": "title"
+            }
+        }
+    ],
+    "edges": [
+        {
+            "v": "aac-ont:CulturalHeritageObject1",
+            "w": "aac-ont:Person1",
+            "name": "aac-ont:CulturalHeritageObject1***aac-ont:Person1",
+            "value": {
+                "type": "inherited",
+                "label": "skos2:semanticRelation***inverted",
+                "weight": 4
+            },
+            "weight": 4
+        },
+        {
+            "v": "aac-ont:Person1",
+            "w": "name",
+            "name": "aac-ont:Person1***name",
+            "value": {
+                "label": "ElementsGr2:nameOfThePerson",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "birthDate",
+            "w": "aac-ont:Person1",
+            "name": "birthDate***aac-ont:Person1",
+            "value": {
+                "type": "st_property_uri",
+                "label": "ElementsGr2:dateOfBirth***inverted",
+                "weight": 1
+            },
+            "weight": 1
+        },
+        {
+            "v": "deathDate",
+            "w": "aac-ont:Person1",
+            "name": "deathDate***aac-ont:Person1",
+            "value": {
+                "type": "st_property_uri",
+                "label": "ElementsGr2:dateOfDeath***inverted",
+                "weight": 1
+            },
+            "weight": 1
+        },
+        {
+            "v": "nationality",
+            "w": "aac-ont:Person1",
+            "name": "nationality***aac-ont:Person1",
+            "value": {
+                "type": "st_property_uri",
+                "label": "ElementsGr2:countryAssociatedWithThePerson***inverted",
+                "weight": 1
+            },
+            "weight": 1
+        },
+        {
+            "v": "title",
+            "w": "aac-ont:CulturalHeritageObject1",
+            "name": "title***aac-ont:CulturalHeritageObject1",
+            "value": {
+                "type": "st_property_uri",
+                "label": "dcterms:title***inverted",
+                "weight": 1
+            },
+            "weight": 1
+        }
+    ]
+}

@@ -1,0 +1,508 @@
+{
+    "id": "www.montanagunclassifieds.com.jl",
+    "name": "www.montanagunclassifieds.com.jl",
+    "description": null,
+    "sourceColumns": [
+        {
+            "id": "HN726",
+            "hNodeId": "HN726",
+            "columnName": "Shop0265"
+        },
+        {
+            "id": "HN730",
+            "hNodeId": "HN730",
+            "columnName": "file_name"
+        },
+        {
+            "id": "HN722",
+            "hNodeId": "HN722",
+            "columnName": "Post0326"
+        },
+        {
+            "id": "HN712",
+            "hNodeId": "HN712",
+            "columnName": "Ammunition1476"
+        },
+        {
+            "id": "HN720",
+            "hNodeId": "HN720",
+            "columnName": "Firearms0273"
+        },
+        {
+            "id": "HN708",
+            "hNodeId": "HN708",
+            "columnName": "0021"
+        },
+        {
+            "id": "HN724",
+            "hNodeId": "HN724",
+            "columnName": "Price0364"
+        },
+        {
+            "id": "HN710",
+            "hNodeId": "HN710",
+            "columnName": "Ads0988"
+        },
+        {
+            "id": "HN714",
+            "hNodeId": "HN714",
+            "columnName": "BLK0354"
+        }
+    ],
+    "mappingToSourceColumns": [
+        {
+            "id": "HN714",
+            "sourceColumnId": "HN714"
+        },
+        {
+            "id": "HN730",
+            "sourceColumnId": "HN730"
+        },
+        {
+            "id": "HN726",
+            "sourceColumnId": "HN726"
+        },
+        {
+            "id": "HN710",
+            "sourceColumnId": "HN710"
+        },
+        {
+            "id": "HN724",
+            "sourceColumnId": "HN724"
+        },
+        {
+            "id": "HN712",
+            "sourceColumnId": "HN712"
+        },
+        {
+            "id": "HN722",
+            "sourceColumnId": "HN722"
+        },
+        {
+            "id": "HN720",
+            "sourceColumnId": "HN720"
+        },
+        {
+            "id": "HN708",
+            "sourceColumnId": "HN708"
+        }
+    ],
+    "graph": {
+        "nodes": [
+            {
+                "id": "http://schema.dig.isi.edu/ontology/Firearm1",
+                "label": {
+                    "uri": "http://schema.dig.isi.edu/ontology/Firearm"
+                },
+                "type": "InternalNode",
+                "modelIds": null
+            },
+            {
+                "id": "HN726",
+                "label": {
+                    "uri": "HN726"
+                },
+                "type": "ColumnNode",
+                "hNodeId": "HN726",
+                "columnName": "Shop0265",
+                "rdfLiteralType": null,
+                "userSemanticTypes": [
+                    {
+                        "hNodeId": "HN726",
+                        "domain": {
+                            "uri": "http://schema.dig.isi.edu/ontology/Firearm"
+                        },
+                        "type": {
+                            "uri": "http://schema.org/category"
+                        },
+                        "origin": "User",
+                        "confidenceScore": 1.0
+                    }
+                ],
+                "learnedSemanticTypes": null,
+                "modelIds": null
+            },
+            {
+                "id": "http://schema.org/CreativeWork1",
+                "label": {
+                    "uri": "http://schema.org/CreativeWork"
+                },
+                "type": "InternalNode",
+                "modelIds": null
+            },
+            {
+                "id": "HN730",
+                "label": {
+                    "uri": "HN730"
+                },
+                "type": "ColumnNode",
+                "hNodeId": "HN730",
+                "columnName": "file_name",
+                "rdfLiteralType": null,
+                "userSemanticTypes": [
+                    {
+                        "hNodeId": "HN730",
+                        "domain": {
+                            "uri": "http://schema.org/CreativeWork"
+                        },
+                        "type": {
+                            "uri": "http://schema.org/name"
+                        },
+                        "origin": "User",
+                        "confidenceScore": 1.0
+                    }
+                ],
+                "learnedSemanticTypes": null,
+                "modelIds": null
+            },
+            {
+                "id": "http://schema.org/Offer1",
+                "label": {
+                    "uri": "http://schema.org/Offer"
+                },
+                "type": "InternalNode",
+                "modelIds": null
+            },
+            {
+                "id": "HN722",
+                "label": {
+                    "uri": "HN722"
+                },
+                "type": "ColumnNode",
+                "hNodeId": "HN722",
+                "columnName": "Post0326",
+                "rdfLiteralType": null,
+                "userSemanticTypes": [
+                    {
+                        "hNodeId": "HN722",
+                        "domain": {
+                            "uri": "http://schema.org/Offer"
+                        },
+                        "type": {
+                            "uri": "http://schema.dig.isi.edu/ontology/identifier"
+                        },
+                        "origin": "User",
+                        "confidenceScore": 1.0
+                    }
+                ],
+                "learnedSemanticTypes": null,
+                "modelIds": null
+            },
+            {
+                "id": "http://schema.org/Place1",
+                "label": {
+                    "uri": "http://schema.org/Place"
+                },
+                "type": "InternalNode",
+                "modelIds": null
+            },
+            {
+                "id": "HN712",
+                "label": {
+                    "uri": "HN712"
+                },
+                "type": "ColumnNode",
+                "hNodeId": "HN712",
+                "columnName": "Ammunition1476",
+                "rdfLiteralType": null,
+                "userSemanticTypes": [
+                    {
+                        "hNodeId": "HN712",
+                        "domain": {
+                            "uri": "http://schema.org/Offer"
+                        },
+                        "type": {
+                            "uri": "http://schema.org/description"
+                        },
+                        "origin": "User",
+                        "confidenceScore": 1.0
+                    }
+                ],
+                "learnedSemanticTypes": null,
+                "modelIds": null
+            },
+            {
+                "id": "HN720",
+                "label": {
+                    "uri": "HN720"
+                },
+                "type": "ColumnNode",
+                "hNodeId": "HN720",
+                "columnName": "Firearms0273",
+                "rdfLiteralType": null,
+                "userSemanticTypes": [
+                    {
+                        "hNodeId": "HN720",
+                        "domain": {
+                            "uri": "http://schema.org/Offer"
+                        },
+                        "type": {
+                            "uri": "http://schema.org/description"
+                        },
+                        "origin": "User",
+                        "confidenceScore": 1.0
+                    }
+                ],
+                "learnedSemanticTypes": null,
+                "modelIds": null
+            },
+            {
+                "id": "HN708",
+                "label": {
+                    "uri": "HN708"
+                },
+                "type": "ColumnNode",
+                "hNodeId": "HN708",
+                "columnName": "0021",
+                "rdfLiteralType": null,
+                "userSemanticTypes": [
+                    {
+                        "hNodeId": "HN708",
+                        "domain": {
+                            "uri": "http://schema.org/Offer"
+                        },
+                        "type": {
+                            "uri": "http://schema.org/name"
+                        },
+                        "origin": "User",
+                        "confidenceScore": 1.0
+                    }
+                ],
+                "learnedSemanticTypes": null,
+                "modelIds": null
+            },
+            {
+                "id": "HN724",
+                "label": {
+                    "uri": "HN724"
+                },
+                "type": "ColumnNode",
+                "hNodeId": "HN724",
+                "columnName": "Price0364",
+                "rdfLiteralType": null,
+                "userSemanticTypes": [
+                    {
+                        "hNodeId": "HN724",
+                        "domain": {
+                            "uri": "http://schema.org/Offer"
+                        },
+                        "type": {
+                            "uri": "http://schema.org/price"
+                        },
+                        "origin": "User",
+                        "confidenceScore": 1.0
+                    }
+                ],
+                "learnedSemanticTypes": null,
+                "modelIds": null
+            },
+            {
+                "id": "http://schema.org/Offer2",
+                "label": {
+                    "uri": "http://schema.org/Offer"
+                },
+                "type": "InternalNode",
+                "modelIds": null
+            },
+            {
+                "id": "HN710",
+                "label": {
+                    "uri": "HN710"
+                },
+                "type": "ColumnNode",
+                "hNodeId": "HN710",
+                "columnName": "Ads0988",
+                "rdfLiteralType": null,
+                "userSemanticTypes": [
+                    {
+                        "hNodeId": "HN710",
+                        "domain": {
+                            "uri": "http://schema.org/Offer"
+                        },
+                        "type": {
+                            "uri": "http://schema.org/name"
+                        },
+                        "origin": "User",
+                        "confidenceScore": 1.0
+                    }
+                ],
+                "learnedSemanticTypes": null,
+                "modelIds": null
+            },
+            {
+                "id": "HN714",
+                "label": {
+                    "uri": "HN714"
+                },
+                "type": "ColumnNode",
+                "hNodeId": "HN714",
+                "columnName": "BLK0354",
+                "rdfLiteralType": null,
+                "userSemanticTypes": [
+                    {
+                        "hNodeId": "HN714",
+                        "domain": {
+                            "uri": "http://schema.org/Place"
+                        },
+                        "type": {
+                            "uri": "http://schema.org/name"
+                        },
+                        "origin": "User",
+                        "confidenceScore": 1.0
+                    }
+                ],
+                "learnedSemanticTypes": null,
+                "modelIds": null
+            }
+        ],
+        "links": [
+            {
+                "id": "http://schema.dig.isi.edu/ontology/Firearm1---http://schema.org/category---HN726",
+                "weight": 0.01,
+                "type": "DataPropertyLink",
+                "label": {
+                    "uri": "http://schema.org/category"
+                },
+                "status": "ForcedByUser",
+                "keyInfo": "None",
+                "modelIds": null
+            },
+            {
+                "id": "http://schema.org/CreativeWork1---http://schema.org/name---HN730",
+                "weight": 0.01,
+                "type": "DataPropertyLink",
+                "label": {
+                    "uri": "http://schema.org/name"
+                },
+                "status": "ForcedByUser",
+                "keyInfo": "None",
+                "modelIds": null
+            },
+            {
+                "id": "http://schema.org/Offer1---http://schema.dig.isi.edu/ontology/identifier---HN722",
+                "weight": 0.01,
+                "type": "DataPropertyLink",
+                "label": {
+                    "uri": "http://schema.dig.isi.edu/ontology/identifier"
+                },
+                "status": "ForcedByUser",
+                "keyInfo": "None",
+                "modelIds": null
+            },
+            {
+                "id": "http://schema.org/Offer1---http://schema.org/availableAtOrFrom---http://schema.org/Place1",
+                "weight": 0.01,
+                "type": "ObjectPropertyLink",
+                "label": {
+                    "uri": "http://schema.org/availableAtOrFrom"
+                },
+                "objectPropertyType": "Direct",
+                "status": "ForcedByUser",
+                "keyInfo": "None",
+                "modelIds": null
+            },
+            {
+                "id": "http://schema.org/Offer1---http://schema.org/description---HN712",
+                "weight": 0.01,
+                "type": "DataPropertyLink",
+                "label": {
+                    "uri": "http://schema.org/description"
+                },
+                "status": "ForcedByUser",
+                "keyInfo": "None",
+                "modelIds": null
+            },
+            {
+                "id": "http://schema.org/Offer1---http://schema.org/description---HN720",
+                "weight": 0.01,
+                "type": "DataPropertyLink",
+                "label": {
+                    "uri": "http://schema.org/description"
+                },
+                "status": "ForcedByUser",
+                "keyInfo": "None",
+                "modelIds": null
+            },
+            {
+                "id": "http://schema.org/Offer1---http://schema.org/itemOffered---http://schema.dig.isi.edu/ontology/Firearm1",
+                "weight": 0.01,
+                "type": "ObjectPropertyLink",
+                "label": {
+                    "uri": "http://schema.org/itemOffered"
+                },
+                "objectPropertyType": "Indirect",
+                "status": "ForcedByUser",
+                "keyInfo": "None",
+                "modelIds": null
+            },
+            {
+                "id": "http://schema.org/Offer1---http://schema.org/mainEntityOfPage---http://schema.org/CreativeWork1",
+                "weight": 0.01,
+                "type": "ObjectPropertyLink",
+                "label": {
+                    "uri": "http://schema.org/mainEntityOfPage"
+                },
+                "objectPropertyType": "Indirect",
+                "status": "ForcedByUser",
+                "keyInfo": "None",
+                "modelIds": null
+            },
+            {
+                "id": "http://schema.org/Offer1---http://schema.org/name---HN708",
+                "weight": 0.01,
+                "type": "DataPropertyLink",
+                "label": {
+                    "uri": "http://schema.org/name"
+                },
+                "status": "ForcedByUser",
+                "keyInfo": "None",
+                "modelIds": null
+            },
+            {
+                "id": "http://schema.org/Offer1---http://schema.org/price---HN724",
+                "weight": 0.01,
+                "type": "DataPropertyLink",
+                "label": {
+                    "uri": "http://schema.org/price"
+                },
+                "status": "ForcedByUser",
+                "keyInfo": "None",
+                "modelIds": null
+            },
+            {
+                "id": "http://schema.org/Offer1---http://schema.org/relatedTo---http://schema.org/Offer2",
+                "weight": 0.01,
+                "type": "ObjectPropertyLink",
+                "label": {
+                    "uri": "http://schema.org/relatedTo"
+                },
+                "objectPropertyType": "None",
+                "status": "ForcedByUser",
+                "keyInfo": "None",
+                "modelIds": null
+            },
+            {
+                "id": "http://schema.org/Offer2---http://schema.org/name---HN710",
+                "weight": 0.01,
+                "type": "DataPropertyLink",
+                "label": {
+                    "uri": "http://schema.org/name"
+                },
+                "status": "ForcedByUser",
+                "keyInfo": "None",
+                "modelIds": null
+            },
+            {
+                "id": "http://schema.org/Place1---http://schema.org/name---HN714",
+                "weight": 0.01,
+                "type": "DataPropertyLink",
+                "label": {
+                    "uri": "http://schema.org/name"
+                },
+                "status": "ForcedByUser",
+                "keyInfo": "None",
+                "modelIds": null
+            }
+        ]
+    }
+}

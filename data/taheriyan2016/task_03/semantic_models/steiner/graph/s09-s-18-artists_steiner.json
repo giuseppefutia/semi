@@ -1,0 +1,71 @@
+{
+    "options": {
+        "directed": true,
+        "multigraph": true,
+        "compound": false
+    },
+    "nodes": [
+        {
+            "v": "aac-ont:Person1",
+            "value": {
+                "type": "class_uri",
+                "label": "aac-ont:Person"
+            }
+        },
+        {
+            "v": "deathDate",
+            "value": {
+                "type": "attribute_name",
+                "label": "deathDate"
+            }
+        },
+        {
+            "v": "birthDate",
+            "value": {
+                "type": "attribute_name",
+                "label": "birthDate"
+            }
+        },
+        {
+            "v": "name",
+            "value": {
+                "type": "attribute_name",
+                "label": "name"
+            }
+        }
+    ],
+    "edges": [
+        {
+            "v": "aac-ont:Person1",
+            "w": "deathDate",
+            "name": "aac-ont:Person1***deathDate",
+            "value": {
+                "label": "ElementsGr2:dateOfDeath",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "birthDate",
+            "w": "aac-ont:Person1",
+            "name": "birthDate***aac-ont:Person1",
+            "value": {
+                "type": "st_property_uri",
+                "label": "ElementsGr2:dateOfBirth***inverted",
+                "weight": 1
+            },
+            "weight": 1
+        },
+        {
+            "v": "name",
+            "w": "aac-ont:Person1",
+            "name": "name***aac-ont:Person1",
+            "value": {
+                "type": "st_property_uri",
+                "label": "ElementsGr2:biographicalInformation***inverted",
+                "weight": 1
+            },
+            "weight": 1
+        }
+    ]
+}

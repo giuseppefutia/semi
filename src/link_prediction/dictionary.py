@@ -1,3 +1,4 @@
+import os
 from os import listdir
 from os.path import isfile, join
 
@@ -12,7 +13,21 @@ class ModelDictionary(object):
     def file_path_for_dict(self):
         if self.parser == 'RODI':
             return self._file_path_for_rodi_dict()
+        elif self.parser == 'PC':
+            return self._file_path_for_pc_dict()
+        elif self.parser == 'TAH':
+            return self._file_path_for_tah_dict()
 
     def _file_path_for_rodi_dict(self):
         # Return the correct path of plausible_final.ttl
+        return self.path
+
+    def _file_path_for_pc_dict(self):
+        self.path = '../../data/training/pc/complete.ttl'
+        return self.path
+
+    def _file_path_for_tah_dict(self):
+        self.path = join(os.path.dirname(self.path), 'complete.nt')
+        print('##########')
+        print(self.path)
         return self.path
