@@ -4,6 +4,7 @@ var Graph = require('graphlib').Graph;
 var graphlib = require('graphlib');
 var graph_utils = require(__dirname + '/../../src/semantic_modeling/graph_utils.js');
 var jarql = require(__dirname + '/../../src/semantic_modeling/jarql.js');
+var jarql_st = require(__dirname + '/../../src/semantic_modeling/jarql_st.js');
 var utils = require(__dirname + '/../../src/semantic_modeling/utils.js');
 const PREFIX = utils.get_prefix();
 
@@ -49,7 +50,7 @@ var st_folder = 'data/taheriyan2016/' + data_folder + '/semantic_types/updated/'
 
 var files = fs.readdirSync(input_folder);
 files.forEach(file_name => {
-    console.log('Bulding semantic model of: ' + file_name);
+    console.log('\n\nBulding semantic model of: ' + file_name);
     if (file_name === 's21-s-met.json.model.json') {
         return
     }
@@ -93,11 +94,17 @@ files.forEach(file_name => {
     var json_graph = graphlib.json.write(g);
     fs.writeFileSync(graph_path + '_graph.json', JSON.stringify(json_graph, null, 4));
 
+    var classes_path = 'data/taheriyan2016/' + data_folder + '/ontology/classes.json';
+    var classes = JSON.parse(fs.readFileSync(classes_path))['classes'];
     // XXX The generation of the JARQL should be managed outside (after the manual creation of semantic types)
     // Create and store JARQL files from the graph representation
-    var classes_path = 'data/taheriyan2016/' + data_folder + '/ontology/classes.json';
+
     var jarql_path = 'evaluation/taheriyan2016/' + data_folder + '/semantic_models_gt/jarql/' + file_name.split('.')[0];
-    var classes = JSON.parse(fs.readFileSync(classes_path))['classes'];
     var jarql_to_print = jarql.build_jarql(st[0], graphlib.json.write(g), classes_path);
     fs.writeFileSync(jarql_path + '.query', jarql_to_print);
+
+    // Create the JARQL files from semantic types: useful to generate triples that has to be included in the training set
+    var jarql_st_path = 'evaluation/taheriyan2016/' + data_folder + '/semantic_models_gt/jarql_st/' + file_name.split('.')[0];
+    var jarql_st_to_print = jarql_st.build_jarql(st[0], graphlib.json.write(g), classes_path);
+    fs.writeFileSync(jarql_st_path + '.query', jarql_st_to_print);
 });

@@ -6,6 +6,8 @@ var exec = require('child_process').execSync;
  * Run JARQL command to create RDF data from the JARQL-serialized ground truth data.
  * Generate RDF file will be used for creating data for the Deep Learning Model.
  *
+ * Ground truth RDF are useful for creatingt background knowledge in task_01, task_02, task_04
+ *
  */
 
 // Get object keys and create an array of objects where keys are the old keys and
@@ -42,8 +44,10 @@ var rename_keys = (obj, new_keys) => {
 var data_folder = process.argv.slice(2)[0];
 var input_file = process.argv.slice(3)[0];
 var source_folder = 'data/taheriyan2016/' + data_folder + '/sources/updated_json/';
-var sm_folder = 'evaluation/taheriyan2016/' + data_folder + '/semantic_models_gt/jarql/';
-var output_folder = 'evaluation/taheriyan2016/' + data_folder + '/semantic_models_gt/rdf/';
+var jarql_folder = 'evaluation/taheriyan2016/' + data_folder + '/semantic_models_gt/jarql/';
+var jarql_st_folder = 'evaluation/taheriyan2016/' + data_folder + '/semantic_models_gt/jarql_st/';
+var jarql_output_folder = 'evaluation/taheriyan2016/' + data_folder + '/semantic_models_gt/rdf/';
+var jarql_st_output_folder = 'evaluation/taheriyan2016/' + data_folder + '/semantic_models_gt/rdf_st/';
 
 var start = new Date();
 
@@ -54,10 +58,13 @@ var generate_rdf = (file_name) => {
     var source_path = source_folder + file_name;
     var source = JSON.parse(fs.readFileSync(source_path, 'utf-8'));
 
-    var sm_path = sm_folder + file_name.replace('.json', '') + '.query';
-    var sm = fs.readFileSync(sm_path, 'utf-8');
+    var jarql_path = jarql_folder + file_name.replace('.json', '') + '.query';
+    var jarql_st_path = jarql_st_folder + file_name.replace('.json', '') + '.query';
+    var jarql = fs.readFileSync(jarql_path, 'utf-8');
+    var jarql_st = fs.readFileSync(jarql_st_path, 'utf-8');
 
-    var output_path = output_folder + file_name.replace('.json', '') + '.rdf';
+    var jarql_output_path = jarql_output_folder + file_name.replace('.json', '') + '.rdf';
+    var jarql_st_output_path = jarql_st_output_folder + file_name.replace('.json', '') + '.rdf';
 
     // Clean and store temporary sources keys replacing white spaces
     var tmp_source_path = source_folder + 'tmp_' + file_name;
@@ -68,22 +75,36 @@ var generate_rdf = (file_name) => {
     }
     fs.writeFileSync(tmp_source_path, JSON.stringify(tmp_source, null, 4));
 
-    // Clean and store temporary semantic models replacing whites spaces in variables
-    var tmp_sm_path = sm_folder + 'tmp_' + file_name.replace('.json', '') + '.query';
-    var tmp_sm = sm;
+    // Clean and store temporary JARQL, replacing whites spaces in variables
+    var tmp_jarql_path = jarql_folder + 'tmp_' + file_name.replace('.json', '') + '.query';
+    var tmp_jarql = jarql;
     for (var k in new_keys) {
-        tmp_sm = tmp_sm.replace(new RegExp(k, 'g'), new_keys[k]);
+        tmp_jarql = tmp_jarql.replace(new RegExp(k, 'g'), new_keys[k]);
     }
-    fs.writeFileSync(tmp_sm_path, tmp_sm);
+    fs.writeFileSync(tmp_jarql_path, tmp_jarql);
 
-    // Execute JARQL
-    exec(`./jarql.sh ${tmp_source_path} ${tmp_sm_path} > ${output_path}`, {
+    // Execute JARQL for the entire semantic model
+    exec(`./jarql.sh ${tmp_source_path} ${tmp_jarql_path} > ${jarql_output_path}`, {
+        stdio: 'inherit'
+    });
+
+    // Clean and store temporary JARQL for semantic types, replacing white spaces in variables
+    var tmp_jarql_st_path = jarql_st_folder + 'tmp_' + file_name.replace('.json', '') + '.query';
+    var tmp_jarql_st = jarql_st;
+    for (var k in new_keys) {
+        tmp_jarql_st = tmp_jarql_st.replace(new RegExp(k, 'g'), new_keys[k]);
+    }
+    fs.writeFileSync(tmp_jarql_st_path, tmp_jarql_st);
+
+    // Execute JARL for the semantic types
+    exec(`./jarql.sh ${tmp_source_path} ${tmp_jarql_st_path} > ${jarql_st_output_path}`, {
         stdio: 'inherit'
     });
 
     // Remove temporary files
     fs.unlinkSync(tmp_source_path);
-    fs.unlinkSync(tmp_sm_path);
+    fs.unlinkSync(tmp_jarql_path);
+    fs.unlinkSync(tmp_jarql_st_path);
 
     var end_processing = new Date() - start_processing;
 
