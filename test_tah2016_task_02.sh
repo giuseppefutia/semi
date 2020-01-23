@@ -26,3 +26,10 @@ data/taheriyan2016/task_02/semantic_types/updated/s01-cb_st.json \
 data/taheriyan2016/task_02/semantic_models/steiner/graph/s01-cb_steiner.json \
 data/taheriyan2016/task_02/ontology/classes.json \
 data/taheriyan2016/task_02/semantic_models/steiner/jarql/s01-cb
+
+# JARQL representing the semantic types from the ground truth
+node run/jarql.js \
+data/taheriyan2016/task_02/semantic_types/updated/s01-cb_st.json \
+evaluation/taheriyan2016/task_02/semantic_models_gt/graph/s01-cb_graph.json \
+data/taheriyan2016/task_02/ontology/classes.json \
+evaluation/taheriyan2016/task_02/semantic_models_gt/jarql_st/s01-cb
