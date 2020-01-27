@@ -234,14 +234,6 @@
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "John Wesley Jarvis"^^<http://www.w3.org/2001/XMLSchema#string> .
 
-<http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/20.42.jpg>
-        <http://erlangen-crm.org/current/P138_represents>
-                <http://erlangen-crm.org/current//e22_man-made_object/20.42> ;
-        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-                <http://erlangen-crm.org/current/E38_Image> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "http://www.dia.org/user_area/comping/20.42.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
-
 <http://erlangen-crm.org/current//e21_person/Robert J. Wickenden>
         <http://erlangen-crm.org/current/P100i_died_in>
                 <http://erlangen-crm.org/current//e69_death/Robert J. Wickenden> ;
@@ -255,6 +247,14 @@
                 <http://erlangen-crm.org/current/E21_Person> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "Robert J. Wickenden"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+<http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/20.42.jpg>
+        <http://erlangen-crm.org/current/P138_represents>
+                <http://erlangen-crm.org/current//e22_man-made_object/20.42> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+                <http://erlangen-crm.org/current/E38_Image> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "http://www.dia.org/user_area/comping/20.42.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
 
 <http://erlangen-crm.org/current//e22_man-made_object/70.831>
         <http://erlangen-crm.org/current/P108i_was_produced_by>
@@ -358,6 +358,12 @@
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "13.11"^^<http://www.w3.org/2001/XMLSchema#string> .
 
+<http://erlangen-crm.org/current//e12_production/Willard Leroy Metcalf>
+        <http://erlangen-crm.org/current/P14_carried_out_by>
+                <http://erlangen-crm.org/current//e21_person/Willard Leroy Metcalf> ;
+        <http://erlangen-crm.org/current/P32_used_general_technique>
+                <http://erlangen-crm.org/current//e55_type/Oil on canvas> .
+
 <http://erlangen-crm.org/current//e22_man-made_object/1994.36>
         <http://erlangen-crm.org/current/P108i_was_produced_by>
                 <http://erlangen-crm.org/current//e12_production/William S. Rimmer> ;
@@ -369,12 +375,6 @@
                 <http://erlangen-crm.org/current/E22_Man-Made_Object> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "1994.36"^^<http://www.w3.org/2001/XMLSchema#string> .
-
-<http://erlangen-crm.org/current//e12_production/Willard Leroy Metcalf>
-        <http://erlangen-crm.org/current/P14_carried_out_by>
-                <http://erlangen-crm.org/current//e21_person/Willard Leroy Metcalf> ;
-        <http://erlangen-crm.org/current/P32_used_general_technique>
-                <http://erlangen-crm.org/current//e55_type/Oil on canvas> .
 
 <http://erlangen-crm.org/current//e22_man-made_object/33.10.E>
         <http://erlangen-crm.org/current/P108i_was_produced_by>
@@ -498,15 +498,15 @@
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "F68.111"^^<http://www.w3.org/2001/XMLSchema#string> .
 
-<http://erlangen-crm.org/current//e12_production/William McGregor Paxton>
-        <http://erlangen-crm.org/current/P14_carried_out_by>
-                <http://erlangen-crm.org/current//e21_person/William McGregor Paxton> ;
-        <http://erlangen-crm.org/current/P32_used_general_technique>
-                <http://erlangen-crm.org/current//e55_type/Oil on canvas> .
-
 <http://erlangen-crm.org/current//e12_production/Sanford Robinson Gifford>
         <http://erlangen-crm.org/current/P14_carried_out_by>
                 <http://erlangen-crm.org/current//e21_person/Sanford Robinson Gifford> ;
+        <http://erlangen-crm.org/current/P32_used_general_technique>
+                <http://erlangen-crm.org/current//e55_type/Oil on canvas> .
+
+<http://erlangen-crm.org/current//e12_production/William McGregor Paxton>
+        <http://erlangen-crm.org/current/P14_carried_out_by>
+                <http://erlangen-crm.org/current//e21_person/William McGregor Paxton> ;
         <http://erlangen-crm.org/current/P32_used_general_technique>
                 <http://erlangen-crm.org/current//e55_type/Oil on canvas> .
 
@@ -524,19 +524,17 @@
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "Homer Dodge Martin"^^<http://www.w3.org/2001/XMLSchema#string> .
 
-<http://erlangen-crm.org/current//e21_person/Theodore Scott Dabo>
-        <http://erlangen-crm.org/current/P100i_died_in>
-                <http://erlangen-crm.org/current//e69_death/Theodore Scott Dabo> ;
-        <http://erlangen-crm.org/current/P107i_is_current_or_former_member_of>
-                <http://erlangen-crm.org/current//e74_group/American> ;
-        <http://erlangen-crm.org/current/P131_is_identified_by>
-                <http://erlangen-crm.org/current//e82_actor_appellation/Theodore Scott Dabo> ;
-        <http://erlangen-crm.org/current/P98i_was_born>
-                <http://erlangen-crm.org/current//e67_birth/Theodore Scott Dabo> ;
+<http://erlangen-crm.org/current//e22_man-made_object/07.2>
+        <http://erlangen-crm.org/current/P108i_was_produced_by>
+                <http://erlangen-crm.org/current//e12_production/Robert J. Wickenden> ;
+        <http://erlangen-crm.org/current/P2_has_type>
+                <http://erlangen-crm.org/current//e55_type/Paintings> ;
+        <http://erlangen-crm.org/current/P3_has_note>
+                "Collection of James E. Scripps until 1907. Donated by family after Scripps's death."^^<http://www.w3.org/2001/XMLSchema#string> ;
         <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-                <http://erlangen-crm.org/current/E21_Person> ;
+                <http://erlangen-crm.org/current/E22_Man-Made_Object> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
-                "Theodore Scott Dabo"^^<http://www.w3.org/2001/XMLSchema#string> .
+                "07.2"^^<http://www.w3.org/2001/XMLSchema#string> .
 
 <http://erlangen-crm.org/current//e22_man-made_object/34.27>
         <http://erlangen-crm.org/current/P108i_was_produced_by>
@@ -550,17 +548,19 @@
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "34.27"^^<http://www.w3.org/2001/XMLSchema#string> .
 
-<http://erlangen-crm.org/current//e22_man-made_object/07.2>
-        <http://erlangen-crm.org/current/P108i_was_produced_by>
-                <http://erlangen-crm.org/current//e12_production/Robert J. Wickenden> ;
-        <http://erlangen-crm.org/current/P2_has_type>
-                <http://erlangen-crm.org/current//e55_type/Paintings> ;
-        <http://erlangen-crm.org/current/P3_has_note>
-                "Collection of James E. Scripps until 1907. Donated by family after Scripps's death."^^<http://www.w3.org/2001/XMLSchema#string> ;
+<http://erlangen-crm.org/current//e21_person/Theodore Scott Dabo>
+        <http://erlangen-crm.org/current/P100i_died_in>
+                <http://erlangen-crm.org/current//e69_death/Theodore Scott Dabo> ;
+        <http://erlangen-crm.org/current/P107i_is_current_or_former_member_of>
+                <http://erlangen-crm.org/current//e74_group/American> ;
+        <http://erlangen-crm.org/current/P131_is_identified_by>
+                <http://erlangen-crm.org/current//e82_actor_appellation/Theodore Scott Dabo> ;
+        <http://erlangen-crm.org/current/P98i_was_born>
+                <http://erlangen-crm.org/current//e67_birth/Theodore Scott Dabo> ;
         <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-                <http://erlangen-crm.org/current/E22_Man-Made_Object> ;
+                <http://erlangen-crm.org/current/E21_Person> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
-                "07.2"^^<http://www.w3.org/2001/XMLSchema#string> .
+                "Theodore Scott Dabo"^^<http://www.w3.org/2001/XMLSchema#string> .
 
 <http://erlangen-crm.org/current//e21_person/William Sydney Mount>
         <http://erlangen-crm.org/current/P100i_died_in>
@@ -584,12 +584,6 @@
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "http://www.dia.org/user_area/comping/1995.26-S1.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
 
-<http://erlangen-crm.org/current//e82_actor_appellation/George Cochran Lambdin>
-        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-                <http://erlangen-crm.org/current/E82_Actor_Appellation> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "George Cochran Lambdin"^^<http://www.w3.org/2001/XMLSchema#string> .
-
 <http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/27.314-S1.jpg>
         <http://erlangen-crm.org/current/P138_represents>
                 <http://erlangen-crm.org/current//e22_man-made_object/27.314> ;
@@ -605,6 +599,12 @@
                 <http://erlangen-crm.org/current/E38_Image> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "http://www.dia.org/user_area/comping/50.31-S1.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+<http://erlangen-crm.org/current//e82_actor_appellation/George Cochran Lambdin>
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+                <http://erlangen-crm.org/current/E82_Actor_Appellation> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "George Cochran Lambdin"^^<http://www.w3.org/2001/XMLSchema#string> .
 
 <http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/86.2-D1.jpg>
         <http://erlangen-crm.org/current/P138_represents>
@@ -750,17 +750,29 @@
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "37.61"^^<http://www.w3.org/2001/XMLSchema#string> .
 
+<http://erlangen-crm.org/current//e12_production/Charles Harry Eaton>
+        <http://erlangen-crm.org/current/P14_carried_out_by>
+                <http://erlangen-crm.org/current//e21_person/Charles Harry Eaton> ;
+        <http://erlangen-crm.org/current/P32_used_general_technique>
+                <http://erlangen-crm.org/current//e55_type/Oil on canvas> .
+
 <http://erlangen-crm.org/current//e12_production/Percy Ives>
         <http://erlangen-crm.org/current/P14_carried_out_by>
                 <http://erlangen-crm.org/current//e21_person/Percy Ives> ;
         <http://erlangen-crm.org/current/P32_used_general_technique>
                 <http://erlangen-crm.org/current//e55_type/Oil on canvas> .
 
-<http://erlangen-crm.org/current//e12_production/Charles Harry Eaton>
-        <http://erlangen-crm.org/current/P14_carried_out_by>
-                <http://erlangen-crm.org/current//e21_person/Charles Harry Eaton> ;
-        <http://erlangen-crm.org/current/P32_used_general_technique>
-                <http://erlangen-crm.org/current//e55_type/Oil on canvas> .
+<http://erlangen-crm.org/current//e22_man-made_object/44.166>
+        <http://erlangen-crm.org/current/P108i_was_produced_by>
+                <http://erlangen-crm.org/current//e12_production/Washington Allston> ;
+        <http://erlangen-crm.org/current/P2_has_type>
+                <http://erlangen-crm.org/current//e55_type/Paintings> ;
+        <http://erlangen-crm.org/current/P3_has_note>
+                "Possibly Nathaniel Amroy, by September 1825Possibly Robert Gilmore, Baltimore, before 1839 (as Beattie's Minstrel)William Gibson Borland family, Concord, Massachusetts, 1944Victor Spark (dealer), New York, 1944.DIA in 1944 (gift of Dexter M. Ferry, Jr.)"^^<http://www.w3.org/2001/XMLSchema#string> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+                <http://erlangen-crm.org/current/E22_Man-Made_Object> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "44.166"^^<http://www.w3.org/2001/XMLSchema#string> .
 
 <http://erlangen-crm.org/current//e22_man-made_object/10.16>
         <http://erlangen-crm.org/current/P108i_was_produced_by>
@@ -787,18 +799,6 @@
                 <http://erlangen-crm.org/current/E21_Person> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "John George Brown"^^<http://www.w3.org/2001/XMLSchema#string> .
-
-<http://erlangen-crm.org/current//e22_man-made_object/44.166>
-        <http://erlangen-crm.org/current/P108i_was_produced_by>
-                <http://erlangen-crm.org/current//e12_production/Washington Allston> ;
-        <http://erlangen-crm.org/current/P2_has_type>
-                <http://erlangen-crm.org/current//e55_type/Paintings> ;
-        <http://erlangen-crm.org/current/P3_has_note>
-                "Possibly Nathaniel Amroy, by September 1825Possibly Robert Gilmore, Baltimore, before 1839 (as Beattie's Minstrel)William Gibson Borland family, Concord, Massachusetts, 1944Victor Spark (dealer), New York, 1944.DIA in 1944 (gift of Dexter M. Ferry, Jr.)"^^<http://www.w3.org/2001/XMLSchema#string> ;
-        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-                <http://erlangen-crm.org/current/E22_Man-Made_Object> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "44.166"^^<http://www.w3.org/2001/XMLSchema#string> .
 
 <http://erlangen-crm.org/current//e12_production/John Haberle>
         <http://erlangen-crm.org/current/P14_carried_out_by>
@@ -844,14 +844,6 @@
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "Thomas Doughty"^^<http://www.w3.org/2001/XMLSchema#string> .
 
-<http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/83.1.jpg>
-        <http://erlangen-crm.org/current/P138_represents>
-                <http://erlangen-crm.org/current//e22_man-made_object/83.1> ;
-        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-                <http://erlangen-crm.org/current/E38_Image> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "http://www.dia.org/user_area/comping/83.1.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
-
 <http://erlangen-crm.org/current//e21_person/William Michael Harnett>
         <http://erlangen-crm.org/current/P100i_died_in>
                 <http://erlangen-crm.org/current//e69_death/William Michael Harnett> ;
@@ -865,6 +857,14 @@
                 <http://erlangen-crm.org/current/E21_Person> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "William Michael Harnett"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+<http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/83.1.jpg>
+        <http://erlangen-crm.org/current/P138_represents>
+                <http://erlangen-crm.org/current//e22_man-made_object/83.1> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+                <http://erlangen-crm.org/current/E38_Image> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "http://www.dia.org/user_area/comping/83.1.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
 
 <http://erlangen-crm.org/current//e12_production/Albert Pinkham Ryder>
         <http://erlangen-crm.org/current/P14_carried_out_by>
@@ -1154,18 +1154,6 @@
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "Richard Emile Miller"^^<http://www.w3.org/2001/XMLSchema#string> .
 
-<http://erlangen-crm.org/current//e22_man-made_object/10.11>
-        <http://erlangen-crm.org/current/P108i_was_produced_by>
-                <http://erlangen-crm.org/current//e12_production/Frederic Edwin Church> ;
-        <http://erlangen-crm.org/current/P2_has_type>
-                <http://erlangen-crm.org/current//e55_type/Paintings> ;
-        <http://erlangen-crm.org/current/P3_has_note>
-                "James Frederick Joy, Detroit, ca. 1873-74 until 1896.Mrs. James F. Joy, Detroit, 1896 until 1910.DIA in 1910."^^<http://www.w3.org/2001/XMLSchema#string> ;
-        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-                <http://erlangen-crm.org/current/E22_Man-Made_Object> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "10.11"^^<http://www.w3.org/2001/XMLSchema#string> .
-
 <http://erlangen-crm.org/current//e22_man-made_object/17.3>
         <http://erlangen-crm.org/current/P108i_was_produced_by>
                 <http://erlangen-crm.org/current//e12_production/James Carroll Beckwith> ;
@@ -1177,6 +1165,18 @@
                 <http://erlangen-crm.org/current/E22_Man-Made_Object> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "17.3"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+<http://erlangen-crm.org/current//e22_man-made_object/10.11>
+        <http://erlangen-crm.org/current/P108i_was_produced_by>
+                <http://erlangen-crm.org/current//e12_production/Frederic Edwin Church> ;
+        <http://erlangen-crm.org/current/P2_has_type>
+                <http://erlangen-crm.org/current//e55_type/Paintings> ;
+        <http://erlangen-crm.org/current/P3_has_note>
+                "James Frederick Joy, Detroit, ca. 1873-74 until 1896.Mrs. James F. Joy, Detroit, 1896 until 1910.DIA in 1910."^^<http://www.w3.org/2001/XMLSchema#string> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+                <http://erlangen-crm.org/current/E22_Man-Made_Object> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "10.11"^^<http://www.w3.org/2001/XMLSchema#string> .
 
 <http://erlangen-crm.org/current//e82_actor_appellation/John Mix Stanley>
         <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
@@ -1292,17 +1292,17 @@
         <http://erlangen-crm.org/current/P32_used_general_technique>
                 <http://erlangen-crm.org/current//e55_type/Oil  on canvas> .
 
-<http://erlangen-crm.org/current//e74_group/Mexican>
-        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-                <http://erlangen-crm.org/current/E74_Group> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Mexican"^^<http://www.w3.org/2001/XMLSchema#string> .
-
 <http://erlangen-crm.org/current//e82_actor_appellation/Maurice Brazil Prendergast>
         <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
                 <http://erlangen-crm.org/current/E82_Actor_Appellation> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "Maurice Brazil Prendergast"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+<http://erlangen-crm.org/current//e74_group/Mexican>
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+                <http://erlangen-crm.org/current/E74_Group> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Mexican"^^<http://www.w3.org/2001/XMLSchema#string> .
 
 <http://erlangen-crm.org/current//e82_actor_appellation/Henry Siddons Mowbray>
         <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
@@ -1464,17 +1464,17 @@
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "Francis Davis Millet"^^<http://www.w3.org/2001/XMLSchema#string> .
 
-<http://erlangen-crm.org/current//e82_actor_appellation/Mortimer L. Smith>
-        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-                <http://erlangen-crm.org/current/E82_Actor_Appellation> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Mortimer L. Smith"^^<http://www.w3.org/2001/XMLSchema#string> .
-
 <http://erlangen-crm.org/current//e12_production/Thomas Mickell Burnham>
         <http://erlangen-crm.org/current/P14_carried_out_by>
                 <http://erlangen-crm.org/current//e21_person/Thomas Mickell Burnham> ;
         <http://erlangen-crm.org/current/P32_used_general_technique>
                 <http://erlangen-crm.org/current//e55_type/Oil on canvas> .
+
+<http://erlangen-crm.org/current//e82_actor_appellation/Mortimer L. Smith>
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+                <http://erlangen-crm.org/current/E82_Actor_Appellation> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Mortimer L. Smith"^^<http://www.w3.org/2001/XMLSchema#string> .
 
 <http://erlangen-crm.org/current//e12_production/Thomas Doughty>
         <http://erlangen-crm.org/current/P14_carried_out_by>
@@ -1496,24 +1496,6 @@
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "Milne Ramsey"^^<http://www.w3.org/2001/XMLSchema#string> .
 
-<http://erlangen-crm.org/current//e12_production/Thomas Moran>
-        <http://erlangen-crm.org/current/P14_carried_out_by>
-                <http://erlangen-crm.org/current//e21_person/Thomas Moran> ;
-        <http://erlangen-crm.org/current/P32_used_general_technique>
-                <http://erlangen-crm.org/current//e55_type/Oil on canvas> .
-
-<http://erlangen-crm.org/current//e22_man-made_object/67.118>
-        <http://erlangen-crm.org/current/P108i_was_produced_by>
-                <http://erlangen-crm.org/current//e12_production/Thomas Moran> ;
-        <http://erlangen-crm.org/current/P2_has_type>
-                <http://erlangen-crm.org/current//e55_type/Paintings> ;
-        <http://erlangen-crm.org/current/P3_has_note>
-                "Howard Young Gallery, New York, ca. 1927-28.Alfred J. Fisher.Acquired in 1967."^^<http://www.w3.org/2001/XMLSchema#string> ;
-        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-                <http://erlangen-crm.org/current/E22_Man-Made_Object> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "67.118"^^<http://www.w3.org/2001/XMLSchema#string> .
-
 <http://erlangen-crm.org/current//e22_man-made_object/30.322>
         <http://erlangen-crm.org/current/P108i_was_produced_by>
                 <http://erlangen-crm.org/current//e12_production/William James Glackens> ;
@@ -1526,6 +1508,12 @@
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "30.322"^^<http://www.w3.org/2001/XMLSchema#string> .
 
+<http://erlangen-crm.org/current//e12_production/Thomas Moran>
+        <http://erlangen-crm.org/current/P14_carried_out_by>
+                <http://erlangen-crm.org/current//e21_person/Thomas Moran> ;
+        <http://erlangen-crm.org/current/P32_used_general_technique>
+                <http://erlangen-crm.org/current//e55_type/Oil on canvas> .
+
 <http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/37.61-S1.jpg>
         <http://erlangen-crm.org/current/P138_represents>
                 <http://erlangen-crm.org/current//e22_man-made_object/37.61> ;
@@ -1533,6 +1521,18 @@
                 <http://erlangen-crm.org/current/E38_Image> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "http://www.dia.org/user_area/comping/37.61-S1.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+<http://erlangen-crm.org/current//e22_man-made_object/67.118>
+        <http://erlangen-crm.org/current/P108i_was_produced_by>
+                <http://erlangen-crm.org/current//e12_production/Thomas Moran> ;
+        <http://erlangen-crm.org/current/P2_has_type>
+                <http://erlangen-crm.org/current//e55_type/Paintings> ;
+        <http://erlangen-crm.org/current/P3_has_note>
+                "Howard Young Gallery, New York, ca. 1927-28.Alfred J. Fisher.Acquired in 1967."^^<http://www.w3.org/2001/XMLSchema#string> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+                <http://erlangen-crm.org/current/E22_Man-Made_Object> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "67.118"^^<http://www.w3.org/2001/XMLSchema#string> .
 
 <http://erlangen-crm.org/current//e55_type/Oil on masonite>
         <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
@@ -1574,6 +1574,12 @@
         <http://erlangen-crm.org/current/P32_used_general_technique>
                 <http://erlangen-crm.org/current//e55_type/Oil on canvas> .
 
+<http://erlangen-crm.org/current//e82_actor_appellation/William Merritt Chase>
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+                <http://erlangen-crm.org/current/E82_Actor_Appellation> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "William Merritt Chase"^^<http://www.w3.org/2001/XMLSchema#string> .
+
 <http://erlangen-crm.org/current//e22_man-made_object/59.187>
         <http://erlangen-crm.org/current/P2_has_type>
                 <http://erlangen-crm.org/current//e55_type/Paintings> ;
@@ -1583,12 +1589,6 @@
                 <http://erlangen-crm.org/current/E22_Man-Made_Object> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "59.187"^^<http://www.w3.org/2001/XMLSchema#string> .
-
-<http://erlangen-crm.org/current//e82_actor_appellation/William Merritt Chase>
-        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-                <http://erlangen-crm.org/current/E82_Actor_Appellation> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "William Merritt Chase"^^<http://www.w3.org/2001/XMLSchema#string> .
 
 <http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/11.4.jpg>
         <http://erlangen-crm.org/current/P138_represents>
@@ -1692,6 +1692,18 @@
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "http://www.dia.org/user_area/comping/57.267-S1.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
 
+<http://erlangen-crm.org/current//e12_production/Robert J. Wickenden>
+        <http://erlangen-crm.org/current/P14_carried_out_by>
+                <http://erlangen-crm.org/current//e21_person/Robert J. Wickenden> ;
+        <http://erlangen-crm.org/current/P32_used_general_technique>
+                <http://erlangen-crm.org/current//e55_type/Oil on canvas> .
+
+<http://erlangen-crm.org/current//e12_production/Rembrandt Peale>
+        <http://erlangen-crm.org/current/P14_carried_out_by>
+                <http://erlangen-crm.org/current//e21_person/Rembrandt Peale> ;
+        <http://erlangen-crm.org/current/P32_used_general_technique>
+                <http://erlangen-crm.org/current//e55_type/Oil on canvas> .
+
 <http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/15.11-D1.jpg>
         <http://erlangen-crm.org/current/P138_represents>
                 <http://erlangen-crm.org/current//e22_man-made_object/15.11> ;
@@ -1699,12 +1711,6 @@
                 <http://erlangen-crm.org/current/E38_Image> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "http://www.dia.org/user_area/comping/15.11-D1.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
-
-<http://erlangen-crm.org/current//e12_production/Rembrandt Peale>
-        <http://erlangen-crm.org/current/P14_carried_out_by>
-                <http://erlangen-crm.org/current//e21_person/Rembrandt Peale> ;
-        <http://erlangen-crm.org/current/P32_used_general_technique>
-                <http://erlangen-crm.org/current//e55_type/Oil on canvas> .
 
 <http://erlangen-crm.org/current//e22_man-made_object/59.312>
         <http://erlangen-crm.org/current/P108i_was_produced_by>
@@ -1717,12 +1723,6 @@
                 <http://erlangen-crm.org/current/E22_Man-Made_Object> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "59.312"^^<http://www.w3.org/2001/XMLSchema#string> .
-
-<http://erlangen-crm.org/current//e12_production/Robert J. Wickenden>
-        <http://erlangen-crm.org/current/P14_carried_out_by>
-                <http://erlangen-crm.org/current//e21_person/Robert J. Wickenden> ;
-        <http://erlangen-crm.org/current/P32_used_general_technique>
-                <http://erlangen-crm.org/current//e55_type/Oil on canvas> .
 
 <http://erlangen-crm.org/current//e22_man-made_object/52.118>
         <http://erlangen-crm.org/current/P108i_was_produced_by>
@@ -1778,6 +1778,18 @@
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "Thomas Doughty"^^<http://www.w3.org/2001/XMLSchema#string> .
 
+<http://erlangen-crm.org/current//e22_man-made_object/50.58>
+        <http://erlangen-crm.org/current/P108i_was_produced_by>
+                <http://erlangen-crm.org/current//e12_production/Charles Willson Peale> ;
+        <http://erlangen-crm.org/current/P2_has_type>
+                <http://erlangen-crm.org/current//e55_type/Paintings> ;
+        <http://erlangen-crm.org/current/P3_has_note>
+                "Formerly in the collection of: Peale Museum, Philadelphia; Augustin Runyon Peale, Jr.; Herbert Raphaelle Peale; Adele Peale Conway Edward A. Newman (dealer), Philadelphia, 1950Acquired in 1950"^^<http://www.w3.org/2001/XMLSchema#string> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+                <http://erlangen-crm.org/current/E22_Man-Made_Object> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "50.58"^^<http://www.w3.org/2001/XMLSchema#string> .
+
 <http://erlangen-crm.org/current//e22_man-made_object/74.268>
         <http://erlangen-crm.org/current/P108i_was_produced_by>
                 <http://erlangen-crm.org/current//e12_production/Myron G. Barlow> ;
@@ -1801,18 +1813,6 @@
                 <http://erlangen-crm.org/current/E22_Man-Made_Object> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "22.6"^^<http://www.w3.org/2001/XMLSchema#string> .
-
-<http://erlangen-crm.org/current//e22_man-made_object/50.58>
-        <http://erlangen-crm.org/current/P108i_was_produced_by>
-                <http://erlangen-crm.org/current//e12_production/Charles Willson Peale> ;
-        <http://erlangen-crm.org/current/P2_has_type>
-                <http://erlangen-crm.org/current//e55_type/Paintings> ;
-        <http://erlangen-crm.org/current/P3_has_note>
-                "Formerly in the collection of: Peale Museum, Philadelphia; Augustin Runyon Peale, Jr.; Herbert Raphaelle Peale; Adele Peale Conway Edward A. Newman (dealer), Philadelphia, 1950Acquired in 1950"^^<http://www.w3.org/2001/XMLSchema#string> ;
-        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-                <http://erlangen-crm.org/current/E22_Man-Made_Object> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "50.58"^^<http://www.w3.org/2001/XMLSchema#string> .
 
 <http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/23.145-S1.jpg>
         <http://erlangen-crm.org/current/P138_represents>
@@ -2034,14 +2034,6 @@
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "John Wesley Jarvis"^^<http://www.w3.org/2001/XMLSchema#string> .
 
-<http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/30.296-S1.jpg>
-        <http://erlangen-crm.org/current/P138_represents>
-                <http://erlangen-crm.org/current//e22_man-made_object/30.296> ;
-        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-                <http://erlangen-crm.org/current/E38_Image> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "http://www.dia.org/user_area/comping/30.296-S1.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
-
 <http://erlangen-crm.org/current//e22_man-made_object/77.5>
         <http://erlangen-crm.org/current/P108i_was_produced_by>
                 <http://erlangen-crm.org/current//e12_production/Diego M. Rivera> ;
@@ -2051,6 +2043,14 @@
                 <http://erlangen-crm.org/current/E22_Man-Made_Object> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "77.5"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+<http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/30.296-S1.jpg>
+        <http://erlangen-crm.org/current/P138_represents>
+                <http://erlangen-crm.org/current//e22_man-made_object/30.296> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+                <http://erlangen-crm.org/current/E38_Image> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "http://www.dia.org/user_area/comping/30.296-S1.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
 
 <http://erlangen-crm.org/current//e82_actor_appellation/John F. Francis>
         <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
@@ -2086,14 +2086,6 @@
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "Francis Davis Millet"^^<http://www.w3.org/2001/XMLSchema#string> .
 
-<http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/12.1-S1.jpg>
-        <http://erlangen-crm.org/current/P138_represents>
-                <http://erlangen-crm.org/current//e22_man-made_object/12.1> ;
-        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-                <http://erlangen-crm.org/current/E38_Image> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "http://www.dia.org/user_area/comping/12.1-S1.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
-
 <http://erlangen-crm.org/current//e22_man-made_object/89.1>
         <http://erlangen-crm.org/current/P108i_was_produced_by>
                 <http://erlangen-crm.org/current//e12_production/Charles Harry Eaton> ;
@@ -2105,6 +2097,14 @@
                 <http://erlangen-crm.org/current/E22_Man-Made_Object> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "89.1"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+<http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/12.1-S1.jpg>
+        <http://erlangen-crm.org/current/P138_represents>
+                <http://erlangen-crm.org/current//e22_man-made_object/12.1> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+                <http://erlangen-crm.org/current/E38_Image> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "http://www.dia.org/user_area/comping/12.1-S1.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
 
 <http://erlangen-crm.org/current//e12_production/George Caleb Bingham>
         <http://erlangen-crm.org/current/P14_carried_out_by>
@@ -2198,14 +2198,6 @@
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "http://www.dia.org/user_area/comping/75.11.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
 
-<http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/59.314-S1.jpg>
-        <http://erlangen-crm.org/current/P138_represents>
-                <http://erlangen-crm.org/current//e22_man-made_object/59.314> ;
-        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-                <http://erlangen-crm.org/current/E38_Image> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "http://www.dia.org/user_area/comping/59.314-S1.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
-
 <http://erlangen-crm.org/current//e22_man-made_object/33.10.S>
         <http://erlangen-crm.org/current/P108i_was_produced_by>
                 <http://erlangen-crm.org/current//e12_production/Diego M. Rivera> ;
@@ -2215,6 +2207,14 @@
                 <http://erlangen-crm.org/current/E22_Man-Made_Object> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "33.10.S"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+<http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/59.314-S1.jpg>
+        <http://erlangen-crm.org/current/P138_represents>
+                <http://erlangen-crm.org/current//e22_man-made_object/59.314> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+                <http://erlangen-crm.org/current/E38_Image> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "http://www.dia.org/user_area/comping/59.314-S1.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
 
 <http://erlangen-crm.org/current//e82_actor_appellation/Childe Hassam>
         <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
@@ -2234,7 +2234,7 @@
         <http://erlangen-crm.org/current/P14_carried_out_by>
                 <http://erlangen-crm.org/current//e21_person/Gilbert Stuart> ;
         <http://erlangen-crm.org/current/P32_used_general_technique>
-                <http://erlangen-crm.org/current//e55_type/Oil on panel> , <http://erlangen-crm.org/current//e55_type/Oil on canvas> .
+                <http://erlangen-crm.org/current//e55_type/Oil on canvas> , <http://erlangen-crm.org/current//e55_type/Oil on panel> .
 
 <http://erlangen-crm.org/current//e22_man-made_object/34.24>
         <http://erlangen-crm.org/current/P2_has_type>
@@ -2654,6 +2654,22 @@
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "Thomas Waterman Wood"^^<http://www.w3.org/2001/XMLSchema#string> .
 
+<http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/50.139-S1.jpg>
+        <http://erlangen-crm.org/current/P138_represents>
+                <http://erlangen-crm.org/current//e22_man-made_object/50.139> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+                <http://erlangen-crm.org/current/E38_Image> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "http://www.dia.org/user_area/comping/50.139-S1.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+<http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/17.17-S1.jpg>
+        <http://erlangen-crm.org/current/P138_represents>
+                <http://erlangen-crm.org/current//e22_man-made_object/17.17> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+                <http://erlangen-crm.org/current/E38_Image> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "http://www.dia.org/user_area/comping/17.17-S1.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
+
 <http://erlangen-crm.org/current//e22_man-made_object/13.8>
         <http://erlangen-crm.org/current/P108i_was_produced_by>
                 <http://erlangen-crm.org/current//e12_production/Robert Reid> ;
@@ -2665,22 +2681,6 @@
                 <http://erlangen-crm.org/current/E22_Man-Made_Object> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "13.8"^^<http://www.w3.org/2001/XMLSchema#string> .
-
-<http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/17.17-S1.jpg>
-        <http://erlangen-crm.org/current/P138_represents>
-                <http://erlangen-crm.org/current//e22_man-made_object/17.17> ;
-        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-                <http://erlangen-crm.org/current/E38_Image> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "http://www.dia.org/user_area/comping/17.17-S1.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
-
-<http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/50.139-S1.jpg>
-        <http://erlangen-crm.org/current/P138_represents>
-                <http://erlangen-crm.org/current//e22_man-made_object/50.139> ;
-        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-                <http://erlangen-crm.org/current/E38_Image> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "http://www.dia.org/user_area/comping/50.139-S1.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
 
 <http://erlangen-crm.org/current//e21_person/Maurice Brazil Prendergast>
         <http://erlangen-crm.org/current/P100i_died_in>
@@ -2784,13 +2784,11 @@
         <http://erlangen-crm.org/current/P32_used_general_technique>
                 <http://erlangen-crm.org/current//e55_type/Oil on canvas> .
 
-<http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/47.37-S1.jpg>
-        <http://erlangen-crm.org/current/P138_represents>
-                <http://erlangen-crm.org/current//e22_man-made_object/47.37> ;
+<http://erlangen-crm.org/current//e74_group/Welsh>
         <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-                <http://erlangen-crm.org/current/E38_Image> ;
+                <http://erlangen-crm.org/current/E74_Group> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
-                "http://www.dia.org/user_area/comping/47.37-S1.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
+                "Welsh"^^<http://www.w3.org/2001/XMLSchema#string> .
 
 <http://erlangen-crm.org/current//e22_man-made_object/23.100>
         <http://erlangen-crm.org/current/P108i_was_produced_by>
@@ -2804,11 +2802,13 @@
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "23.100"^^<http://www.w3.org/2001/XMLSchema#string> .
 
-<http://erlangen-crm.org/current//e74_group/Welsh>
+<http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/47.37-S1.jpg>
+        <http://erlangen-crm.org/current/P138_represents>
+                <http://erlangen-crm.org/current//e22_man-made_object/47.37> ;
         <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-                <http://erlangen-crm.org/current/E74_Group> ;
+                <http://erlangen-crm.org/current/E38_Image> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
-                "Welsh"^^<http://www.w3.org/2001/XMLSchema#string> .
+                "http://www.dia.org/user_area/comping/47.37-S1.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
 
 <http://erlangen-crm.org/current//e82_actor_appellation/William S. Rimmer>
         <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
@@ -2972,11 +2972,11 @@
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "43.31"^^<http://www.w3.org/2001/XMLSchema#string> .
 
-<http://erlangen-crm.org/current//e12_production/John Wilkie>
-        <http://erlangen-crm.org/current/P14_carried_out_by>
-                <http://erlangen-crm.org/current//e21_person/John Wilkie> ;
-        <http://erlangen-crm.org/current/P32_used_general_technique>
-                <http://erlangen-crm.org/current//e55_type/Oil on canvas> .
+<http://erlangen-crm.org/current//e82_actor_appellation/Thomas Cole>
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+                <http://erlangen-crm.org/current/E82_Actor_Appellation> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Thomas Cole"^^<http://www.w3.org/2001/XMLSchema#string> .
 
 <http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/1984.24-S1.jpg>
         <http://erlangen-crm.org/current/P138_represents>
@@ -2986,25 +2986,11 @@
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "http://www.dia.org/user_area/comping/1984.24-S1.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
 
-<http://erlangen-crm.org/current//e22_man-made_object/1992.41>
-        <http://erlangen-crm.org/current/P108i_was_produced_by>
-                <http://erlangen-crm.org/current//e12_production/Frank Decker Duveneck> ;
-        <http://erlangen-crm.org/current/P2_has_type>
-                <http://erlangen-crm.org/current//e55_type/Paintings> ;
-        <http://erlangen-crm.org/current/P3_has_note>
-                "Kidde Family, Chappaqua, New York, 1930; Babcock Galleries, New York, 1932; Milch Galleries, New York, by 1932; Stuart Pivar, New York, by 1987; Jordan-Volpe Galleries, New York, 1987-1992; DIA in 1992."^^<http://www.w3.org/2001/XMLSchema#string> ;
-        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-                <http://erlangen-crm.org/current/E22_Man-Made_Object> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "1992.41"^^<http://www.w3.org/2001/XMLSchema#string> .
-
-<http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/1986.60.jpg>
-        <http://erlangen-crm.org/current/P138_represents>
-                <http://erlangen-crm.org/current//e22_man-made_object/1986.60> ;
-        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-                <http://erlangen-crm.org/current/E38_Image> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "http://www.dia.org/user_area/comping/1986.60.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://erlangen-crm.org/current//e12_production/John Wilkie>
+        <http://erlangen-crm.org/current/P14_carried_out_by>
+                <http://erlangen-crm.org/current//e21_person/John Wilkie> ;
+        <http://erlangen-crm.org/current/P32_used_general_technique>
+                <http://erlangen-crm.org/current//e55_type/Oil on canvas> .
 
 <http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/81.839.jpg>
         <http://erlangen-crm.org/current/P138_represents>
@@ -3014,11 +3000,13 @@
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "http://www.dia.org/user_area/comping/81.839.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
 
-<http://erlangen-crm.org/current//e82_actor_appellation/Thomas Cole>
+<http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/1986.60.jpg>
+        <http://erlangen-crm.org/current/P138_represents>
+                <http://erlangen-crm.org/current//e22_man-made_object/1986.60> ;
         <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-                <http://erlangen-crm.org/current/E82_Actor_Appellation> ;
+                <http://erlangen-crm.org/current/E38_Image> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
-                "Thomas Cole"^^<http://www.w3.org/2001/XMLSchema#string> .
+                "http://www.dia.org/user_area/comping/1986.60.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
 
 <http://erlangen-crm.org/current//e21_person/Percy Ives>
         <http://erlangen-crm.org/current/P100i_died_in>
@@ -3052,6 +3040,18 @@
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "Daniel Garber"^^<http://www.w3.org/2001/XMLSchema#string> .
 
+<http://erlangen-crm.org/current//e22_man-made_object/1992.41>
+        <http://erlangen-crm.org/current/P108i_was_produced_by>
+                <http://erlangen-crm.org/current//e12_production/Frank Decker Duveneck> ;
+        <http://erlangen-crm.org/current/P2_has_type>
+                <http://erlangen-crm.org/current//e55_type/Paintings> ;
+        <http://erlangen-crm.org/current/P3_has_note>
+                "Kidde Family, Chappaqua, New York, 1930; Babcock Galleries, New York, 1932; Milch Galleries, New York, by 1932; Stuart Pivar, New York, by 1987; Jordan-Volpe Galleries, New York, 1987-1992; DIA in 1992."^^<http://www.w3.org/2001/XMLSchema#string> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+                <http://erlangen-crm.org/current/E22_Man-Made_Object> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "1992.41"^^<http://www.w3.org/2001/XMLSchema#string> .
+
 <http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/16.5-S1.jpg>
         <http://erlangen-crm.org/current/P138_represents>
                 <http://erlangen-crm.org/current//e22_man-made_object/16.5> ;
@@ -3059,6 +3059,18 @@
                 <http://erlangen-crm.org/current/E38_Image> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "http://www.dia.org/user_area/comping/16.5-S1.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+<http://erlangen-crm.org/current//e22_man-made_object/41.63>
+        <http://erlangen-crm.org/current/P108i_was_produced_by>
+                <http://erlangen-crm.org/current//e12_production/John Mix Stanley> ;
+        <http://erlangen-crm.org/current/P2_has_type>
+                <http://erlangen-crm.org/current//e55_type/Paintings> ;
+        <http://erlangen-crm.org/current/P3_has_note>
+                "Formerly in the collection of:Dexter M. Ferry, Detroit; Mrs. Blanche Ferry Hooker, Detroit, 1941.Acquired in 1941."^^<http://www.w3.org/2001/XMLSchema#string> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+                <http://erlangen-crm.org/current/E22_Man-Made_Object> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "41.63"^^<http://www.w3.org/2001/XMLSchema#string> .
 
 <http://erlangen-crm.org/current//e21_person/George Inness>
         <http://erlangen-crm.org/current/P100i_died_in>
@@ -3073,18 +3085,6 @@
                 <http://erlangen-crm.org/current/E21_Person> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "George Inness"^^<http://www.w3.org/2001/XMLSchema#string> .
-
-<http://erlangen-crm.org/current//e22_man-made_object/41.63>
-        <http://erlangen-crm.org/current/P108i_was_produced_by>
-                <http://erlangen-crm.org/current//e12_production/John Mix Stanley> ;
-        <http://erlangen-crm.org/current/P2_has_type>
-                <http://erlangen-crm.org/current//e55_type/Paintings> ;
-        <http://erlangen-crm.org/current/P3_has_note>
-                "Formerly in the collection of:Dexter M. Ferry, Detroit; Mrs. Blanche Ferry Hooker, Detroit, 1941.Acquired in 1941."^^<http://www.w3.org/2001/XMLSchema#string> ;
-        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-                <http://erlangen-crm.org/current/E22_Man-Made_Object> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "41.63"^^<http://www.w3.org/2001/XMLSchema#string> .
 
 <http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/61.28-S1.jpg>
         <http://erlangen-crm.org/current/P138_represents>
@@ -3102,11 +3102,49 @@
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "http://www.dia.org/user_area/comping/41.55-S1.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
 
-<http://erlangen-crm.org/current//e12_production/Frank Decker Duveneck>
-        <http://erlangen-crm.org/current/P14_carried_out_by>
-                <http://erlangen-crm.org/current//e21_person/Frank Decker Duveneck> ;
-        <http://erlangen-crm.org/current/P32_used_general_technique>
-                <http://erlangen-crm.org/current//e55_type/Oil on canvas> .
+<http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/53.144-S1.jpg>
+        <http://erlangen-crm.org/current/P138_represents>
+                <http://erlangen-crm.org/current//e22_man-made_object/53.144> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+                <http://erlangen-crm.org/current/E38_Image> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "http://www.dia.org/user_area/comping/53.144-S1.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+<http://erlangen-crm.org/current//e22_man-made_object/23.145>
+        <http://erlangen-crm.org/current/P108i_was_produced_by>
+                <http://erlangen-crm.org/current//e12_production/George Inness> ;
+        <http://erlangen-crm.org/current/P2_has_type>
+                <http://erlangen-crm.org/current//e55_type/Paintings> ;
+        <http://erlangen-crm.org/current/P3_has_note>
+                "Jacob H. Schiff,  New York.On consignment, Anderson Galleries, New  York, 1922.Acquired in 1923."^^<http://www.w3.org/2001/XMLSchema#string> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+                <http://erlangen-crm.org/current/E22_Man-Made_Object> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "23.145"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+<http://erlangen-crm.org/current//e22_man-made_object/59.314>
+        <http://erlangen-crm.org/current/P108i_was_produced_by>
+                <http://erlangen-crm.org/current//e12_production/George Cochran Lambdin> ;
+        <http://erlangen-crm.org/current/P2_has_type>
+                <http://erlangen-crm.org/current//e55_type/Paintings> ;
+        <http://erlangen-crm.org/current/P3_has_note>
+                "Clarence S. Congdon, Detroit.Mrs. Janet Ehnes.Acquired in 1959. "^^<http://www.w3.org/2001/XMLSchema#string> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+                <http://erlangen-crm.org/current/E22_Man-Made_Object> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "59.314"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+<http://erlangen-crm.org/current//e22_man-made_object/38.13>
+        <http://erlangen-crm.org/current/P108i_was_produced_by>
+                <http://erlangen-crm.org/current//e12_production/John Trumbull> ;
+        <http://erlangen-crm.org/current/P2_has_type>
+                <http://erlangen-crm.org/current//e55_type/Paintings> ;
+        <http://erlangen-crm.org/current/P3_has_note>
+                "Formerly in the collection of:The sitter's great-grand-daughter, Mrs. Charles H. Metcalf, Detroit.Acquired in 1938."^^<http://www.w3.org/2001/XMLSchema#string> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+                <http://erlangen-crm.org/current/E22_Man-Made_Object> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "38.13"^^<http://www.w3.org/2001/XMLSchema#string> .
 
 <http://erlangen-crm.org/current//e21_person/Robert Feke>
         <http://erlangen-crm.org/current/P100i_died_in>
@@ -3122,49 +3160,11 @@
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "Robert Feke"^^<http://www.w3.org/2001/XMLSchema#string> .
 
-<http://erlangen-crm.org/current//e22_man-made_object/59.314>
-        <http://erlangen-crm.org/current/P108i_was_produced_by>
-                <http://erlangen-crm.org/current//e12_production/George Cochran Lambdin> ;
-        <http://erlangen-crm.org/current/P2_has_type>
-                <http://erlangen-crm.org/current//e55_type/Paintings> ;
-        <http://erlangen-crm.org/current/P3_has_note>
-                "Clarence S. Congdon, Detroit.Mrs. Janet Ehnes.Acquired in 1959. "^^<http://www.w3.org/2001/XMLSchema#string> ;
-        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-                <http://erlangen-crm.org/current/E22_Man-Made_Object> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "59.314"^^<http://www.w3.org/2001/XMLSchema#string> .
-
-<http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/53.144-S1.jpg>
-        <http://erlangen-crm.org/current/P138_represents>
-                <http://erlangen-crm.org/current//e22_man-made_object/53.144> ;
-        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-                <http://erlangen-crm.org/current/E38_Image> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "http://www.dia.org/user_area/comping/53.144-S1.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
-
-<http://erlangen-crm.org/current//e22_man-made_object/38.13>
-        <http://erlangen-crm.org/current/P108i_was_produced_by>
-                <http://erlangen-crm.org/current//e12_production/John Trumbull> ;
-        <http://erlangen-crm.org/current/P2_has_type>
-                <http://erlangen-crm.org/current//e55_type/Paintings> ;
-        <http://erlangen-crm.org/current/P3_has_note>
-                "Formerly in the collection of:The sitter's great-grand-daughter, Mrs. Charles H. Metcalf, Detroit.Acquired in 1938."^^<http://www.w3.org/2001/XMLSchema#string> ;
-        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-                <http://erlangen-crm.org/current/E22_Man-Made_Object> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "38.13"^^<http://www.w3.org/2001/XMLSchema#string> .
-
-<http://erlangen-crm.org/current//e22_man-made_object/23.145>
-        <http://erlangen-crm.org/current/P108i_was_produced_by>
-                <http://erlangen-crm.org/current//e12_production/George Inness> ;
-        <http://erlangen-crm.org/current/P2_has_type>
-                <http://erlangen-crm.org/current//e55_type/Paintings> ;
-        <http://erlangen-crm.org/current/P3_has_note>
-                "Jacob H. Schiff,  New York.On consignment, Anderson Galleries, New  York, 1922.Acquired in 1923."^^<http://www.w3.org/2001/XMLSchema#string> ;
-        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-                <http://erlangen-crm.org/current/E22_Man-Made_Object> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "23.145"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://erlangen-crm.org/current//e12_production/Frank Decker Duveneck>
+        <http://erlangen-crm.org/current/P14_carried_out_by>
+                <http://erlangen-crm.org/current//e21_person/Frank Decker Duveneck> ;
+        <http://erlangen-crm.org/current/P32_used_general_technique>
+                <http://erlangen-crm.org/current//e55_type/Oil on canvas> .
 
 <http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/89.73-S1.jpg>
         <http://erlangen-crm.org/current/P138_represents>
@@ -3220,6 +3220,12 @@
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "http://www.dia.org/user_area/comping/74.54.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
 
+<http://erlangen-crm.org/current//e12_production/James Carroll Beckwith>
+        <http://erlangen-crm.org/current/P14_carried_out_by>
+                <http://erlangen-crm.org/current//e21_person/James Carroll Beckwith> ;
+        <http://erlangen-crm.org/current/P32_used_general_technique>
+                <http://erlangen-crm.org/current//e55_type/Oil on canvas> .
+
 <http://erlangen-crm.org/current//e22_man-made_object/46.135>
         <http://erlangen-crm.org/current/P108i_was_produced_by>
                 <http://erlangen-crm.org/current//e12_production/Martin Johnson Heade> ;
@@ -3231,12 +3237,6 @@
                 <http://erlangen-crm.org/current/E22_Man-Made_Object> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "46.135"^^<http://www.w3.org/2001/XMLSchema#string> .
-
-<http://erlangen-crm.org/current//e12_production/James Carroll Beckwith>
-        <http://erlangen-crm.org/current/P14_carried_out_by>
-                <http://erlangen-crm.org/current//e21_person/James Carroll Beckwith> ;
-        <http://erlangen-crm.org/current/P32_used_general_technique>
-                <http://erlangen-crm.org/current//e55_type/Oil on canvas> .
 
 <http://erlangen-crm.org/current//e22_man-made_object/1994.123>
         <http://erlangen-crm.org/current/P108i_was_produced_by>
@@ -3282,12 +3282,6 @@
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "Robert Cozad Henri"^^<http://www.w3.org/2001/XMLSchema#string> .
 
-<http://erlangen-crm.org/current//e82_actor_appellation/Robert Spencer>
-        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-                <http://erlangen-crm.org/current/E82_Actor_Appellation> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Robert Spencer"^^<http://www.w3.org/2001/XMLSchema#string> .
-
 <http://erlangen-crm.org/current//e22_man-made_object/58.354>
         <http://erlangen-crm.org/current/P108i_was_produced_by>
                 <http://erlangen-crm.org/current//e12_production/Joseph Badger> ;
@@ -3299,6 +3293,12 @@
                 <http://erlangen-crm.org/current/E22_Man-Made_Object> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "58.354"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+<http://erlangen-crm.org/current//e82_actor_appellation/Robert Spencer>
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+                <http://erlangen-crm.org/current/E82_Actor_Appellation> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Robert Spencer"^^<http://www.w3.org/2001/XMLSchema#string> .
 
 <http://erlangen-crm.org/current//e21_person/Asher Brown Durand>
         <http://erlangen-crm.org/current/P100i_died_in>
@@ -3342,17 +3342,17 @@
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "http://www.dia.org/user_area/comping/39.6-S1.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
 
-<http://erlangen-crm.org/current//e82_actor_appellation/Thomas Hovenden>
-        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-                <http://erlangen-crm.org/current/E82_Actor_Appellation> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Thomas Hovenden"^^<http://www.w3.org/2001/XMLSchema#string> .
-
 <http://erlangen-crm.org/current//e82_actor_appellation/Henry Golden Dearth>
         <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
                 <http://erlangen-crm.org/current/E82_Actor_Appellation> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "Henry Golden Dearth"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+<http://erlangen-crm.org/current//e82_actor_appellation/Thomas Hovenden>
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+                <http://erlangen-crm.org/current/E82_Actor_Appellation> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Thomas Hovenden"^^<http://www.w3.org/2001/XMLSchema#string> .
 
 <http://erlangen-crm.org/current//e22_man-made_object/88.2>
         <http://erlangen-crm.org/current/P108i_was_produced_by>
@@ -3630,12 +3630,6 @@
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "16.16"^^<http://www.w3.org/2001/XMLSchema#string> .
 
-<http://erlangen-crm.org/current//e12_production/Jonas Lie>
-        <http://erlangen-crm.org/current/P14_carried_out_by>
-                <http://erlangen-crm.org/current//e21_person/Jonas Lie> ;
-        <http://erlangen-crm.org/current/P32_used_general_technique>
-                <http://erlangen-crm.org/current//e55_type/Oil on canvas> .
-
 <http://erlangen-crm.org/current//e22_man-made_object/96.1>
         <http://erlangen-crm.org/current/P108i_was_produced_by>
                 <http://erlangen-crm.org/current//e12_production/Lewis Thomas Ives> ;
@@ -3647,6 +3641,12 @@
                 <http://erlangen-crm.org/current/E22_Man-Made_Object> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "96.1"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+<http://erlangen-crm.org/current//e12_production/Jonas Lie>
+        <http://erlangen-crm.org/current/P14_carried_out_by>
+                <http://erlangen-crm.org/current//e21_person/Jonas Lie> ;
+        <http://erlangen-crm.org/current/P32_used_general_technique>
+                <http://erlangen-crm.org/current//e55_type/Oil on canvas> .
 
 <http://erlangen-crm.org/current//e82_actor_appellation/John Trumbull>
         <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
@@ -3728,12 +3728,6 @@
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "21.14"^^<http://www.w3.org/2001/XMLSchema#string> .
 
-<http://erlangen-crm.org/current//e82_actor_appellation/Ellen Kendall Baker>
-        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-                <http://erlangen-crm.org/current/E82_Actor_Appellation> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Ellen Kendall Baker"^^<http://www.w3.org/2001/XMLSchema#string> .
-
 <http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/1991.112.jpg>
         <http://erlangen-crm.org/current/P138_represents>
                 <http://erlangen-crm.org/current//e22_man-made_object/1991.112> ;
@@ -3741,6 +3735,12 @@
                 <http://erlangen-crm.org/current/E38_Image> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "http://www.dia.org/user_area/comping/1991.112.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+<http://erlangen-crm.org/current//e82_actor_appellation/Ellen Kendall Baker>
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+                <http://erlangen-crm.org/current/E82_Actor_Appellation> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Ellen Kendall Baker"^^<http://www.w3.org/2001/XMLSchema#string> .
 
 <http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/19.34.jpg>
         <http://erlangen-crm.org/current/P138_represents>
@@ -3912,7 +3912,7 @@
         <http://erlangen-crm.org/current/P14_carried_out_by>
                 <http://erlangen-crm.org/current//e21_person/Lewis Thomas Ives> ;
         <http://erlangen-crm.org/current/P32_used_general_technique>
-                <http://erlangen-crm.org/current//e55_type/Oil on canvas> , <http://erlangen-crm.org/current//e55_type/Oil on preprimed canvas> .
+                <http://erlangen-crm.org/current//e55_type/Oil on preprimed canvas> , <http://erlangen-crm.org/current//e55_type/Oil on canvas> .
 
 <http://erlangen-crm.org/current//e12_production/Julius L. Stewart>
         <http://erlangen-crm.org/current/P14_carried_out_by>
@@ -4176,7 +4176,7 @@
         <http://erlangen-crm.org/current/P14_carried_out_by>
                 <http://erlangen-crm.org/current//e21_person/John Singer Sargent> ;
         <http://erlangen-crm.org/current/P32_used_general_technique>
-                <http://erlangen-crm.org/current//e55_type/Oil on panel> , <http://erlangen-crm.org/current//e55_type/Oil on canvas> .
+                <http://erlangen-crm.org/current//e55_type/Oil on canvas> , <http://erlangen-crm.org/current//e55_type/Oil on panel> .
 
 <http://erlangen-crm.org/current//e12_production/John F. Francis>
         <http://erlangen-crm.org/current/P14_carried_out_by>
@@ -4288,7 +4288,7 @@
         <http://erlangen-crm.org/current/P14_carried_out_by>
                 <http://erlangen-crm.org/current//e21_person/Mary Cassatt> ;
         <http://erlangen-crm.org/current/P32_used_general_technique>
-                <http://erlangen-crm.org/current//e55_type/Pastel> , <http://erlangen-crm.org/current//e55_type/Oil on canvas> .
+                <http://erlangen-crm.org/current//e55_type/Oil on canvas> , <http://erlangen-crm.org/current//e55_type/Pastel> .
 
 <http://erlangen-crm.org/current//e21_person/John Henry Twachtman>
         <http://erlangen-crm.org/current/P100i_died_in>
@@ -4328,12 +4328,6 @@
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "50.31"^^<http://www.w3.org/2001/XMLSchema#string> .
 
-<http://erlangen-crm.org/current//e82_actor_appellation/William McGregor Paxton>
-        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-                <http://erlangen-crm.org/current/E82_Actor_Appellation> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "William McGregor Paxton"^^<http://www.w3.org/2001/XMLSchema#string> .
-
 <http://erlangen-crm.org/current//e22_man-made_object/86.2>
         <http://erlangen-crm.org/current/P108i_was_produced_by>
                 <http://erlangen-crm.org/current//e12_production/Frank Knox Morton Rehn> ;
@@ -4345,6 +4339,12 @@
                 <http://erlangen-crm.org/current/E22_Man-Made_Object> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "86.2"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+<http://erlangen-crm.org/current//e82_actor_appellation/William McGregor Paxton>
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+                <http://erlangen-crm.org/current/E82_Actor_Appellation> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "William McGregor Paxton"^^<http://www.w3.org/2001/XMLSchema#string> .
 
 <http://erlangen-crm.org/current//e22_man-made_object/70.616>
         <http://erlangen-crm.org/current/P108i_was_produced_by>
@@ -4546,14 +4546,6 @@
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "William Mark Fisher"^^<http://www.w3.org/2001/XMLSchema#string> .
 
-<http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/43.30-S1.jpg>
-        <http://erlangen-crm.org/current/P138_represents>
-                <http://erlangen-crm.org/current//e22_man-made_object/43.30> ;
-        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-                <http://erlangen-crm.org/current/E38_Image> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "http://www.dia.org/user_area/comping/43.30-S1.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
-
 <http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/92.1-D1.jpg>
         <http://erlangen-crm.org/current/P138_represents>
                 <http://erlangen-crm.org/current//e22_man-made_object/92.1> ;
@@ -4561,6 +4553,14 @@
                 <http://erlangen-crm.org/current/E38_Image> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "http://www.dia.org/user_area/comping/92.1-D1.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+<http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/43.30-S1.jpg>
+        <http://erlangen-crm.org/current/P138_represents>
+                <http://erlangen-crm.org/current//e22_man-made_object/43.30> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+                <http://erlangen-crm.org/current/E38_Image> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "http://www.dia.org/user_area/comping/43.30-S1.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
 
 <http://erlangen-crm.org/current//e12_production/Thomas Cowperthwaite Eakins>
         <http://erlangen-crm.org/current/P14_carried_out_by>
@@ -4636,6 +4636,14 @@
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "41.4"^^<http://www.w3.org/2001/XMLSchema#string> .
 
+<http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/63.238.jpg>
+        <http://erlangen-crm.org/current/P138_represents>
+                <http://erlangen-crm.org/current//e22_man-made_object/63.238> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+                <http://erlangen-crm.org/current/E38_Image> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "http://www.dia.org/user_area/comping/63.238.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
+
 <http://erlangen-crm.org/current//e21_person/Mortimer L. Smith>
         <http://erlangen-crm.org/current/P100i_died_in>
                 <http://erlangen-crm.org/current//e69_death/Mortimer L. Smith> ;
@@ -4649,14 +4657,6 @@
                 <http://erlangen-crm.org/current/E21_Person> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "Mortimer L. Smith"^^<http://www.w3.org/2001/XMLSchema#string> .
-
-<http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/63.238.jpg>
-        <http://erlangen-crm.org/current/P138_represents>
-                <http://erlangen-crm.org/current//e22_man-made_object/63.238> ;
-        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-                <http://erlangen-crm.org/current/E38_Image> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "http://www.dia.org/user_area/comping/63.238.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
 
 <http://erlangen-crm.org/current//e12_production/George Fuller>
         <http://erlangen-crm.org/current/P14_carried_out_by>
@@ -4840,19 +4840,17 @@
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "http://www.dia.org/user_area/comping/05.411-S1.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
 
-<http://erlangen-crm.org/current//e21_person/John Wilkie>
-        <http://erlangen-crm.org/current/P100i_died_in>
-                <http://erlangen-crm.org/current//e69_death/John Wilkie> ;
-        <http://erlangen-crm.org/current/P107i_is_current_or_former_member_of>
-                <http://erlangen-crm.org/current//e74_group/American> ;
-        <http://erlangen-crm.org/current/P131_is_identified_by>
-                <http://erlangen-crm.org/current//e82_actor_appellation/John Wilkie> ;
-        <http://erlangen-crm.org/current/P98i_was_born>
-                <http://erlangen-crm.org/current//e67_birth/John Wilkie> ;
+<http://erlangen-crm.org/current//e22_man-made_object/F77.113>
+        <http://erlangen-crm.org/current/P108i_was_produced_by>
+                <http://erlangen-crm.org/current//e12_production/Lewis Thomas Ives> ;
+        <http://erlangen-crm.org/current/P2_has_type>
+                <http://erlangen-crm.org/current//e55_type/Paintings> ;
+        <http://erlangen-crm.org/current/P3_has_note>
+                "The sitter's son John Newbury Bagley.  His daughterFrances Bagley Wallace.  Mrs. James K. Watkins.Acquired in 1977."^^<http://www.w3.org/2001/XMLSchema#string> ;
         <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-                <http://erlangen-crm.org/current/E21_Person> ;
+                <http://erlangen-crm.org/current/E22_Man-Made_Object> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
-                "John Wilkie"^^<http://www.w3.org/2001/XMLSchema#string> .
+                "F77.113"^^<http://www.w3.org/2001/XMLSchema#string> .
 
 <http://erlangen-crm.org/current//e21_person/Charles Webster Hawthorne>
         <http://erlangen-crm.org/current/P100i_died_in>
@@ -4892,17 +4890,19 @@
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "50.138"^^<http://www.w3.org/2001/XMLSchema#string> .
 
-<http://erlangen-crm.org/current//e22_man-made_object/F77.113>
-        <http://erlangen-crm.org/current/P108i_was_produced_by>
-                <http://erlangen-crm.org/current//e12_production/Lewis Thomas Ives> ;
-        <http://erlangen-crm.org/current/P2_has_type>
-                <http://erlangen-crm.org/current//e55_type/Paintings> ;
-        <http://erlangen-crm.org/current/P3_has_note>
-                "The sitter's son John Newbury Bagley.  His daughterFrances Bagley Wallace.  Mrs. James K. Watkins.Acquired in 1977."^^<http://www.w3.org/2001/XMLSchema#string> ;
+<http://erlangen-crm.org/current//e21_person/John Wilkie>
+        <http://erlangen-crm.org/current/P100i_died_in>
+                <http://erlangen-crm.org/current//e69_death/John Wilkie> ;
+        <http://erlangen-crm.org/current/P107i_is_current_or_former_member_of>
+                <http://erlangen-crm.org/current//e74_group/American> ;
+        <http://erlangen-crm.org/current/P131_is_identified_by>
+                <http://erlangen-crm.org/current//e82_actor_appellation/John Wilkie> ;
+        <http://erlangen-crm.org/current/P98i_was_born>
+                <http://erlangen-crm.org/current//e67_birth/John Wilkie> ;
         <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-                <http://erlangen-crm.org/current/E22_Man-Made_Object> ;
+                <http://erlangen-crm.org/current/E21_Person> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
-                "F77.113"^^<http://www.w3.org/2001/XMLSchema#string> .
+                "John Wilkie"^^<http://www.w3.org/2001/XMLSchema#string> .
 
 <http://erlangen-crm.org/current//e22_man-made_object/20.42>
         <http://erlangen-crm.org/current/P108i_was_produced_by>
@@ -5064,7 +5064,13 @@
         <http://erlangen-crm.org/current/P14_carried_out_by>
                 <http://erlangen-crm.org/current//e21_person/James Abbott McNeill Whistler> ;
         <http://erlangen-crm.org/current/P32_used_general_technique>
-                <http://erlangen-crm.org/current//e55_type/Oil on panel> , <http://erlangen-crm.org/current//e55_type/Oil on canvas> .
+                <http://erlangen-crm.org/current//e55_type/Oil on canvas> , <http://erlangen-crm.org/current//e55_type/Oil on panel> .
+
+<http://erlangen-crm.org/current//e12_production/Robert Cozad Henri>
+        <http://erlangen-crm.org/current/P14_carried_out_by>
+                <http://erlangen-crm.org/current//e21_person/Robert Cozad Henri> ;
+        <http://erlangen-crm.org/current/P32_used_general_technique>
+                <http://erlangen-crm.org/current//e55_type/Oil on canvas> .
 
 <http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/21.70-S1.jpg>
         <http://erlangen-crm.org/current/P138_represents>
@@ -5073,12 +5079,6 @@
                 <http://erlangen-crm.org/current/E38_Image> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "http://www.dia.org/user_area/comping/21.70-S1.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
-
-<http://erlangen-crm.org/current//e12_production/Robert Cozad Henri>
-        <http://erlangen-crm.org/current/P14_carried_out_by>
-                <http://erlangen-crm.org/current//e21_person/Robert Cozad Henri> ;
-        <http://erlangen-crm.org/current/P32_used_general_technique>
-                <http://erlangen-crm.org/current//e55_type/Oil on canvas> .
 
 <http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/07.4.jpg>
         <http://erlangen-crm.org/current/P138_represents>
@@ -5094,11 +5094,11 @@
         <http://erlangen-crm.org/current/P32_used_general_technique>
                 <http://erlangen-crm.org/current//e55_type/Oil on canvas> .
 
-<http://erlangen-crm.org/current//e82_actor_appellation/Frank Weston Benson>
+<http://erlangen-crm.org/current//e55_type/Oil on canvas, mounted on masonite>
         <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-                <http://erlangen-crm.org/current/E82_Actor_Appellation> ;
+                <http://erlangen-crm.org/current/E55_Type> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
-                "Frank Weston Benson"^^<http://www.w3.org/2001/XMLSchema#string> .
+                "Oil on canvas, mounted on masonite"^^<http://www.w3.org/2001/XMLSchema#string> .
 
 <http://erlangen-crm.org/current//e22_man-made_object/72.257>
         <http://erlangen-crm.org/current/P108i_was_produced_by>
@@ -5112,11 +5112,11 @@
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "72.257"^^<http://www.w3.org/2001/XMLSchema#string> .
 
-<http://erlangen-crm.org/current//e55_type/Oil on canvas, mounted on masonite>
+<http://erlangen-crm.org/current//e82_actor_appellation/Frank Weston Benson>
         <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-                <http://erlangen-crm.org/current/E55_Type> ;
+                <http://erlangen-crm.org/current/E82_Actor_Appellation> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
-                "Oil on canvas, mounted on masonite"^^<http://www.w3.org/2001/XMLSchema#string> .
+                "Frank Weston Benson"^^<http://www.w3.org/2001/XMLSchema#string> .
 
 <http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/33.10-S1.jpg>
         <http://erlangen-crm.org/current/P138_represents>
@@ -5158,14 +5158,6 @@
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "http://www.dia.org/user_area/comping/67.253-S1.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
 
-<http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/27.556-S1.jpg>
-        <http://erlangen-crm.org/current/P138_represents>
-                <http://erlangen-crm.org/current//e22_man-made_object/27.556> ;
-        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-                <http://erlangen-crm.org/current/E38_Image> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "http://www.dia.org/user_area/comping/27.556-S1.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
-
 <http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/1994.123.jpg>
         <http://erlangen-crm.org/current/P138_represents>
                 <http://erlangen-crm.org/current//e22_man-made_object/1994.123> ;
@@ -5185,6 +5177,14 @@
                 <http://erlangen-crm.org/current/E22_Man-Made_Object> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "43.41"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+<http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/27.556-S1.jpg>
+        <http://erlangen-crm.org/current/P138_represents>
+                <http://erlangen-crm.org/current//e22_man-made_object/27.556> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+                <http://erlangen-crm.org/current/E38_Image> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "http://www.dia.org/user_area/comping/27.556-S1.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
 
 <http://erlangen-crm.org/current//e22_man-made_object/1986.60>
         <http://erlangen-crm.org/current/P108i_was_produced_by>
@@ -5266,17 +5266,17 @@
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "Rubens Peale"^^<http://www.w3.org/2001/XMLSchema#string> .
 
-<http://erlangen-crm.org/current//e82_actor_appellation/Alexander Helwig Wyant>
-        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-                <http://erlangen-crm.org/current/E82_Actor_Appellation> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Alexander Helwig Wyant"^^<http://www.w3.org/2001/XMLSchema#string> .
-
 <http://erlangen-crm.org/current//e12_production/Theodore Robinson>
         <http://erlangen-crm.org/current/P14_carried_out_by>
                 <http://erlangen-crm.org/current//e21_person/Theodore Robinson> ;
         <http://erlangen-crm.org/current/P32_used_general_technique>
                 <http://erlangen-crm.org/current//e55_type/Oil on canvas> .
+
+<http://erlangen-crm.org/current//e82_actor_appellation/Alexander Helwig Wyant>
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+                <http://erlangen-crm.org/current/E82_Actor_Appellation> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Alexander Helwig Wyant"^^<http://www.w3.org/2001/XMLSchema#string> .
 
 <http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/58.353-S1.jpg>
         <http://erlangen-crm.org/current/P138_represents>
@@ -5294,12 +5294,6 @@
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "http://www.dia.org/user_area/comping/66.397-S2.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
 
-<http://erlangen-crm.org/current//e82_actor_appellation/Robert Feke>
-        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-                <http://erlangen-crm.org/current/E82_Actor_Appellation> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Robert Feke"^^<http://www.w3.org/2001/XMLSchema#string> .
-
 <http://erlangen-crm.org/current//e22_man-made_object/56.19>
         <http://erlangen-crm.org/current/P108i_was_produced_by>
                 <http://erlangen-crm.org/current//e12_production/Elihu Vedder> ;
@@ -5311,6 +5305,12 @@
                 <http://erlangen-crm.org/current/E22_Man-Made_Object> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "56.19"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+<http://erlangen-crm.org/current//e82_actor_appellation/Robert Feke>
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+                <http://erlangen-crm.org/current/E82_Actor_Appellation> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Robert Feke"^^<http://www.w3.org/2001/XMLSchema#string> .
 
 <http://erlangen-crm.org/current//e12_production/Theodore Scott Dabo>
         <http://erlangen-crm.org/current/P14_carried_out_by>
@@ -5400,7 +5400,7 @@
         <http://erlangen-crm.org/current/P14_carried_out_by>
                 <http://erlangen-crm.org/current//e21_person/Elihu Vedder> ;
         <http://erlangen-crm.org/current/P32_used_general_technique>
-                <http://erlangen-crm.org/current//e55_type/Oil on cradled wood panel> , <http://erlangen-crm.org/current//e55_type/Oil on canvas> .
+                <http://erlangen-crm.org/current//e55_type/Oil on canvas> , <http://erlangen-crm.org/current//e55_type/Oil on cradled wood panel> .
 
 <http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/10.9-S1.jpg>
         <http://erlangen-crm.org/current/P138_represents>
@@ -5410,14 +5410,6 @@
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "http://www.dia.org/user_area/comping/10.9-S1.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
 
-<http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/52.118-S1.jpg>
-        <http://erlangen-crm.org/current/P138_represents>
-                <http://erlangen-crm.org/current//e22_man-made_object/52.118> ;
-        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-                <http://erlangen-crm.org/current/E38_Image> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "http://www.dia.org/user_area/comping/52.118-S1.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
-
 <http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/F68.111.jpg>
         <http://erlangen-crm.org/current/P138_represents>
                 <http://erlangen-crm.org/current//e22_man-made_object/F68.111> ;
@@ -5425,6 +5417,14 @@
                 <http://erlangen-crm.org/current/E38_Image> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "http://www.dia.org/user_area/comping/F68.111.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+<http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/52.118-S1.jpg>
+        <http://erlangen-crm.org/current/P138_represents>
+                <http://erlangen-crm.org/current//e22_man-made_object/52.118> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+                <http://erlangen-crm.org/current/E38_Image> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "http://www.dia.org/user_area/comping/52.118-S1.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
 
 <http://erlangen-crm.org/current//e12_production/Washington Allston>
         <http://erlangen-crm.org/current/P14_carried_out_by>
@@ -5810,19 +5810,17 @@
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "17.4"^^<http://www.w3.org/2001/XMLSchema#string> .
 
+<http://erlangen-crm.org/current//e12_production/Joseph Badger>
+        <http://erlangen-crm.org/current/P14_carried_out_by>
+                <http://erlangen-crm.org/current//e21_person/Joseph Badger> ;
+        <http://erlangen-crm.org/current/P32_used_general_technique>
+                <http://erlangen-crm.org/current//e55_type/Oil on canvas> .
+
 <http://erlangen-crm.org/current//e12_production/Robert Feke>
         <http://erlangen-crm.org/current/P14_carried_out_by>
                 <http://erlangen-crm.org/current//e21_person/Robert Feke> ;
         <http://erlangen-crm.org/current/P32_used_general_technique>
                 <http://erlangen-crm.org/current//e55_type/Oil on canvas> .
-
-<http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/48.386-S1.jpg>
-        <http://erlangen-crm.org/current/P138_represents>
-                <http://erlangen-crm.org/current//e22_man-made_object/48.386> ;
-        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-                <http://erlangen-crm.org/current/E38_Image> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "http://www.dia.org/user_area/comping/48.386-S1.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
 
 <http://erlangen-crm.org/current//e21_person/Frederick E. Cohen>
         <http://erlangen-crm.org/current/P100i_died_in>
@@ -5852,6 +5850,14 @@
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "William Page"^^<http://www.w3.org/2001/XMLSchema#string> .
 
+<http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/48.386-S1.jpg>
+        <http://erlangen-crm.org/current/P138_represents>
+                <http://erlangen-crm.org/current//e22_man-made_object/48.386> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+                <http://erlangen-crm.org/current/E38_Image> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "http://www.dia.org/user_area/comping/48.386-S1.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
+
 <http://erlangen-crm.org/current//e22_man-made_object/24.2>
         <http://erlangen-crm.org/current/P108i_was_produced_by>
                 <http://erlangen-crm.org/current//e12_production/John Sloan> ;
@@ -5870,17 +5876,11 @@
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "Martin Edgar Ferrill"^^<http://www.w3.org/2001/XMLSchema#string> .
 
-<http://erlangen-crm.org/current//e12_production/Joseph Badger>
-        <http://erlangen-crm.org/current/P14_carried_out_by>
-                <http://erlangen-crm.org/current//e21_person/Joseph Badger> ;
-        <http://erlangen-crm.org/current/P32_used_general_technique>
-                <http://erlangen-crm.org/current//e55_type/Oil on canvas> .
-
 <http://erlangen-crm.org/current//e12_production/Dwight William Tryon>
         <http://erlangen-crm.org/current/P14_carried_out_by>
                 <http://erlangen-crm.org/current//e21_person/Dwight William Tryon> ;
         <http://erlangen-crm.org/current/P32_used_general_technique>
-                <http://erlangen-crm.org/current//e55_type/Paint on canvas> , <http://erlangen-crm.org/current//e55_type/Oil on canvas> .
+                <http://erlangen-crm.org/current//e55_type/Oil on canvas> , <http://erlangen-crm.org/current//e55_type/Paint on canvas> .
 
 <http://erlangen-crm.org/current//e22_man-made_object/1993.20>
         <http://erlangen-crm.org/current/P108i_was_produced_by>
@@ -5958,6 +5958,18 @@
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "Frank Weston Benson"^^<http://www.w3.org/2001/XMLSchema#string> .
 
+<http://erlangen-crm.org/current//e22_man-made_object/21.70>
+        <http://erlangen-crm.org/current/P108i_was_produced_by>
+                <http://erlangen-crm.org/current//e12_production/William McGregor Paxton> ;
+        <http://erlangen-crm.org/current/P2_has_type>
+                <http://erlangen-crm.org/current//e55_type/Paintings> ;
+        <http://erlangen-crm.org/current/P3_has_note>
+                "William McGregor Paxton  (purchased from the artist by the Founders Society, Merrill Fund)DIA in 1921"^^<http://www.w3.org/2001/XMLSchema#string> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+                <http://erlangen-crm.org/current/E22_Man-Made_Object> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "21.70"^^<http://www.w3.org/2001/XMLSchema#string> .
+
 <http://erlangen-crm.org/current//e21_person/Jonas Lie>
         <http://erlangen-crm.org/current/P100i_died_in>
                 <http://erlangen-crm.org/current//e69_death/Jonas Lie> ;
@@ -5971,18 +5983,6 @@
                 <http://erlangen-crm.org/current/E21_Person> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "Jonas Lie"^^<http://www.w3.org/2001/XMLSchema#string> .
-
-<http://erlangen-crm.org/current//e22_man-made_object/21.70>
-        <http://erlangen-crm.org/current/P108i_was_produced_by>
-                <http://erlangen-crm.org/current//e12_production/William McGregor Paxton> ;
-        <http://erlangen-crm.org/current/P2_has_type>
-                <http://erlangen-crm.org/current//e55_type/Paintings> ;
-        <http://erlangen-crm.org/current/P3_has_note>
-                "William McGregor Paxton  (purchased from the artist by the Founders Society, Merrill Fund)DIA in 1921"^^<http://www.w3.org/2001/XMLSchema#string> ;
-        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-                <http://erlangen-crm.org/current/E22_Man-Made_Object> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "21.70"^^<http://www.w3.org/2001/XMLSchema#string> .
 
 <http://erlangen-crm.org/current//e21_person/Gari Melchers>
         <http://erlangen-crm.org/current/P100i_died_in>
@@ -6068,15 +6068,17 @@
         <http://erlangen-crm.org/current/P32_used_general_technique>
                 <http://erlangen-crm.org/current//e55_type/Oil on canvas> .
 
-<http://erlangen-crm.org/current//e22_man-made_object/05.411>
+<http://erlangen-crm.org/current//e22_man-made_object/39.6>
         <http://erlangen-crm.org/current/P108i_was_produced_by>
-                <http://erlangen-crm.org/current//e12_production/Mortimer L. Smith> ;
+                <http://erlangen-crm.org/current//e12_production/Asher Brown Durand> ;
         <http://erlangen-crm.org/current/P2_has_type>
                 <http://erlangen-crm.org/current//e55_type/Paintings> ;
+        <http://erlangen-crm.org/current/P3_has_note>
+                "Dalzell Hatfield (dealer), Los Angeles, 1938DIA in 1939"^^<http://www.w3.org/2001/XMLSchema#string> ;
         <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
                 <http://erlangen-crm.org/current/E22_Man-Made_Object> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
-                "05.411"^^<http://www.w3.org/2001/XMLSchema#string> .
+                "39.6"^^<http://www.w3.org/2001/XMLSchema#string> .
 
 <http://erlangen-crm.org/current//e22_man-made_object/68.345>
         <http://erlangen-crm.org/current/P108i_was_produced_by>
@@ -6090,17 +6092,15 @@
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "68.345"^^<http://www.w3.org/2001/XMLSchema#string> .
 
-<http://erlangen-crm.org/current//e22_man-made_object/39.6>
+<http://erlangen-crm.org/current//e22_man-made_object/05.411>
         <http://erlangen-crm.org/current/P108i_was_produced_by>
-                <http://erlangen-crm.org/current//e12_production/Asher Brown Durand> ;
+                <http://erlangen-crm.org/current//e12_production/Mortimer L. Smith> ;
         <http://erlangen-crm.org/current/P2_has_type>
                 <http://erlangen-crm.org/current//e55_type/Paintings> ;
-        <http://erlangen-crm.org/current/P3_has_note>
-                "Dalzell Hatfield (dealer), Los Angeles, 1938DIA in 1939"^^<http://www.w3.org/2001/XMLSchema#string> ;
         <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
                 <http://erlangen-crm.org/current/E22_Man-Made_Object> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
-                "39.6"^^<http://www.w3.org/2001/XMLSchema#string> .
+                "05.411"^^<http://www.w3.org/2001/XMLSchema#string> .
 
 <http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/1994.37.jpg>
         <http://erlangen-crm.org/current/P138_represents>
@@ -6142,7 +6142,7 @@
         <http://erlangen-crm.org/current/P14_carried_out_by>
                 <http://erlangen-crm.org/current//e21_person/Eastman Johnson> ;
         <http://erlangen-crm.org/current/P32_used_general_technique>
-                <http://erlangen-crm.org/current//e55_type/Oil on board> , <http://erlangen-crm.org/current//e55_type/Oil on canvas> .
+                <http://erlangen-crm.org/current//e55_type/Oil on canvas> , <http://erlangen-crm.org/current//e55_type/Oil on board> .
 
 <http://erlangen-crm.org/current//e22_man-made_object/67.253>
         <http://erlangen-crm.org/current/P108i_was_produced_by>
@@ -6180,6 +6180,18 @@
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "48.163"^^<http://www.w3.org/2001/XMLSchema#string> .
 
+<http://erlangen-crm.org/current//e22_man-made_object/61.165>
+        <http://erlangen-crm.org/current/P108i_was_produced_by>
+                <http://erlangen-crm.org/current//e12_production/John Sloan> ;
+        <http://erlangen-crm.org/current/P2_has_type>
+                <http://erlangen-crm.org/current//e55_type/Paintings> ;
+        <http://erlangen-crm.org/current/P3_has_note>
+                "Amelia Elizabeth White, Santa Fe, New MexicoDIA in 1961"^^<http://www.w3.org/2001/XMLSchema#string> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+                <http://erlangen-crm.org/current/E22_Man-Made_Object> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "61.165"^^<http://www.w3.org/2001/XMLSchema#string> .
+
 <http://erlangen-crm.org/current//e21_person/William S. Rimmer>
         <http://erlangen-crm.org/current/P100i_died_in>
                 <http://erlangen-crm.org/current//e69_death/William S. Rimmer> ;
@@ -6193,18 +6205,6 @@
                 <http://erlangen-crm.org/current/E21_Person> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "William S. Rimmer"^^<http://www.w3.org/2001/XMLSchema#string> .
-
-<http://erlangen-crm.org/current//e22_man-made_object/61.165>
-        <http://erlangen-crm.org/current/P108i_was_produced_by>
-                <http://erlangen-crm.org/current//e12_production/John Sloan> ;
-        <http://erlangen-crm.org/current/P2_has_type>
-                <http://erlangen-crm.org/current//e55_type/Paintings> ;
-        <http://erlangen-crm.org/current/P3_has_note>
-                "Amelia Elizabeth White, Santa Fe, New MexicoDIA in 1961"^^<http://www.w3.org/2001/XMLSchema#string> ;
-        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-                <http://erlangen-crm.org/current/E22_Man-Made_Object> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "61.165"^^<http://www.w3.org/2001/XMLSchema#string> .
 
 <http://erlangen-crm.org/current//e82_actor_appellation/Thomas Hill>
         <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
@@ -6286,41 +6286,11 @@
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "26.89"^^<http://www.w3.org/2001/XMLSchema#string> .
 
-<http://erlangen-crm.org/current//e82_actor_appellation/Thomas Cowperthwaite Eakins>
-        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-                <http://erlangen-crm.org/current/E82_Actor_Appellation> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Thomas Cowperthwaite Eakins"^^<http://www.w3.org/2001/XMLSchema#string> .
-
-<http://erlangen-crm.org/current//e22_man-made_object/43.30>
-        <http://erlangen-crm.org/current/P108i_was_produced_by>
-                <http://erlangen-crm.org/current//e12_production/John Singleton Copley> ;
-        <http://erlangen-crm.org/current/P2_has_type>
-                <http://erlangen-crm.org/current//e55_type/Paintings> ;
-        <http://erlangen-crm.org/current/P3_has_note>
-                "John Gray, 1766-82Judge John Gray Otis, Boston, 1873Judge John Gray Rodgers, Boston, 1899The Misses Rogers, by 1908Mrs. W. Arthur Dupee, 1928-43M. Knoedler Co., New York, 1943DIA in 1943."^^<http://www.w3.org/2001/XMLSchema#string> ;
-        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-                <http://erlangen-crm.org/current/E22_Man-Made_Object> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "43.30"^^<http://www.w3.org/2001/XMLSchema#string> .
-
-<http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/25.6-D1.jpg>
-        <http://erlangen-crm.org/current/P138_represents>
-                <http://erlangen-crm.org/current//e22_man-made_object/25.6> ;
-        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-                <http://erlangen-crm.org/current/E38_Image> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "http://www.dia.org/user_area/comping/25.6-D1.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
-
-<http://erlangen-crm.org/current//e22_man-made_object/26.4>
-        <http://erlangen-crm.org/current/P108i_was_produced_by>
-                <http://erlangen-crm.org/current//e12_production/Max Bohm> ;
-        <http://erlangen-crm.org/current/P2_has_type>
-                <http://erlangen-crm.org/current//e55_type/Paintings> ;
-        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-                <http://erlangen-crm.org/current/E22_Man-Made_Object> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "26.4"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://erlangen-crm.org/current//e12_production/William Michael Harnett>
+        <http://erlangen-crm.org/current/P14_carried_out_by>
+                <http://erlangen-crm.org/current//e21_person/William Michael Harnett> ;
+        <http://erlangen-crm.org/current/P32_used_general_technique>
+                <http://erlangen-crm.org/current//e55_type/Oil on canvas> .
 
 <http://erlangen-crm.org/current//e22_man-made_object/15.14>
         <http://erlangen-crm.org/current/P108i_was_produced_by>
@@ -6334,17 +6304,13 @@
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "15.14"^^<http://www.w3.org/2001/XMLSchema#string> .
 
-<http://erlangen-crm.org/current//e22_man-made_object/12.1>
-        <http://erlangen-crm.org/current/P108i_was_produced_by>
-                <http://erlangen-crm.org/current//e12_production/John Francis Murphy> ;
-        <http://erlangen-crm.org/current/P2_has_type>
-                <http://erlangen-crm.org/current//e55_type/Paintings> ;
-        <http://erlangen-crm.org/current/P3_has_note>
-                "John francis MurphyDIA (from artist through his dealer, Knoedler) in 1912."^^<http://www.w3.org/2001/XMLSchema#string> ;
+<http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/25.6-D1.jpg>
+        <http://erlangen-crm.org/current/P138_represents>
+                <http://erlangen-crm.org/current//e22_man-made_object/25.6> ;
         <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-                <http://erlangen-crm.org/current/E22_Man-Made_Object> ;
+                <http://erlangen-crm.org/current/E38_Image> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
-                "12.1"^^<http://www.w3.org/2001/XMLSchema#string> .
+                "http://www.dia.org/user_area/comping/25.6-D1.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
 
 <http://erlangen-crm.org/current//e82_actor_appellation/Charles Harry Eaton>
         <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
@@ -6364,11 +6330,45 @@
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "46.310"^^<http://www.w3.org/2001/XMLSchema#string> .
 
+<http://erlangen-crm.org/current//e22_man-made_object/12.1>
+        <http://erlangen-crm.org/current/P108i_was_produced_by>
+                <http://erlangen-crm.org/current//e12_production/John Francis Murphy> ;
+        <http://erlangen-crm.org/current/P2_has_type>
+                <http://erlangen-crm.org/current//e55_type/Paintings> ;
+        <http://erlangen-crm.org/current/P3_has_note>
+                "John francis MurphyDIA (from artist through his dealer, Knoedler) in 1912."^^<http://www.w3.org/2001/XMLSchema#string> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+                <http://erlangen-crm.org/current/E22_Man-Made_Object> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "12.1"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+<http://erlangen-crm.org/current//e22_man-made_object/26.4>
+        <http://erlangen-crm.org/current/P108i_was_produced_by>
+                <http://erlangen-crm.org/current//e12_production/Max Bohm> ;
+        <http://erlangen-crm.org/current/P2_has_type>
+                <http://erlangen-crm.org/current//e55_type/Paintings> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+                <http://erlangen-crm.org/current/E22_Man-Made_Object> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "26.4"^^<http://www.w3.org/2001/XMLSchema#string> .
+
 <http://erlangen-crm.org/current//e12_production/George Inness>
         <http://erlangen-crm.org/current/P14_carried_out_by>
                 <http://erlangen-crm.org/current//e21_person/George Inness> ;
         <http://erlangen-crm.org/current/P32_used_general_technique>
                 <http://erlangen-crm.org/current//e55_type/Oil on canvas> .
+
+<http://erlangen-crm.org/current//e22_man-made_object/43.30>
+        <http://erlangen-crm.org/current/P108i_was_produced_by>
+                <http://erlangen-crm.org/current//e12_production/John Singleton Copley> ;
+        <http://erlangen-crm.org/current/P2_has_type>
+                <http://erlangen-crm.org/current//e55_type/Paintings> ;
+        <http://erlangen-crm.org/current/P3_has_note>
+                "John Gray, 1766-82Judge John Gray Otis, Boston, 1873Judge John Gray Rodgers, Boston, 1899The Misses Rogers, by 1908Mrs. W. Arthur Dupee, 1928-43M. Knoedler Co., New York, 1943DIA in 1943."^^<http://www.w3.org/2001/XMLSchema#string> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+                <http://erlangen-crm.org/current/E22_Man-Made_Object> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "43.30"^^<http://www.w3.org/2001/XMLSchema#string> .
 
 <http://erlangen-crm.org/current//e21_person/Leon Dabo>
         <http://erlangen-crm.org/current/P100i_died_in>
@@ -6384,11 +6384,11 @@
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "Leon Dabo"^^<http://www.w3.org/2001/XMLSchema#string> .
 
-<http://erlangen-crm.org/current//e12_production/William Michael Harnett>
-        <http://erlangen-crm.org/current/P14_carried_out_by>
-                <http://erlangen-crm.org/current//e21_person/William Michael Harnett> ;
-        <http://erlangen-crm.org/current/P32_used_general_technique>
-                <http://erlangen-crm.org/current//e55_type/Oil on canvas> .
+<http://erlangen-crm.org/current//e82_actor_appellation/Thomas Cowperthwaite Eakins>
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+                <http://erlangen-crm.org/current/E82_Actor_Appellation> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Thomas Cowperthwaite Eakins"^^<http://www.w3.org/2001/XMLSchema#string> .
 
 <http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/37.60-S1.jpg>
         <http://erlangen-crm.org/current/P138_represents>
@@ -6404,20 +6404,6 @@
         <http://erlangen-crm.org/current/P32_used_general_technique>
                 <http://erlangen-crm.org/current//e55_type/Oil on canvas> .
 
-<http://erlangen-crm.org/current//e21_person/Joseph Jonathan Blackburn>
-        <http://erlangen-crm.org/current/P100i_died_in>
-                <http://erlangen-crm.org/current//e69_death/Joseph Jonathan Blackburn> ;
-        <http://erlangen-crm.org/current/P107i_is_current_or_former_member_of>
-                <http://erlangen-crm.org/current//e74_group/American> ;
-        <http://erlangen-crm.org/current/P131_is_identified_by>
-                <http://erlangen-crm.org/current//e82_actor_appellation/Joseph Jonathan Blackburn> ;
-        <http://erlangen-crm.org/current/P98i_was_born>
-                <http://erlangen-crm.org/current//e67_birth/Joseph Jonathan Blackburn> ;
-        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-                <http://erlangen-crm.org/current/E21_Person> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Joseph Jonathan Blackburn"^^<http://www.w3.org/2001/XMLSchema#string> .
-
 <http://erlangen-crm.org/current//e21_person/James Carroll Beckwith>
         <http://erlangen-crm.org/current/P100i_died_in>
                 <http://erlangen-crm.org/current//e69_death/James Carroll Beckwith> ;
@@ -6431,6 +6417,20 @@
                 <http://erlangen-crm.org/current/E21_Person> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "James Carroll Beckwith"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+<http://erlangen-crm.org/current//e21_person/Joseph Jonathan Blackburn>
+        <http://erlangen-crm.org/current/P100i_died_in>
+                <http://erlangen-crm.org/current//e69_death/Joseph Jonathan Blackburn> ;
+        <http://erlangen-crm.org/current/P107i_is_current_or_former_member_of>
+                <http://erlangen-crm.org/current//e74_group/American> ;
+        <http://erlangen-crm.org/current/P131_is_identified_by>
+                <http://erlangen-crm.org/current//e82_actor_appellation/Joseph Jonathan Blackburn> ;
+        <http://erlangen-crm.org/current/P98i_was_born>
+                <http://erlangen-crm.org/current//e67_birth/Joseph Jonathan Blackburn> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+                <http://erlangen-crm.org/current/E21_Person> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Joseph Jonathan Blackburn"^^<http://www.w3.org/2001/XMLSchema#string> .
 
 <http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/52.27-S1.jpg>
         <http://erlangen-crm.org/current/P138_represents>
@@ -6446,6 +6446,28 @@
         <http://erlangen-crm.org/current/P32_used_general_technique>
                 <http://erlangen-crm.org/current//e55_type/Oil on canvas> .
 
+<http://erlangen-crm.org/current//e82_actor_appellation/John Singleton Copley>
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+                <http://erlangen-crm.org/current/E82_Actor_Appellation> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "John Singleton Copley"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+<http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/46.135.jpg>
+        <http://erlangen-crm.org/current/P138_represents>
+                <http://erlangen-crm.org/current//e22_man-made_object/46.135> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+                <http://erlangen-crm.org/current/E38_Image> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "http://www.dia.org/user_area/comping/46.135.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+<http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/89.74-S1.jpg>
+        <http://erlangen-crm.org/current/P138_represents>
+                <http://erlangen-crm.org/current//e22_man-made_object/89.74> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+                <http://erlangen-crm.org/current/E38_Image> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "http://www.dia.org/user_area/comping/89.74-S1.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
+
 <http://erlangen-crm.org/current//e22_man-made_object/52.27>
         <http://erlangen-crm.org/current/P108i_was_produced_by>
                 <http://erlangen-crm.org/current//e12_production/George Caleb Bingham> ;
@@ -6457,28 +6479,6 @@
                 <http://erlangen-crm.org/current/E22_Man-Made_Object> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "52.27"^^<http://www.w3.org/2001/XMLSchema#string> .
-
-<http://erlangen-crm.org/current//e82_actor_appellation/John Singleton Copley>
-        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-                <http://erlangen-crm.org/current/E82_Actor_Appellation> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "John Singleton Copley"^^<http://www.w3.org/2001/XMLSchema#string> .
-
-<http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/89.74-S1.jpg>
-        <http://erlangen-crm.org/current/P138_represents>
-                <http://erlangen-crm.org/current//e22_man-made_object/89.74> ;
-        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-                <http://erlangen-crm.org/current/E38_Image> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "http://www.dia.org/user_area/comping/89.74-S1.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
-
-<http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/46.135.jpg>
-        <http://erlangen-crm.org/current/P138_represents>
-                <http://erlangen-crm.org/current//e22_man-made_object/46.135> ;
-        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-                <http://erlangen-crm.org/current/E38_Image> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "http://www.dia.org/user_area/comping/46.135.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
 
 <http://erlangen-crm.org/current//e22_man-made_object/56.185>
         <http://erlangen-crm.org/current/P108i_was_produced_by>
@@ -6550,6 +6550,14 @@
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "06.4"^^<http://www.w3.org/2001/XMLSchema#string> .
 
+<http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/55.515.jpg>
+        <http://erlangen-crm.org/current/P138_represents>
+                <http://erlangen-crm.org/current//e22_man-made_object/55.515> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+                <http://erlangen-crm.org/current/E38_Image> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "http://www.dia.org/user_area/comping/55.515.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
+
 <http://erlangen-crm.org/current//e22_man-made_object/77.58>
         <http://erlangen-crm.org/current/P108i_was_produced_by>
                 <http://erlangen-crm.org/current//e12_production/Benjamin West> ;
@@ -6561,14 +6569,6 @@
                 <http://erlangen-crm.org/current/E22_Man-Made_Object> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "77.58"^^<http://www.w3.org/2001/XMLSchema#string> .
-
-<http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/55.515.jpg>
-        <http://erlangen-crm.org/current/P138_represents>
-                <http://erlangen-crm.org/current//e22_man-made_object/55.515> ;
-        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-                <http://erlangen-crm.org/current/E38_Image> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "http://www.dia.org/user_area/comping/55.515.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
 
 <http://erlangen-crm.org/current//e22_man-made_object/51.66>
         <http://erlangen-crm.org/current/P108i_was_produced_by>
@@ -6588,14 +6588,6 @@
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "William Page"^^<http://www.w3.org/2001/XMLSchema#string> .
 
-<http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/53.379-S1.jpg>
-        <http://erlangen-crm.org/current/P138_represents>
-                <http://erlangen-crm.org/current//e22_man-made_object/53.379> ;
-        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-                <http://erlangen-crm.org/current/E38_Image> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "http://www.dia.org/user_area/comping/53.379-S1.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
-
 <http://erlangen-crm.org/current//e22_man-made_object/13.2>
         <http://erlangen-crm.org/current/P108i_was_produced_by>
                 <http://erlangen-crm.org/current//e12_production/Walter Shirlaw> ;
@@ -6608,6 +6600,14 @@
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "13.2"^^<http://www.w3.org/2001/XMLSchema#string> .
 
+<http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/53.379-S1.jpg>
+        <http://erlangen-crm.org/current/P138_represents>
+                <http://erlangen-crm.org/current//e22_man-made_object/53.379> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+                <http://erlangen-crm.org/current/E38_Image> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "http://www.dia.org/user_area/comping/53.379-S1.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
+
 <http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/15.10-D1.jpg>
         <http://erlangen-crm.org/current/P138_represents>
                 <http://erlangen-crm.org/current//e22_man-made_object/15.10> ;
@@ -6616,15 +6616,15 @@
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "http://www.dia.org/user_area/comping/15.10-D1.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
 
-<http://erlangen-crm.org/current//e12_production/Leon Kroll>
-        <http://erlangen-crm.org/current/P14_carried_out_by>
-                <http://erlangen-crm.org/current//e21_person/Leon Kroll> ;
-        <http://erlangen-crm.org/current/P32_used_general_technique>
-                <http://erlangen-crm.org/current//e55_type/Oil on canvas> .
-
 <http://erlangen-crm.org/current//e12_production/Walter Shirlaw>
         <http://erlangen-crm.org/current/P14_carried_out_by>
                 <http://erlangen-crm.org/current//e21_person/Walter Shirlaw> ;
+        <http://erlangen-crm.org/current/P32_used_general_technique>
+                <http://erlangen-crm.org/current//e55_type/Oil on canvas> .
+
+<http://erlangen-crm.org/current//e12_production/Leon Kroll>
+        <http://erlangen-crm.org/current/P14_carried_out_by>
+                <http://erlangen-crm.org/current//e21_person/Leon Kroll> ;
         <http://erlangen-crm.org/current/P32_used_general_technique>
                 <http://erlangen-crm.org/current//e55_type/Oil on canvas> .
 
@@ -7020,14 +7020,6 @@
         <http://erlangen-crm.org/current/P32_used_general_technique>
                 <http://erlangen-crm.org/current//e55_type/Oil on canvas> .
 
-<http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/07.8-D1.jpg>
-        <http://erlangen-crm.org/current/P138_represents>
-                <http://erlangen-crm.org/current//e22_man-made_object/07.8> ;
-        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-                <http://erlangen-crm.org/current/E38_Image> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "http://www.dia.org/user_area/comping/07.8-D1.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
-
 <http://erlangen-crm.org/current//e22_man-made_object/10.6>
         <http://erlangen-crm.org/current/P108i_was_produced_by>
                 <http://erlangen-crm.org/current//e12_production/Willard Leroy Metcalf> ;
@@ -7039,6 +7031,14 @@
                 <http://erlangen-crm.org/current/E22_Man-Made_Object> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "10.6"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+<http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/07.8-D1.jpg>
+        <http://erlangen-crm.org/current/P138_represents>
+                <http://erlangen-crm.org/current//e22_man-made_object/07.8> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+                <http://erlangen-crm.org/current/E38_Image> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "http://www.dia.org/user_area/comping/07.8-D1.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
 
 <http://erlangen-crm.org/current//e12_production/Charles Caryl Coleman>
         <http://erlangen-crm.org/current/P14_carried_out_by>
@@ -7104,14 +7104,6 @@
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "http://www.dia.org/user_area/comping/41.37-S1.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
 
-<http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/56.96-S1.jpg>
-        <http://erlangen-crm.org/current/P138_represents>
-                <http://erlangen-crm.org/current//e22_man-made_object/56.96> ;
-        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-                <http://erlangen-crm.org/current/E38_Image> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "http://www.dia.org/user_area/comping/56.96-S1.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
-
 <http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/15.14-S1.jpg>
         <http://erlangen-crm.org/current/P138_represents>
                 <http://erlangen-crm.org/current//e22_man-made_object/15.14> ;
@@ -7119,6 +7111,14 @@
                 <http://erlangen-crm.org/current/E38_Image> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "http://www.dia.org/user_area/comping/15.14-S1.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+<http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/56.96-S1.jpg>
+        <http://erlangen-crm.org/current/P138_represents>
+                <http://erlangen-crm.org/current//e22_man-made_object/56.96> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+                <http://erlangen-crm.org/current/E38_Image> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "http://www.dia.org/user_area/comping/56.96-S1.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
 
 <http://erlangen-crm.org/current//e12_production/Maria Oakey Dewing>
         <http://erlangen-crm.org/current/P14_carried_out_by>
@@ -7654,12 +7654,6 @@
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "http://www.dia.org/user_area/comping/30.322-D1.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
 
-<http://erlangen-crm.org/current//e12_production/Frank Weston Benson>
-        <http://erlangen-crm.org/current/P14_carried_out_by>
-                <http://erlangen-crm.org/current//e21_person/Frank Weston Benson> ;
-        <http://erlangen-crm.org/current/P32_used_general_technique>
-                <http://erlangen-crm.org/current//e55_type/Oil on canvas> .
-
 <http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/23.19-D1.jpg>
         <http://erlangen-crm.org/current/P138_represents>
                 <http://erlangen-crm.org/current//e22_man-made_object/23.19> ;
@@ -7667,6 +7661,12 @@
                 <http://erlangen-crm.org/current/E38_Image> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "http://www.dia.org/user_area/comping/23.19-D1.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+<http://erlangen-crm.org/current//e12_production/Frank Weston Benson>
+        <http://erlangen-crm.org/current/P14_carried_out_by>
+                <http://erlangen-crm.org/current//e21_person/Frank Weston Benson> ;
+        <http://erlangen-crm.org/current/P32_used_general_technique>
+                <http://erlangen-crm.org/current//e55_type/Oil on canvas> .
 
 <http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/43.41-S1.jpg>
         <http://erlangen-crm.org/current/P138_represents>
@@ -8014,6 +8014,12 @@
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "Edward Lamson Henry"^^<http://www.w3.org/2001/XMLSchema#string> .
 
+<http://erlangen-crm.org/current//e82_actor_appellation/William Sydney Mount>
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+                <http://erlangen-crm.org/current/E82_Actor_Appellation> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "William Sydney Mount"^^<http://www.w3.org/2001/XMLSchema#string> .
+
 <http://erlangen-crm.org/current//e22_man-made_object/41.64>
         <http://erlangen-crm.org/current/P108i_was_produced_by>
                 <http://erlangen-crm.org/current//e12_production/John Mix Stanley> ;
@@ -8025,12 +8031,6 @@
                 <http://erlangen-crm.org/current/E22_Man-Made_Object> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "41.64"^^<http://www.w3.org/2001/XMLSchema#string> .
-
-<http://erlangen-crm.org/current//e82_actor_appellation/William Sydney Mount>
-        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-                <http://erlangen-crm.org/current/E82_Actor_Appellation> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "William Sydney Mount"^^<http://www.w3.org/2001/XMLSchema#string> .
 
 <http://erlangen-crm.org/current//e12_production/Jasper Francis Cropsey>
         <http://erlangen-crm.org/current/P14_carried_out_by>
@@ -8116,26 +8116,6 @@
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "William Louis Sonntag"^^<http://www.w3.org/2001/XMLSchema#string> .
 
-<http://erlangen-crm.org/current//e82_actor_appellation/Martin Johnson Heade>
-        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-                <http://erlangen-crm.org/current/E82_Actor_Appellation> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Martin Johnson Heade"^^<http://www.w3.org/2001/XMLSchema#string> .
-
-<http://erlangen-crm.org/current//e12_production/Thomas Wilmer Dewing>
-        <http://erlangen-crm.org/current/P14_carried_out_by>
-                <http://erlangen-crm.org/current//e21_person/Thomas Wilmer Dewing> ;
-        <http://erlangen-crm.org/current/P32_used_general_technique>
-                <http://erlangen-crm.org/current//e55_type/Oil on panel> , <http://erlangen-crm.org/current//e55_type/Oil on canvas> .
-
-<http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/43.31-S1.jpg>
-        <http://erlangen-crm.org/current/P138_represents>
-                <http://erlangen-crm.org/current//e22_man-made_object/43.31> ;
-        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-                <http://erlangen-crm.org/current/E38_Image> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "http://www.dia.org/user_area/comping/43.31-S1.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
-
 <http://erlangen-crm.org/current//e22_man-made_object/55.515>
         <http://erlangen-crm.org/current/P108i_was_produced_by>
                 <http://erlangen-crm.org/current//e12_production/Washington Allston> ;
@@ -8147,6 +8127,26 @@
                 <http://erlangen-crm.org/current/E22_Man-Made_Object> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "55.515"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+<http://erlangen-crm.org/current//e12_production/Thomas Wilmer Dewing>
+        <http://erlangen-crm.org/current/P14_carried_out_by>
+                <http://erlangen-crm.org/current//e21_person/Thomas Wilmer Dewing> ;
+        <http://erlangen-crm.org/current/P32_used_general_technique>
+                <http://erlangen-crm.org/current//e55_type/Oil on panel> , <http://erlangen-crm.org/current//e55_type/Oil on canvas> .
+
+<http://erlangen-crm.org/current//e82_actor_appellation/Martin Johnson Heade>
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+                <http://erlangen-crm.org/current/E82_Actor_Appellation> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Martin Johnson Heade"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+<http://erlangen-crm.org/current//e38_image/http://www.dia.org/user_area/comping/43.31-S1.jpg>
+        <http://erlangen-crm.org/current/P138_represents>
+                <http://erlangen-crm.org/current//e22_man-made_object/43.31> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+                <http://erlangen-crm.org/current/E38_Image> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "http://www.dia.org/user_area/comping/43.31-S1.jpg"^^<http://www.w3.org/2001/XMLSchema#string> .
 
 <http://erlangen-crm.org/current//e21_person/Diego M. Rivera>
         <http://erlangen-crm.org/current/P100i_died_in>
