@@ -95,7 +95,7 @@ var special_semantic_types_update = (st_name, st) => {
         var attrs = st[0]['attributes'];
         var new_attrs = attrs.map(i => {
             if (i === 'keyword') {
-                return 'keywords.' + i
+                return 'keywords__' + i
             } else {
                 return i;
             }
@@ -109,15 +109,15 @@ var special_semantic_types_update = (st_name, st) => {
         var attrs = st[0]['attributes'];
         var new_attrs = attrs.map(i => {
             if (i === 'keyword') {
-                return 'keywords.' + i;
+                return 'keywords__' + i;
             }
             //
             else if (i === 'relatedArtworksURL') {
-                return 'relatedArtworks.' + i;
+                return 'relatedArtworks__' + i;
             }
             //
             else if (i === 'relatedArtworksTitle') {
-                return 'relatedArtworks.' + i;
+                return 'relatedArtworks__' + i;
             }
             //
             else {
@@ -135,7 +135,7 @@ var special_semantic_types_update = (st_name, st) => {
             if (i === 'name') {
                 return i;
             } else {
-                return 'item.' + i;
+                return 'item__' + i;
             }
         });
         st[0]['attributes'] = new_attrs;
@@ -146,7 +146,7 @@ var special_semantic_types_update = (st_name, st) => {
     else if (st_name === 's26-s-san-francisco-moma_st.json') {
         var attrs = st[0]['attributes'];
         var new_attrs = attrs.map(i => {
-            return 'art-work.' + i;
+            return 'art-work__' + i;
         });
         st[0]['attributes'] = new_attrs;
         console.log('\n   Semantic type issue: ');
@@ -157,9 +157,9 @@ var special_semantic_types_update = (st_name, st) => {
         var attrs = st[0]['attributes'];
         new_attrs = attrs.map(i => {
             if (i === 'nationality' || i === 'name' || i === 'birth_date' || i === 'death_date') {
-                return 'artist.' + i;
+                return 'artist__' + i;
             } else if (i === 'dimensions_inch') {
-                return 'dimensions.' + i;
+                return 'dimensions__' + i;
             } else return i;
         });
         st[0]['attributes'] = new_attrs;
