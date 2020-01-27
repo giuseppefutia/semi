@@ -402,12 +402,6 @@ sources.forEach((source_name, index) => {
     }
 
     // Print updated sources and semantic types
-
-    console.log('\n\n\n\nCHECK')
-    console.log(JSON.stringify(source, null, 4));
-    console.log('CHECK\n\n\n\n')
-
-
     fs.writeFileSync(output_path, JSON.stringify(source, null, 4));
     fs.writeFileSync(st_output_path, JSON.stringify(st, null, 4));
 
