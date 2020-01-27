@@ -87,7 +87,7 @@ CONSTRUCT {
     ?E82_Actor_Appellation1 rdf:type crm:E82_Actor_Appellation.
     ?E8_Acquisition1 crm:P3_has_note ?Credit Line.
     ?E8_Acquisition1 rdf:type crm:E8_Acquisition.
-    ?E8_Acquisition1 crm:P3_has_note ?How Acquired?.
+    ?E8_Acquisition1 crm:P3_has_note ?How Acquired.
     ?E8_Acquisition1 rdf:type crm:E8_Acquisition.
     ?E8_Acquisition1 rdfs:label ?Acquisition_URI.
     ?E8_Acquisition1 rdf:type crm:E8_Acquisition.
@@ -134,7 +134,7 @@ WHERE {
     OPTIONAL { ?root jarql:Maker_Appellation_URI ?Maker_Appellation_URI. }
     OPTIONAL { ?root jarql:Maker ?Maker. }
     OPTIONAL { ?root jarql:Credit Line ?Credit Line. }
-    OPTIONAL { ?root jarql:How Acquired? ?How Acquired?. }
+    OPTIONAL { ?root jarql:How Acquired ?How Acquired. }
     OPTIONAL { ?root jarql:Acquisition_URI ?Acquisition_URI. }
     BIND (URI(CONCAT('http://erlangen-crm.org/current//e21_person/',?Maker_URI)) as ?E21_Person1)
     BIND (URI(CONCAT('http://erlangen-crm.org/current//e22_man-made_object/',?Object_URI)) as ?E22_Man-Made_Object1)
