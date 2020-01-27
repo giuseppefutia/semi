@@ -41,6 +41,21 @@ var rename_keys = (obj, new_keys) => {
     return Object.assign({}, ...key_values);
 }
 
+// Clean strings that are not detected with the regex
+// XXX Should be updated
+var clean_undetected_strings = (jarql_string) => {
+    jarql_string = jarql_string.replace(/ObjectWSPWorkWSPType URI/g, 'ObjectWSPWorkWSPTypeWSPURI');
+    jarql_string = jarql_string.replace(/Artist Appellation/g, 'ArtistWSPAppellation');
+    jarql_string = jarql_string.replace(/name first last/g, 'nameWSPfirstWSPlast');
+    jarql_string = jarql_string.replace(/TITLE NO AUTHOR/g, 'TITLEWSPNOWSPAUTHOR');
+    jarql_string = jarql_string.replace(/Collector Information/g, 'CollectorWSPInformation');
+    jarql_string = jarql_string.replace(/Maker Birth Date/g, 'MakerWSPBirthWSPDate');
+    jarql_string = jarql_string.replace(/Maker Death Date/g, 'MakerWSPDeathWSPDate');
+    jarql_string = jarql_string.replace(/HomeWSPLocation URI/g, 'HomeWSPLocationWSPURI');
+    jarql_string = jarql_string.replace(/HowWSPAcquired\?/g, 'HowWSPAcquired');
+    return jarql_string;
+}
+
 var data_folder = process.argv.slice(2)[0];
 var input_file = process.argv.slice(3)[0];
 var source_folder = 'data/taheriyan2016/' + data_folder + '/sources/updated_json/';
@@ -52,7 +67,7 @@ var jarql_st_output_folder = 'evaluation/taheriyan2016/' + data_folder + '/seman
 var start = new Date();
 
 var generate_rdf = (file_name) => {
-    console.log('\nStart processing ' + file_name + '...\n\n');
+    console.log('\nStart processing ' + file_name + '...\n\n\n');
     var start_processing = new Date();
 
     var source_path = source_folder + file_name;
@@ -67,6 +82,7 @@ var generate_rdf = (file_name) => {
     var jarql_st_output_path = jarql_st_output_folder + file_name.replace('.json', '') + '.rdf';
 
     // Clean and store temporary sources keys replacing white spaces
+    console.log('Clean the JARQL of semantic models ...');
     var tmp_source_path = source_folder + 'tmp_' + file_name;
     var new_keys = array_to_object(replace_ws_in_source_keys(source[0]));
     var tmp_source = [];
@@ -81,6 +97,9 @@ var generate_rdf = (file_name) => {
     for (var k in new_keys) {
         tmp_jarql = tmp_jarql.replace(new RegExp(k, 'g'), new_keys[k]);
     }
+
+    tmp_jarql = clean_undetected_strings(tmp_jarql);
+
     fs.writeFileSync(tmp_jarql_path, tmp_jarql);
 
     // Execute JARQL for the entire semantic model
@@ -88,18 +107,26 @@ var generate_rdf = (file_name) => {
         stdio: 'inherit'
     });
 
+    console.log('Clean completed!');
+
+    console.log('\nClean the JARQL of semantic types ...');
     // Clean and store temporary JARQL for semantic types, replacing white spaces in variables
     var tmp_jarql_st_path = jarql_st_folder + 'tmp_' + file_name.replace('.json', '') + '.query';
     var tmp_jarql_st = jarql_st;
     for (var k in new_keys) {
         tmp_jarql_st = tmp_jarql_st.replace(new RegExp(k, 'g'), new_keys[k]);
     }
+
+    tmp_jarql_st = clean_undetected_strings(tmp_jarql_st);
+
     fs.writeFileSync(tmp_jarql_st_path, tmp_jarql_st);
 
     // Execute JARL for the semantic types
     exec(`./jarql.sh ${tmp_source_path} ${tmp_jarql_st_path} > ${jarql_st_output_path}`, {
         stdio: 'inherit'
     });
+
+    console.log('Clean completed!');
 
     // Remove temporary files
     fs.unlinkSync(tmp_source_path);
@@ -108,11 +135,10 @@ var generate_rdf = (file_name) => {
 
     var end_processing = new Date() - start_processing;
 
-    console.log('\nFile processed in %ds', end_processing / 1000)
+    console.log('\n\nFile processed in %ds', end_processing / 1000)
 
-    console.log('\n\nEnd processing ' + file_name + '.\n\n');
+    console.log('\n\n\nEnd processing ' + file_name + '.\n\n\n');
 }
-
 
 if (input_file === undefined) {
     var files = fs.readdirSync(source_folder); // Iterate on cleaned and enriched source files
