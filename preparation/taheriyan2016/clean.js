@@ -10,7 +10,7 @@ var st_output_folder = 'data/taheriyan2016/' + task + '/semantic_types/updated/'
 var sources = fs.readdirSync(source_folder);
 var sts = fs.readdirSync(st_folder);
 
-// Updates on sources and semantic types in task_01, task_02, task_03
+// Updates on sources and semantic types
 
 var clean_brackets = (source_name, source) => {
     // Manage anomalies
@@ -165,6 +165,17 @@ var special_semantic_types_update = (st_name, st) => {
         st[0]['attributes'] = new_attrs;
         console.log('\n   Semantic type issue');
     }
+    // s28-wildlife-art.json
+    else if (st_name === 's28-wildlife-art_st.json') {
+        var attrs = st[0]['attributes'];
+        new_attrs = attrs.map(i => {
+            if (i === 'How Acquired?') {
+                return 'How Acquired';
+            } else return i;
+        });
+        st[0]['attributes'] = new_attrs;
+        console.log('\n   Semantic type issue: replace How Acquired');
+    }
 }
 
 var replace_classLink = (st) => {
@@ -210,6 +221,12 @@ var clean_task_one = (a, attrs, source_name, source, attr_index, st) => {
                 obj['object_uri'] = obj['object_no'];
                 obj['Nationality_URI'] = obj['artist']['nationality'];
                 obj['artist_URI'] = obj['artist']['name'];
+            }
+        }
+        // Anomaly related to JARQL issues
+        else if (source_name === 's28-wildlife-art.json') {
+            for (var obj of source) {
+                obj['How Acquired'] = obj['How Acquired?'];
             }
         }
         // Default behaviour
