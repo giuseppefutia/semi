@@ -78,10 +78,19 @@ var create_uri_field = (source_name, source, field, uri_field) => {
 
 // Need to replace int with string in JSON values, due to JARQL issues
 var from_int_to_string = (source, source_name) => {
+    // s05-met.json
+    if (source_name === 's05-met.json') {
+        for (var obj of source) {
+            obj['related-artworks'] = obj['related-artworks'].map(i => {
+                return i.toString();
+            });
+        }
+    }
+
     for (var obj in source) {
         if (source[obj] !== undefined) {
             for (var f in source[obj]) {
-                if (source[obj][f] !== undefined && source[obj][f] !== null) {
+                if (source[obj][f] !== undefined && source[obj][f] !== null && typeof(source[obj][f]) !== 'object') {
                     source[obj][f] = source[obj][f].toString();
                 }
             }
