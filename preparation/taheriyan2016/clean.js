@@ -76,6 +76,19 @@ var create_uri_field = (source_name, source, field, uri_field) => {
     console.log('\n   Add new field: ' + uri_field + ' \n   Get value from ' + field + ' field');
 }
 
+// Need to replace int with string in JSON values, due to JARQL issues
+var from_int_to_string = (source, source_name) => {
+    for (var obj in source) {
+        if (source[obj] !== undefined) {
+            for (var f in source[obj]) {
+                if (source[obj][f] !== undefined && source[obj][f] !== null) {
+                    source[obj][f] = source[obj][f].toString();
+                }
+            }
+        }
+    }
+}
+
 var special_semantic_types_update = (st_name, st) => {
     // s04-ima-artworks.json
     if (st_name === 's04-ima-artworks.json') {
@@ -357,6 +370,9 @@ sources.forEach((source_name, index) => {
         clean_task_four(source_name, st);
     }
 
+    // Change integer values into strings XXX --> Problem during the JARQL generation
+    from_int_to_string(source, source_name);
+
     // Special updates on semantic types
     special_semantic_types_update(sts[index], st);
 
@@ -386,6 +402,12 @@ sources.forEach((source_name, index) => {
     }
 
     // Print updated sources and semantic types
+
+    console.log('\n\n\n\nCHECK')
+    console.log(JSON.stringify(source, null, 4));
+    console.log('CHECK\n\n\n\n')
+
+
     fs.writeFileSync(output_path, JSON.stringify(source, null, 4));
     fs.writeFileSync(st_output_path, JSON.stringify(st, null, 4));
 
