@@ -42,18 +42,19 @@ PREFIX saam-ont:  <http://americanart.si.edu/ontology/>
 PREFIX ore:       <http://www.openarchives.org/ore/terms/>
 PREFIX scharp:    <http://scharp.usc.isi.edu/ontology/>
 PREFIX memex:     <http://dig.isi.edu/ontology/memex/>
+PREFIX dc:        <http://purl.org/dc/elements/1.1/>
 PREFIX jarql:     <http://jarql.com/>
 
 CONSTRUCT {
-    ?CulturalHeritageObject1 dcterms:title ?item.title.
+    ?CulturalHeritageObject1 dcterms:title ?item__title.
     ?CulturalHeritageObject1 rdf:type aac-ont:CulturalHeritageObject.
-    ?CulturalHeritageObject1 dcterms:description ?item.description.
+    ?CulturalHeritageObject1 dcterms:description ?item__description.
     ?CulturalHeritageObject1 rdf:type aac-ont:CulturalHeritageObject.
-    ?WebResource1 rdfs:label ?item.image.
+    ?WebResource1 rdfs:label ?item__image.
     ?WebResource1 rdf:type edm:WebResource.
-    ?Person1 ElementsGr2:nameOfThePerson ?item.artist.
+    ?Person1 ElementsGr2:nameOfThePerson ?item__artist.
     ?Person1 rdf:type aac-ont:Person.
-    ?CulturalHeritageObject1 dcterms:created ?item.year.
+    ?CulturalHeritageObject1 dcterms:created ?item__year.
     ?CulturalHeritageObject1 rdf:type aac-ont:CulturalHeritageObject.
     ?CulturalHeritageObject1 dcterms:creator ?Person1.
     ?EuropeanaAggregation1 edm:aggregatedCHO ?CulturalHeritageObject1.
@@ -61,13 +62,18 @@ CONSTRUCT {
 }
 WHERE {
     ?root a jarql:Root.
-    OPTIONAL { ?root jarql:item.title ?item.title. }
-    OPTIONAL { ?root jarql:item.description ?item.description. }
-    OPTIONAL { ?root jarql:item.image ?item.image. }
-    OPTIONAL { ?root jarql:item.artist ?item.artist. }
-    OPTIONAL { ?root jarql:item.year ?item.year. }
-    BIND (URI(CONCAT('http://www.americanartcollaborative.org/ontology//culturalheritageobject/',?item.title)) as ?CulturalHeritageObject1)
-    BIND (URI(CONCAT('http://www.europeana.eu/schemas/edm//webresource/',?item.image)) as ?WebResource1)
-    BIND (URI(CONCAT('http://purl.org/vocab/frbr/core/person/',?item.artist)) as ?Person1)
-    BIND (URI(CONCAT('http://www.europeana.eu/schemas/edm//europeanaaggregation/',?item.title)) as ?EuropeanaAggregation1)
+    OPTIONAL { ?root jarql:item ?item. }
+    OPTIONAL { ?item jarql:title ?item__title. }
+    OPTIONAL { ?root jarql:item ?item. }
+    OPTIONAL { ?item jarql:description ?item__description. }
+    OPTIONAL { ?root jarql:item ?item. }
+    OPTIONAL { ?item jarql:image ?item__image. }
+    OPTIONAL { ?root jarql:item ?item. }
+    OPTIONAL { ?item jarql:artist ?item__artist. }
+    OPTIONAL { ?root jarql:item ?item. }
+    OPTIONAL { ?item jarql:year ?item__year. }
+    BIND (URI(CONCAT('http://www.americanartcollaborative.org/ontology//culturalheritageobject/',?item__title)) as ?CulturalHeritageObject1)
+    BIND (URI(CONCAT('http://www.europeana.eu/schemas/edm//webresource/',?item__image)) as ?WebResource1)
+    BIND (URI(CONCAT('http://purl.org/vocab/frbr/core/person/',?item__artist)) as ?Person1)
+    BIND (URI(CONCAT('http://www.europeana.eu/schemas/edm//europeanaaggregation/',?item__title)) as ?EuropeanaAggregation1)
 }

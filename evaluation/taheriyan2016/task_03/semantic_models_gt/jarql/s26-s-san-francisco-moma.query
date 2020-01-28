@@ -42,36 +42,37 @@ PREFIX saam-ont:  <http://americanart.si.edu/ontology/>
 PREFIX ore:       <http://www.openarchives.org/ore/terms/>
 PREFIX scharp:    <http://scharp.usc.isi.edu/ontology/>
 PREFIX memex:     <http://dig.isi.edu/ontology/memex/>
+PREFIX dc:        <http://purl.org/dc/elements/1.1/>
 PREFIX jarql:     <http://jarql.com/>
 
 CONSTRUCT {
-    ?Place2 rdfs:label ?art-work.deathPlaceLabel.
+    ?Place2 rdfs:label ?art-work__deathPlaceLabel.
     ?Place2 rdf:type aac-ont:Place.
-    ?Person1 ElementsGr2:countryAssociatedWithThePerson ?art-work.nationality.
+    ?Person1 ElementsGr2:countryAssociatedWithThePerson ?art-work__nationality.
     ?Person1 rdf:type aac-ont:Person.
-    ?WebResource1 rdfs:label ?art-work.image-URL.
+    ?WebResource1 rdfs:label ?art-work__image-URL.
     ?WebResource1 rdf:type edm:WebResource.
-    ?CulturalHeritageObject1 dcterms:provenance ?art-work.credit.
+    ?CulturalHeritageObject1 dcterms:provenance ?art-work__credit.
     ?CulturalHeritageObject1 rdf:type aac-ont:CulturalHeritageObject.
-    ?CulturalHeritageObject1 aac-ont:accessionNumber ?art-work.accession-id.
+    ?CulturalHeritageObject1 aac-ont:accessionNumber ?art-work__accession-id.
     ?CulturalHeritageObject1 rdf:type aac-ont:CulturalHeritageObject.
-    ?CulturalHeritageObject1 dcterms:rightsHolder ?art-work.copyright.
+    ?CulturalHeritageObject1 dcterms:rightsHolder ?art-work__copyright.
     ?CulturalHeritageObject1 rdf:type aac-ont:CulturalHeritageObject.
-    ?CulturalHeritageObject1 dcterms:extent ?art-work.dimensions.
+    ?CulturalHeritageObject1 dcterms:extent ?art-work__dimensions.
     ?CulturalHeritageObject1 rdf:type aac-ont:CulturalHeritageObject.
-    ?Concept1 skos2:prefLabel ?art-work.type.
+    ?Concept1 skos2:prefLabel ?art-work__type.
     ?Concept1 rdf:type skos2:Concept.
-    ?Person1 ElementsGr2:dateOfBirth ?art-work.birthYear.
+    ?Person1 ElementsGr2:dateOfBirth ?art-work__birthYear.
     ?Person1 rdf:type aac-ont:Person.
-    ?Person1 ElementsGr2:dateOfDeath ?art-work.deathYear.
+    ?Person1 ElementsGr2:dateOfDeath ?art-work__deathYear.
     ?Person1 rdf:type aac-ont:Person.
-    ?Document1 rdfs:label ?art-work.url.
+    ?Document1 rdfs:label ?art-work__url.
     ?Document1 rdf:type foaf:Document.
-    ?Person1 ElementsGr2:nameOfThePerson ?art-work.artistName.
+    ?Person1 ElementsGr2:nameOfThePerson ?art-work__artistName.
     ?Person1 rdf:type aac-ont:Person.
-    ?CulturalHeritageObject1 dcterms:title ?art-work.title.
+    ?CulturalHeritageObject1 dcterms:title ?art-work__title.
     ?CulturalHeritageObject1 rdf:type aac-ont:CulturalHeritageObject.
-    ?Place1 rdfs:label ?art-work.birthPlaceLabel.
+    ?Place1 rdfs:label ?art-work__birthPlaceLabel.
     ?Place1 rdf:type aac-ont:Place.
     ?CulturalHeritageObject1 dcterms:creator ?Person1.
     ?CulturalHeritageObject1 edm:hasType ?Concept1.
@@ -83,26 +84,40 @@ CONSTRUCT {
 }
 WHERE {
     ?root a jarql:Root.
-    OPTIONAL { ?root jarql:art-work.deathPlaceLabel ?art-work.deathPlaceLabel. }
-    OPTIONAL { ?root jarql:art-work.nationality ?art-work.nationality. }
-    OPTIONAL { ?root jarql:art-work.image-URL ?art-work.image-URL. }
-    OPTIONAL { ?root jarql:art-work.credit ?art-work.credit. }
-    OPTIONAL { ?root jarql:art-work.accession-id ?art-work.accession-id. }
-    OPTIONAL { ?root jarql:art-work.copyright ?art-work.copyright. }
-    OPTIONAL { ?root jarql:art-work.dimensions ?art-work.dimensions. }
-    OPTIONAL { ?root jarql:art-work.type ?art-work.type. }
-    OPTIONAL { ?root jarql:art-work.birthYear ?art-work.birthYear. }
-    OPTIONAL { ?root jarql:art-work.deathYear ?art-work.deathYear. }
-    OPTIONAL { ?root jarql:art-work.url ?art-work.url. }
-    OPTIONAL { ?root jarql:art-work.artistName ?art-work.artistName. }
-    OPTIONAL { ?root jarql:art-work.title ?art-work.title. }
-    OPTIONAL { ?root jarql:art-work.birthPlaceLabel ?art-work.birthPlaceLabel. }
-    BIND (URI(CONCAT('http://purl.org/vocab/frbr/core/place/',?art-work.deathPlaceLabel)) as ?Place2)
-    BIND (URI(CONCAT('http://purl.org/vocab/frbr/core/person/',?art-work.nationality)) as ?Person1)
-    BIND (URI(CONCAT('http://www.europeana.eu/schemas/edm//webresource/',?art-work.image-URL)) as ?WebResource1)
-    BIND (URI(CONCAT('http://www.americanartcollaborative.org/ontology//culturalheritageobject/',?art-work.credit)) as ?CulturalHeritageObject1)
-    BIND (URI(CONCAT('http://purl.org/vocab/frbr/core/concept/',?art-work.type)) as ?Concept1)
-    BIND (URI(CONCAT('http://xmlns.com/foaf/0.1//document/',?art-work.url)) as ?Document1)
-    BIND (URI(CONCAT('http://purl.org/vocab/frbr/core/place/',?art-work.birthPlaceLabel)) as ?Place1)
-    BIND (URI(CONCAT('http://www.europeana.eu/schemas/edm//europeanaaggregation/',?art-work.credit)) as ?EuropeanaAggregation1)
+    OPTIONAL { ?root jarql:art-work ?art-work. }
+    OPTIONAL { ?art-work jarql:deathPlaceLabel ?art-work__deathPlaceLabel. }
+    OPTIONAL { ?root jarql:art-work ?art-work. }
+    OPTIONAL { ?art-work jarql:nationality ?art-work__nationality. }
+    OPTIONAL { ?root jarql:art-work ?art-work. }
+    OPTIONAL { ?art-work jarql:image-URL ?art-work__image-URL. }
+    OPTIONAL { ?root jarql:art-work ?art-work. }
+    OPTIONAL { ?art-work jarql:credit ?art-work__credit. }
+    OPTIONAL { ?root jarql:art-work ?art-work. }
+    OPTIONAL { ?art-work jarql:accession-id ?art-work__accession-id. }
+    OPTIONAL { ?root jarql:art-work ?art-work. }
+    OPTIONAL { ?art-work jarql:copyright ?art-work__copyright. }
+    OPTIONAL { ?root jarql:art-work ?art-work. }
+    OPTIONAL { ?art-work jarql:dimensions ?art-work__dimensions. }
+    OPTIONAL { ?root jarql:art-work ?art-work. }
+    OPTIONAL { ?art-work jarql:type ?art-work__type. }
+    OPTIONAL { ?root jarql:art-work ?art-work. }
+    OPTIONAL { ?art-work jarql:birthYear ?art-work__birthYear. }
+    OPTIONAL { ?root jarql:art-work ?art-work. }
+    OPTIONAL { ?art-work jarql:deathYear ?art-work__deathYear. }
+    OPTIONAL { ?root jarql:art-work ?art-work. }
+    OPTIONAL { ?art-work jarql:url ?art-work__url. }
+    OPTIONAL { ?root jarql:art-work ?art-work. }
+    OPTIONAL { ?art-work jarql:artistName ?art-work__artistName. }
+    OPTIONAL { ?root jarql:art-work ?art-work. }
+    OPTIONAL { ?art-work jarql:title ?art-work__title. }
+    OPTIONAL { ?root jarql:art-work ?art-work. }
+    OPTIONAL { ?art-work jarql:birthPlaceLabel ?art-work__birthPlaceLabel. }
+    BIND (URI(CONCAT('http://purl.org/vocab/frbr/core/place/',?art-work__deathPlaceLabel)) as ?Place2)
+    BIND (URI(CONCAT('http://purl.org/vocab/frbr/core/person/',?art-work__nationality)) as ?Person1)
+    BIND (URI(CONCAT('http://www.europeana.eu/schemas/edm//webresource/',?art-work__image-URL)) as ?WebResource1)
+    BIND (URI(CONCAT('http://www.americanartcollaborative.org/ontology//culturalheritageobject/',?art-work__credit)) as ?CulturalHeritageObject1)
+    BIND (URI(CONCAT('http://purl.org/vocab/frbr/core/concept/',?art-work__type)) as ?Concept1)
+    BIND (URI(CONCAT('http://xmlns.com/foaf/0.1//document/',?art-work__url)) as ?Document1)
+    BIND (URI(CONCAT('http://purl.org/vocab/frbr/core/place/',?art-work__birthPlaceLabel)) as ?Place1)
+    BIND (URI(CONCAT('http://www.europeana.eu/schemas/edm//europeanaaggregation/',?art-work__credit)) as ?EuropeanaAggregation1)
 }
