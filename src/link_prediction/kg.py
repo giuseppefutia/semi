@@ -84,6 +84,7 @@ class RGCNDataSet(object):
         np.save(self.test_path, self.valid)
 
         print("# edges: {}".format(len(self.train)))
+        print("\n")
 
     def _prepare_dicts(self, file_path_for_dict):
         entities = []

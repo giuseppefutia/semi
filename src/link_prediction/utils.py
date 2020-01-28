@@ -247,11 +247,13 @@ def evaluate(test_graph, model, test_triplets, epoch, entity_dict, relation_dict
         vis.plot_rank(rank_values, np.array(number_of_triples))
 
         mrr = torch.mean(1.0 / ranks.float())
-        print("MRR (raw): {:.6f}".format(mrr.item()))
+        print("\nMRR (raw): {:.6f}".format(mrr.item()))
 
         for hit in hits:
             avg_count = torch.mean((ranks <= hit).float())
             print("Hits (raw) @ {}: {:.6f}".format(hit, avg_count.item()))
+
+        print("\n\n")
     return mrr.item()
 
 # The following functions are added by Giuseppe Futia
@@ -259,7 +261,7 @@ def evaluate(test_graph, model, test_triplets, epoch, entity_dict, relation_dict
 
 def print_scores_as_json(score_list, dir_path, score_path, epoch):
     final_path = dir_path + score_path + '/' + str(epoch) + '/'
-    print("Print score as json: " + final_path + "...")
+    print("\nPrint score as json: " + final_path + "...")
     if not os.path.exists(final_path):
         os.makedirs(final_path)
     with open(final_path + "score.json", "w") as f:
@@ -308,10 +310,13 @@ def export_triples_score(batch_s, batch_r, batch_o, batch_rank, batch_score,
     for triple in zip(batch_s, batch_r, batch_o, batch_rank, batch_score):
         triple_dict = {"s_id": triple[0].item(),
                        "s_uri": entity_dict[int(triple[0].item())],
+                       "s_emb": emb_nodes[triple[0].item()].tolist(),
                        "r_id": triple[1].item(),
                        "r_uri": relation_dict[int(triple[1].item())],
+                       "r_emb": emb_rels[triple[1].item()].tolist(),
                        "o_id": triple[2].item(),
                        "o_uri": entity_dict[int(triple[2].item())],
+                       "o_emb": emb_nodes[triple[2].item()].tolist(),
                        "rank": triple[3].item(),
                        "score": triple[4].item()
                        }

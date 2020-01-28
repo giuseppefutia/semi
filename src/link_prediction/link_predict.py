@@ -146,7 +146,7 @@ def main(args):
     backward_time = []
 
     # training loop
-    print("start training...")
+    print("\n *** Start training... ***")
 
     epoch = 0
     best_mrr = 0
@@ -185,7 +185,7 @@ def main(args):
 
         forward_time.append(t1 - t0)
         backward_time.append(t2 - t1)
-        print("Epoch {:04d} | Loss {:.4f} | Best MRR {:.4f} | Forward {:.4f}s | Backward {:.4f}s".
+        print("\nEpoch {:04d} | Loss {:.4f} | Best MRR {:.4f} | Forward {:.4f}s | Backward {:.4f}s".
               format(epoch, loss.item(), best_mrr, forward_time[-1], backward_time[-1]))
 
         vis.plot_loss(np.array(loss.item()), epoch)
@@ -198,7 +198,8 @@ def main(args):
             if use_cuda:
                 model.cpu()
             model.eval()
-            print("start eval")
+            print("\n\n*** Perform the evaluation on the validation dataset ***")
+            print("Epoch: " + str(epoch))
             mrr = utils.evaluate(test_graph,
                                  model,
                                  valid_data,
@@ -232,27 +233,28 @@ def main(args):
             if use_cuda:
                 model.cuda()
 
-    print("training done")
+    print("*** Training is completed!!! ***")
     print("Mean forward time: {:4f}s".format(np.mean(forward_time)))
     print("Mean Backward time: {:4f}s".format(np.mean(backward_time)))
 
-    print("\nstart testing:")
+    print("\n\n*** Perform the evaluation on the test dataset *** ")
     # use best model checkpoint
     checkpoint = torch.load(model_state_file)
     if use_cuda:
         model.cpu()  # test on CPU
     model.eval()
     model.load_state_dict(checkpoint['model_state_dict'])
+
     print("Using best epoch: {}".format(checkpoint['epoch']))
     utils.evaluate(test_graph,
                    model,
                    test_data,
-                   epoch,
+                   checkpoint['epoch'],
                    entity_dict,
                    relation_dict,
                    vis,
                    args.directory,
-                   args.score,
+                   'best',
                    hits=[1, 3, 10],
                    eval_bz=args.eval_batch_size)
 
@@ -304,5 +306,4 @@ if __name__ == '__main__':
                         help="Force stop for testing reasons")  # --forced-stop is used only for testing reasons
 
     args = parser.parse_args()
-    print(args)
     main(args)
