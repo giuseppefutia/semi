@@ -104,7 +104,7 @@ for rdf_file in rdf_files:
             else:
                 train.add((s, p, o))
 
-    print('\nBackground file ' + rdf_file + 'is splitted as follows: ')
+    print('\nBackground file ' + rdf_file + ' is splitted as follows: ')
     print('* num of training triples: ' + str(len(train)))
     print('* num of valid triples: ' + str(len(valid)))
     print('* num of test triples: ' + str(len(test)))
