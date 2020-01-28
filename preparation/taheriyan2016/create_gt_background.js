@@ -27,6 +27,7 @@ sources.forEach(source_name => {
 
     var background_file = background_folder + source_name.split('.')[0] + '.rdf';
 
+    // Remove existing background files
     try {
         fs.unlinkSync(background_file);
         console.log('Remove ' + background_file + '\n');
@@ -47,12 +48,13 @@ sources.forEach(source_name => {
         }
     });
 
+
     var rdfs_st = fs.readdirSync(rdf_st_folder);
     rdfs_st.forEach(rdf_name => {
         if (source_name.split('.')[0] === rdf_name.split('.')[0]) {
-            var rdf_file = fs.readFileSync(rdf_folder + rdf_name, 'utf-8');
+            var rdf_file = fs.readFileSync(rdf_st_folder + rdf_name, 'utf-8');
             writer.write(rdf_file);
-            console.log('Append semantic types of ' + rdf_name + ' to ' + background_file + '\n');
+            console.log('Append semantic types of ' + rdf_folder + rdf_name + ' to ' + background_file + '\n');
         }
     });
 
