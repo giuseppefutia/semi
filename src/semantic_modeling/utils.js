@@ -123,6 +123,7 @@ var PREFIX = {
     'http://www.openarchives.org/ore/terms/': 'ore:',
     'http://scharp.usc.isi.edu/ontology/': 'scharp:',
     'http://dig.isi.edu/ontology/memex/': 'memex:',
+    'http://purl.org/dc/elements/1.1/': 'dc:'
 }
 
 var PREFIX_STRINGS = generate_prefix_string();
