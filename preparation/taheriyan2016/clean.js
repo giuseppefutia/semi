@@ -92,6 +92,8 @@ var from_int_to_string = (source, source_name) => {
             for (var f in source[obj]) {
                 if (source[obj][f] !== undefined && source[obj][f] !== null && typeof(source[obj][f]) !== 'object') {
                     source[obj][f] = source[obj][f].toString();
+                    source[obj][f] = source[obj][f].replace(/\n/g, ' ');
+                    source[obj][f] = source[obj][f].replace(/\r/g, ' ');
                 }
             }
         }
