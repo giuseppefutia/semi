@@ -42,6 +42,7 @@ PREFIX saam-ont:  <http://americanart.si.edu/ontology/>
 PREFIX ore:       <http://www.openarchives.org/ore/terms/>
 PREFIX scharp:    <http://scharp.usc.isi.edu/ontology/>
 PREFIX memex:     <http://dig.isi.edu/ontology/memex/>
+PREFIX dc:        <http://purl.org/dc/elements/1.1/>
 PREFIX jarql:     <http://jarql.com/>
 
 CONSTRUCT {
@@ -67,8 +68,19 @@ CONSTRUCT {
     ?PostalAddress1 rdf:type schema:PostalAddress.
     ?PostalAddress1 schema:streetAddress ?Street0950.
     ?PostalAddress1 rdf:type schema:PostalAddress.
-    ?PersonOrOrganization1 rdfs:subClassOf owl:Thing.
-    ?file_name rdfs:subClassOf owl:Thing.
+    ?PersonOrOrganization1 schema-dig:isAuthorOf ?CreativeWork1.
+    ?CreativeWork1 schema:hasPart ?CreativeWork1.
+    ?CreativeWork1 schema:isPartOf ?CreativeWork1.
+    ?CreativeWork1 schema-dig:isAbstractPartOf ?CreativeWork1.
+    ?CreativeWork1 schema-dig:isCitationOf ?CreativeWork1.
+    ?CreativeWork1 schema:citation ?CreativeWork1.
+    ?CreativeWork1 schema:workExample ?CreativeWork1.
+    ?CreativeWork1 schema:exampleOfWork ?CreativeWork1.
+    ?CreativeWork1 schema:license ?CreativeWork1.
+    ?CreativeWork1 schema:translationOfWork ?CreativeWork1.
+    ?CreativeWork1 schema:workTranslation ?CreativeWork1.
+    ?CreativeWork1 schema:offers ?Offer1.
+    ?Offer1 schema:addOn ?Offer1.
     ?Post0929 rdfs:subClassOf owl:Thing.
     ?Street0950 rdfs:subClassOf owl:Thing.
 }

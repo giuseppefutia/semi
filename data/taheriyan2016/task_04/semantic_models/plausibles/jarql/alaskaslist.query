@@ -42,6 +42,7 @@ PREFIX saam-ont:  <http://americanart.si.edu/ontology/>
 PREFIX ore:       <http://www.openarchives.org/ore/terms/>
 PREFIX scharp:    <http://scharp.usc.isi.edu/ontology/>
 PREFIX memex:     <http://dig.isi.edu/ontology/memex/>
+PREFIX dc:        <http://purl.org/dc/elements/1.1/>
 PREFIX jarql:     <http://jarql.com/>
 
 CONSTRUCT {
@@ -61,10 +62,29 @@ CONSTRUCT {
     ?Offer1 rdf:type schema:Offer.
     ?Place1 schema:name ?Location1192.
     ?Place1 rdf:type schema:Place.
-    ?PersonOrOrganization1 rdfs:subClassOf owl:Thing.
-    ?file_name rdfs:subClassOf owl:Thing.
-    ?Price1219 rdfs:subClassOf owl:Thing.
-    ?Place1 rdfs:subClassOf owl:Thing.
+    ?PersonOrOrganization1 schema-dig:isAuthorOf ?CreativeWork1.
+    ?CreativeWork1 schema:hasPart ?CreativeWork1.
+    ?CreativeWork1 schema:isPartOf ?CreativeWork1.
+    ?CreativeWork1 schema-dig:isAbstractPartOf ?CreativeWork1.
+    ?CreativeWork1 schema-dig:isCitationOf ?CreativeWork1.
+    ?CreativeWork1 schema:citation ?CreativeWork1.
+    ?CreativeWork1 schema:workExample ?CreativeWork1.
+    ?CreativeWork1 schema:exampleOfWork ?CreativeWork1.
+    ?CreativeWork1 schema:license ?CreativeWork1.
+    ?CreativeWork1 schema:translationOfWork ?CreativeWork1.
+    ?CreativeWork1 schema:workTranslation ?CreativeWork1.
+    ?CreativeWork1 schema:offers ?Offer1.
+    ?CreativeWork1 schema:locationCreated ?Place1.
+    ?CreativeWork1 schema-dig:primaryLocation ?Place1.
+    ?CreativeWork1 schema:contentLocation ?Place1.
+    ?Offer1 schema:addOn ?Offer1.
+    ?Offer1 schema:ineligibleRegion ?Place1.
+    ?Offer1 schema:availableAtOrFrom ?Place1.
+    ?Offer1 schema:areaServed ?Place1.
+    ?Offer1 schema:eligibleRegion ?Place1.
+    ?Place1 schema:containedIn ?Place1.
+    ?Place1 schema:containedInPlace ?Place1.
+    ?Place1 schema:containsPlace ?Place1.
 }
 WHERE {
     ?root a jarql:Root.

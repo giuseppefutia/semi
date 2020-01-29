@@ -42,6 +42,7 @@ PREFIX saam-ont:  <http://americanart.si.edu/ontology/>
 PREFIX ore:       <http://www.openarchives.org/ore/terms/>
 PREFIX scharp:    <http://scharp.usc.isi.edu/ontology/>
 PREFIX memex:     <http://dig.isi.edu/ontology/memex/>
+PREFIX dc:        <http://purl.org/dc/elements/1.1/>
 PREFIX jarql:     <http://jarql.com/>
 
 CONSTRUCT {
@@ -85,18 +86,17 @@ CONSTRUCT {
     ?Place4 rdf:type schema:Place.
     ?Place5 schema:name ?Boots1331.
     ?Place5 rdf:type schema:Place.
-    ?0003 rdfs:subClassOf owl:Thing.
-    ?Kansas1264 rdfs:subClassOf owl:Thing.
-    ?Kansas1294 rdfs:subClassOf owl:Thing.
-    ?Kansas1324 rdfs:subClassOf owl:Thing.
-    ?Listings1232 rdfs:subClassOf owl:Thing.
-    ?file_name rdfs:subClassOf owl:Thing.
-    ?Place1 rdfs:subClassOf owl:Thing.
-    ?Place2 rdfs:subClassOf owl:Thing.
-    ?Place3 rdfs:subClassOf owl:Thing.
-    ?Place4 rdfs:subClassOf owl:Thing.
-    ?Place5 rdfs:subClassOf owl:Thing.
-    ?PersonOrOrganization1 rdfs:subClassOf owl:Thing.
+    ?PersonOrOrganization1 schema-dig:isAuthorOf ?CreativeWork1.
+    ?CreativeWork1 schema:contentLocation ?Place5.
+    ?Offer1 schema:eligibleRegion ?Place5.
+    ?Offer2 schema:eligibleRegion ?Place5.
+    ?Offer3 schema:eligibleRegion ?Place5.
+    ?Offer4 schema:eligibleRegion ?Place5.
+    ?Offer5 schema:eligibleRegion ?Place5.
+    ?Place5 schema:containsPlace ?Place1.
+    ?Place5 schema:containsPlace ?Place2.
+    ?Place5 schema:containsPlace ?Place3.
+    ?Place5 schema:containsPlace ?Place4.
 }
 WHERE {
     ?root a jarql:Root.

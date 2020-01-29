@@ -27,17 +27,24 @@
             }
         },
         {
-            "v": "owl:Thing",
-            "value": {
-                "type": "special",
-                "label": "owl:Thing"
-            }
-        },
-        {
             "v": "schema:Offer1",
             "value": {
                 "type": "class_uri",
                 "label": "schema:Offer"
+            }
+        },
+        {
+            "v": "001068",
+            "value": {
+                "type": "attribute_name",
+                "label": "001068"
+            }
+        },
+        {
+            "v": "schema:Place1",
+            "value": {
+                "type": "class_uri",
+                "label": "schema:Place"
             }
         },
         {
@@ -83,6 +90,27 @@
             }
         },
         {
+            "v": "schema:Place3",
+            "value": {
+                "type": "class_uri",
+                "label": "schema:Place"
+            }
+        },
+        {
+            "v": "Citori1239",
+            "value": {
+                "type": "attribute_name",
+                "label": "Citori1239"
+            }
+        },
+        {
+            "v": "schema:Place2",
+            "value": {
+                "type": "class_uri",
+                "label": "schema:Place"
+            }
+        },
+        {
             "v": "Copyright1423",
             "value": {
                 "type": "attribute_name",
@@ -125,17 +153,24 @@
             }
         },
         {
-            "v": "Kansas1324",
-            "value": {
-                "type": "attribute_name",
-                "label": "Kansas1324"
-            }
-        },
-        {
             "v": "Listings1232",
             "value": {
                 "type": "attribute_name",
                 "label": "Listings1232"
+            }
+        },
+        {
+            "v": "Reduced1301",
+            "value": {
+                "type": "attribute_name",
+                "label": "Reduced1301"
+            }
+        },
+        {
+            "v": "schema:Place4",
+            "value": {
+                "type": "class_uri",
+                "label": "schema:Place"
             }
         },
         {
@@ -160,34 +195,6 @@
             }
         },
         {
-            "v": "schema:Place1",
-            "value": {
-                "type": "class_uri",
-                "label": "schema:Place"
-            }
-        },
-        {
-            "v": "schema:Place2",
-            "value": {
-                "type": "class_uri",
-                "label": "schema:Place"
-            }
-        },
-        {
-            "v": "schema:Place3",
-            "value": {
-                "type": "class_uri",
-                "label": "schema:Place"
-            }
-        },
-        {
-            "v": "schema:Place4",
-            "value": {
-                "type": "class_uri",
-                "label": "schema:Place"
-            }
-        },
-        {
             "v": "schema:Place5",
             "value": {
                 "type": "class_uri",
@@ -202,24 +209,10 @@
             }
         },
         {
-            "v": "001068",
+            "v": "Kansas1324",
             "value": {
                 "type": "attribute_name",
-                "label": "001068"
-            }
-        },
-        {
-            "v": "Citori1239",
-            "value": {
-                "type": "attribute_name",
-                "label": "Citori1239"
-            }
-        },
-        {
-            "v": "Reduced1301",
-            "value": {
-                "type": "attribute_name",
-                "label": "Reduced1301"
+                "label": "Kansas1324"
             }
         },
         {
@@ -240,19 +233,19 @@
     "edges": [
         {
             "v": "0003",
-            "w": "owl:Thing",
-            "name": "0003***owl:Thing",
-            "value": {
-                "label": "rdfs:subClassOf",
-                "type": "inherited",
-                "weight": 0.3333333333333333
-            },
-            "weight": 0.3333333333333333
-        },
-        {
-            "v": "0003",
             "w": "schema:Offer1",
             "name": "0003***schema:Offer1",
+            "value": {
+                "type": "st_property_uri",
+                "label": "schema:name***inverted",
+                "weight": 1
+            },
+            "weight": 1
+        },
+        {
+            "v": "001068",
+            "w": "schema:Place1",
+            "name": "001068***schema:Place1",
             "value": {
                 "type": "st_property_uri",
                 "label": "schema:name***inverted",
@@ -286,6 +279,39 @@
             "v": "001298",
             "w": "schema:Offer4",
             "name": "001298***schema:Offer4",
+            "value": {
+                "type": "st_property_uri",
+                "label": "schema:name***inverted",
+                "weight": 1
+            },
+            "weight": 1
+        },
+        {
+            "v": "2701270",
+            "w": "schema:Place3",
+            "name": "2701270***schema:Place3",
+            "value": {
+                "type": "st_property_uri",
+                "label": "schema:name***inverted",
+                "weight": 1
+            },
+            "weight": 1
+        },
+        {
+            "v": "991062",
+            "w": "schema:Offer1",
+            "name": "991062***schema:Offer1",
+            "value": {
+                "type": "st_property_uri",
+                "label": "schema:price***inverted",
+                "weight": 1
+            },
+            "weight": 1
+        },
+        {
+            "v": "Citori1239",
+            "w": "schema:Place2",
+            "name": "Citori1239***schema:Place2",
             "value": {
                 "type": "st_property_uri",
                 "label": "schema:name***inverted",
@@ -328,47 +354,47 @@
         },
         {
             "v": "Kansas1264",
-            "w": "owl:Thing",
-            "name": "Kansas1264***owl:Thing",
+            "w": "schema:Offer3",
+            "name": "Kansas1264***schema:Offer3",
             "value": {
-                "label": "rdfs:subClassOf",
-                "type": "inherited",
-                "weight": 0.3333333333333333
+                "type": "st_property_uri",
+                "label": "schema:price***inverted",
+                "weight": 1
             },
-            "weight": 0.3333333333333333
+            "weight": 1
         },
         {
             "v": "Kansas1294",
-            "w": "owl:Thing",
-            "name": "Kansas1294***owl:Thing",
+            "w": "schema:Offer4",
+            "name": "Kansas1294***schema:Offer4",
             "value": {
-                "label": "rdfs:subClassOf",
-                "type": "inherited",
-                "weight": 0.3333333333333333
+                "type": "st_property_uri",
+                "label": "schema:price***inverted",
+                "weight": 1
             },
-            "weight": 0.3333333333333333
-        },
-        {
-            "v": "Kansas1324",
-            "w": "owl:Thing",
-            "name": "Kansas1324***owl:Thing",
-            "value": {
-                "label": "rdfs:subClassOf",
-                "type": "inherited",
-                "weight": 0.3333333333333333
-            },
-            "weight": 0.3333333333333333
+            "weight": 1
         },
         {
             "v": "Listings1232",
-            "w": "owl:Thing",
-            "name": "Listings1232***owl:Thing",
+            "w": "schema:Offer2",
+            "name": "Listings1232***schema:Offer2",
             "value": {
-                "label": "rdfs:subClassOf",
-                "type": "inherited",
-                "weight": 0.3333333333333333
+                "type": "st_property_uri",
+                "label": "schema:price***inverted",
+                "weight": 1
             },
-            "weight": 0.3333333333333333
+            "weight": 1
+        },
+        {
+            "v": "Reduced1301",
+            "w": "schema:Place4",
+            "name": "Reduced1301***schema:Place4",
+            "value": {
+                "type": "st_property_uri",
+                "label": "schema:name***inverted",
+                "weight": 1
+            },
+            "weight": 1
         },
         {
             "v": "Send0933",
@@ -383,128 +409,78 @@
         },
         {
             "v": "file_name",
-            "w": "owl:Thing",
-            "name": "file_name***owl:Thing",
+            "w": "schema:CreativeWork1",
+            "name": "file_name***schema:CreativeWork1",
             "value": {
-                "label": "rdfs:subClassOf",
-                "type": "inherited",
-                "weight": 0.3333333333333333
+                "type": "st_property_uri",
+                "label": "schema:name***inverted",
+                "weight": 1
             },
-            "weight": 0.3333333333333333
-        },
-        {
-            "v": "owl:Thing",
-            "w": "schema:Place1",
-            "name": "owl:Thing***schema:Place1",
-            "value": {
-                "type": "inherited",
-                "label": "rdfs:subClassOf***inverted",
-                "weight": 0.3333333333333333
-            },
-            "weight": 0.3333333333333333
-        },
-        {
-            "v": "owl:Thing",
-            "w": "schema:Place2",
-            "name": "owl:Thing***schema:Place2",
-            "value": {
-                "type": "inherited",
-                "label": "rdfs:subClassOf***inverted",
-                "weight": 0.3333333333333333
-            },
-            "weight": 0.3333333333333333
-        },
-        {
-            "v": "owl:Thing",
-            "w": "schema:Place3",
-            "name": "owl:Thing***schema:Place3",
-            "value": {
-                "type": "inherited",
-                "label": "rdfs:subClassOf***inverted",
-                "weight": 0.3333333333333333
-            },
-            "weight": 0.3333333333333333
-        },
-        {
-            "v": "owl:Thing",
-            "w": "schema:Place4",
-            "name": "owl:Thing***schema:Place4",
-            "value": {
-                "type": "inherited",
-                "label": "rdfs:subClassOf***inverted",
-                "weight": 0.3333333333333333
-            },
-            "weight": 0.3333333333333333
-        },
-        {
-            "v": "owl:Thing",
-            "w": "schema:Place5",
-            "name": "owl:Thing***schema:Place5",
-            "value": {
-                "type": "inherited",
-                "label": "rdfs:subClassOf***inverted",
-                "weight": 0.3333333333333333
-            },
-            "weight": 0.3333333333333333
+            "weight": 1
         },
         {
             "v": "schema-dig:PersonOrOrganization1",
-            "w": "owl:Thing",
-            "name": "schema-dig:PersonOrOrganization1***owl:Thing",
+            "w": "schema:CreativeWork1",
+            "name": "schema-dig:PersonOrOrganization1***schema:CreativeWork1",
             "value": {
-                "label": "rdfs:subClassOf",
-                "type": "inherited",
-                "weight": 0.3333333333333333
+                "label": "schema-dig:isAuthorOf",
+                "type": "direct_property_uri",
+                "weight": 1
             },
-            "weight": 0.3333333333333333
+            "weight": 1
         },
         {
             "v": "schema:CreativeWork1",
-            "w": "file_name",
-            "name": "schema:CreativeWork1***file_name",
+            "w": "schema:Place5",
+            "name": "schema:CreativeWork1***schema:Place5",
             "value": {
-                "label": "schema:name",
-                "type": "st_property_uri"
+                "label": "schema:contentLocation",
+                "type": "direct_property_uri",
+                "weight": 1
             },
             "weight": 1
         },
         {
             "v": "schema:Offer1",
-            "w": "991062",
-            "name": "schema:Offer1***991062",
+            "w": "schema:Place5",
+            "name": "schema:Offer1***schema:Place5",
             "value": {
-                "label": "schema:price",
-                "type": "st_property_uri"
+                "label": "schema:eligibleRegion",
+                "type": "direct_property_uri",
+                "weight": 1
             },
             "weight": 1
         },
         {
             "v": "schema:Offer2",
-            "w": "Listings1232",
-            "name": "schema:Offer2***Listings1232",
+            "w": "schema:Place5",
+            "name": "schema:Offer2***schema:Place5",
             "value": {
-                "label": "schema:price",
-                "type": "st_property_uri"
+                "label": "schema:eligibleRegion",
+                "type": "direct_property_uri",
+                "weight": 1
             },
             "weight": 1
         },
         {
             "v": "schema:Offer3",
-            "w": "Kansas1264",
-            "name": "schema:Offer3***Kansas1264",
+            "w": "schema:Place5",
+            "name": "schema:Offer3***schema:Place5",
             "value": {
-                "label": "schema:price",
-                "type": "st_property_uri"
+                "label": "schema:eligibleRegion",
+                "type": "direct_property_uri",
+                "weight": 1
             },
             "weight": 1
         },
         {
             "v": "schema:Offer4",
-            "w": "Kansas1294",
-            "name": "schema:Offer4***Kansas1294",
+            "w": "schema:Place5",
+            "name": "schema:Offer4***schema:Place5",
             "value": {
-                "label": "schema:price",
-                "type": "st_property_uri"
+                "label": "schema:eligibleRegion",
+                "type": "direct_property_uri",
+                "weight": 1
             },
             "weight": 1
         },
@@ -519,42 +495,57 @@
             "weight": 1
         },
         {
-            "v": "schema:Place1",
-            "w": "001068",
-            "name": "schema:Place1***001068",
+            "v": "schema:Offer5",
+            "w": "schema:Place5",
+            "name": "schema:Offer5***schema:Place5",
             "value": {
-                "label": "schema:name",
-                "type": "st_property_uri"
+                "label": "schema:eligibleRegion",
+                "type": "direct_property_uri",
+                "weight": 1
+            },
+            "weight": 1
+        },
+        {
+            "v": "schema:Place1",
+            "w": "schema:Place5",
+            "name": "schema:Place1***schema:Place5",
+            "value": {
+                "type": "direct_property_uri",
+                "label": "schema:containsPlace***inverted",
+                "weight": 1
             },
             "weight": 1
         },
         {
             "v": "schema:Place2",
-            "w": "Citori1239",
-            "name": "schema:Place2***Citori1239",
+            "w": "schema:Place5",
+            "name": "schema:Place2***schema:Place5",
             "value": {
-                "label": "schema:name",
-                "type": "st_property_uri"
+                "type": "direct_property_uri",
+                "label": "schema:containsPlace***inverted",
+                "weight": 1
             },
             "weight": 1
         },
         {
             "v": "schema:Place3",
-            "w": "2701270",
-            "name": "schema:Place3***2701270",
+            "w": "schema:Place5",
+            "name": "schema:Place3***schema:Place5",
             "value": {
-                "label": "schema:name",
-                "type": "st_property_uri"
+                "type": "direct_property_uri",
+                "label": "schema:containsPlace***inverted",
+                "weight": 1
             },
             "weight": 1
         },
         {
             "v": "schema:Place4",
-            "w": "Reduced1301",
-            "name": "schema:Place4***Reduced1301",
+            "w": "schema:Place5",
+            "name": "schema:Place4***schema:Place5",
             "value": {
-                "label": "schema:name",
-                "type": "st_property_uri"
+                "type": "direct_property_uri",
+                "label": "schema:containsPlace***inverted",
+                "weight": 1
             },
             "weight": 1
         },

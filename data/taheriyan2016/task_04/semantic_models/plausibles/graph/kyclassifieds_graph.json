@@ -102,13 +102,6 @@
                 "type": "class_uri",
                 "label": "schema:Offer"
             }
-        },
-        {
-            "v": "owl:Thing",
-            "value": {
-                "type": "special",
-                "label": "owl:Thing"
-            }
         }
     ],
     "edges": [
@@ -213,59 +206,191 @@
             "weight": 1
         },
         {
-            "v": "Code1211",
-            "w": "owl:Thing",
-            "name": "Code1211***owl:Thing",
+            "v": "schema-dig:PersonOrOrganization1",
+            "w": "schema:CreativeWork1",
+            "name": "schema-dig:PersonOrOrganization1***schema:CreativeWork1",
             "value": {
-                "label": "rdfs:subClassOf",
-                "type": "inherited",
-                "weight": 0.3333333333333333
+                "label": "schema-dig:isAuthorOf",
+                "type": "direct_property_uri",
+                "weight": 1
             },
-            "weight": 0.3333333333333333
+            "weight": 1
         },
         {
-            "v": "file_name",
-            "w": "owl:Thing",
-            "name": "file_name***owl:Thing",
+            "v": "schema:CreativeWork1",
+            "w": "schema:CreativeWork1",
+            "name": "schema:CreativeWork1***schema:CreativeWork1",
             "value": {
-                "label": "rdfs:subClassOf",
-                "type": "inherited",
-                "weight": 0.3333333333333333
+                "label": "schema:hasPart",
+                "type": "direct_property_uri",
+                "weight": 1
             },
-            "weight": 0.3333333333333333
+            "weight": 1
         },
         {
-            "v": "Post1163",
-            "w": "owl:Thing",
-            "name": "Post1163***owl:Thing",
+            "v": "schema:CreativeWork1",
+            "w": "schema:CreativeWork1",
+            "name": "schema:CreativeWork1***schema:CreativeWork1",
             "value": {
-                "label": "rdfs:subClassOf",
-                "type": "inherited",
-                "weight": 0.3333333333333333
+                "label": "schema:isPartOf",
+                "type": "direct_property_uri",
+                "weight": 1
             },
-            "weight": 0.3333333333333333
+            "weight": 1
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:CreativeWork1",
+            "name": "schema:CreativeWork1***schema:CreativeWork1",
+            "value": {
+                "label": "schema-dig:isAbstractPartOf",
+                "type": "direct_property_uri",
+                "weight": 1
+            },
+            "weight": 1
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:CreativeWork1",
+            "name": "schema:CreativeWork1***schema:CreativeWork1",
+            "value": {
+                "label": "schema-dig:isCitationOf",
+                "type": "direct_property_uri",
+                "weight": 1
+            },
+            "weight": 1
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:CreativeWork1",
+            "name": "schema:CreativeWork1***schema:CreativeWork1",
+            "value": {
+                "label": "schema:citation",
+                "type": "direct_property_uri",
+                "weight": 1
+            },
+            "weight": 1
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:CreativeWork1",
+            "name": "schema:CreativeWork1***schema:CreativeWork1",
+            "value": {
+                "label": "schema:workExample",
+                "type": "direct_property_uri",
+                "weight": 1
+            },
+            "weight": 1
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:CreativeWork1",
+            "name": "schema:CreativeWork1***schema:CreativeWork1",
+            "value": {
+                "label": "schema:exampleOfWork",
+                "type": "direct_property_uri",
+                "weight": 1
+            },
+            "weight": 1
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:CreativeWork1",
+            "name": "schema:CreativeWork1***schema:CreativeWork1",
+            "value": {
+                "label": "schema:license",
+                "type": "direct_property_uri",
+                "weight": 1
+            },
+            "weight": 1
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:CreativeWork1",
+            "name": "schema:CreativeWork1***schema:CreativeWork1",
+            "value": {
+                "label": "schema:translationOfWork",
+                "type": "direct_property_uri",
+                "weight": 1
+            },
+            "weight": 1
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:CreativeWork1",
+            "name": "schema:CreativeWork1***schema:CreativeWork1",
+            "value": {
+                "label": "schema:workTranslation",
+                "type": "direct_property_uri",
+                "weight": 1
+            },
+            "weight": 1
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:Offer1",
+            "name": "schema:CreativeWork1***schema:Offer1",
+            "value": {
+                "label": "schema:offers",
+                "type": "direct_property_uri",
+                "weight": 1
+            },
+            "weight": 1
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:Offer2",
+            "name": "schema:CreativeWork1***schema:Offer2",
+            "value": {
+                "label": "schema:offers",
+                "type": "direct_property_uri",
+                "weight": 1
+            },
+            "weight": 1
         },
         {
             "v": "schema:Offer1",
-            "w": "owl:Thing",
-            "name": "schema:Offer1***owl:Thing",
+            "w": "schema:Offer1",
+            "name": "schema:Offer1***schema:Offer1",
             "value": {
-                "label": "rdfs:subClassOf",
-                "type": "inherited",
-                "weight": 0.3333333333333333
+                "label": "schema:addOn",
+                "type": "direct_property_uri",
+                "weight": 1
             },
-            "weight": 0.3333333333333333
+            "weight": 1
+        },
+        {
+            "v": "schema:Offer1",
+            "w": "schema:Offer2",
+            "name": "schema:Offer1***schema:Offer2",
+            "value": {
+                "label": "schema:addOn",
+                "type": "direct_property_uri",
+                "weight": 1
+            },
+            "weight": 1
         },
         {
             "v": "schema:Offer2",
-            "w": "owl:Thing",
-            "name": "schema:Offer2***owl:Thing",
+            "w": "schema:Offer1",
+            "name": "schema:Offer2***schema:Offer1",
             "value": {
-                "label": "rdfs:subClassOf",
-                "type": "inherited",
-                "weight": 0.3333333333333333
+                "label": "schema:addOn",
+                "type": "direct_property_uri",
+                "weight": 1
             },
-            "weight": 0.3333333333333333
+            "weight": 1
+        },
+        {
+            "v": "schema:Offer2",
+            "w": "schema:Offer2",
+            "name": "schema:Offer2***schema:Offer2",
+            "value": {
+                "label": "schema:addOn",
+                "type": "direct_property_uri",
+                "weight": 1
+            },
+            "weight": 1
         }
     ]
 }

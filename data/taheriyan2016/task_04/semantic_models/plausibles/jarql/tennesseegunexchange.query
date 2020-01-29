@@ -42,6 +42,7 @@ PREFIX saam-ont:  <http://americanart.si.edu/ontology/>
 PREFIX ore:       <http://www.openarchives.org/ore/terms/>
 PREFIX scharp:    <http://scharp.usc.isi.edu/ontology/>
 PREFIX memex:     <http://dig.isi.edu/ontology/memex/>
+PREFIX dc:        <http://purl.org/dc/elements/1.1/>
 PREFIX jarql:     <http://jarql.com/>
 
 CONSTRUCT {
@@ -73,14 +74,44 @@ CONSTRUCT {
     ?Place1 rdf:type schema:Place.
     ?PostalAddress1 schema:postalCode ?Code1354.
     ?PostalAddress1 rdf:type schema:PostalAddress.
-    ?Firearm1 rdfs:subClassOf owl:Thing.
-    ?Phone1330 rdfs:subClassOf owl:Thing.
-    ?file_name rdfs:subClassOf owl:Thing.
-    ?Post1309 rdfs:subClassOf owl:Thing.
-    ?Offer1 rdfs:subClassOf owl:Thing.
-    ?Offer2 rdfs:subClassOf owl:Thing.
-    ?Place1 rdfs:subClassOf owl:Thing.
-    ?PostalAddress1 rdfs:subClassOf owl:Thing.
+    ?PersonOrOrganization1 schema-dig:isAuthorOf ?CreativeWork1.
+    ?CreativeWork1 schema:hasPart ?CreativeWork1.
+    ?CreativeWork1 schema:isPartOf ?CreativeWork1.
+    ?CreativeWork1 schema-dig:isAbstractPartOf ?CreativeWork1.
+    ?CreativeWork1 schema-dig:isCitationOf ?CreativeWork1.
+    ?CreativeWork1 schema:citation ?CreativeWork1.
+    ?CreativeWork1 schema:workExample ?CreativeWork1.
+    ?CreativeWork1 schema:exampleOfWork ?CreativeWork1.
+    ?CreativeWork1 schema:license ?CreativeWork1.
+    ?CreativeWork1 schema:translationOfWork ?CreativeWork1.
+    ?CreativeWork1 schema:workTranslation ?CreativeWork1.
+    ?CreativeWork1 schema:offers ?Offer1.
+    ?CreativeWork1 schema:offers ?Offer2.
+    ?CreativeWork1 schema:locationCreated ?Place1.
+    ?CreativeWork1 schema-dig:primaryLocation ?Place1.
+    ?CreativeWork1 schema:contentLocation ?Place1.
+    ?Offer1 schema:addOn ?Offer1.
+    ?Offer1 schema:addOn ?Offer2.
+    ?Offer2 schema:addOn ?Offer1.
+    ?Offer2 schema:addOn ?Offer2.
+    ?Offer1 schema:ineligibleRegion ?Place1.
+    ?Offer2 schema:ineligibleRegion ?Place1.
+    ?Offer1 schema:availableAtOrFrom ?Place1.
+    ?Offer2 schema:availableAtOrFrom ?Place1.
+    ?Offer1 schema:areaServed ?Place1.
+    ?Offer2 schema:areaServed ?Place1.
+    ?Offer1 schema:eligibleRegion ?Place1.
+    ?Offer2 schema:eligibleRegion ?Place1.
+    ?Place1 schema:containedIn ?Place1.
+    ?Place1 schema:containedInPlace ?Place1.
+    ?Place1 schema:containsPlace ?Place1.
+    ?Place1 schema:address ?PostalAddress1.
+    ?Firearm1 schema:category ?CreativeWork1.
+    ?Firearm1 schema:category ?Offer1.
+    ?Firearm1 schema:category ?Offer2.
+    ?Firearm1 schema:category ?Place1.
+    ?Firearm1 schema:category ?PostalAddress1.
+    ?PostalAddress1 schema:productSupported ?Firearm1.
 }
 WHERE {
     ?root a jarql:Root.

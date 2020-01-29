@@ -42,6 +42,7 @@ PREFIX saam-ont:  <http://americanart.si.edu/ontology/>
 PREFIX ore:       <http://www.openarchives.org/ore/terms/>
 PREFIX scharp:    <http://scharp.usc.isi.edu/ontology/>
 PREFIX memex:     <http://dig.isi.edu/ontology/memex/>
+PREFIX dc:        <http://purl.org/dc/elements/1.1/>
 PREFIX jarql:     <http://jarql.com/>
 
 CONSTRUCT {
@@ -75,14 +76,13 @@ CONSTRUCT {
     ?PostalAddress1 rdf:type schema:PostalAddress.
     ?PostalAddress1 schema:streetAddress ?Address2324.
     ?PostalAddress1 rdf:type schema:PostalAddress.
+    ?Manf2363 rdfs:subClassOf owl:Thing.
     ?Model2378 rdfs:subClassOf owl:Thing.
-    ?Price2346 rdfs:subClassOf owl:Thing.
-    ?Seller2279 rdfs:subClassOf owl:Thing.
     ?Address2324 rdfs:subClassOf owl:Thing.
-    ?PersonOrOrganization1 rdfs:subClassOf owl:Thing.
-    ?PersonOrOrganization2 rdfs:subClassOf owl:Thing.
+    ?PersonOrOrganization1 schema-dig:isAuthorOf ?CreativeWork1.
+    ?PersonOrOrganization2 schema-dig:isAuthorOf ?CreativeWork1.
     ?ContactPoint1 rdfs:subClassOf owl:Thing.
-    ?CreativeWork1 rdfs:subClassOf owl:Thing.
+    ?CreativeWork1 schema:offers ?Offer1.
 }
 WHERE {
     ?root a jarql:Root.

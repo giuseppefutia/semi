@@ -42,6 +42,7 @@ PREFIX saam-ont:  <http://americanart.si.edu/ontology/>
 PREFIX ore:       <http://www.openarchives.org/ore/terms/>
 PREFIX scharp:    <http://scharp.usc.isi.edu/ontology/>
 PREFIX memex:     <http://dig.isi.edu/ontology/memex/>
+PREFIX dc:        <http://purl.org/dc/elements/1.1/>
 PREFIX jarql:     <http://jarql.com/>
 
 CONSTRUCT {
@@ -67,10 +68,9 @@ CONSTRUCT {
     ?Offer1 rdf:type schema:Offer.
     ?Offer1 schema:price ?Tweet0990.
     ?Offer1 rdf:type schema:Offer.
-    ?0040 rdfs:subClassOf owl:Thing.
-    ?file_name rdfs:subClassOf owl:Thing.
-    ?Tweet0990 rdfs:subClassOf owl:Thing.
-    ?PersonOrOrganization1 rdfs:subClassOf owl:Thing.
+    ?Firearm1 schema:category ?Offer1.
+    ?PersonOrOrganization1 schema-dig:isAuthorOf ?CreativeWork1.
+    ?CreativeWork1 schema:offers ?Offer1.
 }
 WHERE {
     ?root a jarql:Root.

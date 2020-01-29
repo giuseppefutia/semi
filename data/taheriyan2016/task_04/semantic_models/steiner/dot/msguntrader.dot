@@ -24,10 +24,10 @@ digraph {
   Listed1334 -> "schema-dig:PersonOrOrganization1" [type=st_property_uri,label="schema-dig:identifier***inverted",weight=1]
   Post0929 -> "owl:Thing" [label="rdfs:subClassOf",type=inherited,weight=0.3333333333333333]
   Us1790 -> "schema:CreativeWork1" [type=st_property_uri,label="schema:copyrightYear***inverted",weight=1]
-  file_name -> "owl:Thing" [label="rdfs:subClassOf",type=inherited,weight=0.3333333333333333]
+  file_name -> "schema:CreativeWork1" [type=st_property_uri,label="schema:name***inverted",weight=1]
   "owl:Thing" -> Street0950 [type=inherited,label="rdfs:subClassOf***inverted",weight=0.3333333333333333]
-  "schema-dig:PersonOrOrganization1" -> "owl:Thing" [label="rdfs:subClassOf",type=inherited,weight=0.3333333333333333]
-  "schema:CreativeWork1" -> file_name [label="schema:name",type=st_property_uri]
+  "schema-dig:PersonOrOrganization1" -> "schema:CreativeWork1" [label="schema-dig:isAuthorOf",type=direct_property_uri,weight=1]
+  "schema:CreativeWork1" -> "schema:Offer1" [label="schema:offers",type=direct_property_uri,weight=1]
   "schema:Offer1" -> Post0929 [label="schema:price",type=st_property_uri]
   "schema:PostalAddress1" -> Street0950 [label="schema:streetAddress",type=st_property_uri]
 }

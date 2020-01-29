@@ -76,6 +76,13 @@
             }
         },
         {
+            "v": "owl:Thing",
+            "value": {
+                "type": "special",
+                "label": "owl:Thing"
+            }
+        },
+        {
             "v": "schema-dig:PersonOrOrganization2",
             "value": {
                 "type": "class_uri",
@@ -90,24 +97,10 @@
             }
         },
         {
-            "v": "owl:Thing",
-            "value": {
-                "type": "special",
-                "label": "owl:Thing"
-            }
-        },
-        {
             "v": "Phone2306",
             "value": {
                 "type": "attribute_name",
                 "label": "Phone2306"
-            }
-        },
-        {
-            "v": "Price2346",
-            "value": {
-                "type": "attribute_name",
-                "label": "Price2346"
             }
         },
         {
@@ -164,6 +157,13 @@
             "value": {
                 "type": "attribute_name",
                 "label": "Address2324"
+            }
+        },
+        {
+            "v": "Price2346",
+            "value": {
+                "type": "attribute_name",
+                "label": "Price2346"
             }
         }
     ],
@@ -225,6 +225,17 @@
         },
         {
             "v": "Manf2363",
+            "w": "owl:Thing",
+            "name": "Manf2363***owl:Thing",
+            "value": {
+                "label": "rdfs:subClassOf",
+                "type": "inherited",
+                "weight": 0.3333333333333333
+            },
+            "weight": 0.3333333333333333
+        },
+        {
+            "v": "Manf2363",
             "w": "schema-dig:PersonOrOrganization2",
             "name": "Manf2363***schema-dig:PersonOrOrganization2",
             "value": {
@@ -257,17 +268,6 @@
             "weight": 1
         },
         {
-            "v": "Price2346",
-            "w": "owl:Thing",
-            "name": "Price2346***owl:Thing",
-            "value": {
-                "label": "rdfs:subClassOf",
-                "type": "inherited",
-                "weight": 0.3333333333333333
-            },
-            "weight": 0.3333333333333333
-        },
-        {
             "v": "Safety2479",
             "w": "schema:Offer1",
             "name": "Safety2479***schema:Offer1",
@@ -291,14 +291,14 @@
         },
         {
             "v": "Seller2279",
-            "w": "owl:Thing",
-            "name": "Seller2279***owl:Thing",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "Seller2279***schema-dig:PersonOrOrganization1",
             "value": {
-                "label": "rdfs:subClassOf",
-                "type": "inherited",
-                "weight": 0.3333333333333333
+                "type": "st_property_uri",
+                "label": "schema:name***inverted",
+                "weight": 1
             },
-            "weight": 0.3333333333333333
+            "weight": 1
         },
         {
             "v": "St2327",
@@ -345,25 +345,25 @@
         },
         {
             "v": "schema-dig:PersonOrOrganization1",
-            "w": "owl:Thing",
-            "name": "schema-dig:PersonOrOrganization1***owl:Thing",
+            "w": "schema:CreativeWork1",
+            "name": "schema-dig:PersonOrOrganization1***schema:CreativeWork1",
             "value": {
-                "label": "rdfs:subClassOf",
-                "type": "inherited",
-                "weight": 0.3333333333333333
+                "label": "schema-dig:isAuthorOf",
+                "type": "direct_property_uri",
+                "weight": 1
             },
-            "weight": 0.3333333333333333
+            "weight": 1
         },
         {
             "v": "schema-dig:PersonOrOrganization2",
-            "w": "owl:Thing",
-            "name": "schema-dig:PersonOrOrganization2***owl:Thing",
+            "w": "schema:CreativeWork1",
+            "name": "schema-dig:PersonOrOrganization2***schema:CreativeWork1",
             "value": {
-                "label": "rdfs:subClassOf",
-                "type": "inherited",
-                "weight": 0.3333333333333333
+                "label": "schema-dig:isAuthorOf",
+                "type": "direct_property_uri",
+                "weight": 1
             },
-            "weight": 0.3333333333333333
+            "weight": 1
         },
         {
             "v": "schema:ContactPoint1",
@@ -378,14 +378,14 @@
         },
         {
             "v": "schema:CreativeWork1",
-            "w": "owl:Thing",
-            "name": "schema:CreativeWork1***owl:Thing",
+            "w": "schema:Offer1",
+            "name": "schema:CreativeWork1***schema:Offer1",
             "value": {
-                "label": "rdfs:subClassOf",
-                "type": "inherited",
-                "weight": 0.3333333333333333
+                "label": "schema:offers",
+                "type": "direct_property_uri",
+                "weight": 1
             },
-            "weight": 0.3333333333333333
+            "weight": 1
         },
         {
             "v": "schema:Offer1",

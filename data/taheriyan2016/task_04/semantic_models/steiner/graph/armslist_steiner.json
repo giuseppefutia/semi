@@ -69,13 +69,6 @@
             }
         },
         {
-            "v": "owl:Thing",
-            "value": {
-                "type": "special",
-                "label": "owl:Thing"
-            }
-        },
-        {
             "v": "US0756",
             "value": {
                 "type": "attribute_name",
@@ -97,17 +90,17 @@
             }
         },
         {
-            "v": "schema:Place1",
-            "value": {
-                "type": "class_uri",
-                "label": "schema:Place"
-            }
-        },
-        {
             "v": "post0299",
             "value": {
                 "type": "attribute_name",
                 "label": "post0299"
+            }
+        },
+        {
+            "v": "schema:Place1",
+            "value": {
+                "type": "class_uri",
+                "label": "schema:Place"
             }
         },
         {
@@ -176,14 +169,14 @@
         },
         {
             "v": "Price0373",
-            "w": "owl:Thing",
-            "name": "Price0373***owl:Thing",
+            "w": "schema:Offer1",
+            "name": "Price0373***schema:Offer1",
             "value": {
-                "label": "rdfs:subClassOf",
-                "type": "inherited",
-                "weight": 0.3333333333333333
+                "type": "st_property_uri",
+                "label": "schema:price***inverted",
+                "weight": 1
             },
-            "weight": 0.3333333333333333
+            "weight": 1
         },
         {
             "v": "US0756",
@@ -198,25 +191,14 @@
         },
         {
             "v": "file_name",
-            "w": "owl:Thing",
-            "name": "file_name***owl:Thing",
+            "w": "schema:CreativeWork1",
+            "name": "file_name***schema:CreativeWork1",
             "value": {
-                "label": "rdfs:subClassOf",
-                "type": "inherited",
-                "weight": 0.3333333333333333
+                "type": "st_property_uri",
+                "label": "schema:name***inverted",
+                "weight": 1
             },
-            "weight": 0.3333333333333333
-        },
-        {
-            "v": "owl:Thing",
-            "w": "schema:Place1",
-            "name": "owl:Thing***schema:Place1",
-            "value": {
-                "type": "inherited",
-                "label": "rdfs:subClassOf***inverted",
-                "weight": 0.3333333333333333
-            },
-            "weight": 0.3333333333333333
+            "weight": 1
         },
         {
             "v": "post0299",
@@ -231,43 +213,45 @@
         },
         {
             "v": "schema-dig:Firearm1",
-            "w": "owl:Thing",
-            "name": "schema-dig:Firearm1***owl:Thing",
+            "w": "schema:Place1",
+            "name": "schema-dig:Firearm1***schema:Place1",
             "value": {
-                "label": "rdfs:subClassOf",
+                "label": "schema:category",
                 "type": "inherited",
-                "weight": 0.3333333333333333
+                "weight": 4
             },
-            "weight": 0.3333333333333333
+            "weight": 4
         },
         {
             "v": "schema-dig:PersonOrOrganization1",
-            "w": "owl:Thing",
-            "name": "schema-dig:PersonOrOrganization1***owl:Thing",
+            "w": "schema:CreativeWork1",
+            "name": "schema-dig:PersonOrOrganization1***schema:CreativeWork1",
             "value": {
-                "label": "rdfs:subClassOf",
-                "type": "inherited",
-                "weight": 0.3333333333333333
+                "label": "schema-dig:isAuthorOf",
+                "type": "direct_property_uri",
+                "weight": 1
             },
-            "weight": 0.3333333333333333
+            "weight": 1
         },
         {
             "v": "schema:CreativeWork1",
-            "w": "file_name",
-            "name": "schema:CreativeWork1***file_name",
+            "w": "schema:Place1",
+            "name": "schema:CreativeWork1***schema:Place1",
             "value": {
-                "label": "schema:name",
-                "type": "st_property_uri"
+                "label": "schema:contentLocation",
+                "type": "direct_property_uri",
+                "weight": 1
             },
             "weight": 1
         },
         {
             "v": "schema:Offer1",
-            "w": "Price0373",
-            "name": "schema:Offer1***Price0373",
+            "w": "schema:Place1",
+            "name": "schema:Offer1***schema:Place1",
             "value": {
-                "label": "schema:price",
-                "type": "st_property_uri"
+                "label": "schema:eligibleRegion",
+                "type": "direct_property_uri",
+                "weight": 1
             },
             "weight": 1
         },

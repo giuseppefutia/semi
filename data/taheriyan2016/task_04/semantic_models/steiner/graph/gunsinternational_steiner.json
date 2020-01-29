@@ -97,20 +97,6 @@
             }
         },
         {
-            "v": "owl:Thing",
-            "value": {
-                "type": "special",
-                "label": "owl:Thing"
-            }
-        },
-        {
-            "v": "Price4278",
-            "value": {
-                "type": "attribute_name",
-                "label": "Price4278"
-            }
-        },
-        {
             "v": "Seller4193",
             "value": {
                 "type": "attribute_name",
@@ -136,6 +122,13 @@
             "value": {
                 "type": "attribute_name",
                 "label": "file_name"
+            }
+        },
+        {
+            "v": "Price4278",
+            "value": {
+                "type": "attribute_name",
+                "label": "Price4278"
             }
         },
         {
@@ -237,25 +230,14 @@
         },
         {
             "v": "Phone4225",
-            "w": "owl:Thing",
-            "name": "Phone4225***owl:Thing",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "Phone4225***schema-dig:PersonOrOrganization1",
             "value": {
-                "label": "rdfs:subClassOf",
-                "type": "inherited",
-                "weight": 0.3333333333333333
+                "type": "st_property_uri",
+                "label": "schema:telephone***inverted",
+                "weight": 1
             },
-            "weight": 0.3333333333333333
-        },
-        {
-            "v": "Price4278",
-            "w": "owl:Thing",
-            "name": "Price4278***owl:Thing",
-            "value": {
-                "label": "rdfs:subClassOf",
-                "type": "inherited",
-                "weight": 0.3333333333333333
-            },
-            "weight": 0.3333333333333333
+            "weight": 1
         },
         {
             "v": "Seller4193",
@@ -281,54 +263,56 @@
         },
         {
             "v": "file_name",
-            "w": "owl:Thing",
-            "name": "file_name***owl:Thing",
+            "w": "schema:CreativeWork1",
+            "name": "file_name***schema:CreativeWork1",
             "value": {
-                "label": "rdfs:subClassOf",
-                "type": "inherited",
-                "weight": 0.3333333333333333
+                "type": "st_property_uri",
+                "label": "schema:name***inverted",
+                "weight": 1
             },
-            "weight": 0.3333333333333333
-        },
-        {
-            "v": "owl:Thing",
-            "w": "Zip4218",
-            "name": "owl:Thing***Zip4218",
-            "value": {
-                "type": "inherited",
-                "label": "rdfs:subClassOf***inverted",
-                "weight": 0.3333333333333333
-            },
-            "weight": 0.3333333333333333
+            "weight": 1
         },
         {
             "v": "schema-dig:Firearm1",
-            "w": "owl:Thing",
-            "name": "schema-dig:Firearm1***owl:Thing",
+            "w": "schema:Offer1",
+            "name": "schema-dig:Firearm1***schema:Offer1",
             "value": {
-                "label": "rdfs:subClassOf",
+                "label": "schema:category",
                 "type": "inherited",
-                "weight": 0.3333333333333333
+                "weight": 4
             },
-            "weight": 0.3333333333333333
+            "weight": 4
+        },
+        {
+            "v": "schema-dig:Firearm1",
+            "w": "schema:PostalAddress1",
+            "name": "schema-dig:Firearm1***schema:PostalAddress1",
+            "value": {
+                "type": "inherited",
+                "label": "schema:productSupported***inverted",
+                "weight": 4
+            },
+            "weight": 4
         },
         {
             "v": "schema-dig:PersonOrOrganization1",
-            "w": "Phone4225",
-            "name": "schema-dig:PersonOrOrganization1***Phone4225",
+            "w": "schema:CreativeWork1",
+            "name": "schema-dig:PersonOrOrganization1***schema:CreativeWork1",
             "value": {
-                "label": "schema:telephone",
-                "type": "st_property_uri"
+                "label": "schema-dig:isAuthorOf",
+                "type": "direct_property_uri",
+                "weight": 1
             },
             "weight": 1
         },
         {
             "v": "schema:CreativeWork1",
-            "w": "file_name",
-            "name": "schema:CreativeWork1***file_name",
+            "w": "schema:Offer1",
+            "name": "schema:CreativeWork1***schema:Offer1",
             "value": {
-                "label": "schema:name",
-                "type": "st_property_uri"
+                "label": "schema:offers",
+                "type": "direct_property_uri",
+                "weight": 1
             },
             "weight": 1
         },

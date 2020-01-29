@@ -42,6 +42,7 @@ PREFIX saam-ont:  <http://americanart.si.edu/ontology/>
 PREFIX ore:       <http://www.openarchives.org/ore/terms/>
 PREFIX scharp:    <http://scharp.usc.isi.edu/ontology/>
 PREFIX memex:     <http://dig.isi.edu/ontology/memex/>
+PREFIX dc:        <http://purl.org/dc/elements/1.1/>
 PREFIX jarql:     <http://jarql.com/>
 
 CONSTRUCT {
@@ -77,15 +78,12 @@ CONSTRUCT {
     ?Offer2 rdf:type schema:Offer.
     ?Place1 schema:name ?Single1162.
     ?Place1 rdf:type schema:Place.
-    ?Go1129 rdfs:subClassOf owl:Thing.
-    ?Number1168 rdfs:subClassOf owl:Thing.
-    ?Type1157 rdfs:subClassOf owl:Thing.
-    ?file_name rdfs:subClassOf owl:Thing.
-    ?Offer2 rdfs:subClassOf owl:Thing.
-    ?Place1 rdfs:subClassOf owl:Thing.
-    ?PersonOrOrganization1 rdfs:subClassOf owl:Thing.
-    ?PersonOrOrganization2 rdfs:subClassOf owl:Thing.
-    ?Offer1 rdfs:subClassOf owl:Thing.
+    ?Firearm1 schema:category ?Place1.
+    ?PersonOrOrganization1 schema-dig:isAuthorOf ?CreativeWork1.
+    ?PersonOrOrganization2 schema-dig:isAuthorOf ?CreativeWork1.
+    ?CreativeWork1 schema:contentLocation ?Place1.
+    ?Offer1 schema:eligibleRegion ?Place1.
+    ?Offer2 schema:eligibleRegion ?Place1.
 }
 WHERE {
     ?root a jarql:Root.

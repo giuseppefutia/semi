@@ -6,20 +6,6 @@
     },
     "nodes": [
         {
-            "v": "Contact0703",
-            "value": {
-                "type": "attribute_name",
-                "label": "Contact0703"
-            }
-        },
-        {
-            "v": "owl:Thing",
-            "value": {
-                "type": "special",
-                "label": "owl:Thing"
-            }
-        },
-        {
             "v": "Created0714",
             "value": {
                 "type": "attribute_name",
@@ -31,13 +17,6 @@
             "value": {
                 "type": "class_uri",
                 "label": "schema-dig:PersonOrOrganization"
-            }
-        },
-        {
-            "v": "Price0694",
-            "value": {
-                "type": "attribute_name",
-                "label": "Price0694"
             }
         },
         {
@@ -62,6 +41,20 @@
             }
         },
         {
+            "v": "bottom1509",
+            "value": {
+                "type": "attribute_name",
+                "label": "bottom1509"
+            }
+        },
+        {
+            "v": "schema:Offer2",
+            "value": {
+                "type": "class_uri",
+                "label": "schema:Offer"
+            }
+        },
+        {
             "v": "file_name",
             "value": {
                 "type": "attribute_name",
@@ -76,10 +69,10 @@
             }
         },
         {
-            "v": "schema:Offer2",
+            "v": "Contact0703",
             "value": {
-                "type": "class_uri",
-                "label": "schema:Offer"
+                "type": "attribute_name",
+                "label": "Contact0703"
             }
         },
         {
@@ -90,10 +83,10 @@
             }
         },
         {
-            "v": "bottom1509",
+            "v": "Price0694",
             "value": {
                 "type": "attribute_name",
-                "label": "bottom1509"
+                "label": "Price0694"
             }
         },
         {
@@ -106,17 +99,6 @@
     ],
     "edges": [
         {
-            "v": "Contact0703",
-            "w": "owl:Thing",
-            "name": "Contact0703***owl:Thing",
-            "value": {
-                "label": "rdfs:subClassOf",
-                "type": "inherited",
-                "weight": 0.3333333333333333
-            },
-            "weight": 0.3333333333333333
-        },
-        {
             "v": "Created0714",
             "w": "schema-dig:PersonOrOrganization1",
             "name": "Created0714***schema-dig:PersonOrOrganization1",
@@ -126,17 +108,6 @@
                 "weight": 1
             },
             "weight": 1
-        },
-        {
-            "v": "Price0694",
-            "w": "owl:Thing",
-            "name": "Price0694***owl:Thing",
-            "value": {
-                "label": "rdfs:subClassOf",
-                "type": "inherited",
-                "weight": 0.3333333333333333
-            },
-            "weight": 0.3333333333333333
         },
         {
             "v": "Send0836",
@@ -161,6 +132,17 @@
             "weight": 1
         },
         {
+            "v": "bottom1509",
+            "w": "schema:Offer2",
+            "name": "bottom1509***schema:Offer2",
+            "value": {
+                "type": "st_property_uri",
+                "label": "schema:name***inverted",
+                "weight": 1
+            },
+            "weight": 1
+        },
+        {
             "v": "file_name",
             "w": "schema:CreativeWork1",
             "name": "file_name***schema:CreativeWork1",
@@ -170,28 +152,6 @@
                 "weight": 1
             },
             "weight": 1
-        },
-        {
-            "v": "owl:Thing",
-            "w": "schema:Offer2",
-            "name": "owl:Thing***schema:Offer2",
-            "value": {
-                "type": "inherited",
-                "label": "rdfs:subClassOf***inverted",
-                "weight": 0.3333333333333333
-            },
-            "weight": 0.3333333333333333
-        },
-        {
-            "v": "owl:Thing",
-            "w": "schema:Offer3",
-            "name": "owl:Thing***schema:Offer3",
-            "value": {
-                "type": "inherited",
-                "label": "rdfs:subClassOf***inverted",
-                "weight": 0.3333333333333333
-            },
-            "weight": 0.3333333333333333
         },
         {
             "v": "schema-dig:PersonOrOrganization1",
@@ -204,34 +164,56 @@
             "weight": 1
         },
         {
-            "v": "schema:CreativeWork1",
-            "w": "owl:Thing",
-            "name": "schema:CreativeWork1***owl:Thing",
+            "v": "schema-dig:PersonOrOrganization1",
+            "w": "schema:CreativeWork1",
+            "name": "schema-dig:PersonOrOrganization1***schema:CreativeWork1",
             "value": {
-                "label": "rdfs:subClassOf",
-                "type": "inherited",
-                "weight": 0.3333333333333333
+                "label": "schema-dig:isAuthorOf",
+                "type": "direct_property_uri",
+                "weight": 1
             },
-            "weight": 0.3333333333333333
+            "weight": 1
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:Offer3",
+            "name": "schema:CreativeWork1***schema:Offer3",
+            "value": {
+                "label": "schema:offers",
+                "type": "direct_property_uri",
+                "weight": 1
+            },
+            "weight": 1
         },
         {
             "v": "schema:Offer1",
-            "w": "owl:Thing",
-            "name": "schema:Offer1***owl:Thing",
+            "w": "Price0694",
+            "name": "schema:Offer1***Price0694",
             "value": {
-                "label": "rdfs:subClassOf",
-                "type": "inherited",
-                "weight": 0.3333333333333333
+                "label": "schema:price",
+                "type": "st_property_uri"
             },
-            "weight": 0.3333333333333333
+            "weight": 1
+        },
+        {
+            "v": "schema:Offer1",
+            "w": "schema:Offer3",
+            "name": "schema:Offer1***schema:Offer3",
+            "value": {
+                "type": "direct_property_uri",
+                "label": "schema:addOn***inverted",
+                "weight": 1
+            },
+            "weight": 1
         },
         {
             "v": "schema:Offer2",
-            "w": "bottom1509",
-            "name": "schema:Offer2***bottom1509",
+            "w": "schema:Offer3",
+            "name": "schema:Offer2***schema:Offer3",
             "value": {
-                "label": "schema:name",
-                "type": "st_property_uri"
+                "type": "direct_property_uri",
+                "label": "schema:addOn***inverted",
+                "weight": 1
             },
             "weight": 1
         },
