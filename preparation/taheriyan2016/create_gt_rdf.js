@@ -53,6 +53,7 @@ var clean_undetected_strings = (jarql_string) => {
     jarql_string = jarql_string.replace(/Maker Death Date/g, 'MakerWSPDeathWSPDate');
     jarql_string = jarql_string.replace(/HomeWSPLocation URI/g, 'HomeWSPLocationWSPURI');
     jarql_string = jarql_string.replace(/HowWSPAcquired\?/g, 'HowWSPAcquired');
+    jarql_string = jarql_string.replace(/MakerWSPBio Country/g, 'MakerWSPBioWSPCountry');
     return jarql_string;
 }
 
