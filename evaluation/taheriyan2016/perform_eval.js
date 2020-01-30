@@ -101,12 +101,14 @@ var input_file = process.argv.slice(3)[0];
 var gt_folder = 'evaluation/taheriyan2016/' + task + '/semantic_models_gt/jarql/';
 var steiner_folder = 'evaluation/taheriyan2016/' + task + '/semantic_models_steiner/jarql/';
 var st_folder = 'data/taheriyan2016/' + task + '/semantic_types/updated/';
+var results_folder = 'evaluation/taheriyan2016/' + task + '/results/semantic-modeling/';
 
 if (input_file === undefined) {
     var gt_files = fs.readdirSync(gt_folder);
     var steiner_files = fs.readdirSync(steiner_folder);
     var st_files = fs.readdirSync(st_folder);
 
+    /* *** Comparison with steiner models *** */
     console.log('\n\nCompute average precision and recall comparing steiner semantic models with ground truth');
     var avg_precision = 0;
     var avg_recall = 0;
@@ -132,6 +134,17 @@ if (input_file === undefined) {
 
     console.log('\n\n*** Average Precision comparing steiner and ground truth: ' + avg_precision / gt_files.length);
     console.log('*** Average Recall comparing steiner and ground truth: ' + avg_recall / gt_files.length);
+
+    // Save results in file
+    var d = new Date();
+    d.setSeconds(0, 0, 0);
+    var file_name = results_folder + 'result__' + d.toISOString().replace(/T/, '_').replace(/\..+/, '') + '.txt'
+    fs.appendFileSync(file_name, 'TASK 4');
+    fs.appendFileSync(file_name, '\n* Average Precision comparing steiner and ground truth: ' + avg_precision / gt_files.length);
+    fs.appendFileSync(file_name, '\n* Average Recall comparing steiner and ground truth: ' + avg_recall / gt_files.length)
+
+
+    /* *** End of comparison with steiner models *** */
 } else {
     // TODO
 }
