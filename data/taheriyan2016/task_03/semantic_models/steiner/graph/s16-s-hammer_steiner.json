@@ -13,10 +13,10 @@
             }
         },
         {
-            "v": "item.year",
+            "v": "item__year",
             "value": {
                 "type": "attribute_name",
-                "label": "item.year"
+                "label": "item__year"
             }
         },
         {
@@ -27,10 +27,10 @@
             }
         },
         {
-            "v": "item.artist",
+            "v": "item__artist",
             "value": {
                 "type": "attribute_name",
-                "label": "item.artist"
+                "label": "item__artist"
             }
         },
         {
@@ -55,32 +55,32 @@
             }
         },
         {
-            "v": "item.description",
+            "v": "item__description",
             "value": {
                 "type": "attribute_name",
-                "label": "item.description"
+                "label": "item__description"
             }
         },
         {
-            "v": "item.image",
+            "v": "item__image",
             "value": {
                 "type": "attribute_name",
-                "label": "item.image"
+                "label": "item__image"
             }
         },
         {
-            "v": "item.title",
+            "v": "item__title",
             "value": {
                 "type": "attribute_name",
-                "label": "item.title"
+                "label": "item__title"
             }
         }
     ],
     "edges": [
         {
             "v": "aac-ont:CulturalHeritageObject1",
-            "w": "item.year",
-            "name": "aac-ont:CulturalHeritageObject1***item.year",
+            "w": "item__year",
+            "name": "aac-ont:CulturalHeritageObject1***item__year",
             "value": {
                 "label": "dcterms:created",
                 "type": "st_property_uri"
@@ -100,8 +100,8 @@
         },
         {
             "v": "aac-ont:Person1",
-            "w": "item.artist",
-            "name": "aac-ont:Person1***item.artist",
+            "w": "item__artist",
+            "name": "aac-ont:Person1***item__artist",
             "value": {
                 "label": "ElementsGr2:nameOfThePerson",
                 "type": "st_property_uri"
@@ -131,9 +131,9 @@
             "weight": 1
         },
         {
-            "v": "item.description",
+            "v": "item__description",
             "w": "aac-ont:CulturalHeritageObject1",
-            "name": "item.description***aac-ont:CulturalHeritageObject1",
+            "name": "item__description***aac-ont:CulturalHeritageObject1",
             "value": {
                 "type": "st_property_uri",
                 "label": "dcterms:description***inverted",
@@ -142,9 +142,9 @@
             "weight": 1
         },
         {
-            "v": "item.image",
+            "v": "item__image",
             "w": "edm:WebResource1",
-            "name": "item.image***edm:WebResource1",
+            "name": "item__image***edm:WebResource1",
             "value": {
                 "type": "st_property_uri",
                 "label": "rdfs:label***inverted",
@@ -153,9 +153,9 @@
             "weight": 1
         },
         {
-            "v": "item.title",
+            "v": "item__title",
             "w": "aac-ont:CulturalHeritageObject1",
-            "name": "item.title***aac-ont:CulturalHeritageObject1",
+            "name": "item__title***aac-ont:CulturalHeritageObject1",
             "value": {
                 "type": "st_property_uri",
                 "label": "dcterms:title***inverted",

@@ -42,6 +42,7 @@ PREFIX saam-ont:  <http://americanart.si.edu/ontology/>
 PREFIX ore:       <http://www.openarchives.org/ore/terms/>
 PREFIX scharp:    <http://scharp.usc.isi.edu/ontology/>
 PREFIX memex:     <http://dig.isi.edu/ontology/memex/>
+PREFIX dc:        <http://purl.org/dc/elements/1.1/>
 PREFIX jarql:     <http://jarql.com/>
 
 CONSTRUCT {
@@ -55,7 +56,7 @@ CONSTRUCT {
     ?Concept1 rdf:type skos2:Concept.
     ?Concept2 skos2:prefLabel ?Keywords.
     ?Concept2 rdf:type skos2:Concept.
-    ?CulturalHeritageObject1 http://purl.org/dc/elements/1.1/rights ?Copyright.
+    ?CulturalHeritageObject1 dc:rights ?Copyright.
     ?CulturalHeritageObject1 rdf:type aac-ont:CulturalHeritageObject.
     ?Person1 ElementsGr2:dateOfBirth ?birthDate.
     ?Person1 rdf:type aac-ont:Person.

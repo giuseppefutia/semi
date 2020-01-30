@@ -42,26 +42,27 @@ PREFIX saam-ont:  <http://americanart.si.edu/ontology/>
 PREFIX ore:       <http://www.openarchives.org/ore/terms/>
 PREFIX scharp:    <http://scharp.usc.isi.edu/ontology/>
 PREFIX memex:     <http://dig.isi.edu/ontology/memex/>
+PREFIX dc:        <http://purl.org/dc/elements/1.1/>
 PREFIX jarql:     <http://jarql.com/>
 
 CONSTRUCT {
-    ?Person1 ElementsGr2:nameOfThePerson ?artist.name.
+    ?Person1 ElementsGr2:nameOfThePerson ?artist__name.
     ?Person1 rdf:type aac-ont:Person.
     ?CulturalHeritageObject1 aac-ont:accessionNumber ?object_no.
     ?CulturalHeritageObject1 rdf:type aac-ont:CulturalHeritageObject.
     ?CulturalHeritageObject1 dcterms:provenance ?credit_line.
     ?CulturalHeritageObject1 rdf:type aac-ont:CulturalHeritageObject.
-    ?Person1 ElementsGr2:dateOfBirth ?artist.birth_date.
+    ?Person1 ElementsGr2:dateOfBirth ?artist__birth_date.
     ?Person1 rdf:type aac-ont:Person.
     ?CulturalHeritageObject1 dcterms:title ?Artwork_Title.
     ?CulturalHeritageObject1 rdf:type aac-ont:CulturalHeritageObject.
     ?CulturalHeritageObject1 dcterms:created ?date.
     ?CulturalHeritageObject1 rdf:type aac-ont:CulturalHeritageObject.
-    ?Person1 ElementsGr2:countryAssociatedWithThePerson ?artist.nationality.
+    ?Person1 ElementsGr2:countryAssociatedWithThePerson ?artist__nationality.
     ?Person1 rdf:type aac-ont:Person.
-    ?CulturalHeritageObject1 dcterms:extent ?dimensions.dimensions_inch.
+    ?CulturalHeritageObject1 dcterms:extent ?dimensions__dimensions_inch.
     ?CulturalHeritageObject1 rdf:type aac-ont:CulturalHeritageObject.
-    ?Person1 ElementsGr2:dateOfDeath ?artist.death_date.
+    ?Person1 ElementsGr2:dateOfDeath ?artist__death_date.
     ?Person1 rdf:type aac-ont:Person.
     ?WebResource1 rdfs:label ?image_url.
     ?WebResource1 rdf:type edm:WebResource.
@@ -90,22 +91,27 @@ CONSTRUCT {
 }
 WHERE {
     ?root a jarql:Root.
-    OPTIONAL { ?root jarql:artist.name ?artist.name. }
+    OPTIONAL { ?root jarql:artist ?artist. }
+    OPTIONAL { ?artist jarql:name ?artist__name. }
     OPTIONAL { ?root jarql:object_no ?object_no. }
     OPTIONAL { ?root jarql:credit_line ?credit_line. }
-    OPTIONAL { ?root jarql:artist.birth_date ?artist.birth_date. }
+    OPTIONAL { ?root jarql:artist ?artist. }
+    OPTIONAL { ?artist jarql:birth_date ?artist__birth_date. }
     OPTIONAL { ?root jarql:Artwork_Title ?Artwork_Title. }
     OPTIONAL { ?root jarql:date ?date. }
-    OPTIONAL { ?root jarql:artist.nationality ?artist.nationality. }
-    OPTIONAL { ?root jarql:dimensions.dimensions_inch ?dimensions.dimensions_inch. }
-    OPTIONAL { ?root jarql:artist.death_date ?artist.death_date. }
+    OPTIONAL { ?root jarql:artist ?artist. }
+    OPTIONAL { ?artist jarql:nationality ?artist__nationality. }
+    OPTIONAL { ?root jarql:dimensions ?dimensions. }
+    OPTIONAL { ?dimensions jarql:dimensions_inch ?dimensions__dimensions_inch. }
+    OPTIONAL { ?root jarql:artist ?artist. }
+    OPTIONAL { ?artist jarql:death_date ?artist__death_date. }
     OPTIONAL { ?root jarql:image_url ?image_url. }
     OPTIONAL { ?root jarql:description ?description. }
     OPTIONAL { ?root jarql:medium ?medium. }
-    BIND (URI(CONCAT('http://purl.org/vocab/frbr/core/person/',?artist.name)) as ?Person1)
+    BIND (URI(CONCAT('http://purl.org/vocab/frbr/core/person/',?artist__name)) as ?Person1)
     BIND (URI(CONCAT('http://www.americanartcollaborative.org/ontology//culturalheritageobject/',?object_no)) as ?CulturalHeritageObject1)
     BIND (URI(CONCAT('http://www.europeana.eu/schemas/edm//webresource/',?image_url)) as ?WebResource1)
-    BIND (URI(CONCAT('http://purl.org/vocab/frbr/core/place/',?artist.name)) as ?Place1)
-    BIND (URI(CONCAT('http://www.europeana.eu/schemas/edm//providedcho/',?artist.name)) as ?ProvidedCHO1)
+    BIND (URI(CONCAT('http://purl.org/vocab/frbr/core/place/',?artist__name)) as ?Place1)
+    BIND (URI(CONCAT('http://www.europeana.eu/schemas/edm//providedcho/',?artist__name)) as ?ProvidedCHO1)
     BIND (URI(CONCAT('http://www.openarchives.org/ore/terms//aggregation/',?image_url)) as ?Aggregation1)
 }
