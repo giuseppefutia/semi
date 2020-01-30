@@ -185,6 +185,7 @@ def main(args):
 
         forward_time.append(t1 - t0)
         backward_time.append(t2 - t1)
+
         print("\nEpoch {:04d} | Loss {:.4f} | Best MRR {:.4f} | Forward {:.4f}s | Backward {:.4f}s".
               format(epoch, loss.item(), best_mrr, forward_time[-1], backward_time[-1]))
 

@@ -28,6 +28,4 @@ class ModelDictionary(object):
 
     def _file_path_for_tah_dict(self):
         self.path = join(os.path.dirname(self.path), 'complete.nt')
-        print('##########')
-        print(self.path)
         return self.path

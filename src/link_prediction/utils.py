@@ -253,7 +253,7 @@ def evaluate(test_graph, model, test_triplets, epoch, entity_dict, relation_dict
             avg_count = torch.mean((ranks <= hit).float())
             print("Hits (raw) @ {}: {:.6f}".format(hit, avg_count.item()))
 
-        print("\n\n")
+        print("\n")
     return mrr.item()
 
 # The following functions are added by Giuseppe Futia
@@ -261,7 +261,7 @@ def evaluate(test_graph, model, test_triplets, epoch, entity_dict, relation_dict
 
 def print_scores_as_json(score_list, dir_path, score_path, epoch):
     final_path = dir_path + score_path + '/' + str(epoch) + '/'
-    print("\nPrint score as json: " + final_path + "...")
+    print("\nPrint score as json:\n " + final_path + "...")
     if not os.path.exists(final_path):
         os.makedirs(final_path)
     with open(final_path + "score.json", "w") as f:

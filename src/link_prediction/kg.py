@@ -1,4 +1,5 @@
 import os
+import shutil
 import numpy as np
 import csv
 import rdflib
@@ -36,6 +37,24 @@ class RGCNDataSet(object):
         self.dictionary = ModelDictionary(parser, self.valid_rdf_path)
 
     def load_data(self):
+
+        # Clean dictionaries
+        dicts_folder = os.path.join(self.dir, 'dicts/')
+        for file_name in os.listdir(dicts_folder):
+            file_path = os.path.join(dicts_folder, file_name)
+            if os.path.isfile(file_path) or os.path.islink(file_path):
+                os.unlink(file_path)
+            elif os.path.isdir(file_path):
+                shutil.rmtree(file_path)
+
+        # Clean model_datasets
+        model_datasets_folder = os.path.join(self.dir, 'model_datasets/')
+        for file_name in os.listdir(model_datasets_folder):
+            file_path = os.path.join(model_datasets_folder, file_name)
+            if os.path.isfile(file_path) or os.path.islink(file_path):
+                os.unlink(file_path)
+            elif os.path.isdir(file_path):
+                shutil.rmtree(file_path)
 
         # Create dictionaries to assign a unique id to entities and relations
         self._set_up_dicts()
@@ -89,8 +108,6 @@ class RGCNDataSet(object):
     def _prepare_dicts(self, file_path_for_dict):
         entities = []
         relations = []
-
-        print(file_path_for_dict)
 
         # Process the Knowledge Graph
         g = rdflib.Graph()
