@@ -1,0 +1,9 @@
+digraph {
+  "aac-ont:Person1" [type=class_uri,label="aac-ont:Person"]
+  deathDate [type=attribute_name,label=deathDate]
+  birthDate [type=attribute_name,label=birthDate]
+  name [type=attribute_name,label=name]
+  "aac-ont:Person1" -> deathDate [label="ElementsGr2:dateOfDeath",type=st_property_uri]
+  birthDate -> "aac-ont:Person1" [type=st_property_uri,label="ElementsGr2:dateOfBirth***inverted",weight=1]
+  name -> "aac-ont:Person1" [type=st_property_uri,label="ElementsGr2:biographicalInformation***inverted",weight=1]
+}

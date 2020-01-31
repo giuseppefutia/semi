@@ -1,0 +1,108 @@
+PREFIX schema:    <http://schema.org/>
+PREFIX rdfs:      <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX pc:        <http://purl.org/procurement/public-contracts#>
+PREFIX gr:        <http://purl.org/goodrelations/v1#>
+PREFIX owl:       <http://www.w3.org/2002/07/owl#>
+PREFIX adms:      <http://www.w3.org/ns/adms#>
+PREFIX c4n:       <http://vocab.deri.ie/c4n#>
+PREFIX dcterms:   <http://purl.org/dc/terms/>
+PREFIX foaf:      <http://xmlns.com/foaf/0.1/>
+PREFIX loted:     <http://www.loted.eu/ontology#>
+PREFIX payment:   <http://reference.data.gov.uk/def/payment#>
+PREFIX qb:        <http://purl.org/linked-data/cube#>
+PREFIX rdf:       <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX skos:      <http://www.w3.org/2004/02/skos/core#>
+PREFIX vann:      <http://purl.org/vocab/vann/>
+PREFIX xsd:       <http://www.w3.org/2001/XMLSchema#>
+PREFIX conference: <http://conference#>
+PREFIX cmt:       <http://cmt#>
+PREFIX sigkdd:    <http://sigkdd#>
+PREFIX crm:       <http://erlangen-crm.org/current/>
+PREFIX id:        <http://collection.britishmuseum.org/id/>
+PREFIX idThes:    <http://collection.britishmuseum.org/id/thesauri/>
+PREFIX prov:      <http://www.w3.org/ns/prov#>
+PREFIX bmo:       <http://collection.britishmuseum.org/id/ontology/>
+PREFIX aac-ont:   <http://www.americanartcollaborative.org/ontology/>
+PREFIX skos2:     <http://www.w3.org/2008/05/skos#>
+PREFIX ElementsGr2: <http://rdvocab.info/ElementsGr2/>
+PREFIX rdvocab-schema: <http://rdvocab.info/uri/schema/FRBRentitiesRDA/>
+PREFIX edm:       <http://www.europeana.eu/schemas/edm/>
+PREFIX schema-dig: <http://schema.dig.isi.edu/ontology/>
+PREFIX geo:       <http://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX frbr:      <http://purl.org/vocab/frbr/core#>
+PREFIX swap:      <http://www.w3.org/2000/10/swap/pim/contact#>
+PREFIX cidoc-crm: <http://www.cidoc-crm.org/rdfs/cidoc-crm#>
+PREFIX abc:       <http://metadata.net/harmony/abc#>
+PREFIX DOLCE-Lite: <http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#>
+PREFIX dcmitype:  <http://purl.org/dc/dcmitype/>
+PREFIX msg0:      <http://web.resource.org/cc/>
+PREFIX time-entry: <http://www.isi.edu/~pan/damltime/time-entry.owl#>
+PREFIX wordnet:   <http://xmlns.com/wordnet/1.6/Work~2>
+PREFIX saam-ont:  <http://americanart.si.edu/ontology/>
+PREFIX ore:       <http://www.openarchives.org/ore/terms/>
+PREFIX scharp:    <http://scharp.usc.isi.edu/ontology/>
+PREFIX memex:     <http://dig.isi.edu/ontology/memex/>
+PREFIX dc:        <http://purl.org/dc/elements/1.1/>
+PREFIX jarql:     <http://jarql.com/>
+
+CONSTRUCT {
+    ?WebResource1 rdfs:label ?Pic_URL.
+    ?WebResource1 rdf:type edm:WebResource.
+    ?Person1 ElementsGr2:dateOfDeath ?deathDate.
+    ?Person1 rdf:type aac-ont:Person.
+    ?CulturalHeritageObject1 dcterms:extent ?Dimensions.
+    ?CulturalHeritageObject1 rdf:type aac-ont:CulturalHeritageObject.
+    ?Person1 ElementsGr2:dateOfBirth ?birthDate.
+    ?Person1 rdf:type aac-ont:Person.
+    ?CulturalHeritageObject1 dcterms:provenance ?Credit.
+    ?CulturalHeritageObject1 rdf:type aac-ont:CulturalHeritageObject.
+    ?CulturalHeritageObject1 dcterms:title ?Title.
+    ?CulturalHeritageObject1 rdf:type aac-ont:CulturalHeritageObject.
+    ?Person1 ElementsGr2:nameOfThePerson ?ArtistName.
+    ?Person1 rdf:type aac-ont:Person.
+    ?Concept2 skos2:prefLabel ?Type_of_Art.
+    ?Concept2 rdf:type skos2:Concept.
+    ?CulturalHeritageObject1 dcterms:medium ?Subtype_of_Art.
+    ?CulturalHeritageObject1 rdf:type aac-ont:CulturalHeritageObject.
+    ?CulturalHeritageObject1 dcterms:created ?Date_made.
+    ?CulturalHeritageObject1 rdf:type aac-ont:CulturalHeritageObject.
+    ?CulturalHeritageObject1 dcterms:description ?Inscription.
+    ?CulturalHeritageObject1 rdf:type aac-ont:CulturalHeritageObject.
+    ?Concept1 skos2:prefLabel ?Keywords.
+    ?Concept1 rdf:type skos2:Concept.
+    ?CulturalHeritageObject1 aac-ont:accessionNumber ?Accession_id.
+    ?CulturalHeritageObject1 rdf:type aac-ont:CulturalHeritageObject.
+    ?CulturalHeritageObject1 skos2:semanticRelation ?Person1.
+    ?ProvidedCHO1 aac-ont:sitter ?Person1.
+    ?Aggregation1 edm:hasView ?WebResource1.
+    ?Aggregation1 edm:aggregatedCHO ?ProvidedCHO1.
+    ?Accession_id rdfs:subClassOf owl:Thing.
+    ?ConceptScheme1 skos2:hasTopConcept ?Concept1.
+    ?ConceptScheme2 skos2:hasTopConcept ?Concept2.
+    ?ConceptScheme1 rdfs:subClassOf owl:Thing.
+}
+WHERE {
+    ?root a jarql:Root.
+    OPTIONAL { ?root jarql:Pic_URL ?Pic_URL. }
+    OPTIONAL { ?root jarql:deathDate ?deathDate. }
+    OPTIONAL { ?root jarql:Dimensions ?Dimensions. }
+    OPTIONAL { ?root jarql:birthDate ?birthDate. }
+    OPTIONAL { ?root jarql:Credit ?Credit. }
+    OPTIONAL { ?root jarql:Title ?Title. }
+    OPTIONAL { ?root jarql:ArtistName ?ArtistName. }
+    OPTIONAL { ?root jarql:Type_of_Art ?Type_of_Art. }
+    OPTIONAL { ?root jarql:Subtype_of_Art ?Subtype_of_Art. }
+    OPTIONAL { ?root jarql:Date_made ?Date_made. }
+    OPTIONAL { ?root jarql:Inscription ?Inscription. }
+    OPTIONAL { ?root jarql:Keywords ?Keywords. }
+    OPTIONAL { ?root jarql:Accession_id ?Accession_id. }
+    BIND (URI(CONCAT('http://www.europeana.eu/schemas/edm//webresource/',?Pic_URL)) as ?WebResource1)
+    BIND (URI(CONCAT('http://purl.org/vocab/frbr/core/person/',?deathDate)) as ?Person1)
+    BIND (URI(CONCAT('http://www.americanartcollaborative.org/ontology//culturalheritageobject/',?Dimensions)) as ?CulturalHeritageObject1)
+    BIND (URI(CONCAT('http://purl.org/vocab/frbr/core/concept/',?Type_of_Art)) as ?Concept2)
+    BIND (URI(CONCAT('http://purl.org/vocab/frbr/core/concept/',?Keywords)) as ?Concept1)
+    BIND (URI(CONCAT('http://www.europeana.eu/schemas/edm//providedcho/',?deathDate)) as ?ProvidedCHO1)
+    BIND (URI(CONCAT('http://www.openarchives.org/ore/terms//aggregation/',?Pic_URL)) as ?Aggregation1)
+    BIND (URI(CONCAT('http://www.w3.org/2008/05/skos/conceptscheme/',?Keywords)) as ?ConceptScheme1)
+    BIND (URI(CONCAT('http://www.w3.org/2008/05/skos/conceptscheme/',?Type_of_Art)) as ?ConceptScheme2)
+}

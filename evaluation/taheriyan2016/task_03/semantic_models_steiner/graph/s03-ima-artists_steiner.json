@@ -1,0 +1,89 @@
+{
+    "options": {
+        "directed": true,
+        "multigraph": true,
+        "compound": false
+    },
+    "nodes": [
+        {
+            "v": "aac-ont:Person1",
+            "value": {
+                "type": "class_uri",
+                "label": "aac-ont:Person"
+            }
+        },
+        {
+            "v": "birthDate",
+            "value": {
+                "type": "attribute_name",
+                "label": "birthDate"
+            }
+        },
+        {
+            "v": "deathDate",
+            "value": {
+                "type": "attribute_name",
+                "label": "deathDate"
+            }
+        },
+        {
+            "v": "name",
+            "value": {
+                "type": "attribute_name",
+                "label": "name"
+            }
+        },
+        {
+            "v": "nationality",
+            "value": {
+                "type": "attribute_name",
+                "label": "nationality"
+            }
+        }
+    ],
+    "edges": [
+        {
+            "v": "aac-ont:Person1",
+            "w": "birthDate",
+            "name": "aac-ont:Person1***birthDate",
+            "value": {
+                "label": "ElementsGr2:dateOfBirth",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "deathDate",
+            "w": "aac-ont:Person1",
+            "name": "deathDate***aac-ont:Person1",
+            "value": {
+                "type": "st_property_uri",
+                "label": "ElementsGr2:dateOfDeath***inverted",
+                "weight": 1
+            },
+            "weight": 1
+        },
+        {
+            "v": "name",
+            "w": "aac-ont:Person1",
+            "name": "name***aac-ont:Person1",
+            "value": {
+                "type": "st_property_uri",
+                "label": "ElementsGr2:nameOfThePerson***inverted",
+                "weight": 1
+            },
+            "weight": 1
+        },
+        {
+            "v": "nationality",
+            "w": "aac-ont:Person1",
+            "name": "nationality***aac-ont:Person1",
+            "value": {
+                "type": "st_property_uri",
+                "label": "ElementsGr2:countryAssociatedWithThePerson***inverted",
+                "weight": 1
+            },
+            "weight": 1
+        }
+    ]
+}

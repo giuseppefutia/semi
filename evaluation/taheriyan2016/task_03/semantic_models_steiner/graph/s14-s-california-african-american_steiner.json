@@ -1,0 +1,339 @@
+{
+    "options": {
+        "directed": true,
+        "multigraph": true,
+        "compound": false
+    },
+    "nodes": [
+        {
+            "v": "aac-ont:CulturalHeritageObject1",
+            "value": {
+                "type": "class_uri",
+                "label": "aac-ont:CulturalHeritageObject"
+            }
+        },
+        {
+            "v": "title",
+            "value": {
+                "type": "attribute_name",
+                "label": "title"
+            }
+        },
+        {
+            "v": "aac-ont:Person1",
+            "value": {
+                "type": "class_uri",
+                "label": "aac-ont:Person"
+            }
+        },
+        {
+            "v": "artist",
+            "value": {
+                "type": "attribute_name",
+                "label": "artist"
+            }
+        },
+        {
+            "v": "foaf:Person",
+            "value": {
+                "type": "class_uri",
+                "label": "foaf:Person"
+            }
+        },
+        {
+            "v": "accessionId",
+            "value": {
+                "type": "attribute_name",
+                "label": "accessionId"
+            }
+        },
+        {
+            "v": "dimensions",
+            "value": {
+                "type": "attribute_name",
+                "label": "dimensions"
+            }
+        },
+        {
+            "v": "edm:ProvidedCHO",
+            "value": {
+                "type": "class_uri",
+                "label": "edm:ProvidedCHO"
+            }
+        },
+        {
+            "v": "edm:WebResource1",
+            "value": {
+                "type": "class_uri",
+                "label": "edm:WebResource"
+            }
+        },
+        {
+            "v": "ore:Aggregation",
+            "value": {
+                "type": "class_uri",
+                "label": "ore:Aggregation"
+            }
+        },
+        {
+            "v": "foaf:Document1",
+            "value": {
+                "type": "class_uri",
+                "label": "foaf:Document"
+            }
+        },
+        {
+            "v": "url",
+            "value": {
+                "type": "attribute_name",
+                "label": "url"
+            }
+        },
+        {
+            "v": "imageUrl",
+            "value": {
+                "type": "attribute_name",
+                "label": "imageUrl"
+            }
+        },
+        {
+            "v": "owl:Thing",
+            "value": {
+                "type": "special",
+                "label": "owl:Thing"
+            }
+        },
+        {
+            "v": "provenance",
+            "value": {
+                "type": "attribute_name",
+                "label": "provenance"
+            }
+        },
+        {
+            "v": "skos2:Concept1",
+            "value": {
+                "type": "class_uri",
+                "label": "skos2:Concept"
+            }
+        },
+        {
+            "v": "skos2:ConceptScheme",
+            "value": {
+                "type": "class_uri",
+                "label": "skos2:ConceptScheme"
+            }
+        },
+        {
+            "v": "technique",
+            "value": {
+                "type": "attribute_name",
+                "label": "technique"
+            }
+        },
+        {
+            "v": "type",
+            "value": {
+                "type": "attribute_name",
+                "label": "type"
+            }
+        }
+    ],
+    "edges": [
+        {
+            "v": "aac-ont:CulturalHeritageObject1",
+            "w": "title",
+            "name": "aac-ont:CulturalHeritageObject1***title",
+            "value": {
+                "label": "dcterms:title",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "aac-ont:Person1",
+            "w": "aac-ont:CulturalHeritageObject1",
+            "name": "aac-ont:Person1***aac-ont:CulturalHeritageObject1",
+            "value": {
+                "type": "inherited",
+                "label": "skos2:semanticRelation***inverted",
+                "weight": 4
+            },
+            "weight": 4
+        },
+        {
+            "v": "aac-ont:Person1",
+            "w": "artist",
+            "name": "aac-ont:Person1***artist",
+            "value": {
+                "label": "ElementsGr2:nameOfThePerson",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "aac-ont:Person1",
+            "w": "foaf:Person",
+            "name": "aac-ont:Person1***foaf:Person",
+            "value": {
+                "type": "inherited",
+                "label": "foaf:based_near***inverted",
+                "weight": 4
+            },
+            "weight": 4
+        },
+        {
+            "v": "accessionId",
+            "w": "aac-ont:CulturalHeritageObject1",
+            "name": "accessionId***aac-ont:CulturalHeritageObject1",
+            "value": {
+                "type": "st_property_uri",
+                "label": "aac-ont:accessionNumber***inverted",
+                "weight": 1
+            },
+            "weight": 1
+        },
+        {
+            "v": "dimensions",
+            "w": "aac-ont:CulturalHeritageObject1",
+            "name": "dimensions***aac-ont:CulturalHeritageObject1",
+            "value": {
+                "type": "st_property_uri",
+                "label": "dcterms:extent***inverted",
+                "weight": 1
+            },
+            "weight": 1
+        },
+        {
+            "v": "edm:ProvidedCHO",
+            "w": "aac-ont:Person1",
+            "name": "edm:ProvidedCHO***aac-ont:Person1",
+            "value": {
+                "label": "aac-ont:sitter",
+                "type": "direct_property_uri",
+                "weight": 1
+            },
+            "weight": 1
+        },
+        {
+            "v": "edm:WebResource1",
+            "w": "ore:Aggregation",
+            "name": "edm:WebResource1***ore:Aggregation",
+            "value": {
+                "type": "direct_property_uri",
+                "label": "edm:hasView***inverted",
+                "weight": 1
+            },
+            "weight": 1
+        },
+        {
+            "v": "foaf:Document1",
+            "w": "url",
+            "name": "foaf:Document1***url",
+            "value": {
+                "label": "rdfs:label",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "foaf:Person",
+            "w": "foaf:Document1",
+            "name": "foaf:Person***foaf:Document1",
+            "value": {
+                "label": "foaf:publications",
+                "type": "direct_property_uri",
+                "weight": 1
+            },
+            "weight": 1
+        },
+        {
+            "v": "imageUrl",
+            "w": "edm:WebResource1",
+            "name": "imageUrl***edm:WebResource1",
+            "value": {
+                "type": "st_property_uri",
+                "label": "rdfs:label***inverted",
+                "weight": 1
+            },
+            "weight": 1
+        },
+        {
+            "v": "ore:Aggregation",
+            "w": "edm:ProvidedCHO",
+            "name": "ore:Aggregation***edm:ProvidedCHO",
+            "value": {
+                "label": "edm:aggregatedCHO",
+                "type": "direct_property_uri",
+                "weight": 1
+            },
+            "weight": 1
+        },
+        {
+            "v": "owl:Thing",
+            "w": "imageUrl",
+            "name": "owl:Thing***imageUrl",
+            "value": {
+                "type": "inherited",
+                "label": "rdfs:subClassOf***inverted",
+                "weight": 0.3333333333333333
+            },
+            "weight": 0.3333333333333333
+        },
+        {
+            "v": "provenance",
+            "w": "aac-ont:CulturalHeritageObject1",
+            "name": "provenance***aac-ont:CulturalHeritageObject1",
+            "value": {
+                "type": "st_property_uri",
+                "label": "dcterms:provenance***inverted",
+                "weight": 1
+            },
+            "weight": 1
+        },
+        {
+            "v": "skos2:Concept1",
+            "w": "skos2:ConceptScheme",
+            "name": "skos2:Concept1***skos2:ConceptScheme",
+            "value": {
+                "type": "direct_property_uri",
+                "label": "skos2:hasTopConcept***inverted",
+                "weight": 1
+            },
+            "weight": 1
+        },
+        {
+            "v": "skos2:ConceptScheme",
+            "w": "owl:Thing",
+            "name": "skos2:ConceptScheme***owl:Thing",
+            "value": {
+                "label": "rdfs:subClassOf",
+                "type": "inherited",
+                "weight": 0.3333333333333333
+            },
+            "weight": 0.3333333333333333
+        },
+        {
+            "v": "technique",
+            "w": "aac-ont:CulturalHeritageObject1",
+            "name": "technique***aac-ont:CulturalHeritageObject1",
+            "value": {
+                "type": "st_property_uri",
+                "label": "dcterms:medium***inverted",
+                "weight": 1
+            },
+            "weight": 1
+        },
+        {
+            "v": "type",
+            "w": "skos2:Concept1",
+            "name": "type***skos2:Concept1",
+            "value": {
+                "type": "st_property_uri",
+                "label": "skos2:prefLabel***inverted",
+                "weight": 1
+            },
+            "weight": 1
+        }
+    ]
+}
