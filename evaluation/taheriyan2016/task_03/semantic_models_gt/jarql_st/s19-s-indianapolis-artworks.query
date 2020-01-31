@@ -64,7 +64,7 @@ CONSTRUCT {
     ?CulturalHeritageObject1 rdf:type aac-ont:CulturalHeritageObject.
     ?CulturalHeritageObject1 dcterms:created ?creationDate.
     ?CulturalHeritageObject1 rdf:type aac-ont:CulturalHeritageObject.
-    ?Document1 rdfs:label ?relatedArtworks__relatedArtworksURL.
+    #?Document1 rdfs:label ?relatedArtworks__relatedArtworksURL.
     ?Document1 rdf:type foaf:Document.
     ?Person1 ElementsGr2:nameOfThePerson ?artist.
     ?Person1 rdf:type aac-ont:Person.
@@ -74,7 +74,7 @@ CONSTRUCT {
     ?CulturalHeritageObject1 rdf:type aac-ont:CulturalHeritageObject.
     ?CulturalHeritageObject1 dcterms:provenance ?creditLine.
     ?CulturalHeritageObject1 rdf:type aac-ont:CulturalHeritageObject.
-    ?CulturalHeritageObject2 dcterms:title ?relatedArtworks__relatedArtworksTitle.
+    #?CulturalHeritageObject2 dcterms:title ?relatedArtworks__relatedArtworksTitle.
     ?CulturalHeritageObject2 rdf:type aac-ont:CulturalHeritageObject.
     ?CulturalHeritageObject1 aac-ont:accessionNumber ?accessionNumber.
     ?CulturalHeritageObject1 rdf:type aac-ont:CulturalHeritageObject.
@@ -93,21 +93,21 @@ WHERE {
     OPTIONAL { ?root jarql:sourceURL ?sourceURL. }
     OPTIONAL { ?root jarql:galleryLabel ?galleryLabel. }
     OPTIONAL { ?root jarql:creationDate ?creationDate. }
-    OPTIONAL { ?root jarql:relatedArtworks ?relatedArtworks. }
-    OPTIONAL { ?relatedArtworks jarql:relatedArtworksURL ?relatedArtworks__relatedArtworksURL. }
+    #OPTIONAL { ?root jarql:relatedArtworks ?relatedArtworks. }
+    #OPTIONAL { ?relatedArtworks jarql:relatedArtworksURL ?relatedArtworks__relatedArtworksURL. }
     OPTIONAL { ?root jarql:artist ?artist. }
     OPTIONAL { ?root jarql:provenance ?provenance. }
     OPTIONAL { ?root jarql:dimensions ?dimensions. }
     OPTIONAL { ?root jarql:creditLine ?creditLine. }
-    OPTIONAL { ?root jarql:relatedArtworks ?relatedArtworks. }
-    OPTIONAL { ?relatedArtworks jarql:relatedArtworksTitle ?relatedArtworks__relatedArtworksTitle. }
+    #OPTIONAL { ?root jarql:relatedArtworks ?relatedArtworks. }
+    #OPTIONAL { ?relatedArtworks jarql:relatedArtworksTitle ?relatedArtworks__relatedArtworksTitle. }
     OPTIONAL { ?root jarql:accessionNumber ?accessionNumber. }
     OPTIONAL { ?root jarql:imageURL ?imageURL. }
     BIND (URI(CONCAT('http://purl.org/vocab/frbr/core/person/',?birthDate)) as ?Person1)
     BIND (URI(CONCAT('http://www.americanartcollaborative.org/ontology//culturalheritageobject/',?title)) as ?CulturalHeritageObject1)
     BIND (URI(CONCAT('http://purl.org/vocab/frbr/core/concept/',?keywords__keyword)) as ?Concept1)
     BIND (URI(CONCAT('http://xmlns.com/foaf/0.1//document/',?sourceURL)) as ?Document2)
-    BIND (URI(CONCAT('http://xmlns.com/foaf/0.1//document/',?relatedArtworks__relatedArtworksURL)) as ?Document1)
-    BIND (URI(CONCAT('http://www.americanartcollaborative.org/ontology//culturalheritageobject/',?relatedArtworks__relatedArtworksTitle)) as ?CulturalHeritageObject2)
+    #BIND (URI(CONCAT('http://xmlns.com/foaf/0.1//document/',?relatedArtworks__relatedArtworksURL)) as ?Document1)
+    #BIND (URI(CONCAT('http://www.americanartcollaborative.org/ontology//culturalheritageobject/',?relatedArtworks__relatedArtworksTitle)) as ?CulturalHeritageObject2)
     BIND (URI(CONCAT('http://www.europeana.eu/schemas/edm//webresource/',?imageURL)) as ?WebResource1)
 }
