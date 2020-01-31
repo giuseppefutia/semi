@@ -74,6 +74,6 @@ WHERE {
     BIND (URI(CONCAT('http://www.europeana.eu/schemas/edm//webresource/',?IMAGESRC)) as ?WebResource1)
     BIND (URI(CONCAT('http://www.europeana.eu/schemas/edm//webresource/',?VIDEO)) as ?WebResource2)
     BIND (URI(CONCAT('http://purl.org/vocab/frbr/core/person/',?AUTHOR)) as ?Person1)
-    BIND (URI(CONCAT('http://www.americanartcollaborative.org/ontology//culturalheritageobject/',?DESCRIPTION)) as ?CulturalHeritageObject1)
-    BIND (URI(CONCAT('http://www.europeana.eu/schemas/edm//europeanaaggregation/',?DESCRIPTION)) as ?EuropeanaAggregation1)
+    BIND (URI(CONCAT('http://www.americanartcollaborative.org/ontology//culturalheritageobject/',?TITLE)) as ?CulturalHeritageObject1)
+    BIND (URI(CONCAT('http://www.europeana.eu/schemas/edm//europeanaaggregation/',?TITLE)) as ?EuropeanaAggregation1)
 }
