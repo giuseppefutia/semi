@@ -238,11 +238,13 @@ def evaluate(test_graph, model, test_triplets, epoch, entity_dict, relation_dict
         ranks += 1  # change to 1-indexed
         score_list.extend(score_list_o)
 
-        # print scores and ranks of triples
+        # print scores and ranks of triples and the embeddings of entities and relations
+        emb_nodes, emb_rels = export_embeddings(embedding, w)
         score_dir = directory + "model_datasets/scores/"
-        print_scores_as_json(score_list, score_dir, score_path, epoch)
+        print_scores_and_embs(score_list, score_dir,
+                              score_path, epoch, emb_nodes, emb_rels)
 
-        # visualize the numbero of triples for each rank
+        # visualize the number of triples for each rank
         rank_values, number_of_triples = prepare_ranks_for_vis(score_list)
         vis.plot_rank(rank_values, np.array(number_of_triples))
 
@@ -259,13 +261,21 @@ def evaluate(test_graph, model, test_triplets, epoch, entity_dict, relation_dict
 # The following functions are added by Giuseppe Futia
 
 
-def print_scores_as_json(score_list, dir_path, score_path, epoch):
+def print_scores_and_embs(score_list, dir_path, score_path, epoch, emb_nodes, emb_rels):
     final_path = dir_path + score_path + '/' + str(epoch) + '/'
     print("\nPrint score as json:\n " + final_path + "...")
+
     if not os.path.exists(final_path):
         os.makedirs(final_path)
+
     with open(final_path + "score.json", "w") as f:
         json.dump(score_list, f, ensure_ascii=False, indent=4)
+
+    with open(final_path + "emb_nodes.json", "w") as f:
+        json.dump(emb_nodes, f, ensure_ascii=False, indent=4)
+
+    with open(final_path + "emb_rels.json", "w") as f:
+        json.dump(emb_rels, f, ensure_ascii=False, indent=4)
 
 
 def prepare_ranks_for_vis(ranks):
@@ -322,3 +332,21 @@ def export_triples_score(batch_s, batch_r, batch_o, batch_rank, batch_score,
                        }
         score_list.append(triple_dict)
     return score_list
+
+
+def export_embeddings(emb_nodes, emb_rels):
+    """ Export in external file the embeddings of entities and relations obtained within the best model
+    """
+    emb_nodes_list = []
+    node_idx = 0
+    for row in emb_nodes:
+        emb_nodes_list.append({"id": node_idx, "emb": row.tolist()})
+        node_idx = node_idx + 1
+
+    emb_rels_list = []
+    rel_idx = 0
+    for row in emb_rels:
+        emb_rels_list.append({"id": rel_idx, "emb": row.tolist()})
+        rel_idx = rel_idx + 1
+
+    return emb_nodes_list, emb_rels_list
