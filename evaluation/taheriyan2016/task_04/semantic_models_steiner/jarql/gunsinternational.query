@@ -74,10 +74,11 @@ CONSTRUCT {
     ?PostalAddress1 rdf:type schema:PostalAddress.
     ?PostalAddress1 schema:postalCode ?Zip4218.
     ?PostalAddress1 rdf:type schema:PostalAddress.
-    ?Firearm1 schema:category ?Offer1.
-    ?PostalAddress1 schema:productSupported ?Firearm1.
-    ?PersonOrOrganization1 schema-dig:isAuthorOf ?CreativeWork1.
-    ?CreativeWork1 schema:offers ?Offer1.
+    ?Price4278 rdfs:subClassOf owl:Thing.
+    ?Zip4218 rdfs:subClassOf owl:Thing.
+    ?Firearm1 rdfs:subClassOf owl:Thing.
+    ?CreativeWork1 schema-dig:owner ?PersonOrOrganization1.
+    ?Offer1 schema:category ?CreativeWork1.
 }
 WHERE {
     ?root a jarql:Root.

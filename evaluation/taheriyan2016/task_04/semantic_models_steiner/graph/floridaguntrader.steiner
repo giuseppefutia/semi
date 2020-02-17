@@ -55,6 +55,10 @@
             "type": "attribute_name",
             "label": "file_name"
         },
+        "owl:Thing": {
+            "type": "special",
+            "label": "owl:Thing"
+        },
         "schema:Place1": {
             "type": "class_uri",
             "label": "schema:Place"
@@ -148,16 +152,16 @@
                 },
                 "weight": 1
             },
-            "schema-dig:PersonOrOrganization1\u0001schema:CreativeWork1\u0001schema-dig:PersonOrOrganization1***schema:CreativeWork1\u0001direct_property_urischema-dig:isAuthorOf\u00011": {
+            "schema-dig:PersonOrOrganization1\u0001schema:CreativeWork1\u0001schema-dig:PersonOrOrganization1***schema:CreativeWork1\u0001inheritedschema-dig:owner***inverted\u00014": {
                 "v": "schema-dig:PersonOrOrganization1",
                 "w": "schema:CreativeWork1",
                 "name": "schema-dig:PersonOrOrganization1***schema:CreativeWork1",
                 "value": {
-                    "label": "schema-dig:isAuthorOf",
-                    "type": "direct_property_uri",
-                    "weight": 1
+                    "type": "inherited",
+                    "label": "schema-dig:owner***inverted",
+                    "weight": 4
                 },
-                "weight": 1
+                "weight": 4
             }
         },
         "Guns0565": {},
@@ -191,40 +195,54 @@
             }
         },
         "Start0821": {},
-        "file_name": {},
-        "schema:Place1": {
-            "schema-dig:Firearm1\u0001schema:Place1\u0001schema-dig:Firearm1***schema:Place1\u0001inheritedschema:category\u00014": {
+        "file_name": {
+            "owl:Thing\u0001file_name\u0001owl:Thing***file_name\u0001inheritedrdfs:subClassOf***inverted\u00010.3333333333333333": {
+                "v": "owl:Thing",
+                "w": "file_name",
+                "name": "owl:Thing***file_name",
+                "value": {
+                    "type": "inherited",
+                    "label": "rdfs:subClassOf***inverted",
+                    "weight": 0.3333333333333333
+                },
+                "weight": 0.3333333333333333
+            }
+        },
+        "owl:Thing": {
+            "schema-dig:Firearm1\u0001owl:Thing\u0001schema-dig:Firearm1***owl:Thing\u0001inheritedrdfs:subClassOf\u00010.3333333333333333": {
                 "v": "schema-dig:Firearm1",
+                "w": "owl:Thing",
+                "name": "schema-dig:Firearm1***owl:Thing",
+                "value": {
+                    "label": "rdfs:subClassOf",
+                    "type": "inherited",
+                    "weight": 0.3333333333333333
+                },
+                "weight": 0.3333333333333333
+            }
+        },
+        "schema:Place1": {
+            "schema:CreativeWork1\u0001schema:Place1\u0001schema:CreativeWork1***schema:Place1\u0001inheritedschema:mainEntityOfPage***inverted\u00014": {
+                "v": "schema:CreativeWork1",
                 "w": "schema:Place1",
-                "name": "schema-dig:Firearm1***schema:Place1",
+                "name": "schema:CreativeWork1***schema:Place1",
+                "value": {
+                    "type": "inherited",
+                    "label": "schema:mainEntityOfPage***inverted",
+                    "weight": 4
+                },
+                "weight": 4
+            },
+            "schema:Offer1\u0001schema:Place1\u0001schema:Offer1***schema:Place1\u0001inheritedschema:category\u00014": {
+                "v": "schema:Offer1",
+                "w": "schema:Place1",
+                "name": "schema:Offer1***schema:Place1",
                 "value": {
                     "label": "schema:category",
                     "type": "inherited",
                     "weight": 4
                 },
                 "weight": 4
-            },
-            "schema:CreativeWork1\u0001schema:Place1\u0001schema:CreativeWork1***schema:Place1\u0001direct_property_urischema:contentLocation\u00011": {
-                "v": "schema:CreativeWork1",
-                "w": "schema:Place1",
-                "name": "schema:CreativeWork1***schema:Place1",
-                "value": {
-                    "label": "schema:contentLocation",
-                    "type": "direct_property_uri",
-                    "weight": 1
-                },
-                "weight": 1
-            },
-            "schema:Offer1\u0001schema:Place1\u0001schema:Offer1***schema:Place1\u0001direct_property_urischema:eligibleRegion\u00011": {
-                "v": "schema:Offer1",
-                "w": "schema:Place1",
-                "name": "schema:Offer1***schema:Place1",
-                "value": {
-                    "label": "schema:eligibleRegion",
-                    "type": "direct_property_uri",
-                    "weight": 1
-                },
-                "weight": 1
             }
         },
         "Location0800": {
@@ -267,9 +285,13 @@
             "Seller0716": 1
         },
         "Start0821": {},
-        "file_name": {},
+        "file_name": {
+            "owl:Thing": 1
+        },
+        "owl:Thing": {
+            "schema-dig:Firearm1": 1
+        },
         "schema:Place1": {
-            "schema-dig:Firearm1": 1,
             "schema:CreativeWork1": 1,
             "schema:Offer1": 1
         },
@@ -305,16 +327,16 @@
             }
         },
         "schema:Offer1": {
-            "schema:Offer1\u0001schema:Place1\u0001schema:Offer1***schema:Place1\u0001direct_property_urischema:eligibleRegion\u00011": {
+            "schema:Offer1\u0001schema:Place1\u0001schema:Offer1***schema:Place1\u0001inheritedschema:category\u00014": {
                 "v": "schema:Offer1",
                 "w": "schema:Place1",
                 "name": "schema:Offer1***schema:Place1",
                 "value": {
-                    "label": "schema:eligibleRegion",
-                    "type": "direct_property_uri",
-                    "weight": 1
+                    "label": "schema:category",
+                    "type": "inherited",
+                    "weight": 4
                 },
-                "weight": 1
+                "weight": 4
             }
         },
         "Copyright0951": {
@@ -331,16 +353,16 @@
             }
         },
         "schema:CreativeWork1": {
-            "schema:CreativeWork1\u0001schema:Place1\u0001schema:CreativeWork1***schema:Place1\u0001direct_property_urischema:contentLocation\u00011": {
+            "schema:CreativeWork1\u0001schema:Place1\u0001schema:CreativeWork1***schema:Place1\u0001inheritedschema:mainEntityOfPage***inverted\u00014": {
                 "v": "schema:CreativeWork1",
                 "w": "schema:Place1",
                 "name": "schema:CreativeWork1***schema:Place1",
                 "value": {
-                    "label": "schema:contentLocation",
-                    "type": "direct_property_uri",
-                    "weight": 1
+                    "type": "inherited",
+                    "label": "schema:mainEntityOfPage***inverted",
+                    "weight": 4
                 },
-                "weight": 1
+                "weight": 4
             }
         },
         "Guns0565": {
@@ -357,16 +379,16 @@
             }
         },
         "schema-dig:Firearm1": {
-            "schema-dig:Firearm1\u0001schema:Place1\u0001schema-dig:Firearm1***schema:Place1\u0001inheritedschema:category\u00014": {
+            "schema-dig:Firearm1\u0001owl:Thing\u0001schema-dig:Firearm1***owl:Thing\u0001inheritedrdfs:subClassOf\u00010.3333333333333333": {
                 "v": "schema-dig:Firearm1",
-                "w": "schema:Place1",
-                "name": "schema-dig:Firearm1***schema:Place1",
+                "w": "owl:Thing",
+                "name": "schema-dig:Firearm1***owl:Thing",
                 "value": {
-                    "label": "schema:category",
+                    "label": "rdfs:subClassOf",
                     "type": "inherited",
-                    "weight": 4
+                    "weight": 0.3333333333333333
                 },
-                "weight": 4
+                "weight": 0.3333333333333333
             }
         },
         "Price0797": {
@@ -409,16 +431,16 @@
             }
         },
         "schema-dig:PersonOrOrganization1": {
-            "schema-dig:PersonOrOrganization1\u0001schema:CreativeWork1\u0001schema-dig:PersonOrOrganization1***schema:CreativeWork1\u0001direct_property_urischema-dig:isAuthorOf\u00011": {
+            "schema-dig:PersonOrOrganization1\u0001schema:CreativeWork1\u0001schema-dig:PersonOrOrganization1***schema:CreativeWork1\u0001inheritedschema-dig:owner***inverted\u00014": {
                 "v": "schema-dig:PersonOrOrganization1",
                 "w": "schema:CreativeWork1",
                 "name": "schema-dig:PersonOrOrganization1***schema:CreativeWork1",
                 "value": {
-                    "label": "schema-dig:isAuthorOf",
-                    "type": "direct_property_uri",
-                    "weight": 1
+                    "type": "inherited",
+                    "label": "schema-dig:owner***inverted",
+                    "weight": 4
                 },
-                "weight": 1
+                "weight": 4
             }
         },
         "Start0821": {
@@ -445,6 +467,19 @@
                     "weight": 1
                 },
                 "weight": 1
+            }
+        },
+        "owl:Thing": {
+            "owl:Thing\u0001file_name\u0001owl:Thing***file_name\u0001inheritedrdfs:subClassOf***inverted\u00010.3333333333333333": {
+                "v": "owl:Thing",
+                "w": "file_name",
+                "name": "owl:Thing***file_name",
+                "value": {
+                    "type": "inherited",
+                    "label": "rdfs:subClassOf***inverted",
+                    "weight": 0.3333333333333333
+                },
+                "weight": 0.3333333333333333
             }
         },
         "schema:Place1": {
@@ -481,7 +516,7 @@
             "schema-dig:Firearm1": 1
         },
         "schema-dig:Firearm1": {
-            "schema:Place1": 1
+            "owl:Thing": 1
         },
         "Price0797": {
             "schema:Offer1": 1
@@ -500,6 +535,9 @@
         },
         "file_name": {
             "schema:CreativeWork1": 1
+        },
+        "owl:Thing": {
+            "file_name": 1
         },
         "schema:Place1": {
             "Location0800": 1
@@ -606,49 +644,60 @@
             },
             "weight": 1
         },
-        "schema-dig:Firearm1\u0001schema:Place1\u0001schema-dig:Firearm1***schema:Place1\u0001inheritedschema:category\u00014": {
+        "owl:Thing\u0001file_name\u0001owl:Thing***file_name\u0001inheritedrdfs:subClassOf***inverted\u00010.3333333333333333": {
+            "v": "owl:Thing",
+            "w": "file_name",
+            "name": "owl:Thing***file_name",
+            "value": {
+                "type": "inherited",
+                "label": "rdfs:subClassOf***inverted",
+                "weight": 0.3333333333333333
+            },
+            "weight": 0.3333333333333333
+        },
+        "schema-dig:Firearm1\u0001owl:Thing\u0001schema-dig:Firearm1***owl:Thing\u0001inheritedrdfs:subClassOf\u00010.3333333333333333": {
             "v": "schema-dig:Firearm1",
+            "w": "owl:Thing",
+            "name": "schema-dig:Firearm1***owl:Thing",
+            "value": {
+                "label": "rdfs:subClassOf",
+                "type": "inherited",
+                "weight": 0.3333333333333333
+            },
+            "weight": 0.3333333333333333
+        },
+        "schema-dig:PersonOrOrganization1\u0001schema:CreativeWork1\u0001schema-dig:PersonOrOrganization1***schema:CreativeWork1\u0001inheritedschema-dig:owner***inverted\u00014": {
+            "v": "schema-dig:PersonOrOrganization1",
+            "w": "schema:CreativeWork1",
+            "name": "schema-dig:PersonOrOrganization1***schema:CreativeWork1",
+            "value": {
+                "type": "inherited",
+                "label": "schema-dig:owner***inverted",
+                "weight": 4
+            },
+            "weight": 4
+        },
+        "schema:CreativeWork1\u0001schema:Place1\u0001schema:CreativeWork1***schema:Place1\u0001inheritedschema:mainEntityOfPage***inverted\u00014": {
+            "v": "schema:CreativeWork1",
             "w": "schema:Place1",
-            "name": "schema-dig:Firearm1***schema:Place1",
+            "name": "schema:CreativeWork1***schema:Place1",
+            "value": {
+                "type": "inherited",
+                "label": "schema:mainEntityOfPage***inverted",
+                "weight": 4
+            },
+            "weight": 4
+        },
+        "schema:Offer1\u0001schema:Place1\u0001schema:Offer1***schema:Place1\u0001inheritedschema:category\u00014": {
+            "v": "schema:Offer1",
+            "w": "schema:Place1",
+            "name": "schema:Offer1***schema:Place1",
             "value": {
                 "label": "schema:category",
                 "type": "inherited",
                 "weight": 4
             },
             "weight": 4
-        },
-        "schema-dig:PersonOrOrganization1\u0001schema:CreativeWork1\u0001schema-dig:PersonOrOrganization1***schema:CreativeWork1\u0001direct_property_urischema-dig:isAuthorOf\u00011": {
-            "v": "schema-dig:PersonOrOrganization1",
-            "w": "schema:CreativeWork1",
-            "name": "schema-dig:PersonOrOrganization1***schema:CreativeWork1",
-            "value": {
-                "label": "schema-dig:isAuthorOf",
-                "type": "direct_property_uri",
-                "weight": 1
-            },
-            "weight": 1
-        },
-        "schema:CreativeWork1\u0001schema:Place1\u0001schema:CreativeWork1***schema:Place1\u0001direct_property_urischema:contentLocation\u00011": {
-            "v": "schema:CreativeWork1",
-            "w": "schema:Place1",
-            "name": "schema:CreativeWork1***schema:Place1",
-            "value": {
-                "label": "schema:contentLocation",
-                "type": "direct_property_uri",
-                "weight": 1
-            },
-            "weight": 1
-        },
-        "schema:Offer1\u0001schema:Place1\u0001schema:Offer1***schema:Place1\u0001direct_property_urischema:eligibleRegion\u00011": {
-            "v": "schema:Offer1",
-            "w": "schema:Place1",
-            "name": "schema:Offer1***schema:Place1",
-            "value": {
-                "label": "schema:eligibleRegion",
-                "type": "direct_property_uri",
-                "weight": 1
-            },
-            "weight": 1
         },
         "schema:Place1\u0001Location0800\u0001schema:Place1***Location0800\u0001st_property_urischema:name\u00011": {
             "v": "schema:Place1",
@@ -707,31 +756,36 @@
             "label": "schema:name***inverted",
             "weight": 1
         },
-        "schema-dig:Firearm1\u0001schema:Place1\u0001schema-dig:Firearm1***schema:Place1\u0001inheritedschema:category\u00014": {
+        "owl:Thing\u0001file_name\u0001owl:Thing***file_name\u0001inheritedrdfs:subClassOf***inverted\u00010.3333333333333333": {
+            "type": "inherited",
+            "label": "rdfs:subClassOf***inverted",
+            "weight": 0.3333333333333333
+        },
+        "schema-dig:Firearm1\u0001owl:Thing\u0001schema-dig:Firearm1***owl:Thing\u0001inheritedrdfs:subClassOf\u00010.3333333333333333": {
+            "label": "rdfs:subClassOf",
+            "type": "inherited",
+            "weight": 0.3333333333333333
+        },
+        "schema-dig:PersonOrOrganization1\u0001schema:CreativeWork1\u0001schema-dig:PersonOrOrganization1***schema:CreativeWork1\u0001inheritedschema-dig:owner***inverted\u00014": {
+            "type": "inherited",
+            "label": "schema-dig:owner***inverted",
+            "weight": 4
+        },
+        "schema:CreativeWork1\u0001schema:Place1\u0001schema:CreativeWork1***schema:Place1\u0001inheritedschema:mainEntityOfPage***inverted\u00014": {
+            "type": "inherited",
+            "label": "schema:mainEntityOfPage***inverted",
+            "weight": 4
+        },
+        "schema:Offer1\u0001schema:Place1\u0001schema:Offer1***schema:Place1\u0001inheritedschema:category\u00014": {
             "label": "schema:category",
             "type": "inherited",
             "weight": 4
-        },
-        "schema-dig:PersonOrOrganization1\u0001schema:CreativeWork1\u0001schema-dig:PersonOrOrganization1***schema:CreativeWork1\u0001direct_property_urischema-dig:isAuthorOf\u00011": {
-            "label": "schema-dig:isAuthorOf",
-            "type": "direct_property_uri",
-            "weight": 1
-        },
-        "schema:CreativeWork1\u0001schema:Place1\u0001schema:CreativeWork1***schema:Place1\u0001direct_property_urischema:contentLocation\u00011": {
-            "label": "schema:contentLocation",
-            "type": "direct_property_uri",
-            "weight": 1
-        },
-        "schema:Offer1\u0001schema:Place1\u0001schema:Offer1***schema:Place1\u0001direct_property_urischema:eligibleRegion\u00011": {
-            "label": "schema:eligibleRegion",
-            "type": "direct_property_uri",
-            "weight": 1
         },
         "schema:Place1\u0001Location0800\u0001schema:Place1***Location0800\u0001st_property_urischema:name\u00011": {
             "label": "schema:name",
             "type": "st_property_uri"
         }
     },
-    "_nodeCount": 15,
-    "_edgeCount": 14
+    "_nodeCount": 16,
+    "_edgeCount": 15
 }

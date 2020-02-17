@@ -18,8 +18,8 @@ digraph {
   Telephone1241 -> "schema-dig:PersonOrOrganization1" [type=st_property_uri,label="schema:telephone***inverted",weight=1]
   Updated1527 -> "schema:Offer1" [type=st_property_uri,label="schema:dateModified***inverted",weight=1]
   file_name -> "schema:CreativeWork1" [type=st_property_uri,label="schema:name***inverted",weight=1]
-  "schema-dig:PersonOrOrganization1" -> "schema:CreativeWork1" [label="schema-dig:isAuthorOf",type=direct_property_uri,weight=1]
-  "schema:CreativeWork1" -> "schema:Place1" [label="schema:contentLocation",type=direct_property_uri,weight=1]
-  "schema:Offer1" -> "schema:Place1" [label="schema:eligibleRegion",type=direct_property_uri,weight=1]
+  "schema-dig:PersonOrOrganization1" -> "schema:CreativeWork1" [type=inherited,label="schema-dig:owner***inverted",weight=4]
+  "schema:CreativeWork1" -> "schema:Place1" [type=inherited,label="schema:mainEntityOfPage***inverted",weight=4]
+  "schema:Offer1" -> "schema:Place1" [label="schema:category",type=inherited,weight=4]
   "schema:Place1" -> Location1192 [label="schema:name",type=st_property_uri]
 }

@@ -66,10 +66,11 @@ CONSTRUCT {
     ?Offer1 rdf:type schema:Offer.
     ?Place1 schema:name ?Location0800.
     ?Place1 rdf:type schema:Place.
-    ?Firearm1 schema:category ?Place1.
-    ?PersonOrOrganization1 schema-dig:isAuthorOf ?CreativeWork1.
-    ?CreativeWork1 schema:contentLocation ?Place1.
-    ?Offer1 schema:eligibleRegion ?Place1.
+    ?file_name rdfs:subClassOf owl:Thing.
+    ?Firearm1 rdfs:subClassOf owl:Thing.
+    ?CreativeWork1 schema-dig:owner ?PersonOrOrganization1.
+    ?Place1 schema:mainEntityOfPage ?CreativeWork1.
+    ?Offer1 schema:category ?Place1.
 }
 WHERE {
     ?root a jarql:Root.
