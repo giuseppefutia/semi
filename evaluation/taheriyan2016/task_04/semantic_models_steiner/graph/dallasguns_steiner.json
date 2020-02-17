@@ -76,13 +76,6 @@
             }
         },
         {
-            "v": "owl:Thing",
-            "value": {
-                "type": "special",
-                "label": "owl:Thing"
-            }
-        },
-        {
             "v": "schema-dig:PersonOrOrganization2",
             "value": {
                 "type": "class_uri",
@@ -101,6 +94,13 @@
             "value": {
                 "type": "attribute_name",
                 "label": "Phone2306"
+            }
+        },
+        {
+            "v": "Price2346",
+            "value": {
+                "type": "attribute_name",
+                "label": "Price2346"
             }
         },
         {
@@ -157,13 +157,6 @@
             "value": {
                 "type": "attribute_name",
                 "label": "Address2324"
-            }
-        },
-        {
-            "v": "Price2346",
-            "value": {
-                "type": "attribute_name",
-                "label": "Price2346"
             }
         }
     ],
@@ -225,17 +218,6 @@
         },
         {
             "v": "Manf2363",
-            "w": "owl:Thing",
-            "name": "Manf2363***owl:Thing",
-            "value": {
-                "label": "rdfs:subClassOf",
-                "type": "inherited",
-                "weight": 0.3333333333333333
-            },
-            "weight": 0.3333333333333333
-        },
-        {
-            "v": "Manf2363",
             "w": "schema-dig:PersonOrOrganization2",
             "name": "Manf2363***schema-dig:PersonOrOrganization2",
             "value": {
@@ -247,14 +229,14 @@
         },
         {
             "v": "Model2378",
-            "w": "owl:Thing",
-            "name": "Model2378***owl:Thing",
+            "w": "schema-dig:Firearm1",
+            "name": "Model2378***schema-dig:Firearm1",
             "value": {
-                "label": "rdfs:subClassOf",
-                "type": "inherited",
-                "weight": 0.3333333333333333
+                "type": "st_property_uri",
+                "label": "schema:name***inverted",
+                "weight": 1
             },
-            "weight": 0.3333333333333333
+            "weight": 1
         },
         {
             "v": "Phone2306",
@@ -263,6 +245,17 @@
             "value": {
                 "type": "st_property_uri",
                 "label": "schema-dig:phoneAreaCode***inverted",
+                "weight": 1
+            },
+            "weight": 1
+        },
+        {
+            "v": "Price2346",
+            "w": "schema:Offer1",
+            "name": "Price2346***schema:Offer1",
+            "value": {
+                "type": "st_property_uri",
+                "label": "schema:price***inverted",
                 "weight": 1
             },
             "weight": 1
@@ -323,25 +316,15 @@
             "weight": 1
         },
         {
-            "v": "owl:Thing",
-            "w": "Address2324",
-            "name": "owl:Thing***Address2324",
+            "v": "schema-dig:Firearm1",
+            "w": "schema:PostalAddress1",
+            "name": "schema-dig:Firearm1***schema:PostalAddress1",
             "value": {
                 "type": "inherited",
-                "label": "rdfs:subClassOf***inverted",
-                "weight": 0.3333333333333333
+                "label": "schema:productSupported***inverted",
+                "weight": 4
             },
-            "weight": 0.3333333333333333
-        },
-        {
-            "v": "schema-dig:Firearm1",
-            "w": "Model2378",
-            "name": "schema-dig:Firearm1***Model2378",
-            "value": {
-                "label": "schema:name",
-                "type": "st_property_uri"
-            },
-            "weight": 1
+            "weight": 4
         },
         {
             "v": "schema-dig:PersonOrOrganization1",
@@ -349,7 +332,7 @@
             "name": "schema-dig:PersonOrOrganization1***schema:CreativeWork1",
             "value": {
                 "type": "inherited",
-                "label": "schema-dig:owner***inverted",
+                "label": "schema:recognizingAuthority***inverted",
                 "weight": 4
             },
             "weight": 4
@@ -360,26 +343,15 @@
             "name": "schema-dig:PersonOrOrganization2***schema:CreativeWork1",
             "value": {
                 "type": "inherited",
-                "label": "schema-dig:owner***inverted",
+                "label": "schema:recognizingAuthority***inverted",
                 "weight": 4
             },
             "weight": 4
         },
         {
             "v": "schema:ContactPoint1",
-            "w": "owl:Thing",
-            "name": "schema:ContactPoint1***owl:Thing",
-            "value": {
-                "label": "rdfs:subClassOf",
-                "type": "inherited",
-                "weight": 0.3333333333333333
-            },
-            "weight": 0.3333333333333333
-        },
-        {
-            "v": "schema:CreativeWork1",
             "w": "schema:Offer1",
-            "name": "schema:CreativeWork1***schema:Offer1",
+            "name": "schema:ContactPoint1***schema:Offer1",
             "value": {
                 "type": "inherited",
                 "label": "schema:category***inverted",
@@ -388,14 +360,26 @@
             "weight": 4
         },
         {
-            "v": "schema:Offer1",
-            "w": "Price2346",
-            "name": "schema:Offer1***Price2346",
+            "v": "schema:CreativeWork1",
+            "w": "schema:Offer1",
+            "name": "schema:CreativeWork1***schema:Offer1",
             "value": {
-                "label": "schema:price",
-                "type": "st_property_uri"
+                "type": "inherited",
+                "label": "schema:mainEntityOfPage***inverted",
+                "weight": 4
             },
-            "weight": 1
+            "weight": 4
+        },
+        {
+            "v": "schema:Offer1",
+            "w": "schema:PostalAddress1",
+            "name": "schema:Offer1***schema:PostalAddress1",
+            "value": {
+                "label": "schema:category",
+                "type": "inherited",
+                "weight": 4
+            },
+            "weight": 4
         },
         {
             "v": "schema:PostalAddress1",
