@@ -222,8 +222,10 @@ var get_super_classes = (sc, store, all_classes) => {
         store.execute(sc_query, function(success, results) {
             if (success !== null) reject(success);
 
-            if (all_classes[class_node] === undefined)
+            if (all_classes[class_node] === undefined) {
                 all_classes[class_node] = [];
+                all_classes[class_node].push(class_node);
+            }
 
             // If no parent class, the last class if always a fictitious Thing
             //if (results.length === 0)
