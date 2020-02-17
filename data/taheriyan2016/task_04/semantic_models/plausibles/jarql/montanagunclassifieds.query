@@ -95,15 +95,25 @@ CONSTRUCT {
     ?Place1 schema:containedInPlace ?Place1.
     ?Place1 schema:containsPlace ?Place1.
     ?Firearm1 schema:category ?CreativeWork1.
+    ?Firearm1 schema:review ?CreativeWork1.
+    ?Firearm1 schema:reviews ?CreativeWork1.
     ?Firearm1 schema:mainEntityOfPage ?CreativeWork1.
     ?Firearm1 schema:offers ?Offer1.
     ?Firearm1 schema:offers ?Offer2.
     ?Firearm1 schema:category ?Offer1.
     ?Firearm1 schema:category ?Offer2.
     ?Firearm1 schema:category ?Place1.
+    ?Firearm1 schema:manufacturer ?Place1.
+    ?Firearm1 schema:brand ?Place1.
+    ?Firearm1 schema-dig:owner ?Place1.
     ?CreativeWork1 schema:mentions ?Firearm1.
     ?CreativeWork1 schema:about ?Firearm1.
     ?CreativeWork1 schema:mainEntity ?Firearm1.
+    ?CreativeWork1 schema:itemReviewed ?Firearm1.
+    ?CreativeWork1 schema:gameItem ?Firearm1.
+    ?CreativeWork1 schema:quest ?Firearm1.
+    ?CreativeWork1 schema:characterAttribute ?Firearm1.
+    ?CreativeWork1 schema:category ?Firearm1.
     ?CreativeWork1 schema:offers ?Offer1.
     ?CreativeWork1 schema:offers ?Offer2.
     ?CreativeWork1 schema:mentions ?Offer1.
@@ -112,18 +122,56 @@ CONSTRUCT {
     ?CreativeWork1 schema:about ?Offer2.
     ?CreativeWork1 schema:mainEntity ?Offer1.
     ?CreativeWork1 schema:mainEntity ?Offer2.
+    ?CreativeWork1 schema:itemReviewed ?Offer1.
+    ?CreativeWork1 schema:itemReviewed ?Offer2.
+    ?CreativeWork1 schema:gameItem ?Offer1.
+    ?CreativeWork1 schema:gameItem ?Offer2.
+    ?CreativeWork1 schema:quest ?Offer1.
+    ?CreativeWork1 schema:quest ?Offer2.
+    ?CreativeWork1 schema:characterAttribute ?Offer1.
+    ?CreativeWork1 schema:characterAttribute ?Offer2.
+    ?CreativeWork1 schema:category ?Offer1.
+    ?CreativeWork1 schema:category ?Offer2.
     ?CreativeWork1 schema:locationCreated ?Place1.
     ?CreativeWork1 schema-dig:primaryLocation ?Place1.
     ?CreativeWork1 schema:contentLocation ?Place1.
     ?CreativeWork1 schema:mentions ?Place1.
     ?CreativeWork1 schema:about ?Place1.
     ?CreativeWork1 schema:mainEntity ?Place1.
+    ?CreativeWork1 schema:contributor ?Place1.
+    ?CreativeWork1 schema:author ?Place1.
+    ?CreativeWork1 schema:producer ?Place1.
+    ?CreativeWork1 schema:creator ?Place1.
+    ?CreativeWork1 schema:publisher ?Place1.
+    ?CreativeWork1 schema:copyrightHolder ?Place1.
+    ?CreativeWork1 schema:translator ?Place1.
+    ?CreativeWork1 schema:provider ?Place1.
+    ?CreativeWork1 schema:sourceOrganization ?Place1.
+    ?CreativeWork1 schema:publisherImprint ?Place1.
+    ?CreativeWork1 schema-dig:owner ?Place1.
+    ?CreativeWork1 schema:productionCompany ?Place1.
+    ?CreativeWork1 schema:endorsers ?Place1.
+    ?CreativeWork1 schema:composer ?Place1.
+    ?CreativeWork1 schema:reviewedBy ?Place1.
+    ?CreativeWork1 schema:itemReviewed ?Place1.
+    ?CreativeWork1 schema:regionsAllowed ?Place1.
+    ?CreativeWork1 schema:spatial ?Place1.
+    ?CreativeWork1 schema:gameLocation ?Place1.
+    ?CreativeWork1 schema:gameItem ?Place1.
+    ?CreativeWork1 schema:quest ?Place1.
+    ?CreativeWork1 schema:characterAttribute ?Place1.
+    ?CreativeWork1 schema:recognizingAuthority ?Place1.
+    ?CreativeWork1 schema:category ?Place1.
     ?Offer1 schema:itemOffered ?Firearm1.
     ?Offer2 schema:itemOffered ?Firearm1.
     ?Offer1 schema:category ?Firearm1.
     ?Offer2 schema:category ?Firearm1.
     ?Offer1 schema:category ?CreativeWork1.
     ?Offer2 schema:category ?CreativeWork1.
+    ?Offer1 schema:review ?CreativeWork1.
+    ?Offer2 schema:review ?CreativeWork1.
+    ?Offer1 schema:reviews ?CreativeWork1.
+    ?Offer2 schema:reviews ?CreativeWork1.
     ?Offer1 schema:mainEntityOfPage ?CreativeWork1.
     ?Offer2 schema:mainEntityOfPage ?CreativeWork1.
     ?Offer1 schema:ineligibleRegion ?Place1.
@@ -136,7 +184,22 @@ CONSTRUCT {
     ?Offer2 schema:eligibleRegion ?Place1.
     ?Offer1 schema:category ?Place1.
     ?Offer2 schema:category ?Place1.
+    ?Offer1 schema:offeredBy ?Place1.
+    ?Offer2 schema:offeredBy ?Place1.
+    ?Offer1 schema:seller ?Place1.
+    ?Offer2 schema:seller ?Place1.
+    ?Offer1 schema-dig:owner ?Place1.
+    ?Offer2 schema-dig:owner ?Place1.
+    ?Place1 schema:owns ?Firearm1.
+    ?Place1 schema:review ?CreativeWork1.
+    ?Place1 schema:reviews ?CreativeWork1.
+    ?Place1 schema:photo ?CreativeWork1.
+    ?Place1 schema:photos ?CreativeWork1.
+    ?Place1 schema:hasMap ?CreativeWork1.
     ?Place1 schema:mainEntityOfPage ?CreativeWork1.
+    ?Place1 schema-dig:isAuthorOf ?CreativeWork1.
+    ?Place1 schema:makesOffer ?Offer1.
+    ?Place1 schema:makesOffer ?Offer2.
 }
 WHERE {
     ?root a jarql:Root.

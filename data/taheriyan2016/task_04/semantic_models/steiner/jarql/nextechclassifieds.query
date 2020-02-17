@@ -86,13 +86,13 @@ CONSTRUCT {
     ?Place4 rdf:type schema:Place.
     ?Place5 schema:name ?Boots1331.
     ?Place5 rdf:type schema:Place.
-    ?CreativeWork1 schema-dig:owner ?PersonOrOrganization1.
-    ?Place5 schema:mainEntityOfPage ?CreativeWork1.
-    ?Offer1 schema:category ?Place5.
-    ?Offer2 schema:category ?Place5.
-    ?Offer3 schema:category ?Place5.
-    ?Offer4 schema:category ?Place5.
-    ?Offer5 schema:category ?Place5.
+    ?CreativeWork1 schema:category ?PersonOrOrganization1.
+    ?Place5 schema-dig:isAuthorOf ?CreativeWork1.
+    ?Place5 schema:makesOffer ?Offer1.
+    ?Place5 schema:makesOffer ?Offer2.
+    ?Place5 schema:makesOffer ?Offer3.
+    ?Place5 schema:makesOffer ?Offer4.
+    ?Place5 schema:makesOffer ?Offer5.
     ?Place5 schema:containsPlace ?Place1.
     ?Place5 schema:containsPlace ?Place2.
     ?Place5 schema:containsPlace ?Place3.

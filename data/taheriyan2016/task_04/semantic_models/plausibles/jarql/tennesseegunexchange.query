@@ -106,19 +106,107 @@ CONSTRUCT {
     ?Place1 schema:containedInPlace ?Place1.
     ?Place1 schema:containsPlace ?Place1.
     ?Place1 schema:address ?PostalAddress1.
+    ?Firearm1 schema:manufacturer ?PersonOrOrganization1.
+    ?Firearm1 schema:brand ?PersonOrOrganization1.
+    ?Firearm1 schema:category ?PersonOrOrganization1.
     ?Firearm1 schema-dig:owner ?PersonOrOrganization1.
+    ?Firearm1 schema-dig:applicant ?PersonOrOrganization1.
+    ?Firearm1 schema-dig:assignee ?PersonOrOrganization1.
     ?Firearm1 schema:category ?CreativeWork1.
+    ?Firearm1 schema:review ?CreativeWork1.
+    ?Firearm1 schema:reviews ?CreativeWork1.
     ?Firearm1 schema:mainEntityOfPage ?CreativeWork1.
     ?Firearm1 schema:offers ?Offer1.
     ?Firearm1 schema:offers ?Offer2.
     ?Firearm1 schema:category ?Offer1.
     ?Firearm1 schema:category ?Offer2.
     ?Firearm1 schema:category ?Place1.
+    ?Firearm1 schema:manufacturer ?Place1.
+    ?Firearm1 schema:brand ?Place1.
+    ?Firearm1 schema-dig:owner ?Place1.
+    ?Firearm1 schema:category ?PostalAddress1.
+    ?PersonOrOrganization1 schema:owns ?Firearm1.
     ?PersonOrOrganization1 schema-dig:isAuthorOf ?CreativeWork1.
+    ?PersonOrOrganization1 schema:review ?CreativeWork1.
+    ?PersonOrOrganization1 schema:reviews ?CreativeWork1.
+    ?PersonOrOrganization1 schema:mainEntityOfPage ?CreativeWork1.
+    ?PersonOrOrganization1 schema:makesOffer ?Offer1.
+    ?PersonOrOrganization1 schema:makesOffer ?Offer2.
+    ?PersonOrOrganization1 schema:location ?Place1.
+    ?PersonOrOrganization1 schema:foundingLocation ?Place1.
+    ?PersonOrOrganization1 schema:serviceArea ?Place1.
+    ?PersonOrOrganization1 schema:areaServed ?Place1.
+    ?PersonOrOrganization1 schema:hasPOS ?Place1.
+    ?PersonOrOrganization1 schema:member ?Place1.
+    ?PersonOrOrganization1 schema:memberOf ?Place1.
+    ?PersonOrOrganization1 schema:members ?Place1.
+    ?PersonOrOrganization1 schema:parentOrganization ?Place1.
+    ?PersonOrOrganization1 schema:subOrganization ?Place1.
+    ?PersonOrOrganization1 schema:department ?Place1.
+    ?PersonOrOrganization1 schema:brand ?Place1.
+    ?PersonOrOrganization1 schema:homeLocation ?Place1.
+    ?PersonOrOrganization1 schema:workLocation ?Place1.
+    ?PersonOrOrganization1 schema:deathPlace ?Place1.
+    ?PersonOrOrganization1 schema:birthPlace ?Place1.
+    ?PersonOrOrganization1 schema:alumniOf ?Place1.
+    ?PersonOrOrganization1 schema:worksFor ?Place1.
+    ?PersonOrOrganization1 schema:affiliation ?Place1.
+    ?PersonOrOrganization1 schema-dig:owner ?Place1.
+    ?PersonOrOrganization1 schema:address ?PostalAddress1.
+    ?PersonOrOrganization1 schema:location ?PostalAddress1.
+    ?PersonOrOrganization1 schema:contactPoint ?PostalAddress1.
+    ?PersonOrOrganization1 schema:contactPoints ?PostalAddress1.
+    ?PersonOrOrganization1 schema:homeLocation ?PostalAddress1.
+    ?PersonOrOrganization1 schema:workLocation ?PostalAddress1.
     ?CreativeWork1 schema:mentions ?Firearm1.
     ?CreativeWork1 schema:about ?Firearm1.
     ?CreativeWork1 schema:mainEntity ?Firearm1.
+    ?CreativeWork1 schema:itemReviewed ?Firearm1.
+    ?CreativeWork1 schema:gameItem ?Firearm1.
+    ?CreativeWork1 schema:quest ?Firearm1.
+    ?CreativeWork1 schema:characterAttribute ?Firearm1.
+    ?CreativeWork1 schema:category ?Firearm1.
+    ?CreativeWork1 schema:contributor ?PersonOrOrganization1.
+    ?CreativeWork1 schema:author ?PersonOrOrganization1.
+    ?CreativeWork1 schema:producer ?PersonOrOrganization1.
+    ?CreativeWork1 schema:creator ?PersonOrOrganization1.
+    ?CreativeWork1 schema:publisher ?PersonOrOrganization1.
+    ?CreativeWork1 schema:copyrightHolder ?PersonOrOrganization1.
+    ?CreativeWork1 schema:translator ?PersonOrOrganization1.
+    ?CreativeWork1 schema:provider ?PersonOrOrganization1.
+    ?CreativeWork1 schema:sourceOrganization ?PersonOrOrganization1.
+    ?CreativeWork1 schema:publisherImprint ?PersonOrOrganization1.
+    ?CreativeWork1 schema:character ?PersonOrOrganization1.
+    ?CreativeWork1 schema:accountablePerson ?PersonOrOrganization1.
+    ?CreativeWork1 schema:editor ?PersonOrOrganization1.
+    ?CreativeWork1 schema:mentions ?PersonOrOrganization1.
+    ?CreativeWork1 schema:about ?PersonOrOrganization1.
+    ?CreativeWork1 schema:mainEntity ?PersonOrOrganization1.
     ?CreativeWork1 schema-dig:owner ?PersonOrOrganization1.
+    ?CreativeWork1 schema-dig:applicant ?PersonOrOrganization1.
+    ?CreativeWork1 schema-dig:assignee ?PersonOrOrganization1.
+    ?CreativeWork1 schema:productionCompany ?PersonOrOrganization1.
+    ?CreativeWork1 schema:director ?PersonOrOrganization1.
+    ?CreativeWork1 schema:directors ?PersonOrOrganization1.
+    ?CreativeWork1 schema:actors ?PersonOrOrganization1.
+    ?CreativeWork1 schema:actor ?PersonOrOrganization1.
+    ?CreativeWork1 schema:musicBy ?PersonOrOrganization1.
+    ?CreativeWork1 schema:endorsers ?PersonOrOrganization1.
+    ?CreativeWork1 schema:composer ?PersonOrOrganization1.
+    ?CreativeWork1 schema:lyricist ?PersonOrOrganization1.
+    ?CreativeWork1 schema:reviewedBy ?PersonOrOrganization1.
+    ?CreativeWork1 schema:itemReviewed ?PersonOrOrganization1.
+    ?CreativeWork1 schema:letterer ?PersonOrOrganization1.
+    ?CreativeWork1 schema:artist ?PersonOrOrganization1.
+    ?CreativeWork1 schema:colorist ?PersonOrOrganization1.
+    ?CreativeWork1 schema:penciler ?PersonOrOrganization1.
+    ?CreativeWork1 schema:inker ?PersonOrOrganization1.
+    ?CreativeWork1 schema:gameItem ?PersonOrOrganization1.
+    ?CreativeWork1 schema:quest ?PersonOrOrganization1.
+    ?CreativeWork1 schema:characterAttribute ?PersonOrOrganization1.
+    ?CreativeWork1 schema:illustrator ?PersonOrOrganization1.
+    ?CreativeWork1 schema:recognizingAuthority ?PersonOrOrganization1.
+    ?CreativeWork1 schema:category ?PersonOrOrganization1.
     ?CreativeWork1 schema:offers ?Offer1.
     ?CreativeWork1 schema:offers ?Offer2.
     ?CreativeWork1 schema:mentions ?Offer1.
@@ -127,20 +215,77 @@ CONSTRUCT {
     ?CreativeWork1 schema:about ?Offer2.
     ?CreativeWork1 schema:mainEntity ?Offer1.
     ?CreativeWork1 schema:mainEntity ?Offer2.
+    ?CreativeWork1 schema:itemReviewed ?Offer1.
+    ?CreativeWork1 schema:itemReviewed ?Offer2.
+    ?CreativeWork1 schema:gameItem ?Offer1.
+    ?CreativeWork1 schema:gameItem ?Offer2.
+    ?CreativeWork1 schema:quest ?Offer1.
+    ?CreativeWork1 schema:quest ?Offer2.
+    ?CreativeWork1 schema:characterAttribute ?Offer1.
+    ?CreativeWork1 schema:characterAttribute ?Offer2.
+    ?CreativeWork1 schema:category ?Offer1.
+    ?CreativeWork1 schema:category ?Offer2.
     ?CreativeWork1 schema:locationCreated ?Place1.
     ?CreativeWork1 schema-dig:primaryLocation ?Place1.
     ?CreativeWork1 schema:contentLocation ?Place1.
     ?CreativeWork1 schema:mentions ?Place1.
     ?CreativeWork1 schema:about ?Place1.
     ?CreativeWork1 schema:mainEntity ?Place1.
+    ?CreativeWork1 schema:contributor ?Place1.
+    ?CreativeWork1 schema:author ?Place1.
+    ?CreativeWork1 schema:producer ?Place1.
+    ?CreativeWork1 schema:creator ?Place1.
+    ?CreativeWork1 schema:publisher ?Place1.
+    ?CreativeWork1 schema:copyrightHolder ?Place1.
+    ?CreativeWork1 schema:translator ?Place1.
+    ?CreativeWork1 schema:provider ?Place1.
+    ?CreativeWork1 schema:sourceOrganization ?Place1.
+    ?CreativeWork1 schema:publisherImprint ?Place1.
+    ?CreativeWork1 schema-dig:owner ?Place1.
+    ?CreativeWork1 schema:productionCompany ?Place1.
+    ?CreativeWork1 schema:endorsers ?Place1.
+    ?CreativeWork1 schema:composer ?Place1.
+    ?CreativeWork1 schema:reviewedBy ?Place1.
+    ?CreativeWork1 schema:itemReviewed ?Place1.
+    ?CreativeWork1 schema:regionsAllowed ?Place1.
+    ?CreativeWork1 schema:spatial ?Place1.
+    ?CreativeWork1 schema:gameLocation ?Place1.
+    ?CreativeWork1 schema:gameItem ?Place1.
+    ?CreativeWork1 schema:quest ?Place1.
+    ?CreativeWork1 schema:characterAttribute ?Place1.
+    ?CreativeWork1 schema:recognizingAuthority ?Place1.
+    ?CreativeWork1 schema:category ?Place1.
+    ?CreativeWork1 schema:mentions ?PostalAddress1.
+    ?CreativeWork1 schema:about ?PostalAddress1.
+    ?CreativeWork1 schema:mainEntity ?PostalAddress1.
+    ?CreativeWork1 schema:itemReviewed ?PostalAddress1.
+    ?CreativeWork1 schema:gameLocation ?PostalAddress1.
+    ?CreativeWork1 schema:gameItem ?PostalAddress1.
+    ?CreativeWork1 schema:quest ?PostalAddress1.
+    ?CreativeWork1 schema:characterAttribute ?PostalAddress1.
+    ?CreativeWork1 schema:category ?PostalAddress1.
     ?Offer1 schema:itemOffered ?Firearm1.
     ?Offer2 schema:itemOffered ?Firearm1.
     ?Offer1 schema:category ?Firearm1.
     ?Offer2 schema:category ?Firearm1.
+    ?Offer1 schema:offeredBy ?PersonOrOrganization1.
+    ?Offer2 schema:offeredBy ?PersonOrOrganization1.
+    ?Offer1 schema:seller ?PersonOrOrganization1.
+    ?Offer2 schema:seller ?PersonOrOrganization1.
+    ?Offer1 schema:category ?PersonOrOrganization1.
+    ?Offer2 schema:category ?PersonOrOrganization1.
     ?Offer1 schema-dig:owner ?PersonOrOrganization1.
     ?Offer2 schema-dig:owner ?PersonOrOrganization1.
+    ?Offer1 schema-dig:applicant ?PersonOrOrganization1.
+    ?Offer2 schema-dig:applicant ?PersonOrOrganization1.
+    ?Offer1 schema-dig:assignee ?PersonOrOrganization1.
+    ?Offer2 schema-dig:assignee ?PersonOrOrganization1.
     ?Offer1 schema:category ?CreativeWork1.
     ?Offer2 schema:category ?CreativeWork1.
+    ?Offer1 schema:review ?CreativeWork1.
+    ?Offer2 schema:review ?CreativeWork1.
+    ?Offer1 schema:reviews ?CreativeWork1.
+    ?Offer2 schema:reviews ?CreativeWork1.
     ?Offer1 schema:mainEntityOfPage ?CreativeWork1.
     ?Offer2 schema:mainEntityOfPage ?CreativeWork1.
     ?Offer1 schema:ineligibleRegion ?Place1.
@@ -153,12 +298,52 @@ CONSTRUCT {
     ?Offer2 schema:eligibleRegion ?Place1.
     ?Offer1 schema:category ?Place1.
     ?Offer2 schema:category ?Place1.
+    ?Offer1 schema:offeredBy ?Place1.
+    ?Offer2 schema:offeredBy ?Place1.
+    ?Offer1 schema:seller ?Place1.
+    ?Offer2 schema:seller ?Place1.
+    ?Offer1 schema-dig:owner ?Place1.
+    ?Offer2 schema-dig:owner ?Place1.
+    ?Offer1 schema:category ?PostalAddress1.
+    ?Offer2 schema:category ?PostalAddress1.
+    ?Place1 schema:owns ?Firearm1.
     ?Place1 schema-dig:owner ?PersonOrOrganization1.
+    ?Place1 schema-dig:applicant ?PersonOrOrganization1.
+    ?Place1 schema-dig:assignee ?PersonOrOrganization1.
+    ?Place1 schema:branchOf ?PersonOrOrganization1.
+    ?Place1 schema:member ?PersonOrOrganization1.
+    ?Place1 schema:memberOf ?PersonOrOrganization1.
+    ?Place1 schema:members ?PersonOrOrganization1.
+    ?Place1 schema:parentOrganization ?PersonOrOrganization1.
+    ?Place1 schema:subOrganization ?PersonOrOrganization1.
+    ?Place1 schema:department ?PersonOrOrganization1.
+    ?Place1 schema:brand ?PersonOrOrganization1.
+    ?Place1 schema:founder ?PersonOrOrganization1.
+    ?Place1 schema:alumni ?PersonOrOrganization1.
+    ?Place1 schema:employees ?PersonOrOrganization1.
+    ?Place1 schema:employee ?PersonOrOrganization1.
+    ?Place1 schema:founders ?PersonOrOrganization1.
+    ?Place1 schema:review ?CreativeWork1.
+    ?Place1 schema:reviews ?CreativeWork1.
+    ?Place1 schema:photo ?CreativeWork1.
+    ?Place1 schema:photos ?CreativeWork1.
+    ?Place1 schema:hasMap ?CreativeWork1.
     ?Place1 schema:mainEntityOfPage ?CreativeWork1.
+    ?Place1 schema-dig:isAuthorOf ?CreativeWork1.
+    ?Place1 schema:makesOffer ?Offer1.
+    ?Place1 schema:makesOffer ?Offer2.
     ?Place1 schema:address ?PostalAddress1.
+    ?Place1 schema:location ?PostalAddress1.
+    ?Place1 schema:contactPoint ?PostalAddress1.
+    ?Place1 schema:contactPoints ?PostalAddress1.
     ?PostalAddress1 schema:productSupported ?Firearm1.
+    ?PostalAddress1 schema-dig:owner ?PersonOrOrganization1.
+    ?PostalAddress1 schema-dig:applicant ?PersonOrOrganization1.
+    ?PostalAddress1 schema-dig:assignee ?PersonOrOrganization1.
+    ?PostalAddress1 schema:mainEntityOfPage ?CreativeWork1.
     ?PostalAddress1 schema:serviceArea ?Place1.
     ?PostalAddress1 schema:areaServed ?Place1.
+    ?PostalAddress1 schema-dig:owner ?Place1.
 }
 WHERE {
     ?root a jarql:Root.

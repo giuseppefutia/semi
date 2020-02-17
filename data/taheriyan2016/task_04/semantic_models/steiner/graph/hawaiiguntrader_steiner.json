@@ -76,13 +76,6 @@
             }
         },
         {
-            "v": "owl:Thing",
-            "value": {
-                "type": "special",
-                "label": "owl:Thing"
-            }
-        },
-        {
             "v": "0036",
             "value": {
                 "type": "attribute_name",
@@ -158,26 +151,15 @@
             "weight": 1
         },
         {
-            "v": "owl:Thing",
-            "w": "0036",
-            "name": "owl:Thing***0036",
-            "value": {
-                "type": "inherited",
-                "label": "rdfs:subClassOf***inverted",
-                "weight": 0.3333333333333333
-            },
-            "weight": 0.3333333333333333
-        },
-        {
             "v": "schema-dig:Firearm1",
-            "w": "owl:Thing",
-            "name": "schema-dig:Firearm1***owl:Thing",
+            "w": "schema:Offer1",
+            "name": "schema-dig:Firearm1***schema:Offer1",
             "value": {
-                "label": "rdfs:subClassOf",
                 "type": "inherited",
-                "weight": 0.3333333333333333
+                "label": "schema:category***inverted",
+                "weight": 4
             },
-            "weight": 0.3333333333333333
+            "weight": 4
         },
         {
             "v": "schema-dig:PersonOrOrganization1",
@@ -185,7 +167,7 @@
             "name": "schema-dig:PersonOrOrganization1***schema:CreativeWork1",
             "value": {
                 "type": "inherited",
-                "label": "schema-dig:owner***inverted",
+                "label": "schema:category***inverted",
                 "weight": 4
             },
             "weight": 4
@@ -196,7 +178,7 @@
             "name": "schema:CreativeWork1***schema:Offer1",
             "value": {
                 "type": "inherited",
-                "label": "schema:category***inverted",
+                "label": "schema:mainEntityOfPage***inverted",
                 "weight": 4
             },
             "weight": 4

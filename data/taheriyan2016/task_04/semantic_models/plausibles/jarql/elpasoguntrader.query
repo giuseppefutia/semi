@@ -86,7 +86,53 @@ CONSTRUCT {
     ?Offer3 schema:addOn ?Offer2.
     ?Offer3 schema:addOn ?Offer3.
     ?PersonOrOrganization1 schema-dig:isAuthorOf ?CreativeWork1.
+    ?PersonOrOrganization1 schema:review ?CreativeWork1.
+    ?PersonOrOrganization1 schema:reviews ?CreativeWork1.
+    ?PersonOrOrganization1 schema:mainEntityOfPage ?CreativeWork1.
+    ?PersonOrOrganization1 schema:makesOffer ?Offer1.
+    ?PersonOrOrganization1 schema:makesOffer ?Offer2.
+    ?PersonOrOrganization1 schema:makesOffer ?Offer3.
+    ?CreativeWork1 schema:contributor ?PersonOrOrganization1.
+    ?CreativeWork1 schema:author ?PersonOrOrganization1.
+    ?CreativeWork1 schema:producer ?PersonOrOrganization1.
+    ?CreativeWork1 schema:creator ?PersonOrOrganization1.
+    ?CreativeWork1 schema:publisher ?PersonOrOrganization1.
+    ?CreativeWork1 schema:copyrightHolder ?PersonOrOrganization1.
+    ?CreativeWork1 schema:translator ?PersonOrOrganization1.
+    ?CreativeWork1 schema:provider ?PersonOrOrganization1.
+    ?CreativeWork1 schema:sourceOrganization ?PersonOrOrganization1.
+    ?CreativeWork1 schema:publisherImprint ?PersonOrOrganization1.
+    ?CreativeWork1 schema:mentions ?PersonOrOrganization1.
+    ?CreativeWork1 schema:about ?PersonOrOrganization1.
+    ?CreativeWork1 schema:mainEntity ?PersonOrOrganization1.
+    ?CreativeWork1 schema:character ?PersonOrOrganization1.
+    ?CreativeWork1 schema:accountablePerson ?PersonOrOrganization1.
+    ?CreativeWork1 schema:editor ?PersonOrOrganization1.
     ?CreativeWork1 schema-dig:owner ?PersonOrOrganization1.
+    ?CreativeWork1 schema-dig:applicant ?PersonOrOrganization1.
+    ?CreativeWork1 schema-dig:assignee ?PersonOrOrganization1.
+    ?CreativeWork1 schema:productionCompany ?PersonOrOrganization1.
+    ?CreativeWork1 schema:director ?PersonOrOrganization1.
+    ?CreativeWork1 schema:directors ?PersonOrOrganization1.
+    ?CreativeWork1 schema:actors ?PersonOrOrganization1.
+    ?CreativeWork1 schema:actor ?PersonOrOrganization1.
+    ?CreativeWork1 schema:musicBy ?PersonOrOrganization1.
+    ?CreativeWork1 schema:endorsers ?PersonOrOrganization1.
+    ?CreativeWork1 schema:composer ?PersonOrOrganization1.
+    ?CreativeWork1 schema:lyricist ?PersonOrOrganization1.
+    ?CreativeWork1 schema:reviewedBy ?PersonOrOrganization1.
+    ?CreativeWork1 schema:itemReviewed ?PersonOrOrganization1.
+    ?CreativeWork1 schema:letterer ?PersonOrOrganization1.
+    ?CreativeWork1 schema:artist ?PersonOrOrganization1.
+    ?CreativeWork1 schema:colorist ?PersonOrOrganization1.
+    ?CreativeWork1 schema:penciler ?PersonOrOrganization1.
+    ?CreativeWork1 schema:inker ?PersonOrOrganization1.
+    ?CreativeWork1 schema:gameItem ?PersonOrOrganization1.
+    ?CreativeWork1 schema:quest ?PersonOrOrganization1.
+    ?CreativeWork1 schema:characterAttribute ?PersonOrOrganization1.
+    ?CreativeWork1 schema:illustrator ?PersonOrOrganization1.
+    ?CreativeWork1 schema:recognizingAuthority ?PersonOrOrganization1.
+    ?CreativeWork1 schema:category ?PersonOrOrganization1.
     ?CreativeWork1 schema:offers ?Offer1.
     ?CreativeWork1 schema:offers ?Offer2.
     ?CreativeWork1 schema:offers ?Offer3.
@@ -99,12 +145,48 @@ CONSTRUCT {
     ?CreativeWork1 schema:mainEntity ?Offer1.
     ?CreativeWork1 schema:mainEntity ?Offer2.
     ?CreativeWork1 schema:mainEntity ?Offer3.
+    ?CreativeWork1 schema:itemReviewed ?Offer1.
+    ?CreativeWork1 schema:itemReviewed ?Offer2.
+    ?CreativeWork1 schema:itemReviewed ?Offer3.
+    ?CreativeWork1 schema:gameItem ?Offer1.
+    ?CreativeWork1 schema:gameItem ?Offer2.
+    ?CreativeWork1 schema:gameItem ?Offer3.
+    ?CreativeWork1 schema:quest ?Offer1.
+    ?CreativeWork1 schema:quest ?Offer2.
+    ?CreativeWork1 schema:quest ?Offer3.
+    ?CreativeWork1 schema:characterAttribute ?Offer1.
+    ?CreativeWork1 schema:characterAttribute ?Offer2.
+    ?CreativeWork1 schema:characterAttribute ?Offer3.
+    ?CreativeWork1 schema:category ?Offer1.
+    ?CreativeWork1 schema:category ?Offer2.
+    ?CreativeWork1 schema:category ?Offer3.
+    ?Offer1 schema:offeredBy ?PersonOrOrganization1.
+    ?Offer2 schema:offeredBy ?PersonOrOrganization1.
+    ?Offer3 schema:offeredBy ?PersonOrOrganization1.
+    ?Offer1 schema:seller ?PersonOrOrganization1.
+    ?Offer2 schema:seller ?PersonOrOrganization1.
+    ?Offer3 schema:seller ?PersonOrOrganization1.
+    ?Offer1 schema:category ?PersonOrOrganization1.
+    ?Offer2 schema:category ?PersonOrOrganization1.
+    ?Offer3 schema:category ?PersonOrOrganization1.
     ?Offer1 schema-dig:owner ?PersonOrOrganization1.
     ?Offer2 schema-dig:owner ?PersonOrOrganization1.
     ?Offer3 schema-dig:owner ?PersonOrOrganization1.
+    ?Offer1 schema-dig:applicant ?PersonOrOrganization1.
+    ?Offer2 schema-dig:applicant ?PersonOrOrganization1.
+    ?Offer3 schema-dig:applicant ?PersonOrOrganization1.
+    ?Offer1 schema-dig:assignee ?PersonOrOrganization1.
+    ?Offer2 schema-dig:assignee ?PersonOrOrganization1.
+    ?Offer3 schema-dig:assignee ?PersonOrOrganization1.
     ?Offer1 schema:category ?CreativeWork1.
     ?Offer2 schema:category ?CreativeWork1.
     ?Offer3 schema:category ?CreativeWork1.
+    ?Offer1 schema:review ?CreativeWork1.
+    ?Offer2 schema:review ?CreativeWork1.
+    ?Offer3 schema:review ?CreativeWork1.
+    ?Offer1 schema:reviews ?CreativeWork1.
+    ?Offer2 schema:reviews ?CreativeWork1.
+    ?Offer3 schema:reviews ?CreativeWork1.
     ?Offer1 schema:mainEntityOfPage ?CreativeWork1.
     ?Offer2 schema:mainEntityOfPage ?CreativeWork1.
     ?Offer3 schema:mainEntityOfPage ?CreativeWork1.

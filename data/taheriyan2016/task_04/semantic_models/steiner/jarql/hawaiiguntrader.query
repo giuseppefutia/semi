@@ -60,10 +60,9 @@ CONSTRUCT {
     ?Offer1 rdf:type schema:Offer.
     ?Offer1 schema:name ?0036.
     ?Offer1 rdf:type schema:Offer.
-    ?0036 rdfs:subClassOf owl:Thing.
-    ?Firearm1 rdfs:subClassOf owl:Thing.
-    ?CreativeWork1 schema-dig:owner ?PersonOrOrganization1.
-    ?Offer1 schema:category ?CreativeWork1.
+    ?Offer1 schema:category ?Firearm1.
+    ?CreativeWork1 schema:category ?PersonOrOrganization1.
+    ?Offer1 schema:mainEntityOfPage ?CreativeWork1.
 }
 WHERE {
     ?root a jarql:Root.

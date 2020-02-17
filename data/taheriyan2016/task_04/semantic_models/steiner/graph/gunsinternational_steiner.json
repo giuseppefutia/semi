@@ -104,13 +104,6 @@
             }
         },
         {
-            "v": "owl:Thing",
-            "value": {
-                "type": "special",
-                "label": "owl:Thing"
-            }
-        },
-        {
             "v": "Seller4193",
             "value": {
                 "type": "attribute_name",
@@ -248,14 +241,14 @@
         },
         {
             "v": "Price4278",
-            "w": "owl:Thing",
-            "name": "Price4278***owl:Thing",
+            "w": "schema:Offer1",
+            "name": "Price4278***schema:Offer1",
             "value": {
-                "label": "rdfs:subClassOf",
-                "type": "inherited",
-                "weight": 0.3333333333333333
+                "type": "st_property_uri",
+                "label": "schema:price***inverted",
+                "weight": 1
             },
-            "weight": 0.3333333333333333
+            "weight": 1
         },
         {
             "v": "Seller4193",
@@ -291,26 +284,15 @@
             "weight": 1
         },
         {
-            "v": "owl:Thing",
-            "w": "Zip4218",
-            "name": "owl:Thing***Zip4218",
-            "value": {
-                "type": "inherited",
-                "label": "rdfs:subClassOf***inverted",
-                "weight": 0.3333333333333333
-            },
-            "weight": 0.3333333333333333
-        },
-        {
             "v": "schema-dig:Firearm1",
-            "w": "owl:Thing",
-            "name": "schema-dig:Firearm1***owl:Thing",
+            "w": "schema:PostalAddress1",
+            "name": "schema-dig:Firearm1***schema:PostalAddress1",
             "value": {
-                "label": "rdfs:subClassOf",
                 "type": "inherited",
-                "weight": 0.3333333333333333
+                "label": "schema:productSupported***inverted",
+                "weight": 4
             },
-            "weight": 0.3333333333333333
+            "weight": 4
         },
         {
             "v": "schema-dig:PersonOrOrganization1",
@@ -318,7 +300,7 @@
             "name": "schema-dig:PersonOrOrganization1***schema:CreativeWork1",
             "value": {
                 "type": "inherited",
-                "label": "schema-dig:owner***inverted",
+                "label": "schema:recognizingAuthority***inverted",
                 "weight": 4
             },
             "weight": 4
@@ -329,20 +311,21 @@
             "name": "schema:CreativeWork1***schema:Offer1",
             "value": {
                 "type": "inherited",
-                "label": "schema:category***inverted",
+                "label": "schema:mainEntityOfPage***inverted",
                 "weight": 4
             },
             "weight": 4
         },
         {
             "v": "schema:Offer1",
-            "w": "Price4278",
-            "name": "schema:Offer1***Price4278",
+            "w": "schema:PostalAddress1",
+            "name": "schema:Offer1***schema:PostalAddress1",
             "value": {
-                "label": "schema:price",
-                "type": "st_property_uri"
+                "label": "schema:category",
+                "type": "inherited",
+                "weight": 4
             },
-            "weight": 1
+            "weight": 4
         },
         {
             "v": "schema:PostalAddress1",
