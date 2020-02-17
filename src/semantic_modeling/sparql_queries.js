@@ -24,6 +24,13 @@ var SUPER_CLASSES_QUERY = (class_node) => {
             }`;
 }
 
+var SUB_CLASSES_QUERY = (class_node) => {
+    return utils.get_prefix_strings() + `
+            SELECT ?all_super_classes WHERE {
+                ?all_super_classes rdfs:subClassOf ${class_node}
+            }`;
+}
+
 var DIRECT_PROPERTIES_QUERY = (c_u, c_v, p_domain, p_range) => {
     // p_range and p_domain can change according to ontologies
     return utils.get_prefix_strings() + `
@@ -51,6 +58,7 @@ var ALL_CLASSES_QUERY = () => {
 
 exports.CLOSURE_QUERY = CLOSURE_QUERY;
 exports.SUPER_CLASSES_QUERY = SUPER_CLASSES_QUERY;
+exports.SUB_CLASSES_QUERY = SUB_CLASSES_QUERY;
 exports.DIRECT_PROPERTIES_QUERY = DIRECT_PROPERTIES_QUERY;
 exports.INHERITED_PROPERTIES_QUERY = INHERITED_PROPERTIES_QUERY;
 exports.ALL_CLASSES_QUERY = ALL_CLASSES_QUERY;

@@ -201,20 +201,20 @@ var add_direct_properties = (dps, graph) => {
 
 /**
  **************************************************************************
- ************************ Super classes management ************************
+ ************************ Related classes management **********************
  **************************************************************************
  */
 
 
 /**
- * Get all super classes of a class node in the graph (semantic types + closures)
+ * Get all related classes of a class node in the graph (semantic types + closures)
  * in a recursive way (path expression * implemented in SPARQL 1.1).
  * This is useful to create inherited properties between class nodes in the graph
  * @param sc
  * @param store
  * @param all_classes - (Useful in recursive functions)
  */
-var get_super_classes = (sc, store, all_classes) => {
+var get_related_classes = (sc, store, all_classes) => {
     return new Promise(function(resolve, reject) {
         var sc_query = sc['query'];
         var starting_class = sc['starting_class'];
@@ -251,11 +251,11 @@ var get_super_classes = (sc, store, all_classes) => {
 
 
 /**
- * Get all super classes of all class nodes included in the graph
+ * Get all related classes of all class nodes included in the graph
  * @param store
  * @param class_nodes
  */
-var get_all_super_classes = (store, class_nodes) => {
+var get_all_related_classes = (store, class_nodes) => {
     var scs = [];
     var all_classes = {};
     for (var c in class_nodes) {
@@ -266,7 +266,18 @@ var get_all_super_classes = (store, class_nodes) => {
         }
         scs.push(sc);
     }
-    var funcs = scs.map(sc => () => get_super_classes(sc, store, all_classes));
+
+    for (var c in class_nodes) {
+        var sc = {
+            'class_node': class_nodes[c],
+            'starting_class': class_nodes[c],
+            'query': sparql.SUB_CLASSES_QUERY(class_nodes[c])
+        }
+        scs.push(sc);
+    }
+
+    var funcs = scs.map(sc => () => get_related_classes(sc, store, all_classes));
+
     return promise_sequence(funcs);
 }
 
@@ -334,9 +345,17 @@ var get_all_inherited_properties = (store, super_classes, p_domain, p_range) => 
             // Do not consider relation between super classes of the same class
             if (i === j) continue;
 
+            // Remove duplicates
+
+            var subjects_sc = super_classes[i].filter(function(elem, pos) {
+                return super_classes[i].indexOf(elem) == pos;
+            });
+
+            var objects_sc = super_classes[j].filter(function(elem, pos) {
+                return super_classes[j].indexOf(elem) == pos;
+            });
+
             // Construct the queries
-            var subjects_sc = super_classes[i];
-            var objects_sc = super_classes[j];
 
             for (var s in subjects_sc) {
                 for (var o in objects_sc) {
@@ -528,7 +547,7 @@ var build_graph = (st_path, ont_path, p_domain, p_range, o_class) => {
             // Get all super classes
             console.log('Getting all super classes...');
             var class_nodes = get_class_nodes(graph);
-            return get_all_super_classes(store, class_nodes);
+            return get_all_related_classes(store, class_nodes);
         }).catch(function(err) {
             console.log('Error when getting all super_classes:');
             console.log(err);
