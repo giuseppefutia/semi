@@ -90,6 +90,12 @@ CONSTRUCT {
     ?CreativeWork1 schema:workTranslation ?CreativeWork1.
     ?CreativeWork1 schema:offers ?Offer1.
     ?Offer1 schema:addOn ?Offer1.
+    ?PersonOrOrganization1 schema-dig:isAuthorOf ?CreativeWork1.
+    ?PersonOrOrganization2 schema-dig:isAuthorOf ?CreativeWork1.
+    ?CreativeWork1 schema-dig:owner ?PersonOrOrganization1.
+    ?CreativeWork1 schema-dig:owner ?PersonOrOrganization2.
+    ?CreativeWork1 schema:offers ?Offer1.
+    ?Offer1 schema:category ?CreativeWork1.
     ?Model2378 rdfs:subClassOf owl:Thing.
     ?Manf2363 rdfs:subClassOf owl:Thing.
     ?ContactPoint1 rdfs:subClassOf owl:Thing.

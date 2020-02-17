@@ -85,6 +85,29 @@ CONSTRUCT {
     ?Offer3 schema:addOn ?Offer1.
     ?Offer3 schema:addOn ?Offer2.
     ?Offer3 schema:addOn ?Offer3.
+    ?PersonOrOrganization1 schema-dig:isAuthorOf ?CreativeWork1.
+    ?CreativeWork1 schema-dig:owner ?PersonOrOrganization1.
+    ?CreativeWork1 schema:offers ?Offer1.
+    ?CreativeWork1 schema:offers ?Offer2.
+    ?CreativeWork1 schema:offers ?Offer3.
+    ?CreativeWork1 schema:mentions ?Offer1.
+    ?CreativeWork1 schema:mentions ?Offer2.
+    ?CreativeWork1 schema:mentions ?Offer3.
+    ?CreativeWork1 schema:about ?Offer1.
+    ?CreativeWork1 schema:about ?Offer2.
+    ?CreativeWork1 schema:about ?Offer3.
+    ?CreativeWork1 schema:mainEntity ?Offer1.
+    ?CreativeWork1 schema:mainEntity ?Offer2.
+    ?CreativeWork1 schema:mainEntity ?Offer3.
+    ?Offer1 schema-dig:owner ?PersonOrOrganization1.
+    ?Offer2 schema-dig:owner ?PersonOrOrganization1.
+    ?Offer3 schema-dig:owner ?PersonOrOrganization1.
+    ?Offer1 schema:category ?CreativeWork1.
+    ?Offer2 schema:category ?CreativeWork1.
+    ?Offer3 schema:category ?CreativeWork1.
+    ?Offer1 schema:mainEntityOfPage ?CreativeWork1.
+    ?Offer2 schema:mainEntityOfPage ?CreativeWork1.
+    ?Offer3 schema:mainEntityOfPage ?CreativeWork1.
 }
 WHERE {
     ?root a jarql:Root.

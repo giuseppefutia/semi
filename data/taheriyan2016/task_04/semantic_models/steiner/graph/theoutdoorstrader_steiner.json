@@ -69,6 +69,13 @@
             }
         },
         {
+            "v": "owl:Thing",
+            "value": {
+                "type": "special",
+                "label": "owl:Thing"
+            }
+        },
+        {
             "v": "Price0855",
             "value": {
                 "type": "attribute_name",
@@ -83,10 +90,10 @@
             }
         },
         {
-            "v": "schema:PostalAddress1",
+            "v": "For0031",
             "value": {
-                "type": "class_uri",
-                "label": "schema:PostalAddress"
+                "type": "attribute_name",
+                "label": "For0031"
             }
         },
         {
@@ -111,10 +118,10 @@
             }
         },
         {
-            "v": "For0031",
+            "v": "schema:PostalAddress1",
             "value": {
-                "type": "attribute_name",
-                "label": "For0031"
+                "type": "class_uri",
+                "label": "schema:PostalAddress"
             }
         },
         {
@@ -190,14 +197,14 @@
         },
         {
             "v": "Name0846",
-            "w": "schema-dig:Firearm1",
-            "name": "Name0846***schema-dig:Firearm1",
+            "w": "owl:Thing",
+            "name": "Name0846***owl:Thing",
             "value": {
-                "type": "st_property_uri",
-                "label": "schema:name***inverted",
-                "weight": 1
+                "label": "rdfs:subClassOf",
+                "type": "inherited",
+                "weight": 0.3333333333333333
             },
-            "weight": 1
+            "weight": 0.3333333333333333
         },
         {
             "v": "Price0855",
@@ -222,48 +229,58 @@
             "weight": 1
         },
         {
-            "v": "schema-dig:Firearm1",
-            "w": "schema:PostalAddress1",
-            "name": "schema-dig:Firearm1***schema:PostalAddress1",
+            "v": "owl:Thing",
+            "w": "For0031",
+            "name": "owl:Thing***For0031",
             "value": {
                 "type": "inherited",
-                "label": "schema:productSupported***inverted",
-                "weight": 4
+                "label": "rdfs:subClassOf***inverted",
+                "weight": 0.3333333333333333
             },
-            "weight": 4
+            "weight": 0.3333333333333333
+        },
+        {
+            "v": "schema-dig:Firearm1",
+            "w": "Name0846",
+            "name": "schema-dig:Firearm1***Name0846",
+            "value": {
+                "label": "schema:name",
+                "type": "st_property_uri"
+            },
+            "weight": 1
         },
         {
             "v": "schema-dig:PersonOrOrganization1",
             "w": "schema:CreativeWork1",
             "name": "schema-dig:PersonOrOrganization1***schema:CreativeWork1",
             "value": {
-                "label": "schema-dig:isAuthorOf",
-                "type": "direct_property_uri",
-                "weight": 1
+                "type": "inherited",
+                "label": "schema-dig:owner***inverted",
+                "weight": 4
             },
-            "weight": 1
+            "weight": 4
         },
         {
             "v": "schema:CreativeWork1",
             "w": "schema:Place1",
             "name": "schema:CreativeWork1***schema:Place1",
             "value": {
-                "label": "schema:contentLocation",
-                "type": "direct_property_uri",
-                "weight": 1
+                "type": "inherited",
+                "label": "schema:mainEntityOfPage***inverted",
+                "weight": 4
             },
-            "weight": 1
+            "weight": 4
         },
         {
             "v": "schema:Offer1",
             "w": "schema:Place1",
             "name": "schema:Offer1***schema:Place1",
             "value": {
-                "label": "schema:eligibleRegion",
-                "type": "direct_property_uri",
-                "weight": 1
+                "label": "schema:category",
+                "type": "inherited",
+                "weight": 4
             },
-            "weight": 1
+            "weight": 4
         },
         {
             "v": "schema:Place1",
@@ -280,11 +297,11 @@
             "w": "schema:PostalAddress1",
             "name": "schema:Place1***schema:PostalAddress1",
             "value": {
-                "label": "schema:address",
-                "type": "direct_property_uri",
-                "weight": 1
+                "type": "inherited",
+                "label": "schema:areaServed***inverted",
+                "weight": 4
             },
-            "weight": 1
+            "weight": 4
         },
         {
             "v": "schema:PostalAddress1",

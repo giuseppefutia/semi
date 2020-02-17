@@ -87,10 +87,13 @@ CONSTRUCT {
     ?CreativeWork1 schema:workTranslation ?CreativeWork1.
     ?CreativeWork1 schema:offers ?Offer1.
     ?Offer1 schema:addOn ?Offer1.
-    ?Firearm1 schema:category ?CreativeWork1.
-    ?Firearm1 schema:category ?Offer1.
-    ?Firearm1 schema:category ?PostalAddress1.
-    ?PostalAddress1 schema:productSupported ?Firearm1.
+    ?PersonOrOrganization1 schema-dig:isAuthorOf ?CreativeWork1.
+    ?CreativeWork1 schema-dig:owner ?PersonOrOrganization1.
+    ?CreativeWork1 schema:offers ?Offer1.
+    ?Offer1 schema:category ?CreativeWork1.
+    ?Firearm1 rdfs:subClassOf owl:Thing.
+    ?Price4278 rdfs:subClassOf owl:Thing.
+    ?Zip4218 rdfs:subClassOf owl:Thing.
 }
 WHERE {
     ?root a jarql:Root.

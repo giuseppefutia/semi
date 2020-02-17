@@ -62,8 +62,8 @@ CONSTRUCT {
     ?Offer1 rdf:type schema:Offer.
     ?0036 rdfs:subClassOf owl:Thing.
     ?Firearm1 rdfs:subClassOf owl:Thing.
-    ?PersonOrOrganization1 schema-dig:isAuthorOf ?CreativeWork1.
-    ?CreativeWork1 schema:offers ?Offer1.
+    ?CreativeWork1 schema-dig:owner ?PersonOrOrganization1.
+    ?Offer1 schema:category ?CreativeWork1.
 }
 WHERE {
     ?root a jarql:Root.

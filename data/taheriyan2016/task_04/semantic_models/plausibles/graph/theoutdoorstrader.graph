@@ -74,6 +74,10 @@
         "schema:PostalAddress1": {
             "type": "class_uri",
             "label": "schema:PostalAddress"
+        },
+        "owl:Thing": {
+            "type": "special",
+            "label": "owl:Thing"
         }
     },
     "_in": {
@@ -89,19 +93,7 @@
                 "weight": 1
             }
         },
-        "schema-dig:Firearm1": {
-            "schema:PostalAddress1\u0001schema-dig:Firearm1\u0001schema:PostalAddress1***schema-dig:Firearm1\u0001inheritedschema:productSupported\u00014": {
-                "v": "schema:PostalAddress1",
-                "w": "schema-dig:Firearm1",
-                "name": "schema:PostalAddress1***schema-dig:Firearm1",
-                "value": {
-                    "label": "schema:productSupported",
-                    "type": "inherited",
-                    "weight": 4
-                },
-                "weight": 4
-            }
-        },
+        "schema-dig:Firearm1": {},
         "Name0846": {
             "schema-dig:Firearm1\u0001Name0846\u0001schema-dig:Firearm1***Name0846\u0001st_property_urischema:name\u00011": {
                 "v": "schema-dig:Firearm1",
@@ -126,7 +118,30 @@
                 "weight": 1
             }
         },
-        "schema-dig:PersonOrOrganization1": {},
+        "schema-dig:PersonOrOrganization1": {
+            "schema:CreativeWork1\u0001schema-dig:PersonOrOrganization1\u0001schema:CreativeWork1***schema-dig:PersonOrOrganization1\u0001inheritedschema-dig:owner\u00014": {
+                "v": "schema:CreativeWork1",
+                "w": "schema-dig:PersonOrOrganization1",
+                "name": "schema:CreativeWork1***schema-dig:PersonOrOrganization1",
+                "value": {
+                    "label": "schema-dig:owner",
+                    "type": "inherited",
+                    "weight": 4
+                },
+                "weight": 4
+            },
+            "schema:Place1\u0001schema-dig:PersonOrOrganization1\u0001schema:Place1***schema-dig:PersonOrOrganization1\u0001inheritedschema-dig:owner\u00014": {
+                "v": "schema:Place1",
+                "w": "schema-dig:PersonOrOrganization1",
+                "name": "schema:Place1***schema-dig:PersonOrOrganization1",
+                "value": {
+                    "label": "schema-dig:owner",
+                    "type": "inherited",
+                    "weight": 4
+                },
+                "weight": 4
+            }
+        },
         "Messages0801": {
             "schema:CreativeWork1\u0001Messages0801\u0001schema:CreativeWork1***Messages0801\u0001st_property_urischema-dig:unidentifiedNumber\u00011": {
                 "v": "schema:CreativeWork1",
@@ -261,12 +276,34 @@
                 },
                 "weight": 1
             },
-            "schema-dig:Firearm1\u0001schema:CreativeWork1\u0001schema-dig:Firearm1***schema:CreativeWork1\u0001inheritedschema:category\u00014": {
-                "v": "schema-dig:Firearm1",
+            "schema-dig:PersonOrOrganization1\u0001schema:CreativeWork1\u0001schema-dig:PersonOrOrganization1***schema:CreativeWork1\u0001inheritedschema-dig:isAuthorOf\u00014": {
+                "v": "schema-dig:PersonOrOrganization1",
                 "w": "schema:CreativeWork1",
-                "name": "schema-dig:Firearm1***schema:CreativeWork1",
+                "name": "schema-dig:PersonOrOrganization1***schema:CreativeWork1",
+                "value": {
+                    "label": "schema-dig:isAuthorOf",
+                    "type": "inherited",
+                    "weight": 4
+                },
+                "weight": 4
+            },
+            "schema:Offer1\u0001schema:CreativeWork1\u0001schema:Offer1***schema:CreativeWork1\u0001inheritedschema:category\u00014": {
+                "v": "schema:Offer1",
+                "w": "schema:CreativeWork1",
+                "name": "schema:Offer1***schema:CreativeWork1",
                 "value": {
                     "label": "schema:category",
+                    "type": "inherited",
+                    "weight": 4
+                },
+                "weight": 4
+            },
+            "schema:Place1\u0001schema:CreativeWork1\u0001schema:Place1***schema:CreativeWork1\u0001inheritedschema:mainEntityOfPage\u00014": {
+                "v": "schema:Place1",
+                "w": "schema:CreativeWork1",
+                "name": "schema:Place1***schema:CreativeWork1",
+                "value": {
+                    "label": "schema:mainEntityOfPage",
                     "type": "inherited",
                     "weight": 4
                 },
@@ -332,12 +369,12 @@
                 },
                 "weight": 1
             },
-            "schema-dig:Firearm1\u0001schema:Offer1\u0001schema-dig:Firearm1***schema:Offer1\u0001inheritedschema:category\u00014": {
-                "v": "schema-dig:Firearm1",
+            "schema:CreativeWork1\u0001schema:Offer1\u0001schema:CreativeWork1***schema:Offer1\u0001inheritedschema:offers\u00014": {
+                "v": "schema:CreativeWork1",
                 "w": "schema:Offer1",
-                "name": "schema-dig:Firearm1***schema:Offer1",
+                "name": "schema:CreativeWork1***schema:Offer1",
                 "value": {
-                    "label": "schema:category",
+                    "label": "schema:offers",
                     "type": "inherited",
                     "weight": 4
                 },
@@ -503,12 +540,144 @@
                 },
                 "weight": 1
             },
-            "schema-dig:Firearm1\u0001schema:Place1\u0001schema-dig:Firearm1***schema:Place1\u0001inheritedschema:category\u00014": {
-                "v": "schema-dig:Firearm1",
+            "schema:CreativeWork1\u0001schema:Place1\u0001schema:CreativeWork1***schema:Place1\u0001inheritedschema:locationCreated\u00014": {
+                "v": "schema:CreativeWork1",
                 "w": "schema:Place1",
-                "name": "schema-dig:Firearm1***schema:Place1",
+                "name": "schema:CreativeWork1***schema:Place1",
+                "value": {
+                    "label": "schema:locationCreated",
+                    "type": "inherited",
+                    "weight": 4
+                },
+                "weight": 4
+            },
+            "schema:CreativeWork1\u0001schema:Place1\u0001schema:CreativeWork1***schema:Place1\u0001inheritedschema-dig:primaryLocation\u00014": {
+                "v": "schema:CreativeWork1",
+                "w": "schema:Place1",
+                "name": "schema:CreativeWork1***schema:Place1",
+                "value": {
+                    "label": "schema-dig:primaryLocation",
+                    "type": "inherited",
+                    "weight": 4
+                },
+                "weight": 4
+            },
+            "schema:CreativeWork1\u0001schema:Place1\u0001schema:CreativeWork1***schema:Place1\u0001inheritedschema:contentLocation\u00014": {
+                "v": "schema:CreativeWork1",
+                "w": "schema:Place1",
+                "name": "schema:CreativeWork1***schema:Place1",
+                "value": {
+                    "label": "schema:contentLocation",
+                    "type": "inherited",
+                    "weight": 4
+                },
+                "weight": 4
+            },
+            "schema:CreativeWork1\u0001schema:Place1\u0001schema:CreativeWork1***schema:Place1\u0001inheritedschema:mentions\u00014": {
+                "v": "schema:CreativeWork1",
+                "w": "schema:Place1",
+                "name": "schema:CreativeWork1***schema:Place1",
+                "value": {
+                    "label": "schema:mentions",
+                    "type": "inherited",
+                    "weight": 4
+                },
+                "weight": 4
+            },
+            "schema:CreativeWork1\u0001schema:Place1\u0001schema:CreativeWork1***schema:Place1\u0001inheritedschema:about\u00014": {
+                "v": "schema:CreativeWork1",
+                "w": "schema:Place1",
+                "name": "schema:CreativeWork1***schema:Place1",
+                "value": {
+                    "label": "schema:about",
+                    "type": "inherited",
+                    "weight": 4
+                },
+                "weight": 4
+            },
+            "schema:CreativeWork1\u0001schema:Place1\u0001schema:CreativeWork1***schema:Place1\u0001inheritedschema:mainEntity\u00014": {
+                "v": "schema:CreativeWork1",
+                "w": "schema:Place1",
+                "name": "schema:CreativeWork1***schema:Place1",
+                "value": {
+                    "label": "schema:mainEntity",
+                    "type": "inherited",
+                    "weight": 4
+                },
+                "weight": 4
+            },
+            "schema:Offer1\u0001schema:Place1\u0001schema:Offer1***schema:Place1\u0001inheritedschema:ineligibleRegion\u00014": {
+                "v": "schema:Offer1",
+                "w": "schema:Place1",
+                "name": "schema:Offer1***schema:Place1",
+                "value": {
+                    "label": "schema:ineligibleRegion",
+                    "type": "inherited",
+                    "weight": 4
+                },
+                "weight": 4
+            },
+            "schema:Offer1\u0001schema:Place1\u0001schema:Offer1***schema:Place1\u0001inheritedschema:availableAtOrFrom\u00014": {
+                "v": "schema:Offer1",
+                "w": "schema:Place1",
+                "name": "schema:Offer1***schema:Place1",
+                "value": {
+                    "label": "schema:availableAtOrFrom",
+                    "type": "inherited",
+                    "weight": 4
+                },
+                "weight": 4
+            },
+            "schema:Offer1\u0001schema:Place1\u0001schema:Offer1***schema:Place1\u0001inheritedschema:areaServed\u00014": {
+                "v": "schema:Offer1",
+                "w": "schema:Place1",
+                "name": "schema:Offer1***schema:Place1",
+                "value": {
+                    "label": "schema:areaServed",
+                    "type": "inherited",
+                    "weight": 4
+                },
+                "weight": 4
+            },
+            "schema:Offer1\u0001schema:Place1\u0001schema:Offer1***schema:Place1\u0001inheritedschema:eligibleRegion\u00014": {
+                "v": "schema:Offer1",
+                "w": "schema:Place1",
+                "name": "schema:Offer1***schema:Place1",
+                "value": {
+                    "label": "schema:eligibleRegion",
+                    "type": "inherited",
+                    "weight": 4
+                },
+                "weight": 4
+            },
+            "schema:Offer1\u0001schema:Place1\u0001schema:Offer1***schema:Place1\u0001inheritedschema:category\u00014": {
+                "v": "schema:Offer1",
+                "w": "schema:Place1",
+                "name": "schema:Offer1***schema:Place1",
                 "value": {
                     "label": "schema:category",
+                    "type": "inherited",
+                    "weight": 4
+                },
+                "weight": 4
+            },
+            "schema:PostalAddress1\u0001schema:Place1\u0001schema:PostalAddress1***schema:Place1\u0001inheritedschema:serviceArea\u00014": {
+                "v": "schema:PostalAddress1",
+                "w": "schema:Place1",
+                "name": "schema:PostalAddress1***schema:Place1",
+                "value": {
+                    "label": "schema:serviceArea",
+                    "type": "inherited",
+                    "weight": 4
+                },
+                "weight": 4
+            },
+            "schema:PostalAddress1\u0001schema:Place1\u0001schema:PostalAddress1***schema:Place1\u0001inheritedschema:areaServed\u00014": {
+                "v": "schema:PostalAddress1",
+                "w": "schema:Place1",
+                "name": "schema:PostalAddress1***schema:Place1",
+                "value": {
+                    "label": "schema:areaServed",
                     "type": "inherited",
                     "weight": 4
                 },
@@ -538,6 +707,41 @@
                     "weight": 1
                 },
                 "weight": 1
+            },
+            "schema:Place1\u0001schema:PostalAddress1\u0001schema:Place1***schema:PostalAddress1\u0001inheritedschema:address\u00014": {
+                "v": "schema:Place1",
+                "w": "schema:PostalAddress1",
+                "name": "schema:Place1***schema:PostalAddress1",
+                "value": {
+                    "label": "schema:address",
+                    "type": "inherited",
+                    "weight": 4
+                },
+                "weight": 4
+            }
+        },
+        "owl:Thing": {
+            "Name0846\u0001owl:Thing\u0001Name0846***owl:Thing\u0001inheritedrdfs:subClassOf\u00010.3333333333333333": {
+                "v": "Name0846",
+                "w": "owl:Thing",
+                "name": "Name0846***owl:Thing",
+                "value": {
+                    "label": "rdfs:subClassOf",
+                    "type": "inherited",
+                    "weight": 0.3333333333333333
+                },
+                "weight": 0.3333333333333333
+            },
+            "For0031\u0001owl:Thing\u0001For0031***owl:Thing\u0001inheritedrdfs:subClassOf\u00010.3333333333333333": {
+                "v": "For0031",
+                "w": "owl:Thing",
+                "name": "For0031***owl:Thing",
+                "value": {
+                    "label": "rdfs:subClassOf",
+                    "type": "inherited",
+                    "weight": 0.3333333333333333
+                },
+                "weight": 0.3333333333333333
             }
         }
     },
@@ -545,23 +749,25 @@
         "Accessories0378": {
             "schema-dig:Firearm1": 1
         },
-        "schema-dig:Firearm1": {
-            "schema:PostalAddress1": 1
-        },
+        "schema-dig:Firearm1": {},
         "Name0846": {
             "schema-dig:Firearm1": 1
         },
         "started0628": {
             "schema-dig:PersonOrOrganization1": 1
         },
-        "schema-dig:PersonOrOrganization1": {},
+        "schema-dig:PersonOrOrganization1": {
+            "schema:CreativeWork1": 1,
+            "schema:Place1": 1
+        },
         "Messages0801": {
             "schema:CreativeWork1": 1
         },
         "schema:CreativeWork1": {
-            "schema-dig:PersonOrOrganization1": 1,
+            "schema-dig:PersonOrOrganization1": 2,
             "schema:CreativeWork1": 10,
-            "schema-dig:Firearm1": 1
+            "schema:Offer1": 1,
+            "schema:Place1": 1
         },
         "trade1645": {
             "schema:CreativeWork1": 1
@@ -573,9 +779,8 @@
             "schema:Offer1": 1
         },
         "schema:Offer1": {
-            "schema:CreativeWork1": 1,
-            "schema:Offer1": 1,
-            "schema-dig:Firearm1": 1
+            "schema:CreativeWork1": 2,
+            "schema:Offer1": 1
         },
         "FT0613": {
             "schema:Offer1": 1
@@ -590,16 +795,20 @@
             "schema:Place1": 1
         },
         "schema:Place1": {
-            "schema:CreativeWork1": 3,
-            "schema:Offer1": 4,
+            "schema:CreativeWork1": 9,
+            "schema:Offer1": 9,
             "schema:Place1": 3,
-            "schema-dig:Firearm1": 1
+            "schema:PostalAddress1": 2
         },
         "For0031": {
             "schema:PostalAddress1": 1
         },
         "schema:PostalAddress1": {
-            "schema:Place1": 1
+            "schema:Place1": 2
+        },
+        "owl:Thing": {
+            "Name0846": 1,
+            "For0031": 1
         }
     },
     "_out": {
@@ -624,42 +833,21 @@
                     "type": "st_property_uri"
                 },
                 "weight": 1
-            },
-            "schema-dig:Firearm1\u0001schema:CreativeWork1\u0001schema-dig:Firearm1***schema:CreativeWork1\u0001inheritedschema:category\u00014": {
-                "v": "schema-dig:Firearm1",
-                "w": "schema:CreativeWork1",
-                "name": "schema-dig:Firearm1***schema:CreativeWork1",
-                "value": {
-                    "label": "schema:category",
-                    "type": "inherited",
-                    "weight": 4
-                },
-                "weight": 4
-            },
-            "schema-dig:Firearm1\u0001schema:Offer1\u0001schema-dig:Firearm1***schema:Offer1\u0001inheritedschema:category\u00014": {
-                "v": "schema-dig:Firearm1",
-                "w": "schema:Offer1",
-                "name": "schema-dig:Firearm1***schema:Offer1",
-                "value": {
-                    "label": "schema:category",
-                    "type": "inherited",
-                    "weight": 4
-                },
-                "weight": 4
-            },
-            "schema-dig:Firearm1\u0001schema:Place1\u0001schema-dig:Firearm1***schema:Place1\u0001inheritedschema:category\u00014": {
-                "v": "schema-dig:Firearm1",
-                "w": "schema:Place1",
-                "name": "schema-dig:Firearm1***schema:Place1",
-                "value": {
-                    "label": "schema:category",
-                    "type": "inherited",
-                    "weight": 4
-                },
-                "weight": 4
             }
         },
-        "Name0846": {},
+        "Name0846": {
+            "Name0846\u0001owl:Thing\u0001Name0846***owl:Thing\u0001inheritedrdfs:subClassOf\u00010.3333333333333333": {
+                "v": "Name0846",
+                "w": "owl:Thing",
+                "name": "Name0846***owl:Thing",
+                "value": {
+                    "label": "rdfs:subClassOf",
+                    "type": "inherited",
+                    "weight": 0.3333333333333333
+                },
+                "weight": 0.3333333333333333
+            }
+        },
         "started0628": {},
         "schema-dig:PersonOrOrganization1": {
             "schema-dig:PersonOrOrganization1\u0001started0628\u0001schema-dig:PersonOrOrganization1***started0628\u0001st_property_urischema-dig:identifier\u00011": {
@@ -682,6 +870,17 @@
                     "weight": 1
                 },
                 "weight": 1
+            },
+            "schema-dig:PersonOrOrganization1\u0001schema:CreativeWork1\u0001schema-dig:PersonOrOrganization1***schema:CreativeWork1\u0001inheritedschema-dig:isAuthorOf\u00014": {
+                "v": "schema-dig:PersonOrOrganization1",
+                "w": "schema:CreativeWork1",
+                "name": "schema-dig:PersonOrOrganization1***schema:CreativeWork1",
+                "value": {
+                    "label": "schema-dig:isAuthorOf",
+                    "type": "inherited",
+                    "weight": 4
+                },
+                "weight": 4
             }
         },
         "Messages0801": {},
@@ -869,6 +1068,94 @@
                     "weight": 1
                 },
                 "weight": 1
+            },
+            "schema:CreativeWork1\u0001schema-dig:PersonOrOrganization1\u0001schema:CreativeWork1***schema-dig:PersonOrOrganization1\u0001inheritedschema-dig:owner\u00014": {
+                "v": "schema:CreativeWork1",
+                "w": "schema-dig:PersonOrOrganization1",
+                "name": "schema:CreativeWork1***schema-dig:PersonOrOrganization1",
+                "value": {
+                    "label": "schema-dig:owner",
+                    "type": "inherited",
+                    "weight": 4
+                },
+                "weight": 4
+            },
+            "schema:CreativeWork1\u0001schema:Offer1\u0001schema:CreativeWork1***schema:Offer1\u0001inheritedschema:offers\u00014": {
+                "v": "schema:CreativeWork1",
+                "w": "schema:Offer1",
+                "name": "schema:CreativeWork1***schema:Offer1",
+                "value": {
+                    "label": "schema:offers",
+                    "type": "inherited",
+                    "weight": 4
+                },
+                "weight": 4
+            },
+            "schema:CreativeWork1\u0001schema:Place1\u0001schema:CreativeWork1***schema:Place1\u0001inheritedschema:locationCreated\u00014": {
+                "v": "schema:CreativeWork1",
+                "w": "schema:Place1",
+                "name": "schema:CreativeWork1***schema:Place1",
+                "value": {
+                    "label": "schema:locationCreated",
+                    "type": "inherited",
+                    "weight": 4
+                },
+                "weight": 4
+            },
+            "schema:CreativeWork1\u0001schema:Place1\u0001schema:CreativeWork1***schema:Place1\u0001inheritedschema-dig:primaryLocation\u00014": {
+                "v": "schema:CreativeWork1",
+                "w": "schema:Place1",
+                "name": "schema:CreativeWork1***schema:Place1",
+                "value": {
+                    "label": "schema-dig:primaryLocation",
+                    "type": "inherited",
+                    "weight": 4
+                },
+                "weight": 4
+            },
+            "schema:CreativeWork1\u0001schema:Place1\u0001schema:CreativeWork1***schema:Place1\u0001inheritedschema:contentLocation\u00014": {
+                "v": "schema:CreativeWork1",
+                "w": "schema:Place1",
+                "name": "schema:CreativeWork1***schema:Place1",
+                "value": {
+                    "label": "schema:contentLocation",
+                    "type": "inherited",
+                    "weight": 4
+                },
+                "weight": 4
+            },
+            "schema:CreativeWork1\u0001schema:Place1\u0001schema:CreativeWork1***schema:Place1\u0001inheritedschema:mentions\u00014": {
+                "v": "schema:CreativeWork1",
+                "w": "schema:Place1",
+                "name": "schema:CreativeWork1***schema:Place1",
+                "value": {
+                    "label": "schema:mentions",
+                    "type": "inherited",
+                    "weight": 4
+                },
+                "weight": 4
+            },
+            "schema:CreativeWork1\u0001schema:Place1\u0001schema:CreativeWork1***schema:Place1\u0001inheritedschema:about\u00014": {
+                "v": "schema:CreativeWork1",
+                "w": "schema:Place1",
+                "name": "schema:CreativeWork1***schema:Place1",
+                "value": {
+                    "label": "schema:about",
+                    "type": "inherited",
+                    "weight": 4
+                },
+                "weight": 4
+            },
+            "schema:CreativeWork1\u0001schema:Place1\u0001schema:CreativeWork1***schema:Place1\u0001inheritedschema:mainEntity\u00014": {
+                "v": "schema:CreativeWork1",
+                "w": "schema:Place1",
+                "name": "schema:CreativeWork1***schema:Place1",
+                "value": {
+                    "label": "schema:mainEntity",
+                    "type": "inherited",
+                    "weight": 4
+                },
+                "weight": 4
             }
         },
         "trade1645": {},
@@ -969,6 +1256,72 @@
                     "weight": 1
                 },
                 "weight": 1
+            },
+            "schema:Offer1\u0001schema:CreativeWork1\u0001schema:Offer1***schema:CreativeWork1\u0001inheritedschema:category\u00014": {
+                "v": "schema:Offer1",
+                "w": "schema:CreativeWork1",
+                "name": "schema:Offer1***schema:CreativeWork1",
+                "value": {
+                    "label": "schema:category",
+                    "type": "inherited",
+                    "weight": 4
+                },
+                "weight": 4
+            },
+            "schema:Offer1\u0001schema:Place1\u0001schema:Offer1***schema:Place1\u0001inheritedschema:ineligibleRegion\u00014": {
+                "v": "schema:Offer1",
+                "w": "schema:Place1",
+                "name": "schema:Offer1***schema:Place1",
+                "value": {
+                    "label": "schema:ineligibleRegion",
+                    "type": "inherited",
+                    "weight": 4
+                },
+                "weight": 4
+            },
+            "schema:Offer1\u0001schema:Place1\u0001schema:Offer1***schema:Place1\u0001inheritedschema:availableAtOrFrom\u00014": {
+                "v": "schema:Offer1",
+                "w": "schema:Place1",
+                "name": "schema:Offer1***schema:Place1",
+                "value": {
+                    "label": "schema:availableAtOrFrom",
+                    "type": "inherited",
+                    "weight": 4
+                },
+                "weight": 4
+            },
+            "schema:Offer1\u0001schema:Place1\u0001schema:Offer1***schema:Place1\u0001inheritedschema:areaServed\u00014": {
+                "v": "schema:Offer1",
+                "w": "schema:Place1",
+                "name": "schema:Offer1***schema:Place1",
+                "value": {
+                    "label": "schema:areaServed",
+                    "type": "inherited",
+                    "weight": 4
+                },
+                "weight": 4
+            },
+            "schema:Offer1\u0001schema:Place1\u0001schema:Offer1***schema:Place1\u0001inheritedschema:eligibleRegion\u00014": {
+                "v": "schema:Offer1",
+                "w": "schema:Place1",
+                "name": "schema:Offer1***schema:Place1",
+                "value": {
+                    "label": "schema:eligibleRegion",
+                    "type": "inherited",
+                    "weight": 4
+                },
+                "weight": 4
+            },
+            "schema:Offer1\u0001schema:Place1\u0001schema:Offer1***schema:Place1\u0001inheritedschema:category\u00014": {
+                "v": "schema:Offer1",
+                "w": "schema:Place1",
+                "name": "schema:Offer1***schema:Place1",
+                "value": {
+                    "label": "schema:category",
+                    "type": "inherited",
+                    "weight": 4
+                },
+                "weight": 4
             }
         },
         "FT0613": {},
@@ -1029,9 +1382,54 @@
                     "weight": 1
                 },
                 "weight": 1
+            },
+            "schema:Place1\u0001schema-dig:PersonOrOrganization1\u0001schema:Place1***schema-dig:PersonOrOrganization1\u0001inheritedschema-dig:owner\u00014": {
+                "v": "schema:Place1",
+                "w": "schema-dig:PersonOrOrganization1",
+                "name": "schema:Place1***schema-dig:PersonOrOrganization1",
+                "value": {
+                    "label": "schema-dig:owner",
+                    "type": "inherited",
+                    "weight": 4
+                },
+                "weight": 4
+            },
+            "schema:Place1\u0001schema:CreativeWork1\u0001schema:Place1***schema:CreativeWork1\u0001inheritedschema:mainEntityOfPage\u00014": {
+                "v": "schema:Place1",
+                "w": "schema:CreativeWork1",
+                "name": "schema:Place1***schema:CreativeWork1",
+                "value": {
+                    "label": "schema:mainEntityOfPage",
+                    "type": "inherited",
+                    "weight": 4
+                },
+                "weight": 4
+            },
+            "schema:Place1\u0001schema:PostalAddress1\u0001schema:Place1***schema:PostalAddress1\u0001inheritedschema:address\u00014": {
+                "v": "schema:Place1",
+                "w": "schema:PostalAddress1",
+                "name": "schema:Place1***schema:PostalAddress1",
+                "value": {
+                    "label": "schema:address",
+                    "type": "inherited",
+                    "weight": 4
+                },
+                "weight": 4
             }
         },
-        "For0031": {},
+        "For0031": {
+            "For0031\u0001owl:Thing\u0001For0031***owl:Thing\u0001inheritedrdfs:subClassOf\u00010.3333333333333333": {
+                "v": "For0031",
+                "w": "owl:Thing",
+                "name": "For0031***owl:Thing",
+                "value": {
+                    "label": "rdfs:subClassOf",
+                    "type": "inherited",
+                    "weight": 0.3333333333333333
+                },
+                "weight": 0.3333333333333333
+            }
+        },
         "schema:PostalAddress1": {
             "schema:PostalAddress1\u0001For0031\u0001schema:PostalAddress1***For0031\u0001st_property_urischema:addressRegion\u00011": {
                 "v": "schema:PostalAddress1",
@@ -1043,33 +1441,44 @@
                 },
                 "weight": 1
             },
-            "schema:PostalAddress1\u0001schema-dig:Firearm1\u0001schema:PostalAddress1***schema-dig:Firearm1\u0001inheritedschema:productSupported\u00014": {
+            "schema:PostalAddress1\u0001schema:Place1\u0001schema:PostalAddress1***schema:Place1\u0001inheritedschema:serviceArea\u00014": {
                 "v": "schema:PostalAddress1",
-                "w": "schema-dig:Firearm1",
-                "name": "schema:PostalAddress1***schema-dig:Firearm1",
+                "w": "schema:Place1",
+                "name": "schema:PostalAddress1***schema:Place1",
                 "value": {
-                    "label": "schema:productSupported",
+                    "label": "schema:serviceArea",
+                    "type": "inherited",
+                    "weight": 4
+                },
+                "weight": 4
+            },
+            "schema:PostalAddress1\u0001schema:Place1\u0001schema:PostalAddress1***schema:Place1\u0001inheritedschema:areaServed\u00014": {
+                "v": "schema:PostalAddress1",
+                "w": "schema:Place1",
+                "name": "schema:PostalAddress1***schema:Place1",
+                "value": {
+                    "label": "schema:areaServed",
                     "type": "inherited",
                     "weight": 4
                 },
                 "weight": 4
             }
-        }
+        },
+        "owl:Thing": {}
     },
     "_sucs": {
         "Accessories0378": {},
         "schema-dig:Firearm1": {
             "Accessories0378": 1,
-            "Name0846": 1,
-            "schema:CreativeWork1": 1,
-            "schema:Offer1": 1,
-            "schema:Place1": 1
+            "Name0846": 1
         },
-        "Name0846": {},
+        "Name0846": {
+            "owl:Thing": 1
+        },
         "started0628": {},
         "schema-dig:PersonOrOrganization1": {
             "started0628": 1,
-            "schema:CreativeWork1": 1
+            "schema:CreativeWork1": 2
         },
         "Messages0801": {},
         "schema:CreativeWork1": {
@@ -1077,8 +1486,9 @@
             "trade1645": 1,
             "file_name": 1,
             "schema:CreativeWork1": 10,
-            "schema:Offer1": 1,
-            "schema:Place1": 3
+            "schema:Offer1": 2,
+            "schema:Place1": 9,
+            "schema-dig:PersonOrOrganization1": 1
         },
         "trade1645": {},
         "file_name": {},
@@ -1089,7 +1499,8 @@
             "0029": 1,
             "Price0855": 1,
             "schema:Offer1": 1,
-            "schema:Place1": 4
+            "schema:Place1": 9,
+            "schema:CreativeWork1": 1
         },
         "FT0613": {},
         "0029": {},
@@ -1098,13 +1509,18 @@
         "schema:Place1": {
             "Location0814": 1,
             "schema:Place1": 3,
-            "schema:PostalAddress1": 1
+            "schema:PostalAddress1": 2,
+            "schema-dig:PersonOrOrganization1": 1,
+            "schema:CreativeWork1": 1
         },
-        "For0031": {},
+        "For0031": {
+            "owl:Thing": 1
+        },
         "schema:PostalAddress1": {
             "For0031": 1,
-            "schema-dig:Firearm1": 1
-        }
+            "schema:Place1": 2
+        },
+        "owl:Thing": {}
     },
     "_edgeObjs": {
         "schema-dig:Firearm1\u0001Accessories0378\u0001schema-dig:Firearm1***Accessories0378\u0001st_property_urischema:category\u00011": {
@@ -1491,32 +1907,109 @@
             },
             "weight": 1
         },
-        "schema-dig:Firearm1\u0001schema:CreativeWork1\u0001schema-dig:Firearm1***schema:CreativeWork1\u0001inheritedschema:category\u00014": {
-            "v": "schema-dig:Firearm1",
+        "schema-dig:PersonOrOrganization1\u0001schema:CreativeWork1\u0001schema-dig:PersonOrOrganization1***schema:CreativeWork1\u0001inheritedschema-dig:isAuthorOf\u00014": {
+            "v": "schema-dig:PersonOrOrganization1",
             "w": "schema:CreativeWork1",
-            "name": "schema-dig:Firearm1***schema:CreativeWork1",
+            "name": "schema-dig:PersonOrOrganization1***schema:CreativeWork1",
             "value": {
-                "label": "schema:category",
+                "label": "schema-dig:isAuthorOf",
                 "type": "inherited",
                 "weight": 4
             },
             "weight": 4
         },
-        "schema-dig:Firearm1\u0001schema:Offer1\u0001schema-dig:Firearm1***schema:Offer1\u0001inheritedschema:category\u00014": {
-            "v": "schema-dig:Firearm1",
+        "schema:CreativeWork1\u0001schema-dig:PersonOrOrganization1\u0001schema:CreativeWork1***schema-dig:PersonOrOrganization1\u0001inheritedschema-dig:owner\u00014": {
+            "v": "schema:CreativeWork1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:CreativeWork1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema-dig:owner",
+                "type": "inherited",
+                "weight": 4
+            },
+            "weight": 4
+        },
+        "schema:CreativeWork1\u0001schema:Offer1\u0001schema:CreativeWork1***schema:Offer1\u0001inheritedschema:offers\u00014": {
+            "v": "schema:CreativeWork1",
             "w": "schema:Offer1",
-            "name": "schema-dig:Firearm1***schema:Offer1",
+            "name": "schema:CreativeWork1***schema:Offer1",
             "value": {
-                "label": "schema:category",
+                "label": "schema:offers",
                 "type": "inherited",
                 "weight": 4
             },
             "weight": 4
         },
-        "schema-dig:Firearm1\u0001schema:Place1\u0001schema-dig:Firearm1***schema:Place1\u0001inheritedschema:category\u00014": {
-            "v": "schema-dig:Firearm1",
+        "schema:CreativeWork1\u0001schema:Place1\u0001schema:CreativeWork1***schema:Place1\u0001inheritedschema:locationCreated\u00014": {
+            "v": "schema:CreativeWork1",
             "w": "schema:Place1",
-            "name": "schema-dig:Firearm1***schema:Place1",
+            "name": "schema:CreativeWork1***schema:Place1",
+            "value": {
+                "label": "schema:locationCreated",
+                "type": "inherited",
+                "weight": 4
+            },
+            "weight": 4
+        },
+        "schema:CreativeWork1\u0001schema:Place1\u0001schema:CreativeWork1***schema:Place1\u0001inheritedschema-dig:primaryLocation\u00014": {
+            "v": "schema:CreativeWork1",
+            "w": "schema:Place1",
+            "name": "schema:CreativeWork1***schema:Place1",
+            "value": {
+                "label": "schema-dig:primaryLocation",
+                "type": "inherited",
+                "weight": 4
+            },
+            "weight": 4
+        },
+        "schema:CreativeWork1\u0001schema:Place1\u0001schema:CreativeWork1***schema:Place1\u0001inheritedschema:contentLocation\u00014": {
+            "v": "schema:CreativeWork1",
+            "w": "schema:Place1",
+            "name": "schema:CreativeWork1***schema:Place1",
+            "value": {
+                "label": "schema:contentLocation",
+                "type": "inherited",
+                "weight": 4
+            },
+            "weight": 4
+        },
+        "schema:CreativeWork1\u0001schema:Place1\u0001schema:CreativeWork1***schema:Place1\u0001inheritedschema:mentions\u00014": {
+            "v": "schema:CreativeWork1",
+            "w": "schema:Place1",
+            "name": "schema:CreativeWork1***schema:Place1",
+            "value": {
+                "label": "schema:mentions",
+                "type": "inherited",
+                "weight": 4
+            },
+            "weight": 4
+        },
+        "schema:CreativeWork1\u0001schema:Place1\u0001schema:CreativeWork1***schema:Place1\u0001inheritedschema:about\u00014": {
+            "v": "schema:CreativeWork1",
+            "w": "schema:Place1",
+            "name": "schema:CreativeWork1***schema:Place1",
+            "value": {
+                "label": "schema:about",
+                "type": "inherited",
+                "weight": 4
+            },
+            "weight": 4
+        },
+        "schema:CreativeWork1\u0001schema:Place1\u0001schema:CreativeWork1***schema:Place1\u0001inheritedschema:mainEntity\u00014": {
+            "v": "schema:CreativeWork1",
+            "w": "schema:Place1",
+            "name": "schema:CreativeWork1***schema:Place1",
+            "value": {
+                "label": "schema:mainEntity",
+                "type": "inherited",
+                "weight": 4
+            },
+            "weight": 4
+        },
+        "schema:Offer1\u0001schema:CreativeWork1\u0001schema:Offer1***schema:CreativeWork1\u0001inheritedschema:category\u00014": {
+            "v": "schema:Offer1",
+            "w": "schema:CreativeWork1",
+            "name": "schema:Offer1***schema:CreativeWork1",
             "value": {
                 "label": "schema:category",
                 "type": "inherited",
@@ -1524,16 +2017,137 @@
             },
             "weight": 4
         },
-        "schema:PostalAddress1\u0001schema-dig:Firearm1\u0001schema:PostalAddress1***schema-dig:Firearm1\u0001inheritedschema:productSupported\u00014": {
-            "v": "schema:PostalAddress1",
-            "w": "schema-dig:Firearm1",
-            "name": "schema:PostalAddress1***schema-dig:Firearm1",
+        "schema:Offer1\u0001schema:Place1\u0001schema:Offer1***schema:Place1\u0001inheritedschema:ineligibleRegion\u00014": {
+            "v": "schema:Offer1",
+            "w": "schema:Place1",
+            "name": "schema:Offer1***schema:Place1",
             "value": {
-                "label": "schema:productSupported",
+                "label": "schema:ineligibleRegion",
                 "type": "inherited",
                 "weight": 4
             },
             "weight": 4
+        },
+        "schema:Offer1\u0001schema:Place1\u0001schema:Offer1***schema:Place1\u0001inheritedschema:availableAtOrFrom\u00014": {
+            "v": "schema:Offer1",
+            "w": "schema:Place1",
+            "name": "schema:Offer1***schema:Place1",
+            "value": {
+                "label": "schema:availableAtOrFrom",
+                "type": "inherited",
+                "weight": 4
+            },
+            "weight": 4
+        },
+        "schema:Offer1\u0001schema:Place1\u0001schema:Offer1***schema:Place1\u0001inheritedschema:areaServed\u00014": {
+            "v": "schema:Offer1",
+            "w": "schema:Place1",
+            "name": "schema:Offer1***schema:Place1",
+            "value": {
+                "label": "schema:areaServed",
+                "type": "inherited",
+                "weight": 4
+            },
+            "weight": 4
+        },
+        "schema:Offer1\u0001schema:Place1\u0001schema:Offer1***schema:Place1\u0001inheritedschema:eligibleRegion\u00014": {
+            "v": "schema:Offer1",
+            "w": "schema:Place1",
+            "name": "schema:Offer1***schema:Place1",
+            "value": {
+                "label": "schema:eligibleRegion",
+                "type": "inherited",
+                "weight": 4
+            },
+            "weight": 4
+        },
+        "schema:Offer1\u0001schema:Place1\u0001schema:Offer1***schema:Place1\u0001inheritedschema:category\u00014": {
+            "v": "schema:Offer1",
+            "w": "schema:Place1",
+            "name": "schema:Offer1***schema:Place1",
+            "value": {
+                "label": "schema:category",
+                "type": "inherited",
+                "weight": 4
+            },
+            "weight": 4
+        },
+        "schema:Place1\u0001schema-dig:PersonOrOrganization1\u0001schema:Place1***schema-dig:PersonOrOrganization1\u0001inheritedschema-dig:owner\u00014": {
+            "v": "schema:Place1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:Place1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema-dig:owner",
+                "type": "inherited",
+                "weight": 4
+            },
+            "weight": 4
+        },
+        "schema:Place1\u0001schema:CreativeWork1\u0001schema:Place1***schema:CreativeWork1\u0001inheritedschema:mainEntityOfPage\u00014": {
+            "v": "schema:Place1",
+            "w": "schema:CreativeWork1",
+            "name": "schema:Place1***schema:CreativeWork1",
+            "value": {
+                "label": "schema:mainEntityOfPage",
+                "type": "inherited",
+                "weight": 4
+            },
+            "weight": 4
+        },
+        "schema:Place1\u0001schema:PostalAddress1\u0001schema:Place1***schema:PostalAddress1\u0001inheritedschema:address\u00014": {
+            "v": "schema:Place1",
+            "w": "schema:PostalAddress1",
+            "name": "schema:Place1***schema:PostalAddress1",
+            "value": {
+                "label": "schema:address",
+                "type": "inherited",
+                "weight": 4
+            },
+            "weight": 4
+        },
+        "schema:PostalAddress1\u0001schema:Place1\u0001schema:PostalAddress1***schema:Place1\u0001inheritedschema:serviceArea\u00014": {
+            "v": "schema:PostalAddress1",
+            "w": "schema:Place1",
+            "name": "schema:PostalAddress1***schema:Place1",
+            "value": {
+                "label": "schema:serviceArea",
+                "type": "inherited",
+                "weight": 4
+            },
+            "weight": 4
+        },
+        "schema:PostalAddress1\u0001schema:Place1\u0001schema:PostalAddress1***schema:Place1\u0001inheritedschema:areaServed\u00014": {
+            "v": "schema:PostalAddress1",
+            "w": "schema:Place1",
+            "name": "schema:PostalAddress1***schema:Place1",
+            "value": {
+                "label": "schema:areaServed",
+                "type": "inherited",
+                "weight": 4
+            },
+            "weight": 4
+        },
+        "Name0846\u0001owl:Thing\u0001Name0846***owl:Thing\u0001inheritedrdfs:subClassOf\u00010.3333333333333333": {
+            "v": "Name0846",
+            "w": "owl:Thing",
+            "name": "Name0846***owl:Thing",
+            "value": {
+                "label": "rdfs:subClassOf",
+                "type": "inherited",
+                "weight": 0.3333333333333333
+            },
+            "weight": 0.3333333333333333
+        },
+        "For0031\u0001owl:Thing\u0001For0031***owl:Thing\u0001inheritedrdfs:subClassOf\u00010.3333333333333333": {
+            "v": "For0031",
+            "w": "owl:Thing",
+            "name": "For0031***owl:Thing",
+            "value": {
+                "label": "rdfs:subClassOf",
+                "type": "inherited",
+                "weight": 0.3333333333333333
+            },
+            "weight": 0.3333333333333333
         }
     },
     "_edgeLabels": {
@@ -1705,27 +2319,117 @@
             "type": "direct_property_uri",
             "weight": 1
         },
-        "schema-dig:Firearm1\u0001schema:CreativeWork1\u0001schema-dig:Firearm1***schema:CreativeWork1\u0001inheritedschema:category\u00014": {
+        "schema-dig:PersonOrOrganization1\u0001schema:CreativeWork1\u0001schema-dig:PersonOrOrganization1***schema:CreativeWork1\u0001inheritedschema-dig:isAuthorOf\u00014": {
+            "label": "schema-dig:isAuthorOf",
+            "type": "inherited",
+            "weight": 4
+        },
+        "schema:CreativeWork1\u0001schema-dig:PersonOrOrganization1\u0001schema:CreativeWork1***schema-dig:PersonOrOrganization1\u0001inheritedschema-dig:owner\u00014": {
+            "label": "schema-dig:owner",
+            "type": "inherited",
+            "weight": 4
+        },
+        "schema:CreativeWork1\u0001schema:Offer1\u0001schema:CreativeWork1***schema:Offer1\u0001inheritedschema:offers\u00014": {
+            "label": "schema:offers",
+            "type": "inherited",
+            "weight": 4
+        },
+        "schema:CreativeWork1\u0001schema:Place1\u0001schema:CreativeWork1***schema:Place1\u0001inheritedschema:locationCreated\u00014": {
+            "label": "schema:locationCreated",
+            "type": "inherited",
+            "weight": 4
+        },
+        "schema:CreativeWork1\u0001schema:Place1\u0001schema:CreativeWork1***schema:Place1\u0001inheritedschema-dig:primaryLocation\u00014": {
+            "label": "schema-dig:primaryLocation",
+            "type": "inherited",
+            "weight": 4
+        },
+        "schema:CreativeWork1\u0001schema:Place1\u0001schema:CreativeWork1***schema:Place1\u0001inheritedschema:contentLocation\u00014": {
+            "label": "schema:contentLocation",
+            "type": "inherited",
+            "weight": 4
+        },
+        "schema:CreativeWork1\u0001schema:Place1\u0001schema:CreativeWork1***schema:Place1\u0001inheritedschema:mentions\u00014": {
+            "label": "schema:mentions",
+            "type": "inherited",
+            "weight": 4
+        },
+        "schema:CreativeWork1\u0001schema:Place1\u0001schema:CreativeWork1***schema:Place1\u0001inheritedschema:about\u00014": {
+            "label": "schema:about",
+            "type": "inherited",
+            "weight": 4
+        },
+        "schema:CreativeWork1\u0001schema:Place1\u0001schema:CreativeWork1***schema:Place1\u0001inheritedschema:mainEntity\u00014": {
+            "label": "schema:mainEntity",
+            "type": "inherited",
+            "weight": 4
+        },
+        "schema:Offer1\u0001schema:CreativeWork1\u0001schema:Offer1***schema:CreativeWork1\u0001inheritedschema:category\u00014": {
             "label": "schema:category",
             "type": "inherited",
             "weight": 4
         },
-        "schema-dig:Firearm1\u0001schema:Offer1\u0001schema-dig:Firearm1***schema:Offer1\u0001inheritedschema:category\u00014": {
+        "schema:Offer1\u0001schema:Place1\u0001schema:Offer1***schema:Place1\u0001inheritedschema:ineligibleRegion\u00014": {
+            "label": "schema:ineligibleRegion",
+            "type": "inherited",
+            "weight": 4
+        },
+        "schema:Offer1\u0001schema:Place1\u0001schema:Offer1***schema:Place1\u0001inheritedschema:availableAtOrFrom\u00014": {
+            "label": "schema:availableAtOrFrom",
+            "type": "inherited",
+            "weight": 4
+        },
+        "schema:Offer1\u0001schema:Place1\u0001schema:Offer1***schema:Place1\u0001inheritedschema:areaServed\u00014": {
+            "label": "schema:areaServed",
+            "type": "inherited",
+            "weight": 4
+        },
+        "schema:Offer1\u0001schema:Place1\u0001schema:Offer1***schema:Place1\u0001inheritedschema:eligibleRegion\u00014": {
+            "label": "schema:eligibleRegion",
+            "type": "inherited",
+            "weight": 4
+        },
+        "schema:Offer1\u0001schema:Place1\u0001schema:Offer1***schema:Place1\u0001inheritedschema:category\u00014": {
             "label": "schema:category",
             "type": "inherited",
             "weight": 4
         },
-        "schema-dig:Firearm1\u0001schema:Place1\u0001schema-dig:Firearm1***schema:Place1\u0001inheritedschema:category\u00014": {
-            "label": "schema:category",
+        "schema:Place1\u0001schema-dig:PersonOrOrganization1\u0001schema:Place1***schema-dig:PersonOrOrganization1\u0001inheritedschema-dig:owner\u00014": {
+            "label": "schema-dig:owner",
             "type": "inherited",
             "weight": 4
         },
-        "schema:PostalAddress1\u0001schema-dig:Firearm1\u0001schema:PostalAddress1***schema-dig:Firearm1\u0001inheritedschema:productSupported\u00014": {
-            "label": "schema:productSupported",
+        "schema:Place1\u0001schema:CreativeWork1\u0001schema:Place1***schema:CreativeWork1\u0001inheritedschema:mainEntityOfPage\u00014": {
+            "label": "schema:mainEntityOfPage",
             "type": "inherited",
             "weight": 4
+        },
+        "schema:Place1\u0001schema:PostalAddress1\u0001schema:Place1***schema:PostalAddress1\u0001inheritedschema:address\u00014": {
+            "label": "schema:address",
+            "type": "inherited",
+            "weight": 4
+        },
+        "schema:PostalAddress1\u0001schema:Place1\u0001schema:PostalAddress1***schema:Place1\u0001inheritedschema:serviceArea\u00014": {
+            "label": "schema:serviceArea",
+            "type": "inherited",
+            "weight": 4
+        },
+        "schema:PostalAddress1\u0001schema:Place1\u0001schema:PostalAddress1***schema:Place1\u0001inheritedschema:areaServed\u00014": {
+            "label": "schema:areaServed",
+            "type": "inherited",
+            "weight": 4
+        },
+        "Name0846\u0001owl:Thing\u0001Name0846***owl:Thing\u0001inheritedrdfs:subClassOf\u00010.3333333333333333": {
+            "label": "rdfs:subClassOf",
+            "type": "inherited",
+            "weight": 0.3333333333333333
+        },
+        "For0031\u0001owl:Thing\u0001For0031***owl:Thing\u0001inheritedrdfs:subClassOf\u00010.3333333333333333": {
+            "label": "rdfs:subClassOf",
+            "type": "inherited",
+            "weight": 0.3333333333333333
         }
     },
-    "_nodeCount": 18,
-    "_edgeCount": 40
+    "_nodeCount": 19,
+    "_edgeCount": 58
 }

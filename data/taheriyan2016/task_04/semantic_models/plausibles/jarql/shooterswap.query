@@ -81,8 +81,25 @@ CONSTRUCT {
     ?CreativeWork1 schema:workTranslation ?CreativeWork1.
     ?CreativeWork1 schema:offers ?Offer1.
     ?Offer1 schema:addOn ?Offer1.
+    ?Firearm1 schema-dig:owner ?PersonOrOrganization1.
     ?Firearm1 schema:category ?CreativeWork1.
+    ?Firearm1 schema:mainEntityOfPage ?CreativeWork1.
+    ?Firearm1 schema:offers ?Offer1.
     ?Firearm1 schema:category ?Offer1.
+    ?PersonOrOrganization1 schema-dig:isAuthorOf ?CreativeWork1.
+    ?CreativeWork1 schema:mentions ?Firearm1.
+    ?CreativeWork1 schema:about ?Firearm1.
+    ?CreativeWork1 schema:mainEntity ?Firearm1.
+    ?CreativeWork1 schema-dig:owner ?PersonOrOrganization1.
+    ?CreativeWork1 schema:offers ?Offer1.
+    ?CreativeWork1 schema:mentions ?Offer1.
+    ?CreativeWork1 schema:about ?Offer1.
+    ?CreativeWork1 schema:mainEntity ?Offer1.
+    ?Offer1 schema:itemOffered ?Firearm1.
+    ?Offer1 schema:category ?Firearm1.
+    ?Offer1 schema-dig:owner ?PersonOrOrganization1.
+    ?Offer1 schema:category ?CreativeWork1.
+    ?Offer1 schema:mainEntityOfPage ?CreativeWork1.
 }
 WHERE {
     ?root a jarql:Root.

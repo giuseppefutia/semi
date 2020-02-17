@@ -130,6 +130,13 @@
                 "type": "class_uri",
                 "label": "schema:PostalAddress"
             }
+        },
+        {
+            "v": "owl:Thing",
+            "value": {
+                "type": "special",
+                "label": "owl:Thing"
+            }
         }
     ],
     "edges": [
@@ -518,20 +525,108 @@
             "weight": 1
         },
         {
-            "v": "schema-dig:Firearm1",
+            "v": "schema-dig:PersonOrOrganization1",
             "w": "schema:CreativeWork1",
-            "name": "schema-dig:Firearm1***schema:CreativeWork1",
+            "name": "schema-dig:PersonOrOrganization1***schema:CreativeWork1",
             "value": {
-                "label": "schema:category",
+                "label": "schema-dig:isAuthorOf",
                 "type": "inherited",
                 "weight": 4
             },
             "weight": 4
         },
         {
-            "v": "schema-dig:Firearm1",
+            "v": "schema:CreativeWork1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:CreativeWork1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema-dig:owner",
+                "type": "inherited",
+                "weight": 4
+            },
+            "weight": 4
+        },
+        {
+            "v": "schema:CreativeWork1",
             "w": "schema:Offer1",
-            "name": "schema-dig:Firearm1***schema:Offer1",
+            "name": "schema:CreativeWork1***schema:Offer1",
+            "value": {
+                "label": "schema:offers",
+                "type": "inherited",
+                "weight": 4
+            },
+            "weight": 4
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:Place1",
+            "name": "schema:CreativeWork1***schema:Place1",
+            "value": {
+                "label": "schema:locationCreated",
+                "type": "inherited",
+                "weight": 4
+            },
+            "weight": 4
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:Place1",
+            "name": "schema:CreativeWork1***schema:Place1",
+            "value": {
+                "label": "schema-dig:primaryLocation",
+                "type": "inherited",
+                "weight": 4
+            },
+            "weight": 4
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:Place1",
+            "name": "schema:CreativeWork1***schema:Place1",
+            "value": {
+                "label": "schema:contentLocation",
+                "type": "inherited",
+                "weight": 4
+            },
+            "weight": 4
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:Place1",
+            "name": "schema:CreativeWork1***schema:Place1",
+            "value": {
+                "label": "schema:mentions",
+                "type": "inherited",
+                "weight": 4
+            },
+            "weight": 4
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:Place1",
+            "name": "schema:CreativeWork1***schema:Place1",
+            "value": {
+                "label": "schema:about",
+                "type": "inherited",
+                "weight": 4
+            },
+            "weight": 4
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:Place1",
+            "name": "schema:CreativeWork1***schema:Place1",
+            "value": {
+                "label": "schema:mainEntity",
+                "type": "inherited",
+                "weight": 4
+            },
+            "weight": 4
+        },
+        {
+            "v": "schema:Offer1",
+            "w": "schema:CreativeWork1",
+            "name": "schema:Offer1***schema:CreativeWork1",
             "value": {
                 "label": "schema:category",
                 "type": "inherited",
@@ -540,11 +635,88 @@
             "weight": 4
         },
         {
-            "v": "schema-dig:Firearm1",
+            "v": "schema:Offer1",
             "w": "schema:Place1",
-            "name": "schema-dig:Firearm1***schema:Place1",
+            "name": "schema:Offer1***schema:Place1",
+            "value": {
+                "label": "schema:ineligibleRegion",
+                "type": "inherited",
+                "weight": 4
+            },
+            "weight": 4
+        },
+        {
+            "v": "schema:Offer1",
+            "w": "schema:Place1",
+            "name": "schema:Offer1***schema:Place1",
+            "value": {
+                "label": "schema:availableAtOrFrom",
+                "type": "inherited",
+                "weight": 4
+            },
+            "weight": 4
+        },
+        {
+            "v": "schema:Offer1",
+            "w": "schema:Place1",
+            "name": "schema:Offer1***schema:Place1",
+            "value": {
+                "label": "schema:areaServed",
+                "type": "inherited",
+                "weight": 4
+            },
+            "weight": 4
+        },
+        {
+            "v": "schema:Offer1",
+            "w": "schema:Place1",
+            "name": "schema:Offer1***schema:Place1",
+            "value": {
+                "label": "schema:eligibleRegion",
+                "type": "inherited",
+                "weight": 4
+            },
+            "weight": 4
+        },
+        {
+            "v": "schema:Offer1",
+            "w": "schema:Place1",
+            "name": "schema:Offer1***schema:Place1",
             "value": {
                 "label": "schema:category",
+                "type": "inherited",
+                "weight": 4
+            },
+            "weight": 4
+        },
+        {
+            "v": "schema:Place1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:Place1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema-dig:owner",
+                "type": "inherited",
+                "weight": 4
+            },
+            "weight": 4
+        },
+        {
+            "v": "schema:Place1",
+            "w": "schema:CreativeWork1",
+            "name": "schema:Place1***schema:CreativeWork1",
+            "value": {
+                "label": "schema:mainEntityOfPage",
+                "type": "inherited",
+                "weight": 4
+            },
+            "weight": 4
+        },
+        {
+            "v": "schema:Place1",
+            "w": "schema:PostalAddress1",
+            "name": "schema:Place1***schema:PostalAddress1",
+            "value": {
+                "label": "schema:address",
                 "type": "inherited",
                 "weight": 4
             },
@@ -552,14 +724,47 @@
         },
         {
             "v": "schema:PostalAddress1",
-            "w": "schema-dig:Firearm1",
-            "name": "schema:PostalAddress1***schema-dig:Firearm1",
+            "w": "schema:Place1",
+            "name": "schema:PostalAddress1***schema:Place1",
             "value": {
-                "label": "schema:productSupported",
+                "label": "schema:serviceArea",
                 "type": "inherited",
                 "weight": 4
             },
             "weight": 4
+        },
+        {
+            "v": "schema:PostalAddress1",
+            "w": "schema:Place1",
+            "name": "schema:PostalAddress1***schema:Place1",
+            "value": {
+                "label": "schema:areaServed",
+                "type": "inherited",
+                "weight": 4
+            },
+            "weight": 4
+        },
+        {
+            "v": "Name0846",
+            "w": "owl:Thing",
+            "name": "Name0846***owl:Thing",
+            "value": {
+                "label": "rdfs:subClassOf",
+                "type": "inherited",
+                "weight": 0.3333333333333333
+            },
+            "weight": 0.3333333333333333
+        },
+        {
+            "v": "For0031",
+            "w": "owl:Thing",
+            "name": "For0031***owl:Thing",
+            "value": {
+                "label": "rdfs:subClassOf",
+                "type": "inherited",
+                "weight": 0.3333333333333333
+            },
+            "weight": 0.3333333333333333
         }
     ]
 }

@@ -78,7 +78,19 @@
                 "weight": 1
             }
         },
-        "schema-dig:PersonOrOrganization1": {},
+        "schema-dig:PersonOrOrganization1": {
+            "schema:CreativeWork1\u0001schema-dig:PersonOrOrganization1\u0001schema:CreativeWork1***schema-dig:PersonOrOrganization1\u0001inheritedschema-dig:owner\u00014": {
+                "v": "schema:CreativeWork1",
+                "w": "schema-dig:PersonOrOrganization1",
+                "name": "schema:CreativeWork1***schema-dig:PersonOrOrganization1",
+                "value": {
+                    "label": "schema-dig:owner",
+                    "type": "inherited",
+                    "weight": 4
+                },
+                "weight": 4
+            }
+        },
         "org1609": {
             "schema:CreativeWork1\u0001org1609\u0001schema:CreativeWork1***org1609\u0001st_property_urischema:copyrightYear\u00011": {
                 "v": "schema:CreativeWork1",
@@ -212,6 +224,28 @@
                     "weight": 1
                 },
                 "weight": 1
+            },
+            "schema-dig:PersonOrOrganization1\u0001schema:CreativeWork1\u0001schema-dig:PersonOrOrganization1***schema:CreativeWork1\u0001inheritedschema-dig:isAuthorOf\u00014": {
+                "v": "schema-dig:PersonOrOrganization1",
+                "w": "schema:CreativeWork1",
+                "name": "schema-dig:PersonOrOrganization1***schema:CreativeWork1",
+                "value": {
+                    "label": "schema-dig:isAuthorOf",
+                    "type": "inherited",
+                    "weight": 4
+                },
+                "weight": 4
+            },
+            "schema:Offer1\u0001schema:CreativeWork1\u0001schema:Offer1***schema:CreativeWork1\u0001inheritedschema:category\u00014": {
+                "v": "schema:Offer1",
+                "w": "schema:CreativeWork1",
+                "name": "schema:Offer1***schema:CreativeWork1",
+                "value": {
+                    "label": "schema:category",
+                    "type": "inherited",
+                    "weight": 4
+                },
+                "weight": 4
             }
         },
         "file_name": {
@@ -260,6 +294,17 @@
                     "weight": 1
                 },
                 "weight": 1
+            },
+            "schema:CreativeWork1\u0001schema:Offer1\u0001schema:CreativeWork1***schema:Offer1\u0001inheritedschema:offers\u00014": {
+                "v": "schema:CreativeWork1",
+                "w": "schema:Offer1",
+                "name": "schema:CreativeWork1***schema:Offer1",
+                "value": {
+                    "label": "schema:offers",
+                    "type": "inherited",
+                    "weight": 4
+                },
+                "weight": 4
             }
         },
         "Description0920": {
@@ -319,13 +364,16 @@
         "Listed1222": {
             "schema-dig:PersonOrOrganization1": 1
         },
-        "schema-dig:PersonOrOrganization1": {},
+        "schema-dig:PersonOrOrganization1": {
+            "schema:CreativeWork1": 1
+        },
         "org1609": {
             "schema:CreativeWork1": 1
         },
         "schema:CreativeWork1": {
-            "schema-dig:PersonOrOrganization1": 1,
-            "schema:CreativeWork1": 10
+            "schema-dig:PersonOrOrganization1": 2,
+            "schema:CreativeWork1": 10,
+            "schema:Offer1": 1
         },
         "file_name": {
             "schema:CreativeWork1": 1
@@ -334,7 +382,7 @@
             "schema:Offer1": 1
         },
         "schema:Offer1": {
-            "schema:CreativeWork1": 1,
+            "schema:CreativeWork1": 2,
             "schema:Offer1": 1
         },
         "Description0920": {
@@ -395,6 +443,17 @@
                     "weight": 1
                 },
                 "weight": 1
+            },
+            "schema-dig:PersonOrOrganization1\u0001schema:CreativeWork1\u0001schema-dig:PersonOrOrganization1***schema:CreativeWork1\u0001inheritedschema-dig:isAuthorOf\u00014": {
+                "v": "schema-dig:PersonOrOrganization1",
+                "w": "schema:CreativeWork1",
+                "name": "schema-dig:PersonOrOrganization1***schema:CreativeWork1",
+                "value": {
+                    "label": "schema-dig:isAuthorOf",
+                    "type": "inherited",
+                    "weight": 4
+                },
+                "weight": 4
             }
         },
         "org1609": {},
@@ -539,6 +598,28 @@
                     "weight": 1
                 },
                 "weight": 1
+            },
+            "schema:CreativeWork1\u0001schema-dig:PersonOrOrganization1\u0001schema:CreativeWork1***schema-dig:PersonOrOrganization1\u0001inheritedschema-dig:owner\u00014": {
+                "v": "schema:CreativeWork1",
+                "w": "schema-dig:PersonOrOrganization1",
+                "name": "schema:CreativeWork1***schema-dig:PersonOrOrganization1",
+                "value": {
+                    "label": "schema-dig:owner",
+                    "type": "inherited",
+                    "weight": 4
+                },
+                "weight": 4
+            },
+            "schema:CreativeWork1\u0001schema:Offer1\u0001schema:CreativeWork1***schema:Offer1\u0001inheritedschema:offers\u00014": {
+                "v": "schema:CreativeWork1",
+                "w": "schema:Offer1",
+                "name": "schema:CreativeWork1***schema:Offer1",
+                "value": {
+                    "label": "schema:offers",
+                    "type": "inherited",
+                    "weight": 4
+                },
+                "weight": 4
             }
         },
         "file_name": {},
@@ -584,6 +665,17 @@
                     "weight": 1
                 },
                 "weight": 1
+            },
+            "schema:Offer1\u0001schema:CreativeWork1\u0001schema:Offer1***schema:CreativeWork1\u0001inheritedschema:category\u00014": {
+                "v": "schema:Offer1",
+                "w": "schema:CreativeWork1",
+                "name": "schema:Offer1***schema:CreativeWork1",
+                "value": {
+                    "label": "schema:category",
+                    "type": "inherited",
+                    "weight": 4
+                },
+                "weight": 4
             }
         },
         "Description0920": {},
@@ -611,14 +703,15 @@
         "Listed1222": {},
         "schema-dig:PersonOrOrganization1": {
             "Listed1222": 1,
-            "schema:CreativeWork1": 1
+            "schema:CreativeWork1": 2
         },
         "org1609": {},
         "schema:CreativeWork1": {
             "org1609": 1,
             "file_name": 1,
             "schema:CreativeWork1": 10,
-            "schema:Offer1": 1
+            "schema:Offer1": 2,
+            "schema-dig:PersonOrOrganization1": 1
         },
         "file_name": {},
         "Listed0891": {},
@@ -626,7 +719,8 @@
             "Listed0891": 1,
             "Description0920": 1,
             "0036": 1,
-            "schema:Offer1": 1
+            "schema:Offer1": 1,
+            "schema:CreativeWork1": 1
         },
         "Description0920": {},
         "0036": {
@@ -848,6 +942,50 @@
             },
             "weight": 1
         },
+        "schema-dig:PersonOrOrganization1\u0001schema:CreativeWork1\u0001schema-dig:PersonOrOrganization1***schema:CreativeWork1\u0001inheritedschema-dig:isAuthorOf\u00014": {
+            "v": "schema-dig:PersonOrOrganization1",
+            "w": "schema:CreativeWork1",
+            "name": "schema-dig:PersonOrOrganization1***schema:CreativeWork1",
+            "value": {
+                "label": "schema-dig:isAuthorOf",
+                "type": "inherited",
+                "weight": 4
+            },
+            "weight": 4
+        },
+        "schema:CreativeWork1\u0001schema-dig:PersonOrOrganization1\u0001schema:CreativeWork1***schema-dig:PersonOrOrganization1\u0001inheritedschema-dig:owner\u00014": {
+            "v": "schema:CreativeWork1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:CreativeWork1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema-dig:owner",
+                "type": "inherited",
+                "weight": 4
+            },
+            "weight": 4
+        },
+        "schema:CreativeWork1\u0001schema:Offer1\u0001schema:CreativeWork1***schema:Offer1\u0001inheritedschema:offers\u00014": {
+            "v": "schema:CreativeWork1",
+            "w": "schema:Offer1",
+            "name": "schema:CreativeWork1***schema:Offer1",
+            "value": {
+                "label": "schema:offers",
+                "type": "inherited",
+                "weight": 4
+            },
+            "weight": 4
+        },
+        "schema:Offer1\u0001schema:CreativeWork1\u0001schema:Offer1***schema:CreativeWork1\u0001inheritedschema:category\u00014": {
+            "v": "schema:Offer1",
+            "w": "schema:CreativeWork1",
+            "name": "schema:Offer1***schema:CreativeWork1",
+            "value": {
+                "label": "schema:category",
+                "type": "inherited",
+                "weight": 4
+            },
+            "weight": 4
+        },
         "schema-dig:Firearm1\u0001owl:Thing\u0001schema-dig:Firearm1***owl:Thing\u0001inheritedrdfs:subClassOf\u00010.3333333333333333": {
             "v": "schema-dig:Firearm1",
             "w": "owl:Thing",
@@ -965,6 +1103,26 @@
             "type": "direct_property_uri",
             "weight": 1
         },
+        "schema-dig:PersonOrOrganization1\u0001schema:CreativeWork1\u0001schema-dig:PersonOrOrganization1***schema:CreativeWork1\u0001inheritedschema-dig:isAuthorOf\u00014": {
+            "label": "schema-dig:isAuthorOf",
+            "type": "inherited",
+            "weight": 4
+        },
+        "schema:CreativeWork1\u0001schema-dig:PersonOrOrganization1\u0001schema:CreativeWork1***schema-dig:PersonOrOrganization1\u0001inheritedschema-dig:owner\u00014": {
+            "label": "schema-dig:owner",
+            "type": "inherited",
+            "weight": 4
+        },
+        "schema:CreativeWork1\u0001schema:Offer1\u0001schema:CreativeWork1***schema:Offer1\u0001inheritedschema:offers\u00014": {
+            "label": "schema:offers",
+            "type": "inherited",
+            "weight": 4
+        },
+        "schema:Offer1\u0001schema:CreativeWork1\u0001schema:Offer1***schema:CreativeWork1\u0001inheritedschema:category\u00014": {
+            "label": "schema:category",
+            "type": "inherited",
+            "weight": 4
+        },
         "schema-dig:Firearm1\u0001owl:Thing\u0001schema-dig:Firearm1***owl:Thing\u0001inheritedrdfs:subClassOf\u00010.3333333333333333": {
             "label": "rdfs:subClassOf",
             "type": "inherited",
@@ -977,5 +1135,5 @@
         }
     },
     "_nodeCount": 12,
-    "_edgeCount": 22
+    "_edgeCount": 26
 }

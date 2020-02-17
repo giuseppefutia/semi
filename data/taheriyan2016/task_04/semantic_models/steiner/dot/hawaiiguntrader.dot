@@ -19,7 +19,7 @@ digraph {
   org1609 -> "schema:CreativeWork1" [type=st_property_uri,label="schema:copyrightYear***inverted",weight=1]
   "owl:Thing" -> "0036" [type=inherited,label="rdfs:subClassOf***inverted",weight=0.3333333333333333]
   "schema-dig:Firearm1" -> "owl:Thing" [label="rdfs:subClassOf",type=inherited,weight=0.3333333333333333]
-  "schema-dig:PersonOrOrganization1" -> "schema:CreativeWork1" [label="schema-dig:isAuthorOf",type=direct_property_uri,weight=1]
-  "schema:CreativeWork1" -> "schema:Offer1" [label="schema:offers",type=direct_property_uri,weight=1]
+  "schema-dig:PersonOrOrganization1" -> "schema:CreativeWork1" [type=inherited,label="schema-dig:owner***inverted",weight=4]
+  "schema:CreativeWork1" -> "schema:Offer1" [type=inherited,label="schema:category***inverted",weight=4]
   "schema:Offer1" -> "0036" [label="schema:name",type=st_property_uri]
 }

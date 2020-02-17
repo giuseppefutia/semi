@@ -62,9 +62,9 @@ CONSTRUCT {
     ?Offer1 rdf:type schema:Offer.
     ?Place1 schema:name ?Location1192.
     ?Place1 rdf:type schema:Place.
-    ?PersonOrOrganization1 schema-dig:isAuthorOf ?CreativeWork1.
-    ?CreativeWork1 schema:contentLocation ?Place1.
-    ?Offer1 schema:eligibleRegion ?Place1.
+    ?CreativeWork1 schema-dig:owner ?PersonOrOrganization1.
+    ?Place1 schema:mainEntityOfPage ?CreativeWork1.
+    ?Offer1 schema:category ?Place1.
 }
 WHERE {
     ?root a jarql:Root.

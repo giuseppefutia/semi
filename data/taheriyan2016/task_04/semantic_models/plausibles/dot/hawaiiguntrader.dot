@@ -31,6 +31,10 @@ digraph {
   "schema:CreativeWork1" -> "schema:CreativeWork1" [label="schema:workTranslation",type=direct_property_uri,weight=1]
   "schema:CreativeWork1" -> "schema:Offer1" [label="schema:offers",type=direct_property_uri,weight=1]
   "schema:Offer1" -> "schema:Offer1" [label="schema:addOn",type=direct_property_uri,weight=1]
+  "schema-dig:PersonOrOrganization1" -> "schema:CreativeWork1" [label="schema-dig:isAuthorOf",type=inherited,weight=4]
+  "schema:CreativeWork1" -> "schema-dig:PersonOrOrganization1" [label="schema-dig:owner",type=inherited,weight=4]
+  "schema:CreativeWork1" -> "schema:Offer1" [label="schema:offers",type=inherited,weight=4]
+  "schema:Offer1" -> "schema:CreativeWork1" [label="schema:category",type=inherited,weight=4]
   "schema-dig:Firearm1" -> "owl:Thing" [label="rdfs:subClassOf",type=inherited,weight=0.3333333333333333]
   "0036" -> "owl:Thing" [label="rdfs:subClassOf",type=inherited,weight=0.3333333333333333]
 }

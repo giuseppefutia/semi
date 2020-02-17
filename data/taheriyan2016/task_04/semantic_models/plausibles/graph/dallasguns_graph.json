@@ -473,6 +473,72 @@
             "weight": 1
         },
         {
+            "v": "schema-dig:PersonOrOrganization1",
+            "w": "schema:CreativeWork1",
+            "name": "schema-dig:PersonOrOrganization1***schema:CreativeWork1",
+            "value": {
+                "label": "schema-dig:isAuthorOf",
+                "type": "inherited",
+                "weight": 4
+            },
+            "weight": 4
+        },
+        {
+            "v": "schema-dig:PersonOrOrganization2",
+            "w": "schema:CreativeWork1",
+            "name": "schema-dig:PersonOrOrganization2***schema:CreativeWork1",
+            "value": {
+                "label": "schema-dig:isAuthorOf",
+                "type": "inherited",
+                "weight": 4
+            },
+            "weight": 4
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:CreativeWork1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema-dig:owner",
+                "type": "inherited",
+                "weight": 4
+            },
+            "weight": 4
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema-dig:PersonOrOrganization2",
+            "name": "schema:CreativeWork1***schema-dig:PersonOrOrganization2",
+            "value": {
+                "label": "schema-dig:owner",
+                "type": "inherited",
+                "weight": 4
+            },
+            "weight": 4
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:Offer1",
+            "name": "schema:CreativeWork1***schema:Offer1",
+            "value": {
+                "label": "schema:offers",
+                "type": "inherited",
+                "weight": 4
+            },
+            "weight": 4
+        },
+        {
+            "v": "schema:Offer1",
+            "w": "schema:CreativeWork1",
+            "name": "schema:Offer1***schema:CreativeWork1",
+            "value": {
+                "label": "schema:category",
+                "type": "inherited",
+                "weight": 4
+            },
+            "weight": 4
+        },
+        {
             "v": "Model2378",
             "w": "owl:Thing",
             "name": "Model2378***owl:Thing",
