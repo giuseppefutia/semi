@@ -187,6 +187,38 @@ var kruskal = (nodes, edges) => {
     return mst;
 }
 
+// Step0: collapse multiple edges to a single edge with the lowest weight
+var step_zero = (graph) => {
+    var G0 = {}
+    graph = graphlib.json.write(graph)
+    // Store edges with lowest weights
+    var lowest_weighted_edges = {};
+    var edges = graph['edges'];
+
+    for (var e of edges) {
+        if (!(e['name'] in lowest_weighted_edges)) {
+            lowest_weighted_edges[e['name']] = e
+        } else if (e['weight'] < lowest_weighted_edges[e['name']]['weight']) {
+            lowest_weighted_edges[e['name']] = e
+        }
+    }
+
+    G0["options"] = {
+        "directed": true,
+        "multigraph": true,
+        "compound": false
+    };
+
+    G0["nodes"] = graph['nodes'];
+    G0["edges"] = [];
+
+    for (var lwe in lowest_weighted_edges) {
+        G0["edges"].push(lowest_weighted_edges[lwe])
+    }
+
+    return graphlib.json.read(G0)
+}
+
 // Step1: construct the complete undirected distance graph G1 = (V1,E1,d1) from G and S
 var step_one = (graph, steiner_nodes) => {
     var G1 = new Graph({
@@ -334,9 +366,10 @@ var step_five = (G4, steiner_nodes) => {
 }
 
 var steiner_alg = (graph, steiner_nodes) => {
-    var G1 = step_one(graph, steiner_nodes);
+    var G0 = step_zero(graph)
+    var G1 = step_one(G0, steiner_nodes);
     var G2 = step_two(G1);
-    var G3 = step_three(G2, graph);
+    var G3 = step_three(G2, G0);
     var G4 = step_four(G3);
     var G5 = step_five(G4, steiner_nodes);
     return G5;
