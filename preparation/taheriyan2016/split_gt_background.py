@@ -27,6 +27,7 @@ for rdf_file in rdf_files:
     rdf_text = f.read()
 
     # Get the URIs included within diamonds <> and encode them
+    # TODO: should be put as utils clearner
     matches = re.findall(r'\<(.*?)\>', rdf_text)
     matches = list(
         map((lambda x: {x: urllib.parse.quote(x, safe='http://')}), matches))
