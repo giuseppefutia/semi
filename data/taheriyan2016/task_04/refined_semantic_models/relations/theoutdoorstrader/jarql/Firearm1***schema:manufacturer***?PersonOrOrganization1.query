@@ -1,0 +1,71 @@
+PREFIX schema:    <http://schema.org/>
+PREFIX rdfs:      <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX pc:        <http://purl.org/procurement/public-contracts#>
+PREFIX gr:        <http://purl.org/goodrelations/v1#>
+PREFIX owl:       <http://www.w3.org/2002/07/owl#>
+PREFIX adms:      <http://www.w3.org/ns/adms#>
+PREFIX c4n:       <http://vocab.deri.ie/c4n#>
+PREFIX dcterms:   <http://purl.org/dc/terms/>
+PREFIX foaf:      <http://xmlns.com/foaf/0.1/>
+PREFIX loted:     <http://www.loted.eu/ontology#>
+PREFIX payment:   <http://reference.data.gov.uk/def/payment#>
+PREFIX qb:        <http://purl.org/linked-data/cube#>
+PREFIX rdf:       <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX skos:      <http://www.w3.org/2004/02/skos/core#>
+PREFIX vann:      <http://purl.org/vocab/vann/>
+PREFIX xsd:       <http://www.w3.org/2001/XMLSchema#>
+PREFIX conference: <http://conference#>
+PREFIX cmt:       <http://cmt#>
+PREFIX sigkdd:    <http://sigkdd#>
+PREFIX crm:       <http://erlangen-crm.org/current/>
+PREFIX id:        <http://collection.britishmuseum.org/id/>
+PREFIX idThes:    <http://collection.britishmuseum.org/id/thesauri/>
+PREFIX prov:      <http://www.w3.org/ns/prov#>
+PREFIX bmo:       <http://collection.britishmuseum.org/id/ontology/>
+PREFIX aac-ont:   <http://www.americanartcollaborative.org/ontology/>
+PREFIX skos2:     <http://www.w3.org/2008/05/skos#>
+PREFIX ElementsGr2: <http://rdvocab.info/ElementsGr2/>
+PREFIX rdvocab-schema: <http://rdvocab.info/uri/schema/FRBRentitiesRDA/>
+PREFIX edm:       <http://www.europeana.eu/schemas/edm/>
+PREFIX schema-dig: <http://schema.dig.isi.edu/ontology/>
+PREFIX geo:       <http://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX frbr:      <http://purl.org/vocab/frbr/core#>
+PREFIX swap:      <http://www.w3.org/2000/10/swap/pim/contact#>
+PREFIX cidoc-crm: <http://www.cidoc-crm.org/rdfs/cidoc-crm#>
+PREFIX abc:       <http://metadata.net/harmony/abc#>
+PREFIX DOLCE-Lite: <http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#>
+PREFIX dcmitype:  <http://purl.org/dc/dcmitype/>
+PREFIX msg0:      <http://web.resource.org/cc/>
+PREFIX time-entry: <http://www.isi.edu/~pan/damltime/time-entry.owl#>
+PREFIX wordnet:   <http://xmlns.com/wordnet/1.6/Work~2>
+PREFIX saam-ont:  <http://americanart.si.edu/ontology/>
+PREFIX ore:       <http://www.openarchives.org/ore/terms/>
+PREFIX scharp:    <http://scharp.usc.isi.edu/ontology/>
+PREFIX memex:     <http://dig.isi.edu/ontology/memex/>
+PREFIX dc:        <http://purl.org/dc/elements/1.1/>
+PREFIX jarql:     <http://jarql.com/>
+
+CONSTRUCT {
+    ?Firearm1 schema:manufacturer ?PersonOrOrganization1.
+}
+WHERE {
+    ?root a jarql:Root.
+    OPTIONAL { ?root jarql:Accessories0378 ?Accessories0378. }
+    OPTIONAL { ?root jarql:Name0846 ?Name0846. }
+    OPTIONAL { ?root jarql:started0628 ?started0628. }
+    OPTIONAL { ?root jarql:Messages0801 ?Messages0801. }
+    OPTIONAL { ?root jarql:trade1645 ?trade1645. }
+    OPTIONAL { ?root jarql:file_name ?file_name. }
+    OPTIONAL { ?root jarql:Description0868 ?Description0868. }
+    OPTIONAL { ?root jarql:FT0613 ?FT0613. }
+    OPTIONAL { ?root jarql:0029 ?0029. }
+    OPTIONAL { ?root jarql:Price0855 ?Price0855. }
+    OPTIONAL { ?root jarql:Location0814 ?Location0814. }
+    OPTIONAL { ?root jarql:For0031 ?For0031. }
+    BIND (URI(CONCAT('http://schema.dig.isi.edu/ontology//firearm/',?Accessories0378)) as ?Firearm1)
+    BIND (URI(CONCAT('http://schema.dig.isi.edu/ontology//personororganization/',?started0628)) as ?PersonOrOrganization1)
+    BIND (URI(CONCAT('http://subclass_of_thing/',?file_name)) as ?CreativeWork1)
+    BIND (URI(CONCAT('http://subclass_of_thing/',?FT0613)) as ?Offer1)
+    BIND (URI(CONCAT('http://dig.isi.edu/ontology/memex//place/',?Location0814)) as ?Place1)
+    BIND (URI(CONCAT('http://subclass_of_thing/',?For0031)) as ?PostalAddress1)
+}

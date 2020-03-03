@@ -1,0 +1,75 @@
+PREFIX schema:    <http://schema.org/>
+PREFIX rdfs:      <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX pc:        <http://purl.org/procurement/public-contracts#>
+PREFIX gr:        <http://purl.org/goodrelations/v1#>
+PREFIX owl:       <http://www.w3.org/2002/07/owl#>
+PREFIX adms:      <http://www.w3.org/ns/adms#>
+PREFIX c4n:       <http://vocab.deri.ie/c4n#>
+PREFIX dcterms:   <http://purl.org/dc/terms/>
+PREFIX foaf:      <http://xmlns.com/foaf/0.1/>
+PREFIX loted:     <http://www.loted.eu/ontology#>
+PREFIX payment:   <http://reference.data.gov.uk/def/payment#>
+PREFIX qb:        <http://purl.org/linked-data/cube#>
+PREFIX rdf:       <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX skos:      <http://www.w3.org/2004/02/skos/core#>
+PREFIX vann:      <http://purl.org/vocab/vann/>
+PREFIX xsd:       <http://www.w3.org/2001/XMLSchema#>
+PREFIX conference: <http://conference#>
+PREFIX cmt:       <http://cmt#>
+PREFIX sigkdd:    <http://sigkdd#>
+PREFIX crm:       <http://erlangen-crm.org/current/>
+PREFIX id:        <http://collection.britishmuseum.org/id/>
+PREFIX idThes:    <http://collection.britishmuseum.org/id/thesauri/>
+PREFIX prov:      <http://www.w3.org/ns/prov#>
+PREFIX bmo:       <http://collection.britishmuseum.org/id/ontology/>
+PREFIX aac-ont:   <http://www.americanartcollaborative.org/ontology/>
+PREFIX skos2:     <http://www.w3.org/2008/05/skos#>
+PREFIX ElementsGr2: <http://rdvocab.info/ElementsGr2/>
+PREFIX rdvocab-schema: <http://rdvocab.info/uri/schema/FRBRentitiesRDA/>
+PREFIX edm:       <http://www.europeana.eu/schemas/edm/>
+PREFIX schema-dig: <http://schema.dig.isi.edu/ontology/>
+PREFIX geo:       <http://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX frbr:      <http://purl.org/vocab/frbr/core#>
+PREFIX swap:      <http://www.w3.org/2000/10/swap/pim/contact#>
+PREFIX cidoc-crm: <http://www.cidoc-crm.org/rdfs/cidoc-crm#>
+PREFIX abc:       <http://metadata.net/harmony/abc#>
+PREFIX DOLCE-Lite: <http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#>
+PREFIX dcmitype:  <http://purl.org/dc/dcmitype/>
+PREFIX msg0:      <http://web.resource.org/cc/>
+PREFIX time-entry: <http://www.isi.edu/~pan/damltime/time-entry.owl#>
+PREFIX wordnet:   <http://xmlns.com/wordnet/1.6/Work~2>
+PREFIX saam-ont:  <http://americanart.si.edu/ontology/>
+PREFIX ore:       <http://www.openarchives.org/ore/terms/>
+PREFIX scharp:    <http://scharp.usc.isi.edu/ontology/>
+PREFIX memex:     <http://dig.isi.edu/ontology/memex/>
+PREFIX dc:        <http://purl.org/dc/elements/1.1/>
+PREFIX jarql:     <http://jarql.com/>
+
+CONSTRUCT {
+    ?Offer1 schema:itemOffered ?Firearm1.
+}
+WHERE {
+    ?root a jarql:Root.
+    OPTIONAL { ?root jarql:Hunting2477 ?Hunting2477. }
+    OPTIONAL { ?root jarql:1002395 ?1002395. }
+    OPTIONAL { ?root jarql:Model2378 ?Model2378. }
+    OPTIONAL { ?root jarql:Phone2306 ?Phone2306. }
+    OPTIONAL { ?root jarql:8662309 ?8662309. }
+    OPTIONAL { ?root jarql:Seller2279 ?Seller2279. }
+    OPTIONAL { ?root jarql:Manf2363 ?Manf2363. }
+    OPTIONAL { ?root jarql:Contact2291 ?Contact2291. }
+    OPTIONAL { ?root jarql:file_name ?file_name. }
+    OPTIONAL { ?root jarql:Gauge2481 ?Gauge2481. }
+    OPTIONAL { ?root jarql:Safety2479 ?Safety2479. }
+    OPTIONAL { ?root jarql:Sale0017 ?Sale0017. }
+    OPTIONAL { ?root jarql:Price2346 ?Price2346. }
+    OPTIONAL { ?root jarql:St2327 ?St2327. }
+    OPTIONAL { ?root jarql:Address2324 ?Address2324. }
+    BIND (URI(CONCAT('http://schema.dig.isi.edu/ontology//firearm/',?Model2378)) as ?Firearm1)
+    BIND (URI(CONCAT('http://schema.dig.isi.edu/ontology//personororganization/',?Seller2279)) as ?PersonOrOrganization1)
+    BIND (URI(CONCAT('http://schema.dig.isi.edu/ontology//personororganization/',?Manf2363)) as ?PersonOrOrganization2)
+    BIND (URI(CONCAT('http://subclass_of_thing/',?Contact2291)) as ?ContactPoint1)
+    BIND (URI(CONCAT('http://subclass_of_thing/',?file_name)) as ?CreativeWork1)
+    BIND (URI(CONCAT('http://subclass_of_thing/',?Sale0017)) as ?Offer1)
+    BIND (URI(CONCAT('http://subclass_of_thing/',?St2327)) as ?PostalAddress1)
+}
