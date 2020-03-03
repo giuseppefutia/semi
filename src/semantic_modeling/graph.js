@@ -241,7 +241,7 @@ var get_related_classes = (sc, store, all_classes) => {
                         'query': sparql.SUPER_CLASSES_QUERY(super_class)
                     }
                     // Recursive call
-                    get_super_classes(new_query_object, store, all_classes);
+                    get_related_classes(new_query_object, store, all_classes);
                 }
             };
             resolve(all_classes);
@@ -545,7 +545,7 @@ var build_graph = (st_path, ont_path, p_domain, p_range, o_class) => {
             console.log(err);
         }).then(function() {
             // Get all super classes
-            console.log('Getting all super classes...');
+            console.log('Getting all related classes...');
             var class_nodes = get_class_nodes(graph);
             return get_all_related_classes(store, class_nodes);
         }).catch(function(err) {
