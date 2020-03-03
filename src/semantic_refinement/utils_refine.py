@@ -3,6 +3,7 @@ import numpy as np
 import csv
 import json
 import os
+import shutil
 import subprocess
 from subprocess import Popen, PIPE
 import re
@@ -87,31 +88,6 @@ def get_relations_embeddings(relations_dict, relations_emb_dict):
     return relations_learnt_dict
 
 
-def add_semantic_model_entities(jarql_path, entities_source_dict):
-    f = open(jarql_path)
-    jarql = f.read()
-
-    # Get the basic uri included in the BIND section and encode them
-    uri_matches = re.findall(r'BIND \(URI\(CONCAT\(\'(.*?)\'\,\?', jarql)
-    uri_matches = list(
-        map((lambda x: urllib.parse.quote(x, safe='http://')), uri_matches))
-
-    # Get the entities in the BIND section
-    sm_ent_matches = re.findall(r'\)\) as (.*?)\)', jarql)
-
-    # Create a dictionary with uris and semantic model entities
-    sm_entities = {key: value for key,
-                   value in zip(uri_matches, sm_ent_matches)}
-
-    # Enrich the entities source dictionary with the related semantic model entity
-    for k, v in entities_source_dict.items():
-        for sm_k, sm_v in sm_entities.items():
-            if sm_k in k:
-                entities_source_dict[k]['entity'] = sm_v
-
-    return entities_source_dict
-
-
 def get_semantic_relations(jarql_path, relations_emb_dict):
     f = open(jarql_path)
     jarql = f.read()
@@ -135,7 +111,7 @@ def get_semantic_relations(jarql_path, relations_emb_dict):
     filtered_relations = []
     for k in relations_emb_dict.items():
         for triple in semantic_relations:
-            if k[0] in triple:
+            if k[0] == triple.split(' ')[1]:
                 filtered_relations.append(triple)
 
     return filtered_relations
@@ -165,6 +141,9 @@ def create_relation_jarqls(jarql_path, relations, refined_path):
 
     for r in relations:
         # XXX Should filter some relations that are not object properties
+        if len(r.split(' ')) != 3:
+            print('    *** WARNING: the relation has more than 3 elements: ' + r)
+
         predicate = r.split(' ')[1]
 
         if (predicate != 'http://schema.org/description'):
@@ -177,7 +156,7 @@ def create_relation_jarqls(jarql_path, relations, refined_path):
                 jarql[first_pos + 12:last_pos - 3], '    ?' + r + '.')
 
             # Print
-            f = open(output_path + new_predicate + '.jarql', 'w')
+            f = open(output_path + r.replace(' ', '***') + '.query', 'w')
             f.write(clean_jarql)
             f.close()
 
@@ -203,16 +182,15 @@ def create_relation_rdfs(jarql_path, refined_path, source_path):
 
     for j in jarql_files:
         # Run the JARQL script and store RDF files
-        j = j.replace('.jarql', '')
+        j = j.replace('.query', '')
         session = subprocess.check_call('./jarql.sh'
                                         + ' ' + source_path
-                                        + ' ' + os.path.join(input_path, j + '.jarql')
+                                        + ' ' + os.path.join(input_path, j + '.query')
                                         + ' > ' + os.path.join(output_path, j + '.rdf'), shell=True)
 
 
-def compute_relations_score_avg(jarql_path, refined_path, entities_emb, relations_emb):
+def compute_relations_score_avg(source_name, refined_path, entities_emb, relations_emb):
     # Load RDF files of learnt relations
-    source_name = os.path.basename(jarql_path).replace('.query', '')
     rdf_paths = refined_path + 'relations/' + source_name + '/rdf/'
     rdf_files = [f for f in os.listdir(
         rdf_paths) if os.path.isfile(os.path.join(rdf_paths, f))]
@@ -224,36 +202,49 @@ def compute_relations_score_avg(jarql_path, refined_path, entities_emb, relation
 
     # Parse RDF files as RDF Graphs
     for file in rdf_files:
-        predicate = file.replace('.rdf', '')
+        triple = file.replace('.rdf', '')
 
-        predicate_scores_sum[predicate] = 0
-        predicate_occs[predicate] = 0
-        predicate_scores_avg[predicate] = 0
+        predicate_scores_sum[triple] = 0
+        predicate_occs[triple] = 0
+        predicate_scores_avg[triple] = 0
 
         f = open(rdf_paths + file)
-        rdf = f.read()  # TODO encode RDF file before loading
+        rdf = f.read()
+
+        # Get the URIs included within diamonds <> and encode them
+        # TODO: should be put as utils clearner
+        matches = re.findall(r'\<(.*?)\>', rdf)
+        matches = list(
+            map((lambda x: {x: urllib.parse.quote(x, safe='http://')}), matches))
+
+        for index in range(len(matches)):
+            for key in matches[index]:
+                keyword_processor.add_keyword(key, matches[index][key])
+
+        rdf_updated = keyword_processor.replace_keywords(rdf)
+        # End of cleaning process
+
         g = rdflib.Graph()
-        graph = g.parse(data=rdf, format='turtle')
+        graph = g.parse(data=rdf_updated, format='turtle')
 
         for s, p, o in g:
-            # Encode URLs to get the correct key for the embeddings
-            s = urllib.parse.quote(str(s), safe='http://')
-            p = urllib.parse.quote(str(p), safe='http://')
-            o = urllib.parse.quote(str(o), safe='http://')
-
             # Get embeddings
-            emb_s = np.asarray(entities_emb[s]['emb'])
-            emb_p = np.asarray(relations_emb[p]['emb'])
-            emb_o = np.asarray(entities_emb[o]['emb'])
+            emb_s = np.asarray(entities_emb[str(s)]['emb'])
+            emb_p = np.asarray(relations_emb[str(p)]['emb'])
+            emb_o = np.asarray(entities_emb[str(o)]['emb'])
 
             score = calc_score(emb_s, emb_p, emb_o)
 
-            predicate_occs[predicate] += 1
-            predicate_scores_sum[predicate] += score.item()
+            predicate_occs[triple] += 1
+            predicate_scores_sum[triple] += score.item()
+
+        # Check occurrences XXX
+        if predicate_occs[triple] == 0:
+            predicate_occs[triple] = 1000
 
         # Compute the average
-        predicate_scores_avg[predicate] = predicate_scores_sum[predicate] / \
-            predicate_occs[predicate]
+        predicate_scores_avg[triple] = predicate_scores_sum[triple] / \
+            predicate_occs[triple]
 
     return predicate_scores_avg
 
@@ -269,30 +260,49 @@ def update_weights_plausible_semantic_model(plausible_json_path, complete_rdf_pa
     predicates_occs = {}
     predicates_recs = {}
     for k, v in scores.items():
-        predicates_occs[k] = 0
-        predicates_recs[k] = 0
+        # Extract predicate from the semantic model triple
+        predicate = k.split('***')[1]
+
+        predicates_occs[predicate] = 0
+        predicates_recs[predicate] = 0
 
         # Get the long uri of the predicate
-        long_uri_k = from_ns_to_uri(k)
+        long_uri_predicate = from_ns_to_uri(predicate)
+
         for s, p, o in g:
-            if str(p) == long_uri_k:
-                predicates_occs[k] += 1
+            if str(p) == long_uri_predicate:
+                predicates_occs[predicate] += 1
 
         # Compute the reciprocal value
-        predicates_recs[k] = 1 / predicates_occs[k]
+        predicates_recs[predicate] = 1 / predicates_occs[predicate]
 
-    # Load JSON serialization of the plausible semantic model
+    # Load JSON serialization of the plausible semantic model, whose weights need to be updated
     f = open(plausible_json_path)
     plausible_sm = json.load(f)
 
-    # Process predicate scores and check if their values are greater than the predicate reciprocal values
+    # Process predicate scores and update weights in the plausible semantic model
     for k, v in scores.items():
-        if v > predicates_recs[k]:
-            edges = plausible_sm['edges']
+        # Extract predicate from the semantic model triple
+        subject = k.split('***')[0]
+        predicate = k.split('***')[1]
+        object = k.split('***')[2]
+
+        # Check if the score value of the semantic relation is greater than the predicate reciprocal values
+        if v > predicates_recs[predicate]:
+
+            # Get all edges that are not derived from semantic types
+            edges = list(filter(lambda e: e['value']['type']
+                                != 'st_property_uri', plausible_sm['edges']))
 
             # Update weights in the plausible semantic model
             for e in edges:
-                if e['value']['label'] == k:
+                e_subject = e['name'].split('***')[0].split(':')[1]
+                e_object = e['name'].split('***')[1].split(':')[1]
+                subject = subject.replace('?', '')
+                object = object.replace('?', '')
+
+                # TODO: this check should be empowered
+                if e_subject == subject and e_object == object and e['value']['label'] == predicate:
                     e['weight'] = v
                     e['value']['weight'] = v
                     e['value']['type'] = 'updated'
@@ -303,10 +313,21 @@ def update_weights_plausible_semantic_model(plausible_json_path, complete_rdf_pa
 
 
 def compute_steiner_tree(semantic_type_path, refined_path, output_path):
-    session = subprocess.check_call('node run/steiner_tree.js'
-                                    + ' ' + semantic_type_path
-                                    + ' ' + refined_path
-                                    + ' ' + output_path, shell=True)
+    subprocess.check_call('node run/steiner_tree.js'
+                          + ' ' + semantic_type_path
+                          + ' ' + refined_path
+                          + ' ' + output_path, shell=True)
+
+
+def create_refined_jarql(semantic_type_path, classes_path, refined_steiner_path, refined_jarql_path, eval_jarql_path):
+    subprocess.check_call('node run/jarql.js'
+                          + ' ' + semantic_type_path
+                          + ' ' + refined_steiner_path
+                          + ' ' + classes_path
+                          + ' ' + refined_jarql_path, shell=True)
+
+    # Copy the file for the evaluation purpose
+    shutil.copyfile(refined_jarql_path + '.query', eval_jarql_path)
 
 
 def calc_score(s_emb, p_emb, o_emb):
