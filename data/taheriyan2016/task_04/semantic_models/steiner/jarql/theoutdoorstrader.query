@@ -70,11 +70,11 @@ CONSTRUCT {
     ?Place1 rdf:type schema:Place.
     ?PostalAddress1 schema:addressRegion ?For0031.
     ?PostalAddress1 rdf:type schema:PostalAddress.
-    ?PostalAddress1 schema:productSupported ?Firearm1.
-    ?CreativeWork1 schema:category ?PersonOrOrganization1.
-    ?Place1 schema-dig:isAuthorOf ?CreativeWork1.
-    ?Place1 schema:makesOffer ?Offer1.
-    ?PostalAddress1 schema-dig:owner ?Place1.
+    ?Firearm1 schema:category ?PostalAddress1.
+    ?PersonOrOrganization1 schema-dig:isAuthorOf ?CreativeWork1.
+    ?CreativeWork1 schema:locationCreated ?Place1.
+    ?Offer1 schema:ineligibleRegion ?Place1.
+    ?Place1 schema:address ?PostalAddress1.
 }
 WHERE {
     ?root a jarql:Root.

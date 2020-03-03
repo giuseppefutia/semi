@@ -226,8 +226,8 @@
             "w": "schema:Offer1",
             "name": "schema-dig:Firearm1***schema:Offer1",
             "value": {
+                "label": "schema:offers",
                 "type": "inherited",
-                "label": "schema:category***inverted",
                 "weight": 4
             },
             "weight": 4
@@ -237,22 +237,22 @@
             "w": "schema:CreativeWork1",
             "name": "schema-dig:PersonOrOrganization1***schema:CreativeWork1",
             "value": {
-                "type": "inherited",
-                "label": "schema:recognizingAuthority***inverted",
-                "weight": 4
+                "label": "schema-dig:isAuthorOf",
+                "type": "direct_property_uri",
+                "weight": 1
             },
-            "weight": 4
+            "weight": 1
         },
         {
             "v": "schema:CreativeWork1",
             "w": "schema:Offer1",
             "name": "schema:CreativeWork1***schema:Offer1",
             "value": {
-                "type": "inherited",
-                "label": "schema:mainEntityOfPage***inverted",
-                "weight": 4
+                "label": "schema:offers",
+                "type": "direct_property_uri",
+                "weight": 1
             },
-            "weight": 4
+            "weight": 1
         },
         {
             "v": "schema:Offer1",

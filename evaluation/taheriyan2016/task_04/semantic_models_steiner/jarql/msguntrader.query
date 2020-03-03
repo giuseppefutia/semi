@@ -68,8 +68,8 @@ CONSTRUCT {
     ?PostalAddress1 rdf:type schema:PostalAddress.
     ?PostalAddress1 schema:streetAddress ?Street0950.
     ?PostalAddress1 rdf:type schema:PostalAddress.
-    ?CreativeWork1 schema:category ?PersonOrOrganization1.
-    ?Offer1 schema:mainEntityOfPage ?CreativeWork1.
+    ?PersonOrOrganization1 schema-dig:isAuthorOf ?CreativeWork1.
+    ?CreativeWork1 schema:offers ?Offer1.
     ?Offer1 schema:category ?PostalAddress1.
 }
 WHERE {
