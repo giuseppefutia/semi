@@ -1,5 +1,7 @@
 var fs = require('fs');
 
+DEBUGGING = false
+
 // Precision
 var compute_precision = (sm_gt, sm_eval) => {
     var num = 0;
@@ -42,24 +44,25 @@ var compute_recall = (sm_gt, sm_eval) => {
 var check_triples = (triples) => {
     triples.forEach(i => {
         if (i.length > 4) {
-            console.log('\n\n*** WARNING: splitter has generated too long array! ***');
-            console.log(i);
+            if (DEBUGGING) console.log('\n\n*** WARNING: splitter has generated too long array! ***');
+            if (DEBUGGING) console.log(i);
         }
         if (i.length === 5) {
-            console.log('\nCleaning...')
+            if (DEBUGGING) console.log('\nCleaning...')
             i[3] = i[3] + ' ' + i[4];
             i.pop();
-            console.log(i);
-            console.log('\n\n')
+            if (DEBUGGING) console.log(i);
+            if (DEBUGGING) console.log('\n\n')
         } else if (i.length === 6) {
-            console.log('\nCleaning...')
+            if (DEBUGGING) console.log('\nCleaning...')
             i[3] = i[3] + ' ' + i[4] + ' ' + i[5];
             i.pop();
             i.pop()
-            console.log(i);
-            console.log('\n\n')
+            if (DEBUGGING) console.log(i);
+            if (DEBUGGING) console.log('\n\n')
         } else if (i.length > 6) {
             console.log('\n\n***** VERY BAD WARNING: CASE NOT MANAGED YET! *****');
+            console.log(i)
         }
     });
 }
@@ -87,11 +90,13 @@ var extract_rels = (sm_path, st_path) => {
         return i[2] !== 'rdf:type' && attrs.indexOf(i[3].split('?')[1]) === -1;
     });
 
-    // XXX Remove the point from the last triple
-    var last_triple = triples[triples.length - 1];
-    var object = last_triple[last_triple.length - 1];
-    var index_object = last_triple.indexOf(object);
-    triples[triples.length - 1][index_object] = object.slice(0, -1);;
+    // XXX Remove the point from the last triple only if triples.length > 0
+    if (triples.length > 0) {
+        var last_triple = triples[triples.length - 1];
+        var object = last_triple[last_triple.length - 1];
+        var index_object = last_triple.indexOf(object);
+        triples[triples.length - 1][index_object] = object.slice(0, -1);;
+    }
 
     return triples;
 }
@@ -114,6 +119,7 @@ if (input_file === undefined) {
     console.log('\n\nCompute average precision and recall comparing steiner semantic models with ground truth');
     var avg_precision = 0;
     var avg_recall = 0;
+    var ignore = 0;
 
     gt_files.forEach((gt_name, index) => {
         console.log('\nCompare the semantic models related to: ');
@@ -124,26 +130,31 @@ if (input_file === undefined) {
 
         var rels_gt = extract_rels(gt_path, st_path);
         var rels_steiner = extract_rels(steiner_path, st_path);
-        var precision = compute_precision(rels_gt, rels_steiner);
-        avg_precision += precision;
-        var recall = compute_recall(rels_gt, rels_steiner);
-        avg_recall += recall;
-        console.log();
-        console.log('   * Precision: ' + precision);
-        console.log('   * Recall: ' + recall);
-        console.log();
-    });
 
-    console.log('\n\n*** Average Precision comparing steiner and ground truth: ' + avg_precision / gt_files.length);
-    console.log('*** Average Recall comparing steiner and ground truth: ' + avg_recall / gt_files.length);
+        if (rels_gt.length === 0 || rels_steiner.length === 0) {
+            console.log('\n\n*** WARNING: No semantic reation extracted from the semantic model!!! ***');
+            ignore++;
+        } else {
+            var precision = compute_precision(rels_gt, rels_steiner);
+            avg_precision += precision;
+            var recall = compute_recall(rels_gt, rels_steiner);
+            avg_recall += recall;
+            console.log();
+            console.log('   * Precision: ' + precision);
+            console.log('   * Recall: ' + recall);
+            console.log();
+        }
+    });
+    console.log('\n\n*** Average Precision comparing steiner and ground truth: ' + avg_precision / (gt_files.length - ignore));
+    console.log('*** Average Recall comparing steiner and ground truth: ' + avg_recall / (gt_files.length - ignore));
 
     // Save results in file
     var d = new Date();
     d.setSeconds(0, 0, 0);
     var file_name = results_folder + 'result-steiner__' + d.toISOString().replace(/T/, '_').replace(/\..+/, '') + '.txt'
-    fs.appendFileSync(file_name, 'TASK 4');
-    fs.appendFileSync(file_name, '\n* Average Precision comparing steiner and ground truth: ' + avg_precision / gt_files.length);
-    fs.appendFileSync(file_name, '\n* Average Recall comparing steiner and ground truth: ' + avg_recall / gt_files.length)
+    fs.appendFileSync(file_name, task);
+    fs.appendFileSync(file_name, '\n* Average Precision comparing steiner and ground truth: ' + avg_precision / (gt_files.length - ignore));
+    fs.appendFileSync(file_name, '\n* Average Recall comparing steiner and ground truth: ' + avg_recall / (gt_files.length - ignore))
 
     /* *** End of comparison with steiner models *** */
 
@@ -151,6 +162,7 @@ if (input_file === undefined) {
     console.log('\n\nCompute average precision and recall comparing semantic models generate using SeMi with ground truth');
     var avg_precision = 0;
     var avg_recall = 0;
+    var ignore = 0;
 
     gt_files.forEach((gt_name, index) => {
         console.log('\nCompare the semantic models related to: ');
@@ -161,26 +173,32 @@ if (input_file === undefined) {
 
         var rels_gt = extract_rels(gt_path, st_path);
         var rels_semi = extract_rels(semi_path, st_path);
-        var precision = compute_precision(rels_gt, rels_semi);
-        avg_precision += precision;
-        var recall = compute_recall(rels_gt, rels_semi);
-        avg_recall += recall;
-        console.log();
-        console.log('   * Precision: ' + precision);
-        console.log('   * Recall: ' + recall);
-        console.log();
+
+        if (rels_gt.lenght === 0 || rels_semi.lenght === 0) {
+            console.log('\n\n*** WARNING: No semantic reation extracted from the semantic model!!! ***');
+            ignore++;
+        } else {
+            var precision = compute_precision(rels_gt, rels_semi);
+            avg_precision += precision;
+            var recall = compute_recall(rels_gt, rels_semi);
+            avg_recall += recall;
+            console.log();
+            console.log('   * Precision: ' + precision);
+            console.log('   * Recall: ' + recall);
+            console.log();
+        }
     });
 
-    console.log('\n\n*** Average Precision comparing SeMi and ground truth: ' + avg_precision / gt_files.length);
-    console.log('*** Average Recall comparing SeMi and ground truth: ' + avg_recall / gt_files.length);
+    console.log('\n\n*** Average Precision comparing SeMi and ground truth: ' + avg_precision / (gt_files.length - ignore));
+    console.log('*** Average Recall comparing SeMi and ground truth: ' + avg_recall / (gt_files.length - ignore));
 
     // Save results in file
     var d = new Date();
     d.setSeconds(0, 0, 0);
     var file_name = results_folder + 'result-semi__' + d.toISOString().replace(/T/, '_').replace(/\..+/, '') + '.txt'
-    fs.appendFileSync(file_name, 'TASK 4');
-    fs.appendFileSync(file_name, '\n* Average Precision comparing SeMi and ground truth: ' + avg_precision / gt_files.length);
-    fs.appendFileSync(file_name, '\n* Average Recall comparing SeMi and ground truth: ' + avg_recall / gt_files.length)
+    fs.appendFileSync(file_name, task);
+    fs.appendFileSync(file_name, '\n* Average Precision comparing SeMi and ground truth: ' + avg_precision / (gt_files.length - ignore));
+    fs.appendFileSync(file_name, '\n* Average Recall comparing SeMi and ground truth: ' + avg_recall / (gt_files.length - ignore))
 
 } else {
     // TODO
