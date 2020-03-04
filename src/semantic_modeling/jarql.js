@@ -1,6 +1,8 @@
 var fs = require('fs');
 var utils = require(__dirname + '/utils.js');
 
+DEBUGGING = false;
+
 var JARQL = 'jarql:';
 var JARQL_ROOT = '?root';
 
@@ -27,6 +29,7 @@ var build_prefix = () => {
  * INIT OF CONSTRUCT SECTION
  */
 var build_construct = (st, steiner, classes, closure_entities, closure_references) => {
+    if (DEBUGGING) console.log('\n    Start build_construct()')
     var construct = {};
     var body = '';
     var initial = 'CONSTRUCT {\n';
@@ -52,10 +55,12 @@ var build_construct = (st, steiner, classes, closure_entities, closure_reference
 
     // Create semantic_relations
     body += create_semantic_relations(steiner, st_classes, classes, closure_entities, closure_references);
+    if (DEBUGGING) console.log('    End build_construct()')
     return initial + body + final;
 }
 
 var create_semantic_relations = (steiner, st_classes, classes, closure_entities, closure_references) => {
+    if (DEBUGGING) console.log('\n    Start create_semantic_relations()')
 
     // The following variable is useful to manage closure statements
     // In particular it is useful to increment the indexes of the entities
@@ -78,6 +83,7 @@ var create_semantic_relations = (steiner, st_classes, classes, closure_entities,
             }
         }
     }
+    if (DEBUGGING) console.log('    End create_semantic_relations()')
     return body;
 }
 
@@ -90,8 +96,23 @@ var create_semantic_relations = (steiner, st_classes, classes, closure_entities,
  * For the closure classes the algorithm creates the entities in an automatic way!
  */
 var process_edge_values = (edge_subject, edge_property, edge_object, st_classes, classes, closure_entities, closure_references, closure_statements) => {
+    if (DEBUGGING) console.log('\n    Start process_edge_values()')
     var triple = {};
     var instances_uris = utils.generate_instance_uris(classes);
+
+    if (DEBUGGING) {
+        /*
+        console.log('    * Input files: ');
+        console.log('    ** edge_subject: ' + edge_subject);
+        console.log('    ** edge_property: ' + edge_property);
+        console.log('    ** edge_object: ' + edge_object);
+        console.log('    ** st_classes: ' + st_classes);
+        console.log('    ** classes: ' + classes);
+        console.log('    ** closure_entities: ' + closure_entities);
+        console.log('    ** closure_references: ' + closure_references);
+        console.log('    ** closure_statements: ' + closure_statements);
+        */
+    }
 
     // Check if the subject or the object of the edges are included within
     // semantic types class
@@ -153,6 +174,7 @@ var process_edge_values = (edge_subject, edge_property, edge_object, st_classes,
         if (object === '?Thing') object = 'owl:Thing';
     } else {
         // *** VERY COMPLEX CASE Both entities are not semantic types *** //
+        if (DEBUGGING) console.log('\n    Start to manage cases in which both entities are not semantic types');
 
         // Check if the subject matches some of the closure entities identified in relations including semantic types
         var subject_matches = closure_entities.filter(s => s.includes(subject));
@@ -173,25 +195,39 @@ var process_edge_values = (edge_subject, edge_property, edge_object, st_classes,
 
             // Check if the closure exist among the already detected closure statements
             // TODO: need to improve this closure management
+            if (DEBUGGING) console.log('\n    Start while loop');
+            if (DEBUGGING) console.log('    ** closure_statements: ' + closure_statements);
+
+            if (DEBUGGING) console.log('    ** initial statement: ' + statement);
+
+            /* TEMPORARY COMMENT
             while (closure_statements.includes(statement)) {
 
+                if (DEBUGGING) console.log('    ** subject_matches: ' + subject_matches)
+
                 // Check the following closure subject
-                if (subject_matches[closure_subject_index + 1] !== undefined) {
+                if (subject_matches[closure_subject_index] !== undefined) {
                     closure_subject_index++;
                     subject = subject_matches[closure_subject_index];
                 }
 
                 // Check the following closure object
-                if (object_matches[closure_object_index + 1] !== undefined) {
+                if (object_matches[closure_object_index] !== undefined) {
                     closure_object_index++;
                     object = object_matches[closure_object_index];
                 }
 
                 statement = subject + ' ' + property + ' ' + object;
+                if (DEBUGGING) console.log('    ** updated statement: ' + statement);
             }
-            closure_statements.push(statement);
-            subject = subject;
-            object = object;
+            if (DEBUGGING) console.log('    End while loop');
+            */
+
+            if (!closure_statements.includes(statement)) {
+                closure_statements.push(statement);
+                subject = subject;
+                object = object;
+            }
         }
 
         // Manage the case in which:
@@ -267,10 +303,12 @@ var process_edge_values = (edge_subject, edge_property, edge_object, st_classes,
             }
 
         }
+        if (DEBUGGING) console.log('\n    End to manage cases in which both entities are not semantic types');
     }
     triple['subject'] = subject;
     triple['property'] = property;
     triple['object'] = object
+    if (DEBUGGING) console.log('    End process_edge_values()')
     return triple;
 }
 
@@ -283,6 +321,7 @@ var process_edge_values = (edge_subject, edge_property, edge_object, st_classes,
  */
 
 var build_where_triples = (st) => {
+    if (DEBUGGING) console.log('\n    Start build_where_triples()')
     var body = '';
     var attributes = st.attributes;
     body += write_triple('?root', 'a', 'jarql:Root')
@@ -306,10 +345,12 @@ var build_where_triples = (st) => {
             body += write_optional_triple(subject, predicate, object);
         }
     }
+    if (DEBUGGING) console.log('    End build_where_triples()')
     return body;
 }
 
 var build_where_bindings = (st, classes, closure_entities, closure_references) => {
+    if (DEBUGGING) console.log('\n    Start build_where_bindings()')
     var body = '';
     var instances_uris = utils.generate_instance_uris(classes);
     var attributes = st.attributes;
@@ -359,16 +400,19 @@ var build_where_bindings = (st, classes, closure_entities, closure_references) =
             body += bind;
         }
     }
+    if (DEBUGGING) console.log('    End build_where_bindings()')
     return body;
 }
 
 var build_where = (st, cl, closure_entities, closure_references) => {
+    if (DEBUGGING) console.log('    \nStart build_where()')
     var body = ''
     var initial = 'WHERE {\n';
     var final = '}';
     var triples = build_where_triples(st);
     var bindings = build_where_bindings(st, cl, closure_entities, closure_references);
     return initial + triples + bindings + final;
+    if (DEBUGGING) console.log('    \nEnd build_where()')
 }
 /**
  * END OF WHERE SECTION
