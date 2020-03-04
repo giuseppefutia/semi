@@ -37,9 +37,14 @@ class RGCNDataSet(object):
         self.dictionary = ModelDictionary(parser, self.valid_rdf_path)
 
     def load_data(self):
+        dicts_folder = os.path.join(self.dir, 'dicts/')
+
+        # Check if the folder exists, otherwise create it
+        exist = os.path.exists(dicts_folder)
+        if not exist:
+            os.mkdir(dicts_folder)
 
         # Clean dictionaries
-        dicts_folder = os.path.join(self.dir, 'dicts/')
         for file_name in os.listdir(dicts_folder):
             file_path = os.path.join(dicts_folder, file_name)
             if os.path.isfile(file_path) or os.path.islink(file_path):
@@ -47,8 +52,14 @@ class RGCNDataSet(object):
             elif os.path.isdir(file_path):
                 shutil.rmtree(file_path)
 
-        # Clean model_datasets
         model_datasets_folder = os.path.join(self.dir, 'model_datasets/')
+
+        # Check if the folder exists, otherwise create it
+        exist = os.path.exists(model_datasets_folder)
+        if not exist:
+            os.mkdir(model_datasets_folder)
+
+        # Clean model_datasets
         for file_name in os.listdir(model_datasets_folder):
             file_path = os.path.join(model_datasets_folder, file_name)
             if os.path.isfile(file_path) or os.path.islink(file_path):
