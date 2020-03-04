@@ -42,7 +42,7 @@ var DIRECT_PROPERTIES_QUERY = (c_u, c_v, p_domain, p_range) => {
 
 var INHERITED_PROPERTIES_QUERY = (c_u, c_v, p_domain, p_range) => {
     return utils.get_prefix_strings() + `
-            SELECT ?inherited_properties ?domain WHERE {
+            SELECT ?inherited_properties WHERE {
                 ?inherited_properties ${p_domain} ${c_u} .
                 ?inherited_properties ${p_range} ${c_v} .
             }`;
