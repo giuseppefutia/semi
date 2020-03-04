@@ -111,6 +111,13 @@
             }
         },
         {
+            "v": "foaf:Agent",
+            "value": {
+                "type": "class_uri",
+                "label": "foaf:Agent"
+            }
+        },
+        {
             "v": "foaf:Document1",
             "value": {
                 "type": "class_uri",
@@ -129,13 +136,6 @@
             "value": {
                 "type": "class_uri",
                 "label": "foaf:Document"
-            }
-        },
-        {
-            "v": "foaf:OnlineAccount",
-            "value": {
-                "type": "class_uri",
-                "label": "foaf:OnlineAccount"
             }
         },
         {
@@ -174,24 +174,10 @@
             }
         },
         {
-            "v": "owl:Thing",
-            "value": {
-                "type": "special",
-                "label": "owl:Thing"
-            }
-        },
-        {
             "v": "provenance",
             "value": {
                 "type": "attribute_name",
                 "label": "provenance"
-            }
-        },
-        {
-            "v": "skos2:ConceptScheme",
-            "value": {
-                "type": "class_uri",
-                "label": "skos2:ConceptScheme"
             }
         },
         {
@@ -235,22 +221,22 @@
             "w": "aac-ont:CulturalHeritageObject1",
             "name": "aac-ont:Person1***aac-ont:CulturalHeritageObject1",
             "value": {
-                "type": "inherited",
-                "label": "skos2:semanticRelation***inverted",
-                "weight": 4
+                "type": "direct_property_uri",
+                "label": "aac-ont:sitter***inverted",
+                "weight": 1
             },
-            "weight": 4
+            "weight": 1
         },
         {
             "v": "aac-ont:Person1",
             "w": "aac-ont:CulturalHeritageObject2",
             "name": "aac-ont:Person1***aac-ont:CulturalHeritageObject2",
             "value": {
-                "type": "inherited",
-                "label": "skos2:semanticRelation***inverted",
-                "weight": 4
+                "type": "direct_property_uri",
+                "label": "aac-ont:sitter***inverted",
+                "weight": 1
             },
-            "weight": 4
+            "weight": 1
         },
         {
             "v": "aac-ont:Person1",
@@ -350,6 +336,28 @@
             "weight": 1
         },
         {
+            "v": "foaf:Agent",
+            "w": "foaf:Document1",
+            "name": "foaf:Agent***foaf:Document1",
+            "value": {
+                "label": "foaf:weblog",
+                "type": "direct_property_uri",
+                "weight": 1
+            },
+            "weight": 1
+        },
+        {
+            "v": "foaf:Document1",
+            "w": "aac-ont:Person1",
+            "name": "foaf:Document1***aac-ont:Person1",
+            "value": {
+                "type": "inherited",
+                "label": "foaf:workplaceHomepage***inverted",
+                "weight": 4
+            },
+            "weight": 4
+        },
+        {
             "v": "foaf:Document1",
             "w": "relatedArtworks__relatedArtworksURL",
             "name": "foaf:Document1***relatedArtworks__relatedArtworksURL",
@@ -361,33 +369,11 @@
         },
         {
             "v": "foaf:Document2",
-            "w": "foaf:OnlineAccount",
-            "name": "foaf:Document2***foaf:OnlineAccount",
+            "w": "foaf:Agent",
+            "name": "foaf:Document2***foaf:Agent",
             "value": {
                 "type": "direct_property_uri",
-                "label": "foaf:accountServiceHomepage***inverted",
-                "weight": 1
-            },
-            "weight": 1
-        },
-        {
-            "v": "foaf:OnlineAccount",
-            "w": "aac-ont:Person1",
-            "name": "foaf:OnlineAccount***aac-ont:Person1",
-            "value": {
-                "type": "inherited",
-                "label": "foaf:topic_interest***inverted",
-                "weight": 4
-            },
-            "weight": 4
-        },
-        {
-            "v": "foaf:OnlineAccount",
-            "w": "foaf:Document1",
-            "name": "foaf:OnlineAccount***foaf:Document1",
-            "value": {
-                "label": "foaf:accountServiceHomepage",
-                "type": "direct_property_uri",
+                "label": "foaf:weblog***inverted",
                 "weight": 1
             },
             "weight": 1
@@ -448,17 +434,6 @@
             "weight": 1
         },
         {
-            "v": "owl:Thing",
-            "w": "imageURL",
-            "name": "owl:Thing***imageURL",
-            "value": {
-                "type": "inherited",
-                "label": "rdfs:subClassOf***inverted",
-                "weight": 0.3333333333333333
-            },
-            "weight": 0.3333333333333333
-        },
-        {
             "v": "provenance",
             "w": "aac-ont:CulturalHeritageObject1",
             "name": "provenance***aac-ont:CulturalHeritageObject1",
@@ -471,25 +446,14 @@
         },
         {
             "v": "skos2:Concept1",
-            "w": "skos2:ConceptScheme",
-            "name": "skos2:Concept1***skos2:ConceptScheme",
+            "w": "aac-ont:CulturalHeritageObject1",
+            "name": "skos2:Concept1***aac-ont:CulturalHeritageObject1",
             "value": {
-                "type": "direct_property_uri",
-                "label": "skos2:hasTopConcept***inverted",
-                "weight": 1
-            },
-            "weight": 1
-        },
-        {
-            "v": "skos2:ConceptScheme",
-            "w": "owl:Thing",
-            "name": "skos2:ConceptScheme***owl:Thing",
-            "value": {
-                "label": "rdfs:subClassOf",
+                "label": "skos2:mappingRelation",
                 "type": "inherited",
-                "weight": 0.3333333333333333
+                "weight": 4
             },
-            "weight": 0.3333333333333333
+            "weight": 4
         },
         {
             "v": "sourceURL",

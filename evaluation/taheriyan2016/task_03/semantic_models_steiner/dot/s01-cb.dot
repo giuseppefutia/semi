@@ -15,5 +15,5 @@ digraph {
   Title -> "aac-ont:CulturalHeritageObject1" [type=st_property_uri,label="dcterms:title***inverted",weight=1]
   "aac-ont:CulturalHeritageObject1" -> Dimensions [label="dcterms:extent",type=st_property_uri]
   "aac-ont:Person1" -> Attribution [label="ElementsGr2:nameOfThePerson",type=st_property_uri]
-  "aac-ont:Person1" -> "aac-ont:CulturalHeritageObject1" [type=inherited,label="skos2:semanticRelation***inverted",weight=4]
+  "aac-ont:Person1" -> "aac-ont:CulturalHeritageObject1" [type=direct_property_uri,label="aac-ont:sitter***inverted",weight=1]
 }

@@ -74,14 +74,12 @@ CONSTRUCT {
     ?Concept1 rdf:type skos2:Concept.
     ?Person1 ElementsGr2:dateOfBirth ?birthDate.
     ?Person1 rdf:type aac-ont:Person.
-    ?Person1 skos2:semanticRelation ?CulturalHeritageObject1.
+    ?CulturalHeritageObject1 aac-ont:sitter ?Person1.
     ?ProvidedCHO1 aac-ont:sitter ?Person1.
     ?Aggregation1 edm:hasView ?WebResource1.
     ?Aggregation2 edm:hasView ?WebResource2.
-    ?image_url rdfs:subClassOf owl:Thing.
     ?Aggregation1 edm:aggregatedCHO ?ProvidedCHO1.
-    ?ConceptScheme rdfs:subClassOf owl:Thing.
-    ?Concept1 skos2:topConceptOf ?ConceptScheme1.
+    ?Concept1 skos2:mappingRelation ?Person1.
 }
 WHERE {
     ?root a jarql:Root.
@@ -107,5 +105,4 @@ WHERE {
     BIND (URI(CONCAT('http://www.europeana.eu/schemas/edm//providedcho/',?deathDate)) as ?ProvidedCHO1)
     BIND (URI(CONCAT('http://www.openarchives.org/ore/terms//aggregation/',?image_url)) as ?Aggregation1)
     BIND (URI(CONCAT('http://www.openarchives.org/ore/terms//aggregation/',?audio_url)) as ?Aggregation2)
-    BIND (URI(CONCAT('http://www.w3.org/2008/05/skos/conceptscheme/',?category)) as ?ConceptScheme1)
 }

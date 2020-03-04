@@ -85,20 +85,78 @@ CONSTRUCT {
     ?Concept1 skos2:topConceptOf ?ConceptScheme1.
     ?ConceptScheme1 skos2:hasTopConcept ?Concept1.
     ?Aggregation2 edm:aggregatedCHO ?ProvidedCHO1.
+    ?CulturalHeritageObject1 aac-ont:sitter ?Person1.
     ?CulturalHeritageObject1 skos2:mappingRelation ?Person1.
     ?CulturalHeritageObject1 skos2:semanticRelation ?Person1.
+    ?CulturalHeritageObject1 aac-ont:sitter ?Concept1.
+    ?CulturalHeritageObject1 skos2:mappingRelation ?Concept1.
+    ?CulturalHeritageObject1 skos2:semanticRelation ?Concept1.
     ?CulturalHeritageObject1 skos2:mappingRelation ?Place1.
     ?CulturalHeritageObject1 skos2:semanticRelation ?Place1.
+    ?CulturalHeritageObject1 skos2:mappingRelation ?ProvidedCHO1.
+    ?CulturalHeritageObject1 skos2:semanticRelation ?ProvidedCHO1.
+    ?CulturalHeritageObject1 skos2:topConceptOf ?ConceptScheme1.
     ?Person1 skos2:mappingRelation ?CulturalHeritageObject1.
     ?Person1 skos2:semanticRelation ?CulturalHeritageObject1.
+    ?Person1 ElementsGr2:placeOfBirth ?Concept1.
+    ?Person1 ElementsGr2:placeOfDeath ?Concept1.
+    ?Person1 skos2:mappingRelation ?Concept1.
+    ?Person1 skos2:semanticRelation ?Concept1.
+    ?Person1 foaf:knows ?Concept1.
+    ?Person1 foaf:based_near ?Concept1.
+    ?Person1 ElementsGr2:placeOfBirth ?Place1.
+    ?Person1 ElementsGr2:placeOfDeath ?Place1.
     ?Person1 skos2:mappingRelation ?Place1.
     ?Person1 skos2:semanticRelation ?Place1.
+    ?Person1 skos2:mappingRelation ?ProvidedCHO1.
+    ?Person1 skos2:semanticRelation ?ProvidedCHO1.
+    ?Person1 skos2:topConceptOf ?ConceptScheme1.
+    ?Concept1 skos2:mappingRelation ?CulturalHeritageObject1.
+    ?Concept1 skos2:semanticRelation ?CulturalHeritageObject1.
+    ?Concept1 skos2:mappingRelation ?Person1.
+    ?Concept1 skos2:semanticRelation ?Person1.
+    ?Concept1 foaf:knows ?Person1.
+    ?Concept1 foaf:based_near ?Person1.
+    ?Concept1 aac-ont:sitter ?Person1.
+    ?Concept1 skos2:mappingRelation ?Place1.
+    ?Concept1 skos2:semanticRelation ?Place1.
+    ?Concept1 ElementsGr2:placeOfBirth ?Place1.
+    ?Concept1 ElementsGr2:placeOfDeath ?Place1.
+    ?Concept1 skos2:mappingRelation ?ProvidedCHO1.
+    ?Concept1 skos2:semanticRelation ?ProvidedCHO1.
+    ?Concept1 skos2:topConceptOf ?ConceptScheme1.
     ?Place1 skos2:mappingRelation ?CulturalHeritageObject1.
     ?Place1 skos2:semanticRelation ?CulturalHeritageObject1.
     ?Place1 skos2:mappingRelation ?Person1.
     ?Place1 skos2:semanticRelation ?Person1.
-    ?image_url rdfs:subClassOf owl:Thing.
-    ?ConceptScheme1 rdfs:subClassOf owl:Thing.
+    ?Place1 skos2:mappingRelation ?Concept1.
+    ?Place1 skos2:semanticRelation ?Concept1.
+    ?Place1 skos2:mappingRelation ?ProvidedCHO1.
+    ?Place1 skos2:semanticRelation ?ProvidedCHO1.
+    ?Place1 skos2:topConceptOf ?ConceptScheme1.
+    ?ProvidedCHO1 skos2:mappingRelation ?CulturalHeritageObject1.
+    ?ProvidedCHO1 skos2:semanticRelation ?CulturalHeritageObject1.
+    ?ProvidedCHO1 aac-ont:sitter ?Person1.
+    ?ProvidedCHO1 skos2:mappingRelation ?Person1.
+    ?ProvidedCHO1 skos2:semanticRelation ?Person1.
+    ?ProvidedCHO1 aac-ont:sitter ?Concept1.
+    ?ProvidedCHO1 skos2:mappingRelation ?Concept1.
+    ?ProvidedCHO1 skos2:semanticRelation ?Concept1.
+    ?ProvidedCHO1 skos2:mappingRelation ?Place1.
+    ?ProvidedCHO1 skos2:semanticRelation ?Place1.
+    ?ProvidedCHO1 skos2:topConceptOf ?ConceptScheme1.
+    ?Aggregation1 edm:aggregatedCHO ?CulturalHeritageObject1.
+    ?Aggregation1 edm:dataProvider ?Person1.
+    ?Aggregation2 edm:hasView ?WebResource2.
+    ?Aggregation1 edm:hasView ?WebResource1.
+    ?Aggregation1 edm:dataProvider ?Concept1.
+    ?Aggregation1 edm:aggregatedCHO ?Concept1.
+    ?Aggregation2 edm:aggregatedCHO ?ProvidedCHO1.
+    ?ConceptScheme1 skos2:hasTopConcept ?CulturalHeritageObject1.
+    ?ConceptScheme1 skos2:hasTopConcept ?Person1.
+    ?ConceptScheme1 skos2:hasTopConcept ?Concept1.
+    ?ConceptScheme1 skos2:hasTopConcept ?Place1.
+    ?ConceptScheme1 skos2:hasTopConcept ?ProvidedCHO1.
 }
 WHERE {
     ?root a jarql:Root.

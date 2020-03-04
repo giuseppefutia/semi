@@ -80,17 +80,15 @@ CONSTRUCT {
     ?Concept1 rdf:type skos2:Concept.
     ?Person1 ElementsGr2:countryAssociatedWithThePerson ?nationality.
     ?Person1 rdf:type aac-ont:Person.
-    ?Person1 skos2:semanticRelation ?CulturalHeritageObject1.
-    ?Person1 skos2:semanticRelation ?CulturalHeritageObject2.
+    ?CulturalHeritageObject1 aac-ont:sitter ?Person1.
+    ?CulturalHeritageObject2 aac-ont:sitter ?Person1.
     ?ProvidedCHO1 aac-ont:sitter ?Person1.
     ?Aggregation1 edm:hasView ?WebResource1.
-    ?OnlineAccount1 foaf:accountServiceHomepage ?Document1.
-    ?OnlineAccount2 foaf:accountServiceHomepage ?Document2.
-    ?Person1 foaf:topic_interest ?OnlineAccount1.
-    ?imageURL rdfs:subClassOf owl:Thing.
+    ?Agent2 foaf:weblog ?Document2.
+    ?Agent1 foaf:weblog ?Document1.
+    ?Person1 foaf:workplaceHomepage ?Document2.
     ?Aggregation1 edm:aggregatedCHO ?ProvidedCHO1.
-    ?ConceptScheme rdfs:subClassOf owl:Thing.
-    ?Concept1 skos2:topConceptOf ?ConceptScheme1.
+    ?Concept1 skos2:mappingRelation ?Person1.
 }
 WHERE {
     ?root a jarql:Root.
@@ -120,7 +118,6 @@ WHERE {
     BIND (URI(CONCAT('http://purl.org/vocab/frbr/core/concept/',?keyword)) as ?Concept1)
     BIND (URI(CONCAT('http://www.europeana.eu/schemas/edm//providedcho/',?artist)) as ?ProvidedCHO1)
     BIND (URI(CONCAT('http://www.openarchives.org/ore/terms//aggregation/',?imageURL)) as ?Aggregation1)
-    BIND (URI(CONCAT('http://xmlns.com/foaf/0.1//onlineaccount/',?relatedArtworksURL)) as ?OnlineAccount1)
-    BIND (URI(CONCAT('http://xmlns.com/foaf/0.1//onlineaccount/',?sourceURL)) as ?OnlineAccount2)
-    BIND (URI(CONCAT('http://www.w3.org/2008/05/skos/conceptscheme/',?keyword)) as ?ConceptScheme1)
+    BIND (URI(CONCAT('http://purl.org/dc/terms//agent/',?sourceURL)) as ?Agent2)
+    BIND (URI(CONCAT('http://purl.org/dc/terms//agent/',?relatedArtworksURL)) as ?Agent1)
 }

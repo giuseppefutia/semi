@@ -18,7 +18,7 @@ digraph {
   Image_URL -> "edm:WebResource1" [type=st_property_uri,label="rdfs:label***inverted",weight=1]
   "aac-ont:CulturalHeritageObject1" -> Origin [label="aac-ont:accessionNumber",type=st_property_uri]
   "aac-ont:Person1" -> Artist_Name [label="ElementsGr2:nameOfThePerson",type=st_property_uri]
-  "aac-ont:Person1" -> "aac-ont:CulturalHeritageObject1" [type=inherited,label="skos2:semanticRelation***inverted",weight=4]
+  "aac-ont:Person1" -> "aac-ont:CulturalHeritageObject1" [type=direct_property_uri,label="aac-ont:sitter***inverted",weight=1]
   birthDate -> "aac-ont:Person1" [type=st_property_uri,label="ElementsGr2:dateOfBirth***inverted",weight=1]
   creationDate -> "aac-ont:CulturalHeritageObject1" [type=st_property_uri,label="dcterms:created***inverted",weight=1]
   deathDate -> "aac-ont:Person1" [type=st_property_uri,label="ElementsGr2:dateOfDeath***inverted",weight=1]

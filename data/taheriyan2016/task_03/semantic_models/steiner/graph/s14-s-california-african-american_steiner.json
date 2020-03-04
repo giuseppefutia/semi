@@ -34,10 +34,10 @@
             }
         },
         {
-            "v": "foaf:Person",
+            "v": "foaf:Document1",
             "value": {
                 "type": "class_uri",
-                "label": "foaf:Person"
+                "label": "foaf:Document"
             }
         },
         {
@@ -76,13 +76,6 @@
             }
         },
         {
-            "v": "foaf:Document1",
-            "value": {
-                "type": "class_uri",
-                "label": "foaf:Document"
-            }
-        },
-        {
             "v": "url",
             "value": {
                 "type": "attribute_name",
@@ -97,13 +90,6 @@
             }
         },
         {
-            "v": "owl:Thing",
-            "value": {
-                "type": "special",
-                "label": "owl:Thing"
-            }
-        },
-        {
             "v": "provenance",
             "value": {
                 "type": "attribute_name",
@@ -115,13 +101,6 @@
             "value": {
                 "type": "class_uri",
                 "label": "skos2:Concept"
-            }
-        },
-        {
-            "v": "skos2:ConceptScheme",
-            "value": {
-                "type": "class_uri",
-                "label": "skos2:ConceptScheme"
             }
         },
         {
@@ -155,11 +134,11 @@
             "w": "aac-ont:CulturalHeritageObject1",
             "name": "aac-ont:Person1***aac-ont:CulturalHeritageObject1",
             "value": {
-                "type": "inherited",
-                "label": "skos2:semanticRelation***inverted",
-                "weight": 4
+                "type": "direct_property_uri",
+                "label": "aac-ont:sitter***inverted",
+                "weight": 1
             },
-            "weight": 4
+            "weight": 1
         },
         {
             "v": "aac-ont:Person1",
@@ -173,11 +152,11 @@
         },
         {
             "v": "aac-ont:Person1",
-            "w": "foaf:Person",
-            "name": "aac-ont:Person1***foaf:Person",
+            "w": "foaf:Document1",
+            "name": "aac-ont:Person1***foaf:Document1",
             "value": {
+                "label": "foaf:workplaceHomepage",
                 "type": "inherited",
-                "label": "foaf:based_near***inverted",
                 "weight": 4
             },
             "weight": 4
@@ -237,17 +216,6 @@
             "weight": 1
         },
         {
-            "v": "foaf:Person",
-            "w": "foaf:Document1",
-            "name": "foaf:Person***foaf:Document1",
-            "value": {
-                "label": "foaf:publications",
-                "type": "direct_property_uri",
-                "weight": 1
-            },
-            "weight": 1
-        },
-        {
             "v": "imageUrl",
             "w": "edm:WebResource1",
             "name": "imageUrl***edm:WebResource1",
@@ -270,17 +238,6 @@
             "weight": 1
         },
         {
-            "v": "owl:Thing",
-            "w": "imageUrl",
-            "name": "owl:Thing***imageUrl",
-            "value": {
-                "type": "inherited",
-                "label": "rdfs:subClassOf***inverted",
-                "weight": 0.3333333333333333
-            },
-            "weight": 0.3333333333333333
-        },
-        {
             "v": "provenance",
             "w": "aac-ont:CulturalHeritageObject1",
             "name": "provenance***aac-ont:CulturalHeritageObject1",
@@ -293,25 +250,14 @@
         },
         {
             "v": "skos2:Concept1",
-            "w": "skos2:ConceptScheme",
-            "name": "skos2:Concept1***skos2:ConceptScheme",
+            "w": "aac-ont:CulturalHeritageObject1",
+            "name": "skos2:Concept1***aac-ont:CulturalHeritageObject1",
             "value": {
-                "type": "direct_property_uri",
-                "label": "skos2:hasTopConcept***inverted",
-                "weight": 1
-            },
-            "weight": 1
-        },
-        {
-            "v": "skos2:ConceptScheme",
-            "w": "owl:Thing",
-            "name": "skos2:ConceptScheme***owl:Thing",
-            "value": {
-                "label": "rdfs:subClassOf",
+                "label": "skos2:mappingRelation",
                 "type": "inherited",
-                "weight": 0.3333333333333333
+                "weight": 4
             },
-            "weight": 0.3333333333333333
+            "weight": 4
         },
         {
             "v": "technique",

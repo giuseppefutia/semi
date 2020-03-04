@@ -60,7 +60,7 @@ CONSTRUCT {
     ?Person1 rdf:type aac-ont:Person.
     ?CulturalHeritageObject1 dcterms:extent ?Dimensions.
     ?CulturalHeritageObject1 rdf:type aac-ont:CulturalHeritageObject.
-    ?CulturalHeritageObject1 skos2:semanticRelation ?Person1.
+    ?CulturalHeritageObject1 aac-ont:sitter ?Person1.
 }
 WHERE {
     ?root a jarql:Root.

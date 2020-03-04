@@ -104,21 +104,21 @@
             }
         },
         {
-            "v": "foaf:Document1",
+            "v": "foaf:Agent",
+            "value": {
+                "type": "class_uri",
+                "label": "foaf:Agent"
+            }
+        },
+        {
+            "v": "foaf:Document2",
             "value": {
                 "type": "class_uri",
                 "label": "foaf:Document"
             }
         },
         {
-            "v": "foaf:OnlineAccount",
-            "value": {
-                "type": "class_uri",
-                "label": "foaf:OnlineAccount"
-            }
-        },
-        {
-            "v": "foaf:Document2",
+            "v": "foaf:Document1",
             "value": {
                 "type": "class_uri",
                 "label": "foaf:Document"
@@ -139,10 +139,17 @@
             }
         },
         {
-            "v": "owl:Thing",
+            "v": "keyword",
             "value": {
-                "type": "special",
-                "label": "owl:Thing"
+                "type": "attribute_name",
+                "label": "keyword"
+            }
+        },
+        {
+            "v": "skos2:Concept1",
+            "value": {
+                "type": "class_uri",
+                "label": "skos2:Concept"
             }
         },
         {
@@ -150,13 +157,6 @@
             "value": {
                 "type": "attribute_name",
                 "label": "materials"
-            }
-        },
-        {
-            "v": "skos2:ConceptScheme",
-            "value": {
-                "type": "class_uri",
-                "label": "skos2:ConceptScheme"
             }
         },
         {
@@ -181,20 +181,6 @@
             }
         },
         {
-            "v": "skos2:Concept1",
-            "value": {
-                "type": "class_uri",
-                "label": "skos2:Concept"
-            }
-        },
-        {
-            "v": "keyword",
-            "value": {
-                "type": "attribute_name",
-                "label": "keyword"
-            }
-        },
-        {
             "v": "sourceURL",
             "value": {
                 "type": "attribute_name",
@@ -215,22 +201,22 @@
             "w": "aac-ont:Person1",
             "name": "aac-ont:CulturalHeritageObject1***aac-ont:Person1",
             "value": {
-                "type": "inherited",
-                "label": "skos2:semanticRelation***inverted",
-                "weight": 4
+                "label": "aac-ont:sitter",
+                "type": "direct_property_uri",
+                "weight": 1
             },
-            "weight": 4
+            "weight": 1
         },
         {
             "v": "aac-ont:CulturalHeritageObject2",
             "w": "aac-ont:Person1",
             "name": "aac-ont:CulturalHeritageObject2***aac-ont:Person1",
             "value": {
-                "type": "inherited",
-                "label": "skos2:semanticRelation***inverted",
-                "weight": 4
+                "label": "aac-ont:sitter",
+                "type": "direct_property_uri",
+                "weight": 1
             },
-            "weight": 4
+            "weight": 1
         },
         {
             "v": "aac-ont:Person1",
@@ -342,34 +328,34 @@
             "weight": 1
         },
         {
+            "v": "foaf:Agent",
+            "w": "foaf:Document2",
+            "name": "foaf:Agent***foaf:Document2",
+            "value": {
+                "label": "foaf:weblog",
+                "type": "direct_property_uri",
+                "weight": 1
+            },
+            "weight": 1
+        },
+        {
             "v": "foaf:Document1",
-            "w": "foaf:OnlineAccount",
-            "name": "foaf:Document1***foaf:OnlineAccount",
+            "w": "foaf:Agent",
+            "name": "foaf:Document1***foaf:Agent",
             "value": {
                 "type": "direct_property_uri",
-                "label": "foaf:accountServiceHomepage***inverted",
+                "label": "foaf:weblog***inverted",
                 "weight": 1
             },
             "weight": 1
         },
         {
             "v": "foaf:Document2",
-            "w": "foaf:OnlineAccount",
-            "name": "foaf:Document2***foaf:OnlineAccount",
-            "value": {
-                "type": "direct_property_uri",
-                "label": "foaf:accountServiceHomepage***inverted",
-                "weight": 1
-            },
-            "weight": 1
-        },
-        {
-            "v": "foaf:OnlineAccount",
             "w": "aac-ont:Person1",
-            "name": "foaf:OnlineAccount***aac-ont:Person1",
+            "name": "foaf:Document2***aac-ont:Person1",
             "value": {
                 "type": "inherited",
-                "label": "foaf:topic_interest***inverted",
+                "label": "foaf:workplaceHomepage***inverted",
                 "weight": 4
             },
             "weight": 4
@@ -397,15 +383,15 @@
             "weight": 1
         },
         {
-            "v": "imageURL",
-            "w": "owl:Thing",
-            "name": "imageURL***owl:Thing",
+            "v": "keyword",
+            "w": "skos2:Concept1",
+            "name": "keyword***skos2:Concept1",
             "value": {
-                "label": "rdfs:subClassOf",
-                "type": "inherited",
-                "weight": 0.3333333333333333
+                "type": "st_property_uri",
+                "label": "skos2:prefLabel***inverted",
+                "weight": 1
             },
-            "weight": 0.3333333333333333
+            "weight": 1
         },
         {
             "v": "materials",
@@ -428,17 +414,6 @@
                 "weight": 1
             },
             "weight": 1
-        },
-        {
-            "v": "owl:Thing",
-            "w": "skos2:ConceptScheme",
-            "name": "owl:Thing***skos2:ConceptScheme",
-            "value": {
-                "type": "inherited",
-                "label": "rdfs:subClassOf***inverted",
-                "weight": 0.3333333333333333
-            },
-            "weight": 0.3333333333333333
         },
         {
             "v": "provenance",
@@ -475,24 +450,14 @@
         },
         {
             "v": "skos2:Concept1",
-            "w": "keyword",
-            "name": "skos2:Concept1***keyword",
+            "w": "aac-ont:Person1",
+            "name": "skos2:Concept1***aac-ont:Person1",
             "value": {
-                "label": "skos2:prefLabel",
-                "type": "st_property_uri"
+                "label": "skos2:mappingRelation",
+                "type": "inherited",
+                "weight": 4
             },
-            "weight": 1
-        },
-        {
-            "v": "skos2:ConceptScheme",
-            "w": "skos2:Concept1",
-            "name": "skos2:ConceptScheme***skos2:Concept1",
-            "value": {
-                "type": "direct_property_uri",
-                "label": "skos2:topConceptOf***inverted",
-                "weight": 1
-            },
-            "weight": 1
+            "weight": 4
         },
         {
             "v": "sourceURL",

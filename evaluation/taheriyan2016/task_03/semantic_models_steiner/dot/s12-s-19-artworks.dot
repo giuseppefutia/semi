@@ -14,7 +14,7 @@ digraph {
   technique [type=attribute_name,label=technique]
   title [type=attribute_name,label=title]
   "aac-ont:CulturalHeritageObject1" -> date_made [label="dcterms:created",type=st_property_uri]
-  "aac-ont:Person1" -> "aac-ont:CulturalHeritageObject1" [type=inherited,label="skos2:semanticRelation***inverted",weight=4]
+  "aac-ont:Person1" -> "aac-ont:CulturalHeritageObject1" [type=direct_property_uri,label="aac-ont:sitter***inverted",weight=1]
   access_id -> "aac-ont:CulturalHeritageObject1" [type=st_property_uri,label="aac-ont:accessionNumber***inverted",weight=1]
   artist_name -> "aac-ont:Person1" [type=st_property_uri,label="ElementsGr2:nameOfThePerson***inverted",weight=1]
   description -> "aac-ont:CulturalHeritageObject1" [type=st_property_uri,label="dcterms:description***inverted",weight=1]

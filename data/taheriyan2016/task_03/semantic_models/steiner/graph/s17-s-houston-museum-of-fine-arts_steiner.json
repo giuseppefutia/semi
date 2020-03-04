@@ -97,13 +97,6 @@
             }
         },
         {
-            "v": "foaf:OnlineAccount",
-            "value": {
-                "type": "class_uri",
-                "label": "foaf:OnlineAccount"
-            }
-        },
-        {
             "v": "link",
             "value": {
                 "type": "attribute_name",
@@ -155,11 +148,11 @@
             "w": "aac-ont:CulturalHeritageObject1",
             "name": "aac-ont:Person1***aac-ont:CulturalHeritageObject1",
             "value": {
-                "type": "inherited",
-                "label": "skos2:semanticRelation***inverted",
-                "weight": 4
+                "type": "direct_property_uri",
+                "label": "aac-ont:sitter***inverted",
+                "weight": 1
             },
-            "weight": 4
+            "weight": 1
         },
         {
             "v": "artist",
@@ -251,22 +244,11 @@
         },
         {
             "v": "foaf:Document1",
-            "w": "foaf:OnlineAccount",
-            "name": "foaf:Document1***foaf:OnlineAccount",
-            "value": {
-                "type": "direct_property_uri",
-                "label": "foaf:accountServiceHomepage***inverted",
-                "weight": 1
-            },
-            "weight": 1
-        },
-        {
-            "v": "foaf:OnlineAccount",
             "w": "aac-ont:Person1",
-            "name": "foaf:OnlineAccount***aac-ont:Person1",
+            "name": "foaf:Document1***aac-ont:Person1",
             "value": {
                 "type": "inherited",
-                "label": "foaf:topic_interest***inverted",
+                "label": "foaf:workplaceHomepage***inverted",
                 "weight": 4
             },
             "weight": 4

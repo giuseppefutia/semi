@@ -76,13 +76,10 @@ CONSTRUCT {
     ?Concept2 rdf:type skos2:Concept.
     ?CulturalHeritageObject1 dcterms:medium ?Materials.
     ?CulturalHeritageObject1 rdf:type aac-ont:CulturalHeritageObject.
-    ?CulturalHeritageObject1 skos2:semanticRelation ?Person1.
-    ?ProvidedCHO1 aac-ont:sitter ?Person1.
-    ?Person1 skos2:semanticRelation ?Place1.
-    ?ProvidedCHO1 rdfs:subClassOf owl:Thing.
-    ?ConceptScheme rdfs:subClassOf owl:Thing.
-    ?Concept2 skos2:semanticRelation ?Concept1.
-    ?Concept2 skos2:topConceptOf ?ConceptScheme2.
+    ?CulturalHeritageObject1 aac-ont:sitter ?Person1.
+    ?Person1 ElementsGr2:placeOfBirth ?Place1.
+    ?Concept1 skos2:mappingRelation ?Concept2.
+    ?Concept2 skos2:mappingRelation ?CulturalHeritageObject1.
 }
 WHERE {
     ?root a jarql:Root.
@@ -104,6 +101,4 @@ WHERE {
     BIND (URI(CONCAT('http://purl.org/vocab/frbr/core/person/',?Maker)) as ?Person1)
     BIND (URI(CONCAT('http://www.americanartcollaborative.org/ontology//culturalheritageobject/',?Title)) as ?CulturalHeritageObject1)
     BIND (URI(CONCAT('http://purl.org/vocab/frbr/core/concept/',?Category)) as ?Concept2)
-    BIND (URI(CONCAT('http://www.europeana.eu/schemas/edm//providedcho/',?Maker)) as ?ProvidedCHO1)
-    BIND (URI(CONCAT('http://www.w3.org/2008/05/skos/conceptscheme/',?Category)) as ?ConceptScheme2)
 }

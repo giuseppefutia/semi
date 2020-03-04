@@ -6,20 +6,6 @@
     },
     "nodes": [
         {
-            "v": "Classification",
-            "value": {
-                "type": "attribute_name",
-                "label": "Classification"
-            }
-        },
-        {
-            "v": "skos2:Concept2",
-            "value": {
-                "type": "class_uri",
-                "label": "skos2:Concept"
-            }
-        },
-        {
             "v": "Credit Line",
             "value": {
                 "type": "attribute_name",
@@ -160,13 +146,6 @@
             }
         },
         {
-            "v": "owl:Thing",
-            "value": {
-                "type": "special",
-                "label": "owl:Thing"
-            }
-        },
-        {
             "v": "related-artworks",
             "value": {
                 "type": "attribute_name",
@@ -174,25 +153,21 @@
             }
         },
         {
-            "v": "skos2:ConceptScheme",
+            "v": "skos2:Concept2",
             "value": {
                 "type": "class_uri",
-                "label": "skos2:ConceptScheme"
+                "label": "skos2:Concept"
+            }
+        },
+        {
+            "v": "Classification",
+            "value": {
+                "type": "attribute_name",
+                "label": "Classification"
             }
         }
     ],
     "edges": [
-        {
-            "v": "Classification",
-            "w": "skos2:Concept2",
-            "name": "Classification***skos2:Concept2",
-            "value": {
-                "type": "st_property_uri",
-                "label": "skos2:prefLabel***inverted",
-                "weight": 1
-            },
-            "weight": 1
-        },
         {
             "v": "Credit Line",
             "w": "aac-ont:CulturalHeritageObject1",
@@ -285,11 +260,11 @@
             "w": "aac-ont:Person1",
             "name": "aac-ont:CulturalHeritageObject2***aac-ont:Person1",
             "value": {
-                "type": "inherited",
-                "label": "skos2:semanticRelation***inverted",
-                "weight": 4
+                "label": "aac-ont:sitter",
+                "type": "direct_property_uri",
+                "weight": 1
             },
-            "weight": 4
+            "weight": 1
         },
         {
             "v": "aac-ont:Person1",
@@ -306,22 +281,22 @@
             "w": "aac-ont:CulturalHeritageObject1",
             "name": "aac-ont:Person1***aac-ont:CulturalHeritageObject1",
             "value": {
-                "type": "inherited",
-                "label": "skos2:semanticRelation***inverted",
-                "weight": 4
+                "type": "direct_property_uri",
+                "label": "aac-ont:sitter***inverted",
+                "weight": 1
             },
-            "weight": 4
+            "weight": 1
         },
         {
             "v": "aac-ont:Person1",
             "w": "aac-ont:Place1",
             "name": "aac-ont:Person1***aac-ont:Place1",
             "value": {
-                "type": "inherited",
-                "label": "skos2:semanticRelation***inverted",
-                "weight": 4
+                "label": "ElementsGr2:placeOfBirth",
+                "type": "direct_property_uri",
+                "weight": 1
             },
-            "weight": 4
+            "weight": 1
         },
         {
             "v": "aac-ont:Person1",
@@ -388,17 +363,6 @@
             "weight": 1
         },
         {
-            "v": "owl:Thing",
-            "w": "image",
-            "name": "owl:Thing***image",
-            "value": {
-                "type": "inherited",
-                "label": "rdfs:subClassOf***inverted",
-                "weight": 0.3333333333333333
-            },
-            "weight": 0.3333333333333333
-        },
-        {
             "v": "related-artworks",
             "w": "aac-ont:CulturalHeritageObject2",
             "name": "related-artworks***aac-ont:CulturalHeritageObject2",
@@ -411,36 +375,35 @@
         },
         {
             "v": "skos2:Concept1",
-            "w": "skos2:ConceptScheme",
-            "name": "skos2:Concept1***skos2:ConceptScheme",
+            "w": "skos2:Concept2",
+            "name": "skos2:Concept1***skos2:Concept2",
             "value": {
+                "label": "skos2:mappingRelation",
                 "type": "direct_property_uri",
-                "label": "skos2:hasTopConcept***inverted",
                 "weight": 1
             },
             "weight": 1
         },
         {
             "v": "skos2:Concept2",
-            "w": "skos2:ConceptScheme",
-            "name": "skos2:Concept2***skos2:ConceptScheme",
+            "w": "Classification",
+            "name": "skos2:Concept2***Classification",
             "value": {
-                "type": "direct_property_uri",
-                "label": "skos2:hasTopConcept***inverted",
-                "weight": 1
+                "label": "skos2:prefLabel",
+                "type": "st_property_uri"
             },
             "weight": 1
         },
         {
-            "v": "skos2:ConceptScheme",
-            "w": "owl:Thing",
-            "name": "skos2:ConceptScheme***owl:Thing",
+            "v": "skos2:Concept2",
+            "w": "aac-ont:CulturalHeritageObject1",
+            "name": "skos2:Concept2***aac-ont:CulturalHeritageObject1",
             "value": {
-                "label": "rdfs:subClassOf",
+                "label": "skos2:mappingRelation",
                 "type": "inherited",
-                "weight": 0.3333333333333333
+                "weight": 4
             },
-            "weight": 0.3333333333333333
+            "weight": 4
         }
     ]
 }

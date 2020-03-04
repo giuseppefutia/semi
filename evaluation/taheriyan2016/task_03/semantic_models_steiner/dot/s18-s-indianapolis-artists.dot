@@ -6,7 +6,7 @@ digraph {
   deathDate [type=attribute_name,label=deathDate]
   nationality [type=attribute_name,label=nationality]
   title [type=attribute_name,label=title]
-  "aac-ont:CulturalHeritageObject1" -> "aac-ont:Person1" [type=inherited,label="skos2:semanticRelation***inverted",weight=4]
+  "aac-ont:CulturalHeritageObject1" -> "aac-ont:Person1" [label="aac-ont:sitter",type=direct_property_uri,weight=1]
   "aac-ont:Person1" -> name [label="ElementsGr2:nameOfThePerson",type=st_property_uri]
   birthDate -> "aac-ont:Person1" [type=st_property_uri,label="ElementsGr2:dateOfBirth***inverted",weight=1]
   deathDate -> "aac-ont:Person1" [type=st_property_uri,label="ElementsGr2:dateOfDeath***inverted",weight=1]

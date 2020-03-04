@@ -14,7 +14,7 @@ digraph {
   nationality [type=attribute_name,label=nationality]
   prov [type=attribute_name,label=prov]
   title [type=attribute_name,label=title]
-  "aac-ont:CulturalHeritageObject1" -> "aac-ont:Person1" [type=inherited,label="skos2:semanticRelation***inverted",weight=4]
+  "aac-ont:CulturalHeritageObject1" -> "aac-ont:Person1" [label="aac-ont:sitter",type=direct_property_uri,weight=1]
   "aac-ont:Person1" -> deathDate [label="ElementsGr2:dateOfDeath",type=st_property_uri]
   access -> "aac-ont:CulturalHeritageObject1" [type=st_property_uri,label="aac-ont:accessionNumber***inverted",weight=1]
   artist -> "aac-ont:Person1" [type=st_property_uri,label="ElementsGr2:nameOfThePerson***inverted",weight=1]

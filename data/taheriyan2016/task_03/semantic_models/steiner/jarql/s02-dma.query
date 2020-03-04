@@ -70,11 +70,8 @@ CONSTRUCT {
     ?CulturalHeritageObject1 rdf:type aac-ont:CulturalHeritageObject.
     ?Person1 ElementsGr2:countryAssociatedWithThePerson ?Artist Nationality.
     ?Person1 rdf:type aac-ont:Person.
-    ?Person1 skos2:semanticRelation ?CulturalHeritageObject1.
-    ?ProvidedCHO1 aac-ont:sitter ?Person1.
-    ?ProvidedCHO1 rdfs:subClassOf owl:Thing.
-    ?ConceptScheme1 skos2:hasTopConcept ?Concept1.
-    ?ConceptScheme1 rdfs:subClassOf owl:Thing.
+    ?CulturalHeritageObject1 aac-ont:sitter ?Person1.
+    ?Concept1 skos2:mappingRelation ?Person1.
 }
 WHERE {
     ?root a jarql:Root.
@@ -93,6 +90,4 @@ WHERE {
     BIND (URI(CONCAT('http://www.americanartcollaborative.org/ontology//culturalheritageobject/',?Object Title)) as ?CulturalHeritageObject1)
     BIND (URI(CONCAT('http://purl.org/vocab/frbr/core/concept/',?Object Work Type)) as ?Concept1)
     BIND (URI(CONCAT('http://purl.org/vocab/frbr/core/person/',?Artist Name)) as ?Person1)
-    BIND (URI(CONCAT('http://www.europeana.eu/schemas/edm//providedcho/',?Artist Name)) as ?ProvidedCHO1)
-    BIND (URI(CONCAT('http://www.w3.org/2008/05/skos/conceptscheme/',?Object Work Type)) as ?ConceptScheme1)
 }

@@ -56,7 +56,7 @@ CONSTRUCT {
     ?Person1 rdf:type aac-ont:Person.
     ?Person1 ElementsGr2:nameOfThePerson ?name.
     ?Person1 rdf:type aac-ont:Person.
-    ?Person1 skos2:semanticRelation ?CulturalHeritageObject1.
+    ?CulturalHeritageObject1 aac-ont:sitter ?Person1.
 }
 WHERE {
     ?root a jarql:Root.

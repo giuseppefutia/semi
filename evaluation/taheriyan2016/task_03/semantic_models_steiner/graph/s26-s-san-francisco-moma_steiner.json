@@ -118,17 +118,24 @@
             }
         },
         {
-            "v": "owl:Thing",
-            "value": {
-                "type": "special",
-                "label": "owl:Thing"
-            }
-        },
-        {
             "v": "art-work__nationality",
             "value": {
                 "type": "attribute_name",
                 "label": "art-work__nationality"
+            }
+        },
+        {
+            "v": "art-work__type",
+            "value": {
+                "type": "attribute_name",
+                "label": "art-work__type"
+            }
+        },
+        {
+            "v": "skos2:Concept1",
+            "value": {
+                "type": "class_uri",
+                "label": "skos2:Concept"
             }
         },
         {
@@ -158,34 +165,6 @@
                 "type": "class_uri",
                 "label": "ore:Aggregation"
             }
-        },
-        {
-            "v": "foaf:OnlineAccount",
-            "value": {
-                "type": "class_uri",
-                "label": "foaf:OnlineAccount"
-            }
-        },
-        {
-            "v": "skos2:ConceptScheme",
-            "value": {
-                "type": "class_uri",
-                "label": "skos2:ConceptScheme"
-            }
-        },
-        {
-            "v": "skos2:Concept1",
-            "value": {
-                "type": "class_uri",
-                "label": "skos2:Concept"
-            }
-        },
-        {
-            "v": "art-work__type",
-            "value": {
-                "type": "attribute_name",
-                "label": "art-work__type"
-            }
         }
     ],
     "edges": [
@@ -204,22 +183,22 @@
             "w": "aac-ont:CulturalHeritageObject1",
             "name": "aac-ont:Person1***aac-ont:CulturalHeritageObject1",
             "value": {
-                "type": "inherited",
-                "label": "skos2:semanticRelation***inverted",
-                "weight": 4
+                "type": "direct_property_uri",
+                "label": "aac-ont:sitter***inverted",
+                "weight": 1
             },
-            "weight": 4
+            "weight": 1
         },
         {
             "v": "aac-ont:Person1",
             "w": "aac-ont:Place1",
             "name": "aac-ont:Person1***aac-ont:Place1",
             "value": {
-                "type": "inherited",
-                "label": "skos2:semanticRelation***inverted",
-                "weight": 4
+                "label": "ElementsGr2:placeOfBirth",
+                "type": "direct_property_uri",
+                "weight": 1
             },
-            "weight": 4
+            "weight": 1
         },
         {
             "v": "aac-ont:Person1",
@@ -246,11 +225,11 @@
             "w": "aac-ont:Person1",
             "name": "aac-ont:Place2***aac-ont:Person1",
             "value": {
-                "type": "inherited",
-                "label": "skos2:semanticRelation***inverted",
-                "weight": 4
+                "type": "direct_property_uri",
+                "label": "ElementsGr2:placeOfBirth***inverted",
+                "weight": 1
             },
-            "weight": 4
+            "weight": 1
         },
         {
             "v": "art-work__accession-id",
@@ -341,23 +320,23 @@
             "weight": 1
         },
         {
-            "v": "art-work__image-URL",
-            "w": "owl:Thing",
-            "name": "art-work__image-URL***owl:Thing",
-            "value": {
-                "label": "rdfs:subClassOf",
-                "type": "inherited",
-                "weight": 0.3333333333333333
-            },
-            "weight": 0.3333333333333333
-        },
-        {
             "v": "art-work__nationality",
             "w": "aac-ont:Person1",
             "name": "art-work__nationality***aac-ont:Person1",
             "value": {
                 "type": "st_property_uri",
                 "label": "ElementsGr2:countryAssociatedWithThePerson***inverted",
+                "weight": 1
+            },
+            "weight": 1
+        },
+        {
+            "v": "art-work__type",
+            "w": "skos2:Concept1",
+            "name": "art-work__type***skos2:Concept1",
+            "value": {
+                "type": "st_property_uri",
+                "label": "skos2:prefLabel***inverted",
                 "weight": 1
             },
             "weight": 1
@@ -397,22 +376,11 @@
         },
         {
             "v": "foaf:Document1",
-            "w": "foaf:OnlineAccount",
-            "name": "foaf:Document1***foaf:OnlineAccount",
-            "value": {
-                "type": "direct_property_uri",
-                "label": "foaf:accountServiceHomepage***inverted",
-                "weight": 1
-            },
-            "weight": 1
-        },
-        {
-            "v": "foaf:OnlineAccount",
             "w": "aac-ont:Person1",
-            "name": "foaf:OnlineAccount***aac-ont:Person1",
+            "name": "foaf:Document1***aac-ont:Person1",
             "value": {
                 "type": "inherited",
-                "label": "foaf:topic_interest***inverted",
+                "label": "foaf:workplaceHomepage***inverted",
                 "weight": 4
             },
             "weight": 4
@@ -429,36 +397,15 @@
             "weight": 1
         },
         {
-            "v": "owl:Thing",
-            "w": "skos2:ConceptScheme",
-            "name": "owl:Thing***skos2:ConceptScheme",
-            "value": {
-                "type": "inherited",
-                "label": "rdfs:subClassOf***inverted",
-                "weight": 0.3333333333333333
-            },
-            "weight": 0.3333333333333333
-        },
-        {
             "v": "skos2:Concept1",
-            "w": "art-work__type",
-            "name": "skos2:Concept1***art-work__type",
+            "w": "aac-ont:Place1",
+            "name": "skos2:Concept1***aac-ont:Place1",
             "value": {
-                "label": "skos2:prefLabel",
-                "type": "st_property_uri"
+                "label": "skos2:mappingRelation",
+                "type": "inherited",
+                "weight": 4
             },
-            "weight": 1
-        },
-        {
-            "v": "skos2:ConceptScheme",
-            "w": "skos2:Concept1",
-            "name": "skos2:ConceptScheme***skos2:Concept1",
-            "value": {
-                "type": "direct_property_uri",
-                "label": "skos2:topConceptOf***inverted",
-                "weight": 1
-            },
-            "weight": 1
+            "weight": 4
         }
     ]
 }

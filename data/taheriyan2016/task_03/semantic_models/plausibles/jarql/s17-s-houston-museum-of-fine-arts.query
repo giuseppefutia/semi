@@ -88,30 +88,115 @@ CONSTRUCT {
     ?Person1 foaf:knows ?Person1.
     ?Agent1 foaf:account ?OnlineAccount1.
     ?Agent1 foaf:holdsAccount ?OnlineAccount1.
+    ?CulturalHeritageObject1 aac-ont:sitter ?Person1.
     ?CulturalHeritageObject1 skos2:mappingRelation ?Person1.
     ?CulturalHeritageObject1 skos2:semanticRelation ?Person1.
     ?CulturalHeritageObject1 skos2:mappingRelation ?Place1.
     ?CulturalHeritageObject1 skos2:semanticRelation ?Place1.
+    ?CulturalHeritageObject1 skos2:mappingRelation ?ProvidedCHO1.
+    ?CulturalHeritageObject1 skos2:semanticRelation ?ProvidedCHO1.
+    ?CulturalHeritageObject1 aac-ont:sitter ?Person1.
     ?Person1 skos2:mappingRelation ?CulturalHeritageObject1.
     ?Person1 skos2:semanticRelation ?CulturalHeritageObject1.
+    ?Person1 foaf:workplaceHomepage ?Document1.
+    ?Person1 foaf:workInfoHomepage ?Document1.
+    ?Person1 foaf:schoolHomepage ?Document1.
+    ?Person1 foaf:publications ?Document1.
+    ?Person1 foaf:img ?Document1.
+    ?Person1 foaf:weblog ?Document1.
+    ?Person1 foaf:openid ?Document1.
+    ?Person1 foaf:tipjar ?Document1.
+    ?Person1 foaf:interest ?Document1.
+    ?Person1 ElementsGr2:placeOfBirth ?Place1.
+    ?Person1 ElementsGr2:placeOfDeath ?Place1.
     ?Person1 skos2:mappingRelation ?Place1.
     ?Person1 skos2:semanticRelation ?Place1.
+    ?Person1 skos2:mappingRelation ?ProvidedCHO1.
+    ?Person1 skos2:semanticRelation ?ProvidedCHO1.
+    ?Person1 foaf:knows ?Person1.
     ?Person1 foaf:based_near ?Person1.
+    ?Person1 foaf:knows ?Agent1.
+    ?Person1 foaf:based_near ?Agent1.
     ?Person1 foaf:currentProject ?OnlineAccount1.
     ?Person1 foaf:pastProject ?OnlineAccount1.
+    ?Person1 foaf:account ?OnlineAccount1.
+    ?Person1 foaf:holdsAccount ?OnlineAccount1.
     ?Person1 foaf:mbox ?OnlineAccount1.
     ?Person1 foaf:made ?OnlineAccount1.
     ?Person1 foaf:topic_interest ?OnlineAccount1.
+    ?Document1 foaf:primaryTopic ?OnlineAccount1.
+    ?Document1 foaf:topic ?OnlineAccount1.
+    ?Document1 foaf:depicts ?OnlineAccount1.
     ?Place1 skos2:mappingRelation ?CulturalHeritageObject1.
     ?Place1 skos2:semanticRelation ?CulturalHeritageObject1.
     ?Place1 skos2:mappingRelation ?Person1.
     ?Place1 skos2:semanticRelation ?Person1.
+    ?Place1 skos2:mappingRelation ?ProvidedCHO1.
+    ?Place1 skos2:semanticRelation ?ProvidedCHO1.
+    ?ProvidedCHO1 skos2:mappingRelation ?CulturalHeritageObject1.
+    ?ProvidedCHO1 skos2:semanticRelation ?CulturalHeritageObject1.
+    ?ProvidedCHO1 aac-ont:sitter ?Person1.
+    ?ProvidedCHO1 skos2:mappingRelation ?Person1.
+    ?ProvidedCHO1 skos2:semanticRelation ?Person1.
+    ?ProvidedCHO1 skos2:mappingRelation ?Place1.
+    ?ProvidedCHO1 skos2:semanticRelation ?Place1.
+    ?ProvidedCHO1 aac-ont:sitter ?Person1.
+    ?Aggregation1 edm:aggregatedCHO ?CulturalHeritageObject1.
+    ?Aggregation1 edm:dataProvider ?Person1.
+    ?Aggregation1 edm:hasView ?WebResource1.
+    ?Aggregation1 edm:aggregatedCHO ?ProvidedCHO1.
+    ?Person1 foaf:knows ?Person1.
     ?Person1 foaf:based_near ?Person1.
+    ?Person1 foaf:workplaceHomepage ?Document1.
+    ?Person1 foaf:workInfoHomepage ?Document1.
+    ?Person1 foaf:schoolHomepage ?Document1.
+    ?Person1 foaf:publications ?Document1.
+    ?Person1 foaf:img ?Document1.
+    ?Person1 foaf:weblog ?Document1.
+    ?Person1 foaf:openid ?Document1.
+    ?Person1 foaf:tipjar ?Document1.
+    ?Person1 foaf:interest ?Document1.
+    ?Person1 ElementsGr2:placeOfBirth ?Place1.
+    ?Person1 ElementsGr2:placeOfDeath ?Place1.
+    ?Person1 foaf:knows ?Agent1.
+    ?Person1 foaf:based_near ?Agent1.
+    ?Person1 foaf:currentProject ?OnlineAccount1.
+    ?Person1 foaf:pastProject ?OnlineAccount1.
+    ?Person1 foaf:account ?OnlineAccount1.
+    ?Person1 foaf:holdsAccount ?OnlineAccount1.
     ?Person1 foaf:mbox ?OnlineAccount1.
     ?Person1 foaf:made ?OnlineAccount1.
     ?Person1 foaf:topic_interest ?OnlineAccount1.
+    ?Agent1 foaf:knows ?Person1.
+    ?Agent1 foaf:based_near ?Person1.
+    ?Agent1 foaf:member ?Person1.
+    ?Agent1 foaf:weblog ?Document1.
+    ?Agent1 foaf:openid ?Document1.
+    ?Agent1 foaf:tipjar ?Document1.
+    ?Agent1 foaf:interest ?Document1.
+    ?Agent1 foaf:workplaceHomepage ?Document1.
+    ?Agent1 foaf:workInfoHomepage ?Document1.
+    ?Agent1 foaf:schoolHomepage ?Document1.
+    ?Agent1 foaf:publications ?Document1.
+    ?Agent1 foaf:img ?Document1.
+    ?Agent1 foaf:knows ?Person1.
+    ?Agent1 foaf:based_near ?Person1.
+    ?Agent1 foaf:member ?Person1.
+    ?Agent1 foaf:account ?OnlineAccount1.
+    ?Agent1 foaf:holdsAccount ?OnlineAccount1.
+    ?Agent1 foaf:mbox ?OnlineAccount1.
+    ?Agent1 foaf:made ?OnlineAccount1.
+    ?Agent1 foaf:topic_interest ?OnlineAccount1.
+    ?Agent1 foaf:currentProject ?OnlineAccount1.
+    ?Agent1 foaf:pastProject ?OnlineAccount1.
     ?OnlineAccount1 foaf:maker ?Person1.
+    ?OnlineAccount1 foaf:accountServiceHomepage ?Document1.
+    ?OnlineAccount1 foaf:homepage ?Document1.
+    ?OnlineAccount1 foaf:page ?Document1.
+    ?OnlineAccount1 foaf:isPrimaryTopicOf ?Document1.
+    ?OnlineAccount1 foaf:depiction ?Document1.
     ?OnlineAccount1 foaf:maker ?Person1.
+    ?OnlineAccount1 foaf:maker ?Agent1.
 }
 WHERE {
     ?root a jarql:Root.

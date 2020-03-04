@@ -3,6 +3,14 @@
     "_isMultigraph": true,
     "_isCompound": false,
     "_nodes": {
+        "Alpha Sort": {
+            "type": "attribute_name",
+            "label": "Alpha Sort"
+        },
+        "aac-ont:Person1": {
+            "type": "class_uri",
+            "label": "aac-ont:Person"
+        },
         "Classification": {
             "type": "attribute_name",
             "label": "Classification"
@@ -42,29 +50,23 @@
         "Description": {
             "type": "attribute_name",
             "label": "Description"
-        },
-        "aac-ont:Person1": {
-            "type": "class_uri",
-            "label": "aac-ont:Person"
-        },
-        "Alpha Sort": {
-            "type": "attribute_name",
-            "label": "Alpha Sort"
-        },
-        "edm:ProvidedCHO": {
-            "type": "class_uri",
-            "label": "edm:ProvidedCHO"
-        },
-        "owl:Thing": {
-            "type": "special",
-            "label": "owl:Thing"
-        },
-        "skos2:ConceptScheme": {
-            "type": "class_uri",
-            "label": "skos2:ConceptScheme"
         }
     },
     "_in": {
+        "Alpha Sort": {},
+        "aac-ont:Person1": {
+            "Alpha Sort\u0001aac-ont:Person1\u0001Alpha Sort***aac-ont:Person1\u0001st_property_uriElementsGr2:nameOfThePerson***inverted\u00011": {
+                "v": "Alpha Sort",
+                "w": "aac-ont:Person1",
+                "name": "Alpha Sort***aac-ont:Person1",
+                "value": {
+                    "type": "st_property_uri",
+                    "label": "ElementsGr2:nameOfThePerson***inverted",
+                    "weight": 1
+                },
+                "weight": 1
+            }
+        },
         "Classification": {},
         "skos2:Concept1": {
             "Classification\u0001skos2:Concept1\u0001Classification***skos2:Concept1\u0001st_property_uriskos2:prefLabel***inverted\u00011": {
@@ -147,13 +149,24 @@
                 },
                 "weight": 1
             },
-            "aac-ont:Person1\u0001aac-ont:CulturalHeritageObject1\u0001aac-ont:Person1***aac-ont:CulturalHeritageObject1\u0001inheritedskos2:semanticRelation***inverted\u00014": {
+            "aac-ont:Person1\u0001aac-ont:CulturalHeritageObject1\u0001aac-ont:Person1***aac-ont:CulturalHeritageObject1\u0001direct_property_uriaac-ont:sitter***inverted\u00011": {
                 "v": "aac-ont:Person1",
                 "w": "aac-ont:CulturalHeritageObject1",
                 "name": "aac-ont:Person1***aac-ont:CulturalHeritageObject1",
                 "value": {
+                    "type": "direct_property_uri",
+                    "label": "aac-ont:sitter***inverted",
+                    "weight": 1
+                },
+                "weight": 1
+            },
+            "skos2:Concept1\u0001aac-ont:CulturalHeritageObject1\u0001skos2:Concept1***aac-ont:CulturalHeritageObject1\u0001inheritedskos2:mappingRelation\u00014": {
+                "v": "skos2:Concept1",
+                "w": "aac-ont:CulturalHeritageObject1",
+                "name": "skos2:Concept1***aac-ont:CulturalHeritageObject1",
+                "value": {
+                    "label": "skos2:mappingRelation",
                     "type": "inherited",
-                    "label": "skos2:semanticRelation***inverted",
                     "weight": 4
                 },
                 "weight": 4
@@ -175,73 +188,13 @@
                 },
                 "weight": 1
             }
-        },
-        "aac-ont:Person1": {
-            "edm:ProvidedCHO\u0001aac-ont:Person1\u0001edm:ProvidedCHO***aac-ont:Person1\u0001direct_property_uriaac-ont:sitter\u00011": {
-                "v": "edm:ProvidedCHO",
-                "w": "aac-ont:Person1",
-                "name": "edm:ProvidedCHO***aac-ont:Person1",
-                "value": {
-                    "label": "aac-ont:sitter",
-                    "type": "direct_property_uri",
-                    "weight": 1
-                },
-                "weight": 1
-            }
-        },
-        "Alpha Sort": {
-            "aac-ont:Person1\u0001Alpha Sort\u0001aac-ont:Person1***Alpha Sort\u0001st_property_uriElementsGr2:nameOfThePerson\u00011": {
-                "v": "aac-ont:Person1",
-                "w": "Alpha Sort",
-                "name": "aac-ont:Person1***Alpha Sort",
-                "value": {
-                    "label": "ElementsGr2:nameOfThePerson",
-                    "type": "st_property_uri"
-                },
-                "weight": 1
-            }
-        },
-        "edm:ProvidedCHO": {
-            "owl:Thing\u0001edm:ProvidedCHO\u0001owl:Thing***edm:ProvidedCHO\u0001inheritedrdfs:subClassOf***inverted\u00010.3333333333333333": {
-                "v": "owl:Thing",
-                "w": "edm:ProvidedCHO",
-                "name": "owl:Thing***edm:ProvidedCHO",
-                "value": {
-                    "type": "inherited",
-                    "label": "rdfs:subClassOf***inverted",
-                    "weight": 0.3333333333333333
-                },
-                "weight": 0.3333333333333333
-            }
-        },
-        "owl:Thing": {
-            "skos2:ConceptScheme\u0001owl:Thing\u0001skos2:ConceptScheme***owl:Thing\u0001inheritedrdfs:subClassOf\u00010.3333333333333333": {
-                "v": "skos2:ConceptScheme",
-                "w": "owl:Thing",
-                "name": "skos2:ConceptScheme***owl:Thing",
-                "value": {
-                    "label": "rdfs:subClassOf",
-                    "type": "inherited",
-                    "weight": 0.3333333333333333
-                },
-                "weight": 0.3333333333333333
-            }
-        },
-        "skos2:ConceptScheme": {
-            "skos2:Concept1\u0001skos2:ConceptScheme\u0001skos2:Concept1***skos2:ConceptScheme\u0001direct_property_uriskos2:hasTopConcept***inverted\u00011": {
-                "v": "skos2:Concept1",
-                "w": "skos2:ConceptScheme",
-                "name": "skos2:Concept1***skos2:ConceptScheme",
-                "value": {
-                    "type": "direct_property_uri",
-                    "label": "skos2:hasTopConcept***inverted",
-                    "weight": 1
-                },
-                "weight": 1
-            }
         }
     },
     "_preds": {
+        "Alpha Sort": {},
+        "aac-ont:Person1": {
+            "Alpha Sort": 1
+        },
         "Classification": {},
         "skos2:Concept1": {
             "Classification": 1
@@ -254,7 +207,8 @@
             "Object Number": 1,
             "ObjectID": 1,
             "Title": 1,
-            "aac-ont:Person1": 1
+            "aac-ont:Person1": 1,
+            "skos2:Concept1": 1
         },
         "Dimensions": {},
         "Medium": {},
@@ -263,24 +217,35 @@
         "Title": {},
         "Description": {
             "aac-ont:CulturalHeritageObject1": 1
-        },
-        "aac-ont:Person1": {
-            "edm:ProvidedCHO": 1
-        },
-        "Alpha Sort": {
-            "aac-ont:Person1": 1
-        },
-        "edm:ProvidedCHO": {
-            "owl:Thing": 1
-        },
-        "owl:Thing": {
-            "skos2:ConceptScheme": 1
-        },
-        "skos2:ConceptScheme": {
-            "skos2:Concept1": 1
         }
     },
     "_out": {
+        "Alpha Sort": {
+            "Alpha Sort\u0001aac-ont:Person1\u0001Alpha Sort***aac-ont:Person1\u0001st_property_uriElementsGr2:nameOfThePerson***inverted\u00011": {
+                "v": "Alpha Sort",
+                "w": "aac-ont:Person1",
+                "name": "Alpha Sort***aac-ont:Person1",
+                "value": {
+                    "type": "st_property_uri",
+                    "label": "ElementsGr2:nameOfThePerson***inverted",
+                    "weight": 1
+                },
+                "weight": 1
+            }
+        },
+        "aac-ont:Person1": {
+            "aac-ont:Person1\u0001aac-ont:CulturalHeritageObject1\u0001aac-ont:Person1***aac-ont:CulturalHeritageObject1\u0001direct_property_uriaac-ont:sitter***inverted\u00011": {
+                "v": "aac-ont:Person1",
+                "w": "aac-ont:CulturalHeritageObject1",
+                "name": "aac-ont:Person1***aac-ont:CulturalHeritageObject1",
+                "value": {
+                    "type": "direct_property_uri",
+                    "label": "aac-ont:sitter***inverted",
+                    "weight": 1
+                },
+                "weight": 1
+            }
+        },
         "Classification": {
             "Classification\u0001skos2:Concept1\u0001Classification***skos2:Concept1\u0001st_property_uriskos2:prefLabel***inverted\u00011": {
                 "v": "Classification",
@@ -295,16 +260,16 @@
             }
         },
         "skos2:Concept1": {
-            "skos2:Concept1\u0001skos2:ConceptScheme\u0001skos2:Concept1***skos2:ConceptScheme\u0001direct_property_uriskos2:hasTopConcept***inverted\u00011": {
+            "skos2:Concept1\u0001aac-ont:CulturalHeritageObject1\u0001skos2:Concept1***aac-ont:CulturalHeritageObject1\u0001inheritedskos2:mappingRelation\u00014": {
                 "v": "skos2:Concept1",
-                "w": "skos2:ConceptScheme",
-                "name": "skos2:Concept1***skos2:ConceptScheme",
+                "w": "aac-ont:CulturalHeritageObject1",
+                "name": "skos2:Concept1***aac-ont:CulturalHeritageObject1",
                 "value": {
-                    "type": "direct_property_uri",
-                    "label": "skos2:hasTopConcept***inverted",
-                    "weight": 1
+                    "label": "skos2:mappingRelation",
+                    "type": "inherited",
+                    "weight": 4
                 },
-                "weight": 1
+                "weight": 4
             }
         },
         "Dated": {
@@ -397,77 +362,20 @@
                 "weight": 1
             }
         },
-        "Description": {},
-        "aac-ont:Person1": {
-            "aac-ont:Person1\u0001Alpha Sort\u0001aac-ont:Person1***Alpha Sort\u0001st_property_uriElementsGr2:nameOfThePerson\u00011": {
-                "v": "aac-ont:Person1",
-                "w": "Alpha Sort",
-                "name": "aac-ont:Person1***Alpha Sort",
-                "value": {
-                    "label": "ElementsGr2:nameOfThePerson",
-                    "type": "st_property_uri"
-                },
-                "weight": 1
-            },
-            "aac-ont:Person1\u0001aac-ont:CulturalHeritageObject1\u0001aac-ont:Person1***aac-ont:CulturalHeritageObject1\u0001inheritedskos2:semanticRelation***inverted\u00014": {
-                "v": "aac-ont:Person1",
-                "w": "aac-ont:CulturalHeritageObject1",
-                "name": "aac-ont:Person1***aac-ont:CulturalHeritageObject1",
-                "value": {
-                    "type": "inherited",
-                    "label": "skos2:semanticRelation***inverted",
-                    "weight": 4
-                },
-                "weight": 4
-            }
-        },
-        "Alpha Sort": {},
-        "edm:ProvidedCHO": {
-            "edm:ProvidedCHO\u0001aac-ont:Person1\u0001edm:ProvidedCHO***aac-ont:Person1\u0001direct_property_uriaac-ont:sitter\u00011": {
-                "v": "edm:ProvidedCHO",
-                "w": "aac-ont:Person1",
-                "name": "edm:ProvidedCHO***aac-ont:Person1",
-                "value": {
-                    "label": "aac-ont:sitter",
-                    "type": "direct_property_uri",
-                    "weight": 1
-                },
-                "weight": 1
-            }
-        },
-        "owl:Thing": {
-            "owl:Thing\u0001edm:ProvidedCHO\u0001owl:Thing***edm:ProvidedCHO\u0001inheritedrdfs:subClassOf***inverted\u00010.3333333333333333": {
-                "v": "owl:Thing",
-                "w": "edm:ProvidedCHO",
-                "name": "owl:Thing***edm:ProvidedCHO",
-                "value": {
-                    "type": "inherited",
-                    "label": "rdfs:subClassOf***inverted",
-                    "weight": 0.3333333333333333
-                },
-                "weight": 0.3333333333333333
-            }
-        },
-        "skos2:ConceptScheme": {
-            "skos2:ConceptScheme\u0001owl:Thing\u0001skos2:ConceptScheme***owl:Thing\u0001inheritedrdfs:subClassOf\u00010.3333333333333333": {
-                "v": "skos2:ConceptScheme",
-                "w": "owl:Thing",
-                "name": "skos2:ConceptScheme***owl:Thing",
-                "value": {
-                    "label": "rdfs:subClassOf",
-                    "type": "inherited",
-                    "weight": 0.3333333333333333
-                },
-                "weight": 0.3333333333333333
-            }
-        }
+        "Description": {}
     },
     "_sucs": {
+        "Alpha Sort": {
+            "aac-ont:Person1": 1
+        },
+        "aac-ont:Person1": {
+            "aac-ont:CulturalHeritageObject1": 1
+        },
         "Classification": {
             "skos2:Concept1": 1
         },
         "skos2:Concept1": {
-            "skos2:ConceptScheme": 1
+            "aac-ont:CulturalHeritageObject1": 1
         },
         "Dated": {
             "aac-ont:CulturalHeritageObject1": 1
@@ -490,23 +398,20 @@
         "Title": {
             "aac-ont:CulturalHeritageObject1": 1
         },
-        "Description": {},
-        "aac-ont:Person1": {
-            "Alpha Sort": 1,
-            "aac-ont:CulturalHeritageObject1": 1
-        },
-        "Alpha Sort": {},
-        "edm:ProvidedCHO": {
-            "aac-ont:Person1": 1
-        },
-        "owl:Thing": {
-            "edm:ProvidedCHO": 1
-        },
-        "skos2:ConceptScheme": {
-            "owl:Thing": 1
-        }
+        "Description": {}
     },
     "_edgeObjs": {
+        "Alpha Sort\u0001aac-ont:Person1\u0001Alpha Sort***aac-ont:Person1\u0001st_property_uriElementsGr2:nameOfThePerson***inverted\u00011": {
+            "v": "Alpha Sort",
+            "w": "aac-ont:Person1",
+            "name": "Alpha Sort***aac-ont:Person1",
+            "value": {
+                "type": "st_property_uri",
+                "label": "ElementsGr2:nameOfThePerson***inverted",
+                "weight": 1
+            },
+            "weight": 1
+        },
         "Classification\u0001skos2:Concept1\u0001Classification***skos2:Concept1\u0001st_property_uriskos2:prefLabel***inverted\u00011": {
             "v": "Classification",
             "w": "skos2:Concept1",
@@ -594,73 +499,35 @@
             },
             "weight": 1
         },
-        "aac-ont:Person1\u0001Alpha Sort\u0001aac-ont:Person1***Alpha Sort\u0001st_property_uriElementsGr2:nameOfThePerson\u00011": {
-            "v": "aac-ont:Person1",
-            "w": "Alpha Sort",
-            "name": "aac-ont:Person1***Alpha Sort",
-            "value": {
-                "label": "ElementsGr2:nameOfThePerson",
-                "type": "st_property_uri"
-            },
-            "weight": 1
-        },
-        "aac-ont:Person1\u0001aac-ont:CulturalHeritageObject1\u0001aac-ont:Person1***aac-ont:CulturalHeritageObject1\u0001inheritedskos2:semanticRelation***inverted\u00014": {
+        "aac-ont:Person1\u0001aac-ont:CulturalHeritageObject1\u0001aac-ont:Person1***aac-ont:CulturalHeritageObject1\u0001direct_property_uriaac-ont:sitter***inverted\u00011": {
             "v": "aac-ont:Person1",
             "w": "aac-ont:CulturalHeritageObject1",
             "name": "aac-ont:Person1***aac-ont:CulturalHeritageObject1",
             "value": {
+                "type": "direct_property_uri",
+                "label": "aac-ont:sitter***inverted",
+                "weight": 1
+            },
+            "weight": 1
+        },
+        "skos2:Concept1\u0001aac-ont:CulturalHeritageObject1\u0001skos2:Concept1***aac-ont:CulturalHeritageObject1\u0001inheritedskos2:mappingRelation\u00014": {
+            "v": "skos2:Concept1",
+            "w": "aac-ont:CulturalHeritageObject1",
+            "name": "skos2:Concept1***aac-ont:CulturalHeritageObject1",
+            "value": {
+                "label": "skos2:mappingRelation",
                 "type": "inherited",
-                "label": "skos2:semanticRelation***inverted",
                 "weight": 4
             },
             "weight": 4
-        },
-        "edm:ProvidedCHO\u0001aac-ont:Person1\u0001edm:ProvidedCHO***aac-ont:Person1\u0001direct_property_uriaac-ont:sitter\u00011": {
-            "v": "edm:ProvidedCHO",
-            "w": "aac-ont:Person1",
-            "name": "edm:ProvidedCHO***aac-ont:Person1",
-            "value": {
-                "label": "aac-ont:sitter",
-                "type": "direct_property_uri",
-                "weight": 1
-            },
-            "weight": 1
-        },
-        "owl:Thing\u0001edm:ProvidedCHO\u0001owl:Thing***edm:ProvidedCHO\u0001inheritedrdfs:subClassOf***inverted\u00010.3333333333333333": {
-            "v": "owl:Thing",
-            "w": "edm:ProvidedCHO",
-            "name": "owl:Thing***edm:ProvidedCHO",
-            "value": {
-                "type": "inherited",
-                "label": "rdfs:subClassOf***inverted",
-                "weight": 0.3333333333333333
-            },
-            "weight": 0.3333333333333333
-        },
-        "skos2:Concept1\u0001skos2:ConceptScheme\u0001skos2:Concept1***skos2:ConceptScheme\u0001direct_property_uriskos2:hasTopConcept***inverted\u00011": {
-            "v": "skos2:Concept1",
-            "w": "skos2:ConceptScheme",
-            "name": "skos2:Concept1***skos2:ConceptScheme",
-            "value": {
-                "type": "direct_property_uri",
-                "label": "skos2:hasTopConcept***inverted",
-                "weight": 1
-            },
-            "weight": 1
-        },
-        "skos2:ConceptScheme\u0001owl:Thing\u0001skos2:ConceptScheme***owl:Thing\u0001inheritedrdfs:subClassOf\u00010.3333333333333333": {
-            "v": "skos2:ConceptScheme",
-            "w": "owl:Thing",
-            "name": "skos2:ConceptScheme***owl:Thing",
-            "value": {
-                "label": "rdfs:subClassOf",
-                "type": "inherited",
-                "weight": 0.3333333333333333
-            },
-            "weight": 0.3333333333333333
         }
     },
     "_edgeLabels": {
+        "Alpha Sort\u0001aac-ont:Person1\u0001Alpha Sort***aac-ont:Person1\u0001st_property_uriElementsGr2:nameOfThePerson***inverted\u00011": {
+            "type": "st_property_uri",
+            "label": "ElementsGr2:nameOfThePerson***inverted",
+            "weight": 1
+        },
         "Classification\u0001skos2:Concept1\u0001Classification***skos2:Concept1\u0001st_property_uriskos2:prefLabel***inverted\u00011": {
             "type": "st_property_uri",
             "label": "skos2:prefLabel***inverted",
@@ -700,36 +567,17 @@
             "label": "dcterms:description",
             "type": "st_property_uri"
         },
-        "aac-ont:Person1\u0001Alpha Sort\u0001aac-ont:Person1***Alpha Sort\u0001st_property_uriElementsGr2:nameOfThePerson\u00011": {
-            "label": "ElementsGr2:nameOfThePerson",
-            "type": "st_property_uri"
+        "aac-ont:Person1\u0001aac-ont:CulturalHeritageObject1\u0001aac-ont:Person1***aac-ont:CulturalHeritageObject1\u0001direct_property_uriaac-ont:sitter***inverted\u00011": {
+            "type": "direct_property_uri",
+            "label": "aac-ont:sitter***inverted",
+            "weight": 1
         },
-        "aac-ont:Person1\u0001aac-ont:CulturalHeritageObject1\u0001aac-ont:Person1***aac-ont:CulturalHeritageObject1\u0001inheritedskos2:semanticRelation***inverted\u00014": {
+        "skos2:Concept1\u0001aac-ont:CulturalHeritageObject1\u0001skos2:Concept1***aac-ont:CulturalHeritageObject1\u0001inheritedskos2:mappingRelation\u00014": {
+            "label": "skos2:mappingRelation",
             "type": "inherited",
-            "label": "skos2:semanticRelation***inverted",
             "weight": 4
-        },
-        "edm:ProvidedCHO\u0001aac-ont:Person1\u0001edm:ProvidedCHO***aac-ont:Person1\u0001direct_property_uriaac-ont:sitter\u00011": {
-            "label": "aac-ont:sitter",
-            "type": "direct_property_uri",
-            "weight": 1
-        },
-        "owl:Thing\u0001edm:ProvidedCHO\u0001owl:Thing***edm:ProvidedCHO\u0001inheritedrdfs:subClassOf***inverted\u00010.3333333333333333": {
-            "type": "inherited",
-            "label": "rdfs:subClassOf***inverted",
-            "weight": 0.3333333333333333
-        },
-        "skos2:Concept1\u0001skos2:ConceptScheme\u0001skos2:Concept1***skos2:ConceptScheme\u0001direct_property_uriskos2:hasTopConcept***inverted\u00011": {
-            "type": "direct_property_uri",
-            "label": "skos2:hasTopConcept***inverted",
-            "weight": 1
-        },
-        "skos2:ConceptScheme\u0001owl:Thing\u0001skos2:ConceptScheme***owl:Thing\u0001inheritedrdfs:subClassOf\u00010.3333333333333333": {
-            "label": "rdfs:subClassOf",
-            "type": "inherited",
-            "weight": 0.3333333333333333
         }
     },
-    "_nodeCount": 15,
-    "_edgeCount": 14
+    "_nodeCount": 12,
+    "_edgeCount": 11
 }

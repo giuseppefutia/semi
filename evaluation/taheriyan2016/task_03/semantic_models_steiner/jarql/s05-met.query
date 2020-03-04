@@ -74,16 +74,14 @@ CONSTRUCT {
     ?CulturalHeritageObject1 rdf:type aac-ont:CulturalHeritageObject.
     ?WebResource1 rdfs:label ?image.
     ?WebResource1 rdf:type edm:WebResource.
-    ?Person1 skos2:semanticRelation ?CulturalHeritageObject2.
-    ?CulturalHeritageObject1 skos2:semanticRelation ?Person1.
-    ?Place1 skos2:semanticRelation ?Person1.
+    ?CulturalHeritageObject2 aac-ont:sitter ?Person1.
+    ?CulturalHeritageObject1 aac-ont:sitter ?Person1.
+    ?Person1 ElementsGr2:placeOfBirth ?Place1.
     ?ProvidedCHO1 aac-ont:sitter ?Person1.
     ?Aggregation edm:aggregatedCHO ?ProvidedCHO.
     ?Aggregation1 edm:hasView ?WebResource1.
-    ?image rdfs:subClassOf owl:Thing.
-    ?ConceptScheme1 skos2:hasTopConcept ?Concept1.
-    ?ConceptScheme2 skos2:hasTopConcept ?Concept2.
-    ?ConceptScheme1 rdfs:subClassOf owl:Thing.
+    ?Concept1 skos2:mappingRelation ?Concept2.
+    ?Concept2 skos2:mappingRelation ?CulturalHeritageObject1.
 }
 WHERE {
     ?root a jarql:Root.
@@ -110,6 +108,4 @@ WHERE {
     BIND (URI(CONCAT('http://www.europeana.eu/schemas/edm//webresource/',?image)) as ?WebResource1)
     BIND (URI(CONCAT('http://www.europeana.eu/schemas/edm//providedcho/',?Who)) as ?ProvidedCHO1)
     BIND (URI(CONCAT('http://www.openarchives.org/ore/terms//aggregation/',?image)) as ?Aggregation1)
-    BIND (URI(CONCAT('http://www.w3.org/2008/05/skos/conceptscheme/',?Heilbrunn Timeline of Art History)) as ?ConceptScheme1)
-    BIND (URI(CONCAT('http://www.w3.org/2008/05/skos/conceptscheme/',?Classification)) as ?ConceptScheme2)
 }

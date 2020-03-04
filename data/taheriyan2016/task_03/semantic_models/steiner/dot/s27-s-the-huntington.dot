@@ -18,7 +18,7 @@ digraph {
   object_no [type=attribute_name,label=object_no]
   Artwork_Title -> "aac-ont:CulturalHeritageObject1" [type=st_property_uri,label="dcterms:title***inverted",weight=1]
   "aac-ont:CulturalHeritageObject1" -> medium [label="dcterms:medium",type=st_property_uri]
-  "aac-ont:Person1" -> "aac-ont:CulturalHeritageObject1" [type=inherited,label="skos2:semanticRelation***inverted",weight=4]
+  "aac-ont:Person1" -> "aac-ont:CulturalHeritageObject1" [type=direct_property_uri,label="aac-ont:sitter***inverted",weight=1]
   "aac-ont:Person1" -> "edm:ProvidedCHO" [type=direct_property_uri,label="aac-ont:sitter***inverted",weight=1]
   artist__birth_date -> "aac-ont:Person1" [type=st_property_uri,label="ElementsGr2:dateOfBirth***inverted",weight=1]
   artist__death_date -> "aac-ont:Person1" [type=st_property_uri,label="ElementsGr2:dateOfDeath***inverted",weight=1]

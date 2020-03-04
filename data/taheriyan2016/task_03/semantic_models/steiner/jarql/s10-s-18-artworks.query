@@ -68,14 +68,12 @@ CONSTRUCT {
     ?CulturalHeritageObject1 rdf:type aac-ont:CulturalHeritageObject.
     ?Person1 ElementsGr2:nameOfThePerson ?artist.
     ?Person1 rdf:type aac-ont:Person.
-    ?Person1 skos2:semanticRelation ?CulturalHeritageObject1.
+    ?CulturalHeritageObject1 aac-ont:sitter ?Person1.
     ?ProvidedCHO1 aac-ont:sitter ?Person1.
     ?Aggregation1 edm:hasView ?WebResource1.
     ?Aggregation1 edm:aggregatedCHO ?ProvidedCHO1.
-    ?image_URL rdfs:subClassOf owl:Thing.
-    ?ConceptScheme2 skos2:hasTopConcept ?Concept2.
-    ?ConceptScheme2 rdfs:subClassOf owl:Thing.
-    ?Concept1 skos2:topConceptOf ?ConceptScheme1.
+    ?Concept1 skos2:mappingRelation ?Person1.
+    ?Concept2 skos2:mappingRelation ?Concept1.
 }
 WHERE {
     ?root a jarql:Root.
@@ -97,6 +95,4 @@ WHERE {
     BIND (URI(CONCAT('http://purl.org/vocab/frbr/core/person/',?artist)) as ?Person1)
     BIND (URI(CONCAT('http://www.europeana.eu/schemas/edm//providedcho/',?artist)) as ?ProvidedCHO1)
     BIND (URI(CONCAT('http://www.openarchives.org/ore/terms//aggregation/',?image_URL)) as ?Aggregation1)
-    BIND (URI(CONCAT('http://www.w3.org/2008/05/skos/conceptscheme/',?subject_tags)) as ?ConceptScheme2)
-    BIND (URI(CONCAT('http://www.w3.org/2008/05/skos/conceptscheme/',?technique_type)) as ?ConceptScheme1)
 }

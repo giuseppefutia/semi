@@ -10,7 +10,7 @@ digraph {
   item__image [type=attribute_name,label=item__image]
   item__title [type=attribute_name,label=item__title]
   "aac-ont:CulturalHeritageObject1" -> item__year [label="dcterms:created",type=st_property_uri]
-  "aac-ont:Person1" -> "aac-ont:CulturalHeritageObject1" [type=inherited,label="skos2:semanticRelation***inverted",weight=4]
+  "aac-ont:Person1" -> "aac-ont:CulturalHeritageObject1" [type=direct_property_uri,label="aac-ont:sitter***inverted",weight=1]
   "aac-ont:Person1" -> item__artist [label="ElementsGr2:nameOfThePerson",type=st_property_uri]
   "edm:ProvidedCHO" -> "aac-ont:Person1" [label="aac-ont:sitter",type=direct_property_uri,weight=1]
   "edm:WebResource1" -> "ore:Aggregation" [type=direct_property_uri,label="edm:hasView***inverted",weight=1]

@@ -70,11 +70,10 @@ CONSTRUCT {
     ?CulturalHeritageObject1 rdf:type aac-ont:CulturalHeritageObject.
     ?CulturalHeritageObject1 dcterms:description ?artdesc.
     ?CulturalHeritageObject1 rdf:type aac-ont:CulturalHeritageObject.
-    ?CulturalHeritageObject1 skos2:semanticRelation ?Person1.
+    ?CulturalHeritageObject1 aac-ont:sitter ?Person1.
     ?ProvidedCHO1 aac-ont:sitter ?Person1.
     ?Aggregation1 edm:hasView ?WebResource1.
-    ?OnlineAccount1 foaf:accountServiceHomepage ?Document1.
-    ?Person1 foaf:topic_interest ?OnlineAccount1.
+    ?Person1 foaf:workplaceHomepage ?Document1.
     ?Aggregation1 edm:aggregatedCHO ?ProvidedCHO1.
 }
 WHERE {
@@ -97,5 +96,4 @@ WHERE {
     BIND (URI(CONCAT('http://xmlns.com/foaf/0.1//document/',?link)) as ?Document1)
     BIND (URI(CONCAT('http://www.europeana.eu/schemas/edm//providedcho/',?nationality)) as ?ProvidedCHO1)
     BIND (URI(CONCAT('http://www.openarchives.org/ore/terms//aggregation/',?photo)) as ?Aggregation1)
-    BIND (URI(CONCAT('http://xmlns.com/foaf/0.1//onlineaccount/',?link)) as ?OnlineAccount1)
 }

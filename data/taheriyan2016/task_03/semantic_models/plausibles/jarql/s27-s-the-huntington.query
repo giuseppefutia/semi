@@ -78,16 +78,36 @@ CONSTRUCT {
     ?Aggregation1 edm:aggregatedCHO ?ProvidedCHO1.
     ?Person1 skos2:mappingRelation ?CulturalHeritageObject1.
     ?Person1 skos2:semanticRelation ?CulturalHeritageObject1.
+    ?Person1 ElementsGr2:placeOfBirth ?Place1.
+    ?Person1 ElementsGr2:placeOfDeath ?Place1.
     ?Person1 skos2:mappingRelation ?Place1.
     ?Person1 skos2:semanticRelation ?Place1.
+    ?Person1 skos2:mappingRelation ?ProvidedCHO1.
+    ?Person1 skos2:semanticRelation ?ProvidedCHO1.
+    ?CulturalHeritageObject1 aac-ont:sitter ?Person1.
     ?CulturalHeritageObject1 skos2:mappingRelation ?Person1.
     ?CulturalHeritageObject1 skos2:semanticRelation ?Person1.
     ?CulturalHeritageObject1 skos2:mappingRelation ?Place1.
     ?CulturalHeritageObject1 skos2:semanticRelation ?Place1.
+    ?CulturalHeritageObject1 skos2:mappingRelation ?ProvidedCHO1.
+    ?CulturalHeritageObject1 skos2:semanticRelation ?ProvidedCHO1.
     ?Place1 skos2:mappingRelation ?Person1.
     ?Place1 skos2:semanticRelation ?Person1.
     ?Place1 skos2:mappingRelation ?CulturalHeritageObject1.
     ?Place1 skos2:semanticRelation ?CulturalHeritageObject1.
+    ?Place1 skos2:mappingRelation ?ProvidedCHO1.
+    ?Place1 skos2:semanticRelation ?ProvidedCHO1.
+    ?ProvidedCHO1 aac-ont:sitter ?Person1.
+    ?ProvidedCHO1 skos2:mappingRelation ?Person1.
+    ?ProvidedCHO1 skos2:semanticRelation ?Person1.
+    ?ProvidedCHO1 skos2:mappingRelation ?CulturalHeritageObject1.
+    ?ProvidedCHO1 skos2:semanticRelation ?CulturalHeritageObject1.
+    ?ProvidedCHO1 skos2:mappingRelation ?Place1.
+    ?ProvidedCHO1 skos2:semanticRelation ?Place1.
+    ?Aggregation1 edm:dataProvider ?Person1.
+    ?Aggregation1 edm:aggregatedCHO ?CulturalHeritageObject1.
+    ?Aggregation1 edm:hasView ?WebResource1.
+    ?Aggregation1 edm:aggregatedCHO ?ProvidedCHO1.
 }
 WHERE {
     ?root a jarql:Root.

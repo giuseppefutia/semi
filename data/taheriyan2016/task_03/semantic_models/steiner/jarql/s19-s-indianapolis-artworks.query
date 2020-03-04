@@ -80,17 +80,15 @@ CONSTRUCT {
     ?CulturalHeritageObject1 rdf:type aac-ont:CulturalHeritageObject.
     ?WebResource1 rdfs:label ?imageURL.
     ?WebResource1 rdf:type edm:WebResource.
-    ?CulturalHeritageObject1 skos2:semanticRelation ?Person1.
-    ?CulturalHeritageObject2 skos2:semanticRelation ?Person1.
+    ?CulturalHeritageObject1 aac-ont:sitter ?Person1.
+    ?CulturalHeritageObject2 aac-ont:sitter ?Person1.
     ?ProvidedCHO1 aac-ont:sitter ?Person1.
     ?Aggregation edm:aggregatedCHO ?ProvidedCHO.
-    ?OnlineAccount2 foaf:accountServiceHomepage ?Document2.
-    ?Person1 foaf:topic_interest ?OnlineAccount1.
-    ?OnlineAccount1 foaf:accountServiceHomepage ?Document1.
+    ?Agent1 foaf:weblog ?Document1.
+    ?Person1 foaf:workplaceHomepage ?Document1.
+    ?Agent2 foaf:weblog ?Document2.
     ?Aggregation1 edm:hasView ?WebResource1.
-    ?imageURL rdfs:subClassOf owl:Thing.
-    ?ConceptScheme1 skos2:hasTopConcept ?Concept1.
-    ?ConceptScheme1 rdfs:subClassOf owl:Thing.
+    ?Concept1 skos2:mappingRelation ?CulturalHeritageObject1.
 }
 WHERE {
     ?root a jarql:Root.
@@ -122,8 +120,7 @@ WHERE {
     BIND (URI(CONCAT('http://www.americanartcollaborative.org/ontology//culturalheritageobject/',?relatedArtworks__relatedArtworksTitle)) as ?CulturalHeritageObject2)
     BIND (URI(CONCAT('http://www.europeana.eu/schemas/edm//webresource/',?imageURL)) as ?WebResource1)
     BIND (URI(CONCAT('http://www.europeana.eu/schemas/edm//providedcho/',?birthDate)) as ?ProvidedCHO1)
-    BIND (URI(CONCAT('http://xmlns.com/foaf/0.1//onlineaccount/',?sourceURL)) as ?OnlineAccount2)
-    BIND (URI(CONCAT('http://xmlns.com/foaf/0.1//onlineaccount/',?birthDate)) as ?OnlineAccount1)
+    BIND (URI(CONCAT('http://purl.org/dc/terms//agent/',?relatedArtworks__relatedArtworksURL)) as ?Agent1)
+    BIND (URI(CONCAT('http://purl.org/dc/terms//agent/',?sourceURL)) as ?Agent2)
     BIND (URI(CONCAT('http://www.openarchives.org/ore/terms//aggregation/',?imageURL)) as ?Aggregation1)
-    BIND (URI(CONCAT('http://www.w3.org/2008/05/skos/conceptscheme/',?keywords__keyword)) as ?ConceptScheme1)
 }
