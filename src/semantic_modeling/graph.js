@@ -5,6 +5,8 @@ var Graph = require('graphlib').Graph;
 var utils = require(__dirname + '/utils.js');
 var graph_utils = require(__dirname + '/graph_utils.js');
 var sparql = require(__dirname + '/sparql_queries.js');
+var SparqlParser = require('sparqljs').Parser;
+var parser = new SparqlParser();
 
 var ε = 3;
 
@@ -304,8 +306,13 @@ var get_inherited_properties = (ip, store) => {
         var object = ip['object'];
         var ip_query = ip['query'];
         var inherited_properties = [];
-        store.execute(ip_query, function(success, results) {
-            if (success !== null) reject(success);
+
+        store.execute(ip_query, function(err, results) {
+            if (err !== null) {
+                console.log('Error with the following query');
+                console.log(ip_query);
+                reject(err);
+            }
             var cleaned_results = utils.get_clean_results(results, 'inherited_properties');
             for (var i in cleaned_results) {
                 inherited_properties.push(utils.set_property(
@@ -379,6 +386,16 @@ var get_all_inherited_properties = (store, super_classes, p_domain, p_range) => 
             }
         }
     }
+    // Check valid SPARQL queries
+    for (var o of query_objs) {
+        try {
+            parser.parse(o['query'])
+        } catch (err) {
+            console.log('Bad query:');
+            console.log(o['query']);
+        }
+    }
+
     var funcs = query_objs.map(query_obj => () => get_inherited_properties(query_obj, store));
     return promise_sequence(funcs);
 }
