@@ -77,6 +77,7 @@ var generate_instance_uris = (all_classes) => {
     return instances_uris;
 }
 
+// XXX Pay attention to the order of this prefixes!!!
 var PREFIX = {
     'http://schema.org/': 'schema:',
     'http://www.w3.org/2000/01/rdf-schema#': 'rdfs:',
@@ -99,10 +100,10 @@ var PREFIX = {
     'http://cmt#': 'cmt:',
     'http://sigkdd#': 'sigkdd:',
     'http://erlangen-crm.org/current/': 'crm:',
-    'http://collection.britishmuseum.org/id/': 'id:',
-    'http://collection.britishmuseum.org/id/thesauri/': 'idThes:',
-    'http://www.w3.org/ns/prov#': 'prov:',
     'http://collection.britishmuseum.org/id/ontology/': 'bmo:',
+    'http://collection.britishmuseum.org/id/thesauri/': 'idThes:',
+    'http://collection.britishmuseum.org/id/': 'id:',
+    'http://www.w3.org/ns/prov#': 'prov:',
     'http://www.americanartcollaborative.org/ontology/': 'aac-ont:',
     'http://www.w3.org/2008/05/skos#': 'skos2:',
     'http://rdvocab.info/ElementsGr2/': 'ElementsGr2:',
