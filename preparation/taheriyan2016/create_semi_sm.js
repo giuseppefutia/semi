@@ -14,6 +14,8 @@ const PREFIX = utils.get_prefix();
  *
  **/
 
+DEBUGGING = false;
+
 var data_folder = process.argv.slice(2)[0];
 var input_file = process.argv.slice(3)[0];
 var input_folder = 'data/taheriyan2016/' + data_folder + '/sources/updated_json/';
@@ -30,26 +32,35 @@ var build_graph = (st_path, o_path, p_domain, p_range, o_class, paths, file_name
             var f = file_name.split('.')[0];
 
             // Multigraph and its serializations
+            if (DEBUGGING) console.log('\n\nMULTIGRAPH DATASETS')
 
             // -- Graph serialization
+            if (DEBUGGING) console.log('\n    Start graph serialization...');
             fs.writeFileSync(paths.plausibles_graph_path + f + '.graph', JSON.stringify(multi_graph, null, 4));
 
             // -- Beautified graph serialization
             var json_multigraph = graphlib.json.write(multi_graph);
             fs.writeFileSync(paths.plausibles_graph_path + f + '_graph.json', JSON.stringify(json_multigraph, null, 4));
+            if (DEBUGGING) console.log('    End graph serialization');
 
             // -- JARQL serialization
+            if (DEBUGGING) console.log('\n    Start building jarql and its serialization...');
             var jarql_multigraph = jarql.build_jarql(st, json_multigraph, classes_path);
             fs.writeFileSync(paths.plausibles_jarql_path + f + '.query', jarql_multigraph);
+            if (DEBUGGING) console.log('    End building jarql');
 
             // -- DOT serialization
+            if (DEBUGGING) console.log('\n    Start dot serialization...');
             var dot_multigraph = dot.write(multi_graph);
             fs.writeFileSync(paths.plausibles_dot_path + f + '.dot', dot_multigraph);
+            if (DEBUGGING) console.log('    End dot serialization');
 
 
             // Steiner serialization
+            if (DEBUGGING) console.log('\n\nSTEINER DATASETS')
 
             // -- Steiner graph serialization
+            if (DEBUGGING) console.log('\n    Start steiner generation and its serialization');
             var enriched_graph = steiner.create_inverse_edges(multi_graph);
             var steiner_tree = steiner.steiner_alg(enriched_graph, attributes);
             fs.writeFileSync(paths.steiner_graph_path + f + '.steiner', JSON.stringify(steiner_tree, null, 4));
@@ -59,16 +70,23 @@ var build_graph = (st_path, o_path, p_domain, p_range, o_class, paths, file_name
             var json_steiner = graphlib.json.write(steiner_tree);
             fs.writeFileSync(paths.steiner_graph_path + f + '_steiner.json', JSON.stringify(json_steiner, null, 4));
             fs.writeFileSync(paths.steiner_graph_path_eval + f + '_steiner.json', JSON.stringify(json_steiner, null, 4));
+            if (DEBUGGING) console.log('    End steiner generation');
 
             // -- JARQL steiner serialization
+            if (DEBUGGING) console.log('\n    Start building jarql and its serialization');
             var jarql_steiner = jarql.build_jarql(st, json_steiner, classes_path);
             fs.writeFileSync(paths.steiner_jarql_path + f + '.query', jarql_steiner);
             fs.writeFileSync(paths.steiner_jarql_path_eval + f + '.query', jarql_steiner);
+            if (DEBUGGING) console.log('End building jarql');
+
 
             // -- DOT steiner serialization
+            if (DEBUGGING) console.log('\n    Start dot serialization...');
             var dot_steiner = dot.write(steiner_tree);
             fs.writeFileSync(paths.steiner_dot_path + f + '.dot', dot_steiner);
             fs.writeFileSync(paths.steiner_dot_path_eval + f + '.dot', dot_steiner);
+            if (DEBUGGING) console.log('    End dot serialization');
+
 
             var end_file = new Date() - start_file;
 
