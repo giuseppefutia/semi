@@ -4,7 +4,7 @@ import time
 from functools import *
 
 
-def refine_semantic_model(source):
+def refine_semantic_model(source, aggregated):
     print('\n\n- File: ' + source)
     name = source.split('.')[0]
 
@@ -60,8 +60,8 @@ def refine_semantic_model(source):
     create_relation_rdfs(plausible_jarql_path, refined, sources_path + source)
 
     print('\n    Compute the sum score for each triple including a learnt relation...')
-    scores = compute_relations_score_avg(
-        name, refined, ent_target_emb, rel_dict_emb)
+    scores = compute_triple_score_avg(
+        name, refined, ent_target_emb, rel_dict_emb, aggregated, evaluation)
 
     print('\n    Update weights in plausible semantic models...')
     plausible_json_path = data + \
@@ -89,19 +89,22 @@ def refine_semantic_model(source):
 # Set the task for computing the refinement
 task = sys.argv[1]
 
+# Set score method computation
+aggregated = sys.argv[2]
+
 # Get all the source files: the source name will be used to get all necessary input files
 sources_path = 'data/taheriyan2016/' + task + '/sources/updated_json/'
 sources = os.listdir(sources_path)
 
-if len(sys.argv) == 3:
+if len(sys.argv) == 4:
     # Set the file to be processed (usually used for debugging)
-    source = sys.argv[2]
+    source = sys.argv[3]
     print('\n##### Start processing the single file ' + source)
     start_time = time.time()
 
-    refine_semantic_model(source)
+    refine_semantic_model(source, aggregated)
 
-    print('\n##### End processing the single file: ' + task)
+    print('\n##### End processing the single file: ' + source)
     print("\n--- Total processing time %s seconds ---" %
           str((time.time() - start_time)))
 else:
@@ -110,7 +113,7 @@ else:
     start_time = time.time()
 
     for source in sources:
-        refine_semantic_model(source)
+        refine_semantic_model(source, aggregated)
 
     print('\n##### End processing files for: ' + task)
     print("\n--- Total processing time %s seconds ---" %

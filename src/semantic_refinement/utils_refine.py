@@ -189,24 +189,41 @@ def create_relation_rdfs(jarql_path, refined_path, source_path):
                                         + ' > ' + os.path.join(output_path, j + '.rdf'), shell=True)
 
 
-def compute_relations_score_avg(source_name, refined_path, entities_emb, relations_emb):
+def compute_triple_score_avg(source_name, refined_path, entities_emb, relations_emb, aggregated, evaluation_path):
+    # Dictionary to store details for analysis
+    predicates_results = {}
+    results = {}
+
     # Load RDF files of learnt relations
     rdf_paths = refined_path + 'relations/' + source_name + '/rdf/'
     rdf_files = [f for f in os.listdir(
         rdf_paths) if os.path.isfile(os.path.join(rdf_paths, f))]
 
-    # Prepare dictionaries
-    predicate_scores_sum = {}
-    predicate_occs = {}
-    predicate_scores_avg = {}
+    # Initialize dictionaries for predicates
+    for file in rdf_files:
+        triple = file.replace('.rdf', '')
+        predicate = triple.split('***')[1]
+        if predicate not in predicates_results:
+            predicates_results[predicate] = {}
+            predicates_results[predicate]['occurrences'] = 0
+            predicates_results[predicate]['aggregated_score'] = 0
+            predicates_results[predicate]['average_score'] = 0
+
+    # Prepare dictionaries for triples
+    triple_scores_sum = {}
+    triple_occs = {}
+    triple_scores_avg = {}
 
     # Parse RDF files as RDF Graphs
     for file in rdf_files:
         triple = file.replace('.rdf', '')
+        predicate = triple.split('***')[1]
 
-        predicate_scores_sum[triple] = 0
-        predicate_occs[triple] = 0
-        predicate_scores_avg[triple] = 0
+        # Initialize for the triples
+        results[triple] = {}
+        triple_scores_sum[triple] = 0
+        triple_occs[triple] = 0
+        triple_scores_avg[triple] = 0
 
         f = open(rdf_paths + file)
         rdf = f.read()
@@ -235,18 +252,48 @@ def compute_relations_score_avg(source_name, refined_path, entities_emb, relatio
 
             score = calc_score(emb_s, emb_p, emb_o)
 
-            predicate_occs[triple] += 1
-            predicate_scores_sum[triple] += score.item()
+            triple_occs[triple] += 1
+            triple_scores_sum[triple] += score.item()
+            predicates_results[predicate]['occurrences'] += 1
+            predicates_results[predicate]['aggregated_score'] += score.item()
 
-        # Check occurrences XXX
-        if predicate_occs[triple] == 0:
-            predicate_occs[triple] = 1000
+        # If there are no RDF occurrencies of the triple semantic model, the final score should be very low
+        if triple_occs[triple] == 0:
+            triple_occs[triple] = 1000
 
         # Compute the average
-        predicate_scores_avg[triple] = predicate_scores_sum[triple] / \
-            predicate_occs[triple]
+        triple_scores_avg[triple] = triple_scores_sum[triple] / \
+            triple_occs[triple]
 
-    return predicate_scores_avg
+        # Store results on the triple
+        results[triple]['triple_occurrences'] = triple_occs[triple]
+        results[triple]['triple_aggregated_score'] = triple_scores_sum[triple]
+        results[triple]['triple_average_score'] = triple_scores_avg[triple]
+        if aggregated:
+            results[triple]['method'] = 'aggregated'
+        else:
+            results[triple]['method'] = 'average'
+
+    # Finalize results to store
+    for p in predicates_results:
+        predicates_results[p]['average_score'] = predicates_results[p]['aggregated_score'] / \
+            predicates_results[p]['occurrences']
+
+    for triple in results:
+        p = triple.split('***')[1]
+        results[triple]['predicate_occurrences'] = predicates_results[p]['occurrences']
+        results[triple]['predicate_aggregated_score'] = predicates_results[p]['aggregated_score']
+        results[triple]['predicate_average_score'] = predicates_results[p]['average_score']
+
+    # Store the final results in a json file
+    results_path = evaluation_path + '/results/details/' + source_name + '.json'
+    f = open(results_path, 'w')
+    json.dump(results, f, indent=4)
+
+    if aggregated:
+        return triple_scores_sum
+    else:
+        return triple_scores_avg
 
 
 def update_weights_plausible_semantic_model(plausible_json_path, complete_rdf_path, plausible_refined_path, scores):
@@ -256,15 +303,13 @@ def update_weights_plausible_semantic_model(plausible_json_path, complete_rdf_pa
     g = rdflib.Graph()
     graph = g.parse(data=rdf, format='turtle')
 
-    # Count the occurrences of each predicate and compute the reciprocal value
+    # Count the occurrences of each predicate
     predicates_occs = {}
-    predicates_recs = {}
+
     for k, v in scores.items():
         # Extract predicate from the semantic model triple
         predicate = k.split('***')[1]
-
         predicates_occs[predicate] = 0
-        predicates_recs[predicate] = 0
 
         # Get the long uri of the predicate
         long_uri_predicate = from_ns_to_uri(predicate)
@@ -272,9 +317,6 @@ def update_weights_plausible_semantic_model(plausible_json_path, complete_rdf_pa
         for s, p, o in g:
             if str(p) == long_uri_predicate:
                 predicates_occs[predicate] += 1
-
-        # Compute the reciprocal value
-        predicates_recs[predicate] = 1 / predicates_occs[predicate]
 
     # Load JSON serialization of the plausible semantic model, whose weights need to be updated
     f = open(plausible_json_path)
@@ -287,8 +329,8 @@ def update_weights_plausible_semantic_model(plausible_json_path, complete_rdf_pa
         predicate = k.split('***')[1]
         object = k.split('***')[2]
 
-        # Check if the score value of the semantic relation is greater than the predicate reciprocal values
-        if v > predicates_recs[predicate]:
+        # Check if the score value of the semantic relation is lower than the predicate reciprocal occurrences
+        if v < predicates_occs[predicate]:
 
             # Get all edges that are not derived from semantic types
             edges = list(filter(lambda e: e['value']['type']
@@ -301,10 +343,14 @@ def update_weights_plausible_semantic_model(plausible_json_path, complete_rdf_pa
                 subject = subject.replace('?', '')
                 object = object.replace('?', '')
 
-                # TODO: this check should be empowered
                 if e_subject == subject and e_object == object and e['value']['label'] == predicate:
-                    e['weight'] = v
-                    e['value']['weight'] = v
+                    if v == 0:  # XXX Sometimes the score is equals to 0, because the JARQL does not generate triples
+                        v = 0.01
+                        print(
+                            '\n    WARNING: the score is equal to 0. It is set to 0.01')
+
+                    e['weight'] = 1 / v
+                    e['value']['weight'] = 1 / v
                     e['value']['type'] = 'updated'
 
     # Store updated semantic models
@@ -328,6 +374,11 @@ def create_refined_jarql(semantic_type_path, classes_path, refined_steiner_path,
 
     # Copy the file for the evaluation purpose
     shutil.copyfile(refined_jarql_path + '.query', eval_jarql_path)
+
+
+'''
+Utils functions
+'''
 
 
 def calc_score(s_emb, p_emb, o_emb):
