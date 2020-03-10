@@ -9,6 +9,7 @@ var SparqlParser = require('sparqljs').Parser;
 var parser = new SparqlParser();
 
 var ε = 3;
+var λ = 100;
 
 // TODO: VERY IMPORTANT! Need to manage ontology restrictions for a better mapping
 // TODO: Create an high level representation of node and edge for checking inconsistencies
@@ -194,7 +195,7 @@ var add_direct_properties = (dps, graph) => {
             var property = dps[i]['property'];
             var object = dps[i]['object'];
             var type = dps[i]['type'];
-            graph_utils.add_edges(graph, subject, property, object, type, 1) // Direct edges have weight = 1
+            graph_utils.add_edges(graph, subject, property, object, type, λ) // Direct edges have weight = 100
         }
         resolve(graph);
     });
@@ -417,8 +418,8 @@ var add_inherited_properties = (inherited_properties, graph) => {
             var object = inherited_properties[i]['object'];
             var type = inherited_properties[i]['type'];
             if (property === 'rdfs:subClassOf')
-                graph_utils.add_edges(graph, subject, property, object, type, 1 / ε) // rdfs:subClassOf indirect edges have weight = 1 / ε
-            else graph_utils.add_edges(graph, subject, property, object, type, 1 + ε) // Indirect edges have weight = 1 + ε
+                graph_utils.add_edges(graph, subject, property, object, type, λ / ε) // rdfs:subClassOf indirect edges have weight = λ / ε
+            else graph_utils.add_edges(graph, subject, property, object, type, λ * ε) // Indirect edges have weight = λ * ε
         }
         resolve(graph);
     });
@@ -443,7 +444,7 @@ var add_properties_to_thing = (graph) => {
     for (var c in components) {
         var last_node = components[c].slice(-1)[0];
         var last_class = graph.node(last_node)['label'];
-        graph_utils.add_edges(graph, last_class, 'rdfs:subClassOf', 'owl:Thing', 'inherited', 1 / ε); // Edges to owl:Thing have weight = 1/ε
+        graph_utils.add_edges(graph, last_class, 'rdfs:subClassOf', 'owl:Thing', 'inherited', λ / ε); // Edges to owl:Thing have weight = 1/ε
     }
 }
 
