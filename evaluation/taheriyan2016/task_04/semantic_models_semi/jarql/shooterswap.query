@@ -18,10 +18,10 @@ PREFIX conference: <http://conference#>
 PREFIX cmt:       <http://cmt#>
 PREFIX sigkdd:    <http://sigkdd#>
 PREFIX crm:       <http://erlangen-crm.org/current/>
-PREFIX id:        <http://collection.britishmuseum.org/id/>
-PREFIX idThes:    <http://collection.britishmuseum.org/id/thesauri/>
-PREFIX prov:      <http://www.w3.org/ns/prov#>
 PREFIX bmo:       <http://collection.britishmuseum.org/id/ontology/>
+PREFIX idThes:    <http://collection.britishmuseum.org/id/thesauri/>
+PREFIX id:        <http://collection.britishmuseum.org/id/>
+PREFIX prov:      <http://www.w3.org/ns/prov#>
 PREFIX aac-ont:   <http://www.americanartcollaborative.org/ontology/>
 PREFIX skos2:     <http://www.w3.org/2008/05/skos#>
 PREFIX ElementsGr2: <http://rdvocab.info/ElementsGr2/>
@@ -68,8 +68,8 @@ CONSTRUCT {
     ?Offer1 rdf:type schema:Offer.
     ?Offer1 schema:price ?Tweet0990.
     ?Offer1 rdf:type schema:Offer.
-    ?Firearm1 schema:mainEntityOfPage ?CreativeWork1.
-    ?Offer1 schema:seller ?PersonOrOrganization1.
+    ?Firearm1 schema:manufacturer ?PersonOrOrganization1.
+    ?Offer1 schema:itemOffered ?Firearm1.
     ?Offer1 schema:mainEntityOfPage ?CreativeWork1.
 }
 WHERE {

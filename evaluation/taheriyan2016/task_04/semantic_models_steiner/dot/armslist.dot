@@ -23,9 +23,9 @@ digraph {
   US0756 -> "schema:CreativeWork1" [type=st_property_uri,label="schema:copyrightYear***inverted",weight=1]
   file_name -> "schema:CreativeWork1" [type=st_property_uri,label="schema:name***inverted",weight=1]
   post0299 -> "schema:Offer1" [type=st_property_uri,label="schema-dig:identifier***inverted",weight=1]
-  "schema-dig:Firearm1" -> "schema:Place1" [label="schema:category",type=inherited,weight=4]
-  "schema-dig:PersonOrOrganization1" -> "schema:CreativeWork1" [label="schema-dig:isAuthorOf",type=direct_property_uri,weight=1]
-  "schema:CreativeWork1" -> "schema:Place1" [label="schema:locationCreated",type=direct_property_uri,weight=1]
-  "schema:Offer1" -> "schema:Place1" [label="schema:ineligibleRegion",type=direct_property_uri,weight=1]
+  "schema-dig:Firearm1" -> "schema:Place1" [label="schema:category",type=inherited,weight=300]
+  "schema-dig:PersonOrOrganization1" -> "schema:CreativeWork1" [label="schema-dig:isAuthorOf",type=direct_property_uri,weight=100]
+  "schema:CreativeWork1" -> "schema:Place1" [label="schema:locationCreated",type=direct_property_uri,weight=100]
+  "schema:Offer1" -> "schema:Place1" [label="schema:ineligibleRegion",type=direct_property_uri,weight=100]
   "schema:Place1" -> Location0408 [label="schema:name",type=st_property_uri]
 }

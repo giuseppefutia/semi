@@ -23,9 +23,9 @@ digraph {
   Seller0716 -> "schema-dig:PersonOrOrganization1" [type=st_property_uri,label="schema-dig:identifier***inverted",weight=1]
   Start0821 -> "schema:Offer1" [type=st_property_uri,label="schema:datePosted***inverted",weight=1]
   file_name -> "schema:CreativeWork1" [type=st_property_uri,label="schema:name***inverted",weight=1]
-  "schema-dig:Firearm1" -> "schema:Place1" [label="schema:category",type=inherited,weight=4]
-  "schema-dig:PersonOrOrganization1" -> "schema:CreativeWork1" [label="schema-dig:isAuthorOf",type=direct_property_uri,weight=1]
-  "schema:CreativeWork1" -> "schema:Place1" [label="schema:locationCreated",type=direct_property_uri,weight=1]
-  "schema:Offer1" -> "schema:Place1" [label="schema:ineligibleRegion",type=direct_property_uri,weight=1]
+  "schema-dig:Firearm1" -> "schema:Place1" [label="schema:category",type=inherited,weight=300]
+  "schema-dig:PersonOrOrganization1" -> "schema:CreativeWork1" [label="schema-dig:isAuthorOf",type=direct_property_uri,weight=100]
+  "schema:CreativeWork1" -> "schema:Place1" [label="schema:locationCreated",type=direct_property_uri,weight=100]
+  "schema:Offer1" -> "schema:Place1" [label="schema:ineligibleRegion",type=direct_property_uri,weight=100]
   "schema:Place1" -> Location0800 [label="schema:name",type=st_property_uri]
 }
