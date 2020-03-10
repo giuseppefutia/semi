@@ -34,20 +34,6 @@
             }
         },
         {
-            "v": "Contact2291",
-            "value": {
-                "type": "attribute_name",
-                "label": "Contact2291"
-            }
-        },
-        {
-            "v": "schema:ContactPoint1",
-            "value": {
-                "type": "class_uri",
-                "label": "schema:ContactPoint"
-            }
-        },
-        {
             "v": "Gauge2481",
             "value": {
                 "type": "attribute_name",
@@ -66,20 +52,6 @@
             "value": {
                 "type": "attribute_name",
                 "label": "Hunting2477"
-            }
-        },
-        {
-            "v": "Manf2363",
-            "value": {
-                "type": "attribute_name",
-                "label": "Manf2363"
-            }
-        },
-        {
-            "v": "schema-dig:PersonOrOrganization2",
-            "value": {
-                "type": "class_uri",
-                "label": "schema-dig:PersonOrOrganization"
             }
         },
         {
@@ -111,13 +83,6 @@
             }
         },
         {
-            "v": "Seller2279",
-            "value": {
-                "type": "attribute_name",
-                "label": "Seller2279"
-            }
-        },
-        {
             "v": "St2327",
             "value": {
                 "type": "attribute_name",
@@ -143,6 +108,41 @@
             "value": {
                 "type": "class_uri",
                 "label": "schema:CreativeWork"
+            }
+        },
+        {
+            "v": "schema-dig:PersonOrOrganization2",
+            "value": {
+                "type": "class_uri",
+                "label": "schema-dig:PersonOrOrganization"
+            }
+        },
+        {
+            "v": "Seller2279",
+            "value": {
+                "type": "attribute_name",
+                "label": "Seller2279"
+            }
+        },
+        {
+            "v": "Manf2363",
+            "value": {
+                "type": "attribute_name",
+                "label": "Manf2363"
+            }
+        },
+        {
+            "v": "schema:ContactPoint1",
+            "value": {
+                "type": "class_uri",
+                "label": "schema:ContactPoint"
+            }
+        },
+        {
+            "v": "Contact2291",
+            "value": {
+                "type": "attribute_name",
+                "label": "Contact2291"
             }
         },
         {
@@ -184,17 +184,6 @@
             "weight": 1
         },
         {
-            "v": "Contact2291",
-            "w": "schema:ContactPoint1",
-            "name": "Contact2291***schema:ContactPoint1",
-            "value": {
-                "type": "st_property_uri",
-                "label": "schema:name***inverted",
-                "weight": 1
-            },
-            "weight": 1
-        },
-        {
             "v": "Gauge2481",
             "w": "schema:Offer1",
             "name": "Gauge2481***schema:Offer1",
@@ -212,17 +201,6 @@
             "value": {
                 "type": "st_property_uri",
                 "label": "schema:category***inverted",
-                "weight": 1
-            },
-            "weight": 1
-        },
-        {
-            "v": "Manf2363",
-            "w": "schema-dig:PersonOrOrganization2",
-            "name": "Manf2363***schema-dig:PersonOrOrganization2",
-            "value": {
-                "type": "st_property_uri",
-                "label": "schema:name***inverted",
                 "weight": 1
             },
             "weight": 1
@@ -272,17 +250,6 @@
             "weight": 1
         },
         {
-            "v": "Seller2279",
-            "w": "schema-dig:PersonOrOrganization1",
-            "name": "Seller2279***schema-dig:PersonOrOrganization1",
-            "value": {
-                "type": "st_property_uri",
-                "label": "schema:name***inverted",
-                "weight": 1
-            },
-            "weight": 1
-        },
-        {
             "v": "St2327",
             "w": "schema:PostalAddress1",
             "name": "St2327***schema:PostalAddress1",
@@ -306,58 +273,88 @@
         },
         {
             "v": "schema-dig:Firearm1",
-            "w": "schema:CreativeWork1",
-            "name": "schema-dig:Firearm1***schema:CreativeWork1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema-dig:Firearm1***schema-dig:PersonOrOrganization1",
             "value": {
-                "label": "schema:mainEntityOfPage",
+                "label": "schema:manufacturer",
                 "type": "updated",
-                "weight": 0.010297260180661502
+                "weight": 0.5997227103479914
             },
-            "weight": 0.010297260180661502
+            "weight": 0.5997227103479914
+        },
+        {
+            "v": "schema-dig:Firearm1",
+            "w": "schema-dig:PersonOrOrganization2",
+            "name": "schema-dig:Firearm1***schema-dig:PersonOrOrganization2",
+            "value": {
+                "label": "schema:manufacturer",
+                "type": "updated",
+                "weight": 0.5454435640024319
+            },
+            "weight": 0.5454435640024319
+        },
+        {
+            "v": "schema-dig:Firearm1",
+            "w": "schema:Offer1",
+            "name": "schema-dig:Firearm1***schema:Offer1",
+            "value": {
+                "type": "updated",
+                "label": "schema:itemOffered***inverted",
+                "weight": 0.9066093011404689
+            },
+            "weight": 0.9066093011404689
         },
         {
             "v": "schema-dig:PersonOrOrganization1",
-            "w": "schema:CreativeWork1",
-            "name": "schema-dig:PersonOrOrganization1***schema:CreativeWork1",
+            "w": "Seller2279",
+            "name": "schema-dig:PersonOrOrganization1***Seller2279",
             "value": {
-                "label": "schema:mainEntityOfPage",
-                "type": "updated",
-                "weight": 0.005945050566761376
+                "label": "schema:name",
+                "type": "st_property_uri"
             },
-            "weight": 0.005945050566761376
+            "weight": 1
         },
         {
             "v": "schema-dig:PersonOrOrganization2",
-            "w": "schema:CreativeWork1",
-            "name": "schema-dig:PersonOrOrganization2***schema:CreativeWork1",
+            "w": "Manf2363",
+            "name": "schema-dig:PersonOrOrganization2***Manf2363",
             "value": {
-                "label": "schema:mainEntityOfPage",
-                "type": "updated",
-                "weight": 0.007241641997524205
+                "label": "schema:name",
+                "type": "st_property_uri"
             },
-            "weight": 0.007241641997524205
+            "weight": 1
+        },
+        {
+            "v": "schema-dig:PersonOrOrganization2",
+            "w": "schema:ContactPoint1",
+            "name": "schema-dig:PersonOrOrganization2***schema:ContactPoint1",
+            "value": {
+                "label": "schema:address",
+                "type": "updated",
+                "weight": 1.1981015447815715
+            },
+            "weight": 1.1981015447815715
+        },
+        {
+            "v": "schema-dig:PersonOrOrganization2",
+            "w": "schema:PostalAddress1",
+            "name": "schema-dig:PersonOrOrganization2***schema:PostalAddress1",
+            "value": {
+                "label": "schema:address",
+                "type": "updated",
+                "weight": 1.9902566401060566
+            },
+            "weight": 1.9902566401060566
         },
         {
             "v": "schema:ContactPoint1",
-            "w": "schema:CreativeWork1",
-            "name": "schema:ContactPoint1***schema:CreativeWork1",
+            "w": "Contact2291",
+            "name": "schema:ContactPoint1***Contact2291",
             "value": {
-                "label": "schema:mainEntityOfPage",
-                "type": "updated",
-                "weight": 0.009646419187421365
+                "label": "schema:name",
+                "type": "st_property_uri"
             },
-            "weight": 0.009646419187421365
-        },
-        {
-            "v": "schema:CreativeWork1",
-            "w": "schema:Offer1",
-            "name": "schema:CreativeWork1***schema:Offer1",
-            "value": {
-                "type": "updated",
-                "label": "schema:mainEntityOfPage***inverted",
-                "weight": 0.010629590827146651
-            },
-            "weight": 0.010629590827146651
+            "weight": 1
         },
         {
             "v": "schema:CreativeWork1",
@@ -366,9 +363,9 @@
             "value": {
                 "type": "updated",
                 "label": "schema:mainEntityOfPage***inverted",
-                "weight": 0.014458432642290861
+                "weight": 1.7290947517281434
             },
-            "weight": 0.014458432642290861
+            "weight": 1.7290947517281434
         },
         {
             "v": "schema:Offer1",

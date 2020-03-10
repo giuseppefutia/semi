@@ -18,10 +18,10 @@ PREFIX conference: <http://conference#>
 PREFIX cmt:       <http://cmt#>
 PREFIX sigkdd:    <http://sigkdd#>
 PREFIX crm:       <http://erlangen-crm.org/current/>
-PREFIX id:        <http://collection.britishmuseum.org/id/>
-PREFIX idThes:    <http://collection.britishmuseum.org/id/thesauri/>
-PREFIX prov:      <http://www.w3.org/ns/prov#>
 PREFIX bmo:       <http://collection.britishmuseum.org/id/ontology/>
+PREFIX idThes:    <http://collection.britishmuseum.org/id/thesauri/>
+PREFIX id:        <http://collection.britishmuseum.org/id/>
+PREFIX prov:      <http://www.w3.org/ns/prov#>
 PREFIX aac-ont:   <http://www.americanartcollaborative.org/ontology/>
 PREFIX skos2:     <http://www.w3.org/2008/05/skos#>
 PREFIX ElementsGr2: <http://rdvocab.info/ElementsGr2/>
@@ -131,8 +131,8 @@ CONSTRUCT {
     ?CreativeWork1 schema:quest ?PersonOrOrganization1.
     ?CreativeWork1 schema:characterAttribute ?PersonOrOrganization1.
     ?CreativeWork1 schema:illustrator ?PersonOrOrganization1.
-    ?CreativeWork1 schema:recognizingAuthority ?PersonOrOrganization1.
     ?CreativeWork1 schema:category ?PersonOrOrganization1.
+    ?CreativeWork1 schema:recognizingAuthority ?PersonOrOrganization1.
     ?CreativeWork1 schema:offers ?Offer1.
     ?CreativeWork1 schema:offers ?Offer2.
     ?CreativeWork1 schema:offers ?Offer3.

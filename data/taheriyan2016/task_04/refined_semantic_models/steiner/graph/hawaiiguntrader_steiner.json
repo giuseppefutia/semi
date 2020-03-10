@@ -41,20 +41,6 @@
             }
         },
         {
-            "v": "Listed1222",
-            "value": {
-                "type": "attribute_name",
-                "label": "Listed1222"
-            }
-        },
-        {
-            "v": "schema-dig:PersonOrOrganization1",
-            "value": {
-                "type": "class_uri",
-                "label": "schema-dig:PersonOrOrganization"
-            }
-        },
-        {
             "v": "org1609",
             "value": {
                 "type": "attribute_name",
@@ -66,6 +52,20 @@
             "value": {
                 "type": "class_uri",
                 "label": "schema:CreativeWork"
+            }
+        },
+        {
+            "v": "schema-dig:PersonOrOrganization1",
+            "value": {
+                "type": "class_uri",
+                "label": "schema-dig:PersonOrOrganization"
+            }
+        },
+        {
+            "v": "Listed1222",
+            "value": {
+                "type": "attribute_name",
+                "label": "Listed1222"
             }
         },
         {
@@ -118,17 +118,6 @@
             "weight": 1
         },
         {
-            "v": "Listed1222",
-            "w": "schema-dig:PersonOrOrganization1",
-            "name": "Listed1222***schema-dig:PersonOrOrganization1",
-            "value": {
-                "type": "st_property_uri",
-                "label": "schema-dig:identifier***inverted",
-                "weight": 1
-            },
-            "weight": 1
-        },
-        {
             "v": "org1609",
             "w": "schema:CreativeWork1",
             "name": "org1609***schema:CreativeWork1",
@@ -141,36 +130,35 @@
         },
         {
             "v": "schema-dig:Firearm1",
-            "w": "schema:CreativeWork1",
-            "name": "schema-dig:Firearm1***schema:CreativeWork1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema-dig:Firearm1***schema-dig:PersonOrOrganization1",
             "value": {
-                "label": "schema:mainEntityOfPage",
+                "label": "schema:manufacturer",
                 "type": "updated",
-                "weight": 0.0071143617646585635
+                "weight": 2.920374763040752
             },
-            "weight": 0.0071143617646585635
+            "weight": 2.920374763040752
         },
         {
-            "v": "schema-dig:PersonOrOrganization1",
-            "w": "schema:CreativeWork1",
-            "name": "schema-dig:PersonOrOrganization1***schema:CreativeWork1",
-            "value": {
-                "label": "schema:mainEntityOfPage",
-                "type": "updated",
-                "weight": 0.004711435759072182
-            },
-            "weight": 0.004711435759072182
-        },
-        {
-            "v": "schema-dig:PersonOrOrganization1",
+            "v": "schema-dig:Firearm1",
             "w": "schema:Offer1",
-            "name": "schema-dig:PersonOrOrganization1***schema:Offer1",
+            "name": "schema-dig:Firearm1***schema:Offer1",
             "value": {
                 "type": "updated",
-                "label": "schema:seller***inverted",
-                "weight": 0.015608674410532777
+                "label": "schema:itemOffered***inverted",
+                "weight": 1.9863164738575232
             },
-            "weight": 0.015608674410532777
+            "weight": 1.9863164738575232
+        },
+        {
+            "v": "schema-dig:PersonOrOrganization1",
+            "w": "Listed1222",
+            "name": "schema-dig:PersonOrOrganization1***Listed1222",
+            "value": {
+                "label": "schema-dig:identifier",
+                "type": "st_property_uri"
+            },
+            "weight": 1
         },
         {
             "v": "schema:CreativeWork1",
@@ -181,6 +169,17 @@
                 "type": "st_property_uri"
             },
             "weight": 1
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:Offer1",
+            "name": "schema:CreativeWork1***schema:Offer1",
+            "value": {
+                "type": "updated",
+                "label": "schema:mainEntityOfPage***inverted",
+                "weight": 1.6735141839422851
+            },
+            "weight": 1.6735141839422851
         },
         {
             "v": "schema:Offer1",

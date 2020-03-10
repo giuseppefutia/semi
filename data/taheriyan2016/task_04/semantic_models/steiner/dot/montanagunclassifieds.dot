@@ -21,9 +21,9 @@ digraph {
   Price0364 -> "schema:Offer1" [type=st_property_uri,label="schema:price***inverted",weight=1]
   Shop0265 -> "schema-dig:Firearm1" [type=st_property_uri,label="schema:category***inverted",weight=1]
   file_name -> "schema:CreativeWork1" [type=st_property_uri,label="schema:name***inverted",weight=1]
-  "schema-dig:Firearm1" -> "schema:Place1" [label="schema:category",type=inherited,weight=4]
-  "schema:CreativeWork1" -> "schema:Place1" [label="schema:locationCreated",type=direct_property_uri,weight=1]
-  "schema:Offer1" -> "schema:Place1" [label="schema:ineligibleRegion",type=direct_property_uri,weight=1]
-  "schema:Offer2" -> "schema:Place1" [label="schema:ineligibleRegion",type=direct_property_uri,weight=1]
+  "schema-dig:Firearm1" -> "schema:Place1" [label="schema:category",type=inherited,weight=300]
+  "schema:CreativeWork1" -> "schema:Place1" [label="schema:locationCreated",type=direct_property_uri,weight=100]
+  "schema:Offer1" -> "schema:Place1" [label="schema:ineligibleRegion",type=direct_property_uri,weight=100]
+  "schema:Offer2" -> "schema:Place1" [label="schema:ineligibleRegion",type=direct_property_uri,weight=100]
   "schema:Place1" -> BLK0354 [label="schema:name",type=st_property_uri]
 }

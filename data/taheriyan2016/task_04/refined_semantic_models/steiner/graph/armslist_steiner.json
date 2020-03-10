@@ -41,31 +41,10 @@
             }
         },
         {
-            "v": "No0426",
-            "value": {
-                "type": "attribute_name",
-                "label": "No0426"
-            }
-        },
-        {
-            "v": "schema-dig:PersonOrOrganization1",
-            "value": {
-                "type": "class_uri",
-                "label": "schema-dig:PersonOrOrganization"
-            }
-        },
-        {
             "v": "On0398",
             "value": {
                 "type": "attribute_name",
                 "label": "On0398"
-            }
-        },
-        {
-            "v": "Price0373",
-            "value": {
-                "type": "attribute_name",
-                "label": "Price0373"
             }
         },
         {
@@ -97,10 +76,31 @@
             }
         },
         {
+            "v": "schema-dig:PersonOrOrganization1",
+            "value": {
+                "type": "class_uri",
+                "label": "schema-dig:PersonOrOrganization"
+            }
+        },
+        {
             "v": "schema:Place1",
             "value": {
                 "type": "class_uri",
                 "label": "schema:Place"
+            }
+        },
+        {
+            "v": "No0426",
+            "value": {
+                "type": "attribute_name",
+                "label": "No0426"
+            }
+        },
+        {
+            "v": "Price0373",
+            "value": {
+                "type": "attribute_name",
+                "label": "Price0373"
             }
         },
         {
@@ -146,34 +146,12 @@
             "weight": 1
         },
         {
-            "v": "No0426",
-            "w": "schema-dig:PersonOrOrganization1",
-            "name": "No0426***schema-dig:PersonOrOrganization1",
-            "value": {
-                "type": "st_property_uri",
-                "label": "schema:name***inverted",
-                "weight": 1
-            },
-            "weight": 1
-        },
-        {
             "v": "On0398",
             "w": "schema:Offer1",
             "name": "On0398***schema:Offer1",
             "value": {
                 "type": "st_property_uri",
                 "label": "schema:datePosted***inverted",
-                "weight": 1
-            },
-            "weight": 1
-        },
-        {
-            "v": "Price0373",
-            "w": "schema:Offer1",
-            "name": "Price0373***schema:Offer1",
-            "value": {
-                "type": "st_property_uri",
-                "label": "schema:price***inverted",
                 "weight": 1
             },
             "weight": 1
@@ -213,25 +191,46 @@
         },
         {
             "v": "schema-dig:Firearm1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema-dig:Firearm1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema:manufacturer",
+                "type": "updated",
+                "weight": 0.8104082204384229
+            },
+            "weight": 0.8104082204384229
+        },
+        {
+            "v": "schema-dig:Firearm1",
             "w": "schema:Offer1",
             "name": "schema-dig:Firearm1***schema:Offer1",
             "value": {
                 "type": "updated",
                 "label": "schema:itemOffered***inverted",
-                "weight": 0.009510543761870884
+                "weight": 1.062085444736239
             },
-            "weight": 0.009510543761870884
+            "weight": 1.062085444736239
+        },
+        {
+            "v": "schema-dig:Firearm1",
+            "w": "schema:Place1",
+            "name": "schema-dig:Firearm1***schema:Place1",
+            "value": {
+                "label": "schema:manufacturer",
+                "type": "updated",
+                "weight": 1.2865896818571068
+            },
+            "weight": 1.2865896818571068
         },
         {
             "v": "schema-dig:PersonOrOrganization1",
-            "w": "schema:Offer1",
-            "name": "schema-dig:PersonOrOrganization1***schema:Offer1",
+            "w": "No0426",
+            "name": "schema-dig:PersonOrOrganization1***No0426",
             "value": {
-                "type": "updated",
-                "label": "schema:seller***inverted",
-                "weight": 0.007801055956821728
+                "label": "schema:name",
+                "type": "st_property_uri"
             },
-            "weight": 0.007801055956821728
+            "weight": 1
         },
         {
             "v": "schema:CreativeWork1",
@@ -240,20 +239,19 @@
             "value": {
                 "type": "updated",
                 "label": "schema:mainEntityOfPage***inverted",
-                "weight": 0.00343104648080379
+                "weight": 2.9440026993291415
             },
-            "weight": 0.00343104648080379
+            "weight": 2.9440026993291415
         },
         {
             "v": "schema:Offer1",
-            "w": "schema:Place1",
-            "name": "schema:Offer1***schema:Place1",
+            "w": "Price0373",
+            "name": "schema:Offer1***Price0373",
             "value": {
-                "label": "schema:seller",
-                "type": "updated",
-                "weight": 0.0015749905757321213
+                "label": "schema:price",
+                "type": "st_property_uri"
             },
-            "weight": 0.0015749905757321213
+            "weight": 1
         },
         {
             "v": "schema:Place1",
