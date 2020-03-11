@@ -86,7 +86,8 @@ class LinkPredict(nn.Module):
 
 def main(args):
     # initialize visualization environment as global variable
-    vis = VisManger('main')
+    # vis = VisManger('main')
+    vis = ''
 
     # initialize the data importer and load data
     kg = RGCNDataSet(args.directory, args.train,
@@ -189,12 +190,13 @@ def main(args):
         print("\nEpoch {:04d} | Loss {:.4f} | Best MRR {:.4f} | Forward {:.4f}s | Backward {:.4f}s".
               format(epoch, loss.item(), best_mrr, forward_time[-1], backward_time[-1]))
 
-        vis.plot_loss(np.array(loss.item()), epoch)
+        #vis.plot_loss(np.array(loss.item()), epoch)
 
         optimizer.zero_grad()
 
         # validation
         if epoch % args.evaluate_every == 0:
+            start_valid_time = time.time()
             # perform validation on CPU because full graph is too large
             if use_cuda:
                 model.cpu()
@@ -212,6 +214,11 @@ def main(args):
                                  args.score,
                                  hits=[1, 3, 10],
                                  eval_bz=args.eval_batch_size)
+
+            print("Evaluation time for the validation set: %s seconds" %
+                  (time.time() - start_valid_time))
+
+            print("\n")
 
             # save the best model
             if mrr < best_mrr:
@@ -247,6 +254,9 @@ def main(args):
     model.load_state_dict(checkpoint['model_state_dict'])
 
     print("Using best epoch: {}".format(checkpoint['epoch']))
+
+    start_test_time = time.time()
+
     utils.evaluate(test_graph,
                    model,
                    test_data,
@@ -258,6 +268,9 @@ def main(args):
                    'best',
                    hits=[1, 3, 10],
                    eval_bz=args.eval_batch_size)
+
+    print("Evaluation time for the test set: %s seconds" %
+          (time.time() - start_test_time))
 
 
 if __name__ == '__main__':

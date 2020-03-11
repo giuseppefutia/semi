@@ -245,8 +245,8 @@ def evaluate(test_graph, model, test_triplets, epoch, entity_dict, relation_dict
                               score_path, epoch, emb_nodes, emb_rels)
 
         # visualize the number of triples for each rank
-        rank_values, number_of_triples = prepare_ranks_for_vis(score_list)
-        vis.plot_rank(rank_values, np.array(number_of_triples))
+        # rank_values, number_of_triples = prepare_ranks_for_vis(score_list)
+        #vis.plot_rank(rank_values, np.array(number_of_triples))
 
         mrr = torch.mean(1.0 / ranks.float())
         print("\nMRR (raw): {:.6f}".format(mrr.item()))
@@ -255,7 +255,6 @@ def evaluate(test_graph, model, test_triplets, epoch, entity_dict, relation_dict
             avg_count = torch.mean((ranks <= hit).float())
             print("Hits (raw) @ {}: {:.6f}".format(hit, avg_count.item()))
 
-        print("\n")
     return mrr.item()
 
 # The following functions are added by Giuseppe Futia
