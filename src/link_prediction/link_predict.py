@@ -202,7 +202,7 @@ def main(args):
             start_valid_time = time.time()
 
             # perform validation on CPU if the full graph is too large, otherwise perform it on the GPU
-            if !use_cuda_eval:
+            if not use_cuda_eval:
                 model.cpu()
             model.eval()
             print("\n\n*** Perform the evaluation on the validation dataset ***")
@@ -254,7 +254,7 @@ def main(args):
     checkpoint = torch.load(model_state_file)
 
     #  evaluation on CPU only if the full graph is too big, otherwise use cuda
-    if !use_cuda_eval:
+    if not use_cuda_eval:
         model.cpu()
 
     model.eval()
