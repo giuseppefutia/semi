@@ -108,6 +108,9 @@ def main(args):
     if use_cuda:
         torch.cuda.set_device(args.gpu)
 
+    # set the use of cuda also for the evaluation
+    use_cuda_eval = args.gpu_eval >= 0 and torch.cuda.is_available()
+
     # create model
     model = LinkPredict(num_nodes,
                         args.n_hidden,
@@ -197,8 +200,9 @@ def main(args):
         # validation
         if epoch % args.evaluate_every == 0:
             start_valid_time = time.time()
-            # perform validation on CPU because full graph is too large
-            if use_cuda:
+
+            # perform validation on CPU if the full graph is too large, otherwise perform it on the GPU
+            if !use_cuda_eval:
                 model.cpu()
             model.eval()
             print("\n\n*** Perform the evaluation on the validation dataset ***")
@@ -248,8 +252,11 @@ def main(args):
     print("\n\n*** Perform the evaluation on the test dataset *** ")
     # use best model checkpoint
     checkpoint = torch.load(model_state_file)
-    if use_cuda:
-        model.cpu()  # test on CPU
+
+    #  evaluation on CPU only if the full graph is too big, otherwise use cuda
+    if !use_cuda_eval:
+        model.cpu()
+
     model.eval()
     model.load_state_dict(checkpoint['model_state_dict'])
 
@@ -281,6 +288,8 @@ if __name__ == '__main__':
                         help="number of hidden units")
     parser.add_argument("--gpu", type=int, default=-1,
                         help="gpu")
+    parser.add_argument("--gpu-eval", type=int, default=-1,
+                        help="how many GPUs use for the evaluation")
     parser.add_argument("--lr", type=float, default=1e-2,
                         help="learning rate")
     parser.add_argument("--n-bases", type=int, default=100,
