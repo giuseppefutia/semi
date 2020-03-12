@@ -133,6 +133,12 @@ def main(args):
     test_node_id = torch.arange(0, num_nodes, dtype=torch.long).view(-1, 1)
     test_rel = torch.from_numpy(test_rel)
     test_norm = torch.from_numpy(test_norm).view(-1, 1)
+    if use_cuda_eval:
+        test_deg = test_deg.cuda()
+        test_node_id = test_node_id.cuda()
+        test_rel = test_rel.cuda()
+        test_norm = test_norm.cuda()
+
     test_graph.ndata.update({'id': test_node_id, 'norm': test_norm})
     test_graph.edata['type'] = test_rel
 
@@ -202,9 +208,14 @@ def main(args):
             start_valid_time = time.time()
 
             # perform validation on CPU if the full graph is too large, otherwise perform it on the GPU
-            if not use_cuda_eval:
+            if use_cuda_eval:
+                model.cuda()
+                valid_data = valid_data.cuda()
+            else:
                 model.cpu()
+
             model.eval()
+
             print("\n\n*** Perform the evaluation on the validation dataset ***")
             print("Epoch: " + str(epoch))
             mrr = utils.evaluate(test_graph,
@@ -253,8 +264,11 @@ def main(args):
     # use best model checkpoint
     checkpoint = torch.load(model_state_file)
 
-    #  evaluation on CPU only if the full graph is too big, otherwise use cuda
-    if not use_cuda_eval:
+    # perform validation on CPU if the full graph is too large, otherwise perform it on the GPU
+    if use_cuda_eval:
+        model.cuda()
+        test_data = test_data.cuda()
+    else:
         model.cpu()
 
     model.eval()
