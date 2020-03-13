@@ -165,11 +165,14 @@ def main(args):
         epoch += 1
 
         # perform edge neighborhood sampling to generate training graph and data
+        start_sampling_time = time.time()
         g, node_id, edge_type, node_norm, data, labels = \
             utils.generate_sampled_graph_and_labels(
                 train_data, args.graph_batch_size, args.graph_split_size,
                 num_rels, adj_list, degrees, args.negative_sample)
         print("Done edge sampling")
+        print("Sampling time: %s seconds" %
+              (time.time() - start_sampling_time))
 
         # set node/edge feature
         node_id = torch.from_numpy(node_id).view(-1, 1).long()
