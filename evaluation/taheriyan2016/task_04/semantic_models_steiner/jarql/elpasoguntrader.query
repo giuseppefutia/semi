@@ -64,8 +64,8 @@ CONSTRUCT {
     ?Offer3 rdf:type schema:Offer.
     ?PersonOrOrganization1 schema-dig:isAuthorOf ?CreativeWork1.
     ?CreativeWork1 schema:offers ?Offer3.
-    ?Offer1 schema:addOn ?Offer3.
-    ?Offer2 schema:addOn ?Offer3.
+    ?Offer1 schema:relatedTo ?Offer3.
+    ?Offer2 schema:relatedTo ?Offer3.
 }
 WHERE {
     ?root a jarql:Root.

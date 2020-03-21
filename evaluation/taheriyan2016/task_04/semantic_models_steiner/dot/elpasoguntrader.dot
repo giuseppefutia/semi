@@ -21,7 +21,7 @@ digraph {
   "schema-dig:PersonOrOrganization1" -> "schema:CreativeWork1" [label="schema-dig:isAuthorOf",type=direct_property_uri,weight=100]
   "schema:CreativeWork1" -> "schema:Offer3" [label="schema:offers",type=direct_property_uri,weight=100]
   "schema:Offer1" -> Price0694 [label="schema:price",type=st_property_uri]
-  "schema:Offer1" -> "schema:Offer3" [label="schema:addOn",type=direct_property_uri,weight=100]
-  "schema:Offer2" -> "schema:Offer3" [label="schema:addOn",type=direct_property_uri,weight=100]
+  "schema:Offer1" -> "schema:Offer3" [label="schema:relatedTo",type=direct_property_uri,weight=100]
+  "schema:Offer2" -> "schema:Offer3" [label="schema:relatedTo",type=direct_property_uri,weight=100]
   "schema:Offer3" -> bottom1530 [label="schema:name",type=st_property_uri]
 }
