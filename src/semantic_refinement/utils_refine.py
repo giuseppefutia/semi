@@ -183,10 +183,10 @@ def create_relation_rdfs(jarql_path, refined_path, source_path):
     for j in jarql_files:
         # Run the JARQL script and store RDF files
         j = j.replace('.query', '')
-        session = subprocess.check_call('./jarql.sh'
-                                        + ' ' + source_path
-                                        + ' ' + os.path.join(input_path, j + '.query')
-                                        + ' > ' + os.path.join(output_path, j + '.rdf'), shell=True)
+        session = subprocess.check_call('./jarql.sh' +
+                                        ' ' + source_path +
+                                        ' ' + os.path.join(input_path, j + '.query') +
+                                        ' > ' + os.path.join(output_path, j + '.rdf'), shell=True)
 
 
 def compute_triple_score_avg(source_name, refined_path, entities_emb, relations_emb, aggregated, evaluation_path):
@@ -259,17 +259,21 @@ def compute_triple_score_avg(source_name, refined_path, entities_emb, relations_
 
         # If there are no RDF occurrencies of the triple semantic model, the final score should be very low
         if triple_occs[triple] == 0:
-            triple_occs[triple] = 1000
+            triple_occs[triple] = 1
 
         # Compute the average
         triple_scores_avg[triple] = triple_scores_sum[triple] / \
+            triple_occs[triple]
+
+        triple_scores_sum[triple] = triple_scores_sum[triple] * \
             triple_occs[triple]
 
         # Store results on the triple
         results[triple]['triple_occurrences'] = triple_occs[triple]
         results[triple]['triple_aggregated_score'] = triple_scores_sum[triple]
         results[triple]['triple_average_score'] = triple_scores_avg[triple]
-        if aggregated:
+
+        if aggregated == 'aggregated':
             results[triple]['method'] = 'aggregated'
         else:
             results[triple]['method'] = 'average'
@@ -290,7 +294,7 @@ def compute_triple_score_avg(source_name, refined_path, entities_emb, relations_
     f = open(results_path, 'w')
     json.dump(results, f, indent=4)
 
-    if aggregated:
+    if aggregated == 'aggregated':
         return triple_scores_sum
     else:
         return triple_scores_avg
@@ -333,8 +337,8 @@ def update_weights_plausible_semantic_model(plausible_json_path, complete_rdf_pa
         if v < predicates_occs[predicate]:
 
             # Get all edges that are not derived from semantic types
-            edges = list(filter(lambda e: e['value']['type']
-                                != 'st_property_uri', plausible_sm['edges']))
+            edges = list(filter(lambda e: e['value']['type'] !=
+                                'st_property_uri', plausible_sm['edges']))
 
             # Update weights in the plausible semantic model
             for e in edges:
@@ -359,18 +363,18 @@ def update_weights_plausible_semantic_model(plausible_json_path, complete_rdf_pa
 
 
 def compute_steiner_tree(semantic_type_path, refined_path, output_path):
-    subprocess.check_call('node run/steiner_tree.js'
-                          + ' ' + semantic_type_path
-                          + ' ' + refined_path
-                          + ' ' + output_path, shell=True)
+    subprocess.check_call('node run/steiner_tree.js' +
+                          ' ' + semantic_type_path +
+                          ' ' + refined_path +
+                          ' ' + output_path, shell=True)
 
 
 def create_refined_jarql(semantic_type_path, classes_path, refined_steiner_path, refined_jarql_path, eval_jarql_path):
-    subprocess.check_call('node run/jarql.js'
-                          + ' ' + semantic_type_path
-                          + ' ' + refined_steiner_path
-                          + ' ' + classes_path
-                          + ' ' + refined_jarql_path, shell=True)
+    subprocess.check_call('node run/jarql.js' +
+                          ' ' + semantic_type_path +
+                          ' ' + refined_steiner_path +
+                          ' ' + classes_path +
+                          ' ' + refined_jarql_path, shell=True)
 
     # Copy the file for the evaluation purpose
     shutil.copyfile(refined_jarql_path + '.query', eval_jarql_path)
