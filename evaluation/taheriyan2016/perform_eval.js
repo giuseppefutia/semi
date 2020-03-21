@@ -106,13 +106,15 @@ var input_file = process.argv.slice(3)[0];
 var gt_folder = 'evaluation/taheriyan2016/' + task + '/semantic_models_gt/jarql/';
 var steiner_folder = 'evaluation/taheriyan2016/' + task + '/semantic_models_steiner/jarql/';
 var semi_folder = 'evaluation/taheriyan2016/' + task + '/semantic_models_semi/jarql/';
+var occ_folder = 'evaluation/taheriyan2016/' + task + '/semantic_models_occ/jarql/';
 var st_folder = 'data/taheriyan2016/' + task + '/semantic_types/updated/';
 var results_folder = 'evaluation/taheriyan2016/' + task + '/results/semantic-modeling/';
 
 if (input_file === undefined) {
     var gt_files = fs.readdirSync(gt_folder);
     var steiner_files = fs.readdirSync(steiner_folder);
-    var semi_files = fs.readdirSync(semi_folder)
+    var semi_files = fs.readdirSync(semi_folder);
+    var occ_files = fs.readdirSync(occ_folder);
     var st_files = fs.readdirSync(st_folder);
 
     /* *** Comparison with steiner models *** */
@@ -199,6 +201,52 @@ if (input_file === undefined) {
     fs.appendFileSync(file_name, task);
     fs.appendFileSync(file_name, '\n* Average Precision comparing SeMi and ground truth: ' + avg_precision / (gt_files.length - ignore));
     fs.appendFileSync(file_name, '\n* Average Recall comparing SeMi and ground truth: ' + avg_recall / (gt_files.length - ignore))
+
+    /* *** End of comparison with semi models *** */
+
+    /* *** Comparison with occ models *** */
+    console.log('\n\nCompute average precision and recall comparing semantic models generate using Occurrences with ground truth');
+    var avg_precision = 0;
+    var avg_recall = 0;
+    var ignore = 0;
+
+    gt_files.forEach((gt_name, index) => {
+        console.log('\nCompare the semantic models related to: ');
+        var gt_path = gt_folder + gt_name;
+        var occ_path = occ_folder + occ_files[index];
+        var st_path = st_folder + st_files[index];
+        console.log('   - ' + gt_name);
+
+        var rels_gt = extract_rels(gt_path, st_path);
+        var rels_occ = extract_rels(occ_path, st_path);
+
+        if (rels_gt.lenght === 0 || rels_occ.lenght === 0) {
+            console.log('\n\n*** WARNING: No semantic reation extracted from the semantic model!!! ***');
+            ignore++;
+        } else {
+            var precision = compute_precision(rels_gt, rels_occ);
+            avg_precision += precision;
+            var recall = compute_recall(rels_gt, rels_occ);
+            avg_recall += recall;
+            console.log();
+            console.log('   * Precision: ' + precision);
+            console.log('   * Recall: ' + recall);
+            console.log();
+        }
+    });
+
+    console.log('\n\n*** Average Precision comparing Occurrences and ground truth: ' + avg_precision / (gt_files.length - ignore));
+    console.log('*** Average Recall comparing Occurrences and ground truth: ' + avg_recall / (gt_files.length - ignore));
+
+    // Save results in file
+    var d = new Date();
+    d.setSeconds(0, 0, 0);
+    var file_name = results_folder + 'result-occ__' + d.toISOString().replace(/T/, '_').replace(/\..+/, '') + '.txt'
+    fs.appendFileSync(file_name, task);
+    fs.appendFileSync(file_name, '\n* Average Precision comparing Occurrences and ground truth: ' + avg_precision / (gt_files.length - ignore));
+    fs.appendFileSync(file_name, '\n* Average Recall comparing Occurrences and ground truth: ' + avg_recall / (gt_files.length - ignore))
+
+    /* *** End of comparison with occ models *** */
 
 } else {
     // TODO
