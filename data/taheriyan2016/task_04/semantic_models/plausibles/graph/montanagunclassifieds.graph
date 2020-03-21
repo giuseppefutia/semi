@@ -575,6 +575,28 @@
                 },
                 "weight": 100
             },
+            "schema:Offer1\u0001schema:Offer1\u0001schema:Offer1***schema:Offer1\u0001direct_property_urischema:relatedTo\u0001100": {
+                "v": "schema:Offer1",
+                "w": "schema:Offer1",
+                "name": "schema:Offer1***schema:Offer1",
+                "value": {
+                    "label": "schema:relatedTo",
+                    "type": "direct_property_uri",
+                    "weight": 100
+                },
+                "weight": 100
+            },
+            "schema:Offer2\u0001schema:Offer1\u0001schema:Offer2***schema:Offer1\u0001direct_property_urischema:relatedTo\u0001100": {
+                "v": "schema:Offer2",
+                "w": "schema:Offer1",
+                "name": "schema:Offer2***schema:Offer1",
+                "value": {
+                    "label": "schema:relatedTo",
+                    "type": "direct_property_uri",
+                    "weight": 100
+                },
+                "weight": 100
+            },
             "schema:Offer1\u0001schema:Offer1\u0001schema:Offer1***schema:Offer1\u0001direct_property_urischema:addOn\u0001100": {
                 "v": "schema:Offer1",
                 "w": "schema:Offer1",
@@ -797,6 +819,28 @@
                 "name": "schema:CreativeWork1***schema:Offer2",
                 "value": {
                     "label": "schema:offers",
+                    "type": "direct_property_uri",
+                    "weight": 100
+                },
+                "weight": 100
+            },
+            "schema:Offer1\u0001schema:Offer2\u0001schema:Offer1***schema:Offer2\u0001direct_property_urischema:relatedTo\u0001100": {
+                "v": "schema:Offer1",
+                "w": "schema:Offer2",
+                "name": "schema:Offer1***schema:Offer2",
+                "value": {
+                    "label": "schema:relatedTo",
+                    "type": "direct_property_uri",
+                    "weight": 100
+                },
+                "weight": 100
+            },
+            "schema:Offer2\u0001schema:Offer2\u0001schema:Offer2***schema:Offer2\u0001direct_property_urischema:relatedTo\u0001100": {
+                "v": "schema:Offer2",
+                "w": "schema:Offer2",
+                "name": "schema:Offer2***schema:Offer2",
+                "value": {
+                    "label": "schema:relatedTo",
                     "type": "direct_property_uri",
                     "weight": 100
                 },
@@ -1476,23 +1520,23 @@
                 },
                 "weight": 300
             },
-            "schema:CreativeWork1\u0001schema:Place1\u0001schema:CreativeWork1***schema:Place1\u0001inheritedschema:category\u0001300": {
-                "v": "schema:CreativeWork1",
-                "w": "schema:Place1",
-                "name": "schema:CreativeWork1***schema:Place1",
-                "value": {
-                    "label": "schema:category",
-                    "type": "inherited",
-                    "weight": 300
-                },
-                "weight": 300
-            },
             "schema:CreativeWork1\u0001schema:Place1\u0001schema:CreativeWork1***schema:Place1\u0001inheritedschema:recognizingAuthority\u0001300": {
                 "v": "schema:CreativeWork1",
                 "w": "schema:Place1",
                 "name": "schema:CreativeWork1***schema:Place1",
                 "value": {
                     "label": "schema:recognizingAuthority",
+                    "type": "inherited",
+                    "weight": 300
+                },
+                "weight": 300
+            },
+            "schema:CreativeWork1\u0001schema:Place1\u0001schema:CreativeWork1***schema:Place1\u0001inheritedschema:category\u0001300": {
+                "v": "schema:CreativeWork1",
+                "w": "schema:Place1",
+                "name": "schema:CreativeWork1***schema:Place1",
+                "value": {
+                    "label": "schema:category",
                     "type": "inherited",
                     "weight": 300
                 },
@@ -1701,8 +1745,8 @@
         },
         "schema:Offer1": {
             "schema:CreativeWork1": 10,
-            "schema:Offer1": 1,
-            "schema:Offer2": 1,
+            "schema:Offer1": 2,
+            "schema:Offer2": 2,
             "schema-dig:Firearm1": 2,
             "schema:Place1": 1
         },
@@ -1723,8 +1767,8 @@
         },
         "schema:Offer2": {
             "schema:CreativeWork1": 10,
-            "schema:Offer1": 1,
-            "schema:Offer2": 1,
+            "schema:Offer1": 2,
+            "schema:Offer2": 2,
             "schema-dig:Firearm1": 2,
             "schema:Place1": 1
         },
@@ -2656,23 +2700,23 @@
                 },
                 "weight": 300
             },
-            "schema:CreativeWork1\u0001schema:Place1\u0001schema:CreativeWork1***schema:Place1\u0001inheritedschema:category\u0001300": {
-                "v": "schema:CreativeWork1",
-                "w": "schema:Place1",
-                "name": "schema:CreativeWork1***schema:Place1",
-                "value": {
-                    "label": "schema:category",
-                    "type": "inherited",
-                    "weight": 300
-                },
-                "weight": 300
-            },
             "schema:CreativeWork1\u0001schema:Place1\u0001schema:CreativeWork1***schema:Place1\u0001inheritedschema:recognizingAuthority\u0001300": {
                 "v": "schema:CreativeWork1",
                 "w": "schema:Place1",
                 "name": "schema:CreativeWork1***schema:Place1",
                 "value": {
                     "label": "schema:recognizingAuthority",
+                    "type": "inherited",
+                    "weight": 300
+                },
+                "weight": 300
+            },
+            "schema:CreativeWork1\u0001schema:Place1\u0001schema:CreativeWork1***schema:Place1\u0001inheritedschema:category\u0001300": {
+                "v": "schema:CreativeWork1",
+                "w": "schema:Place1",
+                "name": "schema:CreativeWork1***schema:Place1",
+                "value": {
+                    "label": "schema:category",
                     "type": "inherited",
                     "weight": 300
                 },
@@ -2730,6 +2774,28 @@
                     "type": "st_property_uri"
                 },
                 "weight": 1
+            },
+            "schema:Offer1\u0001schema:Offer1\u0001schema:Offer1***schema:Offer1\u0001direct_property_urischema:relatedTo\u0001100": {
+                "v": "schema:Offer1",
+                "w": "schema:Offer1",
+                "name": "schema:Offer1***schema:Offer1",
+                "value": {
+                    "label": "schema:relatedTo",
+                    "type": "direct_property_uri",
+                    "weight": 100
+                },
+                "weight": 100
+            },
+            "schema:Offer1\u0001schema:Offer2\u0001schema:Offer1***schema:Offer2\u0001direct_property_urischema:relatedTo\u0001100": {
+                "v": "schema:Offer1",
+                "w": "schema:Offer2",
+                "name": "schema:Offer1***schema:Offer2",
+                "value": {
+                    "label": "schema:relatedTo",
+                    "type": "direct_property_uri",
+                    "weight": 100
+                },
+                "weight": 100
             },
             "schema:Offer1\u0001schema:Offer1\u0001schema:Offer1***schema:Offer1\u0001direct_property_urischema:addOn\u0001100": {
                 "v": "schema:Offer1",
@@ -2967,6 +3033,28 @@
                     "type": "st_property_uri"
                 },
                 "weight": 1
+            },
+            "schema:Offer2\u0001schema:Offer1\u0001schema:Offer2***schema:Offer1\u0001direct_property_urischema:relatedTo\u0001100": {
+                "v": "schema:Offer2",
+                "w": "schema:Offer1",
+                "name": "schema:Offer2***schema:Offer1",
+                "value": {
+                    "label": "schema:relatedTo",
+                    "type": "direct_property_uri",
+                    "weight": 100
+                },
+                "weight": 100
+            },
+            "schema:Offer2\u0001schema:Offer2\u0001schema:Offer2***schema:Offer2\u0001direct_property_urischema:relatedTo\u0001100": {
+                "v": "schema:Offer2",
+                "w": "schema:Offer2",
+                "name": "schema:Offer2***schema:Offer2",
+                "value": {
+                    "label": "schema:relatedTo",
+                    "type": "direct_property_uri",
+                    "weight": 100
+                },
+                "weight": 100
             },
             "schema:Offer2\u0001schema:Offer1\u0001schema:Offer2***schema:Offer1\u0001direct_property_urischema:addOn\u0001100": {
                 "v": "schema:Offer2",
@@ -3371,8 +3459,8 @@
             "Firearms0273": 1,
             "0021": 1,
             "Price0364": 1,
-            "schema:Offer1": 1,
-            "schema:Offer2": 1,
+            "schema:Offer1": 2,
+            "schema:Offer2": 2,
             "schema:Place1": 12,
             "schema-dig:Firearm1": 2,
             "schema:CreativeWork1": 4
@@ -3384,8 +3472,8 @@
         "Ads0988": {},
         "schema:Offer2": {
             "Ads0988": 1,
-            "schema:Offer1": 1,
-            "schema:Offer2": 1,
+            "schema:Offer1": 2,
+            "schema:Offer2": 2,
             "schema:Place1": 12,
             "schema-dig:Firearm1": 2,
             "schema:CreativeWork1": 4
@@ -3651,6 +3739,50 @@
             "name": "schema:CreativeWork1***schema:Place1",
             "value": {
                 "label": "schema:contentLocation",
+                "type": "direct_property_uri",
+                "weight": 100
+            },
+            "weight": 100
+        },
+        "schema:Offer1\u0001schema:Offer1\u0001schema:Offer1***schema:Offer1\u0001direct_property_urischema:relatedTo\u0001100": {
+            "v": "schema:Offer1",
+            "w": "schema:Offer1",
+            "name": "schema:Offer1***schema:Offer1",
+            "value": {
+                "label": "schema:relatedTo",
+                "type": "direct_property_uri",
+                "weight": 100
+            },
+            "weight": 100
+        },
+        "schema:Offer1\u0001schema:Offer2\u0001schema:Offer1***schema:Offer2\u0001direct_property_urischema:relatedTo\u0001100": {
+            "v": "schema:Offer1",
+            "w": "schema:Offer2",
+            "name": "schema:Offer1***schema:Offer2",
+            "value": {
+                "label": "schema:relatedTo",
+                "type": "direct_property_uri",
+                "weight": 100
+            },
+            "weight": 100
+        },
+        "schema:Offer2\u0001schema:Offer1\u0001schema:Offer2***schema:Offer1\u0001direct_property_urischema:relatedTo\u0001100": {
+            "v": "schema:Offer2",
+            "w": "schema:Offer1",
+            "name": "schema:Offer2***schema:Offer1",
+            "value": {
+                "label": "schema:relatedTo",
+                "type": "direct_property_uri",
+                "weight": 100
+            },
+            "weight": 100
+        },
+        "schema:Offer2\u0001schema:Offer2\u0001schema:Offer2***schema:Offer2\u0001direct_property_urischema:relatedTo\u0001100": {
+            "v": "schema:Offer2",
+            "w": "schema:Offer2",
+            "name": "schema:Offer2***schema:Offer2",
+            "value": {
+                "label": "schema:relatedTo",
                 "type": "direct_property_uri",
                 "weight": 100
             },
@@ -4547,23 +4679,23 @@
             },
             "weight": 300
         },
-        "schema:CreativeWork1\u0001schema:Place1\u0001schema:CreativeWork1***schema:Place1\u0001inheritedschema:category\u0001300": {
-            "v": "schema:CreativeWork1",
-            "w": "schema:Place1",
-            "name": "schema:CreativeWork1***schema:Place1",
-            "value": {
-                "label": "schema:category",
-                "type": "inherited",
-                "weight": 300
-            },
-            "weight": 300
-        },
         "schema:CreativeWork1\u0001schema:Place1\u0001schema:CreativeWork1***schema:Place1\u0001inheritedschema:recognizingAuthority\u0001300": {
             "v": "schema:CreativeWork1",
             "w": "schema:Place1",
             "name": "schema:CreativeWork1***schema:Place1",
             "value": {
                 "label": "schema:recognizingAuthority",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        "schema:CreativeWork1\u0001schema:Place1\u0001schema:CreativeWork1***schema:Place1\u0001inheritedschema:category\u0001300": {
+            "v": "schema:CreativeWork1",
+            "w": "schema:Place1",
+            "name": "schema:CreativeWork1***schema:Place1",
+            "value": {
+                "label": "schema:category",
                 "type": "inherited",
                 "weight": 300
             },
@@ -5100,6 +5232,26 @@
             "type": "direct_property_uri",
             "weight": 100
         },
+        "schema:Offer1\u0001schema:Offer1\u0001schema:Offer1***schema:Offer1\u0001direct_property_urischema:relatedTo\u0001100": {
+            "label": "schema:relatedTo",
+            "type": "direct_property_uri",
+            "weight": 100
+        },
+        "schema:Offer1\u0001schema:Offer2\u0001schema:Offer1***schema:Offer2\u0001direct_property_urischema:relatedTo\u0001100": {
+            "label": "schema:relatedTo",
+            "type": "direct_property_uri",
+            "weight": 100
+        },
+        "schema:Offer2\u0001schema:Offer1\u0001schema:Offer2***schema:Offer1\u0001direct_property_urischema:relatedTo\u0001100": {
+            "label": "schema:relatedTo",
+            "type": "direct_property_uri",
+            "weight": 100
+        },
+        "schema:Offer2\u0001schema:Offer2\u0001schema:Offer2***schema:Offer2\u0001direct_property_urischema:relatedTo\u0001100": {
+            "label": "schema:relatedTo",
+            "type": "direct_property_uri",
+            "weight": 100
+        },
         "schema:Offer1\u0001schema:Offer1\u0001schema:Offer1***schema:Offer1\u0001direct_property_urischema:addOn\u0001100": {
             "label": "schema:addOn",
             "type": "direct_property_uri",
@@ -5505,13 +5657,13 @@
             "type": "inherited",
             "weight": 300
         },
-        "schema:CreativeWork1\u0001schema:Place1\u0001schema:CreativeWork1***schema:Place1\u0001inheritedschema:category\u0001300": {
-            "label": "schema:category",
+        "schema:CreativeWork1\u0001schema:Place1\u0001schema:CreativeWork1***schema:Place1\u0001inheritedschema:recognizingAuthority\u0001300": {
+            "label": "schema:recognizingAuthority",
             "type": "inherited",
             "weight": 300
         },
-        "schema:CreativeWork1\u0001schema:Place1\u0001schema:CreativeWork1***schema:Place1\u0001inheritedschema:recognizingAuthority\u0001300": {
-            "label": "schema:recognizingAuthority",
+        "schema:CreativeWork1\u0001schema:Place1\u0001schema:CreativeWork1***schema:Place1\u0001inheritedschema:category\u0001300": {
+            "label": "schema:category",
             "type": "inherited",
             "weight": 300
         },
@@ -5707,5 +5859,5 @@
         }
     },
     "_nodeCount": 14,
-    "_edgeCount": 145
+    "_edgeCount": 149
 }

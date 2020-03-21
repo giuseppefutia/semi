@@ -76,6 +76,15 @@ CONSTRUCT {
     ?CreativeWork1 schema:offers ?Offer1.
     ?CreativeWork1 schema:offers ?Offer2.
     ?CreativeWork1 schema:offers ?Offer3.
+    ?Offer1 schema:relatedTo ?Offer1.
+    ?Offer1 schema:relatedTo ?Offer2.
+    ?Offer1 schema:relatedTo ?Offer3.
+    ?Offer2 schema:relatedTo ?Offer1.
+    ?Offer2 schema:relatedTo ?Offer2.
+    ?Offer2 schema:relatedTo ?Offer3.
+    ?Offer3 schema:relatedTo ?Offer1.
+    ?Offer3 schema:relatedTo ?Offer2.
+    ?Offer3 schema:relatedTo ?Offer3.
     ?Offer1 schema:addOn ?Offer1.
     ?Offer1 schema:addOn ?Offer2.
     ?Offer1 schema:addOn ?Offer3.
@@ -92,6 +101,9 @@ CONSTRUCT {
     ?PersonOrOrganization1 schema:makesOffer ?Offer1.
     ?PersonOrOrganization1 schema:makesOffer ?Offer2.
     ?PersonOrOrganization1 schema:makesOffer ?Offer3.
+    ?PersonOrOrganization1 schema:relatedTo ?Offer1.
+    ?PersonOrOrganization1 schema:relatedTo ?Offer2.
+    ?PersonOrOrganization1 schema:relatedTo ?Offer3.
     ?CreativeWork1 schema:contributor ?PersonOrOrganization1.
     ?CreativeWork1 schema:author ?PersonOrOrganization1.
     ?CreativeWork1 schema:producer ?PersonOrOrganization1.
@@ -131,8 +143,8 @@ CONSTRUCT {
     ?CreativeWork1 schema:quest ?PersonOrOrganization1.
     ?CreativeWork1 schema:characterAttribute ?PersonOrOrganization1.
     ?CreativeWork1 schema:illustrator ?PersonOrOrganization1.
-    ?CreativeWork1 schema:category ?PersonOrOrganization1.
     ?CreativeWork1 schema:recognizingAuthority ?PersonOrOrganization1.
+    ?CreativeWork1 schema:category ?PersonOrOrganization1.
     ?CreativeWork1 schema:offers ?Offer1.
     ?CreativeWork1 schema:offers ?Offer2.
     ?CreativeWork1 schema:offers ?Offer3.
@@ -169,6 +181,9 @@ CONSTRUCT {
     ?Offer1 schema:category ?PersonOrOrganization1.
     ?Offer2 schema:category ?PersonOrOrganization1.
     ?Offer3 schema:category ?PersonOrOrganization1.
+    ?Offer1 schema:relatedTo ?PersonOrOrganization1.
+    ?Offer2 schema:relatedTo ?PersonOrOrganization1.
+    ?Offer3 schema:relatedTo ?PersonOrOrganization1.
     ?Offer1 schema-dig:owner ?PersonOrOrganization1.
     ?Offer2 schema-dig:owner ?PersonOrOrganization1.
     ?Offer3 schema-dig:owner ?PersonOrOrganization1.

@@ -95,6 +95,10 @@ CONSTRUCT {
     ?CreativeWork1 schema:locationCreated ?Place1.
     ?CreativeWork1 schema-dig:primaryLocation ?Place1.
     ?CreativeWork1 schema:contentLocation ?Place1.
+    ?Offer1 schema:relatedTo ?Offer1.
+    ?Offer1 schema:relatedTo ?Offer2.
+    ?Offer2 schema:relatedTo ?Offer1.
+    ?Offer2 schema:relatedTo ?Offer2.
     ?Offer1 schema:addOn ?Offer1.
     ?Offer1 schema:addOn ?Offer2.
     ?Offer2 schema:addOn ?Offer1.
@@ -148,6 +152,10 @@ CONSTRUCT {
     ?PersonOrOrganization1 schema:makesOffer ?Offer2.
     ?PersonOrOrganization2 schema:makesOffer ?Offer1.
     ?PersonOrOrganization2 schema:makesOffer ?Offer2.
+    ?PersonOrOrganization1 schema:relatedTo ?Offer1.
+    ?PersonOrOrganization1 schema:relatedTo ?Offer2.
+    ?PersonOrOrganization2 schema:relatedTo ?Offer1.
+    ?PersonOrOrganization2 schema:relatedTo ?Offer2.
     ?PersonOrOrganization1 schema:location ?Place1.
     ?PersonOrOrganization2 schema:location ?Place1.
     ?PersonOrOrganization1 schema:foundingLocation ?Place1.
@@ -342,6 +350,10 @@ CONSTRUCT {
     ?Offer1 schema:category ?PersonOrOrganization2.
     ?Offer2 schema:category ?PersonOrOrganization1.
     ?Offer2 schema:category ?PersonOrOrganization2.
+    ?Offer1 schema:relatedTo ?PersonOrOrganization1.
+    ?Offer1 schema:relatedTo ?PersonOrOrganization2.
+    ?Offer2 schema:relatedTo ?PersonOrOrganization1.
+    ?Offer2 schema:relatedTo ?PersonOrOrganization2.
     ?Offer1 schema-dig:owner ?PersonOrOrganization1.
     ?Offer1 schema-dig:owner ?PersonOrOrganization2.
     ?Offer2 schema-dig:owner ?PersonOrOrganization1.

@@ -79,6 +79,10 @@ CONSTRUCT {
     ?CreativeWork1 schema:locationCreated ?Place1.
     ?CreativeWork1 schema-dig:primaryLocation ?Place1.
     ?CreativeWork1 schema:contentLocation ?Place1.
+    ?Offer1 schema:relatedTo ?Offer1.
+    ?Offer1 schema:relatedTo ?Offer2.
+    ?Offer2 schema:relatedTo ?Offer1.
+    ?Offer2 schema:relatedTo ?Offer2.
     ?Offer1 schema:addOn ?Offer1.
     ?Offer1 schema:addOn ?Offer2.
     ?Offer2 schema:addOn ?Offer1.
@@ -160,8 +164,8 @@ CONSTRUCT {
     ?CreativeWork1 schema:gameItem ?Place1.
     ?CreativeWork1 schema:quest ?Place1.
     ?CreativeWork1 schema:characterAttribute ?Place1.
-    ?CreativeWork1 schema:category ?Place1.
     ?CreativeWork1 schema:recognizingAuthority ?Place1.
+    ?CreativeWork1 schema:category ?Place1.
     ?Offer1 schema:itemOffered ?Firearm1.
     ?Offer2 schema:itemOffered ?Firearm1.
     ?Offer1 schema:category ?Firearm1.

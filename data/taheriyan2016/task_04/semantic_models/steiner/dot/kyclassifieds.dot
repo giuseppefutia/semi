@@ -24,6 +24,6 @@ digraph {
   "schema-dig:PersonOrOrganization1" -> Code1211 [label="schema:telephone",type=st_property_uri]
   "schema-dig:PersonOrOrganization1" -> "schema:CreativeWork1" [label="schema-dig:isAuthorOf",type=direct_property_uri,weight=100]
   "schema:CreativeWork1" -> "schema:Offer2" [label="schema:offers",type=direct_property_uri,weight=100]
-  "schema:Offer1" -> "schema:Offer2" [label="schema:addOn",type=direct_property_uri,weight=100]
+  "schema:Offer1" -> "schema:Offer2" [label="schema:relatedTo",type=direct_property_uri,weight=100]
   "schema:Offer2" -> malcome831610 [label="schema:name",type=st_property_uri]
 }

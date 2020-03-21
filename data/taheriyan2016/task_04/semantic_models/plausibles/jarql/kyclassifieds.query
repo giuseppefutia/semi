@@ -79,6 +79,10 @@ CONSTRUCT {
     ?CreativeWork1 schema:workTranslation ?CreativeWork1.
     ?CreativeWork1 schema:offers ?Offer1.
     ?CreativeWork1 schema:offers ?Offer2.
+    ?Offer1 schema:relatedTo ?Offer1.
+    ?Offer1 schema:relatedTo ?Offer2.
+    ?Offer2 schema:relatedTo ?Offer1.
+    ?Offer2 schema:relatedTo ?Offer2.
     ?Offer1 schema:addOn ?Offer1.
     ?Offer1 schema:addOn ?Offer2.
     ?Offer2 schema:addOn ?Offer1.
@@ -89,6 +93,8 @@ CONSTRUCT {
     ?PersonOrOrganization1 schema:mainEntityOfPage ?CreativeWork1.
     ?PersonOrOrganization1 schema:makesOffer ?Offer1.
     ?PersonOrOrganization1 schema:makesOffer ?Offer2.
+    ?PersonOrOrganization1 schema:relatedTo ?Offer1.
+    ?PersonOrOrganization1 schema:relatedTo ?Offer2.
     ?CreativeWork1 schema:contributor ?PersonOrOrganization1.
     ?CreativeWork1 schema:author ?PersonOrOrganization1.
     ?CreativeWork1 schema:producer ?PersonOrOrganization1.
@@ -154,6 +160,8 @@ CONSTRUCT {
     ?Offer2 schema:seller ?PersonOrOrganization1.
     ?Offer1 schema:category ?PersonOrOrganization1.
     ?Offer2 schema:category ?PersonOrOrganization1.
+    ?Offer1 schema:relatedTo ?PersonOrOrganization1.
+    ?Offer2 schema:relatedTo ?PersonOrOrganization1.
     ?Offer1 schema-dig:owner ?PersonOrOrganization1.
     ?Offer2 schema-dig:owner ?PersonOrOrganization1.
     ?Offer1 schema-dig:applicant ?PersonOrOrganization1.

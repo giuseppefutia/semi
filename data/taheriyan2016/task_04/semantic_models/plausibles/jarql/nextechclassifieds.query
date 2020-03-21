@@ -117,6 +117,31 @@ CONSTRUCT {
     ?CreativeWork1 schema:contentLocation ?Place3.
     ?CreativeWork1 schema:contentLocation ?Place4.
     ?CreativeWork1 schema:contentLocation ?Place5.
+    ?Offer1 schema:relatedTo ?Offer1.
+    ?Offer1 schema:relatedTo ?Offer2.
+    ?Offer1 schema:relatedTo ?Offer3.
+    ?Offer1 schema:relatedTo ?Offer4.
+    ?Offer1 schema:relatedTo ?Offer5.
+    ?Offer2 schema:relatedTo ?Offer1.
+    ?Offer2 schema:relatedTo ?Offer2.
+    ?Offer2 schema:relatedTo ?Offer3.
+    ?Offer2 schema:relatedTo ?Offer4.
+    ?Offer2 schema:relatedTo ?Offer5.
+    ?Offer3 schema:relatedTo ?Offer1.
+    ?Offer3 schema:relatedTo ?Offer2.
+    ?Offer3 schema:relatedTo ?Offer3.
+    ?Offer3 schema:relatedTo ?Offer4.
+    ?Offer3 schema:relatedTo ?Offer5.
+    ?Offer4 schema:relatedTo ?Offer1.
+    ?Offer4 schema:relatedTo ?Offer2.
+    ?Offer4 schema:relatedTo ?Offer3.
+    ?Offer4 schema:relatedTo ?Offer4.
+    ?Offer4 schema:relatedTo ?Offer5.
+    ?Offer5 schema:relatedTo ?Offer1.
+    ?Offer5 schema:relatedTo ?Offer2.
+    ?Offer5 schema:relatedTo ?Offer3.
+    ?Offer5 schema:relatedTo ?Offer4.
+    ?Offer5 schema:relatedTo ?Offer5.
     ?Offer1 schema:addOn ?Offer1.
     ?Offer1 schema:addOn ?Offer2.
     ?Offer1 schema:addOn ?Offer3.
@@ -326,6 +351,11 @@ CONSTRUCT {
     ?PersonOrOrganization1 schema:makesOffer ?Offer3.
     ?PersonOrOrganization1 schema:makesOffer ?Offer4.
     ?PersonOrOrganization1 schema:makesOffer ?Offer5.
+    ?PersonOrOrganization1 schema:relatedTo ?Offer1.
+    ?PersonOrOrganization1 schema:relatedTo ?Offer2.
+    ?PersonOrOrganization1 schema:relatedTo ?Offer3.
+    ?PersonOrOrganization1 schema:relatedTo ?Offer4.
+    ?PersonOrOrganization1 schema:relatedTo ?Offer5.
     ?PersonOrOrganization1 schema:location ?Place1.
     ?PersonOrOrganization1 schema:location ?Place2.
     ?PersonOrOrganization1 schema:location ?Place3.
@@ -672,6 +702,11 @@ CONSTRUCT {
     ?Offer3 schema:seller ?PersonOrOrganization1.
     ?Offer4 schema:seller ?PersonOrOrganization1.
     ?Offer5 schema:seller ?PersonOrOrganization1.
+    ?Offer1 schema:relatedTo ?PersonOrOrganization1.
+    ?Offer2 schema:relatedTo ?PersonOrOrganization1.
+    ?Offer3 schema:relatedTo ?PersonOrOrganization1.
+    ?Offer4 schema:relatedTo ?PersonOrOrganization1.
+    ?Offer5 schema:relatedTo ?PersonOrOrganization1.
     ?Offer1 schema:category ?PersonOrOrganization1.
     ?Offer2 schema:category ?PersonOrOrganization1.
     ?Offer3 schema:category ?PersonOrOrganization1.

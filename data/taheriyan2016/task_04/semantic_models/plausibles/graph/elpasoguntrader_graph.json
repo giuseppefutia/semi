@@ -337,6 +337,105 @@
             "w": "schema:Offer1",
             "name": "schema:Offer1***schema:Offer1",
             "value": {
+                "label": "schema:relatedTo",
+                "type": "direct_property_uri",
+                "weight": 100
+            },
+            "weight": 100
+        },
+        {
+            "v": "schema:Offer1",
+            "w": "schema:Offer2",
+            "name": "schema:Offer1***schema:Offer2",
+            "value": {
+                "label": "schema:relatedTo",
+                "type": "direct_property_uri",
+                "weight": 100
+            },
+            "weight": 100
+        },
+        {
+            "v": "schema:Offer1",
+            "w": "schema:Offer3",
+            "name": "schema:Offer1***schema:Offer3",
+            "value": {
+                "label": "schema:relatedTo",
+                "type": "direct_property_uri",
+                "weight": 100
+            },
+            "weight": 100
+        },
+        {
+            "v": "schema:Offer2",
+            "w": "schema:Offer1",
+            "name": "schema:Offer2***schema:Offer1",
+            "value": {
+                "label": "schema:relatedTo",
+                "type": "direct_property_uri",
+                "weight": 100
+            },
+            "weight": 100
+        },
+        {
+            "v": "schema:Offer2",
+            "w": "schema:Offer2",
+            "name": "schema:Offer2***schema:Offer2",
+            "value": {
+                "label": "schema:relatedTo",
+                "type": "direct_property_uri",
+                "weight": 100
+            },
+            "weight": 100
+        },
+        {
+            "v": "schema:Offer2",
+            "w": "schema:Offer3",
+            "name": "schema:Offer2***schema:Offer3",
+            "value": {
+                "label": "schema:relatedTo",
+                "type": "direct_property_uri",
+                "weight": 100
+            },
+            "weight": 100
+        },
+        {
+            "v": "schema:Offer3",
+            "w": "schema:Offer1",
+            "name": "schema:Offer3***schema:Offer1",
+            "value": {
+                "label": "schema:relatedTo",
+                "type": "direct_property_uri",
+                "weight": 100
+            },
+            "weight": 100
+        },
+        {
+            "v": "schema:Offer3",
+            "w": "schema:Offer2",
+            "name": "schema:Offer3***schema:Offer2",
+            "value": {
+                "label": "schema:relatedTo",
+                "type": "direct_property_uri",
+                "weight": 100
+            },
+            "weight": 100
+        },
+        {
+            "v": "schema:Offer3",
+            "w": "schema:Offer3",
+            "name": "schema:Offer3***schema:Offer3",
+            "value": {
+                "label": "schema:relatedTo",
+                "type": "direct_property_uri",
+                "weight": 100
+            },
+            "weight": 100
+        },
+        {
+            "v": "schema:Offer1",
+            "w": "schema:Offer1",
+            "name": "schema:Offer1***schema:Offer1",
+            "value": {
                 "label": "schema:addOn",
                 "type": "direct_property_uri",
                 "weight": 100
@@ -503,6 +602,39 @@
             "name": "schema-dig:PersonOrOrganization1***schema:Offer3",
             "value": {
                 "label": "schema:makesOffer",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema-dig:PersonOrOrganization1",
+            "w": "schema:Offer1",
+            "name": "schema-dig:PersonOrOrganization1***schema:Offer1",
+            "value": {
+                "label": "schema:relatedTo",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema-dig:PersonOrOrganization1",
+            "w": "schema:Offer2",
+            "name": "schema-dig:PersonOrOrganization1***schema:Offer2",
+            "value": {
+                "label": "schema:relatedTo",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema-dig:PersonOrOrganization1",
+            "w": "schema:Offer3",
+            "name": "schema-dig:PersonOrOrganization1***schema:Offer3",
+            "value": {
+                "label": "schema:relatedTo",
                 "type": "inherited",
                 "weight": 300
             },
@@ -942,7 +1074,7 @@
             "w": "schema-dig:PersonOrOrganization1",
             "name": "schema:CreativeWork1***schema-dig:PersonOrOrganization1",
             "value": {
-                "label": "schema:category",
+                "label": "schema:recognizingAuthority",
                 "type": "inherited",
                 "weight": 300
             },
@@ -953,7 +1085,7 @@
             "w": "schema-dig:PersonOrOrganization1",
             "name": "schema:CreativeWork1***schema-dig:PersonOrOrganization1",
             "value": {
-                "label": "schema:recognizingAuthority",
+                "label": "schema:category",
                 "type": "inherited",
                 "weight": 300
             },
@@ -1350,6 +1482,39 @@
             "name": "schema:Offer3***schema-dig:PersonOrOrganization1",
             "value": {
                 "label": "schema:category",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:Offer1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:Offer1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema:relatedTo",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:Offer2",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:Offer2***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema:relatedTo",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:Offer3",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:Offer3***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema:relatedTo",
                 "type": "inherited",
                 "weight": 300
             },

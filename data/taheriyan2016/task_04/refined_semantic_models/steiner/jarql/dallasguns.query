@@ -80,7 +80,7 @@ CONSTRUCT {
     ?Firearm1 schema:manufacturer ?PersonOrOrganization2.
     ?Offer1 schema:itemOffered ?Firearm1.
     ?PersonOrOrganization2 schema:address ?ContactPoint1.
-    ?PersonOrOrganization2 schema:address ?PostalAddress1.
+    ?Offer1 schema:mainEntityOfPage ?CreativeWork1.
     ?PostalAddress1 schema:mainEntityOfPage ?CreativeWork1.
 }
 WHERE {

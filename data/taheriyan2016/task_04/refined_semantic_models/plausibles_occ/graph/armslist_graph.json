@@ -1,0 +1,2394 @@
+{
+    "options": {
+        "directed": true,
+        "multigraph": true,
+        "compound": false
+    },
+    "nodes": [
+        {
+            "v": "In0403",
+            "value": {
+                "type": "attribute_name",
+                "label": "In0403"
+            }
+        },
+        {
+            "v": "schema-dig:Firearm1",
+            "value": {
+                "type": "class_uri",
+                "label": "schema-dig:Firearm"
+            }
+        },
+        {
+            "v": "No0426",
+            "value": {
+                "type": "attribute_name",
+                "label": "No0426"
+            }
+        },
+        {
+            "v": "schema-dig:PersonOrOrganization1",
+            "value": {
+                "type": "class_uri",
+                "label": "schema-dig:PersonOrOrganization"
+            }
+        },
+        {
+            "v": "US0756",
+            "value": {
+                "type": "attribute_name",
+                "label": "US0756"
+            }
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "value": {
+                "type": "class_uri",
+                "label": "schema:CreativeWork"
+            }
+        },
+        {
+            "v": "file_name",
+            "value": {
+                "type": "attribute_name",
+                "label": "file_name"
+            }
+        },
+        {
+            "v": "post0299",
+            "value": {
+                "type": "attribute_name",
+                "label": "post0299"
+            }
+        },
+        {
+            "v": "schema:Offer1",
+            "value": {
+                "type": "class_uri",
+                "label": "schema:Offer"
+            }
+        },
+        {
+            "v": "On0398",
+            "value": {
+                "type": "attribute_name",
+                "label": "On0398"
+            }
+        },
+        {
+            "v": "Favorite0538",
+            "value": {
+                "type": "attribute_name",
+                "label": "Favorite0538"
+            }
+        },
+        {
+            "v": "0006",
+            "value": {
+                "type": "attribute_name",
+                "label": "0006"
+            }
+        },
+        {
+            "v": "Price0373",
+            "value": {
+                "type": "attribute_name",
+                "label": "Price0373"
+            }
+        },
+        {
+            "v": "Location0408",
+            "value": {
+                "type": "attribute_name",
+                "label": "Location0408"
+            }
+        },
+        {
+            "v": "schema:Place1",
+            "value": {
+                "type": "class_uri",
+                "label": "schema:Place"
+            }
+        }
+    ],
+    "edges": [
+        {
+            "v": "schema-dig:Firearm1",
+            "w": "In0403",
+            "name": "schema-dig:Firearm1***In0403",
+            "value": {
+                "label": "schema:category",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "schema-dig:PersonOrOrganization1",
+            "w": "No0426",
+            "name": "schema-dig:PersonOrOrganization1***No0426",
+            "value": {
+                "label": "schema:name",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "US0756",
+            "name": "schema:CreativeWork1***US0756",
+            "value": {
+                "label": "schema:copyrightYear",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "file_name",
+            "name": "schema:CreativeWork1***file_name",
+            "value": {
+                "label": "schema:name",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "schema:Offer1",
+            "w": "post0299",
+            "name": "schema:Offer1***post0299",
+            "value": {
+                "label": "schema-dig:identifier",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "schema:Offer1",
+            "w": "On0398",
+            "name": "schema:Offer1***On0398",
+            "value": {
+                "label": "schema:datePosted",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "schema:Offer1",
+            "w": "Favorite0538",
+            "name": "schema:Offer1***Favorite0538",
+            "value": {
+                "label": "schema:description",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "schema:Offer1",
+            "w": "0006",
+            "name": "schema:Offer1***0006",
+            "value": {
+                "label": "schema:name",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "schema:Offer1",
+            "w": "Price0373",
+            "name": "schema:Offer1***Price0373",
+            "value": {
+                "label": "schema:price",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "schema:Place1",
+            "w": "Location0408",
+            "name": "schema:Place1***Location0408",
+            "value": {
+                "label": "schema:name",
+                "type": "st_property_uri"
+            },
+            "weight": 1
+        },
+        {
+            "v": "schema-dig:PersonOrOrganization1",
+            "w": "schema:CreativeWork1",
+            "name": "schema-dig:PersonOrOrganization1***schema:CreativeWork1",
+            "value": {
+                "label": "schema-dig:isAuthorOf",
+                "type": "direct_property_uri",
+                "weight": 100
+            },
+            "weight": 100
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:CreativeWork1",
+            "name": "schema:CreativeWork1***schema:CreativeWork1",
+            "value": {
+                "label": "schema:hasPart",
+                "type": "direct_property_uri",
+                "weight": 100
+            },
+            "weight": 100
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:CreativeWork1",
+            "name": "schema:CreativeWork1***schema:CreativeWork1",
+            "value": {
+                "label": "schema:isPartOf",
+                "type": "direct_property_uri",
+                "weight": 100
+            },
+            "weight": 100
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:CreativeWork1",
+            "name": "schema:CreativeWork1***schema:CreativeWork1",
+            "value": {
+                "label": "schema-dig:isAbstractPartOf",
+                "type": "direct_property_uri",
+                "weight": 100
+            },
+            "weight": 100
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:CreativeWork1",
+            "name": "schema:CreativeWork1***schema:CreativeWork1",
+            "value": {
+                "label": "schema-dig:isCitationOf",
+                "type": "direct_property_uri",
+                "weight": 100
+            },
+            "weight": 100
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:CreativeWork1",
+            "name": "schema:CreativeWork1***schema:CreativeWork1",
+            "value": {
+                "label": "schema:citation",
+                "type": "direct_property_uri",
+                "weight": 100
+            },
+            "weight": 100
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:CreativeWork1",
+            "name": "schema:CreativeWork1***schema:CreativeWork1",
+            "value": {
+                "label": "schema:workExample",
+                "type": "direct_property_uri",
+                "weight": 100
+            },
+            "weight": 100
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:CreativeWork1",
+            "name": "schema:CreativeWork1***schema:CreativeWork1",
+            "value": {
+                "label": "schema:exampleOfWork",
+                "type": "direct_property_uri",
+                "weight": 100
+            },
+            "weight": 100
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:CreativeWork1",
+            "name": "schema:CreativeWork1***schema:CreativeWork1",
+            "value": {
+                "label": "schema:license",
+                "type": "direct_property_uri",
+                "weight": 100
+            },
+            "weight": 100
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:CreativeWork1",
+            "name": "schema:CreativeWork1***schema:CreativeWork1",
+            "value": {
+                "label": "schema:translationOfWork",
+                "type": "direct_property_uri",
+                "weight": 100
+            },
+            "weight": 100
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:CreativeWork1",
+            "name": "schema:CreativeWork1***schema:CreativeWork1",
+            "value": {
+                "label": "schema:workTranslation",
+                "type": "direct_property_uri",
+                "weight": 100
+            },
+            "weight": 100
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:Offer1",
+            "name": "schema:CreativeWork1***schema:Offer1",
+            "value": {
+                "label": "schema:offers",
+                "type": "direct_property_uri",
+                "weight": 100
+            },
+            "weight": 100
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:Place1",
+            "name": "schema:CreativeWork1***schema:Place1",
+            "value": {
+                "label": "schema:locationCreated",
+                "type": "direct_property_uri",
+                "weight": 100
+            },
+            "weight": 100
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:Place1",
+            "name": "schema:CreativeWork1***schema:Place1",
+            "value": {
+                "label": "schema-dig:primaryLocation",
+                "type": "direct_property_uri",
+                "weight": 100
+            },
+            "weight": 100
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:Place1",
+            "name": "schema:CreativeWork1***schema:Place1",
+            "value": {
+                "label": "schema:contentLocation",
+                "type": "direct_property_uri",
+                "weight": 100
+            },
+            "weight": 100
+        },
+        {
+            "v": "schema:Offer1",
+            "w": "schema:Offer1",
+            "name": "schema:Offer1***schema:Offer1",
+            "value": {
+                "label": "schema:addOn",
+                "type": "direct_property_uri",
+                "weight": 100
+            },
+            "weight": 100
+        },
+        {
+            "v": "schema:Offer1",
+            "w": "schema:Place1",
+            "name": "schema:Offer1***schema:Place1",
+            "value": {
+                "label": "schema:ineligibleRegion",
+                "type": "direct_property_uri",
+                "weight": 100
+            },
+            "weight": 100
+        },
+        {
+            "v": "schema:Offer1",
+            "w": "schema:Place1",
+            "name": "schema:Offer1***schema:Place1",
+            "value": {
+                "label": "schema:availableAtOrFrom",
+                "type": "updated",
+                "weight": 0.010101010101010102
+            },
+            "weight": 0.010101010101010102
+        },
+        {
+            "v": "schema:Offer1",
+            "w": "schema:Place1",
+            "name": "schema:Offer1***schema:Place1",
+            "value": {
+                "label": "schema:areaServed",
+                "type": "direct_property_uri",
+                "weight": 100
+            },
+            "weight": 100
+        },
+        {
+            "v": "schema:Offer1",
+            "w": "schema:Place1",
+            "name": "schema:Offer1***schema:Place1",
+            "value": {
+                "label": "schema:eligibleRegion",
+                "type": "direct_property_uri",
+                "weight": 100
+            },
+            "weight": 100
+        },
+        {
+            "v": "schema:Place1",
+            "w": "schema:Place1",
+            "name": "schema:Place1***schema:Place1",
+            "value": {
+                "label": "schema:containedIn",
+                "type": "direct_property_uri",
+                "weight": 100
+            },
+            "weight": 100
+        },
+        {
+            "v": "schema:Place1",
+            "w": "schema:Place1",
+            "name": "schema:Place1***schema:Place1",
+            "value": {
+                "label": "schema:containedInPlace",
+                "type": "direct_property_uri",
+                "weight": 100
+            },
+            "weight": 100
+        },
+        {
+            "v": "schema:Place1",
+            "w": "schema:Place1",
+            "name": "schema:Place1***schema:Place1",
+            "value": {
+                "label": "schema:containsPlace",
+                "type": "direct_property_uri",
+                "weight": 100
+            },
+            "weight": 100
+        },
+        {
+            "v": "schema-dig:Firearm1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema-dig:Firearm1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema:manufacturer",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema-dig:Firearm1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema-dig:Firearm1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema:brand",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema-dig:Firearm1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema-dig:Firearm1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema:category",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema-dig:Firearm1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema-dig:Firearm1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema-dig:owner",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema-dig:Firearm1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema-dig:Firearm1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema-dig:applicant",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema-dig:Firearm1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema-dig:Firearm1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema-dig:assignee",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema-dig:Firearm1",
+            "w": "schema:CreativeWork1",
+            "name": "schema-dig:Firearm1***schema:CreativeWork1",
+            "value": {
+                "label": "schema:category",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema-dig:Firearm1",
+            "w": "schema:CreativeWork1",
+            "name": "schema-dig:Firearm1***schema:CreativeWork1",
+            "value": {
+                "label": "schema:review",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema-dig:Firearm1",
+            "w": "schema:CreativeWork1",
+            "name": "schema-dig:Firearm1***schema:CreativeWork1",
+            "value": {
+                "label": "schema:reviews",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema-dig:Firearm1",
+            "w": "schema:CreativeWork1",
+            "name": "schema-dig:Firearm1***schema:CreativeWork1",
+            "value": {
+                "label": "schema:mainEntityOfPage",
+                "type": "updated",
+                "weight": 0.010101010101010102
+            },
+            "weight": 0.010101010101010102
+        },
+        {
+            "v": "schema-dig:Firearm1",
+            "w": "schema:Offer1",
+            "name": "schema-dig:Firearm1***schema:Offer1",
+            "value": {
+                "label": "schema:offers",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema-dig:Firearm1",
+            "w": "schema:Offer1",
+            "name": "schema-dig:Firearm1***schema:Offer1",
+            "value": {
+                "label": "schema:category",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema-dig:Firearm1",
+            "w": "schema:Place1",
+            "name": "schema-dig:Firearm1***schema:Place1",
+            "value": {
+                "label": "schema:category",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema-dig:Firearm1",
+            "w": "schema:Place1",
+            "name": "schema-dig:Firearm1***schema:Place1",
+            "value": {
+                "label": "schema:manufacturer",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema-dig:Firearm1",
+            "w": "schema:Place1",
+            "name": "schema-dig:Firearm1***schema:Place1",
+            "value": {
+                "label": "schema:brand",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema-dig:Firearm1",
+            "w": "schema:Place1",
+            "name": "schema-dig:Firearm1***schema:Place1",
+            "value": {
+                "label": "schema-dig:owner",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema-dig:PersonOrOrganization1",
+            "w": "schema-dig:Firearm1",
+            "name": "schema-dig:PersonOrOrganization1***schema-dig:Firearm1",
+            "value": {
+                "label": "schema:owns",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema-dig:PersonOrOrganization1",
+            "w": "schema:CreativeWork1",
+            "name": "schema-dig:PersonOrOrganization1***schema:CreativeWork1",
+            "value": {
+                "label": "schema-dig:isAuthorOf",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema-dig:PersonOrOrganization1",
+            "w": "schema:CreativeWork1",
+            "name": "schema-dig:PersonOrOrganization1***schema:CreativeWork1",
+            "value": {
+                "label": "schema:review",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema-dig:PersonOrOrganization1",
+            "w": "schema:CreativeWork1",
+            "name": "schema-dig:PersonOrOrganization1***schema:CreativeWork1",
+            "value": {
+                "label": "schema:reviews",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema-dig:PersonOrOrganization1",
+            "w": "schema:CreativeWork1",
+            "name": "schema-dig:PersonOrOrganization1***schema:CreativeWork1",
+            "value": {
+                "label": "schema:mainEntityOfPage",
+                "type": "updated",
+                "weight": 0.010101010101010102
+            },
+            "weight": 0.010101010101010102
+        },
+        {
+            "v": "schema-dig:PersonOrOrganization1",
+            "w": "schema:Offer1",
+            "name": "schema-dig:PersonOrOrganization1***schema:Offer1",
+            "value": {
+                "label": "schema:makesOffer",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema-dig:PersonOrOrganization1",
+            "w": "schema:Place1",
+            "name": "schema-dig:PersonOrOrganization1***schema:Place1",
+            "value": {
+                "label": "schema:location",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema-dig:PersonOrOrganization1",
+            "w": "schema:Place1",
+            "name": "schema-dig:PersonOrOrganization1***schema:Place1",
+            "value": {
+                "label": "schema:foundingLocation",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema-dig:PersonOrOrganization1",
+            "w": "schema:Place1",
+            "name": "schema-dig:PersonOrOrganization1***schema:Place1",
+            "value": {
+                "label": "schema:serviceArea",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema-dig:PersonOrOrganization1",
+            "w": "schema:Place1",
+            "name": "schema-dig:PersonOrOrganization1***schema:Place1",
+            "value": {
+                "label": "schema:areaServed",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema-dig:PersonOrOrganization1",
+            "w": "schema:Place1",
+            "name": "schema-dig:PersonOrOrganization1***schema:Place1",
+            "value": {
+                "label": "schema:hasPOS",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema-dig:PersonOrOrganization1",
+            "w": "schema:Place1",
+            "name": "schema-dig:PersonOrOrganization1***schema:Place1",
+            "value": {
+                "label": "schema:member",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema-dig:PersonOrOrganization1",
+            "w": "schema:Place1",
+            "name": "schema-dig:PersonOrOrganization1***schema:Place1",
+            "value": {
+                "label": "schema:memberOf",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema-dig:PersonOrOrganization1",
+            "w": "schema:Place1",
+            "name": "schema-dig:PersonOrOrganization1***schema:Place1",
+            "value": {
+                "label": "schema:members",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema-dig:PersonOrOrganization1",
+            "w": "schema:Place1",
+            "name": "schema-dig:PersonOrOrganization1***schema:Place1",
+            "value": {
+                "label": "schema:parentOrganization",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema-dig:PersonOrOrganization1",
+            "w": "schema:Place1",
+            "name": "schema-dig:PersonOrOrganization1***schema:Place1",
+            "value": {
+                "label": "schema:subOrganization",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema-dig:PersonOrOrganization1",
+            "w": "schema:Place1",
+            "name": "schema-dig:PersonOrOrganization1***schema:Place1",
+            "value": {
+                "label": "schema:department",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema-dig:PersonOrOrganization1",
+            "w": "schema:Place1",
+            "name": "schema-dig:PersonOrOrganization1***schema:Place1",
+            "value": {
+                "label": "schema:brand",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema-dig:PersonOrOrganization1",
+            "w": "schema:Place1",
+            "name": "schema-dig:PersonOrOrganization1***schema:Place1",
+            "value": {
+                "label": "schema:homeLocation",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema-dig:PersonOrOrganization1",
+            "w": "schema:Place1",
+            "name": "schema-dig:PersonOrOrganization1***schema:Place1",
+            "value": {
+                "label": "schema:workLocation",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema-dig:PersonOrOrganization1",
+            "w": "schema:Place1",
+            "name": "schema-dig:PersonOrOrganization1***schema:Place1",
+            "value": {
+                "label": "schema:deathPlace",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema-dig:PersonOrOrganization1",
+            "w": "schema:Place1",
+            "name": "schema-dig:PersonOrOrganization1***schema:Place1",
+            "value": {
+                "label": "schema:birthPlace",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema-dig:PersonOrOrganization1",
+            "w": "schema:Place1",
+            "name": "schema-dig:PersonOrOrganization1***schema:Place1",
+            "value": {
+                "label": "schema:alumniOf",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema-dig:PersonOrOrganization1",
+            "w": "schema:Place1",
+            "name": "schema-dig:PersonOrOrganization1***schema:Place1",
+            "value": {
+                "label": "schema:worksFor",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema-dig:PersonOrOrganization1",
+            "w": "schema:Place1",
+            "name": "schema-dig:PersonOrOrganization1***schema:Place1",
+            "value": {
+                "label": "schema:affiliation",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema-dig:PersonOrOrganization1",
+            "w": "schema:Place1",
+            "name": "schema-dig:PersonOrOrganization1***schema:Place1",
+            "value": {
+                "label": "schema-dig:owner",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema-dig:Firearm1",
+            "name": "schema:CreativeWork1***schema-dig:Firearm1",
+            "value": {
+                "label": "schema:mentions",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema-dig:Firearm1",
+            "name": "schema:CreativeWork1***schema-dig:Firearm1",
+            "value": {
+                "label": "schema:about",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema-dig:Firearm1",
+            "name": "schema:CreativeWork1***schema-dig:Firearm1",
+            "value": {
+                "label": "schema:mainEntity",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema-dig:Firearm1",
+            "name": "schema:CreativeWork1***schema-dig:Firearm1",
+            "value": {
+                "label": "schema:itemReviewed",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema-dig:Firearm1",
+            "name": "schema:CreativeWork1***schema-dig:Firearm1",
+            "value": {
+                "label": "schema:gameItem",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema-dig:Firearm1",
+            "name": "schema:CreativeWork1***schema-dig:Firearm1",
+            "value": {
+                "label": "schema:quest",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema-dig:Firearm1",
+            "name": "schema:CreativeWork1***schema-dig:Firearm1",
+            "value": {
+                "label": "schema:characterAttribute",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema-dig:Firearm1",
+            "name": "schema:CreativeWork1***schema-dig:Firearm1",
+            "value": {
+                "label": "schema:category",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:CreativeWork1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema:contributor",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:CreativeWork1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema:author",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:CreativeWork1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema:producer",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:CreativeWork1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema:creator",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:CreativeWork1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema:publisher",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:CreativeWork1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema:copyrightHolder",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:CreativeWork1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema:translator",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:CreativeWork1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema:provider",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:CreativeWork1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema:sourceOrganization",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:CreativeWork1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema:publisherImprint",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:CreativeWork1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema:character",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:CreativeWork1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema:accountablePerson",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:CreativeWork1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema:editor",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:CreativeWork1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema:mentions",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:CreativeWork1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema:about",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:CreativeWork1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema:mainEntity",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:CreativeWork1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema-dig:owner",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:CreativeWork1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema-dig:applicant",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:CreativeWork1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema-dig:assignee",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:CreativeWork1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema:productionCompany",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:CreativeWork1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema:director",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:CreativeWork1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema:directors",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:CreativeWork1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema:actors",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:CreativeWork1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema:actor",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:CreativeWork1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema:musicBy",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:CreativeWork1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema:endorsers",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:CreativeWork1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema:composer",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:CreativeWork1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema:lyricist",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:CreativeWork1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema:reviewedBy",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:CreativeWork1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema:itemReviewed",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:CreativeWork1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema:letterer",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:CreativeWork1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema:artist",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:CreativeWork1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema:colorist",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:CreativeWork1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema:penciler",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:CreativeWork1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema:inker",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:CreativeWork1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema:gameItem",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:CreativeWork1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema:quest",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:CreativeWork1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema:characterAttribute",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:CreativeWork1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema:illustrator",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:CreativeWork1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema:recognizingAuthority",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:CreativeWork1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema:category",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:Offer1",
+            "name": "schema:CreativeWork1***schema:Offer1",
+            "value": {
+                "label": "schema:offers",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:Offer1",
+            "name": "schema:CreativeWork1***schema:Offer1",
+            "value": {
+                "label": "schema:mentions",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:Offer1",
+            "name": "schema:CreativeWork1***schema:Offer1",
+            "value": {
+                "label": "schema:about",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:Offer1",
+            "name": "schema:CreativeWork1***schema:Offer1",
+            "value": {
+                "label": "schema:mainEntity",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:Offer1",
+            "name": "schema:CreativeWork1***schema:Offer1",
+            "value": {
+                "label": "schema:itemReviewed",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:Offer1",
+            "name": "schema:CreativeWork1***schema:Offer1",
+            "value": {
+                "label": "schema:gameItem",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:Offer1",
+            "name": "schema:CreativeWork1***schema:Offer1",
+            "value": {
+                "label": "schema:quest",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:Offer1",
+            "name": "schema:CreativeWork1***schema:Offer1",
+            "value": {
+                "label": "schema:characterAttribute",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:Offer1",
+            "name": "schema:CreativeWork1***schema:Offer1",
+            "value": {
+                "label": "schema:category",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:Place1",
+            "name": "schema:CreativeWork1***schema:Place1",
+            "value": {
+                "label": "schema:locationCreated",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:Place1",
+            "name": "schema:CreativeWork1***schema:Place1",
+            "value": {
+                "label": "schema-dig:primaryLocation",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:Place1",
+            "name": "schema:CreativeWork1***schema:Place1",
+            "value": {
+                "label": "schema:contentLocation",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:Place1",
+            "name": "schema:CreativeWork1***schema:Place1",
+            "value": {
+                "label": "schema:mentions",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:Place1",
+            "name": "schema:CreativeWork1***schema:Place1",
+            "value": {
+                "label": "schema:about",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:Place1",
+            "name": "schema:CreativeWork1***schema:Place1",
+            "value": {
+                "label": "schema:mainEntity",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:Place1",
+            "name": "schema:CreativeWork1***schema:Place1",
+            "value": {
+                "label": "schema:contributor",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:Place1",
+            "name": "schema:CreativeWork1***schema:Place1",
+            "value": {
+                "label": "schema:author",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:Place1",
+            "name": "schema:CreativeWork1***schema:Place1",
+            "value": {
+                "label": "schema:producer",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:Place1",
+            "name": "schema:CreativeWork1***schema:Place1",
+            "value": {
+                "label": "schema:creator",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:Place1",
+            "name": "schema:CreativeWork1***schema:Place1",
+            "value": {
+                "label": "schema:publisher",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:Place1",
+            "name": "schema:CreativeWork1***schema:Place1",
+            "value": {
+                "label": "schema:copyrightHolder",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:Place1",
+            "name": "schema:CreativeWork1***schema:Place1",
+            "value": {
+                "label": "schema:translator",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:Place1",
+            "name": "schema:CreativeWork1***schema:Place1",
+            "value": {
+                "label": "schema:provider",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:Place1",
+            "name": "schema:CreativeWork1***schema:Place1",
+            "value": {
+                "label": "schema:sourceOrganization",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:Place1",
+            "name": "schema:CreativeWork1***schema:Place1",
+            "value": {
+                "label": "schema:publisherImprint",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:Place1",
+            "name": "schema:CreativeWork1***schema:Place1",
+            "value": {
+                "label": "schema-dig:owner",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:Place1",
+            "name": "schema:CreativeWork1***schema:Place1",
+            "value": {
+                "label": "schema:productionCompany",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:Place1",
+            "name": "schema:CreativeWork1***schema:Place1",
+            "value": {
+                "label": "schema:endorsers",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:Place1",
+            "name": "schema:CreativeWork1***schema:Place1",
+            "value": {
+                "label": "schema:composer",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:Place1",
+            "name": "schema:CreativeWork1***schema:Place1",
+            "value": {
+                "label": "schema:reviewedBy",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:Place1",
+            "name": "schema:CreativeWork1***schema:Place1",
+            "value": {
+                "label": "schema:itemReviewed",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:Place1",
+            "name": "schema:CreativeWork1***schema:Place1",
+            "value": {
+                "label": "schema:regionsAllowed",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:Place1",
+            "name": "schema:CreativeWork1***schema:Place1",
+            "value": {
+                "label": "schema:spatial",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:Place1",
+            "name": "schema:CreativeWork1***schema:Place1",
+            "value": {
+                "label": "schema:gameLocation",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:Place1",
+            "name": "schema:CreativeWork1***schema:Place1",
+            "value": {
+                "label": "schema:gameItem",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:Place1",
+            "name": "schema:CreativeWork1***schema:Place1",
+            "value": {
+                "label": "schema:quest",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:Place1",
+            "name": "schema:CreativeWork1***schema:Place1",
+            "value": {
+                "label": "schema:characterAttribute",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:Place1",
+            "name": "schema:CreativeWork1***schema:Place1",
+            "value": {
+                "label": "schema:recognizingAuthority",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:CreativeWork1",
+            "w": "schema:Place1",
+            "name": "schema:CreativeWork1***schema:Place1",
+            "value": {
+                "label": "schema:category",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:Offer1",
+            "w": "schema-dig:Firearm1",
+            "name": "schema:Offer1***schema-dig:Firearm1",
+            "value": {
+                "label": "schema:itemOffered",
+                "type": "updated",
+                "weight": 0.010101010101010102
+            },
+            "weight": 0.010101010101010102
+        },
+        {
+            "v": "schema:Offer1",
+            "w": "schema-dig:Firearm1",
+            "name": "schema:Offer1***schema-dig:Firearm1",
+            "value": {
+                "label": "schema:category",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:Offer1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:Offer1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema:offeredBy",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:Offer1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:Offer1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema:seller",
+                "type": "updated",
+                "weight": 0.010101010101010102
+            },
+            "weight": 0.010101010101010102
+        },
+        {
+            "v": "schema:Offer1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:Offer1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema:category",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:Offer1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:Offer1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema-dig:owner",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:Offer1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:Offer1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema-dig:applicant",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:Offer1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:Offer1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema-dig:assignee",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:Offer1",
+            "w": "schema:CreativeWork1",
+            "name": "schema:Offer1***schema:CreativeWork1",
+            "value": {
+                "label": "schema:category",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:Offer1",
+            "w": "schema:CreativeWork1",
+            "name": "schema:Offer1***schema:CreativeWork1",
+            "value": {
+                "label": "schema:review",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:Offer1",
+            "w": "schema:CreativeWork1",
+            "name": "schema:Offer1***schema:CreativeWork1",
+            "value": {
+                "label": "schema:reviews",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:Offer1",
+            "w": "schema:CreativeWork1",
+            "name": "schema:Offer1***schema:CreativeWork1",
+            "value": {
+                "label": "schema:mainEntityOfPage",
+                "type": "updated",
+                "weight": 0.010101010101010102
+            },
+            "weight": 0.010101010101010102
+        },
+        {
+            "v": "schema:Offer1",
+            "w": "schema:Place1",
+            "name": "schema:Offer1***schema:Place1",
+            "value": {
+                "label": "schema:ineligibleRegion",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:Offer1",
+            "w": "schema:Place1",
+            "name": "schema:Offer1***schema:Place1",
+            "value": {
+                "label": "schema:availableAtOrFrom",
+                "type": "updated",
+                "weight": 0.010101010101010102
+            },
+            "weight": 0.010101010101010102
+        },
+        {
+            "v": "schema:Offer1",
+            "w": "schema:Place1",
+            "name": "schema:Offer1***schema:Place1",
+            "value": {
+                "label": "schema:areaServed",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:Offer1",
+            "w": "schema:Place1",
+            "name": "schema:Offer1***schema:Place1",
+            "value": {
+                "label": "schema:eligibleRegion",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:Offer1",
+            "w": "schema:Place1",
+            "name": "schema:Offer1***schema:Place1",
+            "value": {
+                "label": "schema:category",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:Offer1",
+            "w": "schema:Place1",
+            "name": "schema:Offer1***schema:Place1",
+            "value": {
+                "label": "schema:offeredBy",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:Offer1",
+            "w": "schema:Place1",
+            "name": "schema:Offer1***schema:Place1",
+            "value": {
+                "label": "schema:seller",
+                "type": "updated",
+                "weight": 0.010101010101010102
+            },
+            "weight": 0.010101010101010102
+        },
+        {
+            "v": "schema:Offer1",
+            "w": "schema:Place1",
+            "name": "schema:Offer1***schema:Place1",
+            "value": {
+                "label": "schema-dig:owner",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:Place1",
+            "w": "schema-dig:Firearm1",
+            "name": "schema:Place1***schema-dig:Firearm1",
+            "value": {
+                "label": "schema:owns",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:Place1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:Place1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema-dig:owner",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:Place1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:Place1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema-dig:applicant",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:Place1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:Place1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema-dig:assignee",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:Place1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:Place1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema:branchOf",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:Place1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:Place1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema:member",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:Place1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:Place1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema:memberOf",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:Place1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:Place1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema:members",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:Place1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:Place1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema:parentOrganization",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:Place1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:Place1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema:subOrganization",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:Place1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:Place1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema:department",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:Place1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:Place1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema:brand",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:Place1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:Place1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema:founder",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:Place1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:Place1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema:alumni",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:Place1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:Place1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema:employees",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:Place1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:Place1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema:employee",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:Place1",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "schema:Place1***schema-dig:PersonOrOrganization1",
+            "value": {
+                "label": "schema:founders",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:Place1",
+            "w": "schema:CreativeWork1",
+            "name": "schema:Place1***schema:CreativeWork1",
+            "value": {
+                "label": "schema:review",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:Place1",
+            "w": "schema:CreativeWork1",
+            "name": "schema:Place1***schema:CreativeWork1",
+            "value": {
+                "label": "schema:reviews",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:Place1",
+            "w": "schema:CreativeWork1",
+            "name": "schema:Place1***schema:CreativeWork1",
+            "value": {
+                "label": "schema:photo",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:Place1",
+            "w": "schema:CreativeWork1",
+            "name": "schema:Place1***schema:CreativeWork1",
+            "value": {
+                "label": "schema:photos",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:Place1",
+            "w": "schema:CreativeWork1",
+            "name": "schema:Place1***schema:CreativeWork1",
+            "value": {
+                "label": "schema:hasMap",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:Place1",
+            "w": "schema:CreativeWork1",
+            "name": "schema:Place1***schema:CreativeWork1",
+            "value": {
+                "label": "schema:mainEntityOfPage",
+                "type": "updated",
+                "weight": 0.010101010101010102
+            },
+            "weight": 0.010101010101010102
+        },
+        {
+            "v": "schema:Place1",
+            "w": "schema:CreativeWork1",
+            "name": "schema:Place1***schema:CreativeWork1",
+            "value": {
+                "label": "schema-dig:isAuthorOf",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        },
+        {
+            "v": "schema:Place1",
+            "w": "schema:Offer1",
+            "name": "schema:Place1***schema:Offer1",
+            "value": {
+                "label": "schema:makesOffer",
+                "type": "inherited",
+                "weight": 300
+            },
+            "weight": 300
+        }
+    ]
+}
