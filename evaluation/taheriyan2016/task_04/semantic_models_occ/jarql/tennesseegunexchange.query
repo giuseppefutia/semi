@@ -75,11 +75,11 @@ CONSTRUCT {
     ?PostalAddress1 schema:postalCode ?Code1354.
     ?PostalAddress1 rdf:type schema:PostalAddress.
     ?Offer1 schema:itemOffered ?Firearm1.
-    ?PersonOrOrganization1 schema:address ?PostalAddress1.
-    ?PostalAddress1 schema:mainEntityOfPage ?CreativeWork1.
+    ?Offer2 schema:itemOffered ?Firearm1.
+    ?Offer1 schema:seller ?PersonOrOrganization1.
+    ?PersonOrOrganization1 schema:contactPoint ?PostalAddress1.
+    ?Offer1 schema:mainEntityOfPage ?CreativeWork1.
     ?Offer1 schema:availableAtOrFrom ?Place1.
-    ?Offer2 schema:availableAtOrFrom ?Place1.
-    ?Place1 schema:address ?PostalAddress1.
 }
 WHERE {
     ?root a jarql:Root.

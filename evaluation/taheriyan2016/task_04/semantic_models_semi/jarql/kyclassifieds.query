@@ -67,8 +67,8 @@ CONSTRUCT {
     ?Offer2 schema:name ?malcome831610.
     ?Offer2 rdf:type schema:Offer.
     ?Offer1 schema:seller ?PersonOrOrganization1.
-    ?Offer2 schema:seller ?PersonOrOrganization1.
     ?Offer1 schema:mainEntityOfPage ?CreativeWork1.
+    ?Offer1 schema:relatedTo ?Offer2.
 }
 WHERE {
     ?root a jarql:Root.

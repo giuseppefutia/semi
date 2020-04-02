@@ -89,13 +89,13 @@ CONSTRUCT {
     ?Offer1 schema:seller ?PersonOrOrganization1.
     ?Offer4 schema:seller ?PersonOrOrganization1.
     ?Offer1 schema:mainEntityOfPage ?CreativeWork1.
+    ?Offer1 schema:relatedTo ?Offer2.
     ?Offer1 schema:availableAtOrFrom ?Place1.
     ?Offer1 schema:availableAtOrFrom ?Place2.
     ?Offer1 schema:availableAtOrFrom ?Place3.
     ?Offer1 schema:availableAtOrFrom ?Place4.
-    ?Offer2 schema:availableAtOrFrom ?Place5.
+    ?Offer1 schema:availableAtOrFrom ?Place5.
     ?Offer3 schema:availableAtOrFrom ?Place3.
-    ?Offer3 schema:availableAtOrFrom ?Place5.
     ?Offer5 schema:availableAtOrFrom ?Place3.
 }
 WHERE {
