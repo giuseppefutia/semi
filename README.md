@@ -217,7 +217,7 @@ The approach for generating the initial semantic model has a main limit: the ste
 
 # Semantic Model Refinement
 The semantic model refinement requires to prepare the training, the test, and the validation datasets as input of the deep learning model. Such model is a *graph neural network* and its main goal is to reconstruct the linked data edges using the latent representation of entities and properties. The architecture of the graph neural network is an auto-encoder composed of:
-* An encoder called [Relational Graph Convolutional Networks (R-GCNs)](https://arxiv.org/abs/1703.06103):
+* An encoder called [Relational Graph Convolutional Networks (R-GCNs)](https://arxiv.org/abs/1703.06103).
 * A decoder called [DistMult](https://arxiv.org/abs/1412.6575).
 
 The training, the test, and the validation datasets are built splitting a linked data repository (background knowledge) that is built through the semantic models defined by the domain experts on various sources, which are similar to the target source.  
