@@ -78,12 +78,12 @@ CONSTRUCT {
     ?Offer2 rdf:type schema:Offer.
     ?Place1 schema:name ?Single1162.
     ?Place1 rdf:type schema:Place.
-    ?Firearm1 schema:mainEntityOfPage ?CreativeWork1.
-    ?PersonOrOrganization1 schema:relatedTo ?Offer2.
-    ?PersonOrOrganization2 schema:mainEntityOfPage ?CreativeWork1.
-    ?Place1 schema:mainEntityOfPage ?CreativeWork1.
-    ?Offer1 schema:relatedTo ?Offer2.
-    ?Offer2 schema:availableAtOrFrom ?Place1.
+    ?Firearm1 schema:manufacturer ?PersonOrOrganization2.
+    ?Offer1 schema:itemOffered ?Firearm1.
+    ?Offer2 schema:itemOffered ?Firearm1.
+    ?Offer1 schema:seller ?PersonOrOrganization1.
+    ?Offer1 schema:mainEntityOfPage ?CreativeWork1.
+    ?Offer1 schema:availableAtOrFrom ?Place1.
 }
 WHERE {
     ?root a jarql:Root.

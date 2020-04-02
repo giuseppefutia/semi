@@ -83,6 +83,13 @@
             }
         },
         {
+            "v": "Seller2279",
+            "value": {
+                "type": "attribute_name",
+                "label": "Seller2279"
+            }
+        },
+        {
             "v": "St2327",
             "value": {
                 "type": "attribute_name",
@@ -115,13 +122,6 @@
             "value": {
                 "type": "class_uri",
                 "label": "schema-dig:PersonOrOrganization"
-            }
-        },
-        {
-            "v": "Seller2279",
-            "value": {
-                "type": "attribute_name",
-                "label": "Seller2279"
             }
         },
         {
@@ -250,6 +250,17 @@
             "weight": 1
         },
         {
+            "v": "Seller2279",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "Seller2279***schema-dig:PersonOrOrganization1",
+            "value": {
+                "type": "st_property_uri",
+                "label": "schema:name***inverted",
+                "weight": 1
+            },
+            "weight": 1
+        },
+        {
             "v": "St2327",
             "w": "schema:PostalAddress1",
             "name": "St2327***schema:PostalAddress1",
@@ -273,25 +284,14 @@
         },
         {
             "v": "schema-dig:Firearm1",
-            "w": "schema-dig:PersonOrOrganization1",
-            "name": "schema-dig:Firearm1***schema-dig:PersonOrOrganization1",
-            "value": {
-                "label": "schema:manufacturer",
-                "type": "updated",
-                "weight": 0.01499306775869979
-            },
-            "weight": 0.01499306775869979
-        },
-        {
-            "v": "schema-dig:Firearm1",
             "w": "schema-dig:PersonOrOrganization2",
             "name": "schema-dig:Firearm1***schema-dig:PersonOrOrganization2",
             "value": {
                 "label": "schema:manufacturer",
                 "type": "updated",
-                "weight": 0.013636089100060795
+                "weight": 0.545443564002432
             },
-            "weight": 0.013636089100060795
+            "weight": 0.545443564002432
         },
         {
             "v": "schema-dig:Firearm1",
@@ -300,19 +300,20 @@
             "value": {
                 "type": "updated",
                 "label": "schema:itemOffered***inverted",
-                "weight": 0.022665232528511714
+                "weight": 0.11332616264255863
             },
-            "weight": 0.022665232528511714
+            "weight": 0.11332616264255863
         },
         {
             "v": "schema-dig:PersonOrOrganization1",
-            "w": "Seller2279",
-            "name": "schema-dig:PersonOrOrganization1***Seller2279",
+            "w": "schema:Offer1",
+            "name": "schema-dig:PersonOrOrganization1***schema:Offer1",
             "value": {
-                "label": "schema:name",
-                "type": "st_property_uri"
+                "type": "updated",
+                "label": "schema:seller***inverted",
+                "weight": 0.14002268206513765
             },
-            "weight": 1
+            "weight": 0.14002268206513765
         },
         {
             "v": "schema-dig:PersonOrOrganization2",
@@ -331,9 +332,9 @@
             "value": {
                 "label": "schema:address",
                 "type": "updated",
-                "weight": 0.04131384637177833
+                "weight": 1.1981015447815713
             },
-            "weight": 0.04131384637177833
+            "weight": 1.1981015447815713
         },
         {
             "v": "schema:ContactPoint1",
@@ -352,9 +353,9 @@
             "value": {
                 "type": "updated",
                 "label": "schema:mainEntityOfPage***inverted",
-                "weight": 0.058798124044796514
+                "weight": 0.18091730475322002
             },
-            "weight": 0.058798124044796514
+            "weight": 0.18091730475322002
         },
         {
             "v": "schema:CreativeWork1",
@@ -363,9 +364,9 @@
             "value": {
                 "type": "updated",
                 "label": "schema:mainEntityOfPage***inverted",
-                "weight": 0.043227368793203554
+                "weight": 1.729094751728143
             },
-            "weight": 0.043227368793203554
+            "weight": 1.729094751728143
         },
         {
             "v": "schema:Offer1",

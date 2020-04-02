@@ -39,6 +39,10 @@
             "type": "attribute_name",
             "label": "Name0846"
         },
+        "Price0855": {
+            "type": "attribute_name",
+            "label": "Price0855"
+        },
         "file_name": {
             "type": "attribute_name",
             "label": "file_name"
@@ -47,17 +51,13 @@
             "type": "class_uri",
             "label": "schema-dig:PersonOrOrganization"
         },
-        "schema:Place1": {
-            "type": "class_uri",
-            "label": "schema:Place"
-        },
         "schema:PostalAddress1": {
             "type": "class_uri",
             "label": "schema:PostalAddress"
         },
-        "Price0855": {
-            "type": "attribute_name",
-            "label": "Price0855"
+        "schema:Place1": {
+            "type": "class_uri",
+            "label": "schema:Place"
         },
         "Location0814": {
             "type": "attribute_name",
@@ -112,16 +112,49 @@
                 },
                 "weight": 1
             },
-            "schema:CreativeWork1\u0001schema:Offer1\u0001schema:CreativeWork1***schema:Offer1\u0001updatedschema:mainEntityOfPage***inverted\u00010.011111111111111112": {
+            "Price0855\u0001schema:Offer1\u0001Price0855***schema:Offer1\u0001st_property_urischema:price***inverted\u00011": {
+                "v": "Price0855",
+                "w": "schema:Offer1",
+                "name": "Price0855***schema:Offer1",
+                "value": {
+                    "type": "st_property_uri",
+                    "label": "schema:price***inverted",
+                    "weight": 1
+                },
+                "weight": 1
+            },
+            "schema-dig:Firearm1\u0001schema:Offer1\u0001schema-dig:Firearm1***schema:Offer1\u0001updatedschema:itemOffered***inverted\u00010.16131490455272826": {
+                "v": "schema-dig:Firearm1",
+                "w": "schema:Offer1",
+                "name": "schema-dig:Firearm1***schema:Offer1",
+                "value": {
+                    "type": "updated",
+                    "label": "schema:itemOffered***inverted",
+                    "weight": 0.16131490455272826
+                },
+                "weight": 0.16131490455272826
+            },
+            "schema-dig:PersonOrOrganization1\u0001schema:Offer1\u0001schema-dig:PersonOrOrganization1***schema:Offer1\u0001updatedschema:seller***inverted\u00010.0582279937208344": {
+                "v": "schema-dig:PersonOrOrganization1",
+                "w": "schema:Offer1",
+                "name": "schema-dig:PersonOrOrganization1***schema:Offer1",
+                "value": {
+                    "type": "updated",
+                    "label": "schema:seller***inverted",
+                    "weight": 0.0582279937208344
+                },
+                "weight": 0.0582279937208344
+            },
+            "schema:CreativeWork1\u0001schema:Offer1\u0001schema:CreativeWork1***schema:Offer1\u0001updatedschema:mainEntityOfPage***inverted\u00010.06339185141757539": {
                 "v": "schema:CreativeWork1",
                 "w": "schema:Offer1",
                 "name": "schema:CreativeWork1***schema:Offer1",
                 "value": {
                     "type": "updated",
                     "label": "schema:mainEntityOfPage***inverted",
-                    "weight": 0.011111111111111112
+                    "weight": 0.06339185141757539
                 },
-                "weight": 0.011111111111111112
+                "weight": 0.06339185141757539
             }
         },
         "Accessories0378": {},
@@ -175,28 +208,6 @@
                 },
                 "weight": 1
             },
-            "schema-dig:Firearm1\u0001schema:CreativeWork1\u0001schema-dig:Firearm1***schema:CreativeWork1\u0001updatedschema:mainEntityOfPage\u00010.011111111111111112": {
-                "v": "schema-dig:Firearm1",
-                "w": "schema:CreativeWork1",
-                "name": "schema-dig:Firearm1***schema:CreativeWork1",
-                "value": {
-                    "label": "schema:mainEntityOfPage",
-                    "type": "updated",
-                    "weight": 0.011111111111111112
-                },
-                "weight": 0.011111111111111112
-            },
-            "schema-dig:PersonOrOrganization1\u0001schema:CreativeWork1\u0001schema-dig:PersonOrOrganization1***schema:CreativeWork1\u0001updatedschema:mainEntityOfPage\u00010.011111111111111112": {
-                "v": "schema-dig:PersonOrOrganization1",
-                "w": "schema:CreativeWork1",
-                "name": "schema-dig:PersonOrOrganization1***schema:CreativeWork1",
-                "value": {
-                    "label": "schema:mainEntityOfPage",
-                    "type": "updated",
-                    "weight": 0.011111111111111112
-                },
-                "weight": 0.011111111111111112
-            },
             "trade1645\u0001schema:CreativeWork1\u0001trade1645***schema:CreativeWork1\u0001st_property_urischema:copyrightYear***inverted\u00011": {
                 "v": "trade1645",
                 "w": "schema:CreativeWork1",
@@ -210,6 +221,7 @@
             }
         },
         "Name0846": {},
+        "Price0855": {},
         "file_name": {},
         "schema-dig:PersonOrOrganization1": {
             "started0628\u0001schema-dig:PersonOrOrganization1\u0001started0628***schema-dig:PersonOrOrganization1\u0001st_property_urischema-dig:identifier***inverted\u00011": {
@@ -224,42 +236,30 @@
                 "weight": 1
             }
         },
-        "schema:Place1": {
-            "schema:CreativeWork1\u0001schema:Place1\u0001schema:CreativeWork1***schema:Place1\u0001updatedschema:mainEntityOfPage***inverted\u00010.011111111111111112": {
-                "v": "schema:CreativeWork1",
-                "w": "schema:Place1",
-                "name": "schema:CreativeWork1***schema:Place1",
-                "value": {
-                    "type": "updated",
-                    "label": "schema:mainEntityOfPage***inverted",
-                    "weight": 0.011111111111111112
-                },
-                "weight": 0.011111111111111112
-            }
-        },
         "schema:PostalAddress1": {
-            "schema:CreativeWork1\u0001schema:PostalAddress1\u0001schema:CreativeWork1***schema:PostalAddress1\u0001updatedschema:mainEntityOfPage***inverted\u00010.011111111111111112": {
-                "v": "schema:CreativeWork1",
+            "schema-dig:PersonOrOrganization1\u0001schema:PostalAddress1\u0001schema-dig:PersonOrOrganization1***schema:PostalAddress1\u0001updatedschema:contactPoint\u00010.18247091440454638": {
+                "v": "schema-dig:PersonOrOrganization1",
                 "w": "schema:PostalAddress1",
-                "name": "schema:CreativeWork1***schema:PostalAddress1",
+                "name": "schema-dig:PersonOrOrganization1***schema:PostalAddress1",
                 "value": {
+                    "label": "schema:contactPoint",
                     "type": "updated",
-                    "label": "schema:mainEntityOfPage***inverted",
-                    "weight": 0.011111111111111112
+                    "weight": 0.18247091440454638
                 },
-                "weight": 0.011111111111111112
+                "weight": 0.18247091440454638
             }
         },
-        "Price0855": {
-            "schema:Offer1\u0001Price0855\u0001schema:Offer1***Price0855\u0001st_property_urischema:price\u00011": {
+        "schema:Place1": {
+            "schema:Offer1\u0001schema:Place1\u0001schema:Offer1***schema:Place1\u0001updatedschema:availableAtOrFrom\u00010.11363862802879303": {
                 "v": "schema:Offer1",
-                "w": "Price0855",
-                "name": "schema:Offer1***Price0855",
+                "w": "schema:Place1",
+                "name": "schema:Offer1***schema:Place1",
                 "value": {
-                    "label": "schema:price",
-                    "type": "st_property_uri"
+                    "label": "schema:availableAtOrFrom",
+                    "type": "updated",
+                    "weight": 0.11363862802879303
                 },
-                "weight": 1
+                "weight": 0.11363862802879303
             }
         },
         "Location0814": {
@@ -295,6 +295,9 @@
             "0029": 1,
             "Description0868": 1,
             "FT0613": 1,
+            "Price0855": 1,
+            "schema-dig:Firearm1": 1,
+            "schema-dig:PersonOrOrganization1": 1,
             "schema:CreativeWork1": 1
         },
         "Accessories0378": {},
@@ -308,22 +311,18 @@
         "schema:CreativeWork1": {
             "Messages0801": 1,
             "file_name": 1,
-            "schema-dig:Firearm1": 1,
-            "schema-dig:PersonOrOrganization1": 1,
             "trade1645": 1
         },
         "Name0846": {},
+        "Price0855": {},
         "file_name": {},
         "schema-dig:PersonOrOrganization1": {
             "started0628": 1
         },
-        "schema:Place1": {
-            "schema:CreativeWork1": 1
-        },
         "schema:PostalAddress1": {
-            "schema:CreativeWork1": 1
+            "schema-dig:PersonOrOrganization1": 1
         },
-        "Price0855": {
+        "schema:Place1": {
             "schema:Offer1": 1
         },
         "Location0814": {
@@ -350,15 +349,16 @@
             }
         },
         "schema:Offer1": {
-            "schema:Offer1\u0001Price0855\u0001schema:Offer1***Price0855\u0001st_property_urischema:price\u00011": {
+            "schema:Offer1\u0001schema:Place1\u0001schema:Offer1***schema:Place1\u0001updatedschema:availableAtOrFrom\u00010.11363862802879303": {
                 "v": "schema:Offer1",
-                "w": "Price0855",
-                "name": "schema:Offer1***Price0855",
+                "w": "schema:Place1",
+                "name": "schema:Offer1***schema:Place1",
                 "value": {
-                    "label": "schema:price",
-                    "type": "st_property_uri"
+                    "label": "schema:availableAtOrFrom",
+                    "type": "updated",
+                    "weight": 0.11363862802879303
                 },
-                "weight": 1
+                "weight": 0.11363862802879303
             }
         },
         "Accessories0378": {
@@ -375,16 +375,16 @@
             }
         },
         "schema-dig:Firearm1": {
-            "schema-dig:Firearm1\u0001schema:CreativeWork1\u0001schema-dig:Firearm1***schema:CreativeWork1\u0001updatedschema:mainEntityOfPage\u00010.011111111111111112": {
+            "schema-dig:Firearm1\u0001schema:Offer1\u0001schema-dig:Firearm1***schema:Offer1\u0001updatedschema:itemOffered***inverted\u00010.16131490455272826": {
                 "v": "schema-dig:Firearm1",
-                "w": "schema:CreativeWork1",
-                "name": "schema-dig:Firearm1***schema:CreativeWork1",
+                "w": "schema:Offer1",
+                "name": "schema-dig:Firearm1***schema:Offer1",
                 "value": {
-                    "label": "schema:mainEntityOfPage",
                     "type": "updated",
-                    "weight": 0.011111111111111112
+                    "label": "schema:itemOffered***inverted",
+                    "weight": 0.16131490455272826
                 },
-                "weight": 0.011111111111111112
+                "weight": 0.16131490455272826
             }
         },
         "Description0868": {
@@ -427,38 +427,16 @@
             }
         },
         "schema:CreativeWork1": {
-            "schema:CreativeWork1\u0001schema:Offer1\u0001schema:CreativeWork1***schema:Offer1\u0001updatedschema:mainEntityOfPage***inverted\u00010.011111111111111112": {
+            "schema:CreativeWork1\u0001schema:Offer1\u0001schema:CreativeWork1***schema:Offer1\u0001updatedschema:mainEntityOfPage***inverted\u00010.06339185141757539": {
                 "v": "schema:CreativeWork1",
                 "w": "schema:Offer1",
                 "name": "schema:CreativeWork1***schema:Offer1",
                 "value": {
                     "type": "updated",
                     "label": "schema:mainEntityOfPage***inverted",
-                    "weight": 0.011111111111111112
+                    "weight": 0.06339185141757539
                 },
-                "weight": 0.011111111111111112
-            },
-            "schema:CreativeWork1\u0001schema:Place1\u0001schema:CreativeWork1***schema:Place1\u0001updatedschema:mainEntityOfPage***inverted\u00010.011111111111111112": {
-                "v": "schema:CreativeWork1",
-                "w": "schema:Place1",
-                "name": "schema:CreativeWork1***schema:Place1",
-                "value": {
-                    "type": "updated",
-                    "label": "schema:mainEntityOfPage***inverted",
-                    "weight": 0.011111111111111112
-                },
-                "weight": 0.011111111111111112
-            },
-            "schema:CreativeWork1\u0001schema:PostalAddress1\u0001schema:CreativeWork1***schema:PostalAddress1\u0001updatedschema:mainEntityOfPage***inverted\u00010.011111111111111112": {
-                "v": "schema:CreativeWork1",
-                "w": "schema:PostalAddress1",
-                "name": "schema:CreativeWork1***schema:PostalAddress1",
-                "value": {
-                    "type": "updated",
-                    "label": "schema:mainEntityOfPage***inverted",
-                    "weight": 0.011111111111111112
-                },
-                "weight": 0.011111111111111112
+                "weight": 0.06339185141757539
             }
         },
         "Name0846": {
@@ -469,6 +447,19 @@
                 "value": {
                     "type": "st_property_uri",
                     "label": "schema:name***inverted",
+                    "weight": 1
+                },
+                "weight": 1
+            }
+        },
+        "Price0855": {
+            "Price0855\u0001schema:Offer1\u0001Price0855***schema:Offer1\u0001st_property_urischema:price***inverted\u00011": {
+                "v": "Price0855",
+                "w": "schema:Offer1",
+                "name": "Price0855***schema:Offer1",
+                "value": {
+                    "type": "st_property_uri",
+                    "label": "schema:price***inverted",
                     "weight": 1
                 },
                 "weight": 1
@@ -488,28 +479,27 @@
             }
         },
         "schema-dig:PersonOrOrganization1": {
-            "schema-dig:PersonOrOrganization1\u0001schema:CreativeWork1\u0001schema-dig:PersonOrOrganization1***schema:CreativeWork1\u0001updatedschema:mainEntityOfPage\u00010.011111111111111112": {
+            "schema-dig:PersonOrOrganization1\u0001schema:Offer1\u0001schema-dig:PersonOrOrganization1***schema:Offer1\u0001updatedschema:seller***inverted\u00010.0582279937208344": {
                 "v": "schema-dig:PersonOrOrganization1",
-                "w": "schema:CreativeWork1",
-                "name": "schema-dig:PersonOrOrganization1***schema:CreativeWork1",
+                "w": "schema:Offer1",
+                "name": "schema-dig:PersonOrOrganization1***schema:Offer1",
                 "value": {
-                    "label": "schema:mainEntityOfPage",
                     "type": "updated",
-                    "weight": 0.011111111111111112
+                    "label": "schema:seller***inverted",
+                    "weight": 0.0582279937208344
                 },
-                "weight": 0.011111111111111112
-            }
-        },
-        "schema:Place1": {
-            "schema:Place1\u0001Location0814\u0001schema:Place1***Location0814\u0001st_property_urischema:name\u00011": {
-                "v": "schema:Place1",
-                "w": "Location0814",
-                "name": "schema:Place1***Location0814",
+                "weight": 0.0582279937208344
+            },
+            "schema-dig:PersonOrOrganization1\u0001schema:PostalAddress1\u0001schema-dig:PersonOrOrganization1***schema:PostalAddress1\u0001updatedschema:contactPoint\u00010.18247091440454638": {
+                "v": "schema-dig:PersonOrOrganization1",
+                "w": "schema:PostalAddress1",
+                "name": "schema-dig:PersonOrOrganization1***schema:PostalAddress1",
                 "value": {
-                    "label": "schema:name",
-                    "type": "st_property_uri"
+                    "label": "schema:contactPoint",
+                    "type": "updated",
+                    "weight": 0.18247091440454638
                 },
-                "weight": 1
+                "weight": 0.18247091440454638
             }
         },
         "schema:PostalAddress1": {
@@ -524,7 +514,18 @@
                 "weight": 1
             }
         },
-        "Price0855": {},
+        "schema:Place1": {
+            "schema:Place1\u0001Location0814\u0001schema:Place1***Location0814\u0001st_property_urischema:name\u00011": {
+                "v": "schema:Place1",
+                "w": "Location0814",
+                "name": "schema:Place1***Location0814",
+                "value": {
+                    "label": "schema:name",
+                    "type": "st_property_uri"
+                },
+                "weight": 1
+            }
+        },
         "Location0814": {},
         "For0031": {},
         "started0628": {
@@ -559,13 +560,13 @@
             "schema:Offer1": 1
         },
         "schema:Offer1": {
-            "Price0855": 1
+            "schema:Place1": 1
         },
         "Accessories0378": {
             "schema-dig:Firearm1": 1
         },
         "schema-dig:Firearm1": {
-            "schema:CreativeWork1": 1
+            "schema:Offer1": 1
         },
         "Description0868": {
             "schema:Offer1": 1
@@ -577,26 +578,27 @@
             "schema:CreativeWork1": 1
         },
         "schema:CreativeWork1": {
-            "schema:Offer1": 1,
-            "schema:Place1": 1,
-            "schema:PostalAddress1": 1
+            "schema:Offer1": 1
         },
         "Name0846": {
             "schema-dig:Firearm1": 1
+        },
+        "Price0855": {
+            "schema:Offer1": 1
         },
         "file_name": {
             "schema:CreativeWork1": 1
         },
         "schema-dig:PersonOrOrganization1": {
-            "schema:CreativeWork1": 1
-        },
-        "schema:Place1": {
-            "Location0814": 1
+            "schema:Offer1": 1,
+            "schema:PostalAddress1": 1
         },
         "schema:PostalAddress1": {
             "For0031": 1
         },
-        "Price0855": {},
+        "schema:Place1": {
+            "Location0814": 1
+        },
         "Location0814": {},
         "For0031": {},
         "started0628": {
@@ -673,6 +675,17 @@
             },
             "weight": 1
         },
+        "Price0855\u0001schema:Offer1\u0001Price0855***schema:Offer1\u0001st_property_urischema:price***inverted\u00011": {
+            "v": "Price0855",
+            "w": "schema:Offer1",
+            "name": "Price0855***schema:Offer1",
+            "value": {
+                "type": "st_property_uri",
+                "label": "schema:price***inverted",
+                "weight": 1
+            },
+            "weight": 1
+        },
         "file_name\u0001schema:CreativeWork1\u0001file_name***schema:CreativeWork1\u0001st_property_urischema:name***inverted\u00011": {
             "v": "file_name",
             "w": "schema:CreativeWork1",
@@ -684,70 +697,60 @@
             },
             "weight": 1
         },
-        "schema-dig:Firearm1\u0001schema:CreativeWork1\u0001schema-dig:Firearm1***schema:CreativeWork1\u0001updatedschema:mainEntityOfPage\u00010.011111111111111112": {
+        "schema-dig:Firearm1\u0001schema:Offer1\u0001schema-dig:Firearm1***schema:Offer1\u0001updatedschema:itemOffered***inverted\u00010.16131490455272826": {
             "v": "schema-dig:Firearm1",
-            "w": "schema:CreativeWork1",
-            "name": "schema-dig:Firearm1***schema:CreativeWork1",
+            "w": "schema:Offer1",
+            "name": "schema-dig:Firearm1***schema:Offer1",
             "value": {
-                "label": "schema:mainEntityOfPage",
                 "type": "updated",
-                "weight": 0.011111111111111112
+                "label": "schema:itemOffered***inverted",
+                "weight": 0.16131490455272826
             },
-            "weight": 0.011111111111111112
+            "weight": 0.16131490455272826
         },
-        "schema-dig:PersonOrOrganization1\u0001schema:CreativeWork1\u0001schema-dig:PersonOrOrganization1***schema:CreativeWork1\u0001updatedschema:mainEntityOfPage\u00010.011111111111111112": {
+        "schema-dig:PersonOrOrganization1\u0001schema:Offer1\u0001schema-dig:PersonOrOrganization1***schema:Offer1\u0001updatedschema:seller***inverted\u00010.0582279937208344": {
             "v": "schema-dig:PersonOrOrganization1",
-            "w": "schema:CreativeWork1",
-            "name": "schema-dig:PersonOrOrganization1***schema:CreativeWork1",
+            "w": "schema:Offer1",
+            "name": "schema-dig:PersonOrOrganization1***schema:Offer1",
             "value": {
-                "label": "schema:mainEntityOfPage",
                 "type": "updated",
-                "weight": 0.011111111111111112
+                "label": "schema:seller***inverted",
+                "weight": 0.0582279937208344
             },
-            "weight": 0.011111111111111112
+            "weight": 0.0582279937208344
         },
-        "schema:CreativeWork1\u0001schema:Offer1\u0001schema:CreativeWork1***schema:Offer1\u0001updatedschema:mainEntityOfPage***inverted\u00010.011111111111111112": {
+        "schema-dig:PersonOrOrganization1\u0001schema:PostalAddress1\u0001schema-dig:PersonOrOrganization1***schema:PostalAddress1\u0001updatedschema:contactPoint\u00010.18247091440454638": {
+            "v": "schema-dig:PersonOrOrganization1",
+            "w": "schema:PostalAddress1",
+            "name": "schema-dig:PersonOrOrganization1***schema:PostalAddress1",
+            "value": {
+                "label": "schema:contactPoint",
+                "type": "updated",
+                "weight": 0.18247091440454638
+            },
+            "weight": 0.18247091440454638
+        },
+        "schema:CreativeWork1\u0001schema:Offer1\u0001schema:CreativeWork1***schema:Offer1\u0001updatedschema:mainEntityOfPage***inverted\u00010.06339185141757539": {
             "v": "schema:CreativeWork1",
             "w": "schema:Offer1",
             "name": "schema:CreativeWork1***schema:Offer1",
             "value": {
                 "type": "updated",
                 "label": "schema:mainEntityOfPage***inverted",
-                "weight": 0.011111111111111112
+                "weight": 0.06339185141757539
             },
-            "weight": 0.011111111111111112
+            "weight": 0.06339185141757539
         },
-        "schema:CreativeWork1\u0001schema:Place1\u0001schema:CreativeWork1***schema:Place1\u0001updatedschema:mainEntityOfPage***inverted\u00010.011111111111111112": {
-            "v": "schema:CreativeWork1",
-            "w": "schema:Place1",
-            "name": "schema:CreativeWork1***schema:Place1",
-            "value": {
-                "type": "updated",
-                "label": "schema:mainEntityOfPage***inverted",
-                "weight": 0.011111111111111112
-            },
-            "weight": 0.011111111111111112
-        },
-        "schema:CreativeWork1\u0001schema:PostalAddress1\u0001schema:CreativeWork1***schema:PostalAddress1\u0001updatedschema:mainEntityOfPage***inverted\u00010.011111111111111112": {
-            "v": "schema:CreativeWork1",
-            "w": "schema:PostalAddress1",
-            "name": "schema:CreativeWork1***schema:PostalAddress1",
-            "value": {
-                "type": "updated",
-                "label": "schema:mainEntityOfPage***inverted",
-                "weight": 0.011111111111111112
-            },
-            "weight": 0.011111111111111112
-        },
-        "schema:Offer1\u0001Price0855\u0001schema:Offer1***Price0855\u0001st_property_urischema:price\u00011": {
+        "schema:Offer1\u0001schema:Place1\u0001schema:Offer1***schema:Place1\u0001updatedschema:availableAtOrFrom\u00010.11363862802879303": {
             "v": "schema:Offer1",
-            "w": "Price0855",
-            "name": "schema:Offer1***Price0855",
+            "w": "schema:Place1",
+            "name": "schema:Offer1***schema:Place1",
             "value": {
-                "label": "schema:price",
-                "type": "st_property_uri"
+                "label": "schema:availableAtOrFrom",
+                "type": "updated",
+                "weight": 0.11363862802879303
             },
-            "weight": 1
+            "weight": 0.11363862802879303
         },
         "schema:Place1\u0001Location0814\u0001schema:Place1***Location0814\u0001st_property_urischema:name\u00011": {
             "v": "schema:Place1",
@@ -823,39 +826,40 @@
             "label": "schema:name***inverted",
             "weight": 1
         },
+        "Price0855\u0001schema:Offer1\u0001Price0855***schema:Offer1\u0001st_property_urischema:price***inverted\u00011": {
+            "type": "st_property_uri",
+            "label": "schema:price***inverted",
+            "weight": 1
+        },
         "file_name\u0001schema:CreativeWork1\u0001file_name***schema:CreativeWork1\u0001st_property_urischema:name***inverted\u00011": {
             "type": "st_property_uri",
             "label": "schema:name***inverted",
             "weight": 1
         },
-        "schema-dig:Firearm1\u0001schema:CreativeWork1\u0001schema-dig:Firearm1***schema:CreativeWork1\u0001updatedschema:mainEntityOfPage\u00010.011111111111111112": {
-            "label": "schema:mainEntityOfPage",
+        "schema-dig:Firearm1\u0001schema:Offer1\u0001schema-dig:Firearm1***schema:Offer1\u0001updatedschema:itemOffered***inverted\u00010.16131490455272826": {
             "type": "updated",
-            "weight": 0.011111111111111112
+            "label": "schema:itemOffered***inverted",
+            "weight": 0.16131490455272826
         },
-        "schema-dig:PersonOrOrganization1\u0001schema:CreativeWork1\u0001schema-dig:PersonOrOrganization1***schema:CreativeWork1\u0001updatedschema:mainEntityOfPage\u00010.011111111111111112": {
-            "label": "schema:mainEntityOfPage",
+        "schema-dig:PersonOrOrganization1\u0001schema:Offer1\u0001schema-dig:PersonOrOrganization1***schema:Offer1\u0001updatedschema:seller***inverted\u00010.0582279937208344": {
             "type": "updated",
-            "weight": 0.011111111111111112
+            "label": "schema:seller***inverted",
+            "weight": 0.0582279937208344
         },
-        "schema:CreativeWork1\u0001schema:Offer1\u0001schema:CreativeWork1***schema:Offer1\u0001updatedschema:mainEntityOfPage***inverted\u00010.011111111111111112": {
+        "schema-dig:PersonOrOrganization1\u0001schema:PostalAddress1\u0001schema-dig:PersonOrOrganization1***schema:PostalAddress1\u0001updatedschema:contactPoint\u00010.18247091440454638": {
+            "label": "schema:contactPoint",
             "type": "updated",
-            "label": "schema:mainEntityOfPage***inverted",
-            "weight": 0.011111111111111112
+            "weight": 0.18247091440454638
         },
-        "schema:CreativeWork1\u0001schema:Place1\u0001schema:CreativeWork1***schema:Place1\u0001updatedschema:mainEntityOfPage***inverted\u00010.011111111111111112": {
-            "type": "updated",
-            "label": "schema:mainEntityOfPage***inverted",
-            "weight": 0.011111111111111112
-        },
-        "schema:CreativeWork1\u0001schema:PostalAddress1\u0001schema:CreativeWork1***schema:PostalAddress1\u0001updatedschema:mainEntityOfPage***inverted\u00010.011111111111111112": {
+        "schema:CreativeWork1\u0001schema:Offer1\u0001schema:CreativeWork1***schema:Offer1\u0001updatedschema:mainEntityOfPage***inverted\u00010.06339185141757539": {
             "type": "updated",
             "label": "schema:mainEntityOfPage***inverted",
-            "weight": 0.011111111111111112
+            "weight": 0.06339185141757539
         },
-        "schema:Offer1\u0001Price0855\u0001schema:Offer1***Price0855\u0001st_property_urischema:price\u00011": {
-            "label": "schema:price",
-            "type": "st_property_uri"
+        "schema:Offer1\u0001schema:Place1\u0001schema:Offer1***schema:Place1\u0001updatedschema:availableAtOrFrom\u00010.11363862802879303": {
+            "label": "schema:availableAtOrFrom",
+            "type": "updated",
+            "weight": 0.11363862802879303
         },
         "schema:Place1\u0001Location0814\u0001schema:Place1***Location0814\u0001st_property_urischema:name\u00011": {
             "label": "schema:name",

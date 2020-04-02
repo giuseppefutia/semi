@@ -90,6 +90,13 @@
             }
         },
         {
+            "v": "Phone4225",
+            "value": {
+                "type": "attribute_name",
+                "label": "Phone4225"
+            }
+        },
+        {
             "v": "Seller4193",
             "value": {
                 "type": "attribute_name",
@@ -115,13 +122,6 @@
             "value": {
                 "type": "attribute_name",
                 "label": "file_name"
-            }
-        },
-        {
-            "v": "Phone4225",
-            "value": {
-                "type": "attribute_name",
-                "label": "Phone4225"
             }
         },
         {
@@ -229,6 +229,17 @@
             "weight": 1
         },
         {
+            "v": "Phone4225",
+            "w": "schema-dig:PersonOrOrganization1",
+            "name": "Phone4225***schema-dig:PersonOrOrganization1",
+            "value": {
+                "type": "st_property_uri",
+                "label": "schema:telephone***inverted",
+                "weight": 1
+            },
+            "weight": 1
+        },
+        {
             "v": "Seller4193",
             "w": "schema-dig:PersonOrOrganization1",
             "name": "Seller4193***schema-dig:PersonOrOrganization1",
@@ -263,35 +274,36 @@
         },
         {
             "v": "schema-dig:Firearm1",
-            "w": "schema-dig:PersonOrOrganization1",
-            "name": "schema-dig:Firearm1***schema-dig:PersonOrOrganization1",
-            "value": {
-                "label": "schema:manufacturer",
-                "type": "updated",
-                "weight": 0.07090837508193869
-            },
-            "weight": 0.07090837508193869
-        },
-        {
-            "v": "schema-dig:Firearm1",
             "w": "schema:Offer1",
             "name": "schema-dig:Firearm1***schema:Offer1",
             "value": {
                 "type": "updated",
                 "label": "schema:itemOffered***inverted",
-                "weight": 0.035718259101400036
+                "weight": 0.2589573784851504
             },
-            "weight": 0.035718259101400036
+            "weight": 0.2589573784851504
         },
         {
             "v": "schema-dig:PersonOrOrganization1",
-            "w": "Phone4225",
-            "name": "schema-dig:PersonOrOrganization1***Phone4225",
+            "w": "schema:Offer1",
+            "name": "schema-dig:PersonOrOrganization1***schema:Offer1",
             "value": {
-                "label": "schema:telephone",
-                "type": "st_property_uri"
+                "type": "updated",
+                "label": "schema:seller***inverted",
+                "weight": 0.41905679169965593
             },
-            "weight": 1
+            "weight": 0.41905679169965593
+        },
+        {
+            "v": "schema-dig:PersonOrOrganization1",
+            "w": "schema:PostalAddress1",
+            "name": "schema-dig:PersonOrOrganization1***schema:PostalAddress1",
+            "value": {
+                "label": "schema:contactPoint",
+                "type": "updated",
+                "weight": 1.0873073887483173
+            },
+            "weight": 1.0873073887483173
         },
         {
             "v": "schema:CreativeWork1",
@@ -300,20 +312,9 @@
             "value": {
                 "type": "updated",
                 "label": "schema:mainEntityOfPage***inverted",
-                "weight": 0.08147896562556728
+                "weight": 0.369789151685267
             },
-            "weight": 0.08147896562556728
-        },
-        {
-            "v": "schema:CreativeWork1",
-            "w": "schema:PostalAddress1",
-            "name": "schema:CreativeWork1***schema:PostalAddress1",
-            "value": {
-                "type": "updated",
-                "label": "schema:mainEntityOfPage***inverted",
-                "weight": 0.05354271878792514
-            },
-            "weight": 0.05354271878792514
+            "weight": 0.369789151685267
         },
         {
             "v": "schema:Offer1",

@@ -31,6 +31,10 @@
             "type": "attribute_name",
             "label": "Post0326"
         },
+        "Price0364": {
+            "type": "attribute_name",
+            "label": "Price0364"
+        },
         "Shop0265": {
             "type": "attribute_name",
             "label": "Shop0265"
@@ -50,10 +54,6 @@
         "schema:Place1": {
             "type": "class_uri",
             "label": "schema:Place"
-        },
-        "Price0364": {
-            "type": "attribute_name",
-            "label": "Price0364"
         },
         "BLK0354": {
             "type": "attribute_name",
@@ -107,27 +107,38 @@
                 },
                 "weight": 1
             },
-            "schema-dig:Firearm1\u0001schema:Offer1\u0001schema-dig:Firearm1***schema:Offer1\u0001updatedschema:itemOffered***inverted\u00010.20746924998547958": {
+            "Price0364\u0001schema:Offer1\u0001Price0364***schema:Offer1\u0001st_property_urischema:price***inverted\u00011": {
+                "v": "Price0364",
+                "w": "schema:Offer1",
+                "name": "Price0364***schema:Offer1",
+                "value": {
+                    "type": "st_property_uri",
+                    "label": "schema:price***inverted",
+                    "weight": 1
+                },
+                "weight": 1
+            },
+            "schema-dig:Firearm1\u0001schema:Offer1\u0001schema-dig:Firearm1***schema:Offer1\u0001updatedschema:itemOffered***inverted\u00010.5705404374600689": {
                 "v": "schema-dig:Firearm1",
                 "w": "schema:Offer1",
                 "name": "schema-dig:Firearm1***schema:Offer1",
                 "value": {
                     "type": "updated",
                     "label": "schema:itemOffered***inverted",
-                    "weight": 0.20746924998547958
+                    "weight": 0.5705404374600689
                 },
-                "weight": 0.20746924998547958
+                "weight": 0.5705404374600689
             },
-            "schema:CreativeWork1\u0001schema:Offer1\u0001schema:CreativeWork1***schema:Offer1\u0001updatedschema:mainEntityOfPage***inverted\u00010.1442463380722906": {
+            "schema:CreativeWork1\u0001schema:Offer1\u0001schema:CreativeWork1***schema:Offer1\u0001updatedschema:mainEntityOfPage***inverted\u00010.24410918750695335": {
                 "v": "schema:CreativeWork1",
                 "w": "schema:Offer1",
                 "name": "schema:CreativeWork1***schema:Offer1",
                 "value": {
                     "type": "updated",
                     "label": "schema:mainEntityOfPage***inverted",
-                    "weight": 0.1442463380722906
+                    "weight": 0.24410918750695335
                 },
-                "weight": 0.1442463380722906
+                "weight": 0.24410918750695335
             }
         },
         "Ads0988": {},
@@ -147,6 +158,7 @@
         "Ammunition1476": {},
         "Firearms0273": {},
         "Post0326": {},
+        "Price0364": {},
         "Shop0265": {},
         "schema-dig:Firearm1": {
             "Shop0265\u0001schema-dig:Firearm1\u0001Shop0265***schema-dig:Firearm1\u0001st_property_urischema:category***inverted\u00011": {
@@ -176,16 +188,16 @@
             }
         },
         "schema:Place1": {
-            "schema-dig:Firearm1\u0001schema:Place1\u0001schema-dig:Firearm1***schema:Place1\u0001updatedschema:manufacturer\u00010.49708872856511227": {
-                "v": "schema-dig:Firearm1",
+            "schema:Offer1\u0001schema:Place1\u0001schema:Offer1***schema:Place1\u0001updatedschema:availableAtOrFrom\u00011.4074201280419212": {
+                "v": "schema:Offer1",
                 "w": "schema:Place1",
-                "name": "schema-dig:Firearm1***schema:Place1",
+                "name": "schema:Offer1***schema:Place1",
                 "value": {
-                    "label": "schema:manufacturer",
+                    "label": "schema:availableAtOrFrom",
                     "type": "updated",
-                    "weight": 0.49708872856511227
+                    "weight": 1.4074201280419212
                 },
-                "weight": 0.49708872856511227
+                "weight": 1.4074201280419212
             },
             "schema:Offer2\u0001schema:Place1\u0001schema:Offer2***schema:Place1\u0001direct_property_urischema:ineligibleRegion\u0001100": {
                 "v": "schema:Offer2",
@@ -197,18 +209,6 @@
                     "weight": 100
                 },
                 "weight": 100
-            }
-        },
-        "Price0364": {
-            "schema:Offer1\u0001Price0364\u0001schema:Offer1***Price0364\u0001st_property_urischema:price\u00011": {
-                "v": "schema:Offer1",
-                "w": "Price0364",
-                "name": "schema:Offer1***Price0364",
-                "value": {
-                    "label": "schema:price",
-                    "type": "st_property_uri"
-                },
-                "weight": 1
             }
         },
         "BLK0354": {
@@ -231,6 +231,7 @@
             "Ammunition1476": 1,
             "Firearms0273": 1,
             "Post0326": 1,
+            "Price0364": 1,
             "schema-dig:Firearm1": 1,
             "schema:CreativeWork1": 1
         },
@@ -241,6 +242,7 @@
         "Ammunition1476": {},
         "Firearms0273": {},
         "Post0326": {},
+        "Price0364": {},
         "Shop0265": {},
         "schema-dig:Firearm1": {
             "Shop0265": 1
@@ -250,11 +252,8 @@
             "file_name": 1
         },
         "schema:Place1": {
-            "schema-dig:Firearm1": 1,
+            "schema:Offer1": 1,
             "schema:Offer2": 1
-        },
-        "Price0364": {
-            "schema:Offer1": 1
         },
         "BLK0354": {
             "schema:Place1": 1
@@ -275,15 +274,16 @@
             }
         },
         "schema:Offer1": {
-            "schema:Offer1\u0001Price0364\u0001schema:Offer1***Price0364\u0001st_property_urischema:price\u00011": {
+            "schema:Offer1\u0001schema:Place1\u0001schema:Offer1***schema:Place1\u0001updatedschema:availableAtOrFrom\u00011.4074201280419212": {
                 "v": "schema:Offer1",
-                "w": "Price0364",
-                "name": "schema:Offer1***Price0364",
+                "w": "schema:Place1",
+                "name": "schema:Offer1***schema:Place1",
                 "value": {
-                    "label": "schema:price",
-                    "type": "st_property_uri"
+                    "label": "schema:availableAtOrFrom",
+                    "type": "updated",
+                    "weight": 1.4074201280419212
                 },
-                "weight": 1
+                "weight": 1.4074201280419212
             }
         },
         "Ads0988": {
@@ -351,6 +351,19 @@
                 "weight": 1
             }
         },
+        "Price0364": {
+            "Price0364\u0001schema:Offer1\u0001Price0364***schema:Offer1\u0001st_property_urischema:price***inverted\u00011": {
+                "v": "Price0364",
+                "w": "schema:Offer1",
+                "name": "Price0364***schema:Offer1",
+                "value": {
+                    "type": "st_property_uri",
+                    "label": "schema:price***inverted",
+                    "weight": 1
+                },
+                "weight": 1
+            }
+        },
         "Shop0265": {
             "Shop0265\u0001schema-dig:Firearm1\u0001Shop0265***schema-dig:Firearm1\u0001st_property_urischema:category***inverted\u00011": {
                 "v": "Shop0265",
@@ -365,27 +378,16 @@
             }
         },
         "schema-dig:Firearm1": {
-            "schema-dig:Firearm1\u0001schema:Offer1\u0001schema-dig:Firearm1***schema:Offer1\u0001updatedschema:itemOffered***inverted\u00010.20746924998547958": {
+            "schema-dig:Firearm1\u0001schema:Offer1\u0001schema-dig:Firearm1***schema:Offer1\u0001updatedschema:itemOffered***inverted\u00010.5705404374600689": {
                 "v": "schema-dig:Firearm1",
                 "w": "schema:Offer1",
                 "name": "schema-dig:Firearm1***schema:Offer1",
                 "value": {
                     "type": "updated",
                     "label": "schema:itemOffered***inverted",
-                    "weight": 0.20746924998547958
+                    "weight": 0.5705404374600689
                 },
-                "weight": 0.20746924998547958
-            },
-            "schema-dig:Firearm1\u0001schema:Place1\u0001schema-dig:Firearm1***schema:Place1\u0001updatedschema:manufacturer\u00010.49708872856511227": {
-                "v": "schema-dig:Firearm1",
-                "w": "schema:Place1",
-                "name": "schema-dig:Firearm1***schema:Place1",
-                "value": {
-                    "label": "schema:manufacturer",
-                    "type": "updated",
-                    "weight": 0.49708872856511227
-                },
-                "weight": 0.49708872856511227
+                "weight": 0.5705404374600689
             }
         },
         "file_name": {
@@ -402,16 +404,16 @@
             }
         },
         "schema:CreativeWork1": {
-            "schema:CreativeWork1\u0001schema:Offer1\u0001schema:CreativeWork1***schema:Offer1\u0001updatedschema:mainEntityOfPage***inverted\u00010.1442463380722906": {
+            "schema:CreativeWork1\u0001schema:Offer1\u0001schema:CreativeWork1***schema:Offer1\u0001updatedschema:mainEntityOfPage***inverted\u00010.24410918750695335": {
                 "v": "schema:CreativeWork1",
                 "w": "schema:Offer1",
                 "name": "schema:CreativeWork1***schema:Offer1",
                 "value": {
                     "type": "updated",
                     "label": "schema:mainEntityOfPage***inverted",
-                    "weight": 0.1442463380722906
+                    "weight": 0.24410918750695335
                 },
-                "weight": 0.1442463380722906
+                "weight": 0.24410918750695335
             }
         },
         "schema:Place1": {
@@ -426,7 +428,6 @@
                 "weight": 1
             }
         },
-        "Price0364": {},
         "BLK0354": {}
     },
     "_sucs": {
@@ -434,7 +435,7 @@
             "schema:Offer1": 1
         },
         "schema:Offer1": {
-            "Price0364": 1
+            "schema:Place1": 1
         },
         "Ads0988": {
             "schema:Offer2": 1
@@ -451,12 +452,14 @@
         "Post0326": {
             "schema:Offer1": 1
         },
+        "Price0364": {
+            "schema:Offer1": 1
+        },
         "Shop0265": {
             "schema-dig:Firearm1": 1
         },
         "schema-dig:Firearm1": {
-            "schema:Offer1": 1,
-            "schema:Place1": 1
+            "schema:Offer1": 1
         },
         "file_name": {
             "schema:CreativeWork1": 1
@@ -467,7 +470,6 @@
         "schema:Place1": {
             "BLK0354": 1
         },
-        "Price0364": {},
         "BLK0354": {}
     },
     "_edgeObjs": {
@@ -526,6 +528,17 @@
             },
             "weight": 1
         },
+        "Price0364\u0001schema:Offer1\u0001Price0364***schema:Offer1\u0001st_property_urischema:price***inverted\u00011": {
+            "v": "Price0364",
+            "w": "schema:Offer1",
+            "name": "Price0364***schema:Offer1",
+            "value": {
+                "type": "st_property_uri",
+                "label": "schema:price***inverted",
+                "weight": 1
+            },
+            "weight": 1
+        },
         "Shop0265\u0001schema-dig:Firearm1\u0001Shop0265***schema-dig:Firearm1\u0001st_property_urischema:category***inverted\u00011": {
             "v": "Shop0265",
             "w": "schema-dig:Firearm1",
@@ -548,48 +561,38 @@
             },
             "weight": 1
         },
-        "schema-dig:Firearm1\u0001schema:Offer1\u0001schema-dig:Firearm1***schema:Offer1\u0001updatedschema:itemOffered***inverted\u00010.20746924998547958": {
+        "schema-dig:Firearm1\u0001schema:Offer1\u0001schema-dig:Firearm1***schema:Offer1\u0001updatedschema:itemOffered***inverted\u00010.5705404374600689": {
             "v": "schema-dig:Firearm1",
             "w": "schema:Offer1",
             "name": "schema-dig:Firearm1***schema:Offer1",
             "value": {
                 "type": "updated",
                 "label": "schema:itemOffered***inverted",
-                "weight": 0.20746924998547958
+                "weight": 0.5705404374600689
             },
-            "weight": 0.20746924998547958
+            "weight": 0.5705404374600689
         },
-        "schema-dig:Firearm1\u0001schema:Place1\u0001schema-dig:Firearm1***schema:Place1\u0001updatedschema:manufacturer\u00010.49708872856511227": {
-            "v": "schema-dig:Firearm1",
-            "w": "schema:Place1",
-            "name": "schema-dig:Firearm1***schema:Place1",
-            "value": {
-                "label": "schema:manufacturer",
-                "type": "updated",
-                "weight": 0.49708872856511227
-            },
-            "weight": 0.49708872856511227
-        },
-        "schema:CreativeWork1\u0001schema:Offer1\u0001schema:CreativeWork1***schema:Offer1\u0001updatedschema:mainEntityOfPage***inverted\u00010.1442463380722906": {
+        "schema:CreativeWork1\u0001schema:Offer1\u0001schema:CreativeWork1***schema:Offer1\u0001updatedschema:mainEntityOfPage***inverted\u00010.24410918750695335": {
             "v": "schema:CreativeWork1",
             "w": "schema:Offer1",
             "name": "schema:CreativeWork1***schema:Offer1",
             "value": {
                 "type": "updated",
                 "label": "schema:mainEntityOfPage***inverted",
-                "weight": 0.1442463380722906
+                "weight": 0.24410918750695335
             },
-            "weight": 0.1442463380722906
+            "weight": 0.24410918750695335
         },
-        "schema:Offer1\u0001Price0364\u0001schema:Offer1***Price0364\u0001st_property_urischema:price\u00011": {
+        "schema:Offer1\u0001schema:Place1\u0001schema:Offer1***schema:Place1\u0001updatedschema:availableAtOrFrom\u00011.4074201280419212": {
             "v": "schema:Offer1",
-            "w": "Price0364",
-            "name": "schema:Offer1***Price0364",
+            "w": "schema:Place1",
+            "name": "schema:Offer1***schema:Place1",
             "value": {
-                "label": "schema:price",
-                "type": "st_property_uri"
+                "label": "schema:availableAtOrFrom",
+                "type": "updated",
+                "weight": 1.4074201280419212
             },
-            "weight": 1
+            "weight": 1.4074201280419212
         },
         "schema:Offer2\u0001schema:Place1\u0001schema:Offer2***schema:Place1\u0001direct_property_urischema:ineligibleRegion\u0001100": {
             "v": "schema:Offer2",
@@ -639,6 +642,11 @@
             "label": "schema-dig:identifier***inverted",
             "weight": 1
         },
+        "Price0364\u0001schema:Offer1\u0001Price0364***schema:Offer1\u0001st_property_urischema:price***inverted\u00011": {
+            "type": "st_property_uri",
+            "label": "schema:price***inverted",
+            "weight": 1
+        },
         "Shop0265\u0001schema-dig:Firearm1\u0001Shop0265***schema-dig:Firearm1\u0001st_property_urischema:category***inverted\u00011": {
             "type": "st_property_uri",
             "label": "schema:category***inverted",
@@ -649,24 +657,20 @@
             "label": "schema:name***inverted",
             "weight": 1
         },
-        "schema-dig:Firearm1\u0001schema:Offer1\u0001schema-dig:Firearm1***schema:Offer1\u0001updatedschema:itemOffered***inverted\u00010.20746924998547958": {
+        "schema-dig:Firearm1\u0001schema:Offer1\u0001schema-dig:Firearm1***schema:Offer1\u0001updatedschema:itemOffered***inverted\u00010.5705404374600689": {
             "type": "updated",
             "label": "schema:itemOffered***inverted",
-            "weight": 0.20746924998547958
+            "weight": 0.5705404374600689
         },
-        "schema-dig:Firearm1\u0001schema:Place1\u0001schema-dig:Firearm1***schema:Place1\u0001updatedschema:manufacturer\u00010.49708872856511227": {
-            "label": "schema:manufacturer",
-            "type": "updated",
-            "weight": 0.49708872856511227
-        },
-        "schema:CreativeWork1\u0001schema:Offer1\u0001schema:CreativeWork1***schema:Offer1\u0001updatedschema:mainEntityOfPage***inverted\u00010.1442463380722906": {
+        "schema:CreativeWork1\u0001schema:Offer1\u0001schema:CreativeWork1***schema:Offer1\u0001updatedschema:mainEntityOfPage***inverted\u00010.24410918750695335": {
             "type": "updated",
             "label": "schema:mainEntityOfPage***inverted",
-            "weight": 0.1442463380722906
+            "weight": 0.24410918750695335
         },
-        "schema:Offer1\u0001Price0364\u0001schema:Offer1***Price0364\u0001st_property_urischema:price\u00011": {
-            "label": "schema:price",
-            "type": "st_property_uri"
+        "schema:Offer1\u0001schema:Place1\u0001schema:Offer1***schema:Place1\u0001updatedschema:availableAtOrFrom\u00011.4074201280419212": {
+            "label": "schema:availableAtOrFrom",
+            "type": "updated",
+            "weight": 1.4074201280419212
         },
         "schema:Offer2\u0001schema:Place1\u0001schema:Offer2***schema:Place1\u0001direct_property_urischema:ineligibleRegion\u0001100": {
             "label": "schema:ineligibleRegion",

@@ -76,10 +76,10 @@ CONSTRUCT {
     ?PostalAddress1 rdf:type schema:PostalAddress.
     ?PostalAddress1 schema:streetAddress ?Address2324.
     ?PostalAddress1 rdf:type schema:PostalAddress.
+    ?Firearm1 schema:manufacturer ?PersonOrOrganization2.
     ?Offer1 schema:itemOffered ?Firearm1.
     ?Offer1 schema:seller ?PersonOrOrganization1.
-    ?Offer1 schema:seller ?PersonOrOrganization2.
-    ?ContactPoint1 schema:mainEntityOfPage ?CreativeWork1.
+    ?PersonOrOrganization2 schema:address ?ContactPoint1.
     ?Offer1 schema:mainEntityOfPage ?CreativeWork1.
     ?PostalAddress1 schema:mainEntityOfPage ?CreativeWork1.
 }

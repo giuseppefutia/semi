@@ -69,6 +69,13 @@
             }
         },
         {
+            "v": "Post1163",
+            "value": {
+                "type": "attribute_name",
+                "label": "Post1163"
+            }
+        },
+        {
             "v": "file_name",
             "value": {
                 "type": "attribute_name",
@@ -87,13 +94,6 @@
             "value": {
                 "type": "class_uri",
                 "label": "schema:Offer"
-            }
-        },
-        {
-            "v": "Post1163",
-            "value": {
-                "type": "attribute_name",
-                "label": "Post1163"
             }
         },
         {
@@ -172,6 +172,17 @@
             "weight": 1
         },
         {
+            "v": "Post1163",
+            "w": "schema:Offer1",
+            "name": "Post1163***schema:Offer1",
+            "value": {
+                "type": "st_property_uri",
+                "label": "schema:price***inverted",
+                "weight": 1
+            },
+            "weight": 1
+        },
+        {
             "v": "file_name",
             "w": "schema:CreativeWork1",
             "name": "file_name***schema:CreativeWork1",
@@ -199,20 +210,9 @@
             "value": {
                 "type": "updated",
                 "label": "schema:seller***inverted",
-                "weight": 0.030613557896172178
+                "weight": 0.20872880383753756
             },
-            "weight": 0.030613557896172178
-        },
-        {
-            "v": "schema-dig:PersonOrOrganization1",
-            "w": "schema:Offer2",
-            "name": "schema-dig:PersonOrOrganization1***schema:Offer2",
-            "value": {
-                "type": "updated",
-                "label": "schema:seller***inverted",
-                "weight": 0.04014255052250146
-            },
-            "weight": 0.04014255052250146
+            "weight": 0.20872880383753756
         },
         {
             "v": "schema:CreativeWork1",
@@ -221,19 +221,20 @@
             "value": {
                 "type": "updated",
                 "label": "schema:mainEntityOfPage***inverted",
-                "weight": 0.031306798202597526
+                "weight": 0.1806161434765242
             },
-            "weight": 0.031306798202597526
+            "weight": 0.1806161434765242
         },
         {
             "v": "schema:Offer1",
-            "w": "Post1163",
-            "name": "schema:Offer1***Post1163",
+            "w": "schema:Offer2",
+            "name": "schema:Offer1***schema:Offer2",
             "value": {
-                "label": "schema:price",
-                "type": "st_property_uri"
+                "label": "schema:relatedTo",
+                "type": "updated",
+                "weight": 1.0442604566033236
             },
-            "weight": 1
+            "weight": 1.0442604566033236
         },
         {
             "v": "schema:Offer2",

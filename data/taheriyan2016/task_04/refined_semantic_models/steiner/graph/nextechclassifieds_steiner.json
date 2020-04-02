@@ -111,13 +111,6 @@
             }
         },
         {
-            "v": "Listings1232",
-            "value": {
-                "type": "attribute_name",
-                "label": "Listings1232"
-            }
-        },
-        {
             "v": "Send0933",
             "value": {
                 "type": "attribute_name",
@@ -171,6 +164,13 @@
             "value": {
                 "type": "class_uri",
                 "label": "schema:Place"
+            }
+        },
+        {
+            "v": "Listings1232",
+            "value": {
+                "type": "attribute_name",
+                "label": "Listings1232"
             }
         },
         {
@@ -331,17 +331,6 @@
             "weight": 1
         },
         {
-            "v": "Listings1232",
-            "w": "schema:Offer2",
-            "name": "Listings1232***schema:Offer2",
-            "value": {
-                "type": "st_property_uri",
-                "label": "schema:price***inverted",
-                "weight": 1
-            },
-            "weight": 1
-        },
-        {
             "v": "Send0933",
             "w": "schema-dig:PersonOrOrganization1",
             "name": "Send0933***schema-dig:PersonOrOrganization1",
@@ -370,9 +359,9 @@
             "value": {
                 "type": "updated",
                 "label": "schema:seller***inverted",
-                "weight": 0.0032012975892352527
+                "weight": 0.026483461874582545
             },
-            "weight": 0.0032012975892352527
+            "weight": 0.026483461874582545
         },
         {
             "v": "schema-dig:PersonOrOrganization1",
@@ -381,9 +370,9 @@
             "value": {
                 "type": "updated",
                 "label": "schema:seller***inverted",
-                "weight": 0.00548792328200366
+                "weight": 0.4994010186623331
             },
-            "weight": 0.00548792328200366
+            "weight": 0.4994010186623331
         },
         {
             "v": "schema:CreativeWork1",
@@ -392,9 +381,20 @@
             "value": {
                 "type": "updated",
                 "label": "schema:mainEntityOfPage***inverted",
-                "weight": 0.009386534938906241
+                "weight": 0.06570574457234372
             },
-            "weight": 0.009386534938906241
+            "weight": 0.06570574457234372
+        },
+        {
+            "v": "schema:Offer1",
+            "w": "schema:Offer2",
+            "name": "schema:Offer1***schema:Offer2",
+            "value": {
+                "label": "schema:relatedTo",
+                "type": "updated",
+                "weight": 0.21908187010877694
+            },
+            "weight": 0.21908187010877694
         },
         {
             "v": "schema:Offer1",
@@ -403,9 +403,9 @@
             "value": {
                 "label": "schema:availableAtOrFrom",
                 "type": "updated",
-                "weight": 0.005471102257688553
+                "weight": 0.05676268592351875
             },
-            "weight": 0.005471102257688553
+            "weight": 0.05676268592351875
         },
         {
             "v": "schema:Offer1",
@@ -414,9 +414,9 @@
             "value": {
                 "label": "schema:availableAtOrFrom",
                 "type": "updated",
-                "weight": 0.005940757456289444
+                "weight": 0.48120135395944497
             },
-            "weight": 0.005940757456289444
+            "weight": 0.48120135395944497
         },
         {
             "v": "schema:Offer1",
@@ -425,9 +425,9 @@
             "value": {
                 "label": "schema:availableAtOrFrom",
                 "type": "updated",
-                "weight": 0.005400335216760947
+                "weight": 0.42662648212411475
             },
-            "weight": 0.005400335216760947
+            "weight": 0.42662648212411475
         },
         {
             "v": "schema:Offer1",
@@ -436,20 +436,30 @@
             "value": {
                 "label": "schema:availableAtOrFrom",
                 "type": "updated",
-                "weight": 0.005478318114830567
+                "weight": 0.4547004035309368
             },
-            "weight": 0.005478318114830567
+            "weight": 0.4547004035309368
         },
         {
-            "v": "schema:Offer2",
+            "v": "schema:Offer1",
             "w": "schema:Place5",
-            "name": "schema:Offer2***schema:Place5",
+            "name": "schema:Offer1***schema:Place5",
             "value": {
                 "label": "schema:availableAtOrFrom",
                 "type": "updated",
-                "weight": 0.005921972746751222
+                "weight": 0.494603591671011
             },
-            "weight": 0.005921972746751222
+            "weight": 0.494603591671011
+        },
+        {
+            "v": "schema:Offer2",
+            "w": "Listings1232",
+            "name": "schema:Offer2***Listings1232",
+            "value": {
+                "label": "schema:price",
+                "type": "st_property_uri"
+            },
+            "weight": 1
         },
         {
             "v": "schema:Offer3",
@@ -458,20 +468,9 @@
             "value": {
                 "label": "schema:availableAtOrFrom",
                 "type": "updated",
-                "weight": 0.005582080091401671
+                "weight": 0.5079692883175522
             },
-            "weight": 0.005582080091401671
-        },
-        {
-            "v": "schema:Offer3",
-            "w": "schema:Place5",
-            "name": "schema:Offer3***schema:Place5",
-            "value": {
-                "label": "schema:availableAtOrFrom",
-                "type": "updated",
-                "weight": 0.005768461882151207
-            },
-            "weight": 0.005768461882151207
+            "weight": 0.5079692883175522
         },
         {
             "v": "schema:Offer4",
@@ -500,9 +499,9 @@
             "value": {
                 "label": "schema:availableAtOrFrom",
                 "type": "updated",
-                "weight": 0.0058472365498412485
+                "weight": 0.5320985260355534
             },
-            "weight": 0.0058472365498412485
+            "weight": 0.5320985260355534
         },
         {
             "v": "schema:Place1",

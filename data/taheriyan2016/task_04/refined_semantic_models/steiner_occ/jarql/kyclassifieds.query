@@ -66,8 +66,8 @@ CONSTRUCT {
     ?Offer1 rdf:type schema:Offer.
     ?Offer2 schema:name ?malcome831610.
     ?Offer2 rdf:type schema:Offer.
-    ?PersonOrOrganization1 schema:relatedTo ?Offer1.
-    ?Offer2 schema:mainEntityOfPage ?CreativeWork1.
+    ?Offer1 schema:seller ?PersonOrOrganization1.
+    ?Offer1 schema:mainEntityOfPage ?CreativeWork1.
     ?Offer1 schema:relatedTo ?Offer2.
 }
 WHERE {

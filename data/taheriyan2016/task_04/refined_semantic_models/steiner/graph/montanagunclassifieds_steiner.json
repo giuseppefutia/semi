@@ -55,6 +55,13 @@
             }
         },
         {
+            "v": "Price0364",
+            "value": {
+                "type": "attribute_name",
+                "label": "Price0364"
+            }
+        },
+        {
             "v": "Shop0265",
             "value": {
                 "type": "attribute_name",
@@ -87,13 +94,6 @@
             "value": {
                 "type": "class_uri",
                 "label": "schema:Place"
-            }
-        },
-        {
-            "v": "Price0364",
-            "value": {
-                "type": "attribute_name",
-                "label": "Price0364"
             }
         },
         {
@@ -161,6 +161,17 @@
             "weight": 1
         },
         {
+            "v": "Price0364",
+            "w": "schema:Offer1",
+            "name": "Price0364***schema:Offer1",
+            "value": {
+                "type": "st_property_uri",
+                "label": "schema:price***inverted",
+                "weight": 1
+            },
+            "weight": 1
+        },
+        {
             "v": "Shop0265",
             "w": "schema-dig:Firearm1",
             "name": "Shop0265***schema-dig:Firearm1",
@@ -189,20 +200,9 @@
             "value": {
                 "type": "updated",
                 "label": "schema:itemOffered***inverted",
-                "weight": 0.20746924998547958
+                "weight": 0.5705404374600689
             },
-            "weight": 0.20746924998547958
-        },
-        {
-            "v": "schema-dig:Firearm1",
-            "w": "schema:Place1",
-            "name": "schema-dig:Firearm1***schema:Place1",
-            "value": {
-                "label": "schema:manufacturer",
-                "type": "updated",
-                "weight": 0.49708872856511227
-            },
-            "weight": 0.49708872856511227
+            "weight": 0.5705404374600689
         },
         {
             "v": "schema:CreativeWork1",
@@ -211,19 +211,20 @@
             "value": {
                 "type": "updated",
                 "label": "schema:mainEntityOfPage***inverted",
-                "weight": 0.1442463380722906
+                "weight": 0.24410918750695335
             },
-            "weight": 0.1442463380722906
+            "weight": 0.24410918750695335
         },
         {
             "v": "schema:Offer1",
-            "w": "Price0364",
-            "name": "schema:Offer1***Price0364",
+            "w": "schema:Place1",
+            "name": "schema:Offer1***schema:Place1",
             "value": {
-                "label": "schema:price",
-                "type": "st_property_uri"
+                "label": "schema:availableAtOrFrom",
+                "type": "updated",
+                "weight": 1.4074201280419212
             },
-            "weight": 1
+            "weight": 1.4074201280419212
         },
         {
             "v": "schema:Offer2",

@@ -104,10 +104,10 @@
             }
         },
         {
-            "v": "Today2013",
+            "v": "file_name",
             "value": {
                 "type": "attribute_name",
-                "label": "Today2013"
+                "label": "file_name"
             }
         },
         {
@@ -115,13 +115,6 @@
             "value": {
                 "type": "class_uri",
                 "label": "schema:Offer"
-            }
-        },
-        {
-            "v": "file_name",
-            "value": {
-                "type": "attribute_name",
-                "label": "file_name"
             }
         },
         {
@@ -136,6 +129,13 @@
             "value": {
                 "type": "class_uri",
                 "label": "schema:Place"
+            }
+        },
+        {
+            "v": "Today2013",
+            "value": {
+                "type": "attribute_name",
+                "label": "Today2013"
             }
         },
         {
@@ -265,17 +265,6 @@
             "weight": 1
         },
         {
-            "v": "Today2013",
-            "w": "schema:Offer2",
-            "name": "Today2013***schema:Offer2",
-            "value": {
-                "type": "st_property_uri",
-                "label": "schema:name***inverted",
-                "weight": 1
-            },
-            "weight": 1
-        },
-        {
             "v": "file_name",
             "w": "schema:CreativeWork1",
             "name": "file_name***schema:CreativeWork1",
@@ -288,25 +277,36 @@
         },
         {
             "v": "schema-dig:Firearm1",
+            "w": "schema:Offer1",
+            "name": "schema-dig:Firearm1***schema:Offer1",
+            "value": {
+                "type": "updated",
+                "label": "schema:itemOffered***inverted",
+                "weight": 1.1685988567902372
+            },
+            "weight": 1.1685988567902372
+        },
+        {
+            "v": "schema-dig:Firearm1",
             "w": "schema:Offer2",
             "name": "schema-dig:Firearm1***schema:Offer2",
             "value": {
                 "type": "updated",
                 "label": "schema:itemOffered***inverted",
-                "weight": 0.2969207334170606
+                "weight": 2.9692073341706062
             },
-            "weight": 0.2969207334170606
+            "weight": 2.9692073341706062
         },
         {
             "v": "schema-dig:PersonOrOrganization1",
-            "w": "schema:Offer2",
-            "name": "schema-dig:PersonOrOrganization1***schema:Offer2",
+            "w": "schema:Offer1",
+            "name": "schema-dig:PersonOrOrganization1***schema:Offer1",
             "value": {
                 "type": "updated",
                 "label": "schema:seller***inverted",
-                "weight": 0.5483383430800596
+                "weight": 3.7312504979539405
             },
-            "weight": 0.5483383430800596
+            "weight": 3.7312504979539405
         },
         {
             "v": "schema-dig:PersonOrOrganization1",
@@ -315,20 +315,20 @@
             "value": {
                 "label": "schema:contactPoint",
                 "type": "updated",
-                "weight": 0.372382761240744
+                "weight": 4.0962103736481845
             },
-            "weight": 0.372382761240744
+            "weight": 4.0962103736481845
         },
         {
             "v": "schema:CreativeWork1",
-            "w": "schema:Offer2",
-            "name": "schema:CreativeWork1***schema:Offer2",
+            "w": "schema:Offer1",
+            "name": "schema:CreativeWork1***schema:Offer1",
             "value": {
                 "type": "updated",
                 "label": "schema:mainEntityOfPage***inverted",
-                "weight": 1.0171629106662743
+                "weight": 1.3198295161570184
             },
-            "weight": 1.0171629106662743
+            "weight": 1.3198295161570184
         },
         {
             "v": "schema:Offer1",
@@ -337,20 +337,19 @@
             "value": {
                 "label": "schema:availableAtOrFrom",
                 "type": "updated",
-                "weight": 0.6194441053391808
+                "weight": 0.8517356448413737
             },
-            "weight": 0.6194441053391808
+            "weight": 0.8517356448413737
         },
         {
             "v": "schema:Offer2",
-            "w": "schema:Place1",
-            "name": "schema:Offer2***schema:Place1",
+            "w": "Today2013",
+            "name": "schema:Offer2***Today2013",
             "value": {
-                "label": "schema:availableAtOrFrom",
-                "type": "updated",
-                "weight": 0.49733114202731793
+                "label": "schema:name",
+                "type": "st_property_uri"
             },
-            "weight": 0.49733114202731793
+            "weight": 1
         },
         {
             "v": "schema:Place1",

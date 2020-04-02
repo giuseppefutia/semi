@@ -39,6 +39,10 @@
             "type": "class_uri",
             "label": "schema-dig:PersonOrOrganization"
         },
+        "Post1163": {
+            "type": "attribute_name",
+            "label": "Post1163"
+        },
         "file_name": {
             "type": "attribute_name",
             "label": "file_name"
@@ -50,10 +54,6 @@
         "schema:Offer2": {
             "type": "class_uri",
             "label": "schema:Offer"
-        },
-        "Post1163": {
-            "type": "attribute_name",
-            "label": "Post1163"
         },
         "malcome831610": {
             "type": "attribute_name",
@@ -107,27 +107,38 @@
                 },
                 "weight": 1
             },
-            "schema-dig:PersonOrOrganization1\u0001schema:Offer1\u0001schema-dig:PersonOrOrganization1***schema:Offer1\u0001updatedschema:seller***inverted\u00010.030613557896172178": {
+            "Post1163\u0001schema:Offer1\u0001Post1163***schema:Offer1\u0001st_property_urischema:price***inverted\u00011": {
+                "v": "Post1163",
+                "w": "schema:Offer1",
+                "name": "Post1163***schema:Offer1",
+                "value": {
+                    "type": "st_property_uri",
+                    "label": "schema:price***inverted",
+                    "weight": 1
+                },
+                "weight": 1
+            },
+            "schema-dig:PersonOrOrganization1\u0001schema:Offer1\u0001schema-dig:PersonOrOrganization1***schema:Offer1\u0001updatedschema:seller***inverted\u00010.20872880383753756": {
                 "v": "schema-dig:PersonOrOrganization1",
                 "w": "schema:Offer1",
                 "name": "schema-dig:PersonOrOrganization1***schema:Offer1",
                 "value": {
                     "type": "updated",
                     "label": "schema:seller***inverted",
-                    "weight": 0.030613557896172178
+                    "weight": 0.20872880383753756
                 },
-                "weight": 0.030613557896172178
+                "weight": 0.20872880383753756
             },
-            "schema:CreativeWork1\u0001schema:Offer1\u0001schema:CreativeWork1***schema:Offer1\u0001updatedschema:mainEntityOfPage***inverted\u00010.031306798202597526": {
+            "schema:CreativeWork1\u0001schema:Offer1\u0001schema:CreativeWork1***schema:Offer1\u0001updatedschema:mainEntityOfPage***inverted\u00010.1806161434765242": {
                 "v": "schema:CreativeWork1",
                 "w": "schema:Offer1",
                 "name": "schema:CreativeWork1***schema:Offer1",
                 "value": {
                     "type": "updated",
                     "label": "schema:mainEntityOfPage***inverted",
-                    "weight": 0.031306798202597526
+                    "weight": 0.1806161434765242
                 },
-                "weight": 0.031306798202597526
+                "weight": 0.1806161434765242
             }
         },
         "Description1287": {},
@@ -172,6 +183,7 @@
                 "weight": 1
             }
         },
+        "Post1163": {},
         "file_name": {},
         "Code1211": {
             "schema-dig:PersonOrOrganization1\u0001Code1211\u0001schema-dig:PersonOrOrganization1***Code1211\u0001st_property_urischema:telephone\u00011": {
@@ -186,28 +198,16 @@
             }
         },
         "schema:Offer2": {
-            "schema-dig:PersonOrOrganization1\u0001schema:Offer2\u0001schema-dig:PersonOrOrganization1***schema:Offer2\u0001updatedschema:seller***inverted\u00010.04014255052250146": {
-                "v": "schema-dig:PersonOrOrganization1",
-                "w": "schema:Offer2",
-                "name": "schema-dig:PersonOrOrganization1***schema:Offer2",
-                "value": {
-                    "type": "updated",
-                    "label": "schema:seller***inverted",
-                    "weight": 0.04014255052250146
-                },
-                "weight": 0.04014255052250146
-            }
-        },
-        "Post1163": {
-            "schema:Offer1\u0001Post1163\u0001schema:Offer1***Post1163\u0001st_property_urischema:price\u00011": {
+            "schema:Offer1\u0001schema:Offer2\u0001schema:Offer1***schema:Offer2\u0001updatedschema:relatedTo\u00011.0442604566033236": {
                 "v": "schema:Offer1",
-                "w": "Post1163",
-                "name": "schema:Offer1***Post1163",
+                "w": "schema:Offer2",
+                "name": "schema:Offer1***schema:Offer2",
                 "value": {
-                    "label": "schema:price",
-                    "type": "st_property_uri"
+                    "label": "schema:relatedTo",
+                    "type": "updated",
+                    "weight": 1.0442604566033236
                 },
-                "weight": 1
+                "weight": 1.0442604566033236
             }
         },
         "malcome831610": {
@@ -230,6 +230,7 @@
             "Description1287": 1,
             "ID1293": 1,
             "Listed1218": 1,
+            "Post1163": 1,
             "schema-dig:PersonOrOrganization1": 1,
             "schema:CreativeWork1": 1
         },
@@ -245,14 +246,12 @@
         "schema-dig:PersonOrOrganization1": {
             "Listed1592": 1
         },
+        "Post1163": {},
         "file_name": {},
         "Code1211": {
             "schema-dig:PersonOrOrganization1": 1
         },
         "schema:Offer2": {
-            "schema-dig:PersonOrOrganization1": 1
-        },
-        "Post1163": {
             "schema:Offer1": 1
         },
         "malcome831610": {
@@ -274,15 +273,16 @@
             }
         },
         "schema:Offer1": {
-            "schema:Offer1\u0001Post1163\u0001schema:Offer1***Post1163\u0001st_property_urischema:price\u00011": {
+            "schema:Offer1\u0001schema:Offer2\u0001schema:Offer1***schema:Offer2\u0001updatedschema:relatedTo\u00011.0442604566033236": {
                 "v": "schema:Offer1",
-                "w": "Post1163",
-                "name": "schema:Offer1***Post1163",
+                "w": "schema:Offer2",
+                "name": "schema:Offer1***schema:Offer2",
                 "value": {
-                    "label": "schema:price",
-                    "type": "st_property_uri"
+                    "label": "schema:relatedTo",
+                    "type": "updated",
+                    "weight": 1.0442604566033236
                 },
-                "weight": 1
+                "weight": 1.0442604566033236
             }
         },
         "Description1287": {
@@ -325,16 +325,16 @@
             }
         },
         "schema:CreativeWork1": {
-            "schema:CreativeWork1\u0001schema:Offer1\u0001schema:CreativeWork1***schema:Offer1\u0001updatedschema:mainEntityOfPage***inverted\u00010.031306798202597526": {
+            "schema:CreativeWork1\u0001schema:Offer1\u0001schema:CreativeWork1***schema:Offer1\u0001updatedschema:mainEntityOfPage***inverted\u00010.1806161434765242": {
                 "v": "schema:CreativeWork1",
                 "w": "schema:Offer1",
                 "name": "schema:CreativeWork1***schema:Offer1",
                 "value": {
                     "type": "updated",
                     "label": "schema:mainEntityOfPage***inverted",
-                    "weight": 0.031306798202597526
+                    "weight": 0.1806161434765242
                 },
-                "weight": 0.031306798202597526
+                "weight": 0.1806161434765242
             }
         },
         "Listed1218": {
@@ -374,27 +374,29 @@
                 },
                 "weight": 1
             },
-            "schema-dig:PersonOrOrganization1\u0001schema:Offer1\u0001schema-dig:PersonOrOrganization1***schema:Offer1\u0001updatedschema:seller***inverted\u00010.030613557896172178": {
+            "schema-dig:PersonOrOrganization1\u0001schema:Offer1\u0001schema-dig:PersonOrOrganization1***schema:Offer1\u0001updatedschema:seller***inverted\u00010.20872880383753756": {
                 "v": "schema-dig:PersonOrOrganization1",
                 "w": "schema:Offer1",
                 "name": "schema-dig:PersonOrOrganization1***schema:Offer1",
                 "value": {
                     "type": "updated",
                     "label": "schema:seller***inverted",
-                    "weight": 0.030613557896172178
+                    "weight": 0.20872880383753756
                 },
-                "weight": 0.030613557896172178
-            },
-            "schema-dig:PersonOrOrganization1\u0001schema:Offer2\u0001schema-dig:PersonOrOrganization1***schema:Offer2\u0001updatedschema:seller***inverted\u00010.04014255052250146": {
-                "v": "schema-dig:PersonOrOrganization1",
-                "w": "schema:Offer2",
-                "name": "schema-dig:PersonOrOrganization1***schema:Offer2",
+                "weight": 0.20872880383753756
+            }
+        },
+        "Post1163": {
+            "Post1163\u0001schema:Offer1\u0001Post1163***schema:Offer1\u0001st_property_urischema:price***inverted\u00011": {
+                "v": "Post1163",
+                "w": "schema:Offer1",
+                "name": "Post1163***schema:Offer1",
                 "value": {
-                    "type": "updated",
-                    "label": "schema:seller***inverted",
-                    "weight": 0.04014255052250146
+                    "type": "st_property_uri",
+                    "label": "schema:price***inverted",
+                    "weight": 1
                 },
-                "weight": 0.04014255052250146
+                "weight": 1
             }
         },
         "file_name": {
@@ -423,7 +425,6 @@
                 "weight": 1
             }
         },
-        "Post1163": {},
         "malcome831610": {}
     },
     "_sucs": {
@@ -431,7 +432,7 @@
             "schema:Offer1": 1
         },
         "schema:Offer1": {
-            "Post1163": 1
+            "schema:Offer2": 1
         },
         "Description1287": {
             "schema:Offer1": 1
@@ -453,8 +454,10 @@
         },
         "schema-dig:PersonOrOrganization1": {
             "Code1211": 1,
-            "schema:Offer1": 1,
-            "schema:Offer2": 1
+            "schema:Offer1": 1
+        },
+        "Post1163": {
+            "schema:Offer1": 1
         },
         "file_name": {
             "schema:CreativeWork1": 1
@@ -463,7 +466,6 @@
         "schema:Offer2": {
             "malcome831610": 1
         },
-        "Post1163": {},
         "malcome831610": {}
     },
     "_edgeObjs": {
@@ -533,6 +535,17 @@
             },
             "weight": 1
         },
+        "Post1163\u0001schema:Offer1\u0001Post1163***schema:Offer1\u0001st_property_urischema:price***inverted\u00011": {
+            "v": "Post1163",
+            "w": "schema:Offer1",
+            "name": "Post1163***schema:Offer1",
+            "value": {
+                "type": "st_property_uri",
+                "label": "schema:price***inverted",
+                "weight": 1
+            },
+            "weight": 1
+        },
         "file_name\u0001schema:CreativeWork1\u0001file_name***schema:CreativeWork1\u0001st_property_urischema:name***inverted\u00011": {
             "v": "file_name",
             "w": "schema:CreativeWork1",
@@ -554,48 +567,38 @@
             },
             "weight": 1
         },
-        "schema-dig:PersonOrOrganization1\u0001schema:Offer1\u0001schema-dig:PersonOrOrganization1***schema:Offer1\u0001updatedschema:seller***inverted\u00010.030613557896172178": {
+        "schema-dig:PersonOrOrganization1\u0001schema:Offer1\u0001schema-dig:PersonOrOrganization1***schema:Offer1\u0001updatedschema:seller***inverted\u00010.20872880383753756": {
             "v": "schema-dig:PersonOrOrganization1",
             "w": "schema:Offer1",
             "name": "schema-dig:PersonOrOrganization1***schema:Offer1",
             "value": {
                 "type": "updated",
                 "label": "schema:seller***inverted",
-                "weight": 0.030613557896172178
+                "weight": 0.20872880383753756
             },
-            "weight": 0.030613557896172178
+            "weight": 0.20872880383753756
         },
-        "schema-dig:PersonOrOrganization1\u0001schema:Offer2\u0001schema-dig:PersonOrOrganization1***schema:Offer2\u0001updatedschema:seller***inverted\u00010.04014255052250146": {
-            "v": "schema-dig:PersonOrOrganization1",
-            "w": "schema:Offer2",
-            "name": "schema-dig:PersonOrOrganization1***schema:Offer2",
-            "value": {
-                "type": "updated",
-                "label": "schema:seller***inverted",
-                "weight": 0.04014255052250146
-            },
-            "weight": 0.04014255052250146
-        },
-        "schema:CreativeWork1\u0001schema:Offer1\u0001schema:CreativeWork1***schema:Offer1\u0001updatedschema:mainEntityOfPage***inverted\u00010.031306798202597526": {
+        "schema:CreativeWork1\u0001schema:Offer1\u0001schema:CreativeWork1***schema:Offer1\u0001updatedschema:mainEntityOfPage***inverted\u00010.1806161434765242": {
             "v": "schema:CreativeWork1",
             "w": "schema:Offer1",
             "name": "schema:CreativeWork1***schema:Offer1",
             "value": {
                 "type": "updated",
                 "label": "schema:mainEntityOfPage***inverted",
-                "weight": 0.031306798202597526
+                "weight": 0.1806161434765242
             },
-            "weight": 0.031306798202597526
+            "weight": 0.1806161434765242
         },
-        "schema:Offer1\u0001Post1163\u0001schema:Offer1***Post1163\u0001st_property_urischema:price\u00011": {
+        "schema:Offer1\u0001schema:Offer2\u0001schema:Offer1***schema:Offer2\u0001updatedschema:relatedTo\u00011.0442604566033236": {
             "v": "schema:Offer1",
-            "w": "Post1163",
-            "name": "schema:Offer1***Post1163",
+            "w": "schema:Offer2",
+            "name": "schema:Offer1***schema:Offer2",
             "value": {
-                "label": "schema:price",
-                "type": "st_property_uri"
+                "label": "schema:relatedTo",
+                "type": "updated",
+                "weight": 1.0442604566033236
             },
-            "weight": 1
+            "weight": 1.0442604566033236
         },
         "schema:Offer2\u0001malcome831610\u0001schema:Offer2***malcome831610\u0001st_property_urischema:name\u00011": {
             "v": "schema:Offer2",
@@ -639,6 +642,11 @@
             "label": "schema-dig:identifier***inverted",
             "weight": 1
         },
+        "Post1163\u0001schema:Offer1\u0001Post1163***schema:Offer1\u0001st_property_urischema:price***inverted\u00011": {
+            "type": "st_property_uri",
+            "label": "schema:price***inverted",
+            "weight": 1
+        },
         "file_name\u0001schema:CreativeWork1\u0001file_name***schema:CreativeWork1\u0001st_property_urischema:name***inverted\u00011": {
             "type": "st_property_uri",
             "label": "schema:name***inverted",
@@ -648,24 +656,20 @@
             "label": "schema:telephone",
             "type": "st_property_uri"
         },
-        "schema-dig:PersonOrOrganization1\u0001schema:Offer1\u0001schema-dig:PersonOrOrganization1***schema:Offer1\u0001updatedschema:seller***inverted\u00010.030613557896172178": {
+        "schema-dig:PersonOrOrganization1\u0001schema:Offer1\u0001schema-dig:PersonOrOrganization1***schema:Offer1\u0001updatedschema:seller***inverted\u00010.20872880383753756": {
             "type": "updated",
             "label": "schema:seller***inverted",
-            "weight": 0.030613557896172178
+            "weight": 0.20872880383753756
         },
-        "schema-dig:PersonOrOrganization1\u0001schema:Offer2\u0001schema-dig:PersonOrOrganization1***schema:Offer2\u0001updatedschema:seller***inverted\u00010.04014255052250146": {
-            "type": "updated",
-            "label": "schema:seller***inverted",
-            "weight": 0.04014255052250146
-        },
-        "schema:CreativeWork1\u0001schema:Offer1\u0001schema:CreativeWork1***schema:Offer1\u0001updatedschema:mainEntityOfPage***inverted\u00010.031306798202597526": {
+        "schema:CreativeWork1\u0001schema:Offer1\u0001schema:CreativeWork1***schema:Offer1\u0001updatedschema:mainEntityOfPage***inverted\u00010.1806161434765242": {
             "type": "updated",
             "label": "schema:mainEntityOfPage***inverted",
-            "weight": 0.031306798202597526
+            "weight": 0.1806161434765242
         },
-        "schema:Offer1\u0001Post1163\u0001schema:Offer1***Post1163\u0001st_property_urischema:price\u00011": {
-            "label": "schema:price",
-            "type": "st_property_uri"
+        "schema:Offer1\u0001schema:Offer2\u0001schema:Offer1***schema:Offer2\u0001updatedschema:relatedTo\u00011.0442604566033236": {
+            "label": "schema:relatedTo",
+            "type": "updated",
+            "weight": 1.0442604566033236
         },
         "schema:Offer2\u0001malcome831610\u0001schema:Offer2***malcome831610\u0001st_property_urischema:name\u00011": {
             "label": "schema:name",
