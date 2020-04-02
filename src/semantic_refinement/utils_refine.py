@@ -189,7 +189,31 @@ def create_relation_rdfs(jarql_path, refined_path, source_path):
                                         ' > ' + os.path.join(output_path, j + '.rdf'), shell=True)
 
 
-def compute_triple_score_avg(source_name, refined_path, entities_emb, relations_emb, aggregated, evaluation_path):
+def compute_triple_score(source_name, refined_path, entities_emb, relations_emb, aggregated, evaluation_path, gt_paths, relations_emb_dict):
+    # Extract semantic relations from ground truth
+    gt_triples = {}
+    jarql_gt_files = [f for f in os.listdir(
+        gt_paths) if os.path.isfile(os.path.join(gt_paths, f))]
+
+    for file in jarql_gt_files:
+        name = file.replace('.query', '')
+        if name != source_name:
+            jarql_path = gt_paths + file
+            f = open(jarql_path)
+            jarql = f.read()
+            gt_relations = get_semantic_relations(
+                jarql_path, relations_emb_dict)
+
+            for gt_relation in gt_relations:
+                predicate = gt_relation.split(' ')[1]
+                new_predicate = from_uri_to_ns(predicate)
+                gt_relation = gt_relation.replace(predicate, new_predicate)
+                gt_relation = gt_relation.replace(' ', '***')
+                if gt_relation not in gt_triples:
+                    gt_triples[gt_relation] = 0
+                else:
+                    gt_triples[gt_relation] += 1
+
     # Dictionary to store details for analysis
     predicates_results = {}
     results = {}
@@ -265,8 +289,14 @@ def compute_triple_score_avg(source_name, refined_path, entities_emb, relations_
         triple_scores_avg[triple] = triple_scores_sum[triple] / \
             triple_occs[triple]
 
-        triple_scores_sum[triple] = triple_scores_sum[triple] * \
-            triple_occs[triple]
+        triple_scores_sum[triple] = triple_scores_sum[triple]
+        # * triple_occs[triple]
+
+        if triple in gt_triples:
+            if gt_triples[triple] > 0:
+                print('Add GT contribution!')
+                triple_scores_sum[triple] = triple_scores_sum[triple] * \
+                    gt_triples[triple]
 
         # Store results on the triple
         results[triple]['triple_occurrences'] = triple_occs[triple]

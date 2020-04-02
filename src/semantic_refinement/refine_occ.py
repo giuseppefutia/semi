@@ -1,4 +1,4 @@
-from utils_refine_occ import *
+from utils_refine import *
 import sys
 import time
 from functools import *
@@ -13,6 +13,7 @@ def refine_semantic_model(source, aggregated):
     learning = data + '/learning_datasets/' + name
     refined = data + '/refined_semantic_models/'
     evaluation = 'evaluation/taheriyan2016/' + task
+    gt = evaluation + '/semantic_models_gt/jarql/'
 
     # Start processing
     print('\n    Get dictionaries...')
@@ -60,8 +61,8 @@ def refine_semantic_model(source, aggregated):
     create_relation_rdfs(plausible_jarql_path, refined, sources_path + source)
 
     print('\n    Compute the sum score for each triple including a learnt relation...')
-    scores = compute_triple_score_avg(
-        name, refined, ent_target_emb, rel_dict_emb, aggregated, evaluation)
+    scores = compute_triple_score(
+        name, refined, ent_target_emb, rel_dict_emb, aggregated, evaluation, gt, rel_dict_emb)
 
     print('\n    Update weights in plausible semantic models...')
     plausible_json_path = data + \
