@@ -1,6 +1,8 @@
 # SeMi - SEmantic Modeling machIne
 
-SeMi (SEmantic Modeling machIne) is a tool to semi-automatically build large-scale [Knowledge Graphs](https://en.wikipedia.org/wiki/Knowledge_base) from structured sources. To achieve such a goal, it combines [steiner trees detection](https://github.com/giuseppefutia/semi#steiner-tree) with [deep learning applied on graphs](https://github.com/giuseppefutia/semi#r-gcn-model-generation-and-testing), building semantic models of the data sources, in terms of classes and relationships within a domain ontology.
+*SeMi (SEmantic Modeling machIne)* is a tool to semi-automatically build large-scale *Knowledge Graphs* from structured sources such as CSV, JSON, and XML files. To achieve such a goal, SeMi builds the *semantic models* of the data sources, in terms of concepts and relations within a domain ontology. Most of the research contributions on automatic semantic modeling is focused on the detection of semantic types of source attributes. However, the inference of the correct semantic relations between these attributes is critical to reconstruct the precise meaning of the data. SeMi covers the entire process of semantic modeling:
+1. it provides a semi-automatic step to detect semantic types;
+2. it exploits a novel approach to inference semantic relations, based on a graph neural network trained on background linked data.
 
 Semantic models can be formalized as graphs, where leaf nodes represent the attributes of the data source and the other nodes and relationships are defined by the ontology.
 
@@ -42,7 +44,7 @@ To download SeMi, you can run the commands available [here](https://github.com/g
 To install SeMi, you can use the following [instructions](https://github.com/giuseppefutia/semi/wiki/Installation).
 
 # Step-by-step Semantic Models Generation
-Using the following scripts, you can generate a semantic model starting from an *input source* and a *domain ontology*.
+Using the following scripts, you can generate a semantic model starting from an *target source* and a *domain ontology*.
 
 ## Semantic Types
 Semantic types (or semantic labels) consist of a combination of an ontology class and an ontology data property. To perform the semantic types detection process you need to execute two different scripts. The first script is the following:
@@ -73,8 +75,8 @@ Below an image that represents semantic types.
 
 ![Semantic Types](https://github.com/giuseppefutia/semi/blob/master/images/semantic_type.png)
 
-## Multi-edge and Weighted Graph
-The multi-edge and weighted graph includes all plausible semantic models of a data source based on a domain ontology. To create such graph, you can run the following commands:
+## Multi-edge and Weighted Graph (MEWG)
+The Multi-edge and Weighted Graph (MEWG) includes all plausible semantic models of a data source based on a domain ontology. To create such graph, you can run the following commands:
 
 ```bash
 $ node run/graph.js data/pc/semantic_types/Z4ADEA9DE4_st.json data/pc/ontology/ontology.ttl rdfs:domain rdfs:range owl:Class data/pc/semantic_models/Z4ADEA9DE4
@@ -92,13 +94,13 @@ This script generates two types of graph:
 * `data/pc/semantic_models/Z4ADEA9DE4.graph` is the [multi-edge and weighted graph](https://raw.githubusercontent.com/giuseppefutia/semi/master/data/pc/semantic_models/Z4ADEA9DE4.graph).
 * `data/pc/semantic_models/Z4ADEA9DE4_graph.json` is a [beautified representation of the weighted graph](https://raw.githubusercontent.com/giuseppefutia/semi/master/data/pc/semantic_models/Z4ADEA9DE4_graph.json).
 
-Below an image that represents a multi-edge and a weighted graph.
+Below an image that represents the MEWG:
 
 ![Multi-edge and Weighted Graph](https://github.com/giuseppefutia/semi/blob/master/images/weighted_graph.png)
 
 ## Steiner Tree
 
-To create the Steiner Tree on the multi-edge and weighted graph you can run the following command:
+To create the Steiner Tree on the MEWG: you can run the following command:
 
 ```bash
 $ node run/steiner_tree.js data/pc/semantic_types/Z4ADEA9DE4_st.json data/pc/semantic_models/Z4ADEA9DE4_graph.json data/pc/semantic_models/Z4ADEA9DE4
@@ -211,74 +213,66 @@ Below an example of the generated RDF file:
 ```
 
 ## Issues Related to the Initial Semantic Model
-The approach for generating the initial semantic model has a main limit: the steiner tree within the graph includes the shortest path to connect semantic type classes, however it does not necessarily express the correct semantic model of the input source. For this reason, a refinement process is required in order to identify a more accurate semantic model.
+The approach for generating the initial semantic model has a main limit: the steiner tree within the graph includes the shortest path to connect semantic type classes, however it does not necessarily express the correct semantic description of the target source. For this reason, a refinement process is required in order to identify a more accurate semantic model.
 
-# Refinement Process
-The refinement process requires to prepare the training, the testing, and the validation datasets for the deep learning model. Such model is an autoencoder and its main goal is to reconstruct KG edges using the latent representation of nodes and relationships. The autoencoder is composed of:
+# Semantic Model Refinement
+The semantic model refinement requires to prepare the training, the test, and the validation datasets as input of the deep learning model. Such model is a *graph neural network* and its main goal is to reconstruct the linked data edges using the latent representation of entities and properties. The architecture of the graph neural network is an auto-encoder composed of:
 * An encoder called [Relational Graph Convolutional Networks (R-GCNs)](https://arxiv.org/abs/1703.06103):
 * A decoder called [DistMult](https://arxiv.org/abs/1412.6575).
 
-The training and the testing datasets are built from a complete dataset corresponding to a KG built on top of the semantic model(s) created by domain experts based on the input data. In our example, if we consider data available in `data/pc/input` [folder](https://github.com/giuseppefutia/semi/tree/master/data/pc/input), the human-created semantic model is available in the `semi/data/training/pc/pc.query` [file](https://raw.githubusercontent.com/giuseppefutia/semi/master/data/training/pc/pc.query). The generated KG is available in the `semi/data/training/pc/complete.ttl` [file](https://github.com/giuseppefutia/semi/blob/master/data/training/pc/complete.ttl). The training dataset is available in the `semi/data/training/pc/training.ttl` [file](https://github.com/giuseppefutia/semi/blob/master/data/training/pc/training.ttl), while the test dataset is available in the [file](https://github.com/giuseppefutia/semi/blob/master/data/training/pc/test.ttl).
+The training, the test, and the validation datasets are built splitting a linked data repository (background knowledge) that is built through the semantic models defined by the domain experts on various sources, which are similar to the target source.  
 
-## Plausible Semantic Models
-The validation dataset is a KG resulting from the semantic model built on top of all plausible semantic models. The creation of the validation dataset is based on different steps. The first step is the JARQL-serialized construction of plausible semantic models.
+In our example, the input sources are available in the `data/pc/input` [folder](https://github.com/giuseppefutia/semi/tree/master/data/pc/input) and the ground-truth semantic model is available in the `semi/data/learning_datasets/pc.query` [file](https://raw.githubusercontent.com/giuseppefutia/semi/master/data/learning_datasets/pc.query).
+
+The background linked data is available in the `data/pc/learning_datasets/complete.ttl` [file](https://github.com/giuseppefutia/semi/blob/master/data/pc/learning_datasets/complete.ttl). This background knowledge is then splitted in the following datasets:
+* the training dataset available in the `data/pc/learning_datasets/training.ttl` [file](https://github.com/giuseppefutia/semi/blob/master/data/pc/learning_datasets/training.ttl);
+* the validation dataset available in the `data/pc/learning_datasets/valid.ttl` [file](https://github.com/giuseppefutia/semi/blob/master/data/pc/learning_datasets/valid.ttl);
+* the test dataset available in the `data/pc/learning_datasets/test.ttl` [file](https://github.com/giuseppefutia/semi/blob/master/data/pc/learning_datasets/test.ttl).
+
+## Graph Neural Network Training
+For the graph neural network training, you can launch the following script:
+
+```bash
+python src/link_prediction/link_predict.py --directory data/pc/learning_datasets/  --train data/pc/learning_datasets/training.ttl --valid data/pc/learning_datasets/valid.ttl --test data/pc/learning_datasets/test.ttl --score pc --parser PC --gpu 0 --graph-batch-size 1000 --n-hidden 100 --graph-split-size 1
+```
+
+* `--directory data/pc/learning_datasets/` is the directory in which entity and property dictionaries are stored. In addition, this directory stores also the trained model with its related outputs..
+* `--train data/pc/learning_datasets/training.ttl` is the file containing the training facts.
+* `--valid data/pc/learning_datasets/valid.ttl` is the file containing the validation facts.
+* `--test data/pc/learning_datasets/test.ttl` is the file containing the test facts.
+* `--score pc` is the subdirectory in which the scores resulting from the training and the evaluation process will be stored.
+* `--parser PC` is the parameter to drive the construction of the dictionaries of entities and relationships.
+* `--gpu 0` is the parameter to establish how many GPUs (if available) can be used to train the model.
+* `--graph-batch-size 1000` is a parameter to indicate the number of edges extracted at each step with the graph sampling process.
+* `--n-hidden 100` is an hyperparameter of the model to define the number of neurons (and consequently the dimension of the embeddings) at each network layer.
+* `--graph-split-size 1` is a parameter to establish the portion of edges used as positive examples.
+
+The outputs of the training stage are the following:
+* `entities.dict`: [dictionary](https://github.com/giuseppefutia/semi/blob/master/data/pc/learning_datasets/dicts/entities.dict) that maps ids to entity URIs.
+* `relations.dict`: [dictionary](https://github.com/giuseppefutia/semi/blob/master/data/pc/learning_datasets/dicts/relations.dict) that maps ids to property URIs.
+* `model_state.pth`: python version of the [trained model](https://github.com/giuseppefutia/semi/blob/master/data/pc/learning_datasets/model_datasets/model_state.pth).
+* `train.npy`: [numpy representation](https://github.com/giuseppefutia/semi/blob/master/data/pc/learning_datasets/model_datasets/train.npy) of the training dataset.
+* `valid.npy`: [numpy representation](https://github.com/giuseppefutia/semi/blob/master/data/pc/learning_datasets/model_datasets/valid.npy) of the validation dataset.
+* `test.npy`: [numpy representation](https://github.com/giuseppefutia/semi/blob/master/data/pc/learning_datasets/model_datasets/test.npy) of the test dataset.
+* `emb_nodes.json`: [JSON](https://github.com/giuseppefutia/semi/blob/master/data/pc/learning_datasets/model_datasets/scores/best/emb_nodes.json) with entity embeddings.
+* `emb_rels.json`: [JSON](https://github.com/giuseppefutia/semi/blob/master/data/pc/learning_datasets/model_datasets/scores/best/emb_rels.json) with object property embeddings.
+* `score.json`: [fact scores](https://github.com/giuseppefutia/semi/blob/master/data/pc/learning_datasets/model_datasets/best/6000/score.json) obtained on the test data set.
+
+## Weights Refinement of the MEWG
+The goal of this stage to refine the edge weights of the MEWG exploiting embedding obtained from the graph neural netwrk training. In this way, we incorporate the information from the background knowledge, in order to improve the accuracy of the semantic model.
+
+The first step is to produce the JARQL representation of the MEWG:
 
 ```bash
 $ node run/jarql.js data/pc/semantic_types/Z4ADEA9DE4_st.json data/pc/semantic_models/Z4ADEA9DE4_graph.json data/pc/ontology/classes.json data/pc/semantic_models/Z4ADEA9DE4_plausible
 ```
 
-* `data/pc/semantic_types/Z4ADEA9DE4_st.json` is the [semantic type file](https://raw.githubusercontent.com/giuseppefutia/semi/master/data/pc/semantic_types/Z4ADEA9DE4_st.json).
-* `data/pc/semantic_models/Z4ADEA9DE4_graph.json` is the [beautified representation of the weighted graph](https://raw.githubusercontent.com/giuseppefutia/semi/master/data/pc/semantic_models/Z4ADEA9DE4_graph.json).
-* `data/pc/ontology/classes.json` is the list of [all classes in the ontology](https://raw.githubusercontent.com/giuseppefutia/semi/master/data/pc/ontology/classes.json).
-* `data/pc/semantic_models/Z4ADEA9DE4_plausible.query` is the output [JARQL of plausible semantic models](https://raw.githubusercontent.com/giuseppefutia/semi/master/data/pc/semantic_models/Z4ADEA9DE4_plausible.query).  
+* `data/pc/semantic_types/Z4ADEA9DE4_st.json` is the [semantic type file](https://github.com/giuseppefutia/semi/blob/master/data/pc/semantic_types/Z4ADEA9DE4_st.json).
+* `data/pc/semantic_models/Z4ADEA9DE4_graph.json` is the [beautified representation of the weighted graph](https://github.com/giuseppefutia/semi/blob/master/data/pc/semantic_models/Z4ADEA9DE4_graph.json).
+* `data/pc/ontology/classes.json` is the list of [all classes in the ontology](https://github.com/giuseppefutia/semi/blob/master/data/pc/ontology/classes.json).
+* `data/pc/semantic_models/Z4ADEA9DE4_plausible.query` is the output [JARQL of plausible semantic models](https://github.com/giuseppefutia/semi/blob/master/data/pc/semantic_models/Z4ADEA9DE4_plausible.query).  
 
-## Plausible KG
-The second step to create the validation dataset is the generation of the KG running the JARQL tool.
-
-```bash
-$ ./jarql.sh data/pc/input/Z4ADEA9DE4.json data/pc/semantic_models/Z4ADEA9DE4_plausible.query > data/pc/output/Z4ADEA9DE4_plausible.ttl
-```
-
-* `data/pc/input/Z4ADEA9DE4.json` is the [input file](https://raw.githubusercontent.com/giuseppefutia/semi/master/data/pc/input/Z4ADEA9DE4.json).
-* `data/pc/semantic_models/Z4ADEA9DE4_plausible.query` is the [semantic model in the JARQL format](https://raw.githubusercontent.com/giuseppefutia/semi/master/data/pc/semantic_models/Z4ADEA9DE4_plausible.query).
-* `data/pc/output/Z4ADEA9DE4_plausible.ttl` is the output [RDF file serialized in turtle](https://raw.githubusercontent.com/giuseppefutia/semi/master/data/pc/output/Z4ADEA9DE4_plausible.ttl).
-
-## Deep Learning Model Training
-The training stage of the model can be monitored using [Visdom](https://github.com/facebookresearch/visdom), a tool developed by Facebook Research for creating, organizing, and sharing visualizations of live and rich data.
-
-Running the visdom server with the following command, the user will be able to see 2 type of information:
-1. The live trend of the loss value during the training.
-2. The number of triples within each rank during the evaluation stage.
-
-```bash
-$ python -m visdom.server
-```
-
-Using the default settings, such twofold information is available at: http://localhost:8097/.
-
-To train the autoencoder, you can launch the following script:
-
-```bash
-cd src/link_prediction/
-
-python link_predict.py --directory ../../data/pc/  --train ../../data/training/pc/training.ttl --valid ../../data/training/pc/valid.ttl --test ../../data/training/pc/test.ttl --score pc --parser PC --gpu 0 --graph-batch-size 1000 --n-hidden 100 --graph-split-size 1
-```
-
-* `--directory ../../data/pc/` is the directory in which entities and relationships dictionaries and the model and its outputs will be stored.
-* `--train ../../data/training/pc/training.ttl` is the file containing the training KG.
-* `--valid ../../data/training/pc/valid.ttl` is the file containing the validation KG.
-* `--test ../../data/training/pc/test.ttl` is the file containing the test KG.
-* `--score pc` is the subdirectory in which the scores assigned to the test KG will be stored.
-* `--parser PC` is the parameter to drive the construction of the dictionaries of entities and relationships.
-* `--gpu 0` is the parameter to establish how many GPUs (if available) can be used to train the model.
-* `--graph-batch-size 1000` is a parameter to indicate the number of edges extracted at each step of the graph sampling process.
-* `--n-hidden 100` is an hyperparameter of the model to define the number of neurons (and consequently the dimension of the embeddings) at each network layer.
-* `--graph-split-size 1` is a parameter to establish the portion of edges used as positive examples.
-
-The output of the training stage is a [JSON file](https://raw.githubusercontent.com/giuseppefutia/semi/master/data/pc/model_datasets/scores/pc/6000/score.json) that lists the score and the rank of each triple included in the validation KG.
-
-## Refined Semantic Model
-Scores generated during the training stage enable to create a refined semantic model, driven by the importance of the relationships reconstructed using the training KG. You need to run the following command:
+Then, you can proceed with the refinement process with the following command:
 
 ```bash
 node run/refinement.js data/pc/semantic_types/Z4ADEA9DE4_st.json data/pc/model_datasets/scores/pc/6000/score.json data/pc/semantic_models/Z4ADEA9DE4_steiner.json data/pc/semantic_models/Z4ADEA9DE4_graph.json data/pc/semantic_models/Z4ADEA9DE4
