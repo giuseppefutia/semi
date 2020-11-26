@@ -1,6 +1,0 @@
-java -jar jarql-1.0.1-SNAPSHOT.jar data/rodi/cmt_naive/input/cmt_naive___Paper.json data/rodi/cmt_naive/semantic_models/cmt_naive___Paper.query > data/rodi/cmt_naive/output/cmt_naive___Paper.ttl 
-java -jar jarql-1.0.1-SNAPSHOT.jar data/rodi/cmt_naive/input/cmt_naive___Review.json data/rodi/cmt_naive/semantic_models/cmt_naive___Review.query > data/rodi/cmt_naive/output/cmt_naive___Review.ttl 
-java -jar jarql-1.0.1-SNAPSHOT.jar data/rodi/cmt_naive/input/cmt_naive___assignedTo.json data/rodi/cmt_naive/semantic_models/cmt_naive___assignedTo.query > data/rodi/cmt_naive/output/cmt_naive___assignedTo.ttl 
-java -jar jarql-1.0.1-SNAPSHOT.jar data/rodi/cmt_naive/input/cmt_naive___co-writePaper.json data/rodi/cmt_naive/semantic_models/cmt_naive___co-writePaper.query > data/rodi/cmt_naive/output/cmt_naive___co-writePaper.ttl 
-java -jar jarql-1.0.1-SNAPSHOT.jar data/rodi/cmt_naive/input/cmt_naive___hasConferenceMember.json data/rodi/cmt_naive/semantic_models/cmt_naive___hasConferenceMember.query > data/rodi/cmt_naive/output/cmt_naive___hasConferenceMember.ttl 
-java -jar jarql-1.0.1-SNAPSHOT.jar data/rodi/cmt_naive/input/cmt_naive___hasProgramCommitteeMember.json data/rodi/cmt_naive/semantic_models/cmt_naive___hasProgramCommitteeMember.query > data/rodi/cmt_naive/output/cmt_naive___hasProgramCommitteeMember.ttl 
